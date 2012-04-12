@@ -1,0 +1,5 @@
+This is my website.  It is produced on locally on my computer using [this jekyll branch], then pushed to Github.  It exists in two repositories
+
+<http://github.com/noamross/noamross.github.com> contains the site as is displayed
+
+<http://github.com/noamross/jekyll-site> has the pre-processed files.

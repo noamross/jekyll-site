@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<!--
+	Noam's theme, based on Readnik scriptogr.am theme
+-->
+<html lang="en">
+<head>
+  <title>{{site.author.name}} | {{page.title}}</title>
+  <meta name="description" content="{{author}} {{blog_title}}" />
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="ROBOTS" content="INDEX,FOLLOW">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta property="og:url" content="{{ BASE_PATH }}">
+  <meta property="og:site_name" content="{{ site.author.name }}">
+  <link rel="icon" type="image/x-icon" href="{{ ASSET_PATH }}/atom.ico">
+  <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+  <link href="http://feeds.feedburner.com/noamross" rel="alternate" type="application/rss+xml" title="{{site.title}}" />
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-30394461-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ "HTML-CSS": { availableFonts: ["TeX"], webfont: [null] }} ); </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ TeX: { extensions: ["autobold.js"] }} ); </script>
+  <script type="text/javascript">var switchTo5x=true;</script>
+  <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+  <script type="text/javascript">stLight.options({publisher: "4376beef-ffcc-441e-a877-904acf7f379b", theme:'8', onhover:false}); </script>
+</head>
+<body>
+<div class="wrapper">
+  <div class="blog">
+ 
+      <div id="menu" class="menu-top">
+        <div class="blog-info">
+          <h1><a href="{{BASE_URL}}/index.html">{{site.author.name}}</a></h1>
+          <div class="blog-description">
+           <h2>{{site.tagline}}</h2>
+          </div>
+         </div>
+          <div class="pages">
+            
+            <!-- Lockerz Share BEGIN -->
+            <a class="a2a_dd" href="http://www.addtoany.com/share_save" tile"Share this Page"><span class="shareicon"><span class="hide">Share</span></span></a>
+            <script type="text/javascript">
+            var a2a_config = a2a_config || {};
+            a2a_config.onclick = 0;
+            a2a_config.show_title = 1;
+            a2a_config.color_main = "FFFFFF";
+            a2a_config.color_border = "FFFFFF";
+            a2a_config.color_link_text = "45462f";
+            a2a_config.color_link_text_hover = "575757";
+            a2a_config.prioritize = ["twitter", "facebook", "tumblr", "email", "delicious", "linkedin", "stumbleupon", "google_plus"];
+            </script>
+            <script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+            <!-- Lockerz Share END -->
+            
+            <a href="http://feeds.feedburner.com/noamross" title="Subscribe via Feedburner RSS"> <span class="rssicon"> <span class="hide">RSS</span></span></a>
+            
+            {% assign pages_list = site.pages %} 
+            {% assign group = 'menu' %} 
+            {% include JB/pages_list2 %}
+            
+        </div>
+      </div>
+
+      <div class="container">
+
+        <div class="content">
+          {{ content }}
+        </div>
+    
+
+      </div>
+      
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ ASSET_PATH }}/app.js"></script>
+</body>
+</html>

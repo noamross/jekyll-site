@@ -1,0 +1,16 @@
+<h1 id="page.title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ page.title }}</a></h1>
+<p>{{ page.date | date_to_long_string }}</p>
+<hr />
+<p>{{page.content | markdownify}}</p>
+<ul class="tags">
+  
+    <li><strong>Tags: </strong></li>
+    {% for tag in page.tags %}
+    <li><a href="{{BASE_URL}}/tags.html#{{tag}}-ref">{{ tag }}</a></li>
+    {% endfor %}  
+</ul>
+{% include JB/comments %}
+<hr />
+<p>{% if page.previous %} <strong>Previous Post</strong>: <em><a href="{{ BASE_PATH }}{{ page.previous.url }}">{{ page.previous.title }}</a></em> {% endif %}</p>
+<p>{% if page.next %} <strong>Next Post</strong>: <em><a href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}</a></em> {% endif %}</p>
+
