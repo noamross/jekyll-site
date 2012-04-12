@@ -29,6 +29,8 @@ More about me on **[my CV](http://dl.dropbox.com/u/3356641/blogstuff/Noam%20Ross
 
 This blog is mostly an [*open lab notebook*](http://www.carlboettiger.info/archives/211), a record of my ongoing research efforts and a place to do collaborative research. Not everything will be polished or generally accessible. That said, I also plan to post items here of general interest, under the "general interest" tag. I may separate that out onto a separate page or blog.
 
+The blog is hosted on [github](http://www.github.com) and produced using a [modified version of jekyll](http://github.com/dsanson/jekyll/tree/pandoc-ruby).  If you want to see how it's built, here is the  [raw](http://github.com/noamross/jekyll-site) and [produced](http://github.com/noamross/noamross.github.com) source code.
+
 ### Licenses ###
 
 <a title="Creative Commons License 3.0" href="http://creativecommons.org/licenses/by/3.0/"><img class="graycale" src="http://i.creativecommons.org/l/by/3.0/88x31.png" width=88 height=31 /> </a>
