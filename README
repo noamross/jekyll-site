@@ -1,5 +1,7 @@
-This is my website.  It is produced on locally on my computer using [this jekyll branch], then pushed to Github.  It exists in two repositories
+This is my website.  It is produced on locally on my computer using [this jekyll branch](https://github.com/dsanson/jekyll/tree/pandoc-ruby), then pushed to Github.  It exists in two repositories
 
 <http://github.com/noamross/noamross.github.com> contains the site as is displayed
 
 <http://github.com/noamross/jekyll-site> has the pre-processed files
+
+I do some post-processing of the jekyll site.  See `newpost.sh` for this.
