@@ -43,11 +43,12 @@ CONTENT */
 	max-width:80%; 
 	margin-left: auto !important;
 	margin-right: auto !important;
-/*	padding-left: 25px;
-	text-indent: -50px; */
+	padding-left: 25px;
 	}
-
-p code {font-size:90%; color:blue;}
+	
+.sourceCode:first-line {padding-left:-25px !important;}
+	
+p code {font-size:90%; color:black;}
 
 .content hr{display:block;background:#000;color:#000;width:100%;height:1px;border:none}
 .content ul{list-style:square outside}
@@ -390,18 +391,19 @@ table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
 table.sourceCode { width: 100%; }
 td.lineNumbers { text-align: right; padding-right: 8px; padding-left: 2px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
 td.sourceCode { padding-left: 8px; }
-code > span.kw { font-weight: bold; }
-code > span.dt { color: #800000; }
-code > span.dv { color: #0000ff; }
-code > span.bn { color: #0000ff; }
-code > span.fl { color: #800080; }
-code > span.ch { color: #ff00ff; }
-code > span.st { color: #dd0000; }
-code > span.co { color: #808080; font-style: italic; }
-code > span.ot { color: #8f5902; }
-code > span.al { color: #00ff00; font-weight: bold; }
-code > span.fu { color: #000080; }
-code > span.er { color: #ff0000; font-weight: bold; }
+code.r > span.kw { font-weight: bold; }
+code.r > span.dt { color: #800000; }
+code.r > span.dv { color: #0000ff; }
+code.r > span.bn { color: #0000ff; }
+code.r > span.fl { color: #800080; }
+code.r > span.ch { color: #ff00ff; }
+code.r > span.st { color: #dd0000; }
+code.r > span.co { color: #808080; font-style: italic; }
+code.r > span.ot { color: #8f5902; }
+code.r > span.al { color: #00ff00; font-weight: bold; }
+code.r > span.fu { color: #000080; }
+code.r > span.er { color: #ff0000; font-weight: bold; }
+.rout {font-weight: bold;}
 
 /* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
