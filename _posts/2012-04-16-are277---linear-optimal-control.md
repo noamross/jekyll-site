@@ -1,7 +1,7 @@
 ---
 title: ARE277 - Linear Optimal Control
 author: Noam Ross
-tags: [ARE277, economics, fisheries, class-notes]
+tags: [ARE277, economics, class-notes, fisheries]
 date: 2012-04-16 20:09:36
 layout: post
 --- 
