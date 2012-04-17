@@ -1,7 +1,7 @@
 ---
 title: ARE277 - Linear Optimal Control
 author: Noam Ross
-tags: [ARE277, economics, class-notes, fisheries]
+tags: [ARE277, class-notes, fisheries, economics]
 date: 2012-04-16 20:09:36
 layout: post
 --- 
@@ -231,7 +231,7 @@ Coming Up:
     Sanchirico and Springborn (2010)
 -   4/23: Guest lecture: Jim Wilen on real-world fishery management.
     Read Homans and Wilen (1997).
--   4/30: Uncertainty. Read @Reed1979 and, Sethi et al. (2004)
+-   4/30: Uncertainty. Read Reed (1979) and, Sethi et al. (2004)
 -   5/2: Guest Lecture: Mike Springborn on adaptive management
 
 References
@@ -259,6 +259,10 @@ doi: 10.1111/j.1755-263X.2010.00132.x.
 Krutilla, J. V. 1967. Conservation Reconsidered. The American Economic
 Review 57:777–786. Retrieved from
 [http://www.jstor.org/stable/1815368](http://www.jstor.org/stable/1815368 "http://www.jstor.org/stable/1815368").
+
+Reed, W. J. 1979. Optimal escapement levels in stochastic and
+deterministic harvesting models. Journal of Environmental Economics and
+Management 6:350–363. doi: 10.1016/0095-0696(79)90014-7.
 
 Sanchirico, J. N., and M. Springborn. 2010. How to Get There From Here:
 Ecological and Economic Dynamics of Ecosystem Service Provision.
