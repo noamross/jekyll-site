@@ -1,7 +1,7 @@
 ---
 title: Holly Doremus on Adaptive Management
 author: Noam Ross
-tags: [Lectures, adaptive-management, policy]
+tags: [lectures, adaptive-management, policy]
 date: 2012-04-20
 layout: post
 --- 
@@ -98,9 +98,6 @@ these agencies so as to outsource technical decisions.
     information can be gained from other approaches (modeling,
     observational science)?
 
-***More from Dr. Doremus on [the Berkeley
-Blog](http://blogs.berkeley.edu/author/hdoremus/)***
-
 4.  *Can management be adjusted as new information becomes available?*
 
     Will impacts be irreversible? How "sticky" are policy decisions,
@@ -156,3 +153,6 @@ trade-offs must be defined first.
     generates data that sits on a shelf. Monitoring plans must include a
     plan to analyze, disseminate, and act on findings.
 -   Create positive career incentives.
+
+***More from Dr. Doremus on [the Berkeley
+Blog](http://blogs.berkeley.edu/author/hdoremus/)***
