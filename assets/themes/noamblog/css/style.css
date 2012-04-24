@@ -40,13 +40,9 @@ CONTENT */
 .content h5 { margin: 1.3125em 0; font-size: 1.1429em; line-height: 1.1em;}
 .content h6 { margin: 1.5em 0; font-size: 1em; line-height: 1.5em;}
 .sourceCode {
-	max-width:80%; 
+	max-width:90%; 
 	margin-left: auto !important;
-	margin-right: auto !important;
-	padding-left: 25px;
-	}
-	
-.sourceCode:first-line {padding-left:-25px !important;}
+	margin-right: auto !important;}
 	
 p code {font-size:90%; color:black;}
 
@@ -123,12 +119,18 @@ p.caption {
 	border-bottom:none;
 }
 
-
 blockquote {
-  margin: 1.4em 0;
-  padding-left: 1em;
-  border-left: 1px solid #ccc;
+  margin-left: 14px;
+  padding-left: 55px;
+	padding-right: 20px;
+	font-size: 95%;
+	background-image:url(http://dl.dropbox.com/u/3356641/blogstuff/openquoteold.gif);
+	background-repeat:no-repeat;
+	background-position: top left;
 }
+
+
+
 .wrapper {
   width: 100%;
   height: auto;
