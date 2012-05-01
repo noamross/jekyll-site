@@ -569,7 +569,7 @@ div.figure {page-break-inside:avoid;}
 div#headblock {text-align:center;}
 span {page-break-inside:avoid;}
 .container {
-  margin-top:175px !important;
+  margin-top:0px !important;
 	margin-bottom: 0px !important;
 }
 .blog {
