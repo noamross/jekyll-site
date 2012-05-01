@@ -599,10 +599,6 @@ div#dsq-sort-by {display:none !important;}
 div.dsq-trackback-url {display:none !important;}
 .noprint {display:none !important;}
 
-
-
-}
-
 h1 a:after{ 
 	white-space: pre;
 	content:"\A (From: http://noamross.net" attr(href) ")"; 
@@ -610,6 +606,8 @@ h1 a:after{
 	font-size: 40%;
 	margin: 0;
 	font-style: italic;}
+
+}
 
 
 
