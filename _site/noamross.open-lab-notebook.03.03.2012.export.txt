@@ -1,0 +1,260 @@
+AUTHOR: Noam Ross
+TITLE: Pollen project sources
+STATUS: Publish
+ALLOW COMMENTS: 1
+CATEGORY: Pollen
+CATEGORY: Early Warning Signals
+DATE: 11/28/2011 05:30:52 AM
+-----
+BODY:
+<p>Met with <a href="http://www.princeton.edu/~pacala/">Stephen Pacala</a> last week, who suggested we look into records of pollen sediments in lakes (varves) as potential data sources for early warning signals.  Some potential sources:</p>
+
+<ul>
+<li>A paper reviewing regime shifts in the pollen records:
+<ul>
+<li>Drying period in N. American midwest look promising</li>
+<li>Williams, J. W., J. L. Blois, and B. N. Shuman. 2011. Extrinsic and intrinsic forcing of abrupt ecological change: case studies from the late Quaternary. Journal of Ecology 99:664-677. doi: 10.1111/j.1365-2745.2011.01810.x</li>
+</ul></li>
+<li>Paper outlining dataset for N. American vegetation based on varve records:
+<ul>
+<li>Williams, J. W., B. N. Shuman, T. Webb III, P. J. Bartlein, and P. L. Leduc. 2004. Late-Quaternary vegetation dynamics in North America: scaling from taxa to biomes. Ecological Monographs 74:309–334. Eco Soc America. doi: 10.1890/02-4045.</li>
+<li>Data is <a href="http://www.ncdc.noaa.gov/paleo/pollen.html">here</a>, but this is the spatially interpolated set.  The original varve data might be more useful.</li>
+</ul></li>
+</ul>
+
+<p>Started a <a href="http://www.mendeley.com/groups/1659011/pollen-and-warning-signals/papers/">Mendeley group</a> for this topic.</p>
+
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Monday, November 28, 2011
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 11/28/2011 10:42:50 PM
+-----
+BODY:
+<h1>Pollen Data for Williams (2010)</h1>
+<p>&nbsp;</p>
+<ul>
+<li>List of sources of data, but not data, is in a table in the <a href="ftp://rock.geosociety.org/pub/reposit/2010/2010027.pdf">supplementary material</a></li>
+<li>Most records are from <a href="http://www.ncdc.noaa.gov/paleo/napd.html">North American Pollen Database (NAPD)</a></li>
+<li>
+<p>Just browsing through the datasets from this, it looks like a challenge may be that there isn't much data preceding most of the abrupt shifts - there may not be anything resembling a baseline.</p>
+<p>&nbsp;</p>
+</li>
+</ul>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Forest Pest Outbreaks - A Bibliography
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 12/06/2011 06:57:55 AM
+-----
+BODY:
+<p>For the seminar I organized on forest pests this quarter, we generated a bibliography of all the papers read or referred to for the various topics. &nbsp;It can be found here:</p>
+<div><a href="http://goo.gl/ya7a6">http://goo.gl/ya7a6</a></div>
+<div></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Back in the Saddle January 9, 2012
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 01/10/2012 06:02:43 PM
+-----
+BODY:
+<h1>Letter</h1>
+
+<ul>
+<li>Submitted public university funding letter to <em>Frontiers in Ecology and Environement</em>.  Follow up in a week.January 9, 2012  </li>
+</ul>
+
+<h1>Warning signals</h1>
+
+<ul>
+<li>Read <a href="http://dx.doi.org/10.1007/s12080-011-0149-6">Bel et. al. (2012) "Gradual regime shifts in spatially extended ecosystems."</a> and discussed with Carl.  Interesting.  Shows a simple model of transition between spotted spatial patterning and uniform landscapes, describes the "snaking" bifurcation pattern between the two.  Might be applicable to pollen stuff below.</li>
+</ul>
+
+<h1>Pollen</h1>
+
+<ul>
+<li>Read <a href="http://dx.doi.org/10.1111/j.1365-2745.2011.01810.x">Williams et. al. (2010), "Rapid responses of the prairie-forest ecotone to early Holocene aridity in mid-continental North America."</a>  Looks like a good paper to use to select pollen datasets from.  %AP (arboreal pollen) might be the appropriate response variable here.</li>
+<li>Messed around the <a href="http://www.ncdc.noaa.gov/paleo/napd.html">North American Pollen Database (NAPD)</a> trying to understand its structure.  At first everything seemed to be in an old Paradox database format, but downloaded the raw ASCII files via <a href="ftp://ftp.ncdc.noaa.gov/pub/data/paleo/pollen/">their FTP</a></li>
+<li>Found the "stratiagraph" R package for working with NAPD files.  Should use it tomorrow to extract the Williams sites and calculate %AP across them.  </li>
+<li>New <a href="https://github.com/noamross/Pollen">gitub repository</a> for this work (nothing in it yet)</li>
+</ul>
+
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: January 10, 2012
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 01/11/2012 03:00:47 AM
+-----
+BODY:
+<h1>Class: Theoretical Ecology</h1>
+
+<ul>
+<li>First class meeting with Alan - see <a href="http://dl.dropbox.com/u/3356641/ECL232/ECL232 Lecture 1.md">notes</a></li>
+<li>Readings <a href="http://dl.dropbox.com/u/3356641/ECL232/ECL232 Lecture 1.md">(See notes)</a>:
+<ul>
+<li><a href="http://dx.doi.org/10.1007/s12080-008-0011-7">Hastings (2008) "Editorial – an ecological theory journal at last"</a></li>
+<li>Kareiva (1989) "Renewing the dialogue between theory and experiments in population ecology"</li>
+<li><a href="http://dx.doi.org/10.1007/s12080-007-0002-0">Scheiner and Willing (2008) A general theory of ecology</a></li>
+</ul></li>
+</ul>
+
+<h1>Process - Kintr</h1>
+
+<ul>
+<li>Installed and learned the <a href="http://yihui.github.com/knitr/"><code>knitr</code></a> package.  Looks like a great way to write literate code more easily </li>
+<li>Easy enough to process Multimarkdown, but if processing MMD to Latex/PDF, want to put knitr between the LaTeX and PDF for better processing.  Right now this workflow is broken - need to fix my LaTeX compilation script</li>
+<li>Had to install updates for R and RStudio</li>
+</ul>
+
+<h1>Pollen</h1>
+
+<ul>
+<li>Installed <code>stratigraph</code> package and explored it.  Good functions for input/output from GPD datafiles, but the plotting functions are broken.</li>
+<li>Wrote function to convert count data to %Arboreal pollen data</li>
+<li>Downloaded GPD data, but should modify code so that it draws directly from the GPD FTP site</li>
+<li>GPD index is is odd form - need to write function to process and lookup sites</li>
+<li>Code and data on <a href="https://github.com/noamross/Pollen">github</a></li>
+</ul>
+
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Jan 17
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 01/18/2012 04:59:12 PM
+-----
+BODY:
+<h1>Pollen</h1>
+
+<ul>
+<li>Met with Alan to discuss the conceptual model for regime shift.  His suggestion was to look at Sugihara's method of prediction by looking at the difference paths of different systems - useful for when we have lots of data, even if it's sparse for individual sites.  Some papers to look at are : 
+<ul>
+<li>http://www.jstor.org/stable/10.2307/76859 - "Distinguishing Error from Chaos in Ecological Time Series"</li>
+<li>http://www.jstor.org/stable/10.2307/54223 - "Nonlinear Forecasting for the Classification of Natural Time Series"</li>
+<li>http://dx.doi.org/10.1038/nature06851 - "Why fishing magnifies fluctuations in fish abundance"</li>
+<li>http://www.pnas.org/content/93/6/2608.full.pdf - "Nonlinear control of heart rate variability in human infants"</li>
+</ul></li>
+<li>Question as relevant as whether a regime shift is coming is whether a regime shift is <em>happening</em> - whether you've entered a new dynamic regime.  For high-dimensional systems, looking at summary data does a poor job of this - it's better to look at the dynamics of many components.  Could be interesting to compare % tree species to all of the species</li>
+<li><p>Biggest question - Are there enough data at a site-level in the pollen?</p>
+
+<h1>Theoretical Ecology</h1>
+
+<ul>
+<li>Read May, R.M. 1981. Models for single populations. in May, R.M., ed. Theoretical Ecology.</li>
+<li>Lecture on time delays and instability.  See <a href="http://dl.dropbox.com/u/3356641/ECL232/ECE232%20Lecture%203%20-%20Time%20Delays.txt">notes</a></li>
+</ul></li>
+</ul>
+
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Notes on S-maps and regime shifts
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 01/31/2012 12:06:39 AM
+-----
+BODY:
+<h1>General Problem and Approach</h1>
+
+<p>Shifts between "states" in ecological systems are shifts between dynamical regimes, or between different attractors within a dynamical regime.</p>
+
+<p>The warning signals approach attempts to detect characteristics of a system undergoing a transition between dynamical regimes.  This transition may have common properties in many systems [#Scheffer2009;], but not all systems [#Hastings2010;].</p>
+
+<p>Another approach would be to characterize the properties of the dynamic regime over a period of time, and attempt to detect if those properties change, irrespective of whether the change takes the particular form.  This approach would be useful in determining whether past systems have undergone regime shifts, or potentially detecting if systems are currently undergoing regime shifts in real time.</p>
+
+<p>One way to implement this approach would be to using simplex/s-map methods, described by [#Sugihara1994;].  These are non-parametric techniques for forecasting from time-series data.  By fitting these models to training data and determining the goodness of fit to test data or cross validation, one can estimate several properties of a dynamical regime without knowledge of underlying mechanism.  These include:</p>
+
+<ul>
+<li><strong>Dimensionality:</strong> that is, how many variables drive the dynamics of the system</li>
+<li><strong>Chaos:</strong> the degree to which similar points diverge over time</li>
+<li><strong>Nonlinearity</strong>:  The degree to which dynamics are determined locally, rather than globally.</li>
+</ul>
+
+<p>There are other techniques for estimating these and similar characteristics, such as measures of fractal dimension, the Lyapunov exponent, and DVS tests.</p>
+
+<p>In my examination of the literature thus far, I have not found an example of attempting to evaluate the change these characteristics over time in ecological systems using s-maps.  (Sugihara has compared changes in EKG data over time, and I'm unsure about fractal dimension/Lyapunov exponents).   </p>
+
+<p>I can test this approach by using s-maps to characterize time-series of pollen records from the forest-prairie transition in the Upper Midwest.  [#Williams2010c;] and [#Williams2011;] describe this transition as ranging from abrupt to gradual at different sites, and suggest that regime shifts occurred at some, but not all sites in response to environmental changes.  However, the only way this difference has been evaluated is by visual inspection of the rates of change in species composition (specifically % arboreal pollen) in the stratigraphic pollen records.  By estimating the change in various characteristics of the dynamical regime in this time-series, it may be possible to distinguish between regime changes and linear responses to environmental change.</p>
+
+<h1>Status</h1>
+
+<ul>
+<li>I have implemented the [#Sugihara1990;] technique in R, and attempted to reproduce their analysis.  I am getting similar, but not identical results.  These may be due to different data pre-processing, a difference in how I handle boundary cases, or some other bug in code.  I've written Dr. Sugihara for clarification on data processing and their boundary method.</li>
+</ul>
+
+<h1>Potential extensions of the S-Map technique</h1>
+
+<ul>
+<li>Finding a robust way to estimate the likelihoods of the measures of dimensionality, chaos, and nonlinearity</li>
+<li>Implement a sliding-window method using cross-validation rather than a training-and-test method so as to measure these characteristics through time</li>
+<li>Extending the analysis to multivariate time-series. (The pollen data are multi species.) [#Hsieh2008;] attempted this by stringing together time-series of qualitatively similar species populations, but I may be to do this in a more quantitatively defensible way.</li>
+<li>Evaluate data requirements compared to techniques measuring fractal dimension and Lyapunov exponents</li>
+</ul>
+
+<h1>Questions</h1>
+
+<ul>
+<li>What other relevant ways are there for characterizing the dynamical regime? (Mutual information, autocorrelation?)
+<ul>
+<li>I'm not sure I understand the difference between embedded and fractal dimension</li>
+</ul></li>
+<li>Would we expect these measures to detect regime changes better/sooner than either warning signals or simpler measures?  In what cases?</li>
+<li>Would we expect this method to do better than the warning signals approach at detecting changes in systems without smooth potentials?</li>
+<li>What else should I read up on?</li>
+</ul>
+
+<h1>Road Map</h1>
+
+<ul>
+<li>Finish replicating the analyses from [#Sugihara1990;] and [#Sugihara1994;]</li>
+<li>Generate the relevant time series from pollen data, compare how s-map measures of nonlinearity compare to qualitative assessments of intrinsic/extrinsic change.</li>
+<li>Attempt a sliding-window method.  Examine its data requirements</li>
+</ul>
+
+<h1>Small methodological issues</h1>
+
+<ul>
+<li>How to handle boundary cases.  Right now, points without an enclosing simplex are forecast using nearest neighbors.  What are the consequences of this.  I think that the ultimate results should be robust to these choices, as they are arbitrary decisions in determining the local neighborhood of a predicted.</li>
+<li>What to do about repeated values?  Probably remove from embedded data, but might be useful when characterizing uncertainty.</li>
+<li>What about transformations of the time series (e.g. differencing, log transformation?) to improve fit?  To some extent, transformations are based on assumptions of the underlying processes.  I wish to avoid such assumptions.</li>
+<li>I could explore other measures of "leaving the attractor"</li>
+<li>It may be useful to apply the method [#Wood2010;] for estimating the error around the dynamic characteristic measures</li>
+</ul>
+
+<h1>Programming issues and to-dos</h1>
+
+<ul>
+<li>Set up the code as a package in order to manage it better</li>
+<li>Create a data library in the package</li>
+<li>Implement the DVS plot test</li>
+<li>Look at current packages for estimating fractal dimension and Lyapunov exponents</li>
+<li>Set up efficiency testing; next steps will get computationally intense</li>
+</ul>
+
+-----
+
+--------
+
