@@ -597,8 +597,9 @@ div#dsq-sort-by {display:none !important;}
 #dsq-reactions {display:none !important;}
 #dsq-footer {display:none !important;}
 div.dsq-trackback-url {display:none !important;}
-
 .noprint {display:none !important;}
+#post.title a:after{ content:" [" attr(href) "] "; }
+
 }
 
 /* for footnotelinks */
