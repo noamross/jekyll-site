@@ -593,7 +593,7 @@ div#dsq-global-toolbar {display:none !important;}
 div#dsq-reply {display:none !important;}
 div#dsq-sort-by {display:none !important;}
 div#menu {display:none !important;}
-div#dsq-reactions {display:none !important;}
+#dsq-reactions {display:none !important;}
 div#footer {display:none !important;}
 div.dsq-trackback-url {display:none !important;}
 
