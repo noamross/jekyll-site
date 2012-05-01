@@ -352,7 +352,7 @@ ul.tags {
 }
 
 .pagination li {
-  display:inline
+  display:inline;
 }
 
 .pagination a {
@@ -569,7 +569,7 @@ div.figure {page-break-inside:avoid;}
 div#headblock {text-align:center;}
 span {page-break-inside:avoid;}
 .container {
-  margin-top:175px !important;
+  margin-top:0px !important;
 	margin-bottom: 0px !important;
 }
 .blog {
@@ -588,6 +588,9 @@ body {
 
 hr{color:#ccc !important; background:#ccc !important; width:80% !important; height:0mm !important; border-top:1px solid #ccc !important;margin-left: auto !important;
 margin-right: auto !important;}	
+
+div#dsq-global-toolbar {display:none !important;}
+div#dsq-reply {display:none !important;}
 
 }
 
