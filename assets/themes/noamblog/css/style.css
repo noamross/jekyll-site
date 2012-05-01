@@ -596,6 +596,8 @@ div#menu {display:none !important;}
 div#dsq-reactions {display:none !important;}
 div#footer {display:none !important;}
 div.dsq-trackback-url {display:none !important;}
+
+.noprint {display:none !important;}
 }
 
 /* for footnotelinks */
