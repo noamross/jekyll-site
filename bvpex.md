@@ -38,7 +38,7 @@ yend <- c(x=xT, y=NA)
 times <- seq(0,T, length.out=(T+1))
 ```
 
-Use the function `bvpshoot` to solve the problem.  I recommend specifying `method="bdf"` if you have a stiff system of equations or are sensitive to initial conditions.  You must also specify a guess.
+Use the function `bvpshoot` to solve the problem.  **I recommend specifying `method="bdf"` if you have a stiff system of equations or are sensitive to initial conditions.**  You must also specify a guess.
 
 ```{r }
 out <- bvpshoot(yini=yini, x=times, func=bvpDES, yend=yend, parms=parms, guess = 0.1, method="bdf")

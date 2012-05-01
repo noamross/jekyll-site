@@ -49,7 +49,7 @@ times <- seq(0, T, length.out = (T + 1))
 
 
 
-Use the function `bvpshoot` to solve the problem.  I recommend specifying `method="bdf"` if you have a stiff system of equations or are sensitive to initial conditions.  You must also specify a guess.
+Use the function `bvpshoot` to solve the problem.  **I recommend specifying `method="bdf"` if you have a stiff system of equations or are sensitive to initial conditions.**  You must also specify a guess.
 
 
 
