@@ -1,6 +1,12 @@
 How to Solve Boundary Value Problems in R
 =========================================
 
+`bvpSolve` is a good package for boundary value problems. It
+
+ - Has both shooting and collocation methods
+ - Uses many of the same solvers and input formats as `deSolve`
+ - Is authored by the person who developed the methods used in the MATLAB package `bvpc4`
+
 First, load the package
 
 
@@ -13,7 +19,8 @@ library(bvpSolve)
 
 
 
-Write a function that defines your differential equations and set some parameters
+Write a function that defines your differential equations and set some parameters:
+
 
 
 ```r
