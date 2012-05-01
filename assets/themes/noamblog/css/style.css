@@ -599,6 +599,7 @@ div#dsq-sort-by {display:none !important;}
 div.dsq-trackback-url {display:none !important;}
 .noprint {display:none !important;}
 .dsq-comment-actions {display:none !important;}
+.dsq-comment-moderate {display:none !important;}
 
 h1 a:after{ 
 	white-space: pre;
