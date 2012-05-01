@@ -589,12 +589,13 @@ body {
 hr{color:#ccc !important; background:#ccc !important; width:80% !important; height:0mm !important; border-top:1px solid #ccc !important;margin-left: auto !important;
 margin-right: auto !important;}	
 
+
+div#menu {display:none !important;}
 div#dsq-global-toolbar {display:none !important;}
 div#dsq-reply {display:none !important;}
 div#dsq-sort-by {display:none !important;}
-div#menu {display:none !important;}
 #dsq-reactions {display:none !important;}
-div#footer {display:none !important;}
+#dsq-footer {display:none !important;}
 div.dsq-trackback-url {display:none !important;}
 
 .noprint {display:none !important;}

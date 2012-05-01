@@ -12,7 +12,8 @@
     {% endfor %}  
 </ul>
 {% include JB/comments %}
-<hr />
+
+<div class="noprint"><hr />
 <p>{% if page.previous %} <strong>Previous Post</strong>: <em><a href="{{ BASE_PATH }}{{ page.previous.url }}">{{ page.previous.title }}</a></em> {% endif %}</p>
-<p>{% if page.next %} <strong>Next Post</strong>: <em><a href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}</a></em> {% endif %}</p>
+<p>{% if page.next %} <strong>Next Post</strong>: <em><a href="{{ BASE_PATH }}{{ page.next.url }}">{{ page.next.title }}</a></em> {% endif %}</p></div>
 
