@@ -16,9 +16,9 @@ th,thead td,h1,h2,h3,h4,h5,h6,dt{font-weight:100;}
 strong{font-weight:600; color: #605b4b}
 
 cite,em,dfn{font-style:italic}
-code,kbd,samp,pre,tt,var,input[type='text'],input[type='password'],textarea{font-size:80%;font-family:mono-space,monospace}
+code,kbd,samp,pre,tt,var,input[type='text'],input[type='password'],textarea{font-size:80%;font-family:Anadale Mono,monospace}
 pre{white-space:pre}
-pre *{font-size:100%;white-space:pre}del{text-decoration:line-through}ins,dfn{border-bottom:1px solid #000}small,sup,sub{font-size:85%}big{font-size:125%;line-height:80%}abbr,acronym{text-transform:uppercase;font-size:80%;letter-spacing:.1em}abbr[title],acronym[title],dfn[title]{cursor:help;border-bottom:1px dotted #000}sup{vertical-align:super}sub{vertical-align:sub}blockquote{padding-left:2.2em}hr{display:none/* We will re-reset it later for content */}:lang(af),:lang(nl),:lang(pl){quotes:'\201E' '\201D' '\201A' '\2019'}:lang(bg),:lang(cs),:lang(de),:lang(is),:lang(lt),:lang(sk),:lang(sr),:lang(ro){quotes:'\201E' '\201C' '\201A' '\2018'}:lang(da),:lang(hr){quotes:'\00BB' '\00AB' '\203A' '\2039'}:lang(el),:lang(es),:lang(sq),:lang(tr){quotes:'\00AB' '\00BB' '\2039' '\203A'}:lang(en-GB){quotes:'\2018' '\2019' '\201C' '\201D'}:lang(fi),:lang(sv){quotes:'\201D' '\201D' '\2019' '\2019'}:lang(fr){quotes:'\ab\2005' '\2005\bb' '\2039\2005' '\2005\203a'}*[lang|='en'] q:before{content:'\201C'}*[lang|='en'] q:after{content:'\201D'}*[lang|='en'] q q:before{content:'\2018'}*[lang|='en'] q q:after{content:'\2019'}input,select,button{cursor:pointer}input[type='text'],input[type='password']{cursor:text}input[type='hidden']{display:none}/*
+pre *{font-size:100%;white-space:pre}del{text-decoration:line-through}ins,dfn{border-bottom:1px solid #000}small,sup,sub{font-size:85%}big{font-size:125%;line-height:80%}abbr,acronym{text-transform:uppercase;font-size:80%;letter-spacing:.1em}abbr[title],acronym[title],dfn[title]{cursor:help;border-bottom:1px dotted #000}sup{vertical-align:super}sub{vertical-align:sub}hr{display:none/* We will re-reset it later for content */}:lang(af),:lang(nl),:lang(pl){quotes:'\201E' '\201D' '\201A' '\2019'}:lang(bg),:lang(cs),:lang(de),:lang(is),:lang(lt),:lang(sk),:lang(sr),:lang(ro){quotes:'\201E' '\201C' '\201A' '\2018'}:lang(da),:lang(hr){quotes:'\00BB' '\00AB' '\203A' '\2039'}:lang(el),:lang(es),:lang(sq),:lang(tr){quotes:'\00AB' '\00BB' '\2039' '\203A'}:lang(en-GB){quotes:'\2018' '\2019' '\201C' '\201D'}:lang(fi),:lang(sv){quotes:'\201D' '\201D' '\2019' '\2019'}:lang(fr){quotes:'\ab\2005' '\2005\bb' '\2039\2005' '\2005\203a'}*[lang|='en'] q:before{content:'\201C'}*[lang|='en'] q:after{content:'\201D'}*[lang|='en'] q q:before{content:'\2018'}*[lang|='en'] q q:after{content:'\2019'}input,select,button{cursor:pointer}input[type='text'],input[type='password']{cursor:text}input[type='hidden']{display:none}/*
 _______________________________
 CONTENT */
 .content{font-size:1.35em;line-height:1.4em}
@@ -44,9 +44,11 @@ CONTENT */
 	margin-left: auto !important;
 	margin-right: auto !important;}
 	
-p code {font-size:90%; color:black;}
-
-.content hr{display:block;background:#000;color:#000;width:100%;height:1px;border:none}
+p code {font-size:100%; color:black;
+				vertical-align:text-middle;
+				color: #45462f;}
+				
+.content hr{display:block;background:#ccc;color:#ccc;width:100%;height:1px;border:none}
 .content ul{list-style:square outside}
 .content ol{list-style:decimal outside}
 .content table{border-collapse:collapse}.content hr,
@@ -87,18 +89,18 @@ body {
   .blog-info h1  {
     margin: 0 7px 0 0 !important;
   }
-  .scriptogram-link {
-    bottom: 7px !important;
-    right: 5% !important;
-  }
+
 }
 
-@media print
-{
-table {page-break-inside:avoid}
-img {page-break-inside:avoid;}
-div.figure {page-break-inside:avoid;}
+.container {
+  margin: 175px 0;
+
+.printOnly {
+  display: none;
 }
+}
+
+
 
 p.caption {
 	text-align:center;
@@ -120,21 +122,19 @@ p.caption {
 }
 
 blockquote {
-  margin-left: 14px;
-  padding-left: 55px;
-	padding-right: 20px;
-	font-size: 95%;
-	background-image:url(http://dl.dropbox.com/u/3356641/blogstuff/openquoteold.gif);
-	background-repeat:no-repeat;
-	background-position: top left;
-}
+	max-width:90%; 
+	margin-left: auto !important;
+	margin-right: auto !important;
+	padding-left: 8px;
+	border-left: 2px solid #ccc;
+	}
 
 
 
 .wrapper {
   width: 100%;
   height: auto;
-  margin: 0;
+  margin: 0px;
 }
 
 iframe {
@@ -285,9 +285,7 @@ a:hover {
 }
 
 .menu-bottom div { color: #FFFFFF !important;}
-.container {
-  margin: 175px 0;
-}  
+
 
 p.previous-articles {
   font-size: 125%;
@@ -554,3 +552,44 @@ table thead{
 table tbody{
 		border-bottom:2px solid #45462f;
 }
+
+/* print */
+
+@page {size:8.5in 11in; margin: 1in; orphans:4; widows:2; }
+
+@media print
+{
+
+
+
+.content {font-size:110%;}
+table {page-break-inside:avoid}
+img {page-break-inside:avoid;}
+div.figure {page-break-inside:avoid;}
+div#headblock {text-align:center;}
+span {page-break-inside:avoid;}
+.container {
+  margin-top:0px !important;
+	margin-bottom: 0px !important;
+}
+.blog {
+  margin-left: auto !important;
+  margin-right: auto !important;
+	max-width: 7in !important;
+	width:7in !important;
+}
+body {
+	margin-left: auto !important;
+  margin-right: auto !important;
+	max-width: 7in !important;
+	width:7in !important;
+
+}
+
+hr{color:#ccc !important; background:#ccc !important; width:80% !important; height:0mm !important; border-top:1px solid #ccc !important;margin-left: auto !important;
+margin-right: auto !important;}	
+
+}
+
+/* for footnotelinks */
+
