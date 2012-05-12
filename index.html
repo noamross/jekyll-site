@@ -9,7 +9,9 @@ group: menu
 <div id="headblock"><h1 id="post.title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
 <p>by <em>{{post.author}}</em>, {{ post.date | date_to_long_string }}</p>
 <hr /></div>
-<div class="contenttext">{{ post.content }}</div>
+<div class="contenttext">
+{{ post.content }}
+</div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>

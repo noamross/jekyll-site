@@ -608,6 +608,8 @@ h1 a:after{
 	font-size: 40%;
 	margin: 0;
 	font-style: italic;}
+	
+.printOnly {display: block;}
 
 }
 

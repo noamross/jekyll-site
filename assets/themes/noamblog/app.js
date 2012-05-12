@@ -66,3 +66,29 @@ $(document).ready(function() {
 				$("ol.printOnly").remove();
 		}
 	}
+    
+   
+/* for markdonw in disqus, from http://code.lancepollard.com/jquery-disqus-plugin */
+
+$(document).ready(function() {
+  $('#disqus_thread').disqus({
+    domain:     "your-domain",
+    title:      document.title,
+    developer:  window.location.hostname == "localhost" ? 1 : 0,
+    show_count: true,
+    prettify:   true,
+    markdown:   true,
+    iframe_css: "http://somewhere.com/stylesheets/disqus.css",
+    ready: function() {
+      // this is when your disqus comments finally load
+      console.log("Comment count: " + $.disqus.commentCount().toString());
+      console.log("Reaction count: " + $.disqus.reactionCount().toString());
+    },
+    added: function(comments) {
+      // do something with the newly added comment divs.
+    },
+    edit: function(textarea) {
+      // called when someone clicks the "reply" button.
+    }
+  });
+});
