@@ -1,13 +1,22 @@
+Knitr: An Example:
+==================
 
-This is a minimal example of using **knitr** with in HTML pages. I am actually
-using markdown here since it is more convenient in GitHub.
 
-First, the input file was named as `knitr-minimal.Rmd`
-([source](https://github.com/yihui/knitr/blob/master/inst/examples/knitr-minimal.Rmd)),
-and **knitr** will automatically determine the output filename to be
-`knitr-minimal.md` (`*.Rmd --> *.md`).
+This is an example of using **knitr** with extended markdown (e.g.
+[GFM](http://github.github.com/github-flavored-markdown/)) and uploading images to imgur.com automatically. Note you should set the graphical device to create images that can be displayed in the web browser, e.g. `dev = 'png'` (it is the default for markdown output) works but `'pdf'` does not.
 
-I used the code below to make sure **knitr** writes correct URL's for my images.
+First, the input file was named as `knitr-upload.Rmd` ([source](https://github.com/yihui/knitr/blob/master/inst/examples/knitr-upload.Rmd)), and **knitr** will automatically determine the output filename to be `knitr-upload.md`. 
+
+I used the code below to make sure **knitr** will upload images.
+
+
+
+```r
+opts_knit$set(upload.fun = imgur_upload)  # upload all images to imgur.com
+```
+
+
+
 
 Now we write some code chunks in this markdown file:
 
@@ -41,7 +50,7 @@ rnorm(5)
 
 
 
-We can also produce plots:
+We can also produce plots which are uploaded to imgur.com:
 
 
 
@@ -50,8 +59,13 @@ library(ggplot2)
 qplot(hp, mpg, data = mtcars) + geom_smooth()
 ```
 
-![plot of chunk md-cars-scatter](md-cars-scatter.png) 
+![plot of chunk md-cars](http://i.imgur.com/VsuKR.png) 
+
+```r
+ggpcp(mtcars) + geom_line()
+```
+
+![plot of chunk md-cars](http://i.imgur.com/DZfvI.png) 
 
 
-So no more hesitation on using GitHub and **knitr**! You just write a minimal
-amount of code to get beautiful output on the web.
+So **knitr** is ready with GitHub with a single markdown file.

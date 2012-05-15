@@ -1,0 +1,13 @@
+ggplot2
+proto
+grid
+reshape
+plyr
+knitr
+stats
+graphics
+grDevices
+utils
+datasets
+methods
+base
