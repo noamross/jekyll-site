@@ -23,6 +23,7 @@ set.seed(123)
 rnorm(5)
 ````
 
+
 We can also produce plots which are uploaded to imgur.com:
 
 ``` {r md-cars, message=FALSE}
