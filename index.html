@@ -1,0 +1,43 @@
+---
+layout: default
+title: Blog
+tagline: Real time research in ecology, economics, and sustainability
+group: menu
+---
+
+{% for post in site.posts limit:1 %}
+<div id="headblock"><h1 id="post.title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h1>
+<p>by <em>{{post.author}}</em>, {{ post.date | date_to_long_string }}</p>
+<hr /></div>
+<div class="contenttext">{{ post.content }}</div>
+<ul class="tags">
+  
+    <li><strong>Tags: </strong></li>
+	  {% for tag in post.tags %}
+    <li><a href="{{BASE_URL}}/tags.html#{{tag}}-ref">{{ tag }}</a></li>
+    {% endfor %}
+</ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = '{{ site.JB.comments.disqus.short_name }}'; // required: replace example with your forum shortname
+    var disqus_identifier = '{{ post.url }}';
+    var disqus_url = '{{ site.production_url }}{{ post.url }}';
+    {% if page.wordpress_id %}var disqus_identifier = '{{page.wordpress_id}} {{site.production_url}}/?p={{page.wordpress_id}}';{% endif %}
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+{% endfor %}
+<div class="noprint"><hr />
+<h1 id="previous-posts">Previous Posts</h1>
+{% for post in site.posts limit:5 offset:1 %}
+<ul>
+<li><strong><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></strong></li>
+</ul>
+{% endfor %} </div>
