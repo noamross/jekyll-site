@@ -7,14 +7,14 @@ layout: post
 --- 
 
 
-\*[Jo Albers of
+*[Jo Albers of
 OSU](http://fes.forestry.oregonstate.edu/faculty/albers-heidi-j) visited
 UC Davis' Agricultural and Resource Economics department to speak about
 her work on optimal management on invasive species management. The work
 is also part of [Kim
 Hall's](http://fes.forestry.oregonstate.edu/grad-students/hall-kim)
 dissertation research and was completed in conjunction Majid Taleghan,
-Tom Dietterich, and Mark Crowley from OSU Engineering.
+Tom Dietterich, and Mark Crowley from OSU Engineering.*
 
 *These are my rough notes from Dr. Albers' talk talk. Any errors or
 misrepresentations are my own.*
