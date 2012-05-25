@@ -1,15 +1,20 @@
 ---
 title: Carl Walters on Surprises in Adaptive Management at the Grand Canyon
 author: Noam Ross
-tags: [adaptive-management, lectures]
+tags: [adaptive-managment, fish, grand-canyon, lectures]
 date: 2012-05-25
 layout: post
 --- 
 
 
 *[Carl Walters of UBC](http://www.zoology.ubc.ca/person/walters) came to
-UC Davis for our seminar in adaptive management. These are my rough
-notes from his talk.*
+UC Davis for our seminar in adaptive management. Carl was also kind
+enough to permit us to post the pre-print of the paper which he was
+presenting, which you can download
+[here](https://www.dropbox.com/s/d9qo7vqtzhbb3zj/Walters%20and%20others%20%28in%20review%29%20--%20%20Surprise%20and%20opportunity%20for%20learning%20in%20the%20GCDAMP_DRAFT%20for%20USGS%20Review_100610.doc)*
+
+*These are my rough notes from the talk. Any errors or
+misrepresentations are my own.*
 
 Central tenet of adaptive management is that policies should be treated
 as experimental treatments with uncertain outcomes.
