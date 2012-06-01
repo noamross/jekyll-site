@@ -1,7 +1,8 @@
 ---
-title: Trade-Offs and Synergies in Floodplain Management: A Historical-Ecological Approach
+title: "Trade-Offs and Synergies in Floodplain Management - A
+       Historical-Ecological Approach"
 author: Noam Ross
-tags: [IGERT, floodplains, history]
+tags: [IGERT, history, floodplains, poster, video, trade-offs]
 date: 2012-06-01
 layout: post
 --- 
