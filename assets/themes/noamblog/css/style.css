@@ -77,6 +77,9 @@ body {
 	max-width: 1000px;
 }
 
+code.url {font-family:Hoefler Text, Georgia, serif;}
+
+
 @media only screen and (max-device-width: 480px) {
   body, .blog, img, ul, li {
     width: 90% !important;
