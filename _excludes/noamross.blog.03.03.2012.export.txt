@@ -1,0 +1,926 @@
+AUTHOR: Noam Ross
+TITLE: Species in a Bucket
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+DATE: 09/18/2010 03:13:38 AM
+-----
+BODY:
+<p>I am not really a wildlife person.   My own work and perspective is systemic; I study global biogeochemical cycles, mathematical systems theory, and other large, shapeless, abstract ideas.  I am terrible at recognizing and remembering the names of plants and animals in the field.   Also, while I enjoy an aesthetic and spiritual connection to nature, my own brand of environmentalism leans towards saving ourselves - nature for nature's sake has usually taken second place in my mind.</p>
+<p>So I was surprised at how much I was struck by the story of the Owens Pupfish, a diminuitive endangered fish that lives in only a few small pools in the Owens Valley in California.  I visited one of these habitats as part of my orientation at UC Davis and learned the story of the pupfish from Steve Parmenter of the CA Department of Fish and Game.</p>
+<p><span class="full-image-block ssNonEditable"><span><img style="width: 400px;" src="/storage/post-images/IMG_0011.JPG?__SQUARESPACE_CACHEVERSION=1284780049126" alt="" /></span><span class="thumbnail-caption" style="width: 400px;">Steve Parmenter and my classmates at one of the Owens Pupfish's few remaining habitats</span></span></p>
+<p>The Owens pupfish lives in desert marshes where temperature and salinity can reach extreme levels, but water diversions and the introduction of game trout in the twentieth century drove it to the brink of extinction.  In 1969, the entire population of Owens pupfish lived in a rapidly drying pond.     On August 18, Edwin Pister, a state biologist, transfered the population to two other ponds in the valley, and for a few moments, the whole world's population of Owens pupfish lived in two buckets.  Pister chronicled the experience in <a href="http://www.montana.edu/~wwwbi/staff/mcmahon/Pister.pdf">an essay in <em>Natural History</em></a>:</p>
+<blockquote>I remember mumbling something like: "Please don't let me stumble. If I drop these buckets we won't have another chance!" I distinctly remember being scared to death. I had walked perhaps fifty yards when I realized that I literally held within my hands the existence of an entire vertebrate species. If I had tripped over a piece of barbed wire or stepped into a rodent burrow, the Owens pupfish would now be extinct!</blockquote>
+<blockquote>....The day had been long. We had won an early round in a fight that will inevitably continue as long as we have a habitable planet. As a realist, I could not help but ponder the ultimate fate not only of the Owens pupfish but also of all southwestern fishes and species in general. I wondered about our future. Can the values driving the industrialized nations be modified sufficiently to allow for the perpetuation of all species, including humans? Will we ever realize the potential implicit in our specific designation as Homo sapiens, the wise species? I hope the day will come when public policy will be guided by the wisdom of Aldo Leopold: "A thing is right when it tends to preserve the integrity, stability, and beauty of the biotic community. It is wrong when it tends otherwise." Such recognition could constitute perhaps the first major step toward creating the sustainable society upon which our long-term survival obviously depends.</blockquote>
+<blockquote>That August day twenty-three years ago had been a very humbling experience for me. The principles of biogeography and evolution I had learned many years before at Berkeley had taught me why the pupfish was here; it took the events of those few hours in the desert to teach me why I was. Such are the reflections of a biologist who, for a few frightening moments long ago, held an entire species in two buckets, one in either hand, with only himself standing between life and extinction.</blockquote>
+<p>The Owens pupfish was lucky, or rather, we were lucky.  It is tough to say what the loss of the last few hundreds of a two-inch fish species means, but it is definitely sad.  We are currently are on track to lose <a href="http://www.nature.com/nature/journal/v427/n6970/abs/nature02121.html">18-35% of species by 2050</a>.  That is an uncomprehensible disaster.</p>
+-----
+COMMENT:
+AUTHOR: neil
+EMAIL: 
+IP: 180.149.68.254
+URL: 
+DATE: 09/18/2010 08:20:11 AM
+<p>check out the book Wolf Totem - makes a nice connection between maintaining a good wolf population and maintaining human systems in Inner Mongolia. the ecology, perhaps not completely intentional in this novel, is clear.</p>
+-----
+COMMENT:
+AUTHOR: Art Jay
+EMAIL: 
+IP: 74.88.234.124
+URL: 
+DATE: 09/18/2010 11:30:09 AM
+<p>Enjoyed your adventures!</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: In the News:  Hysteresis in Coral Reefs
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+
+DATE: 09/21/2010 02:42:21 PM
+-----
+BODY:
+<p><em>As this is my first crack at an explanatory post, I'd appreciate feedback on both the level and quality of the writing.&nbsp; Thanks!</em></p>
+<p><br />One of the things I plan to do on this blog is delve a little deeper into ecological stories that arise in the news.&nbsp; A great opportunity popped up today in a <a href="http://www.nytimes.com/2010/09/21/science/earth/21coral.html">front-page story in the New York Times</a> about coral reef bleaching.&nbsp; It seems that record temperatures this year are causing one of the largest coral die-offs in history.&nbsp; I urge you to read the whole thing, but I'll focus on this part:</p>
+<blockquote>If temperatures drop, the corals&rsquo; few remaining algae can reproduce and help the polyps recover. But corals are vulnerable to disease in their denuded condition, and if the heat stress continues, the corals starve to death.</blockquote>
+<blockquote>
+<p>Even on dead reefs, new coral polyps will often take hold, though the overall ecology of the reef may be permanently altered. The worst case is that a reef dies and never recovers.</p>
+</blockquote>
+<p>This is an example of <em>hysteresis</em> in an ecological system.&nbsp; This is an important concept in ecology and central to my own research.&nbsp; An ecosystem that shows hysteresis can undergo rapid declines in response to small environmental changes, but large environmental changes are needed to return the system to its original condition.&nbsp; I'll illustrate with a graph:</p>
+<p><span class="full-image-block ssNonEditable"><img src="/storage/Screenshot%203.PNG?__SQUARESPACE_CACHEVERSION=1285087147045" alt="" /><span class="thumbnail-caption" style="width: 405px;">From: Scheffer et. al. "Catastrophic shifts in ecosystems." Nature. 413:591-6.</span></span></p>
+<p>Let's say that the x-axis here, "Conditions", represents temperature, and the y-axis, "Ecosystem state", represents coral reef health.&nbsp; When we start out at the upper left, the reefs are healthy, but as temperatures rise, they get worse slowly.&nbsp; When we reach a critical point (F<span style="font-size: 50%;">2</span>), a bleaching event occurs and the health of the reef rapidly declines.&nbsp;</p>
+<p>To get the coral reef back to the point where it started, though, temperatures have to drop much further than to the level where the bleaching event occurred.&nbsp; They have to go lower, all the way back to point F<span style="font-size: 50%;">1</span>, for the system to recover.</p>
+<p>Hysteresis presents a vexing problem for envioronmental protection, and it occurs in many ecosystems.&nbsp; Lakes polluted with fertilizer experience a rapid growth in algae that persists even when pollution is reduced, droughts can turn grasslands into deserts that don't recover with increasing rainfall, and it is believed that the melting of polar ice caps will cause extreme global warming that will be hard to reverse.</p>
+<p>Usually, we don't know exactly when the rapid change (popularized by Malcolm Gladwell as the "tipping point") will occur, and once it does it is very difficult to get things back to where they used to be.&nbsp; Often the best approach is to improve <em>resilience</em>, meaning improving a system's ability to recover from small impacts so that they don't become large ones.&nbsp; Resilience is another big part of my work, and I will write more about it in a future post.</p>
+<p>--</p>
+<p><span style="font-size: 80%;">For further reading on hysteresis in ecosystems, see <a href="http://www.nature.com/nature/journal/v413/n6856/full/413591a0.html">Scheffer et. al. "Catastrophic shifts in ecosystems." <em>Nature</em>. 413:591-6.</a>&nbsp; For more on coral reefs, see <a href="http://www.springerlink.com/index/10.1007/s00338-009-0506-8">Mumby, P. "Phase shifts and the stability of macroalgal communities on Caribbean coral reefs." <em>Coral Reefs</em>. 28:761-773</a></span></p>
+-----
+COMMENT:
+AUTHOR: bill
+EMAIL: 
+IP: 96.232.101.75
+URL: 
+DATE: 09/22/2010 12:27:14 PM
+<p>Does hysteresis in the other direction occur? i.e. can there be sharp &#39;improvements&#39; in the state of an ecosystem as a result of a change in conditions that becomes hard to reverse when conditions return towards their original state?</p>
+-----
+COMMENT:
+AUTHOR: Noam Ross
+DATE: 09/22/2010 05:09:05 PM
+<p>In theory hysteresis should go both ways. I don&#39;t know of an empirical example of resilient &quot;improvements&quot; to a baseline system, but in instances where a system has been restored to a near-original state, hysteresis should work to keep it stable. The Scheffer paper cited here has a good chart showing the full range of dynamics of a lake system that has collapsed and then recovered.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Money Quote
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 09/23/2010 04:01:17 AM
+-----
+BODY:
+<p>Pavan Sukhdev, Head of the UNEP <a href="http://www.unep.org/greeneconomy/">Green Economy Initiative</a>,﻿ and previously Managing Director in the Global Markets Division at Deutsche Bank, has some remarkably lucid things to say about fisheries in this month's <a href="http://www.esajournals.org/doi/abs/10.1890/1540-9295-8.7.340"><em>Frontiers in Ecology and Environment</em></a>:</p>
+<blockquote>
+<p>"Economics is the science of scarce resources. What is scarce here as a resource is not fishing capacity &ndash; in which every year we invest more, as a result of the subsidies that are targeted largely at the bigger fleets and the trawler fleets. What is scarce here is fish. So if you were to do &lsquo;good&rsquo; economics, you would be focusing your efforts and your investments on increasing the stock of fish, not the stock of fishing capacity."</p>
+<p>....</p>
+<p>&ldquo;There is a lot of evidence to suggest that if, instead of targeting fiscal support toward subsidizing trawler fleets, we were to put it toward transitioning the whole fishing model &ndash; in other words, if you were to build up reserves in marine protected areas and support fishing communities during the transition period that it takes for fish stocks to revive &ndash; that would actually be a much better deployment of the same amount of fiscal resource. The reason this works is biologically and scientifically very simple: if a female fish were allowed to grow to twice its size [before capture], it could produce 10 to 100 times as many eggs.&rdquo;</p>
+<p>....</p>
+<p><strong>&ldquo;We are not trying to create an alternative school of economics here. What we are trying to correct is an established and deeply entrenched method of resource allocation across the global economy &ndash; one that is remarkably inefficient, increasingly irresponsible, and which will ultimately defeat the agenda on sustainable development.&rdquo;</strong></p>
+</blockquote>
+<p>Sukhdev is apparently about to release something called the <a href="http://www.unep.org/greeneconomy/GreenEconomyReport/tabid/1375/Default.aspx">Green Economy Report</a> later this year, which I will definitely watch out for.</p>
+<p>&nbsp;</p>
+-----
+COMMENT:
+AUTHOR: Jonathan Rechtman
+EMAIL: jonbaron@gmail.com
+IP: 115.172.195.113
+URL: http://www.jonathanrechtman.com
+DATE: 09/24/2010 01:53:47 AM
+<p>I recently interpreted for a strategic dialogue on biodiversity between the EU and China, at which one of the major issues was &quot;TEEB&quot;-- The Economics of Ecosystems and Biodiversity. The term derives from another Pavan Sukhdev project, commissioned by the G8+5, which is being expected to do for biodiversity what the Stern Report did for climate change. Sukhdev is the project&#39;s &quot;study leader&quot; (a little creepy-sounding isn&#39;t it? Maybe North Korea is one of the +5...?)</p><p>He&#39;s right about the fisheries, of course, but the same rule applies to pretty much everything. Without having read even the abstracts of these soon-to-be-released reports, I think it&#39;s a safe bet to say that re-allocating ranching subsidies to species protection, and especially lumber/agricultural subsidies to reforestation projects would all be more economically efficient in the long run. The problem is that ecosystem services aren&#39;t payable on delivery, whereas I could go for a nice, tasty fish-beef lumber sandwich right now!</p><p>Funny how that rule works with renewable ecoystems/populations, but doesn&#39;t really work with other renewables. We really do need more solar capacity, not more sun.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Risk, Insurance, LUST, and Fish
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 09/24/2010 03:23:34 PM
+-----
+BODY:
+<p>Two papers crossed my desk yesterday highlighting the role insurance can play in mitigating environmental risk.&nbsp; The first, by Yin et. al. in <em>Risk Analysis</em>, discusses <a href="http://www.ncbi.nlm.nih.gov/pubmed/20807380">three appoaches to mitigating the risk of leaking underground storage tanks</a> (a problem with the fantastic acronym LUST).&nbsp;&nbsp;</p>
+<p>Large fines for spills, as it turns out, are not a particularly efficient enforcement tool, as most LUSTs are owned by small businesses like gas stations that would likely go bankrupt before paying all the fines and cleanup costs.&nbsp; Many large firms outsource or spin off their tank operations to smaller companies so that they can declare bankruptcy in such an event.</p>
+<p>Another option is to have a set of safety regulations that are strictly enforced.&nbsp; However, the EPA and state regulators have lacked the resources to send inspectors into the field to make sure USTs are up to code.</p>
+<p>Mandating insurance for tank owners, on the other hand, lowers the burden on regulators and also spreads the cost to operators out into a string of premium payments.&nbsp; Some states have created public quasi-insurance funds by forcing industry to pay for cleanups through a gasoline tax.&nbsp; However, it turns out that private insurers are better and forcing their customers to manage their tanks for safety.&nbsp; The authors are able to show that in states that have robust private insurance markets for LUSTs, there are about 35% fewer spills.</p>
+<p>In <em>Ecological Econmics</em>, D.S. Holland writes about <a href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B6VDY-5131R3M-1&amp;_user=10&amp;_coverDate=09%2F23%2F2010&amp;_rdoc=1&amp;_fmt=high&amp;_orig=search&amp;_origin=search&amp;_sort=d&amp;_docanchor=&amp;view=c&amp;_acct=C000050221&amp;_version=1&amp;_urlVersion=0&amp;_userid=10&amp;md5=18b281b6067c27555e9372c8b107185e&amp;searchtype=a">possible insurance options for fishery markets</a>.&nbsp; Some fisheries have total bycatch quotas, meaning that the fishery is shut down when a total amount of bycatch is caught.&nbsp; For example, if, collectively, all the Pacific flounder fisherman catch 20 loggerhead turtles, then regulators declare no more Paciifc flounder fishing for the year.</p>
+<p>This can lead a "race to fish", where fisherman try to catch all they can before the fishery is shut down.&nbsp; Holland explores the possibility of bycatch insurance where fisherman are compensated for a loss of revenue if the fishery is shut down earlier than expected.&nbsp; This is only tangentially related to the LUST insurance above, but it again creates an interesting situation where the insurance company is incentivized to reduce its clients' environmental damages.&nbsp; In this case, would insurers force fisherman to find ways to reduce bycatch?</p>
+<p>I'm interested to see how insurance models scale up to addressing large scale, systemic ecological risks.&nbsp; There's an intruiging example of the potential of private insurance in the <a href="http://www.worldchanging.com/archives/002577.html">underwriting of reforestation in the Panama Canal</a>.&nbsp; Where else is it applicable?</p>
+<p>(For more on lust, see <a href="http://www.buzzfeed.com/mjs538/the-13-dumbest-christine-odonnell-quotes">Christine O'Donnell.</a>)</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Risk+Analysis&amp;rft_id=info%3Adoi%2F10.1111%2Fj.1539-6924.2010.01479.x&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Can+Environmental+Insurance+Succeed+Where+Other+Strategies+Fail%3F+The+Case+of+Underground+Storage+Tanks&amp;rft.issn=02724332&amp;rft.date=2010&amp;rft.volume=&amp;rft.issue=&amp;rft.spage=0&amp;rft.epage=0&amp;rft.artnum=http%3A%2F%2Fdoi.wiley.com%2F10.1111%2Fj.1539-6924.2010.01479.x&amp;rft.au=Yin%2C+H.&amp;rft.au=Pfaff%2C+A.&amp;rft.au=Kunreuther%2C+H.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CSocial+Science%2CEconomics%2C+Ecology">Yin, H., Pfaff, A., &amp; Kunreuther, H. (2010). Can Environmental Insurance Succeed Where Other Strategies Fail? The Case of Underground Storage Tanks <span style="font-style: italic;">Risk Analysis</span> DOI: <a rev="review" href="http://dx.doi.org/10.1111/j.1539-6924.2010.01479.x">10.1111/j.1539-6924.2010.01479.x</a></span></p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecological+Economics&amp;rft_id=info%3A%2F10.1016%2Fj.ecolecon.2010.08.015&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Markets%2C+pooling+and+insurance+for+managing+bycatch+in+fisherie&amp;rft.issn=&amp;rft.date=2010&amp;rft.volume=&amp;rft.issue=&amp;rft.spage=&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Fwww.sciencedirect.com%2Fscience%3F_ob%3DArticleURL%26_udi%3DB6VDY-5131R3M-1%26_user%3D10%26_coverDate%3D09%252F23%252F2010%26_rdoc%3D1%26_fmt%3Dhigh%26_orig%3Dsearch%26_origin%3Dsearch%26_sort%3Dd%26_docanchor%3D%26view%3Dc%26_acct%3DC000050221%26_version%3D1%26_urlVersion%3D0%26_userid%3D10%26md5%3D18b281b6067c27555&amp;rft.au=Holland%2C+D.S.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CSocial+Science%2CEconomics%2C+Ecology">Holland, D.S. (2010). Markets, pooling and insurance for managing bycatch in fisheries <span style="font-style: italic;">Ecological Economics</span> : <a rev="review" href="10.1016/j.ecolecon.2010.08.015">10.1016/j.ecolecon.2010.08.015</a></span></p>
+-----
+COMMENT:
+AUTHOR: torrent download
+EMAIL: gema_kuliti@yahoo.com
+IP: 122.52.44.248
+URL: http://www.areze.com
+DATE: 09/28/2010 09:12:15 PM
+<p>Interesting.. thank you.</p>
+-----
+COMMENT:
+AUTHOR: Nayan
+EMAIL: ntaluk@gmail.com
+IP: 122.167.9.84
+URL: 
+DATE: 03/03/2011 09:23:06 AM
+<p>Me and my colleagues authored one of India&#39;s most extensive reports on Aquaculture. Fisheries &amp; Marine Biotechnology in India. Drop me a mail if you are interested in a copy. My email is ntaluk@gmail.com.</p><p>Some of the topics we included are:</p><p>- Market Trends<br/>- Growth Drivers<br/>- Regulatory Bodies and Framework<br/>- Major Players.<br/>-Etc.<br/>We interviewed over 400 individuals and firms to collect the data in what we believe is one of the most detailed study on the subject in India. </p><p>Nayan<br/>ntaluk@gmail.com</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: A species is priceless - does that mean that it is worth nothing or everything?
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 09/27/2010 02:13:24 PM
+-----
+BODY:
+<p>Richard Conniff﻿ has an <a href="http://e360.yale.edu/feature/what_are_species_worth_putting_a_price_on_biodiversity/2322/">eloquent piece</a> up at <em>Yale Environment 360</em> discussing how we place economic value on species and biodiversity in general.&nbsp;&nbsp; He tells the story of how farmers in India inadverdantly killed 99% of the country's vultures by feeding their cattle anti-inflamatory drugs.&nbsp; The drugs caused renal failure in vultures feeding on the carcasses.&nbsp; With the vultures gone, India's feral dog population skyrocketed, and the feral dogs gave many people rabies.&nbsp; The loss of vultures is estimated to have cost the country at least $24 billion.&nbsp;</p>
+<p>This story illustrates how species matter, but it also shows us mind-bogglingly complex and unpredictable ecosystems can be.&nbsp; Could anyone have anticipated the cost of losing India's vultures?&nbsp; (Or the numerous other <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2554668/">examples</a> we have of cascading effects of species loss?) Bryan Norton <a href="http://www.ciesin.org/docs/002-256b/002-256b.html">used this metaphor to describe our ignorance</a> and argue against the idea of placing dollar values on species:</p>
+<blockquote>
+<p>I have been in a terrible accident, and I wake up in a hospital bed on a lifesupport system. The hospital is short on funds, and the hospital administrators are having a meeting at my bedside. They say they have examined all the other methods to raise the necessary money, and they are proposing to sell a few spare parts from my life-support system at a yard sale. One of them says, "This equipment is so complicated, a few parts won't be missed." "How much do you think this part is worth?" asks another, pointing toward a piece of shiny metal. I try to see what the part is connected to, but it is screwed into a big metal box that looks important. "Or that one over there; it looks like it's just cosmetic," another of them suggests. I almost agree, and then I notice that a main power line passes through it. "Stop! Not that one," I say. Just in time.</p>
+</blockquote>
+<p>Norton concludes, "The value of biodiversity is the value of everything there is."&nbsp; I agree philosophically.&nbsp; Practically, though, I draw a different conclusion.&nbsp; We need to move away from species-centric valuation, and find ways to make economic decisions based on aggregate measures of ecosystem health and stability.&nbsp; This, of course, will open a whole other can of worms (How to we measure it?&nbsp; Who is responsible for it?), but I think the whole-system perspective will serve us better.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Payments for ecosystem services are great, unless we do them enough to make a difference
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 09/30/2010 02:39:42 AM
+-----
+BODY:
+<p>The usually excellent Mongabay ran the scare headline, "<a href="http://news.mongabay.com/2010/0927-hance_tcs_pes.html">Could industrial interests ruin payments for environmental services?</a>" on a piece in <em>Tropical Conservation Science</em>.&nbsp; Thankfully the authors of the paper being reported on, "<a href="http://tropicalconservationscience.mongabay.com/content/v3/10-09-27_249-261_Pirard_et_al.pdf">Upscaling Payments for Environmental Services (PES): Critical issues</a>" are a little less alarmist.&nbsp; Nonetheless, I think that that their concern about large companies getting involved in ecosystem service markets is overwrought.</p>
+<blockquote>
+<p>PES have traditionally been conceived and applied in contexts where the providers of the service are populations (as opposed to industrial companies) &ndash; fishermen, farmers, forest dwellers....the compensation paid to the commercial sector benefiting from rights granted by society (government or local authorities) is at best questionable.</p>
+</blockquote>
+<p>This is a narrow and somewhat naive perspective. The <a href="http://www.ecosystemmarketplace.com/pages/dynamic/article.page.php?page_id=5917&amp;section=home&amp;eod=1">largest PES markets</a> are government mandated and mediated programs in the developed world, such as the&nbsp; U.S.'s Conservation Reserve Program.&nbsp; The recipients of PES in these cases are mostly large-scale landowners with industrial-size operations, and more recently wetland and habitat bankers.&nbsp; These actors are essential to getting PES to a scale where it can make a real difference.</p>
+<p>The authors do make some good points as to issues that need to get worked out, though, particularly with large-scale international carbon trading through REDD programs.</p>
+<ul>
+<li><strong>Concessions on public lands</strong> - Companies are extracting PES out of public lands on which they have been granted logging rights or other leases.&nbsp; Countries need to clarify what rights they retain to land they lease.&nbsp; It would be best international bodies that set standards for carbon trading, set limits on the types of concessions that companies can use to generate income from PES.&nbsp; </li>
+<li><strong>Polluter pays</strong> - It has been a long standing pillar of environmental policies that the polluter should pay the cost of their environmental degradation.&nbsp;&nbsp;PES somewhat flips this idea on its head when landowners are paid to <em>not</em> damage the environment.&nbsp; In purely economic terms, there should be no difference - a landowner is loosing money by foresaking this income.&nbsp;&nbsp; The real problem is one of access - the programs will be more efficient and equitable if they are scaled up and widely accessible.</li>
+<li><strong>"Use Restricting" vs. "Asset Building" PES</strong> - The authors draw a distinction between "use restricting" payments that merely prevent environmental degradation and "asset building" programs that explicitly use PES to drive sustainable development.&nbsp; It's an interesting contrast, but two thoughts come to mind.&nbsp; First, sustainable development aid needs broader and better funding sources than PES, which are probably too restrictive for real holistic development programs.&nbsp; Second, this dichotomy ignores a broad spectrum of in-between possibilities that would be ideal for private sector involvement, particularly large scale restoration programs.</li>
+</ul>
+<p>&nbsp;</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span></p>
+<p><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Tropical+Conservation+Science&amp;rft_id=info%3A%2F&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Upscaling+Payments+for+Environmental+Services+%28PES%29%3A+Critical+issues&amp;rft.issn=1940-0829&amp;rft.date=2010&amp;rft.volume=3&amp;rft.issue=3&amp;rft.spage=249&amp;rft.epage=261&amp;rft.artnum=http%3A%2F%2Ftropicalconservationscience.mongabay.com%2Fcontent%2Fv3%2F10-09-27_249-261_Pirard_et_al.pdf&amp;rft.au=Romain+Pirard&amp;rft.au=Rapha%C3%ABl+Bill%C3%A9&amp;rft.au=Thomas+Sembr%C3%A9s&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology">Romain Pirard, Rapha&euml;l Bill&eacute;, &amp; Thomas Sembr&eacute;s (2010). Upscaling Payments for Environmental Services (PES): Critical issues <span style="font-style: italic;">Tropical Conservation Science, 3</span> (3), 249-261</span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Harmful algal blooms highlight risks from cascading ecological collapse
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 10/01/2010 02:49:59 PM
+-----
+BODY:
+<p><span class="full-image-float-left ssNonEditable"><span><a href="http://www.physorg.com/news69420332.html"><img src="/storage/AlgalBlooms_BalticSea_MER_RR_Or_L.jpg?__SQUARESPACE_CACHEVERSION=1285944792546" alt="" width="225" height="225" /></a></span><span class="thumbnail-caption" style="width: 225px;">A plankton bloom in the Baltic sea.  Credit: ESA </span></span>Harmful algal blooms (HABs) are scary things.&nbsp;&nbsp; The occur when populations of algae explode in coastal environments.&nbsp; The algae suck up the oxygen and release neurotoxins into the water, and even the local air.&nbsp;&nbsp; Fisheries and beaches have to be shut down.&nbsp; People have been killed.&nbsp; HABs aren't predictable, but its clear that they more damaging and more common than they were in the past <a href="http://linkinghub.elsevier.com/retrieve/pii/S1568988308001066">due to nutrient pollution in coastal areas.</a><br /><br />Some recent studies on HABs have got me thinking about the long-term effects of these events.&nbsp; <br /><br />First, Melissa Miller and her team <a href="http://linkinghub.elsevier.com/retrieve/pii/S1568988308001066">document a new threat</a> - transport of toxins from HABs across space and up the food chain.&nbsp; In an excellent forensic study, they traced the the death of sea otters in Monterey Bay to toxins released by an algal bloom in a freshwater lake 8 km inland.&nbsp; While the toxins that flowed out to sea in small amount, they were accumulated and concentrated by filter-feeding clams and mussels, the otters' favorite foods.<br /><br />On the other side of the planet, a team of researchers have published <a href="http://linkinghub.elsevier.com/retrieve/pii/S1568988308001066">an account</a> of the damage wreaked by a HAB that spanned over 500 square kilometers.&nbsp;&nbsp; They studied the effects of the bloom on two coral reefs and found massive changes in their community structures.&nbsp; The mechanism? "Changes in species composition at both locations were mainly due to the reduction and/or complete elimination of the majority of species."<br /><br />The authors suggest that HABs have similar effects to severe coral bleaching event.&nbsp;&nbsp; As I've <a href="http://www.noamross.net/blog/2010/9/21/in-the-news-hysteresis-in-coral-reefs.html">discussed before</a>, such events can result in regime shifts that are very hard to reverse. <br /><br />To me, these studies highlight the potential for HABs, and other sudden events, to induce long-term changes in ecology and ecosystem services that extend far beyond the scope of direct damage from the blooms themselves.&nbsp; In particular, I wonder about their ability to cause chains of cascading regime shifts.&nbsp;&nbsp; Stephen Carpenter recently <a href="http://linkinghub.elsevier.com/retrieve/pii/S1568988308001066">published a paper</a> describing the forecasting problems posed by such cascades.﻿&nbsp; Suffice to say, we don't know how to do it yet.</p>
+<p><span style="padding: 5px; float: left;"><a href="http://www.researchblogging.org/"><img style="border: 0pt none;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Harmful+Algae&amp;rft_id=info%3Adoi%2F10.1016%2Fj.hal.2008.08.006&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Eutrophication+and+harmful+algal+blooms%3A+A+scientific+consensus&amp;rft.issn=15689883&amp;rft.date=2008&amp;rft.volume=8&amp;rft.issue=1&amp;rft.spage=3&amp;rft.epage=13&amp;rft.artnum=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1568988308001066&amp;rft.au=HEISLER%2C+J.&amp;rft.au=GLIBERT%2C+P.&amp;rft.au=BURKHOLDER%2C+J.&amp;rft.au=ANDERSON%2C+D.&amp;rft.au=COCHLAN%2C+W.&amp;rft.au=DENNISON%2C+W.&amp;rft.au=DORTCH%2C+Q.&amp;rft.au=GOBLER%2C+C.&amp;rft.au=HEIL%2C+C.&amp;rft.au=HUMPHRIES%2C+E.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CEcology%2C+Marine+Biology">&nbsp; HEISLER, J., GLIBERT, P., BURKHOLDER, J., ANDERSON, D., COCHLAN, W., DENNISON, W., DORTCH, Q., G</span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Harmful+Algae&amp;rft_id=info%3Adoi%2F10.1016%2Fj.hal.2008.08.006&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Eutrophication+and+harmful+algal+blooms%3A+A+scientific+consensus&amp;rft.issn=15689883&amp;rft.date=2008&amp;rft.volume=8&amp;rft.issue=1&amp;rft.spage=3&amp;rft.epage=13&amp;rft.artnum=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1568988308001066&amp;rft.au=HEISLER%2C+J.&amp;rft.au=GLIBERT%2C+P.&amp;rft.au=BURKHOLDER%2C+J.&amp;rft.au=ANDERSON%2C+D.&amp;rft.au=COCHLAN%2C+W.&amp;rft.au=DENNISON%2C+W.&amp;rft.au=DORTCH%2C+Q.&amp;rft.au=GOBLER%2C+C.&amp;rft.au=HEIL%2C+C.&amp;rft.au=HUMPHRIES%2C+E.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CEcology%2C+Marine+Biology">OBLER, C., HEIL, C., &amp; HUMPHRIES, E. (2008). Eutrophication and harmful algal blooms: A scientific consensus <span style="font-style: italic;">Harmful Algae, 8</span> (1), 3-13 DOI: <a rev="review" href="http://dx.doi.org/10.1016/j.hal.2008.08.006">10.1016/j.hal.2008.08.006</a></span>&nbsp;</p>
+<p><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=PLoS+ONE&amp;rft_id=info%3Adoi%2F10.1371%2Fjournal.pone.0012576&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Evidence+for+a+Novel+Marine+Harmful+Algal+Bloom%3A+Cyanotoxin+%28Microcystin%29+Transfer+from+Land+to+Sea+Otters&amp;rft.issn=1932-6203&amp;rft.date=2010&amp;rft.volume=5&amp;rft.issue=9&amp;rft.spage=0&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Fdx.plos.org%2F10.1371%2Fjournal.pone.0012576&amp;rft.au=Miller%2C+M.&amp;rft.au=Kudela%2C+R.&amp;rft.au=Mekebri%2C+A.&amp;rft.au=Crane%2C+D.&amp;rft.au=Oates%2C+S.&amp;rft.au=Tinker%2C+M.&amp;rft.au=Staedler%2C+M.&amp;rft.au=Miller%2C+W.&amp;rft.au=Toy-Choutka%2C+S.&amp;rft.au=Dominik%2C+C.&amp;rft.au=Hardin%2C+D.&amp;rft.au=Langlois%2C+G.&amp;rft.au=Murray%2C+M.&amp;rft.au=Ward%2C+K.&amp;rft.au=Jessup%2C+D.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMarine+Biology%2C+Microbiology+%2C+Ecology">Mill</span><span style="padding: 5px; float: left;"><span class="full-image-float-left ssNonEditable"><span><img src="http://www.researchblogging.org/public/citation_icons/rb2_small.png?__SQUARESPACE_CACHEVERSION=1285945747300" alt="" width="22" height="24" /></span></span></span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=PLoS+ONE&amp;rft_id=info%3Adoi%2F10.1371%2Fjournal.pone.0012576&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Evidence+for+a+Novel+Marine+Harmful+Algal+Bloom%3A+Cyanotoxin+%28Microcystin%29+Transfer+from+Land+to+Sea+Otters&amp;rft.issn=1932-6203&amp;rft.date=2010&amp;rft.volume=5&amp;rft.issue=9&amp;rft.spage=0&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Fdx.plos.org%2F10.1371%2Fjournal.pone.0012576&amp;rft.au=Miller%2C+M.&amp;rft.au=Kudela%2C+R.&amp;rft.au=Mekebri%2C+A.&amp;rft.au=Crane%2C+D.&amp;rft.au=Oates%2C+S.&amp;rft.au=Tinker%2C+M.&amp;rft.au=Staedler%2C+M.&amp;rft.au=Miller%2C+W.&amp;rft.au=Toy-Choutka%2C+S.&amp;rft.au=Dominik%2C+C.&amp;rft.au=Hardin%2C+D.&amp;rft.au=Langlois%2C+G.&amp;rft.au=Murray%2C+M.&amp;rft.au=Ward%2C+K.&amp;rft.au=Jessup%2C+D.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMarine+Biology%2C+Microbiology+%2C+Ecology">er, M., Kudela, R., Mekebri, A., Crane, D., Oates, S., Tinker, M., Staedler, M., Miller, W., Toy-Choutka, S., Dominik, C., Hardin, D., Langlois, G., Murray, M., Ward, K., &amp; Jessup, D. (2010). Evidence for a Novel Marine Harmful Algal Bloom: Cyanotoxin (Microcystin) Transfer from Land to Sea Otters <span style="font-style: italic;">PLoS ONE, 5</span> (9) DOI: <a rev="review" href="http://dx.doi.org/10.1371/journal.pone.0012576">10.1371/journal.pone.0012576</a></span>&nbsp;</p>
+<p><span style="padding: 5px; float: left;"><span class="full-image-block ssNonEditable"><span><a href="http://www.researchblogging.org/"><img style="border: 0pt none;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" width="22" height="26" /></a></span></span></span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Marine+Pollution+Bulletin&amp;rft_id=info%3Adoi%2F10.1016%2Fj.marpolbul.2010.08.015&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Tropical+harmful+algal+blooms%3A+An+emerging+threat+to+coral+reef+communities%3F&amp;rft.issn=0025326X&amp;rft.date=2010&amp;rft.volume=&amp;rft.issue=&amp;rft.spage=&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0025326X10003917&amp;rft.au=Bauman%2C+A.&amp;rft.au=Burt%2C+J.&amp;rft.au=Feary%2C+D.&amp;rft.au=Marquis%2C+E.&amp;rft.au=Usseglio%2C+P.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMarine+Biology%2C+Ecology">Bauman, A., Burt, J., Feary, D., Marquis, E., &amp; Usseglio, P. (2010). Tropical harmful algal blooms: An </span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Marine+Pollution+Bulletin&amp;rft_id=info%3Adoi%2F10.1016%2Fj.marpolbul.2010.08.015&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Tropical+harmful+algal+blooms%3A+An+emerging+threat+to+coral+reef+communities%3F&amp;rft.issn=0025326X&amp;rft.date=2010&amp;rft.volume=&amp;rft.issue=&amp;rft.spage=&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0025326X10003917&amp;rft.au=Bauman%2C+A.&amp;rft.au=Burt%2C+J.&amp;rft.au=Feary%2C+D.&amp;rft.au=Marquis%2C+E.&amp;rft.au=Usseglio%2C+P.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMarine+Biology%2C+Ecology">emerging threat to coral reef communities? <span style="font-style: italic;">Marine Pollution Bulletin</span> DOI: <a rev="review" href="http://dx.doi.org/10.1016/j.marpolbul.2010.08.015">10.1016/j.marpolbul.2010.08.015</a></span>&nbsp;</p>
+<p><span style="padding: 5px; float: left;"><a href="http://www.researchblogging.org/"><img style="border: 0pt none;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecological+Monographs&amp;rft_id=info%3Adoi%2F10.1890%2F09-1824.1&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Interacting+regime+shifts+in+ecosystems%3A+implication+for+early+warnings&amp;rft.issn=0012-9615&amp;rft.date=2010&amp;rft.volume=80&amp;rft.issue=3&amp;rft.spage=353&amp;rft.epage=367&amp;rft.artnum=http%3A%2F%2Fwww.esajournals.org%2Fdoi%2Fabs%2F10.1890%2F09-1824.1&amp;rft.au=Brock%2C+W.&amp;rft.au=Carpenter%2C+S.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMathematics%2CApplied+Mathematics%2C+Ecology">Brock, W., &amp; Carpenter, S. (2010). Interacting regime shifts in ecosystems: implication for early w</span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecological+Monographs&amp;rft_id=info%3Adoi%2F10.1890%2F09-1824.1&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Interacting+regime+shifts+in+ecosystems%3A+implication+for+early+warnings&amp;rft.issn=0012-9615&amp;rft.date=2010&amp;rft.volume=80&amp;rft.issue=3&amp;rft.spage=353&amp;rft.epage=367&amp;rft.artnum=http%3A%2F%2Fwww.esajournals.org%2Fdoi%2Fabs%2F10.1890%2F09-1824.1&amp;rft.au=Brock%2C+W.&amp;rft.au=Carpenter%2C+S.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMathematics%2CApplied+Mathematics%2C+Ecology">arnings <span style="font-style: italic;">Ecological Monographs, 80</span> (3), 353-367 DOI: <a rev="review" href="http://dx.doi.org/10.1890/09-1824.1">10.1890/09-1824.1</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Rapid evolution as a warning sign
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 10/02/2010 08:58:29 PM
+-----
+BODY:
+<p><span class="full-image-float-left ssNonEditable"><span><a href="javascript:showFullImage('/display/ShowImage?imageUrl=%2Fstorage%2Fxmen11_cover.jpg%3F__SQUARESPACE_CACHEVERSION%3D1286053157327',609,400);"><img src="/storage/thumbnails/5780616-8795910-thumbnail.jpg?__SQUARESPACE_CACHEVERSION=1286054685563" alt="" /></a></span></span>One of the emerging themes of my course in rapid environmental change is how humans have accelerated natural processes to a pace never seen before in earth's history.&nbsp; For instance, climate change has in the past occurred at scales of tens of thousands of years or longer, but man-made climate change in happening at the pace of decades or centuries.</p>
+<p>Less well-known is the effect we can have on the speed of evolution.&nbsp; Human-driven environmental pressures can force species to adapt at speeds rarely seen in the past.&nbsp;&nbsp; For instance, the extreme scale and intensity of fishing in the past fifty years has caused rapid evolution in fish.&nbsp; When we catch and eat all the big fish in in a population, we make it evolutionarily advantageous for fish to lay eggs when they are younger and smaller.&nbsp; During the collapse of the North Atlantic cod fishery in the late '80s and early '90s, it took just a decade for the average of maturity to drop from six years to five.&nbsp;</p>
+<p>This cod story is documented in a <a href="http://www.nature.com/nature/journal/v428/n6986/full/nature02430.html">2004 paper</a> by Olsen et. al. in <em>Nature.</em>&nbsp; While the phenomenon had been observed before, their team used a novel technique to tease the evolutionary signal out from other trends in the cod population.&nbsp;&nbsp; More interesting to me, though, is that they were able to detect the change using old data not originally collected for this purpose.&nbsp; They found that the accelerating pace of evolution was evident as far back as 1985, just as the collapse of the cod fishery was getting underway.</p>
+<p>This suggests that one might be able to monitor species for evolutionary changes as a warning of extreme environmental pressures.&nbsp;&nbsp; The authors themselves warn that evolutionary changes should not be misinterpreted as signs of imminent collapse, but surely when human impacts become the driving factor behind evolution, something is amiss.&nbsp; We may be able to catch ourselves before we permanently alter a population for the worse.</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Nature&amp;rft_id=info%3Adoi%2F10.1038%2Fnature02430&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Maturation+trends+indicative+of+rapid+evolution+preceded+the+collapse+of+northern+cod&amp;rft.issn=0028-0836&amp;rft.date=2004&amp;rft.volume=428&amp;rft.issue=6986&amp;rft.spage=932&amp;rft.epage=935&amp;rft.artnum=http%3A%2F%2Fwww.nature.com%2Fdoifinder%2F10.1038%2Fnature02430&amp;rft.au=Olsen%2C+E.&amp;rft.au=Heino%2C+M.&amp;rft.au=Lilly%2C+G.&amp;rft.au=Morgan%2C+M.&amp;rft.au=Brattey%2C+J.&amp;rft.au=Ernande%2C+B.&amp;rft.au=Dieckmann%2C+U.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CMarine+Biology%2C+Evolutionary+Biology%2C+Ecology">Olsen, E., Heino, M., Lilly, G., Morgan, M., Brattey, J., Ernande, B., &amp; Dieckmann, U. (2004). Maturation trends indicative of rapid evolution preceded the collapse of northern cod <span style="font-style: italic;">Nature, 428</span> (6986), 932-935 DOI: <a rev="review" href="http://dx.doi.org/10.1038/nature02430">10.1038/nature02430</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: In honeybee collapse, cure the patient, not just the disease.
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+DATE: 10/07/2010 04:07:43 PM
+-----
+BODY:
+<p>My <a href="http://www.greenbiz.com/blog/2007/03/05/what-silent-spring-means-business-risk">first published article</a> examined implications of the massive collapse of honeybee populations on business, so I feel compelled to comment on the latest development in the hunt for the cause of colony collapse disorder (CCD).</p>
+<p>There is a <a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0013181;jsessionid=DCA25DEC6735B7A5A8AC0A1AD9189DD1.ambra01">new article</a> out on the subject by a team led by University of Montana researchers and the US Army Chemical Biological center.&nbsp; Using proteomic sequencing, they found two culprits in the bodies of dead bees: invertebrate iridescent virus (IIV), a long-stranded DNA virus, and <em>Nosema, </em>a fungal spore.&nbsp; Both had been detected in bees found dead of CCD before, but here they showed that affected bees were most likely to have both pathogens working in concert.</p>
+<p>It's an encouraging development.&nbsp; However, I'd like to point out that <a href="http://www.nytimes.com/2010/10/07/science/07bees.html">news coverage</a> that emphasizes the "we found it!" narrative misses the important lessons that have come out of the CCD experience.&nbsp; Previous researchers <a href="http://www.sciencemag.org/cgi/content/full/327/5962/152">had predicted</a> that the cause of CCD would not likely be a new pathogen but a combination of interacting effects, and pointed out that the rise of highly technical, industrialized monoculture beekeeping in the U.S. had left bee-pollinated agriculture vulnerable to new combinations such as these.&nbsp;&nbsp; The effects of pesticides, stress, and the mass trucking of bee populations around the country are still unknown but likely exacerbate the effects of pests, new and old.</p>
+<p>If we can protect bees from IIV and <em>Nosema</em>, great.&nbsp; However, it is just as important to build resilience and diversity into our agricultural system so as to reduce the risks associated with unknown future diseases.&nbsp; Otherwise we will be unprepared for the next CCD that will inevitably come.</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=PLoS+ONE&amp;rft_id=info%3Adoi%2F10.1371%2Fjournal.pone.0013181&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Iridovirus+and+Microsporidian+Linked+to+Honey+Bee+Colony+Decline&amp;rft.issn=1932-6203&amp;rft.date=2010&amp;rft.volume=5&amp;rft.issue=10&amp;rft.spage=0&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Fdx.plos.org%2F10.1371%2Fjournal.pone.0013181&amp;rft.au=Bromenshenk%2C+J.&amp;rft.au=Henderson%2C+C.&amp;rft.au=Wick%2C+C.&amp;rft.au=Stanford%2C+M.&amp;rft.au=Zulich%2C+A.&amp;rft.au=Jabbour%2C+R.&amp;rft.au=Deshpande%2C+S.&amp;rft.au=McCubbin%2C+P.&amp;rft.au=Seccomb%2C+R.&amp;rft.au=Welch%2C+P.&amp;rft.au=Williams%2C+T.&amp;rft.au=Firth%2C+D.&amp;rft.au=Skowronski%2C+E.&amp;rft.au=Lehmann%2C+M.&amp;rft.au=Bilimoria%2C+S.&amp;rft.au=Gress%2C+J.&amp;rft.au=Wanner%2C+K.&amp;rft.au=Cramer%2C+R.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CAgriculture%2C+Ecology%2C+Molecular+Biology">Bromenshenk, J., Henderson, C., Wick, C., Stanford, M., Zulich, A., Jabbour, R., Deshpande, S., McCubbin, P., Seccomb, R., Welch, P., Williams, T., Firth, D., Skowronski, E., Lehmann, M., Bilimoria, S., Gress, J., Wanner, K., &amp; Cramer, R. (2010). Iridovirus and Microsporidian Linked to Honey Bee Colony Decline <span style="font-style: italic;">PLoS ONE, 5</span> (10) DOI: <a rev="review" href="http://dx.doi.org/10.1371/journal.pone.0013181">10.1371/journal.pone.0013181</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Measuring resilience to climate-change driven crop failure
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+DATE: 10/08/2010 04:46:42 AM
+-----
+BODY:
+<p><span>A number of news outlets have picked up on a <a href="http://iopscience.iop.org/1748-9326/5/3/034012/pdf/1748-9326_5_3_034012.pdf">new article</a> in Environmental Research Letters by Andy Challinor and a team at the University at Leeds.&nbsp; The standard headline is "<a href="http://www.businessweek.com/news/2010-10-07/crop-failures-to-increase-on-climate-change-researchers-say.html">Crop Failures to Increase With Climate Change</a>," but I think the much more interesting part of the research is the author's creation of a vulnerability index based on the historical crop data in China.&nbsp; Essentially, they looked at periods of drought in the past, and examined how well farmers were able to mitigate the drought's effects through additional labor or technology: </span></p>
+<blockquote>
+<p><span>A high vulnerability index identiﬁes years and/or regions where the yield loss was large relative to the size of the drought. A low value of VI indicates that the efﬁcacy of the socio-economic adaptation to drought is high, for example due to good water management, increasing fertilizer, per capita investments in agriculture, and falling numbers of rural households.</span></p>
+</blockquote>
+<p><span>The authors point out that investment in resilience and adaptation is most important in areas where high vulnerabilities were found and where crop failures are most likely.&nbsp; Also, interestingly, they note that while vulnerability generally goes down with increasing GDP, this doesn't apply in all cases.&nbsp; Investments specific to adaptive capacity may be more effective than an indiscriminate focus on economic growth.</span></p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Environmental+Research+Letters&amp;rft_id=info%3Adoi%2F10.1088%2F1748-9326%2F5%2F3%2F034012&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Increased+crop+failure+due+to+climate+change%3A+assessing+adaptation+options+using+models+and+socio-economic+data+for+wheat+in+China&amp;rft.issn=1748-9326&amp;rft.date=2010&amp;rft.volume=5&amp;rft.issue=3&amp;rft.spage=34012&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Fstacks.iop.org%2F1748-9326%2F5%2Fi%3D3%2Fa%3D034012%3Fkey%3Dcrossref.f51110284f4715fe09029e8dcc998c21&amp;rft.au=Challinor%2C+A.&amp;rft.au=Simelton%2C+E.&amp;rft.au=Fraser%2C+E.&amp;rft.au=Hemming%2C+D.&amp;rft.au=Collins%2C+M.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CGeosciences%2CAgriculture%2C+Climate+Science">Challinor, A., Simelton, E., Fraser, E., Hemming, D., &amp; Collins, M. (2010). Increased crop failure due to climate change: assessing adaptation options using models and socio-economic data for wheat in China <span style="font-style: italic;">Environmental Research Letters, 5</span> (3) DOI: <a rev="review" href="http://dx.doi.org/10.1088/1748-9326/5/3/034012">10.1088/1748-9326/5/3/034012</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Does ecology tell us that some species are worth more than others?
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 10/11/2010 04:23:11 AM
+-----
+BODY:
+<p>I just read a great <a href="http://www.bioone.org/doi/abs/10.1641/0006-3568%282005%29055%5B0168:SISCPM%5D2.0.CO%3B2">paper</a> by Michael Soul&eacute; et. al. discussing the management implications some ideas in ecology that have outpaced environmental policy.</p>
+<p>The authors, a mix of ecologists and conservationists,&nbsp; argue that some species, which they call "strongly interacting species," deserve higher priority in conservation because of their unique roles in ecosystems.&nbsp; These species have gone by many names in the ecological literature, including "keystone species," and "ecosystem engineers."&nbsp; Essentially, these species have a strong effect on the species around them and the functioning of their ecosystems.&nbsp; For instance, sea otters eat sea urchins, preventing the urchins from razing kelp forests. &nbsp; Prairie dogs turn over and improve soil, increase plant productivity, creates new habitat for other species.</p>
+<p>One problem the authors point out is that our existing policy tools are not designed to handle this level of complexity.&nbsp; The Endangered Species Act only requires that species be protected until their populations are large enough to prevent extinction.&nbsp; But much larger populations are neccessary for these species to perform their ecological function effectively.</p>
+<p>I think this raises some really interesting economic questions.&nbsp; For instance, if a species is shown to have a greater ecological function, is it worth more from a social or economic point of view?&nbsp; It seems to me that such species would have a greater value in delivering ecosystem services, as well as maintaining the "intrinsic" or "existence" value of an ecosystem to society.</p>
+<p>Also, how do we measure and define "strongly interacting" species?&nbsp; The authors put forward some qualitative questions one could ask.&nbsp; (e.g., "Does the absence or decrease in abundance of the species change an important ecological process in the system?")&nbsp; However, I think it's a pretty useful exercise to try to figure out what a standardized, quantitative measure would be.&nbsp;&nbsp; One could theoretically measure the relative impact of one individual of a species on, say, a number that represents food web complexity, or system stability.&nbsp; This might get us closer to finding effective ways to quantify "regulating" ecosystem services, which are the most difficult to value.</p>
+<p>Is there any work out there that's attempted to compare the relative importance of "strongly interacting" species across different ecosystems?&nbsp; I'd love to hear others' thoughts on this topic.</p>
+
+<span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img alt="ResearchBlogging.org" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" style="border:0;"/></a></span>
+
+<span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=BioScience&rft_id=info%3Adoi%2F10.1641%2F0006-3568%282005%29055%5B0168%3ASISCPM%5D2.0.CO%3B2&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=Strongly+Interacting+Species%3A+Conservation+Policy%2C+Management%2C+and+Ethics&rft.issn=0006-3568&rft.date=2005&rft.volume=55&rft.issue=2&rft.spage=168&rft.epage=&rft.artnum=http%3A%2F%2Fcaliber.ucpress.net%2Fdoi%2Fabs%2F10.1641%2F0006-3568%282005%29055%5B0168%3ASISCPM%5D2.0.CO%3B2&rft.au=SOUL%C3%89%2C+M.&rft.au=ESTES%2C+J.&rft.au=MILLER%2C+B.&rft.au=HONNOLD%2C+D.&rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CSocial+Science%2CEcology%2C+Conservation%2C+Economics">SOULÉ, M., ESTES, J., MILLER, B., & HONNOLD, D. (2005). Strongly Interacting Species: Conservation Policy, Management, and Ethics <span style="font-style: italic;">BioScience, 55</span> (2) DOI: <a rev="review" href="http://dx.doi.org/10.1641/0006-3568(2005)055[0168:SISCPM]2.0.CO;2">10.1641/0006-3568(2005)055[0168:SISCPM]2.0.CO;2</a></span>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Liability for stolen ecosystem services
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+DATE: 10/11/2010 05:40:40 PM
+-----
+BODY:
+<p><span class="full-image-block ssNonEditable"><span><img style="width: 400px;" src="/storage/t1larg.jpg?__SQUARESPACE_CACHEVERSION=1286820372899" alt="" /></span></span></p>
+<p>In Wasior, Papua New Guinea, flash floods have <a href="http://www.cnn.com/2010/WORLD/asiapcf/10/11/indonesia.flooding/">killed well over 100 people</a>.&nbsp; Conservation groups <a href="http://www.thejakartapost.com/news/2010/10/09/wasior-flood-blamed-deforestation.html">blame illegal logging activities</a> in the Wasior area for exacerbating the flooding, and the Indonesian government is <a href="http://www.reuters.com/article/idUSTRE69A1GS20101011">investigating this possibility.</a></p>
+<p>While this case is still uncertain, it is clear that deforestation leads to increased flood risk.&nbsp; CJA Bradshaw and colleagues published an <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1365-2486.2007.01446.x/abstract">article</a> in Global Change Biology showing that at 10% increase in deforestation leads to a 4%-28% increase in flood frequencies in developing countries.&nbsp; (See <a href="http://conservationbytes.com/2008/08/20/native-forests-reduce-the-risk-of-catastrophic-floods/">his own blog</a> for more details on the science.)</p>
+<p>My question is: How far does liability for the flood damage extend?&nbsp; If logging can be shown to bear the blame for this or other disasters, can those who benefit from the logging be sued?&nbsp; They have, in essence, stolen locals' ecosystem services.</p>
+<p>This isn't a theoretical question.&nbsp; The legal infrastructure tying manufacturers of wood products to forest damages is being assembled.&nbsp; In the U.S.,&nbsp; 2008 amendments to the Lacey Act banned commerce in illegally harvested the U.S.&nbsp; Last year, Gibson Guitar's Nashville factory <a href="http://nashville.bizjournals.com/nashville/stories/2009/11/16/daily25.html">was raided</a> by federal agents for using wood from illegal sources.&nbsp; (WRI has a <a href="http://www.wri.org/stories/2010/10/declarations-and-due-care-insights-another-lacey-case">write-up</a> for supply chain managers the Lacey Act.)</p>
+<p>With law enforcement pursuing cases like this, evidence will be assembled tying manufacturers all the way back to forests.&nbsp;&nbsp; When science links forests to ecosystem services such as carbon storage and flood control,&nbsp; and markets put explicit values on these ecosystem functions, companies may find themselves responsible for a whole new set of damages.&nbsp;</p>
+-----
+COMMENT:
+AUTHOR: Andrew Collier
+EMAIL: 
+IP: 67.188.111.12
+URL: 
+DATE: 10/15/2010 10:51:43 PM
+<p>It&#39;s particularly important to maintain ecosystem integrity in riparian zones.  Take a look at what China is doing along the banks of the Yangtze: http://news.xinhuanet.com/english2010/china/2010-10/08/c_13547874.htm</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Saving more than species at Nagoya
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 10/16/2010 02:47:55 AM
+-----
+BODY:
+<p>There's been a whole lot of interesting stuff coming out this week related the <a href="http://www.cbd.int/cop10/">Conference of the Parties (COP 10) for the Convention on Biological Diversity (CBD)</a> going on in Nagoya, Japan right now. &nbsp; CBD's goal was to slow the loss of biodiversity loss by 2010, but that goal was not achieved, and nations are hammering out how to revive the CBD with new goals for 2020.</p>
+<p>At a prepatory meeting in May, governments agreed on <a href="http://www.cbd.int/doc/meetings/cop/cop-10/official/cop-10-09-en.pdf"><span>20 more specific draft targets</span></a>, which aim to be &ldquo;SMART&rdquo; - specific, measurable, ambitious, realistic, and time-bound.&nbsp; A <a href="http://www.sciencemag.org/cgi/doi/10.1126/science.1196431">piece in this week's <em>Science</em></a>, by some of the world's biodiversity experts raised some issues that the current draft targets fail to address. Here are my thoughts on a couple:<em><strong>&nbsp;</strong></em></p>
+<p><em><strong>F</strong></em><em><strong>unctional diversity</strong></em> is a new advance in recent years in how we quantify biodiversity science.&nbsp; It refers the mix of traits and functions present in an ecosystem.&nbsp; For an ecosystem to function properly it needs the right mix of species that perform different tasks, like pollinators, decomposers, and soil stabilizers.&nbsp; This measure of diversity is potentially much more important than a simple count of species.&nbsp; The authors argue that this concept should be explicitly integrated into the targets for 2020.&nbsp;&nbsp; The one draft target that awknowledges that biodiversity exists at different scales is #13, which says:</p>
+<blockquote>
+<p>By 2020, the loss of genetic diversity of cultivated plants and domestic farm animals in agricultural ecosystems and of wild relatives is halted and strategies have been developed and implemented for safeguarding the genetic diversity of other priority socio-economically valuable species as well as selected wild species of plants and animals.</p>
+</blockquote>
+<p>Genetic diversity is an important component of functional diversity, but I think this statement reflects an underappreciation of the role genetic diversity plays in ecosystems.&nbsp; I think it comes out of a notion that genetic diversity is neccessary for <em>survivial </em>of species, and thus we should ensure that our crops and a few cherished or very important species have enough genetic diversity to persist.&nbsp; However, genetic diversity itself often underlies the functions that species have in ecosystems.&nbsp; I think this should refer to something like "the genetic diversity across species in ecosystems."</p>
+<p>The other issue the authors raise that I'd like to comment on is <em><strong>uncertainty</strong></em>.&nbsp; They write:</p>
+<blockquote>
+<p>How much diversity it is critical to maintain depends on the range of environmental conditions expected. The greater the expected variation in environmental conditions, the greater the required diversity within groups providing particular functions. Ecological functioning <em>may change as environmental conditions change</em>. Targets for diversity within functional groups of species should adjust with changes in expectations about the state of the environment.</p>
+</blockquote>
+<p>It's not that ecological functioning "may" change - it WILL change.&nbsp; We live in <a href="http://www.noamross.net/blog/2010/10/2/rapid-evolution-as-a-warning-sign.html">a world changing faster</a> than anytime in history or what we know of pre-history.&nbsp; To me, this is the biggest thing missing from these goals - an awknowledgement that we no longer have a "baseline scenario" to return to, and no matter what we do, the world and its biodiversity will look very different in 2020 or beyond.</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Science&amp;rft_id=info%3Adoi%2F10.1126%2Fscience.1196431&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Ecosystem+Services+for+2020&amp;rft.issn=0036-8075&amp;rft.date=2010&amp;rft.volume=330&amp;rft.issue=6002&amp;rft.spage=323&amp;rft.epage=324&amp;rft.artnum=http%3A%2F%2Fwww.sciencemag.org%2Fcgi%2Fdoi%2F10.1126%2Fscience.1196431&amp;rft.au=Perrings%2C+C.&amp;rft.au=Naeem%2C+S.&amp;rft.au=Ahrestani%2C+F.&amp;rft.au=Bunker%2C+D.&amp;rft.au=Burkill%2C+P.&amp;rft.au=Canziani%2C+G.&amp;rft.au=Elmqvist%2C+T.&amp;rft.au=Ferrati%2C+R.&amp;rft.au=Fuhrman%2C+J.&amp;rft.au=Jaksic%2C+F.&amp;rft.au=Kawabata%2C+Z.&amp;rft.au=Kinzig%2C+A.&amp;rft.au=Mace%2C+G.&amp;rft.au=Milano%2C+F.&amp;rft.au=Mooney%2C+H.&amp;rft.au=Prieur-Richard%2C+A.&amp;rft.au=Tschirhart%2C+J.&amp;rft.au=Weisser%2C+W.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CSocial+Science%2CEcology%2C+Political+Science%2C+Conservation">Perrings, C., Naeem, S., Ahrestani, F., Bunker, D., Burkill, P., Canziani, G., Elmqvist, T., Ferrati, R., Fuhrman, J., Jaksic, F., Kawabata, Z., Kinzig, A., Mace, G., Milano, F., Mooney, H., Prieur-Richard, A., Tschirhart, J., &amp; Weisser, W. (2010). Ecosystem Services for 2020 <span style="font-style: italic;">Science, 330</span> (6002), 323-324 DOI: <a rev="review" href="http://dx.doi.org/10.1126/science.1196431">10.1126/science.1196431</a></span></p>
+-----
+COMMENT:
+AUTHOR: Jonathan Rechtman
+EMAIL: jonbaron@gmail.com
+IP: 115.172.226.239
+URL: http://www.jonathanrechtman.com
+DATE: 10/16/2010 06:14:05 AM
+<p>Okay, but a healthy understanding of uncertainty and change could easily degrade into an easy scapegoat for not reaching long-term goals (like the 2010 CBD targets), or even a refusal to set them in the first place (Cop15). </p><p>At some point, you have to make an assumption about the future environment generally, even if it&#39;s kind of a shot in the dark. </p><p>I say, aim a bit high for short term goals and a bit low for long term goals... that way you&#39;ll have the fear of failure pressuring you the whole way and in the end still get to pat yourself on the back when you limp over the undemanding finish line. </p><p>Got me through college.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Why the carbon market needs ecologists
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 10/16/2010 04:20:28 AM
+-----
+BODY:
+<p>&nbsp;</p>
+<p>Last week the Journal of Applied Ecology had an article titled, "<a href="http://doi.wiley.com/10.1111/j.1365-2664.2010.01885.x">How can ecologists help realize the potential of payments for carbon in tropical forest countries?</a>" It outlined ways that ecologists could make themselves useful in Reducing Emissions from Deforestation and Degradation (REDD).&nbsp; The article was aimed at ecologists, but I'm going to give the authors' insights a different twist.&nbsp; In the interest of the welfare of my colleagues, I'd like to point out to the carbon community that ecological expertise is worth some money.</p>
+<ul>
+<li><em><strong>Ecologists can develop more accurate forecasts - </strong></em>The authors document a case in Peru where project developers overestimated the carbon credits they could generate by 15%.&nbsp; Ecologists, by taking into account the regions' drought history, were able to make a more credible and accurate prediction, allowing the developers to make a better investment decision.&nbsp; (Based on <a href="http://moderncms.ecosystemmarketplace.com/repository/moderncms_documents/SFCM_2009_smaller.pdf">Ecosystem Marketplace's data</a>, I roughly estimate this made $100,000 difference)</li>
+</ul>
+<ul>
+<li><em><strong>Ecologists can find cheaper monitoring methods - </strong></em>Set up and monitoring can comprise 40% of project costs.&nbsp; At one Amazonian site, much of forest degradation was the result of poaching palm fruits, which killed female trees.&nbsp; Ecologists figured out that the level of poaching could me measured by comparing the ratio of male to female trees, easily done with little training during flowering season.&nbsp; This method is considerably cheaper (and safer), than surveilling for poaching activity.</li>
+</ul>
+<p>See?&nbsp; Project developers, hire an ecologist.&nbsp; I recommend those trained at <a href="http://ecology.ucdavis.edu/">UC Davis</a> or <a href="http://envstudies.brown.edu/">Brown University.</a></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Reading philosophy can get you down
+STATUS: Publish
+ALLOW COMMENTS: 1
+DATE: 10/18/2010 07:34:53 PM
+-----
+BODY:
+<p>Reading Lawrence Hinman's "Ethics, a Pluralistic Approach to Moral Theory," I came across this quote in a discussion of valuing utility to future generations:</p>
+<blockquote>
+<p>...they do not yet exist - and, depending on our actions, they may never exist.</p>
+</blockquote>
+<p>I stared at this for a long time.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: New approaches to looking at water-related financial risks
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 10/21/2010 04:56:46 PM
+-----
+BODY:
+<!-- p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.0px; font: 12.0px Lucida Sans; color: #444444} p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 20.0px; font: 12.0px Lucida Sans; color: #444444; min-height: 15.0px} -->
+<p class="p1">There's an <a href="http://www.nytimes.com/2010/10/21/business/21water.html ">article in the <em>Times </em>today</a> about risks that utilities face due to water shortages.&nbsp; The story is based on <a href="http://www.ceres.org/Document.Doc?id=625">a new report from Ceres and PricewaterhouseCoopers</a> which claims that bond ratings agencies haven't adequately incorporated these risks into their ratings, causing an over-valuation of bonds issued by cities and public utilities. &nbsp; Ceres and PwC base their analyses on future projections of water supply and demand, which in turn are predicted from demographic and climate predictions. &nbsp;</p>
+<p class="p1">Water risks extend far beyond the utility sector, though, and they extend beyond shrinking water supply to more subtle issues such as water quality, infrastructure maintenance and local water governance, especially for companies working in the developing world.</p>
+<p class="p1">I've had the chance to preview new tool from the World Resources Institute that looks at these broader issues. The <a href="http://www.wri.org/stories/2010/03/water-risk-could-sink-investors">Water Risk Index</a>&nbsp;(WRI's WRI!), developed with Goldman Sachs' <a href="http://www2.goldmansachs.com/citizenship/environment/center-for-environmental-markets/index.html">Center for Environmental Markets</a>, incorporates incorporates a variety of metrics into an index to measure water-related financial risk.</p>
+<p class="p1">Two aspects of the WRI make it particularly useful.&nbsp; First, it's local. Water risks are quite specific to location of companies or projects, and require data at the watershed level to provide any real insight.&nbsp; The drawback to this, of course, is that one requires lots of local-level data.&nbsp; As such, the WRI pilot project is currently only fully parameterized for the Yellow River Basin in China.</p>
+<p class="p1">Secondly, it's integrated.&nbsp; Most environmental, social, and governance metrics deal with these issues separately and then combine scores at a company level.&nbsp; However, performance in these areas are related at much finer scale, and WRI's index analyzes interactions between variables such as drought probability and the capacity of local government to identify risk.</p>
+<p class="p1">I'm encouraged by this work.&nbsp; Both Ceres' and WRI's indicators are steps towards more subtle and useful ways of looking at the relationship between water and company's decisions. &nbsp; These and other new tools (like <a href="http://www.riskmetrics.com/climate_risk_management/carbon_beta">RiskMetrics' Carbon Beta</a>) can help bring the real costs and values of environmental externalities into financial decision-making.</p>
+<p class="p1">If you want to play around with the water risk index, the pilot web tool is <a href="http://dev3.wri.org/wri/the-water-risk-index/">available here</a>.&nbsp;(Google Chrome is recommended due to the large data requirements.)</p>
+<p class="p1">&nbsp;<span class="full-image-block ssNonEditable"><span><img style="width: 450px;" src="/storage/Screenshot%208.PNG?__SQUARESPACE_CACHEVERSION=1287681251942" alt="" /></span><span class="thumbnail-caption" style="width: 450px;">Output from the Water Risk Index tool - in this case, socially-driven supply disruption risk.  I took a bicycle trip through the red-colored eastern area this summer, and the results don't surprise me.  There's tremendous industrial development occurring there alongside large-scale, water-intense shrimp farming.</span></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Thinking about TEEB
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+DATE: 10/23/2010 10:39:16 PM
+-----
+BODY:
+<div id="_mcePaste"></div>
+<div id="_mcePaste"><span class="full-image-float-left ssNonEditable"><span><img style="width: 200px;" src="/storage/teeb.png?__SQUARESPACE_CACHEVERSION=1287874538526" alt="" /></span></span>
+<p>I've been reading <a href="http://www.teebweb.org/LinkClick.aspx?fileticket=bYhDohL_TuM%3d&amp;tabid=924&amp;mid=1813">the latest report from The Economics of Ecosystems and Biodiversity (TEEB) study</a>, &nbsp;which was released this week at the meeting for the Convention for Biological Diversity. &nbsp;I've been skeptical as to the utility of the project, which was billed as a "Stern Report for Biodiversity" when it was begun three years ago. &nbsp;Nicholas Stern's report on the economic impact of climate change could be reduced to a few numbers - the cost of mitigation, and the cost of action, tons of carbon released and its concentration in the atmosphere. &nbsp;Biodiversity doesn't lend itself to such simplification.</p>
+<p>As such, TEEB's final results resemble a review of literature more than a synthetic research study. &nbsp;The latest report, actually, is really a synthesis of interim studies already released.</p>
+<div></div>
+<div id="_mcePaste"></div>
+<div id="_mcePaste"></div>
+<p>However, I think TEEB's findings and recommendations will likely impact policy more than the sum of its parts could. &nbsp;This is partially because of the communications savviness of its team. &nbsp;The report is an easier read than most of the news articles covering its release, and light-years beyond most committee-written technical reports in clarity and quality. &nbsp;The project's leader, Pavan Sukhdev, has shown himself to be an <a href="http://www.noamross.net/blog/2010/9/22/money-quote.html">eloquent</a>&nbsp;and <a href="http://www.youtube.com/watch?v=VZWnMaX_bsY communicator">charismatic</a>&nbsp;communicator. &nbsp;TEEB, unlike Stern, released <a href="http://www.teebweb.org/InformationMaterial/TEEBReports/tabid/1278/Default.aspx">draft reports</a> targeted at different stakeholder groups in order to generate buzz and feedback, and recently launched a <a href="http://bankofnaturalcapital.com/">slick web media campaign</a>.</p>
+<div></div>
+<div></div>
+<p>As the TEEB report itself points out, its "recommendations are aimed far beyond the remit of most environment ministries and environmental institutions," so the focus on outreach to other groups and the public makes a lot of sense. &nbsp;(This is an improvement over the failures of the IPCC, which as Rebecca Lutzy <a href="http://twitter.com/#!/rebeccalutzy/status/27876584108">noted</a>, had zero public communications staff when Climategate "broke.")</p>
+<div></div>
+<div id="_mcePaste"></div>
+<div id="_mcePaste"></div>
+<p>The other thing that struck me about the report was the emphasis on the limits, risks, and complexities quantitative economic approaches. &nbsp;Some <a href="http://www.ft.com/cms/s/0/39b6b3dc-dba9-11df-a1df-00144feabdc0.html">news accounts</a> of TEEB have focused on the cited figures of $2-$4.5 trillion lost annually in global natural capital. &nbsp; The report, though, de-emphasizes such numbers, saying,</p>
+</div>
+<div id="_mcePaste">
+<p>&nbsp;</p>
+<blockquote>
+<p>Estimating the costs of biodiversity loss at a global scale remains a controversial and complex undertaking, and the resulting numbers should be used with care....</p>
+<div></div>
+<div id="_mcePaste"></div>
+<div id="_mcePaste"></div>
+<p>Valuation is seen not as a panacea, but rather as a tool to help recalibrate the faulty economic compass that has led us to decisions that are prejudicial to both current well-being and that of future generations....</p>
+<div></div>
+<div id="_mcePaste"></div>
+<div id="_mcePaste"></div>
+<p>It first needs to be stressed that valuation is best applied for assessing the consequences of changes resulting from alternative management options rather than for attempting to estimate the total value of ecosystems....</p>
+<div></div>
+<div id="_mcePaste"></div>
+<div id="_mcePaste"></div>
+<p>Monetary valuation of biodiversity and ecosystem services may be unnecessary, or even counterproductive if it is seen as contrary to cultural norms or fails to reflect a plurality of values....</p>
+</blockquote>
+<div id="_mcePaste"></div>
+The synthesis report instead focuses on a framework of <em><strong>recognizing</strong></em>, <em><strong>demonstrating</strong></em>, and <strong><em>capturing value</em></strong> from ecosystems. &nbsp;Quantative valuation and market based mechanisms are held up as a subset of many tools available for protecting ecosystems. &nbsp;I think this approach actually makes economic approaches more appealling; by awknowledging their limitations, we can better apply them in the contexts that make sense.
+<p>&nbsp;</p>
+</div>
+-----
+COMMENT:
+AUTHOR: Taras
+EMAIL: teplyk@yahoo.com
+IP: 93.74.183.204
+URL: 
+DATE: 10/24/2010 09:54:41 AM
+<p>After reading the report I must admit the following:</p><p>In terms of economy, a value (price) is the amount of money in exchange for which the seller is ready to transfer (sell), and the buyer agrees to receive (buy) a unit of goods (services). In fact, the price is the exchange coefficient of a specific product (service) for money. The ratio within goods’ exchange is determining goods’ value. Therefore, the price is the value expressed in money or monetary value of goods’ (services’) units.</p><p>However, in the relationship people/ecosystem, it is meaningless to speak of any agreement or disagreement of ecosystems for any amount of money received in exchange for services (services of ecosystems or to ecosystems).</p><p>There is the paradox of the impossibility of commodity-money relations in the framework of the people/ecosystem relationships. Therefore, attempts of “unilateral” determination of the value of biodiversity or ecosystems&#39; services in general, are voluntaristic and manipulative by nature.</p><p>The resolution of this paradox is to assess the value of the two types of services — ecosystem services and services to ecosystem, in their interdependence. Each service should not be assessed separately, but the ratio of the intensity services’ to ecosystem production to the intensity of ecosystem services’ consumption.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: What do we do with forecasts of the future?
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 10/28/2010 04:01:26 AM
+-----
+BODY:
+<p><span class="full-image-float-left ssNonEditable"><span><img style="width: 175px;" src="/storage/dz_s6_dvd.jpg?__SQUARESPACE_CACHEVERSION=1288239728798" alt="" /></span></span>Via <a href="http://rs.resalliance.org/2010/10/27/corals-and-reality-of-climate-change/">Garry Peterson</a> &nbsp;I discovered <a href="http://simondonner.blogspot.com/2010/10/climate-change-and-caribbean-coral.html">this post by Simon Donner</a>&nbsp;about forecasts of this year's<a href="http://news.sciencemag.org/sciencenow/2010/10/caribbean-coral-die-off-could-be.html"> massive coral bleaching event in the Caribbean</a>.</p>
+<p>Donner and colleagues published a <a href="http://www.pnas.org/content/104/13/5483.full">paper in PNAS in 2007</a>&nbsp;in which they calculated that heat waves that cause massive coral bleaching, like a previous event in 2005, had gone from being 1-in-1000-year events to a probability of once every 10-50 years during the 1990s, and by the 2030s will occur every 1-2 years.  This year's event, says Donner, is another fingerprint of human-driven climate change:</p>
+<blockquote>Keep in mind the predictions. <em>This is what the scientific community predicted was likely to happen.</em> An event which we calculated would be a once in a millennium occurrence without human impact on the climate, happened again five years later.</blockquote>
+<p>Donner's post led me to NOAA's <a href="http://coralreefwatch.noaa.gov/satellite/index.html">Coral Reef Watch Program</a>, which makes near-term forecasts of sea temperatures. &nbsp;Our knowledge of &nbsp;ocean climate allows us to make predictions several months out. &nbsp;It turns out NOAA warned of this season's bleaching <a href="http://coralreefwatch.noaa.gov/satellite/bleachingoutlook/outlook_messages/bleachingoutlook_20100608_for_2010junsep.html ">at the beginning of June</a>.</p>
+<p>We are getting better at forecasting the future.  As we learn more, we will get better at both Donner's type of prediction (changes in long-term frequencies), and NOAA's (changes in short-term likelihood).</p>
+<p>My question is: Do we know enough to use this information? &nbsp;I was actually surprised to learn from NOAA's site the extent of short-term responses available in the case of corals. &nbsp;Reefs can be shaded to prevent heat stress, and if possible certain stressors, like fishing or nearby pollution discharges, can be suspended. &nbsp; But such actions are probably only marginally effective, and can only be carried out in a few systems. Besides minimizing the extent of climate change,&nbsp;<a href="http://dx.doi.org/10.1016/j.tree.2010.07.011">building resilience into coral reefs</a> and the social-ecological systems in which they are embedded will be more important in the long run. &nbsp;</p>
+<p>My own work, which I hope to write about here soon, involves similar problems in forests - we know that drought-driven die-offs will increase in the future, and (I hope) we may be able to predict them in the near term. &nbsp; But how can we use our ability to forecast to build more resilient systems?</p>
+<span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img alt="ResearchBlogging.org" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" style="border:0;"/></a></span>
+<span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=Proceedings+of+the+National+Academy+of+Sciences&rft_id=info%3Adoi%2F10.1073%2Fpnas.0610122104&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=Model-based+assessment+of+the+role+of+human-induced+climate+change+in+the+2005+Caribbean+coral+bleaching+event&rft.issn=0027-8424&rft.date=2007&rft.volume=104&rft.issue=13&rft.spage=5483&rft.epage=5488&rft.artnum=http%3A%2F%2Fwww.pnas.org%2Fcgi%2Fdoi%2F10.1073%2Fpnas.0610122104&rft.au=Donner%2C+S.&rft.au=Knutson%2C+T.&rft.au=Oppenheimer%2C+M.&rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CGeosciences%2CMarine+Biology%2C+Ecology%2C+Climate+Science%2C+Resilience%2C+Conservation">Donner, S., Knutson, T., & Oppenheimer, M. (2007). Model-based assessment of the role of human-induced climate change in the 2005 Caribbean coral bleaching event <span style="font-style: italic;">Proceedings of the National Academy of Sciences, 104</span> (13), 5483-5488 DOI: <a rev="review" href="http://dx.doi.org/10.1073/pnas.0610122104">10.1073/pnas.0610122104</a></span>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Medicine from the deep
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+DATE: 11/01/2010 05:21:15 PM
+-----
+BODY:
+<p>Normally I'm fairly skeptical of studies that attempt to put one big number around the value of a global ecosystem service. &nbsp;In general, studies at such coarse spatial scales have more uncertainty and are not useful at the regional and local levels where decisions are generally made. &nbsp;Nevertheless, I'm intrigued&nbsp;by <a href="http://dx.doi.org/10.1016/j.ecolecon.2010.09.030">this study</a> in the latest <em>Ecological Economics </em>that attempts to put a value on marine genetic&nbsp;diversity's&nbsp;contribution to the development of future pharmaceutical products:</p>
+<blockquote>
+<p>....Here, we provide the first global estimate of the number, source and market value of undiscovered oncology drugs based on empirical data, industry statistics and conservative modelling assumptions. We report <strong>US$563&nbsp;billion&ndash;5.69&nbsp;trillion</strong> attributable to anti-cancer drugs of marine origin pending discovery, revealing a new and substantial at-risk ecosystem service value. Our model predicted 253,120&ndash;594,232 novel chemicals in marine organisms; 90.4&ndash;92.6% of these compounds remain undiscovered. A total of 55 to 214 new anti-cancer drugs were predicted to reach the market sourced primarily from animal phyla (Chordata, Mollusca, Porifera, and Byrozoa) and microbial phyla (Proteobacteria and Cyanobacteria). While no single aspect of extractive marine resource value should be relied upon to account for the opportunity costs of conservation initiatives, the application of valuation models to ecosystem services further reveals the true, irreversible economic cost of habitat degradation and biodiversity declines.</p>
+</blockquote>
+<p>Of course, a ten-fold range of value leaves a lot to be desired, and it's easy to pick out assumptions that could change these calculations. &nbsp;However, the authors are fairly explicit in describing their research as primarily having demonstrative value:</p>
+<blockquote>
+<p>Ecosystem service valuation aims to first demonstrate the existence of sufficient biodiversity value to promote conservation initiates, and second, to show how to capture and appropriate enough of the value to compensate for the opportunity costs of conservation in specific areas...The present study fulfils the former of these goals and promotes progression towards the second, where further studies focusing on case-specific scenarios and context-dependent variables will allow for the evaluation of ecosystem usage alternatives.</p>
+</blockquote>
+<p>Perhaps this will get&nbsp;pharmaceutical&nbsp;companies to help with financing for marine protected areas.</p>
+<p>One thing in the paper jumped out at me. &nbsp; As shown in the figure below, there doesn't seem be any any one group of marine creatures that yield a large number of potential drugs. &nbsp;The number of potential drugs (shown below as Marine Natural Products, or MNPs) discovered has a strong relationship with number of species examined. &nbsp;This means that these chemicals are found in most marine taxa - finding them just requires investigating more species.</p>
+<p><span class="full-image-block ssNonEditable"><span><img src="/storage/chart1.jpeg?__SQUARESPACE_CACHEVERSION=1288634063443" alt="" /></span></span></p>
+<p>However, according to the data in the chart below, the plurality of efforts at developing drugs from compounds found in marine life are focusing on one phylum<em>: Porifera</em>, or sea sponges.</p>
+<p><span class="full-image-block ssNonEditable"><span><img style="width: 440px;" src="/storage/chart2.jpeg?__SQUARESPACE_CACHEVERSION=1288635741600" alt="" /></span></span></p>
+<p>This is curious. &nbsp;Maybe I'm missing something, but if these compounds are found across phyla, it seems that we are missing opportunities by concentrating heavily on just a few.</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecological+Economics&amp;rft_id=info%3Adoi%2F10.1016%2Fj.ecolecon.2010.09.030&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=The+pharmaceutical+value+of+marine+biodiversity+for+anti-cancer+drug+discovery&amp;rft.issn=09218009&amp;rft.date=2010&amp;rft.volume=&amp;rft.issue=&amp;rft.spage=&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0921800910003897&amp;rft.au=Erwin%2C+P.&amp;rft.au=L%C3%B3pez-Legentil%2C+S.&amp;rft.au=Schuhmann%2C+P.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Medicine%2CSocial+Science%2CEcology+%2F+Conservation%2CEcology%2C+Marine+Ecology%2C+Conservation%2C+Economics%2C+Pharmacology">Erwin, P., L&oacute;pez-Legentil, S., &amp; Schuhmann, P. (2010). The pharmaceutical value of marine biodiversity for anti-cancer drug discovery <span style="font-style: italic;">Ecological Economics</span> DOI: <a rev="review" href="http://dx.doi.org/10.1016/j.ecolecon.2010.09.030">10.1016/j.ecolecon.2010.09.030</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: PricewaterhouseCoopers gets into the ecosystem services game
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 11/14/2010 07:45:52 AM
+-----
+BODY:
+<p><span class="full-image-float-left ssNonEditable"><span><img src="/storage/Screenshot 15.PNG?__SQUARESPACE_CACHEVERSION=1289721441066" alt="" /></span></span>I've noticed a rise lately in the frequency of times I see the name <a href="http://www.pwc.com/">PricewaterhouseCoopers</a> pop up in research about ecosystem services and economics. &nbsp; Most recently they have produced <a href="http://pwc.co.uk/eng/publications/habitat_banking_feasible_for_latin_america_and_the_caribbean.html">a series of reports</a>&nbsp;with the United Nations Development Program on habitat banking in Latin America and the Carribean. &nbsp;Habitat banking is an ecosystem service market in which habitat "developers" protect or restore ecosystems to generate credits that can be bought by other developers as part of a requirement to mitigate damage caused by construction projects. &nbsp;PwC's reports evaluate the benefits of such systems and barriers to to implementation in eight countries. &nbsp; They should be required reading for anyone getting involved in such schemes in Latin America.</p>
+<p>That's not all PwC has been up to, though. &nbsp;It appears that PwC have been major contributors to the <a href="http://www.teebweb.org/ForBusiness/TEEBforBusinessDraftChapters/tabid/29434/Default.aspx">business sector portion </a>of <a href="http://www.noamross.net/blog/2010/10/23/thinking-about-teeb.html">The Economics of Ecosystems and Biodiversity study</a>, and did most of the heavy lifting on Ceres' recent <a href="http://www.ceres.org/Page.aspx?pid=1291">report</a>&nbsp;on <a href="http://www.noamross.net/blog/2010/10/21/new-approaches-to-looking-at-water-related-financial-risks.html">water-related risks in the bond market</a>.</p>
+<p>PwC isn't entirely new to environmental work. &nbsp;They also just published their <a href="http://www.greenbiz.com/news/2010/11/10/pwc-finds-boom-csr-reporting-despite-recession">4th annual survey&nbsp;on the state of sustainability reporting</a>, and I when I worked in consulting one would occasionally encounter their stamp as an auditor of corporate greenhouse gas accounting. &nbsp;It &nbsp;seems that now they're investing in becoming a major knowledge provider in the ecosystem services market. &nbsp;</p>
+<p>This makes a lot of sense. &nbsp;PwC's bread and butter is accounting, and someone will have to audit the transactions of emerging habitat banking markets. &nbsp; McKinsey &amp; Co., another big consultancy, followed a similar strategy on climate change. &nbsp; They published a series of influential reports on the cost of carbon mitigation technologies in the mid-2000s, and established a foothold in international carbon trading by partnering with the Clinton Global Initiative's program in climate and forestry. &nbsp;(Full disclosure: I played a very minor role providing outside feedback on a McKinsey/CGI's forestry report). &nbsp;Now McKinsey gets paid to craft whole <a href="http://www.redd-monitor.org/2010/10/07/mckinseys-redd-plans-in-papua-new-guinea-nice-work-if-you-can-get-it/">government strategies</a>&nbsp;for international climate negotiations.</p>
+<p>I think this is a good sign. &nbsp;If PwC is investing in this field, it's a sign that ecosystem services and biodiversity are on the minds of their clients.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Apparently, there's nothing left to learn about ecosystem services
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+DATE: 11/17/2010 05:04:08 PM
+-----
+BODY:
+<p>In <a href="http://dx.doi.org/10.1016/j.ecolecon.2010.10.006">a new paper</a> in Ecological Economics, <a href="http://www.publicpolicy.umd.edu/directory/sagoff">Mark Sagoff</a> criticizes ecologists for trying to find general, broadly applicable values for ecosystem services.  Real values, Sagoff argues, are "dispersed, contingent, particular, local, transitory, and embedded in institutions and practices."   He cites an example of citrus growers in the San Joaquin valley of California.  While pollinators have been held up by many ecologists as providers of a valuable ecosystem services, pollinators are a pest to these farmers:</p>
+<blockquote>Chris Lange, a mandarin orange grower, lamented that honey bees by pollinating his crop [thus producing seeds in seedless oranges] ruin it for anything but juice. "You can't grow the crop for the juice market,” he said. “You have to grow for the premium crop or you won't recover your costs."</blockquote>
+<p>Such local variation in value, Sagoff argues, can never be captured by ecological methods but must emerge from the individial choices of economic actors.  "What do scientists know that the farmers...do not know?" he asks.</p>
+<p>I see two major flaws in Sagoff's argument.  First, most ecosystem services are public goods or unconstrained goods.  This means that their value is enjoyed by society as a whole or at least a group that isn't bound by a transaction.  Often the value of a service to a decision maker is very different from the value to other beneficiaries, leading to externalities that aren't captured by our institutions.  If forests on your land filter the water that later is used by others who draw from groundwater elsewhere, no transaction occurs, and thus no value can be easily assigned.  If you cut down the forest, there's generally no recourse and no mechanism by which water users can pay to recover the service - the collective value of the resource is squandered.  While the value for individuals may vary, the aggregate value is most important for making policy decisions or designing institutions to manage the resource collectively.</p>
+<p>Secondly,  Sagoff seems to subscribe to the myth of perfect information - that farmers and other private actors already know all they need to know to appropriately value ecosystem services.  This seems absurd on its face.   One huge driver of agricultural productivity in the U.S. has been the extension system, where farmers can go to technical experts and scientists from governments and universities to learn farming techniques to improve their bottom line.  I agree that, as Sagoff argues, scientists should make more efforts to learn from users of ecosystem services, but there's no way that information can only flow in one direction.  Sagoff's claim that, "Ecological knowledge, like any kind of empirical knowledge that is relevant to economic activity, is too spread out among people and too sensitive to the moment to be captured" seems to dismiss that there are any meaningful or predictive patterns in nature.</p>
+<p>Sagoff concludes with a primer on Hayek and Austrian school economics.  I'm no expert on the subject, yet I'm fairly certain that Hayek's work is influential but by no means the only or dominant school of thought in economics.  (For an aweome take Austrian vs. Keyensian perspectives, <a href="http://www.youtube.com/watch?v=d0nERTFo-Sk">watch this</a>.).  If Sagoff's claim that "from a Hayekian perspective, ecosystem services as a general rule already receive more or less appropriate quantification," is true, then the <a href="http://www.teebweb.org/">overwhelming weight</a> <a href="http://maweb.org/en/index.aspx">of evidence</a> shows that the Hayekian perspective is wrong. </p>
+<p><span style="float: left; padding: 5px;"><a href="http://researchblogging.org/news/?p=1994"><img alt="This post was chosen as an Editor's Selection for ResearchBlogging.org" src="http://www.researchblogging.org/public/citation_icons/rb_editors-selection.png" style="border:0;"/></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=Ecological+Economics&rft_id=info%3A%2F10.1016%2Fj.ecolecon.2010.10.006&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=The+quantification+and+valuation+of+ecosystem+services&rft.issn=0921-8009&rft.date=2010&rft.volume=In+Press&rft.issue=&rft.spage=&rft.epage=&rft.artnum=http%3A%2F%2Fwww.sciencedirect.com%2Fscience%2Farticle%2FB6VDY-51G2G3X-1%2F2%2F503b44d7d9454034d2ebf3afab28380e&rft.au=Mark+Sagoff&rfe_dat=bpr3.included=1;bpr3.tags=Social+Science%2CEcology+%2F+Conservation%2CEcosystem+Services">Mark Sagoff (2010). The quantification and valuation of ecosystem services <span style="font-style: italic;">Ecological Economics, In Press</span> : <a rev="review" href="http://www.sciencedirect.com/science/article/B6VDY-51G2G3X-1/2/503b44d7d9454034d2ebf3afab28380e">http://www.sciencedirect.com/science/article/B6VDY-51G2G3X-1/2/503b44d7d9454034d2ebf3afab28380e</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Fishing for metrics
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 11/20/2010 03:50:45 AM
+-----
+BODY:
+<p>In 1998, Dan Pauly et al. of the University of British Columbia published <a href="http://www.sciencemag.org/content/279/5352/860">a classic paper</a>&nbsp;called "Fishing Down Marine Food Webs." They reported that humans were steadily depleting oceans of the top predators in the food web and working our way down the food web as the fish ran out. &nbsp;Pauly measured a value called "Mean Tropic Level," (MTL), essentially the average place in the food web that our fish come from, finding that it had declined in fisheries globally since the 1970s. &nbsp;(For a more elaborate but readable treatment of Pauly's paper<a href="http://conservationbytes.com/2008/09/17/classics-fishing-down-the-web/">, see Corey Bradshaw</a>.)</p>
+<p>MTL has become a popular measure of health in fisheries, and was even used as a key metric for implementation of the Convention on Biological Diversity. &nbsp;Now, though, a <a href="http://www.nature.com/nature/journal/v468/n7322/full/nature09528.html">new study in <em>Nature</em></a>&nbsp;builds on Pauly's findings and finds that things are considerably more complex than previously thought. &nbsp;Trevor Branch of the University of Washington and his co-authors report that MTL has been driven down, in part, by spikes in the catch of small fish low on the food web like anchovies and sardines. &nbsp;Also, when one zooms in to various fisheries, some of the changes in MTL appear to be due to artifacts in the way fisheries data are reported. &nbsp;When MTL is measured by ocean surveys rather than by the reported tonnage of fish caught, trends are very different. &nbsp;For instance, when Thai fisheries collapsed, MTL reported from fisheries catch actually went up, while MTL measured by surveys went down. &nbsp;The reverse occurred when Atlantic Cod fisheries collapsed in the 1980s.</p>
+<p>The picture that emerges from the study is one of complexity and ambiguity. &nbsp;While there's little doubt that global fisheries are in decline, they differ in <em>how</em> and <em>how fast, </em>and simple metrics like MTL can fail to capture these subtleties.</p>
+<p>This paper is likely to show up in the media in the next few days, and I hope the story doesn't get twisted into a caricature of Pauly vs. Branch, or even worse, a false debate over whether our fisheries are in danger. &nbsp;<em>Science</em>&nbsp;already has a <a href="http://www.sciencemag.org/content/330/6007/1029.full">news commentary</a>&nbsp;on the paper that plays up the conflict angle in some troubling ways. &nbsp;Let's see if other science journalists are able to resist.</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Science&amp;rft_id=info%3Adoi%2F10.1126%2Fscience.279.5352.860&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Fishing+Down+Marine+Food+Webs&amp;rft.issn=00368075&amp;rft.date=1998&amp;rft.volume=279&amp;rft.issue=5352&amp;rft.spage=860&amp;rft.epage=863&amp;rft.artnum=http%3A%2F%2Fwww.sciencemag.org%2Fcgi%2Fdoi%2F10.1126%2Fscience.279.5352.860&amp;rft.au=Pauly%2C+D.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation%2CMarine+Ecology%2C+Conservation">Pauly, D. (1998). Fishing Down Marine Food Webs <span style="font-style: italic;">Science, 279</span> (5352), 860-863 DOI: <a rev="review" href="http://dx.doi.org/10.1126/science.279.5352.860">10.1126/science.279.5352.860</a></span></p>
+<p>&nbsp;</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Nature&amp;rft_id=info%3Adoi%2F10.1038%2Fnature09528&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=The+trophic+fingerprint+of+marine+fisheries&amp;rft.issn=0028-0836&amp;rft.date=2010&amp;rft.volume=468&amp;rft.issue=7322&amp;rft.spage=431&amp;rft.epage=435&amp;rft.artnum=http%3A%2F%2Fwww.nature.com%2Fdoifinder%2F10.1038%2Fnature09528&amp;rft.au=Branch%2C+T.&amp;rft.au=Watson%2C+R.&amp;rft.au=Fulton%2C+E.&amp;rft.au=Jennings%2C+S.&amp;rft.au=McGilliard%2C+C.&amp;rft.au=Pablico%2C+G.&amp;rft.au=Ricard%2C+D.&amp;rft.au=Tracey%2C+S.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation%2CMarine+Ecology%2C+Conservation">Branch, T., Watson, R., Fulton, E., Jennings, S., McGilliard, C., Pablico, G., Ricard, D., &amp; Tracey, S. (2010). The trophic fingerprint of marine fisheries <span style="font-style: italic;">Nature, 468</span> (7322), 431-435 DOI: <a rev="review" href="http://dx.doi.org/10.1038/nature09528">10.1038/nature09528</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Good environmental management lowers cost of borrowing
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+DATE: 12/06/2010 03:39:21 PM
+-----
+BODY:
+<p>Today the RiskMetrics Group ESG Blog <a href="http://blog.riskmetrics.com/esg/2010/12/2010-moskowitz-prize.html">highlights new research</a> showing that companies with better environmental performance are viewed as lower risk in bond markets and pay a lower cost of borrowing. &nbsp;The researchers, Rob Bauer and Daniel Hann, won the Moskowitz Prize for research in socially responsible investing. &nbsp;I found this the most interesting finding:</p>
+<blockquote>
+<p>...the link between environmental risk and debt costs has strengthened over time. To test this, Bauer and Hann divided their 1995-2006 data sample into two parts, and performed the same tests on data from the 1995-2001 and 2001-2006 periods. They found that the &ldquo;credit market&hellip;assigned little value to corporate environmental concerns prior to the dot-com bubble.&rdquo; The authors believe that post-bubble finance searched for new risk metrics, and found some in the form of environmental performance indicators</p>
+</blockquote>
+<p>It seems there's been <a href="http://www.noamross.net/blog/2010/10/21/new-approaches-to-looking-at-water-related-financial-risks.html">more focus on the bond market lately</a> for those looking at corporate environmental performance. &nbsp;As Sarah King for <a href="http://www.greenbiz.com/blog/2010/11/10/why-markets-should-value-green-business-growth-not-just-risk">points&nbsp;out</a>, though, this is partially because measuring the upside of environmental performance is even harder than quantifying risk.</p>
+<p>You can read Bauer and Hann's paper <a href="http://www.responsible-investor.com/images/uploads/Bauer__Hann_(2010).pdf">here</a>.&nbsp;</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Managing New Invasion Risks from Biofuel Crops
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 12/16/2010 09:56:19 PM
+-----
+BODY:
+<p>The search for new b<span class="full-image-float-left ssNonEditable"><span><img style="width: 150px;" src="http://noamross.squarespace.com/storage/449px-Arundo_donax_1.jpg?__SQUARESPACE_CACHEVERSION=1292540820014" alt="" /></span><span class="thumbnail-caption" style="width: 150px;">Giant cane, a potential biofuel crop, is a noxious invader of streams and wetlands. Image Source: Wikipedia</span></span>iofuels has effectively created an entire new category of agriculture,&nbsp;along with which comes a host of new&nbsp;management risks.&nbsp; The cycles of crop growth and failure may be less well known than those of more familiar food crops, and&nbsp;they may be affected by new <a href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B985C-51H1NY0-1&amp;_user=10&amp;_coverDate=11%2F18%2F2010&amp;_rdoc=1&amp;_fmt=high&amp;_orig=search&amp;_origin=search&amp;_sort=d&amp;_docanchor=&amp;view=c&amp;_acct=C000050221&amp;_version=1&amp;_urlVersion=0&amp;_userid=10&amp;md5=f646995aebe072a5dab424f6d29f8d26&amp;searchtype=a">pests and disease</a>.</p>
+<p>A particularly worrisome area of risk associated with biofuel crops is the possibility that the crops themselves may become noxious pests in countries to which they are imported.&nbsp; In the current issue of <em>Frontiers in Ecology and the Environment</em>, Adam Davis et al. <a href="http://www.esajournals.org/doi/abs/10.1890/090030">review</a> what is known about such invasions and how to manage them.&nbsp;</p>
+<p>Biofuel crops are likely to invade ecosystems because many of the traits that make them attractive to grow&nbsp;(fast growth, low resource requirements, adaptable to many environments) are exactly those that help them out-compete native plants.&nbsp;&nbsp; Woody species introduced as fuel crops in Africa in the Middle east have caused ecological damage.&nbsp; In the U.S., Giant Cane (<em>Arundo donax</em>) has invaded and choked off streams and wetlands, and is all but impossible to eradicate once established,&nbsp;yet it is actively promoted as a fuel crop in the Gulf States.</p>
+<p>The authors point out that systems to identify plants as possible invaders exist.&nbsp; Australia's Weed Risk Assessment System (WRA), for instance, has had 95% success in predicting species likely to become damaging invaders by evaluating them on whether they exhibit a series of weed-like ecological traits.&nbsp; However, a 95% success rate still means that 1 in 20 plants introduced can become harmful invaders, and far more than 20 plant species are being evaluated by entrepeneurs and researchers as candidates for new biofuel feedstocks.&nbsp; Given the amount of ecological data required, achieving a better success rate such as 99% from such systems is unlikely.</p>
+<p>How then should we manage the risk of invaders while searching for new crops?&nbsp; The authors suggest a two-tiered system, where plants passing a checklist-based system like the&nbsp;WRA are then&nbsp;subjected to experimental plantings to determine if they can thrive in the absence of any human cultivation.&nbsp; More stringent criteria are given for those plants for which little current data exists on invasive traits.&nbsp; The "nested-seive" approach has a much lower likelihood of letting potential invaders through.</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_mid.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Frontiers+in+Ecology+and+the+Environment&amp;rft_id=info%3Adoi%2F10.1890%2F090030&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Screening+bioenergy+feedstock+crops+to+mitigate+invasion+risk&amp;rft.issn=1540-9295&amp;rft.date=2010&amp;rft.volume=8&amp;rft.issue=10&amp;rft.spage=533&amp;rft.epage=539&amp;rft.artnum=http%3A%2F%2Fwww.esajournals.org%2Fdoi%2Fabs%2F10.1890%2F090030&amp;rft.au=Davis%2C+A.&amp;rft.au=Cousens%2C+R.&amp;rft.au=Hill%2C+J.&amp;rft.au=Mack%2C+R.&amp;rft.au=Simberloff%2C+D.&amp;rft.au=Raghu%2C+S.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Biology%2CEcology+%2F+Conservation%2CEnergy%2C+Agriculture%2C+Environment">Davis, A., Cousens, R., Hill, J., Mack, R., Simberloff, D., &amp; Raghu, S. (2010). Screening bioenergy feedstock crops to mitigate invasion risk <span style="font-style: italic;">Frontiers in Ecology and the Environment, 8</span> (10), 533-539 DOI: <a rev="review" href="http://dx.doi.org/10.1890/090030">10.1890/090030</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Tackling investor risk in forest restoration
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+
+DATE: 12/21/2010 06:59:12 PM
+-----
+BODY:
+<p><span class="full-image-float-left ssNonEditable"><span><img style="width: 225px;" src="/storage/Wildfire_in_California.jpg?__SQUARESPACE_CACHEVERSION=1292961510620" alt="" /></span></span><a href="http://www.ecosystemmarketplace.com/">Ecosystem Marketplace</a> posted an interesting document today on&nbsp;<a href="http://www.forestcarbonoffsets.net/storage/Global%20Forest%20Carbon%20Financial%20Risk%20Management%20Best%20Practices%20Final%20Dec%202010.pdf" target="_blank">Global Forest Carbon Financial Risk Management Best Practices</a>. &nbsp;Produced as part of a workshop of forest investors and lawyers, it outlines the risks in the forest carbon offset market and practices to manage these risks. &nbsp;Given the growth potential of forest carbon offset markets (not to mention other ecosystem service markets), the risk management tools for offset transactions are underdeveloped. &nbsp;</p>
+<p>The authors document 25 different categories of risk that need to be addressed in order to develop the market. &nbsp;These include regulatory risks, currency risks, legal risks, etc. &nbsp;I&nbsp;am most interested in biophysicial risks, described here as "Unintentional Reversal" - the likelihood that an event such as fire or pest outbreak will kill off a forest and cause a loss of sequestered carbon. &nbsp;The authors suggest that these risks need to be underwritten financially. &nbsp;</p>
+<p>Right now most programs for carbon offsets require project developers to set aside some portion of their offsets in order to create a "buffer pool" of offsets to mitigate risk of a forest failure. &nbsp;However, as one of the authors, Gabriel Thoumi,&nbsp;<a href="http://www.ecosystemmarketplace.com/pages/dynamic/article.page.php?page_id=7558&amp;section=home">points out elsewhere</a>, the registries are not the best party to manage these buffer pools because it leaves them exposed to huge risks better handled by insurance companies.</p>
+<p>One topic I don't see called out here is simple performance risk. &nbsp;Catastrophic events such as fires and floods are not the only reason a forest might not take up as much carbon as planned. &nbsp; Subtler ecological and climate stresses could reduce the rates of carbon uptake below what would be projected using standard models for tree growth. &nbsp;Forest systems are more complex and less predictable than, say,&nbsp;agricultural crops, for which one has a pretty good idea of what yields will be absent frosts, droughts, and other disasters. &nbsp;So a forward contract on carbon offsets from a forest would have considerably more uncertainty than one for a bushel of corn. &nbsp;The buffer pools might be able to handle this, but I wonder how well this risk has been incorporated in their design.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Preparing for unexpected opportunities in Borneo
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 01/02/2011 05:09:10 AM
+-----
+BODY:
+<p><em><span class="full-image-float-left ssNonEditable"><span><a href="http://www.flickr.com/photos/91314344@N00/3441713270/"><img src="/storage/3441713270_110cf23c80_m.jpg?__SQUARESPACE_CACHEVERSION=1293946152132" alt="" /></a></span><span class="thumbnail-caption" style="width: 240px;">Source: dinesh_valke on Flickr</span></span>Conservation Letters</em>&nbsp;has an <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1755-263X.2010.00161.x/abstract">article</a>&nbsp;about a situation in Borneo that illustrates how sudden, unpredictable events in ecology are not always bad. &nbsp;In the past year, the island's forests have undergone an ecosystem-wide event known as "general flowering," where trees of many species produce seeds and fruit in massive amounts. &nbsp;These events occur rarely (the last was 12 years ago), and in the years in between few seeds are produced and few new trees take root.</p>
+<p>Borneo is a biodiversity hotspot and its forests and peatlands store massive amounts of carbon, but its forests have been degraded and cleared through logging conversion of land to palm oil plantations. &nbsp; Thus, restoration of its forests is important. &nbsp;However, restoration requires a large supply of tree seeds, which are only produced during these "general flowering" events and have a short shelf life. &nbsp;This poses an interesting challenge. &nbsp;The authors write:</p>
+<blockquote>
+<p>Given the unpredictable yet synchronous fruiting of many of these species, we are faced with the challenge of collecting such large numbers of seeds within a short window of opportunity (a matter of weeks), but with only a very general idea of when this might occur.</p>
+</blockquote>
+<p>Unfortunately, while there are a number of organizations working on forest restoration in Borneo, they have not had the infrastructure or organizational capacity to use this bounty. &nbsp;There have not been enough resources to collect the seeds, sufficient nursery capacity to grow them, or scientific knowledge for successful planting. &nbsp; The authors lay out the financial and organizational resourced needed in order to avoid missing the opportunity next time around.</p>
+<p>I find this really interesting, because mostly I've thought about sudden, hard-to-predict ecological events that are "bad." &nbsp;For instance, pest outbreaks, coral bleachings, or fishery collapses are all things we try to reduce the risk of and then manage so as to reduce the damage when they occur. &nbsp;Resilience theory has provided much of the framework for managing these shocks. &nbsp;</p>
+<p>Yet how should we think about events like this mass flowering that present opportunities to restore or improve ecosystems? &nbsp;I suppose that managing requires models to predict them, monitoring to detect them early, and capacity to respond as they occur. &nbsp;&nbsp;Does anyone have other examples of similar rare and unpredictable "good" ecological events?&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Conservation+Letters&amp;rft_id=info%3Adoi%2F10.1111%2Fj.1755-263X.2010.00161.x&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Seeing+the+fruit+for+the+trees+in+Borneo&amp;rft.issn=1755263X&amp;rft.date=2010&amp;rft.volume=&amp;rft.issue=&amp;rft.spage=0&amp;rft.epage=0&amp;rft.artnum=http%3A%2F%2Fdoi.wiley.com%2F10.1111%2Fj.1755-263X.2010.00161.x&amp;rft.au=Kettle%2C+C.&amp;rft.au=Ghazoul%2C+J.&amp;rft.au=Ashton%2C+P.&amp;rft.au=Cannon%2C+C.&amp;rft.au=Chong%2C+L.&amp;rft.au=Diway%2C+B.&amp;rft.au=Faridah%2C+E.&amp;rft.au=Harrison%2C+R.&amp;rft.au=Hector%2C+A.&amp;rft.au=Hollingsworth%2C+P.&amp;rft.au=Koh%2C+L.&amp;rft.au=Khoo%2C+E.&amp;rft.au=Kitayama%2C+K.&amp;rft.au=Kartawinata%2C+K.&amp;rft.au=Marshall%2C+A.&amp;rft.au=Maycock%2C+C.&amp;rft.au=Nanami%2C+S.&amp;rft.au=Paoli%2C+G.&amp;rft.au=Potts%2C+M.&amp;rft.au=Samsoedin%2C+I.&amp;rft.au=Sheil%2C+D.&amp;rft.au=Tan%2C+S.&amp;rft.au=Tomoaki%2C+I.&amp;rft.au=Webb%2C+C.&amp;rft.au=Yamakura%2C+T.&amp;rft.au=Burslem%2C+D.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Social+Science%2CEcology+%2F+Conservation%2CEcology%2C+Environment%2C+Sustainability%2C+Resilience">Kettle, C., Ghazoul, J., Ashton, P., Cannon, C., Chong, L., Diway, B., Faridah, E., Harrison, R., Hector, A., Hollingsworth, P., Koh, L., Khoo, E., Kitayama, K., Kartawinata, K., Marshall, A., Maycock, C., Nanami, S., Paoli, G., Potts, M., Samsoedin, I., Sheil, D., Tan, S., Tomoaki, I., Webb, C., Yamakura, T., &amp; Burslem, D. (2010). Seeing the fruit for the trees in Borneo <span style="font-style: italic;">Conservation Letters</span> DOI: <a rev="review" href="http://dx.doi.org/10.1111/j.1755-263X.2010.00161.x">10.1111/j.1755-263X.2010.00161.x</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: REDD+ and Financial Resilience for Conservation
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+
+DATE: 01/07/2011 06:39:59 PM
+-----
+BODY:
+<p>This month's&nbsp;<em>Conservation Letters </em>has a <a href="http://doi.wiley.com/10.1111/j.1755-263X.2010.00155.x">Policy Perspective</a>&nbsp;on the risks of relying REDD+ funding for conservation projects. &nbsp;REDD+ (Reducing Emissions from Deforestation and Degradation, with the "+" standing for biodiversity and social benefits), is a mechanism for&nbsp;transferring&nbsp;funds to developing countries for forest preservation and restoration. &nbsp;REDD+ financing is eventually supposed to flow primarily from the private sector, and it is one of the few parts of an international climate agreement that has been uncontentious in negotiations.</p>
+<p>REDD+ presents a potentially huge new pool of funds for biodiversity conservation, but the authors caution that it comes with a set of risks:</p>
+<p>
+<ul>
+<li><strong>Political risk: </strong>While some REDD+ financing is already beginning to flow, the bulk of the funds are reliant on a future compliance regime regime that will incentivize companies to finance REDD+ in lieu of reducing their greenhouse gas emissions. &nbsp;Given the slow progress of efforts to put such laws in place, in the near REDD+ funds are more akin to international aid, which the authors note is "notoriously volatile."</li>
+<li><strong>Competition risk: &nbsp;</strong>REDD+ is primarily a tool to reduce greenhouse gas emissions, and biodiversity conservation is a co-benefit. &nbsp;The authors describe this a problem of "mismatched time scales," but its really a matter of substitutability and competition. &nbsp;As low-carbon technologies become cheaper, they may become cheaper&nbsp;substitutes&nbsp;for forest carbon sequestration, lowering demand for REDD+. &nbsp;&nbsp;</li>
+</ul>
+</p>
+<p>The authors point to a number of strategies to reduce these risks, including diversification of funding sources, including both traditional donor financing and other payments for ecosystem services, and the development of insurance mechanisms. &nbsp;They also promote the use of conservation trust funds to pool REDD+ capital and distribute the interest - a conservative but stabilizing strategy.</p>
+<p>There are a number of other risks associated with tying conservation funding with a nascent commodity market, and the authors urge conservationists to look to the private sector, which has been hesitant to invest in REDD+, and exercise similar cautions. &nbsp;</p>
+<p>I think it would be an interesting exercise for conservation organizations to look at this <a href="http://www.forestcarbonoffsets.net/storage/Global%20Forest%20Carbon%20Financial%20Risk%20Management%20Best%20Practices%20Final%20Dec%202010.pdf">list of investment risks&nbsp;</a>&nbsp;produced by forest investors in order to understand what drives this hesitancy. &nbsp;If a conservation project can address these comprehensively, it's a lot more likely to be able to secure consistent funding.</p>
+
+<span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img alt="ResearchBlogging.org" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" style="border:0;"/></a></span>
+
+<span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=Conservation+Letters&rft_id=info%3Adoi%2F10.1111%2Fj.1755-263X.2010.00155.x&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=Risky+business%3A+an+uncertain+future+for+biodiversity+conservation+finance+through+REDD%2B&rft.issn=1755263X&rft.date=2010&rft.volume=&rft.issue=&rft.spage=0&rft.epage=0&rft.artnum=http%3A%2F%2Fdoi.wiley.com%2F10.1111%2Fj.1755-263X.2010.00155.x&rft.au=Phelps%2C+J.&rft.au=Webb%2C+E.&rft.au=Koh%2C+L.&rfe_dat=bpr3.included=1;bpr3.tags=Social+Science%2CEcology+%2F+Conservation%2CEconomics%2C+Conservation%2C+Environment%2C+Climate+Change">Phelps, J., Webb, E., & Koh, L. (2010). Risky business: an uncertain future for biodiversity conservation finance through REDD+ <span style="font-style: italic;">Conservation Letters</span> DOI: <a rev="review" href="http://dx.doi.org/10.1111/j.1755-263X.2010.00155.x">10.1111/j.1755-263X.2010.00155.x</a></span>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Jellyfish and Ocean Tipping Points
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+DATE: 01/15/2011 02:24:20 AM
+-----
+BODY:
+<p>Over at <a href="http://e360.yale.edu/">Yale Environment 360</a>, Richard Stone has <a href="http://e360.yale.edu/feature/massive_outbreak_of_jellyfish_could_spell_trouble_for_fisheries/2359/">an interesting article</a> about ongoing work examining recent blooms of jellyfish populations. &nbsp;Anecdotal evidence suggests that jellyfish populations have been on the rise, and it is possible that some marine systems are entering alternate stable states that are jellyfish- rather than fish-dominated:</p>
+<blockquote>
+<p>By removing a curb on jellyfish population growth, overfishing &ldquo;opens up ecological space for jellyfish,&rdquo; says Anthony Richardson, an ecologist at CSIRO Marine and Atmospheric Research in Cleveland, Australia. And as jellyfish flourish, he says, their predation on fish eggs takes a heavier and heavier toll on battered fish stocks.</p>
+<p><br />&ldquo;When an ecosystem is dominated by jellyfish, fish will mostly disappear,&rdquo; says ecologist Sun Song, director of the Institute of Oceanology in Qingdao, China. &ldquo;Once that happens,&rdquo; he contends, &ldquo;there is almost no method to deal with it.</p>
+</blockquote>
+<p>The picture is still hazy, but a working group at the fantastic <a href="http://www.nceas.ucsb.edu/projects/12479">National Center for Ecological Analysis and Synthesis (NCEAS)</a>&nbsp;is trying to gather all the data out there in order to clear it up. &nbsp;NCEAS has produced some of the most compelling work in ecology in recent years; I look forward to what they come up with.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: George Sugihara on Early Warnings
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 01/17/2011 05:05:52 AM
+-----
+BODY:
+<p>In SEED Magazine, theoretical biologist George Sugihara <a href="http://seedmagazine.com/content/article/on_early_warning_signs/">writes</a> about early warning signals for collapses in complex systems:</p>
+<blockquote>
+<p>A key phenomenon known for decades is so-called &ldquo;critical slowing&rdquo; as a threshold approaches. That is, a system&rsquo;s dynamic response to external perturbations becomes more sluggish near tipping points. Mathematically, this property gives rise to increased inertia in the ups and downs of things like temperature or population numbers&mdash;we call this inertia &ldquo;autocorrelation&rdquo;&mdash;which in turn can result in larger swings, or more volatility....Another related early signaling behavior is an increase in &ldquo;spatial resonance&rdquo;: Pulses occurring in neighboring parts of the web become synchronized. Nearby brain cells fire in unison minutes to hours prior to an epileptic seizure, for example, and global financial markets pulse together. The autocorrelation that comes from critical slowing has been shown to be a particularly good indicator of certain geologic climate-change events, such as the greenhouse-icehouse transition that occurred 34 million years ago; the inertial effect of climate-system slowing built up gradually over millions of years, suddenly ending in a rapid shift that turned a fully lush, green planet into one with polar regions blanketed in ice.</p>
+</blockquote>
+<p>I've been meaning to write more about early warning signals. &nbsp; My current project involves hunting for these signals in satellite data of forest ecosystems. &nbsp;In theory, such signals could forecast a die-off from drought, or a pest outbreak.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: My article on rural abandonment and ecosystem services at GOOD
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+DATE: 01/17/2011 06:49:21 PM
+-----
+BODY:
+<p><span class="full-image-block ssNonEditable"><span><a href="http://www.good.is/post/if-everyone-moves-to-the-city-what-is-left-behind/"><img src="http://pre.cloudfront.goodinc.com/posts/full_1295284060RuralPopulationChart.jpg?__SQUARESPACE_CACHEVERSION=1295290880693" alt="" /></a></span><span class="thumbnail-caption" style="width: 450px;">Global rural populations will peak in the 2020s, leading to mass abandonment of rural lands.(Data Source: UN Dept. of Economic and Social Affairs, Population Division)</span></span>I have <a href="http://www.good.is/post/if-everyone-moves-to-the-city-what-is-left-behind/">an article up at GOOD magazine</a> about the abandoned rural lands and how to manage them for ecosystem services:</p>
+<blockquote>
+<p>Brazil has had a declining rural population since 1990. Even as loggers and farmers cut and burn ancient rainforest in the south, emigrants leave northern farmlands fallow. In China, between just 2000 and 2008, the countryside lost 86 million people. The United Nations projects that the world&rsquo;s total rural population will begin to decline in the 2020s. In only seven countries&ndash; Rwanda, Uganda, Guinea, Niger, Afghanistan, Timor-Leste and Papua New Guinea&ndash;will rural populations continue to grow after 2050....</p>
+<p>The millions of acres left abandoned represent a changed relationship with the landscape and a societal and economic opportunity. We can use these lands to re-invest in natural capital and biodiversity but to be successful, such land restoration will not be a passive process. It will require active management, capital, skill, and technology, but it will leave us safer, healthier, and more prosperous....</p>
+</blockquote>
+<p><a href="http://www.good.is/post/if-everyone-moves-to-the-city-what-is-left-behind/">Read the whole thing</a>. &nbsp;</p>
+<p>A lot of my thinking in this piece comes from conversations with UC Davis professor&nbsp;<a href="http://tpyoung.ucdavis.edu/">Truman Young</a>, as well as a visit we had from&nbsp;<a href="http://www.uwa.edu.au/people/richard.hobbs">Richard Hobbs</a>&nbsp;of the University of Western Australia. &nbsp;Thanks to both for their insight.</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Tipping Points and the Precautionary Principle
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+
+
+DATE: 01/24/2011 06:27:06 AM
+-----
+BODY:
+<p><span style="float: left; padding: 5px;"><a href="http://researchblogging.org/news/?p=2244"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb_editors-selection.png" alt="This post was chosen as an Editor's Selection for ResearchBlogging.org" /></a></span></p>
+<p>Many ecological systems have tipping points - thresholds where small changes in impacts can have very large effects on on ecosystem functioning, often in a bad way. &nbsp;Lakes, for example, might show little impact from nutrient pollution until a threshold level is reached, and then massive algal blooms form that choke off many other species growth.</p>
+<p>In the absence of knowledge of exactly how far one can push a system before reaching a tipping point, many invoke the&nbsp;<em>precautionary principle</em>, which states that in the face of uncertainty, one should take the most conservative approach.</p>
+<p>There is broad disagreement about whether the precautionary principle is useful and exactly how to apply it. &nbsp; &nbsp;In&nbsp;<em><a href="http://dx.doi.org/10.1016/j.ecolecon.2010.10.001">Ecological Economics</a>,&nbsp;</em>Nicholas&nbsp;Brozović and&nbsp;Wolfram Schlenker explore the economics of this challenge. &nbsp; They build an economic model of a system where too much pollution causes a threshold change economic benefits, and then explore how the optimal behavior - that is, the optimal level of pollution - change in this system as uncertainty changes. &nbsp;The unique contribution here is that they model two types of uncertainty, and they find some interesting things:</p>
+<p><em>Systemic uncertainty&nbsp;</em>emerges from the fact that ecological system are complex and multifaceted. &nbsp;Even if we knew how much pollution, on average, a lake could absorb before it collapsed, this amount could change due to many other factors at play in the system (like the weather). &nbsp;Sometimes this is called "irreducible uncertainty" because more knowledge of the system does not reduce it.</p>
+<p><span class="full-image-float-right ssNonEditable"><span><a href="http://www.flickr.com/photos/kt/96510442/in/photostream/"><img src="/storage/96510442_54813d39a8_m.jpg?__SQUARESPACE_CACHEVERSION=1296109606703" alt="" /></a></span><span class="thumbnail-caption" style="width: 194px;">Image source: Flickr</span></span></p>
+<p>It turns out that such uncertainty has a complex relationship with the optimal management strategy. &nbsp;If there is some systemic uncertainty, it pays to manage with a "buffer" to avoid hitting the tipping point. &nbsp; However, lots of systemic uncertainty reduces the incentive to be precautionary, because random, uncontrollable events are more likely to cause a collapse than one's own actions.</p>
+<p><em>Knowledge uncertainty </em>comes from limited knowledge. &nbsp;This is "reducible uncertainty" because learning can improve our knowledge. &nbsp;This, too, has a complex relationship with strategy. &nbsp;If one is far from the tipping point, more uncertainty drives precautionary behavior, as one becomes less sure about one's margin of safety. &nbsp;However, if one is close to the tipping point, lots of uncertainty can obscure the high-risk situation one is in.</p>
+<p>So...it's complicated. &nbsp;Brozović and Schlenker make a very interesting observation about this complexity: &nbsp;</p>
+<p style="padding-left: 30px;">disagreements in some environmental disputesmay be a result of different beliefs about threshold uncertainty, even when there is broad consensus about underlying processes and system dynamics. For example, some regulators argue for an immediate reduction in the production of a pollutant until uncertainty about the underlying natural process is reduced while others suggest that no costly reductions should be undertaken until the same uncertainty is reduced. Our analysis suggests that there may be much more common ground between these two views than might otherwise be thought.&nbsp;</p>
+<p>I would think this has straightforward applications in stakeholder relations or negotiating strategy: parties' assessment of uncertainties in the system can strongly influence their actions.</p>
+<p>I see a couple of limitations in this work. &nbsp;First, while the authors explore the uncertainty of when ecological thresholds are reached, they do not examine the uncertainty of how big a change occurs at the threshold. &nbsp;It's rare that we know how bad the changes will be before a sytem collapses.</p>
+<p>Second, they model a reversible shift. &nbsp;They&nbsp;acknowledge&nbsp;that some shifts are irriversible and leave exploration of such a system to other analyses. &nbsp;However, there is a continuum of dynamics between reversible and irriversible systems, notably those with <a href="http://www.noamross.net/blog/2010/9/21/in-the-news-hysteresis-in-coral-reefs.html">hysteresis</a>, where considerably greater change is required to return a system to its original state than the initial change. &nbsp;</p>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecological+Economics&amp;rft_id=info%3Adoi%2F10.1016%2Fj.ecolecon.2010.10.001&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Optimal+management+of+an+ecosystem+with+an+unknown+threshold&amp;rft.issn=09218009&amp;rft.date=2011&amp;rft.volume=&amp;rft.issue=&amp;rft.spage=&amp;rft.epage=&amp;rft.artnum=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0921800910004167&amp;rft.au=Brozovi%C4%87%2C+N.&amp;rft.au=Schlenker%2C+W.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Social+Science%2CEcology+%2F+Conservation%2CSustainability%2C+Economics%2C+Ecology">Brozović, N., &amp; Schlenker, W. (2011). Optimal management of an ecosystem with an unknown threshold <span style="font-style: italic;">Ecological Economics</span> DOI: <a rev="review" href="http://dx.doi.org/10.1016/j.ecolecon.2010.10.001">10.1016/j.ecolecon.2010.10.001</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Of Billabongs, Weevils, and Alternative Stable States
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 02/03/2011 05:30:02 AM
+-----
+BODY:
+<p><span class="full-image-float-left ssNonEditable"><span><img style="width: 225px;" src="/storage/70404620001D-white-billabong_surf_mosh_sticker.jpg?__SQUARESPACE_CACHEVERSION=1296711094137" alt="" /></span></span></p>
+<div id="_mcePaste"><p>I've heard the song "Waltzing Matilda" many times but I only learned today the meaning of the word&nbsp;<a href="http://en.wikipedia.org/wiki/Billabong">billabong</a>&nbsp;- a long lake formed by a river jumping its bed. (In America we call them <a href="http://en.wikipedia.org/wiki/Oxbow_lake">oxbow lakes</a>.)</p></div>
+<div></div>
+<div></div>
+<div></div>
+<div><p>The billabongs of Australia's Kakadu National Park are the site of a revealing ecological phenomenon <a href="http://www.nature.com/nature/journal/v470/n7332/full/nature09735.html">reported today in <em>Nature</em></a> by Anthony Ives and colleagues. &nbsp;Kariba weed, an invasive fern, arrived in the lakes in 1983, but has been kept somewhat in check through the deliberate introduction of the silvinia weevil. &nbsp;The weevils eat kariba's buds, slowing their normally rapid growth.</p></div>
+<div></div>
+<div></div>
+<div></div>
+<div><p>Weevil control has had mixed results, though. &nbsp;In some years the plants are kept other control. &nbsp;In other years, they escape control and form mats up to a meter thick. &nbsp;The authors show that these two conditions are <a href="http://en.wikipedia.org/wiki/Alternative_stable_state">alternate stable states</a>. &nbsp;When plant populations are low, the plants consist mostly of tasty buds, which weevils eat to grow and keep eating more buds. &nbsp;However, when the plant populations get large, they consist mostly of tough to eat tissue and float high above the reach of weevils, and the weevils' number fall.</p></div>
+<div></div>
+<div></div>
+<div><p>Both these conditions are stable, but regular flooding resets the ecosystem and can flip the lakes between weevil- and kariba-dominated states. &nbsp;What's interesting is how regularly this happens. &nbsp;Jumps between alternative stable states have often been thought of as rare, catastrophic events that drastically re-organize ecosystems. &nbsp;In this case, the switches are common. &nbsp;The authors write:</p></div>
+<div></div>
+<blockquote>
+<div>Ecological systems...are subjected to stochastic and cyclic&nbsp;perturbations, and if alternative states are weakly stable and perturbations are large enough, then shifts between states may be routine. Alternative stable states may thus generate underlying forces that govern the stochastic dynamics of the system, leading to complex and seemingly irregular, eruptive behaviour. In fact, it may be difficult to identify the alternative stable states, yet at the same time be difficult to understand the dynamics of the system without first identifying that alternative stable states exist.</div>
+</blockquote>
+<div><p>It will be interesting to see where else this phenomenon pops up.</p></div>
+<div></div>
+<div></div>
+<div></div>
+<p><span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img style="border: 0;" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" alt="ResearchBlogging.org" /></a></span> <span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Nature&amp;rft_id=info%3Adoi%2F10.1038%2Fnature09735&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Alternative+stable+states+explain+unpredictable+biological+control+of+Salvinia+molesta+in+Kakadu&amp;rft.issn=0028-0836&amp;rft.date=2011&amp;rft.volume=470&amp;rft.issue=7332&amp;rft.spage=86&amp;rft.epage=89&amp;rft.artnum=http%3A%2F%2Fwww.nature.com%2Fdoifinder%2F10.1038%2Fnature09735&amp;rft.au=Schooler%2C+S.&amp;rft.au=Salau%2C+B.&amp;rft.au=Julien%2C+M.&amp;rft.au=Ives%2C+A.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation%2CEcology%2C+Invasive+Species%2C+Population+Dynamics">Schooler, S., Salau, B., Julien, M., &amp; Ives, A. (2011). Alternative stable states explain unpredictable biological control of Salvinia molesta in Kakadu <span style="font-style: italic;">Nature, 470</span> (7332), 86-89 DOI: <a rev="review" href="http://dx.doi.org/10.1038/nature09735">10.1038/nature09735</a></span></p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Delving into the Green Economy Report
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 02/21/2011 07:38:45 PM
+-----
+BODY:
+<p>UNEP published the&nbsp;<a href="http://www.unep.org/greeneconomy/GreenEconomyReport/tabid/29846/Default.aspx">Green Economy Report</a>&nbsp;(GER) today. &nbsp;I've been looking forward to reading this as it comes from the team that produced the impressive <a href="http://www.teebweb.org/">Economics of Ecosystems and Biodiversity Study</a>&nbsp;(TEEB).</p>
+<p>TEEB aimed to be the "Stern report" for biodiversity, but it was very different piece of work. &nbsp; GER, on the other hand, does something very similar to Stern - it lays out contrasting scenarios for global investment and explores their consequences. &nbsp;It describes the world's situation as one of gross misallocation of capital, and then explores a scenario where the world invests 2% of GDP into re-allocation of capital across ten major sectors. &nbsp;The take-home-message: investing in areas such as forest protection, subsidy reform in energy and fisheries, and resource efficiency will result in a long-term increase in economic growth:</p>
+<p><span class="full-image-block ssNonEditable"><span><a href="http://www.bbc.co.uk/news/science-environment-12507714"><img src="/storage/_51331603_gdp_world_304.gif?__SQUARESPACE_CACHEVERSION=1298319238981" alt="" /></a></span><span class="thumbnail-caption" style="width: 303px;">Source: BBC</span></span></p>
+<p>There are great talking points in GER's <a href="http://www.unep.org/greeneconomy/Portals/88/documents/ger/GER_synthesis_en.pdf">summary for policymakers</a>, but I think there's a lot to learn by delving into the details. &nbsp;I hope to write a few in-depth posts over the next few weeks exploring insights from the report. &nbsp;</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Climate Change and Credit Risk in the Chemicals Sector
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+
+
+DATE: 02/22/2011 04:02:42 PM
+-----
+BODY:
+<p>WRI continues the march of environmentally-driven <a href="http://www.noamross.net/blog/2010/12/6/good-environmental-management-lowers-cost-of-borrowing.html">credit</a> <a href="http://www.noamross.net/blog/2010/10/21/new-approaches-to-looking-at-water-related-financial-risks.html">analyses</a>&nbsp;with a <a href="http://www.wri.org/publication/how-us-federal-climate-policy-could-affect-chemicals-credit-risk">new report on the chemical sector</a> and how climate regulation could effect industry's ability to borrow. &nbsp;WRI looks at both congressionally- and EPA-driven scenarios for greenhouse gas regulation and maps how different chemical sub-sectors will be affected in each.</p>
+<p><span class="full-image-block ssNonEditable"><span><img style="width: 500px;" src="/storage/Screenshot%2040.PNG?__SQUARESPACE_CACHEVERSION=1298392953862" alt="" /></span><span class="thumbnail-caption" style="width: 500px;">Select regulatory exposure factors for chemical sub-sectors under EPA regulation.  WRI believes that EPA will regulate sectors with high emissions and high potential reductions.  Source: WRI</span></span></p>
+<p>Differences between cap-and-trade legislation and EPA-implemented regulation are interesting and not entirely intuitive. &nbsp;For instance, based on previous attempts at cap-and-trade, legislation will probably provide free emissions permits to emissions-intense sectors for the first decade or so, leaving&nbsp;<em>medium</em>&nbsp;emitters the most exposed. &nbsp; Also, legislation will probably give companies more flexibility, allowing them to choose whether to purchase permits or invest capital into efficiency. &nbsp;However, implementation of EPA regulations will probably be simpler, as participating in the rading markets under cap-and-trade will require more sophistication and mangement across the business.&nbsp;</p>
+<p>Interestingly, the fertilizer industry has high potential exposure in both, as it cap-and-trade could increase the price of its large energy purchases, and its N<span style="vertical-align: sub;">2</span>O emissions are an easy target for regulatory limits. &nbsp;</p>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Extinction debt, dark diversity, and how things are much worse than they look
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 11/28/2011 06:37:50 AM
+-----
+BODY:
+<p><em>I discovered this unpublished post today, originally written in the Spring:</em></p>
+
+<p>A while ago I wrote a wikipedia article on <a href="http://en.wikipedia.org/wiki/Extinction_debt">extinction debt</a>. &nbsp;Frankly, researching this topic scared the hell out of me. Extinction debt began as a fairly obscure theoretical concept that emerged out of mathematical modeling exercises in ecology that showed that it could take tens or even hundreds of years for species to go extinct (Timan et al. 1994). &nbsp;At first blush, this might seem like good news - maybe we have a long time to prevent extinctions. &nbsp;However, it's also bad news, because if this is true, many of the species alive today are committed to extinction due to our actions in the past.</p>
+<p>Many of the species we see in nature today are no longer really supported by their remaining habitat. &nbsp;Standing trees may live, but if their habitat can't support new seedlings, we'll lose them in a generation. &nbsp;Some animals might go through boom-and-bust cycles that . &nbsp;These are the living dead.</p>
+<p>Eventually scientists began to figure out how to measure which species are zombies and how long to they are likely to last. &nbsp;More than 50% of insects currently on the Azores islands are expected to go extinct because of past deforestation. African countries can expect to lose 30% of primate species. &nbsp;(Kuussaari 2009 reviews many of these studies)</p>
+<p>An interesting corollary to extinction debt is "dark diversity," a concept<a href="http://dx.doi.org/10.1016/j.tree.2010.12.004">&nbsp;introduced Meelis Partel, Robert Szava-Kovats and Martin Zobel in&nbsp;<em>TREE</em>&nbsp;earlier this year</a>. &nbsp;Dark diversity refers to the&nbsp;<em>missing</em>&nbsp;species in an ecosystem. &nbsp;The diversity in any locale draws on some but not all of the "pool" of species available in the region. &nbsp;Why? &nbsp;Sometimes it's because species are incompatible with each other, sometimes because physical barriers prevent species from colonizing a location, but often because species have been lost due to human impacts. &nbsp;They took a crack at estimating dark diversity globally:<br /><span class="full-image-block ssNonEditable"><span><img src="/storage/Screenshot 42.PNG?__SQUARESPACE_CACHEVERSION=1298528581351" alt="" /></span></span></p>
+<p>This map shows the ratio of plant species to the "dark" or "missing" species. &nbsp;In red areas, there are a lot fewer species on the ground than one would expect. &nbsp;We can infer - but not yet prove - that a lot of the species in the red areas have been lost. &nbsp;</p>
+<p>It's not normally my style to be all gloom and doom, but this is freaking me out.</p>
+
+<span style="float: left; padding: 5px;"><a href="http://www.researchblogging.org"><img alt="ResearchBlogging.org" src="http://www.researchblogging.org/public/citation_icons/rb2_small.png" style="border:0;"/></a></span>
+
+<span class="Z3988" title="ctx_ver=Z39.88-2004&rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&rft.jtitle=Trends+in+Ecology+%26+Evolution&rft_id=info%3Adoi%2F10.1016%2Fj.tree.2010.12.004&rfr_id=info%3Asid%2Fresearchblogging.org&rft.atitle=Dark+diversity%3A+shedding+light+on+absent+species&rft.issn=01695347&rft.date=2011&rft.volume=26&rft.issue=3&rft.spage=124&rft.epage=128&rft.artnum=http%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0169534710002922&rft.au=P%C3%A4rtel%2C+M.&rft.au=Szava-Kovats%2C+R.&rft.au=Zobel%2C+M.&rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation">Pärtel, M., Szava-Kovats, R., & Zobel, M. (2011). Dark diversity: shedding light on absent species <span style="font-style: italic;">Trends in Ecology & Evolution, 26</span> (3), 124-128 DOI: <a rev="review" href="http://dx.doi.org/10.1016/j.tree.2010.12.004">10.1016/j.tree.2010.12.004</a></span>
+-----
+
+--------
+
+AUTHOR: Noam Ross
+TITLE: Can Novel Ecosystems Do the Job of "Natural" Ones?
+STATUS: Publish
+ALLOW COMMENTS: 1
+
+
+
+DATE: 09/01/2011 10:13:13 PM
+-----
+BODY:
+<div id="_mcePaste">This week in <em>Science</em>, <a href="http://www.nature.com/nature/journal/v477/n7362/full/477029a.html">Shahid Naeem reviews two books</a>&nbsp;(paywall) about modern, "novel" ecosystems, which humans have created by mixing together species that never evolved together. &nbsp;He wonders, are such systems Frankensteins?</div>
+<blockquote>
+<div>[M]odern ecosystems that are haphazardly&nbsp;assembled from the remains of human&nbsp;development are unpredictable and fragile. With one billion people hungry, two&nbsp;billion poor and three billion in desperate need of water, the hopes of humanity rest on conserving, restoring and&nbsp;sustainably managing the services that&nbsp;nature provides. The bigger question is&nbsp;whether the unnatural nature that we&nbsp;have wrought, although familiar in form&nbsp;and function, will save us or prove to be&nbsp;monstrous.</div>
+</blockquote>
+-----
+COMMENT:
+AUTHOR: Duncan
+EMAIL: 
+IP: 98.14.104.107
+URL: 
+DATE: 09/02/2011 01:53:56 AM
+<p>Interesting. But can&#39;t we consider these &quot;novel&quot; ecosystems extreme cases of good ol&#39; secondary succession?</p>
+-----
+COMMENT:
+AUTHOR: Noam Ross
+DATE: 09/02/2011 10:48:56 AM
+<p>Not quite.  Succession doesn&#39;t always follow a predictable pattern, especially when it follows wholly new disturbances created by humans.   It depends on the species available, and we change the species pool by eliminating some species and introducing new ones.  Humans also modify the environment in which succession happens - a forest that springs forth after heavy soil modification from agriculture, for instance, will be very different than one recovering from a hurricane.</p>
+-----
+
+--------
+

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Noam Ross" />
+  <title>ARE277 Problem Set 3 - Numerical Methods</title>
+  <link rel="stylesheet" href="http://dl.dropbox.com/u/3356641/jekyll-site/assets/themes/noamblog/css/style.css" type="text/css" />
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ "HTML-CSS": { availableFonts: ["TeX"], webfont: [null] }} ); </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ TeX: { extensions: ["autobold.js"] }} ); </script>
+<style>#wrapper { max-width:1000px; margin:0 auto }</style>
+<body>
+<div class="wrapper">
+  <div class="blog">
+    <div class="container">
+      <div class="content">
+
+<h1 id="page.title">ARE277 Problem Set 3 - Numerical Methods</h1>
+<p><em>Noam Ross</em></p>
+<p>2012-04-23 10:27:59</p>
+<hr />
+
+<p>Conisider a non-linear fishery model with the following structure:</p>
+<p>\[\max_{h_t} \int_0^T e^{-rt} \pi(h_t)\, dt\, \text{  s.t.  }\, x = F(x_t) - h_t\]</p>
+<p>\(F(x_t)\) is quadratic and concave. Now assume that \(\pi(h_t)\) is concave with a maximum harvest level \(\bar{h}\), where \(\bar{h} &lt; F(x^\text{MSY})\), where \(x^\text{MSY}\) is the maximum sustainable yield level.</p>
+<h3 id="i.-characterize-the-solution-and-discuss-the-nature-of-it-using-a-phase-diagram">i. Characterize the solution and discuss the nature of it using a phase diagram</h3>
+<p>The problem has the general solution</p>
+<p>\[\begin{aligned} 
+   \dot{x} = F(x) - h, &amp;&amp; \dot{h} = \frac{\pi&#39;(h)}{\pi&#39;&#39;(h)} \left( r- \frac{dF}{dx} \right)  
+  \end{aligned}\]</p>
+<p>As in previous cases, the nullcline for stock growth is \(h = F(x)\). Since \(\pi\) has a maximum at \(\bar{h}\), there are nullclines for entry/exit at both \(h = \bar{h}\) and \(\frac{dF}{dx} = r\). This yields two possible phase plane configurations:</p>
+<p><img src="http://dl.dropbox.com/u/3356641/blogstuff/hbar1.png" /> <img src="http://dl.dropbox.com/u/3356641/blogstuff/hbar2.png" /></p>
+<p>The phase-plane configuration is different depending on whether \(F\) at \(\frac{dF}{dx} = r\) is greater or less than \(\bar{h}\).</p>
+<p>The Jacobian matrix of the system is:</p>
+<p>\[\boldsymbol{A} = \begin{bmatrix} F&#39;(x) &amp;&amp; -1 \\ - \frac{\pi&#39;(h)}{\pi&#39;&#39;(h)} \frac{d^2 F}{dx^2} &amp;&amp; (r- F&#39;(x))\left(1- \frac{\pi&#39;(h) \pi&#39;&#39;&#39;(h)}{(\pi&#39;&#39;(h))^2}\right)   \end{bmatrix}  \]</p>
+<p>I determine the stability of equilibria at \(E_1\) and \(E_3\), where \(h= \bar{h}\).</p>
+<p>\[\boldsymbol{A}\bigg|_{h=\bar{h}} = \begin{bmatrix} F&#39;(x) &amp;&amp; -1 \\ 0 &amp;&amp; r- F&#39;(x)   \end{bmatrix}  \]</p>
+<p>\[\det\boldsymbol{A}\bigg|_{h=\bar{h}} = F&#39;(x)(r-F&#39;(x))\]</p>
+<p>\[\text{Tr}\, \boldsymbol{A}\bigg|_{h=\bar{h}} = r \]</p>
+<p>In the first configuration, where \(F&#39;(x) &gt; r\) at \(E_1\), \(E_1\) and \(E_3\) are both saddle points. In the second, where \(F&#39;(x) &lt; r\) at \(E_1\), \(E_1\) is an unstable node and \(E_3\) is a saddle point.</p>
+<p>Assuming \(F(0) = 0\), the Jacobian evaluated at \(E_2\) is</p>
+<p>\[\boldsymbol{A}\bigg|_{h=\bar{h}} = \begin{bmatrix} r &amp;&amp; -1 \\ - \frac{\pi&#39;(h)}{\pi&#39;&#39;(h)} \frac{d^2 F}{dx^2} &amp;&amp; 0   \end{bmatrix}  \]</p>
+<p>\[\det\boldsymbol{A}\bigg|_{h=\bar{h}} = - \frac{\pi&#39;(h)}{\pi&#39;&#39;(h)} \frac{d^2 F}{dx^2} \]</p>
+<p>\[\text{Tr}\, \boldsymbol{A}\bigg|_{h=\bar{h}} = r \]</p>
+<p>In the first configuration, where \(E_2\) lies above \(\bar{h}\), the determinant is positive and \(E_3\) is unstable. Depending on parameterization, it may exhibit spiral behavior. In the second configuration, the determinant is negative and \(E_3\) is a saddle point.</p>
+<p>This means that, in all cases, the system has two saddle points (the outermost equilibria). one unstable node (in between), and no stable equilibria. Optimal paths will approach the saddle points and then escape, with more time spent near the points with longer time periods. For inifite time horizons, optimal paths will approach the saddle points.</p>
+<h3 id="ii.-generate-a-numerical-phase-pane">ii. Generate a numerical phase pane</h3>
+<p>I plot a numerical phase plane for the system above using the following forms and parameters:</p>
+<p>\[\begin{aligned} 
+   \pi(h_t) &amp;= p_t h_t &amp; \alpha &amp;= 0.4675\\
+   p_t &amp;=  \alpha - \beta h_t &amp; \beta &amp;=1\\
+   F(x) &amp;= ax - bx^2 &amp; a &amp;= 1.1\\
+   &amp; &amp; b &amp;= 1.1 \\
+   &amp; &amp; r &amp;= 0.1
+  \end{aligned}\]</p>
+<p>The plot is generated in R. (The generating functions in <code>plane.r</code> are available <a href="https://github.com/noamross/ARE277/blob/master/pplane.r">on github here</a>):</p>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">source</span>(<span class="st">&quot;~/code/ARE277/pplane.r&quot;</span>)
+
+bvp &lt;- function(<span class="dt">alpha =</span> <span class="fl">0.4675</span>, <span class="dt">beta =</span> <span class="dv">1</span>, <span class="dt">a =</span> <span class="fl">1.1</span>, 
+    <span class="dt">b =</span> <span class="fl">1.1</span>, <span class="dt">r =</span> <span class="fl">0.1</span>) {
+    function(x, <span class="dt">y =</span> <span class="ot">NULL</span>) {
+        if (<span class="kw">is.null</span>(y)) {
+            y &lt;- x[<span class="dv">2</span>]
+            x &lt;- x[<span class="dv">1</span>]
+        }
+        dx = a * x - b * (x^<span class="dv">2</span>) - y
+        dy = (r - a + <span class="dv">2</span> * b * x) * (alpha - <span class="dv">2</span> * beta * y)/(-<span class="dv">2</span> * 
+            beta)
+        <span class="kw">return</span>(<span class="kw">c</span>(dx, dy))
+    }
+}
+
+alpha &lt;- <span class="fl">0.4675</span>
+beta &lt;- <span class="dv">1</span>
+a &lt;- <span class="fl">1.1</span>
+b &lt;- <span class="fl">1.1</span>
+r &lt;- <span class="fl">0.1</span>
+
+<span class="kw">par</span>(<span class="dt">col =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.axis =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.lab =</span> <span class="st">&quot;#45462f&quot;</span>, 
+    <span class="dt">col.main =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.sub =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>, 
+    <span class="dt">cex.main =</span> <span class="fl">1.3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.3</span>, <span class="dt">cex.lab =</span> <span class="fl">1.3</span>)
+<span class="kw">nullclines</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="dv">250</span>, <span class="dt">xlab =</span> <span class="st">&quot;Stock (x)&quot;</span>, 
+    <span class="dt">ylab =</span> <span class="st">&quot;Harvest rate (h)&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;#45462f&quot;</span>, <span class="st">&quot;#45462f&quot;</span>), 
+    <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>, <span class="dt">yaxs =</span> <span class="st">&quot;i&quot;</span>)
+<span class="kw">phasearrows</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="dv">30</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="st">&quot;grey60&quot;</span>)
+<span class="kw">text</span>(<span class="dv">0</span>, <span class="fl">0.23375</span>, <span class="st">&quot;h=0.23375&quot;</span>, <span class="dt">adj =</span> <span class="kw">c</span>(-<span class="fl">0.1</span>, -<span class="fl">0.3</span>), 
+    <span class="dt">cex =</span> <span class="fl">1.3</span>)</code></pre>
+<div class="figure">
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png" /><p class="caption"></p>
+</div>
+<p>The numerical approach produces essentially the same phase diagram (though originally I mixed up a sign, reversing the values of \(\frac{dh}{dt}\) in my first take on the analytic approach). For this parameterization, the diagram follows what I called “Configuration 1” above. Also, equilibrium \(E_3\) is an unstable spiral in this case. Importantly, the numeric plane also shows that, for these functional forms, the dynamic paths can cross zero on both axes. A full solution would include functional forms that accounted for these boundary cases - while “reverse effort” in the form of fish stocking might be possible, negative populations are not.</p>
+<p>Note that there is an area under the curve just below 0.2 where arrows diverge to different trajectories. This occurs along the saddle path leading to \(E_1\) and is an area of instability. This is also available along \(\bar{h}\) on the right side of the figure, approaching \(E_2\) from the right. Due to the small arrows, it is difficult to see the corresponding saddle paths on the opposite sides of both saddle points.</p>
+<h3 id="iii.-solve-for-optimal-paths-under-boundary-value-conditions">iii. Solve for optimal paths under boundary value conditions</h3>
+<p>Using the forms and parameters in (ii) above, I find the optimal path for \(x(0) = 0.2, \, x(T) = 0.6, \, T=10\).</p>
+<p>For this, I use the package <code>bvpSolve</code> in R:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Load packages (but don&#39;t print all the loading</span>
+<span class="co">#   messages)</span>
+<span class="kw">suppressMessages</span>(<span class="kw">require</span>(bvpSolve))
+<span class="kw">suppressMessages</span>(<span class="kw">require</span>(rethinking))
+
+
+<span class="co">#The ODEs have to be redefined in a slightly different</span>
+<span class="co">#   format for bvpSolve</span>
+bvpDES &lt;- function(Time, State, Pars) {
+    <span class="kw">with</span>(<span class="kw">as.list</span>(<span class="kw">c</span>(State, Pars)), {
+        dx = a * x - b * (x^<span class="dv">2</span>) - y
+        dy = (r - a + (<span class="dv">2</span> * b * x)) * (alpha - (<span class="dv">2</span> * beta * 
+            y))/(-<span class="dv">2</span> * beta)
+        <span class="kw">return</span>(<span class="kw">list</span>(<span class="kw">c</span>(dx, dy)))
+    })
+}
+
+<span class="co">#Set parameters</span>
+parms &lt;- <span class="kw">c</span>(alpha &lt;- <span class="fl">0.4675</span>, beta &lt;- <span class="dv">1</span>, a &lt;- <span class="fl">1.1</span>, 
+    b &lt;- <span class="fl">1.1</span>, r &lt;- <span class="fl">0.1</span>)
+x0 &lt;- <span class="fl">0.2</span>
+xT = <span class="fl">0.6</span>
+T &lt;- <span class="dv">10</span>
+
+<span class="co"># Set up initial and final conditions, leaving unknowns</span>
+<span class="co">#   as NA</span>
+yini &lt;- <span class="kw">c</span>(<span class="dt">x =</span> x0, <span class="dt">y =</span> <span class="ot">NA</span>)
+yend &lt;- <span class="kw">c</span>(<span class="dt">x =</span> xT, <span class="dt">y =</span> <span class="ot">NA</span>)
+
+<span class="co"># Give the the desired time outputs</span>
+times &lt;- <span class="kw">seq</span>(<span class="dv">0</span>, T, <span class="dt">length.out =</span> (T + <span class="dv">1</span>))
+
+<span class="co">#Run the shooting-method solver</span>
+out1 &lt;- <span class="kw">bvpshoot</span>(<span class="dt">yini =</span> yini, <span class="dt">x =</span> times, <span class="dt">func =</span> bvpDES, 
+    <span class="dt">yend =</span> yend, <span class="dt">parms =</span> parms, <span class="dt">guess =</span> <span class="fl">0.1</span>, <span class="dt">method =</span> <span class="st">&quot;bdf&quot;</span>)
+
+<span class="co">#Reproduce the phase diagram and overlay the optimal</span>
+<span class="co">#   path</span>
+<span class="kw">par</span>(<span class="dt">col =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.axis =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.lab =</span> <span class="st">&quot;#45462f&quot;</span>, 
+    <span class="dt">col.main =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.sub =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>, 
+    <span class="dt">cex.main =</span> <span class="fl">1.3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.3</span>, <span class="dt">cex.lab =</span> <span class="fl">1.3</span>)
+<span class="kw">nullclines</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="dv">250</span>, <span class="dt">xlab =</span> <span class="st">&quot;Stock (x)&quot;</span>, 
+    <span class="dt">ylab =</span> <span class="st">&quot;Harvest rate (h)&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;#45462f&quot;</span>, <span class="st">&quot;#45462f&quot;</span>), 
+    <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>, <span class="dt">yaxs =</span> <span class="st">&quot;i&quot;</span>)
+<span class="kw">phasearrows</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="dv">30</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="st">&quot;grey60&quot;</span>)
+<span class="kw">points</span>(out1[<span class="dv">1</span>, <span class="dv">2</span>], out1[<span class="dv">1</span>, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen4&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">2</span>)
+<span class="kw">points</span>(out1[, <span class="dv">2</span>], out1[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="kw">col.alpha</span>(<span class="st">&quot;springgreen4&quot;</span>, 
+    <span class="dt">alpha =</span> <span class="fl">0.5</span>), <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">1</span>)
+<span class="kw">lines</span>(out1[, <span class="dv">2</span>], out1[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen4&quot;</span>)
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))
+<span class="kw">plot</span>(times, out1[, <span class="dv">2</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen4&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Stock (x)&quot;</span>)
+<span class="kw">plot</span>(times, out1[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen4&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Harvest rate (h)&quot;</span>)</code></pre>
+<p><img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-21.png" /> <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-22.png" /></p>
+<p>This code used the <code>bvpshoot</code> function, which solves using a shooting algorithm. Note that it required a guess for the value of \(h\) (<code>guess=0.1</code>) on the correct side of the saddle path. Also, I used <code>method=&quot;bdf&quot;</code>, which tells the ODE solver to use method optimized for stiff systems. Absent this, the guess must be quite close to the true value for the method to work.</p>
+<p>The optimal path in this case is to rapidly approach the most profitable harvest rate ({h}) and harvest at a near-constant level until the stock is rebuilt to the required level. Near the end of the period, a slight dip in harvest levels allows the stock to reach the final requirement more quickly. One cannot approach closer to \(\bar{h}\) because at higher values of \(h\), the stock will rebuild slower, and not reach the required level in the time frame required.</p>
+<p>Now I solve for the cases of \(T=20\) and \(T=30\)</p>
+<pre class="sourceCode r"><code class="sourceCode r">T = <span class="dv">20</span>
+times &lt;- <span class="kw">seq</span>(<span class="dv">0</span>, T, <span class="dt">length.out =</span> T + <span class="dv">1</span>)
+out2 &lt;- <span class="kw">bvpcol</span>(<span class="dt">yini =</span> yini, <span class="dt">x =</span> times, <span class="dt">func =</span> bvpDES, 
+    <span class="dt">yend =</span> yend, <span class="dt">parms =</span> parms)
+
+T = <span class="dv">30</span>
+times &lt;- <span class="kw">seq</span>(<span class="dv">0</span>, T, <span class="dt">length.out =</span> T + <span class="dv">1</span>)  <span class="co"># Set teh desired time output</span>
+out3 &lt;- <span class="kw">bvpcol</span>(<span class="dt">yini =</span> yini, <span class="dt">x =</span> times, <span class="dt">func =</span> bvpDES, 
+    <span class="dt">yend =</span> yend, <span class="dt">parms =</span> parms)</code></pre>
+<p>In these cases I used <code>bvpcol</code>, which used a collocation method. <code>bvpshoot</code> can’t handle these cases unless given a near-perfect initial value. <code>bvpcol</code> can take initial guesses, and re-iterate to get better results using previous solutions, but in this case it works without guesses. I plot the solutions on the same graph, zoomed in to differentiate the paths:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">col =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.axis =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.lab =</span> <span class="st">&quot;#45462f&quot;</span>, 
+    <span class="dt">col.main =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.sub =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>, 
+    <span class="dt">cex.main =</span> <span class="fl">1.3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.3</span>, <span class="dt">cex.lab =</span> <span class="fl">1.3</span>, <span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
+        <span class="dv">1</span>))
+<span class="kw">nullclines</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="fl">0.175</span>, <span class="fl">0.625</span>), <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.25</span>), <span class="dv">250</span>, <span class="dt">xlab =</span> <span class="st">&quot;Stock (x)&quot;</span>, 
+    <span class="dt">ylab =</span> <span class="st">&quot;Harvest rate (h)&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;#45462f&quot;</span>, <span class="st">&quot;#45462f&quot;</span>), 
+    <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>, <span class="dt">yaxs =</span> <span class="st">&quot;i&quot;</span>)
+<span class="kw">phasearrows</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="fl">0.175</span>, <span class="fl">0.625</span>), <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.25</span>), <span class="dv">30</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>, 
+    <span class="dt">col =</span> <span class="st">&quot;grey60&quot;</span>)
+<span class="kw">points</span>(out2[<span class="dv">1</span>, <span class="dv">2</span>], out2[<span class="dv">1</span>, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;tomato4&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">2</span>)
+<span class="kw">points</span>(out2[, <span class="dv">2</span>], out2[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="kw">col.alpha</span>(<span class="st">&quot;tomato4&quot;</span>, 
+    <span class="dt">alpha =</span> <span class="fl">0.5</span>), <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">1</span>)
+<span class="kw">points</span>(out1[<span class="dv">1</span>, <span class="dv">2</span>], out1[<span class="dv">1</span>, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen4&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">2</span>)
+<span class="kw">points</span>(out1[, <span class="dv">2</span>], out1[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="kw">col.alpha</span>(<span class="st">&quot;springgreen4&quot;</span>, 
+    <span class="dt">alpha =</span> <span class="fl">0.5</span>), <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">1</span>)
+<span class="kw">lines</span>(out1[, <span class="dv">2</span>], out1[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen4&quot;</span>)
+<span class="kw">lines</span>(out2[, <span class="dv">2</span>], out2[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;tomato4&quot;</span>)
+<span class="kw">points</span>(out3[<span class="dv">1</span>, <span class="dv">2</span>], out3[<span class="dv">1</span>, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;slateblue&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">2</span>)
+<span class="kw">points</span>(out3[, <span class="dv">2</span>], out3[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="kw">col.alpha</span>(<span class="st">&quot;slateblue&quot;</span>, 
+    <span class="dt">alpha =</span> <span class="fl">0.5</span>), <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="dv">1</span>)
+<span class="kw">lines</span>(out3[, <span class="dv">2</span>], out3[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;slateblue&quot;</span>)</code></pre>
+<div class="figure">
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-4.png" alt="Optimal paths in phase space for T=10 (green), T=20 (brown), and T=30 (purple)" /><p class="caption">Optimal paths in phase space for \(T=10\) (green), \(T=20\) (brown), and \(T=30\) (purple)</p>
+</div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">col =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.axis =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.lab =</span> <span class="st">&quot;#45462f&quot;</span>, 
+    <span class="dt">col.main =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.sub =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>, 
+    <span class="dt">cex.main =</span> <span class="fl">1.3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.3</span>, <span class="dt">cex.lab =</span> <span class="fl">1.3</span>)
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))
+<span class="kw">plot</span>(times, out3[, <span class="dv">2</span>], <span class="dt">col =</span> <span class="st">&quot;slateblue&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Stock (x)&quot;</span>)
+<span class="kw">lines</span>(<span class="dv">0</span>:<span class="dv">10</span>, out1[, <span class="dv">2</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>, 
+    <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)
+<span class="kw">lines</span>(<span class="dv">0</span>:<span class="dv">20</span>, out2[, <span class="dv">2</span>], <span class="dt">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>, 
+    <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)
+<span class="kw">plot</span>(times, out3[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;slateblue&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, 
+    <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Harvest rate (h)&quot;</span>, 
+    <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="fl">0.13</span>, <span class="fl">0.25</span>))
+<span class="kw">lines</span>(<span class="dv">0</span>:<span class="dv">10</span>, out1[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;springgreen&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>, 
+    <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)
+<span class="kw">lines</span>(<span class="dv">0</span>:<span class="dv">20</span>, out2[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;tomato4&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>, 
+    <span class="dt">cex =</span> <span class="fl">1.4</span>, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</code></pre>
+<div class="figure">
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-5.png" alt="Optimal paths through time for T=10 (green), T=20 (brown), and T=30 (purple)" /><p class="caption">Optimal paths through time for \(T=10\) (green), \(T=20\) (brown), and \(T=30\) (purple)</p>
+</div>
+<p>Plotting each of the optimal the paths in both phase space and through time highlights the effect of longer times. As the time period gets longer, paths pass closer to the saddle point, and spend more time near it. Near the saddle profits are greatest \((\bar{h})\). As the final time nears, the optimal path is to reduce harvests slightly in order to reach the final stock requirement. With longer time horizons, this decrease is small. As \(T \rightarrow \infty\), no decrease would be required.</p>
+<p>Finally, I attempt to solve for a path when \(x_0 = 0.1,\, x_T = 0.3\), and \(T=10\)</p>
+<pre class="sourceCode r"><code class="sourceCode r">x0 &lt;- <span class="fl">0.1</span>
+xT = <span class="fl">0.3</span>
+T &lt;- <span class="dv">10</span>
+yini &lt;- <span class="kw">c</span>(<span class="dt">x =</span> x0, <span class="dt">y =</span> <span class="ot">NA</span>)
+yend &lt;- <span class="kw">c</span>(<span class="dt">x =</span> xT, <span class="dt">y =</span> <span class="ot">NA</span>)
+times &lt;- <span class="kw">seq</span>(<span class="dv">0</span>, T, <span class="dt">length.out =</span> T + <span class="dv">1</span>)
+out4 &lt;- <span class="kw">bvpcol</span>(<span class="dt">yini =</span> yini, <span class="dt">x =</span> times, <span class="dt">func =</span> bvpDES, 
+    <span class="dt">yend =</span> yend, <span class="dt">parms =</span> parms)
+out4[<span class="dv">1</span>, ]</code></pre>
+<pre class="sourceCode rout"><code>##        x        x        y 
+##  0.00000  0.10000 -0.01773 </code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">
+<span class="kw">par</span>(<span class="dt">col =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.axis =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.lab =</span> <span class="st">&quot;#45462f&quot;</span>, 
+    <span class="dt">col.main =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.sub =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>, 
+    <span class="dt">cex.main =</span> <span class="fl">1.3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.3</span>, <span class="dt">cex.lab =</span> <span class="fl">1.3</span>)
+<span class="kw">nullclines</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(-<span class="fl">0.1</span>, <span class="fl">0.4</span>), <span class="dv">250</span>, <span class="dt">xlab =</span> <span class="st">&quot;Stock (x)&quot;</span>, 
+    <span class="dt">ylab =</span> <span class="st">&quot;Harvest rate (h)&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;#45462f&quot;</span>, <span class="st">&quot;#45462f&quot;</span>), 
+    <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>, <span class="dt">yaxs =</span> <span class="st">&quot;i&quot;</span>)
+<span class="kw">phasearrows</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="kw">c</span>(-<span class="fl">0.1</span>, <span class="fl">0.4</span>), <span class="dv">30</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>, 
+    <span class="dt">col =</span> <span class="st">&quot;grey60&quot;</span>)
+<span class="kw">points</span>(out4[<span class="dv">1</span>, <span class="dv">2</span>], out4[<span class="dv">1</span>, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">pch =</span> <span class="dv">16</span>)
+<span class="kw">points</span>(out4[, <span class="dv">2</span>], out4[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="kw">col.alpha</span>(<span class="st">&quot;blue&quot;</span>, 
+    <span class="dt">alpha =</span> <span class="fl">0.5</span>), <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.75</span>)
+<span class="kw">lines</span>(out4[, <span class="dv">2</span>], out4[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</code></pre>
+<div class="figure">
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-6.png" /><p class="caption"></p>
+</div>
+<p>In this case, the solver arrives a solution, but it includes \(x_0 = -0.018\), which is not feasible. This is a consequence of the fact that I have not introduced conditions constraining values of \(x\) above zero.</p>
+<p>This does not appear to be a numeric error. Despite the fact that the final solution is very close to \(E_1\) (which is at \(x=0.30635\)), the solver approaches the final point smoothly. I demonstrate by producing the phase plane and the optimal path much higher resolutions and zooming in to the final point:</p>
+<pre class="sourceCode r"><code class="sourceCode r">T = <span class="dv">10</span>
+yini &lt;- <span class="kw">c</span>(<span class="dt">x =</span> <span class="fl">0.1</span>, <span class="dt">y =</span> <span class="ot">NA</span>)  <span class="co"># Set initial conditions, leaving unknowns as NA</span>
+yend &lt;- <span class="kw">c</span>(<span class="dt">x =</span> <span class="fl">0.3</span>, <span class="dt">y =</span> <span class="ot">NA</span>)  <span class="co"># Set final conidtions, leaving unknowns as NA</span>
+times &lt;- <span class="kw">seq</span>(<span class="dv">0</span>, T, <span class="dt">length.out =</span> <span class="dv">900</span>)  <span class="co"># Set teh desired time output</span>
+out4 &lt;- <span class="kw">bvpcol</span>(<span class="dt">yini =</span> yini, <span class="dt">x =</span> times, <span class="dt">func =</span> bvpDES, 
+    <span class="dt">yend =</span> yend, <span class="dt">parms =</span> parms)
+<span class="kw">par</span>(<span class="dt">col =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.axis =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.lab =</span> <span class="st">&quot;#45462f&quot;</span>, 
+    <span class="dt">col.main =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">col.sub =</span> <span class="st">&quot;#45462f&quot;</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>, 
+    <span class="dt">cex.main =</span> <span class="fl">1.3</span>, <span class="dt">cex.axis =</span> <span class="fl">1.3</span>, <span class="dt">cex.lab =</span> <span class="fl">1.3</span>)
+<span class="kw">nullclines</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="fl">0.285</span>, <span class="fl">0.315</span>), <span class="kw">c</span>(<span class="fl">0.229</span>, <span class="fl">0.235</span>), <span class="dv">250</span>, 
+    <span class="dt">xlab =</span> <span class="st">&quot;Stock (x)&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Harvest rate (h)&quot;</span>, <span class="dt">colors =</span> <span class="kw">c</span>(<span class="st">&quot;#45462f&quot;</span>, 
+        <span class="st">&quot;#45462f&quot;</span>), <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>, <span class="dt">yaxs =</span> <span class="st">&quot;i&quot;</span>)
+<span class="kw">phasearrows</span>(<span class="kw">bvp</span>(<span class="dt">alpha =</span> alpha, <span class="dt">beta =</span> beta, <span class="dt">a =</span> a, 
+    <span class="dt">b =</span> b, <span class="dt">r =</span> r), <span class="kw">c</span>(<span class="fl">0.285</span>, <span class="fl">0.315</span>), <span class="kw">c</span>(<span class="fl">0.229</span>, <span class="fl">0.235</span>), <span class="dv">30</span>, 
+    <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="st">&quot;grey60&quot;</span>)
+<span class="kw">points</span>(out4[, <span class="dv">2</span>], out4[, <span class="dv">3</span>], <span class="dt">col =</span> <span class="kw">col.alpha</span>(<span class="st">&quot;blue&quot;</span>, 
+    <span class="dt">alpha =</span> <span class="fl">0.5</span>), <span class="dt">pch =</span> <span class="dv">16</span>, <span class="dt">cex =</span> <span class="fl">0.75</span>)</code></pre>
+<div class="figure">
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png" /><p class="caption"></p>
+</div>
+  </div>
+  </div>
+  </div>
+  </div>
+</body>
+</html>

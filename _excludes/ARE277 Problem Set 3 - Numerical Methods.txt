@@ -1,0 +1,235 @@
+% ARE277 Problem Set 3 - Numerical Methods
+% Noam Ross
+% 2012-04-23 10:27:59
+
+Conisider a non-linear fishery model with the following structure:
+
+$$\max_{h_t} \int_0^T e^{-rt} \pi(h_t)\, dt\, \text{  s.t.  }\, x = F(x_t) - h_t$$
+
+$F(x_t)$ is quadratic and concave.  Now assume that $\pi(h_t)$ is concave with a maximum harvest level $\bar{h}$, where $\bar{h} < F(x^\text{MSY})$, where $x^\text{MSY}$ is the maximum sustainable yield level.
+
+## i. Characterize the solution and discuss the nature of it using a phase diagram
+
+The problem has the general solution
+
+$$\begin{aligned} 
+   \dot{x} = F(x) - h, && \dot{h} = \frac{\pi'(h)}{\pi''(h)} \left( r- \frac{dF}{dx} \right)  
+  \end{aligned}$$ 
+
+As in previous cases, the nullcline for stock growth is $h = F(x)$.  Since $\pi$ has a maximum at $\bar{h}$, there are nullclines for entry/exit at both $h = \bar{h}$ and $\frac{dF}{dx} = r$.  This yields two possible phase plane configurations:
+
+![](http://dl.dropbox.com/u/3356641/blogstuff/hbar1.png)
+![](http://dl.dropbox.com/u/3356641/blogstuff/hbar2.png)
+
+The phase-plane configuration is different depending on whether $F$ at $\frac{dF}{dx} = r$ is greater or less than $\bar{h}$. 
+
+The Jacobian matrix of the system is:
+
+$$\boldsymbol{A} = \begin{bmatrix} F'(x) && -1 \\ - \frac{\pi'(h)}{\pi''(h)} \frac{d^2 F}{dx^2} && (r- F'(x))\left(1- \frac{\pi'(h) \pi'''(h)}{(\pi''(h))^2}\right)   \end{bmatrix}  $$
+
+I determine the stability of equilibria at $E_1$ and $E_3$, where $h= \bar{h}$.
+
+$$\boldsymbol{A}\bigg|_{h=\bar{h}} = \begin{bmatrix} F'(x) && -1 \\ 0 && r- F'(x)   \end{bmatrix}  $$
+
+$$\det\boldsymbol{A}\bigg|_{h=\bar{h}} = F'(x)(r-F'(x))$$
+
+$$\text{Tr}\, \boldsymbol{A}\bigg|_{h=\bar{h}} = r $$
+
+In the first configuration, where $F'(x) > r$ at $E_1$,  $E_1$ and $E_3$ are both saddle points.  In the second, where $F'(x) < r$ at $E_1$, $E_1$ is an unstable node and $E_3$ is a saddle point.
+
+Assuming $F(0) = 0$, the Jacobian evaluated at $E_2$ is
+
+$$\boldsymbol{A}\bigg|_{h=\bar{h}} = \begin{bmatrix} r && -1 \\ - \frac{\pi'(h)}{\pi''(h)} \frac{d^2 F}{dx^2} && 0   \end{bmatrix}  $$
+
+$$\det\boldsymbol{A}\bigg|_{h=\bar{h}} = - \frac{\pi'(h)}{\pi''(h)} \frac{d^2 F}{dx^2} $$
+
+$$\text{Tr}\, \boldsymbol{A}\bigg|_{h=\bar{h}} = r $$
+
+In the first configuration, where $E_2$ lies above $\bar{h}$, the determinant is positive and $E_3$ is unstable.  Depending on parameterization, it may exhibit spiral behavior.  In the second configuration, the determinant is negative and $E_3$ is a saddle point.
+
+This means that, in all cases, the system has two saddle points (the outermost equilibria). one unstable node (in between), and no stable equilibria.  Optimal paths will approach the saddle points and then escape, with more time spent near the points with longer time periods.  For inifite time horizons, optimal paths will approach the saddle points.
+
+
+
+## ii. Generate a numerical phase pane
+
+I plot a numerical phase plane for the system above using the following forms and parameters:
+
+$$\begin{aligned} 
+   \pi(h_t) &= p_t h_t & \alpha &= 0.4675\\
+   p_t &=  \alpha - \beta h_t & \beta &=1\\
+   F(x) &= ax - bx^2 & a &= 1.1\\
+   & & b &= 1.1 \\
+   & & r &= 0.1
+  \end{aligned}$$ 
+  
+The plot is generated in R. (The generating functions in `plane.r` are available [on github here](https://github.com/noamross/ARE277/blob/master/pplane.r)):
+
+```{.r}
+
+source('~/code/ARE277/pplane.r')
+
+bvp <- function(alpha=0.4675, beta=1, a=1.1, b=1.1, r=0.1){
+  function(x,y=NULL){
+    if (is.null(y)) {
+      y <- x[2]; x <- x[1];
+    }
+    dx = a*x - b*(x^2) - y
+    dy = (r - a   2*b*x)*(alpha - 2 * beta * y)/(-2*beta)
+    return(c(dx, dy))
+  }
+}
+
+alpha <- 0.4675
+beta <- 1
+a <- 1.1
+b <- 1.1
+r <- 0.1
+
+par(col="#45462f", col.axis="#45462f", col.lab="#45462f", col.main="#45462f", col.sub="#45462f", family="serif", cex.main=1.3, cex.axis=1.3, cex.lab=1.3)
+nullclines(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0,1),c(0,0.4),250,xlab="Stock (x)", ylab="Harvest rate (h)", colors=c("#45462f", "#45462f"), xaxs="i", yaxs="i")
+phasearrows(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0,1),c(0,0.4),30, add=TRUE, col="grey60")
+text(0, 0.23375, "h=0.23375", adj=c(-0.1,-0.3), cex=1.3)
+
+````
+
+The numerical approach produces essentially the same phase diagram (though originally I mixed up a sign, reversing the values of $\frac{dh}{dt}$ in my first take on the analytic approach).  For this parameterization, the diagram follows what I called "Configuration 1" above.  Also, equilibrium $E_3$ is an unstable spiral in this case.  Importantly, the numeric plane also shows that, for these functional forms, the dynamic paths can cross zero on both axes.  A full solution would include functional forms that accounted for these boundary cases - while "reverse effort" in the form of fish stocking might be possible, negative populations are not.
+
+Note that there is an area under the curve just below 0.2 where arrows diverge to different trajectories.  This occurs along the saddle path leading to $E_1$ and is an area of instability.  This is also available along $\bar{h}$ on the right side of the figure, approaching $E_2$ from the right. Due to the small arrows, it is difficult to see the corresponding saddle paths on the opposite sides of both saddle points. 
+
+## iii.  Solve for optimal paths under boundary value conditions ##
+
+Using the forms and parameters in (ii) above, I find the optimal path for $x(0) = 0.2, \, x(T) = 0.6, \, T=10$.
+
+For this, I use the package `bvpSolve` in R:
+
+```{.r fig.show="hold"}
+#Load packages (but don't print all the loading messages)
+suppressMessages(require(bvpSolve))
+suppressMessages(require(rethinking))
+
+
+#The ODEs have to be redefined in a slightly different format for bvpSolve
+bvpDES <- function (Time, State, Pars) {   
+  with(as.list(c(State, Pars)), {
+    dx = a*x - b*(x^2) - y
+    dy = (r - a   (2*b*x))*(alpha - (2 * beta * y))/(-2*beta)
+    return(list(c(dx, dy)))
+  })
+}
+
+#Set parameters
+parms <- c(                   
+  alpha <- 0.4675,
+  beta <- 1,
+  a <- 1.1,
+  b <- 1.1,
+  r <- 0.1
+  ) 
+x0 <- 0.2
+xT = 0.6
+T <- 10
+
+# Set up initial and final conditions, leaving unknowns as NA
+yini <- c(x=x0, y=NA)        
+yend <- c(x=xT, y=NA)    
+     
+# Give the the desired time outputs
+times <- seq(0,T, length.out=(T 1))
+
+#Run the shooting-method solver 
+out1 <- bvpshoot(yini=yini, x=times, func=bvpDES, yend=yend, parms=parms, guess = 0.1, method="bdf")
+
+#Reproduce the phase diagram and overlay the optimal path
+par(col="#45462f", col.axis="#45462f", col.lab="#45462f", col.main="#45462f", col.sub="#45462f", family="serif", cex.main=1.3, cex.axis=1.3, cex.lab=1.3)
+nullclines(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0,1),c(0,0.4),250,xlab="Stock (x)", ylab="Harvest rate (h)", colors=c("#45462f", "#45462f"), xaxs="i", yaxs="i")
+phasearrows(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0,1),c(0,0.4),30, add=TRUE, col="grey60")
+points(out1[1,2], out1[1,3], col="springgreen4", pch=16, cex=2)
+points(out1[,2], out1[,3], col=col.alpha("springgreen4", alpha=0.5), pch=16, cex=1)
+lines(out1[,2], out1[,3], col="springgreen4")
+par(mfrow=c(2,1))
+plot(times,out1[,2], col="springgreen4", type="b", pch=16, cex=1.4, xlab="", ylab="Stock (x)")
+plot(times,out1[,3], col="springgreen4", type="b", pch=16, cex=1.4, xlab="Time", ylab="Harvest rate (h)")
+```
+
+This code used the `bvpshoot` function, which solves using a shooting algorithm.  Note that it required a guess for the value of $h$ (`guess=0.1`) on the correct side of the saddle path.  Also, I used `method="bdf"`, which tells the ODE solver to use method optimized for stiff systems.  Absent this, the guess must be quite close to the true value for the method to work.
+
+The optimal path in this case is to rapidly approach the most profitable harvest rate (\bar{h}) and harvest at a near-constant level until the stock is rebuilt to the required level.  Near the end of the period, a slight dip in harvest levels allows the stock to reach the final requirement more quickly.  One cannot approach closer to $\bar{h}$ because at higher values of $h$, the stock will rebuild slower, and not reach the required level in the time frame required.
+
+Now I solve for the cases of $T=20$ and $T=30$
+
+```{.r}
+T = 20
+times <- seq(0,T, length.out=T 1)
+out2 <- bvpcol(yini=yini, x=times, func=bvpDES, yend=yend, parms=parms)
+
+T = 30
+times <- seq(0,T, length.out=T 1) # Set teh desired time output
+out3 <- bvpcol(yini=yini, x=times, func=bvpDES, yend=yend, parms=parms)
+```
+
+In these cases I used `bvpcol`, which used a collocation method.  `bvpshoot` can't handle these cases unless given a near-perfect initial value. `bvpcol` can take initial guesses, and re-iterate to get better results using previous solutions, but in this case it works without guesses.  I plot the solutions on the same graph, zoomed in to differentiate the paths:
+
+```{.r fig.cap="Optimal paths in phase space for $T=10$ (green), $T=20$ (brown), and $T=30$ (purple)"}
+par(col="#45462f", col.axis="#45462f", col.lab="#45462f", col.main="#45462f", col.sub="#45462f", family="serif", cex.main=1.3, cex.axis=1.3, cex.lab=1.3, mfrow=c(1,1))
+nullclines(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0.175,0.625),c(0.1,0.25),250,xlab="Stock (x)", ylab="Harvest rate (h)", colors=c("#45462f", "#45462f"), xaxs="i", yaxs="i")
+phasearrows(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0.175,0.625),c(0.1,0.25),30, add=TRUE, col="grey60")
+points(out2[1,2], out2[1,3], col="tomato4", pch=16, cex=2)
+points(out2[,2], out2[,3], col=col.alpha("tomato4", alpha=0.5), pch=16, cex=1)
+points(out1[1,2], out1[1,3], col="springgreen4", pch=16, cex=2)
+points(out1[,2], out1[,3], col=col.alpha("springgreen4", alpha=0.5), pch=16, cex=1)
+lines(out1[,2], out1[,3], col="springgreen4")
+lines(out2[,2], out2[,3], col="tomato4")
+points(out3[1,2], out3[1,3], col="slateblue", pch=16, cex=2)
+points(out3[,2], out3[,3], col=col.alpha("slateblue", alpha=0.5), pch=16, cex=1)
+lines(out3[,2], out3[,3], col="slateblue")
+```
+```{.r fig.cap="Optimal paths through time for $T=10$ (green), $T=20$ (brown), and $T=30$ (purple)"}
+par(col="#45462f", col.axis="#45462f", col.lab="#45462f", col.main="#45462f", col.sub="#45462f", family="serif", cex.main=1.3, cex.axis=1.3, cex.lab=1.3)
+par(mfrow=c(2,1))
+plot(times,out3[,2], col="slateblue", type="b", pch=16, cex=1.4, xlab="", ylab="Stock (x)")
+lines(0:10, out1[,2], col="springgreen", pch=16, cex=1.4, type="b")
+lines(0:20, out2[,2], col="tomato4", pch=16, cex=1.4, type="b")
+plot(times,out3[,3], col="slateblue", type="b", pch=16, cex=1.4, xlab="Time", ylab="Harvest rate (h)", ylim=c(0.13,0.25))
+lines(0:10, out1[,3], col="springgreen", pch=16, cex=1.4, type="b")
+lines(0:20, out2[,3], col="tomato4", pch=16, cex=1.4, type="b")
+
+```
+
+Plotting each of the optimal the paths in both phase space and through time highlights the effect of longer times.  As the time period gets longer, paths pass closer to the saddle point, and spend more time near it.  Near the saddle profits are greatest $(\bar{h})$.  As the final time nears, the optimal path is to reduce harvests slightly in order to reach the final stock requirement.  With longer time horizons, this decrease is small.  As $T \rightarrow \infty$, no decrease would be required.
+
+Finally, I attempt to solve for a path when $x_0 = 0.1,\, x_T = 0.3$, and $T=10$
+
+```{.r}
+x0 <- 0.1
+xT = 0.3
+T <- 10
+yini <- c(x=x0, y=NA)        
+yend <- c(x=xT, y=NA)
+times <- seq(0,T, length.out=T 1)
+out4 <- bvpcol(yini=yini, x=times, func=bvpDES, yend=yend, parms=parms)
+out4[1,]
+
+par(col="#45462f", col.axis="#45462f", col.lab="#45462f", col.main="#45462f", col.sub="#45462f", family="serif", cex.main=1.3, cex.axis=1.3, cex.lab=1.3)
+nullclines(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0,1),c(-0.1,0.4),250,xlab="Stock (x)", ylab="Harvest rate (h)", colors=c("#45462f", "#45462f"), xaxs="i", yaxs="i")
+phasearrows(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0,1),c(-0.1,0.4),30, add=TRUE, col="grey60")
+points(out4[1,2], out4[1,3], col="blue", pch=16)
+points(out4[,2], out4[,3], col=col.alpha("blue", alpha=0.5), pch=16, cex=0.75)
+lines(out4[,2], out4[,3], col="blue")
+```
+In this case, the solver arrives a solution, but it includes $x_0 = -0.018$, which is not feasible.  This is a consequence of the fact that I have not introduced conditions constraining values of $x$ above zero.
+
+This does not appear to be a numeric error.  Despite the fact that the final solution is very close to $E_1$ (which is at $x=0.30635$), the solver approaches the final point smoothly.  I demonstrate by producing the phase plane and the optimal path much higher resolutions and zooming in to the final point:
+
+```{.r}
+T = 10
+yini <- c(x=0.1, y=NA)         # Set initial conditions, leaving unknowns as NA
+yend <- c(x=0.3, y=NA)         # Set final conidtions, leaving unknowns as NA
+times <- seq(0,T, length.out=900) # Set teh desired time output
+out4 <- bvpcol(yini=yini, x=times, func=bvpDES, yend=yend, parms=parms)
+par(col="#45462f", col.axis="#45462f", col.lab="#45462f", col.main="#45462f", col.sub="#45462f", family="serif", cex.main=1.3, cex.axis=1.3, cex.lab=1.3)
+nullclines(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0.285,0.315),c(0.229,0.235),250,xlab="Stock (x)", ylab="Harvest rate (h)", colors=c("#45462f", "#45462f"), xaxs="i", yaxs="i")
+phasearrows(bvp(alpha=alpha, beta=beta, a=a,b=b,r=r),c(0.285,0.315),c(0.229,0.235),30, add=TRUE, col="grey60")
+points(out4[,2], out4[,3], col=col.alpha("blue", alpha=0.5), pch=16, cex=0.75)
+
+```
