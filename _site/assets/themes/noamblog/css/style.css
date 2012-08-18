@@ -77,6 +77,9 @@ body {
 	max-width: 1000px;
 }
 
+code.url {font-family:Hoefler Text, Georgia, serif;}
+
+
 @media only screen and (max-device-width: 480px) {
   body, .blog, img, ul, li {
     width: 90% !important;
@@ -424,6 +427,7 @@ li.L1, li.L3, li.L5, li.L7, li.L9 {  }
 
 /* Disqus css */
 /* ---------- */
+
 .dsq-dc-logo {
 display: none; /* Turns off display of disqus logo */
 }
@@ -598,6 +602,8 @@ div#dsq-sort-by {display:none !important;}
 #dsq-footer {display:none !important;}
 div.dsq-trackback-url {display:none !important;}
 .noprint {display:none !important;}
+.dsq-comment-actions {display:none !important;}
+.dsq-comment-moderate {display:none !important;}
 
 h1 a:after{ 
 	white-space: pre;
@@ -606,6 +612,8 @@ h1 a:after{
 	font-size: 40%;
 	margin: 0;
 	font-style: italic;}
+	
+.printOnly {display: block;}
 
 }
 

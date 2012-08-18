@@ -169,7 +169,7 @@ if (typeof Object.create !== 'function') {
          */
         buildList: function (links) {
             var listCnt = $('<div class="' + this.options.listCls + '">' +
-                    '<h2>Links</h2>' +
+                    '<hr/>' +
                     '</div>'),
                 list = $('<ol></ol>').appendTo(listCnt);
 

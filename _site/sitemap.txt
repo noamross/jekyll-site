@@ -15,6 +15,10 @@ http://noamross.net/publications.html
 http://noamross.net/sitemap.txt
 http://noamross.net/tags.html
 
+http://noamross.net/blog/2012/7/2/regime-shifts-in-forest-ecosystems.html
+http://noamross.net/blog/2012/6/1/trade-offs-and-synergies-in-floodplain-management.html
+http://noamross.net/blog/2012/5/25/carl-walters-on-surprises-in-adaptive-management-at-the-grand-canyon.html
+http://noamross.net/blog/2012/5/15/heidi-albers-talk-may-15-2012.html
 http://noamross.net/blog/2012/4/20/lecture-from-holly-doremus---adaptive-management.html
 http://noamross.net/blog/2012/4/4/math-in-rss-feeds.html
 http://noamross.net/blog/2012/4/2/exploring-pollen-data-knit.html

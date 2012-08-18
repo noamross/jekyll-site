@@ -4,13 +4,315 @@
  <title>Noam Ross</title>
  <link href="http://noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://noamross.net"/>
- <updated>2012-04-30T21:21:31-07:00</updated>
+ <updated>2012-08-17T20:52:09-07:00</updated>
  <id>http://noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Regime Shifts in Forest Ecosystems</title>
+   <link href="http://noamross.net/blog/2012/7/2/regime-shifts-in-forest-ecosystems.html"/>
+   <updated>2012-07-02T14:43:01-07:00</updated>
+   <id>hhttp://noamross.net/blog/2012/7/2/regime-shifts-in-forest-ecosystems</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;As I begin to put together material for my thesis proposal, I’m collecting literature on regime shifts in forest ecosystems. I’m interested in the time scale of regime shifts, and how they compare with the time scale of stand dynamics (typically decades), which are the dominant time scale in forestry economics.&lt;/p&gt;
+&lt;p&gt;Here is a preliminary set of examples and citations. I’ve also created a &lt;a href=&quot;http://www.mendeley.com/groups/2356851/regime-shifts-in-forest-ecosystems/&quot;&gt;Mendeley group&lt;/a&gt; with the papers I’m collecting for this topic. What other examples do people know of? Leave your thoughts in the comments!&lt;/p&gt;
+&lt;h2 id=&quot;pests-and-disease&quot;&gt;Pests and Disease&lt;/h2&gt;
+&lt;h3 id=&quot;spruce-budworm&quot;&gt;Spruce budworm&lt;/h3&gt;
+&lt;p&gt;Ludwig et al. (1978) modeled outbreaks of the spruce budworm, which occur every several decades and result in large-scale forest mortality. Budworm populations slowly increase as the forest matures and provides greater resources. Periods of warm dry weather can result in budworm numbers large enough to escape the predation of birds, and then large outbreaks occur. More on this at the &lt;a href=&quot;http://www.resalliance.org/217.php&quot;&gt;Resilience Alliance&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;bark-beetles&quot;&gt;Bark beetles&lt;/h3&gt;
+&lt;p&gt;Raffa et al. (2008) has a pretty good overview of threshold processes involved in bark beetle outbreaks. One of the key threshold processes that results in regime shift is the interaction between host physiology and beetle aggregation (Berryman et al. 1984). Nelson and Lewis (2008) was able to determine this threshold through explicit modeling of tree physiology. See also Okland and Bjø rnstad (2006).&lt;/p&gt;
+&lt;h3 id=&quot;sudden-oak-death&quot;&gt;Sudden oak death&lt;/h3&gt;
+&lt;p&gt;Sudden oak death, caused by the water mold &lt;em&gt;Phytophthora ramorum&lt;/em&gt;, may exhibit a host-density threshold in its dynamics. When tanoak hosts (&lt;em&gt;Notholithocarpus densiflorus&lt;/em&gt;), exceed a critical density (~8% of stems), outbreak may occur and result in elimination of tanoak (Cobb et al. 2012).&lt;/p&gt;
+&lt;h2 id=&quot;drought-in-piñon-forests&quot;&gt;Drought in piñon forests&lt;/h2&gt;
+&lt;p&gt;Positive feedbacks between drought stress and bark beetle populations (McDowell 2011) can lead to sudden piñon die-offs following periods of drought, which can result in long-term shifts in forest composition. Allen and Breshears (1998) documented drought-induced shifts from ponderosa forest to piñon-juniper woodland in the great basin area, and similar shifts from piñon to juniper have occurred following the 2002-2003 drought (Mueller et al. 2005, Breshears et al. 2005).&lt;/p&gt;
+&lt;h2 id=&quot;forest-grassland-transitions&quot;&gt;Forest-grassland transitions&lt;/h2&gt;
+&lt;h3 id=&quot;forest-and-savanna-as-alternative-stable-states&quot;&gt;Forest and savanna as alternative stable states&lt;/h3&gt;
+&lt;p&gt;There’s lots of literature about the feedbacks that maintain savannas and control the forest-savanna ecotone and evidence that they represent alternative stable states (Sternberg 2001). Staver et al. (2011) and Staver and Levin (2012) show empirical and modeling evidence that, in areas with medium levels of precipitation, forest and savanna are alternative regimes maintained by fire feedbacks. Fire spreads over open grassy areas, so fire areas with greater grass cover suppresses tree regeneration, while fire is less likely to spread over a critical density of forested area. (See also Baudena and Rietkerk (2012).)&lt;/p&gt;
+&lt;h3 id=&quot;north-american-forest-prairie-transition&quot;&gt;North American forest-prairie transition:&lt;/h3&gt;
+&lt;p&gt;As the North American glaciers retreated ~8000 years ago, some areas appear to have responded to the gradual shift in climate with rapid transitions from forest to prairie, as documented by Williams (2009, 2010, 2011).&lt;/p&gt;
+&lt;h2 id=&quot;logging-fire-regime-changes&quot;&gt;Logging Fire Regime changes&lt;/h2&gt;
+&lt;p&gt;Lindenmayer et al. (2011) describe positive feedbacks in mountain ash Forests of Southeastern Australia, where younger forest burns at much greater severity than older forest. Increased disturbance frequency due to logging has resulted in more of these young stands, and greater landscape connectivity between them, resulting in a regime shift to more frequent fires. The authors call this landscape-scale socio-ecological regime shift a “landscape trap”.&lt;/p&gt;
+&lt;h2 id=&quot;ribbon-forests&quot;&gt;Ribbon Forests&lt;/h2&gt;
+&lt;p&gt;Rietkerk and van de Koppel (2008) review work by Hiemstra (2002, 2006) on “ribbon forests” in Wyoming, where alternate forested and non-forested areas form because snow accumulates more in non-forested areas, killing seedlings.&lt;/p&gt;
+&lt;h3 id=&quot;p-availability-and-soil-degradation&quot;&gt;P availability and soil degradation&lt;/h3&gt;
+&lt;p&gt;Lawrence et al. (2007) describe alternative stable states in tropical forest due to P limitation. Mature primary forest traps dust-borne P in the canopy and has lower leaching losses than secondary forest. Deforestation, cultivation, and fallow reduces soil P and replaces primary forest with secondary, resulting in long-term P declines.&lt;/p&gt;
+&lt;h2 id=&quot;plant-physiology&quot;&gt;Plant physiology&lt;/h2&gt;
+&lt;p&gt;This is on a much smaller scale, but there’s hysteresis in the pressure-transport relationship in woody plant xylem (Sperry et al. 2002)&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;(&lt;em&gt;All of these are in in the &lt;a href=&quot;http://www.mendeley.com/groups/2356851/regime-shifts-in-forest-ecosystems/&quot;&gt;Mendeley group&lt;/a&gt;&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Allen, C. D., and D. D. Breshears. 1998. Drought-induced shift of a forest-woodland ecotone: rapid landscape response to climate variation.. Proceedings of the National Academy of Sciences of the United States of America 95:14839–42.&lt;/p&gt;
+&lt;p&gt;Baudena, M., and M. Rietkerk. 2012. Complexity and coexistence in a simple spatial model for arid savanna ecosystems. Theoretical Ecology.&lt;/p&gt;
+&lt;p&gt;Berryman, A. A., N. C. Stenseth, and D. J. Wollking. 1984. Metastability of forest ecosystems infested by bark beetles. Research in Population Ecology 26:13–29.&lt;/p&gt;
+&lt;p&gt;Breshears, D. D., N. S. Cobb, P. M. Rich, K. P. Price, C. D. Allen, R. G. Balice, W. H. Romme, J. H. Kastens, M. L. Floyd, J. Belnap, J. J. Anderson, O. B. Myers, and C. W. Meyer. 2005. Regional vegetation die-off in response to global-change-type drought.. Proceedings of the National Academy of Sciences of the United States of America 102:15144–8.&lt;/p&gt;
+&lt;p&gt;Cobb, R. C., J. a. N. Filipe, R. K. Meentemeyer, C. a Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology.&lt;/p&gt;
+&lt;p&gt;Hiemstra, C. A., G. E. Liston, and W. A. Reiners. 2002. Snow Redistribution by Wind and Interactions with Vegetation at Upper Treeline in Medicine Bow Mountains, Wyoming, U.S.A.. Arctic, Antarctic, and Alpine Research 34:262–273.&lt;/p&gt;
+&lt;p&gt;Hiemstra, C. a, G. E. Liston, and W. a Reiners. 2006. Observing, modelling, and validating snow redistribution by wind in a Wyoming upper treeline landscape. Ecological Modelling 197:35–51.&lt;/p&gt;
+&lt;p&gt;Lawrence, D., P. D’Odorico, L. Diekmann, M. DeLonge, R. Das, and J. Eaton. 2007. Ecological Feedbacks following Deforestation Create the Potential for a Catastrophic Ecosystem Shift in Tropical Dry Forest. Proceedings of the National Academy of Sciences of the United States of America 104:20696–20701.&lt;/p&gt;
+&lt;p&gt;Lindenmayer, D. B., R. J. Hobbs, G. E. Likens, C. J. Krebs, and S. C. Banks. 2011. Newly discovered landscape traps produce regime shifts in wet forests.. Proceedings of the National Academy of Sciences of the United States of America 108:15887–91.&lt;/p&gt;
+&lt;p&gt;Ludwig, D., D. D. Jones, and C. S. Holling. 1978. Qualitative Analysis of Insect Outbreak Systems: The Spruce Budworm and Forest. The Journal of Animal Ecology 47:315.&lt;/p&gt;
+&lt;p&gt;McDowell, N. 2011. Mechanisms linking drought, hydraulics, carbon metabolism, and vegetation mortality.. Plant physiology 155:1051–1059.&lt;/p&gt;
+&lt;p&gt;Mueller, R. C., C. M. Scudder, M. E. Porter, R. Talbot Trotter, C. a Gehring, and T. G. Whitham. 2005. Differential tree mortality in response to severe drought: evidence for long-term vegetation shifts. Journal of Ecology 93:1085–1093.&lt;/p&gt;
+&lt;p&gt;Nelson, W. A., and M. A. Lewis. 2008. Connecting host physiology to host resistance in the conifer-bark beetle system. Theoretical Ecology 1:163–177.&lt;/p&gt;
+&lt;p&gt;Okland, B. rn, and O. N. Bjø rnstad. 2006. A resource-depletion model of forest insect outbreaks.. Ecology 87:283–90.&lt;/p&gt;
+&lt;p&gt;Raffa, K. F., B. H. Aukema, B. J. Bentz, A. L. Carroll, J. a Hicke, M. G. Turner, and W. H. Romme. 2008. Cross-scale Drivers of Natural Disturbances Prone to Anthropogenic Amplification: The Dynamics of Bark Beetle Eruptions. BioScience 58:501.&lt;/p&gt;
+&lt;p&gt;Rietkerk, M., and J. van de Koppel. 2008. Regular pattern formation in real ecosystems.. Trends in ecology &amp;amp; evolution 23:169–75.&lt;/p&gt;
+&lt;p&gt;Sperry, J. S., U. G. Hacke, R. Oren, and J. P. Comstock. 2002. Water deficits and hydraulic limits to leaf water supply.. Plant, cell &amp;amp; environment 25:251–263.&lt;/p&gt;
+&lt;p&gt;Staver, A. C., and S. A. Levin. 2012. Integrating Theoretical Climate and Fire Effects on Savanna and Forest Systems. The American Naturalist:1–14.&lt;/p&gt;
+&lt;p&gt;Staver, a. C., S. Archibald, and S. Levin. 2011. Tree cover in sub-Saharan Africa: rainfall and fire constrain forest and savanna as alternative stable states.. Ecology 92:1063–72.&lt;/p&gt;
+&lt;p&gt;Sternberg, L. D. S. L. 2001. Savanna-Forest Hysteresis in the Tropics. Global Ecology and Biogeography 10:369–378.&lt;/p&gt;
+&lt;p&gt;Williams, J. W., J. L. Blois, and B. N. Shuman. 2011. Extrinsic and intrinsic forcing of abrupt ecological change: case studies from the late Quaternary. Journal of Ecology 99:664–677.&lt;/p&gt;
+&lt;p&gt;Williams, J. W., B. Shuman, P. J. Bartlein, N. S. Diffenbaugh, and T. Webb. 2010. Rapid, time-transgressive, and variable responses to early Holocene midcontinental drying in North America. Geology 38:135–138.&lt;/p&gt;
+&lt;p&gt;Williams, J. W., B. Shuman, and P. J. Bartlein. 2009. Rapid responses of the prairie-forest ecotone to early Holocene aridity in mid-continental North America. Global and Planetary Change 66:195–207.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Trade-Offs and Synergies in Floodplain Management - A Historical-Ecological Approach</title>
+   <link href="http://noamross.net/blog/2012/6/1/trade-offs-and-synergies-in-floodplain-management.html"/>
+   <updated>2012-06-01T00:00:00-07:00</updated>
+   <id>hhttp://noamross.net/blog/2012/6/1/trade-offs-and-synergies-in-floodplain-management</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;I’m pretty pleased that my IGERT team’s work has garnered both Judge’s Choice and Community Choice awards in the &lt;a href=&quot;http://posterhall.org/igert2012/posters/306&quot;&gt;IGERT video and poster competition&lt;/a&gt;. IGERT &lt;a href=&quot;http://www.igert.org/&quot;&gt;(Integrative Graduate Education and Research Traineeship)&lt;/a&gt; is a National Science Foundation program to foster interdisciplinary research at the graduate level. Here at UC Davis, &lt;a href=&quot;http://reach.ucdavis.edu/people/trainees.html&quot;&gt;our team&lt;/a&gt; includes ecologists and a historian, and we have been looking at how floodplain restoration can be shaped by both bioeconomic constraints and historical legacies. My colleague Megan Kelso explains it all in our video:&lt;/p&gt;
+&lt;iframe src=&quot;http://player.vimeo.com/video/40908428?byline=0&amp;amp;api=1&amp;amp;player_id=vimeo_player_1&quot; width=&quot;800&quot; height=&quot;600&quot; frameborder=&quot;0&quot; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+&lt;iframe src=&quot;http://docs.google.com/gview?url=https://dl.dropbox.com/u/3356641/blogstuff/Ross%20et%20al_Trade-Offs%20and%20Synergies%20in%20Floodplain%20Management_Poster%2020120601.pdf&amp;embedded=true&quot; style=&quot;width:756px; height:540px;&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Both the &lt;a href=&quot;http://figshare.com/articles/Trade-Offs_and_Synergies_in_Floodplain_Management_-_A_Historical-Ecological_Approach/92041&quot;&gt;video&lt;/a&gt; and &lt;a href=&quot;http://figshare.com/articles/Trade-Offs_and_Synergies_in_Floodplain_Management_-_A_Historical-Ecological_Approach/92044&quot;&gt;poster&lt;/a&gt; are archived on &lt;a href=&quot;http://figshare.com&quot;&gt;figshare&lt;/a&gt; and can be cited there.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Carl Walters on Surprises in Adaptive Management at the Grand Canyon</title>
+   <link href="http://noamross.net/blog/2012/5/25/carl-walters-on-surprises-in-adaptive-management-at-the-grand-canyon.html"/>
+   <updated>2012-05-25T00:00:00-07:00</updated>
+   <id>hhttp://noamross.net/blog/2012/5/25/carl-walters-on-surprises-in-adaptive-management-at-the-grand-canyon</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;&lt;a href=&quot;http://www.zoology.ubc.ca/person/walters&quot;&gt;Carl Walters of UBC&lt;/a&gt; came to UC Davis for our seminar in adaptive management. Carl was also kind enough to permit us to post the pre-print of the paper which he was presenting, which you can download &lt;a href=&quot;https://www.dropbox.com/s/d9qo7vqtzhbb3zj/Walters%20and%20others%20%28in%20review%29%20--%20%20Surprise%20and%20opportunity%20for%20learning%20in%20the%20GCDAMP_DRAFT%20for%20USGS%20Review_100610.doc&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;These are my rough notes from the talk. Any errors or misrepresentations are my own.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Central tenet of adaptive management is that policies should be treated as experimental treatments with uncertain outcomes.&lt;/p&gt;
+&lt;p&gt;The practice originated with NASA’s model simulations to troubleshoot space missions. This inspired ecological managers. However, soon it was realized that there were key ecological processes for which there wasn’t any data and it was unlikely that data would be forthcoming. The recruitment process in fisheries is a good example. Also, ecological theory wasn’t predictive (or very good) at the time. The “natural flow paradigm” in river management, for instance promoted the idea that one should restore historic flows, but this is built on a misunderstanding of evolutionary theory - organisms could respond positively or negatively to a changed environment.&lt;/p&gt;
+&lt;p&gt;Three variations on adaptive management&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AM “lite”:&lt;/strong&gt; Assuming knowledge is basically correct, monitor and correct as neccessary&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AM for optimists:&lt;/strong&gt; Assume knowledge of the right basic policy, do “probing” experiments to detect opportunity for improvement. This makes management and experimentation somewhat separate efforts&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;AM with humility:&lt;/strong&gt; Assume nothing, treat every policy choice as an experiment.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;You’re going to do the experiment, the issue is whether you do it well.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Adaptive management has a poor record in implementation. Implementation failure is more common than modeling failure. (Modeling is where you figure out what you don’t know).&lt;/p&gt;
+&lt;h2 id=&quot;grand-canyon-case-study&quot;&gt;Grand Canyon Case Study&lt;/h2&gt;
+&lt;p&gt;Starts at Glan Canyon Dam, which wasn’t designed to release water from the top. The water is released at the bottom, so it’s very cold. Dam removed seasonal variation, but created very strong diurnal variation because of change in hydropower demand. (Hydro dams are faster to spin up and down than coal or other plants.)&lt;/p&gt;
+&lt;p&gt;In the 1990s, they increased minimum flows at night, and reduced the daytime peak. The exact pattern has changes with different experimental treatments.&lt;/p&gt;
+&lt;p&gt;Much recent policy focus has been on maintaining native fish, which go up tributaries to spawn and rear and return to main stem river to grow as adults.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Aside - average beer consumption during grand canyon field work is 10/scientist/day&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ecological monitoring has revealed a strong gradient in production. Most productive in clear waters near dam, not productive downstream in more turbid water. Factor of 1000 in density of most organisms.&lt;/p&gt;
+&lt;p&gt;Scientists tend to design monitoring systems for large systems where there is intense monitoring at a few sites. However, the better strategy is to monitor extensively at many sites.&lt;/p&gt;
+&lt;h3 id=&quot;primary-policy-objectives&quot;&gt;Primary policy objectives&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Produce power for Southwest region&lt;/li&gt;
+&lt;li&gt;Conserve the sandy beaches as camp sites for rafters&lt;/li&gt;
+&lt;li&gt;Conserve and restore native fishes (several locally extinct, objective driven by ESA. Humpback chub is important species)&lt;/li&gt;
+&lt;li&gt;Maintain healthy “blue ribbon” trout fishery&lt;/li&gt;
+&lt;li&gt;A few others - cultural resources, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;manipulations&quot;&gt;Manipulations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Experimental floods - these have built sand bars (temporary), and triggered rainbow trout increase.&lt;/li&gt;
+&lt;li&gt;Beach habitat building flows&lt;/li&gt;
+&lt;li&gt;Modified low fluctuating flows&lt;/li&gt;
+&lt;li&gt;Low summer steady flows&lt;/li&gt;
+&lt;li&gt;Trout suppression flows - strong diurnal flows to drive down invasive species&lt;/li&gt;
+&lt;li&gt;Unintended warming treatment when Lake Powell water level dropped&lt;/li&gt;
+&lt;li&gt;Fall steady flows to support juvenile native fish&lt;/li&gt;
+&lt;li&gt;Mechanical removal (electrofishing) of trout&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;surprises-in-the-system&quot;&gt;Surprises in the system&lt;/h3&gt;
+&lt;p&gt;We only learn when there are surprises.&lt;/p&gt;
+&lt;p&gt;Expectations are initially set via both conceptual (verbal and graphical) models and numerical models. However, reasonable models widely diverge in predictions. (e.g., effect of controlling water temperature releases on dam).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Beaches created by experimental floods erode quickly&lt;/li&gt;
+&lt;li&gt;Teleconnections between different fish populations under reduced flow variation leads to increased trout. Trout disperse very far and predate on native fish, so treatments near dam affect native fish populations far away.&lt;/li&gt;
+&lt;li&gt;Steady flows resulted in a very fine-grained patchy pattern of near-shore warming. This triggered more experiments to create warm-water habitat for native fish.&lt;/li&gt;
+&lt;li&gt;Flooding creates microhabitat for invertebrates, which in turn causes such large spikes in trout population that growth is stunted. This was confirmed by looking back at historic records. Having both experimental and historical data provides much better evidence.&lt;/li&gt;
+&lt;li&gt;Native fish growth and survival have gone &lt;em&gt;down&lt;/em&gt; under steady flows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;challenges&quot;&gt;Challenges&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Inadequacy in some areas of long-term monitoring. This challenges ability to fit data to simulation model.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;lessons&quot;&gt;Lessons&lt;/h4&gt;
+&lt;p&gt;Modeling is there to tell you what you don’t know and warn about gaps in data and knowledge.&lt;/p&gt;
+&lt;h3 id=&quot;state-of-affairs&quot;&gt;State of affairs&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;New EIS will prescribe treatments for 20 years&lt;/li&gt;
+&lt;li&gt;Debate over whether to continue experimentation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;comments-and-questions&quot;&gt;Comments and questions&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;What are the relative difficulties with a river versus something with spatial extent?
+&lt;ul&gt;
+&lt;li&gt;It’s &lt;em&gt;much&lt;/em&gt; easier when there is spatial replication. Most advanced programs are in forests. Inspiration for much of this is agricultural experimental programs. The only trouble with spatial programs are that the responses can be long-term and the monitoring cost can be very high across many spatial replicates.&lt;/li&gt;
+&lt;li&gt;Key issue is innovation in monitoring&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;What about treating the Grand Canyon along with other systems as a group monitoring project?&lt;/li&gt;
+&lt;li&gt;How to incite users to participate in experiments if they think it will result in answers against their interests?
+&lt;ul&gt;
+&lt;li&gt;Need some central authority, unless you can create economic incentives.
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Super interesting idea! - incentives for experimentation, not just mitigation&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Major challenge is different between time scales of when managers need knowledge and how long it take biology to respond&lt;/li&gt;
+&lt;li&gt;Personal connection to the canyon is central to success. Few areas have such a dedicated community, who love it enough to compromise when they need to&lt;/li&gt;
+&lt;li&gt;Adaptive management is constrained - the best or adequate choice might not be in the feasible set
+&lt;ul&gt;
+&lt;li&gt;It’s useful to be able at least to avoid some of the worst choices. Also, the modeling exercises often offer alternative choices not originally considered&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;What’s the level of optimism that we’ll ever know the system well enough
+&lt;ul&gt;
+&lt;li&gt;AM isn’t about understanding the complexity. It’s about testing management options. Understanding nature is too high a bar for this. It’s pretty much impossible.&lt;/li&gt;
+&lt;li&gt;We DO need to do replicates though, because complexity generates so much extra variability. We also must watch for surprises in the system. As long as we focus on that we’ll continue learning.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Does this mean that black-box AM is best? Or does mechanistic understanding speed up our ability to learn about policy?
+&lt;ul&gt;
+&lt;li&gt;Mechanistic understanding is best probably for understanding what, when, and where to monitor.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;On risk/uncertainty: Our society is excessively risk-averse, but scientists don’t help if we hide the uncertainty. This is a big issue with credibility in climate science.&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Jo Albers on Invasive Species in a River Network</title>
+   <link href="http://noamross.net/blog/2012/5/15/heidi-albers-talk-may-15-2012.html"/>
+   <updated>2012-05-15T00:00:00-07:00</updated>
+   <id>hhttp://noamross.net/blog/2012/5/15/heidi-albers-talk-may-15-2012</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;&lt;a href=&quot;http://fes.forestry.oregonstate.edu/faculty/albers-heidi-j&quot;&gt;Jo Albers of OSU&lt;/a&gt; visited UC Davis’ Agricultural and Resource Economics department to speak about her work on optimal management on invasive species management. The work is also part of &lt;a href=&quot;http://fes.forestry.oregonstate.edu/grad-students/hall-kim&quot;&gt;Kim Hall’s&lt;/a&gt; dissertation research and was completed in conjunction Majid Taleghan, Tom Dietterich, and Mark Crowley from OSU Engineering.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;These are my rough notes from Dr. Albers’ talk talk. Any errors or misrepresentations are my own.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;economics-of-invasive-species&quot;&gt;Economics of invasive species&lt;/h2&gt;
+&lt;p&gt;Need to bring the biology back into bioeconomic modeling.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Invasives are economically costly&lt;/li&gt;
+&lt;li&gt;Ecologically costly&lt;/li&gt;
+&lt;li&gt;Most previous literature has been on
+&lt;ul&gt;
+&lt;li&gt;Dispersal via trade&lt;/li&gt;
+&lt;li&gt;Stochastic-dynamic programming looking at timing of control of species&lt;/li&gt;
+&lt;li&gt;Steady-state spatial work&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Recent ecological work in species competition, and non-trade dispersal pathways&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Invasion as spatial and dynamic process
+&lt;ul&gt;
+&lt;li&gt;Management of the frontier&lt;/li&gt;
+&lt;li&gt;Deterministic or steady state analyses typical&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;computational-issues&quot;&gt;Computational issues&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Analytical solutions for stochastic systems in space and time are difficult or not useful&lt;/li&gt;
+&lt;li&gt;But dimensional issues make computing difficulty&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Economic optimization decision framework&lt;/li&gt;
+&lt;li&gt;Spatial representation in a river network&lt;/li&gt;
+&lt;li&gt;Ecological model of species dispersal and competition&lt;/li&gt;
+&lt;li&gt;Computational methods&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;ecological-model&quot;&gt;Ecological model&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Metapopulation&lt;/li&gt;
+&lt;li&gt;Each reach of a river is native, invasive, or empty&lt;/li&gt;
+&lt;li&gt;In each time period
+&lt;ul&gt;
+&lt;li&gt;Natural death&lt;/li&gt;
+&lt;li&gt;Propogule production&lt;/li&gt;
+&lt;li&gt;Dispersal&lt;/li&gt;
+&lt;li&gt;Site-competition, colonization, establishment&lt;/li&gt;
+&lt;li&gt;Death, dispersal, and competition is stochastic&lt;/li&gt;
+&lt;li&gt;Propogules compete to establish, and then just one species establishes&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;economic-model&quot;&gt;Economic model&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Minimize expected discounted costs
+&lt;ul&gt;
+&lt;li&gt;sum of cost of invasive and cost of management&lt;/li&gt;
+&lt;li&gt;choose timing and location of
+&lt;ul&gt;
+&lt;li&gt;doing nothing&lt;/li&gt;
+&lt;li&gt;eradication&lt;/li&gt;
+&lt;li&gt;eradication and restoration&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Subject to an &lt;em&gt;annual&lt;/em&gt; dispersal rate&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;# Dispersal model&lt;/p&gt;
+&lt;p&gt;Propogules flow up and down stream, but more likely downstream:&lt;/p&gt;
+&lt;p&gt;\[K_{ij} = Cu^{NU_{ij}}d^{ND_{ij}}\]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(C\): constant&lt;/li&gt;
+&lt;li&gt;\(u\): upstream propogule survival rate&lt;/li&gt;
+&lt;li&gt;\(d\): downstream propogule survival rate&lt;/li&gt;
+&lt;li&gt;\(NU_{ij}\): number of reaches between \(i\) and \(j\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This follows @MekirioXXXX ecology paper on river dispersal.&lt;/p&gt;
+&lt;p&gt;\[ p_{wins} = \frac{\beta g_k}{\beta g_k + g_0}\]&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(p_k\): probability species \(k\) wins&lt;/li&gt;
+&lt;li&gt;\(\beta\): &amp;quot;competitive advantage of invader over the native&lt;/li&gt;
+&lt;li&gt;\(g_k\): number of propogules of species \(k\)&lt;/li&gt;
+&lt;li&gt;\(g_0\): number of propogules of other species (not \(k\))&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;solution-method&quot;&gt;Solution method&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Markov decision process - no state variable representing the condition of the habitat&lt;/li&gt;
+&lt;li&gt;But even with this, there are &lt;em&gt;14 billion&lt;/em&gt; different combinations&lt;/li&gt;
+&lt;li&gt;Estimate transition probabilities matrix by drawing samples from stochastic ecological simulation model&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Native species
+&lt;ul&gt;
+&lt;li&gt;Provide propogules to compete with invaders&lt;/li&gt;
+&lt;li&gt;Make habitat sites unavailable for invasives&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;So, if you have more native species in the system, then eradication is better, because it’s likely that natives will regrow&lt;/li&gt;
+&lt;li&gt;If you have fewer native species, you should restore&lt;/li&gt;
+&lt;li&gt;As directionality of flow is stronger, optimum is to eradicate and restore downstream&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;dispersal-mechanisms&quot;&gt;Dispersal mechanisms&lt;/h2&gt;
+&lt;p&gt;If there is no long-distance dispersal, you eradicate more than restore, focusing on the center connected reach. But if there is long distance dispersal, you do more restoration, and do it farther upstream.&lt;/p&gt;
+&lt;h2 id=&quot;ecology&quot;&gt;Ecology&lt;/h2&gt;
+&lt;p&gt;When invasives are good site competitors, treat upstream and mostly eradicate&lt;/p&gt;
+&lt;p&gt;When invasives are swamping with propogules, restore to get more propogules of natives, and block invasion of a reach. Restore in the central reaches.&lt;/p&gt;
+&lt;h2 id=&quot;rule-of-thumb-v.-optimal&quot;&gt;Rule of thumb v. optimal&lt;/h2&gt;
+&lt;p&gt;Some traditional rules of thumb:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Triage - treat the most invaded reach&lt;/li&gt;
+&lt;li&gt;Treat leading edge&lt;/li&gt;
+&lt;li&gt;Treat the most connected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These are all somewhat more costly than optimal&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Holly Doremus on Adaptive Management</title>

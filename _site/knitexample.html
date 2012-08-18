@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <link rel="stylesheet" href="http://dl.dropbox.com/u/3356641/jekyll-site/assets/themes/noamblog/css/style.css" type="text/css" />
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ "HTML-CSS": { availableFonts: ["TeX"], webfont: [null] }} ); </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ TeX: { extensions: ["autobold.js"] }} ); </script>
+
+</head>
+
+<style>#wrapper { max-width:1000px; margin:0 auto }</style>
+<body>
+<div class="wrapper">
+  <div class="blog">
+    <div class="container">
+      <div class="content">
+
+
+<div id="headblock">
+</div> 
+<div class="contenttext">
+<h2 id="knitr-an-example">Knitr: An Example:</h2>
+<p>This is an example of using <strong>knitr</strong> with extended markdown (e.g. <a href="http://github.github.com/github-flavored-markdown/">GFM</a>) and uploading images to imgur.com automatically. Note you should set the graphical device to create images that can be displayed in the web browser, e.g. <code>dev = 'png'</code> (it is the default for markdown output) works but <code>'pdf'</code> does not.</p>
+<p>First, the input file was named as <code>knitr-upload.Rmd</code> (<a href="https://github.com/yihui/knitr/blob/master/inst/examples/knitr-upload.Rmd">source</a>), and <strong>knitr</strong> will automatically determine the output filename to be <code>knitr-upload.md</code>.</p>
+<p>I used the code below to make sure <strong>knitr</strong> will upload images.</p>
+<pre class="sourceCode r"><code class="sourceCode r">opts_knit$<span class="kw">set</span>(<span class="dt">upload.fun =</span> imgur_upload)  <span class="co"># upload all images to imgur.com</span></code></pre>
+<p>Now we write some code chunks in this markdown file:</p>
+<pre class="sourceCode r"><code class="sourceCode r">## a simple calculator
+<span class="dv">1</span> + <span class="dv">1</span></code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">## boring random numbers
+<span class="kw">set.seed</span>(<span class="dv">123</span>)
+<span class="kw">rnorm</span>(<span class="dv">5</span>)</code></pre>
+<pre><code>## [1] -0.56048 -0.23018  1.55871  0.07051  0.12929</code></pre>
+<p>We can also produce plots which are uploaded to imgur.com:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">qplot</span>(hp, mpg, <span class="dt">data =</span> mtcars) + <span class="kw">geom_smooth</span>()</code></pre>
+<div class="figure">
+<img src="http://i.imgur.com/VsuKR.png" alt="plot of chunk md-cars" /><p class="caption">plot of chunk md-cars</p>
+</div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggpcp</span>(mtcars) + <span class="kw">geom_line</span>()</code></pre>
+<div class="figure">
+<img src="http://i.imgur.com/DZfvI.png" alt="plot of chunk md-cars" /><p class="caption">plot of chunk md-cars</p>
+</div>
+<p>So <strong>knitr</strong> is ready with GitHub with a single markdown file.</p>
+</div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="http://dl.dropbox.com/u/3356641/jekyll-site/assets/themes/noamblog/footnote-links.js"></script>
+  <script type="text/javascript">$('div.contenttext').footnoteLinks();</script>
+</body>
+</html>
