@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-08-18T08:38:42-07:00</updated>
+ <updated>2012-08-18T08:41:35-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,31 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I wrote a &lt;a href=&quot;https://github.com/noamross/Pollen/commit/a7ebd4a9f46466da4c420b9437c73f8b185be56b#pollendatafuntions.R&quot;&gt;few functions&lt;/a&gt; to grab data and from the &lt;a href=&quot;http://www.ncdc.noaa.gov/paleo/gpd.html&quot;&gt;Global Pollen Database&lt;/a&gt;:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;source&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;~/code/_Pollen/pollendatafuntions.R&amp;quot;&lt;/span&gt;)
-## Loading required package: stratigraph
-## Loading required package: grid
-## Loading required package: graphics
-## Loading required package: stats
-billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;billys&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;plot =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-## Number of taxa:  105 
-## Number of levels:  77 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/a.png&quot; alt=&quot;Arboreal Pollen over time at Billy’s Lake&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Arboreal Pollen over time at Billy’s Lake&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Clearly, there’s are trends at different time scales. The trouble with using S-Maps on this is that there are uneven sampling intervals. One option is to use linear interpolation to approximate even intervals:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;billyslin &amp;lt;- &lt;span class=&quot;kw&quot;&gt;linpctAP&lt;/span&gt;(billys, &lt;span class=&quot;dt&quot;&gt;ts =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;)
-billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;billys&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;plot =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-## Number of taxa:  105 
-## Number of levels:  77 
-&lt;span class=&quot;kw&quot;&gt;lines&lt;/span&gt;(billyslin[, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;], billyslin[, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(billyslin[, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;], billyslin[, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;, 
-    &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;16&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/b.png&quot; alt=&quot;With linearly interpolated evenly spaced samples&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;With linearly interpolated evenly spaced samples&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;This means introducing a new source of error into whatever model is ultimately used. What interval should be used to generate this? Here I created an equal number of points as are in the original data set. However, the sampling density is greater at more recent dates. S-Maps can handle missing data, but there need to be a good chunk of consecutive points.&lt;/p&gt;
-&lt;p&gt;The other option is start thinking about how to generalize S-Maps for data sampled at unequal intervals.&lt;/p&gt;</content>
+&lt;/head&gt; </content>
  </entry>
  
  
