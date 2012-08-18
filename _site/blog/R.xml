@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Noam Ross - R</title>
- <link href="http://noamross.net/blog/R.xml" rel="self"/>
- <link href="http://noamross.net"/>
- <updated>2012-08-17T20:52:09-07:00</updated>
- <id>http://noamross.net</id>
+ <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
+ <link href="http://www.noamross.net"/>
+ <updated>2012-08-17T22:56:32-07:00</updated>
+ <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Exploring Pollen Data</title>
-   <link href="http://noamross.net/blog/2012/4/2/exploring-pollen-data-knit.html"/>
+   <link href="http://www.noamross.net/blog/2012/4/2/exploring-pollen-data-knit.html"/>
    <updated>2012-04-02T15:06:18-07:00</updated>
-   <id>hhttp://noamross.net/blog/2012/4/2/exploring-pollen-data-knit</id>
+   <id>hhttp://www.noamross.net/blog/2012/4/2/exploring-pollen-data-knit</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
     table tbody {border-top:2px; border-bottom:2px;}

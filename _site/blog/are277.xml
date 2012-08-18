@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Noam Ross - ARE277</title>
- <link href="http://noamross.net/blog/ARE277.xml" rel="self"/>
- <link href="http://noamross.net"/>
- <updated>2012-08-17T20:52:09-07:00</updated>
- <id>http://noamross.net</id>
+ <link href="http://www.noamross.net/blog/ARE277.xml" rel="self"/>
+ <link href="http://www.noamross.net"/>
+ <updated>2012-08-17T22:56:32-07:00</updated>
+ <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
