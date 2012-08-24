@@ -1,7 +1,5 @@
-This is my website.  It is produced on locally on my computer using [this jekyll branch](https://github.com/dsanson/jekyll/tree/pandoc-ruby), then pushed to Github.  It exists in two repositories
+This is my website, found at <http://www.noamross.net>.  It is produced using [Jekyll](https://github.com/mojombo/jekyll) with [Pandoc](http://johnmacfarlane.net/pandoc/) and the Pandoc [plugin](https://github.com/dsanson/jekyll-pandoc-plugin)
 
-<http://github.com/noamross/noamross.github.com> contains the site as is displayed
+This repository (<http://github.com/noamross/jekyll-site>) has the pre-processed files and the post-processed files are under `_site`.   I process the website locally on my computer and then push it to the host ([nearlyfreespeech.net](nearlyfreespeech.net)).
 
-<http://github.com/noamross/jekyll-site> has the pre-processed files
-
-I do some post-processing of the jekyll site.  See `newpost.sh` for this.
+I do some post-processing of the jekyll site before pushing to tweak RSS feeds.  See `newpost.sh` for and my [post](http://www.noamross.net/blog/2012/4/4/math-in-rss-feeds.html) on this.
