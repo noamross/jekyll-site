@@ -1,0 +1,693 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Wrap-Up</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+/*
+_______________________________
+RESET */
+*{text-decoration:none;font-size:1em;outline:none;margin:0;padding:0}code,kbd,samp,pre,tt,var,textarea,input,select,isindex,listing,xmp,plaintext{font:inherit;white-space:normal}a,img,a img,iframe,form,abbr,acronym,object,applet,table,a abbr,a acronym{border-width:0}dfn,i,cite,var,address,em{font-style:normal}th,b,strong,h1,h2,h3,h4,h5,h6,dt{font-weight:400}html{background:#FFF;color:#000;line-height:1;font-family:arial, sans-serif}/* \*/html{font-family:sans-serif}/* */q{quotes:"\201C""\201D""\2018""\2019"}ul,ol,dir,menu{list-style:none}sub,sup{vertical-align:baseline}a{color:inherit}/*
+_______________________________
+DISABLE DEPRECATED HTML */
+font,basefont{color:inherit;font:inherit;font-size:100%}s,strike,u{text-decoration:inherit}img{border:none;margin:0}ol{list-style-type:decimal}body{background-color:transparent}tr,th,td{width:auto;height:auto;background-color:transparent;vertical-align:inherit;border:none}table[border],.content table[border]{border-collapse:separate;border-spacing:0}nobr{white-space:normal}marquee{overflow:visible;-moz-binding:none}blink{text-decoration:none}/*
+_______________________________
+GENERAL */
+
+@font-face { font-family: Socialico; src: url('/assets/themes/noamblog/Socialico.otf'); } 
+
+html{font-size:100%}
+body{font-size:50%}
+th,thead td,h1,h2,h3,h4,h5,h6,dt{font-weight:100;}
+strong{font-weight:600; color: #605b4b}
+
+cite,em,dfn{font-style:italic}
+code,kbd,samp,pre,tt,var,input[type='text'],input[type='password'],textarea{font-size:80%;font-family:Anadale Mono,monospace}
+pre{white-space:pre}
+pre *{font-size:100%;white-space:pre}del{text-decoration:line-through}ins,dfn{border-bottom:1px solid #000}small,sup,sub{font-size:85%}big{font-size:125%;line-height:80%}abbr,acronym{text-transform:uppercase;font-size:80%;letter-spacing:.1em}abbr[title],acronym[title],dfn[title]{cursor:help;border-bottom:1px dotted #000}sup{vertical-align:super}sub{vertical-align:sub}hr{display:none/* We will re-reset it later for content */}:lang(af),:lang(nl),:lang(pl){quotes:'\201E' '\201D' '\201A' '\2019'}:lang(bg),:lang(cs),:lang(de),:lang(is),:lang(lt),:lang(sk),:lang(sr),:lang(ro){quotes:'\201E' '\201C' '\201A' '\2018'}:lang(da),:lang(hr){quotes:'\00BB' '\00AB' '\203A' '\2039'}:lang(el),:lang(es),:lang(sq),:lang(tr){quotes:'\00AB' '\00BB' '\2039' '\203A'}:lang(en-GB){quotes:'\2018' '\2019' '\201C' '\201D'}:lang(fi),:lang(sv){quotes:'\201D' '\201D' '\2019' '\2019'}:lang(fr){quotes:'\ab\2005' '\2005\bb' '\2039\2005' '\2005\203a'}*[lang|='en'] q:before{content:'\201C'}*[lang|='en'] q:after{content:'\201D'}*[lang|='en'] q q:before{content:'\2018'}*[lang|='en'] q q:after{content:'\2019'}input,select,button{cursor:pointer}input[type='text'],input[type='password']{cursor:text}input[type='hidden']{display:none}/*
+_______________________________
+CONTENT */
+.content{font-size:1.35em;line-height:1.4em}
+
+.content body,p,td,div {
+    color: #45462f;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
+
+.content h1, .content h2, .content h3 {
+  color: #514d3f;
+	font-family:Hoefler Text, Georgia, serif;
+}
+.content h1 { margin: 0.6563em 0; font-size: 2.2857em; line-height: 1.1em; }
+.content h2 { margin: 0.875em 0; font-size: 1.7143em; line-height: 1.1em;}
+.content h3 { margin: 1em 0; font-size: 1.5em; line-height: 1.1em;}
+.content h4 { margin: 1.1667em 0; font-size: 1.2857em; line-height: 1.1em;}
+.content h5 { margin: 1.3125em 0; font-size: 1.1429em; line-height: 1.1em;}
+.content h6 { margin: 1.5em 0; font-size: 1em; line-height: 1.5em;}
+.sourceCode {
+	max-width:90%; 
+	margin-left: auto !important;
+	margin-right: auto !important;}
+	
+p code {font-size:100%; color:black;
+				vertical-align:text-middle;
+				color: #45462f;}
+				
+.content hr{display:block;background:#ccc;color:#ccc;width:100%;height:1px;border:none}
+.content ul{list-style:square outside}
+.content ol{list-style:decimal outside}
+.content table{border-collapse:collapse}.content hr,
+.content p { margin: 1.3125em  0; font-size: 1em; line-height: 1.35em; }
+.content ul
+.content ol,
+.content dl,
+.content pre,
+.content address,
+.content table{margin-bottom:1.6em}
+.content p+p{margin-top:-.8em}
+.content fieldset{margin:1.6em 0;padding:1.6em}/* \*/
+.content legend{padding-left:.8em;padding-right:.8em}/* *//* for Opera 8 */
+@media all and min-width 0px{.content legend{margin-bottom:1.6em}.content fieldset{margin-top:0}.content[class^='content'] fieldset{margin-top:1.6em}}.content fieldset>*:first-child{margin-top:0}.content textarea,.content input[type='text']{padding:.1em .2em}.content input{padding:.2em .1em}.content select{padding:.2em .1em 0}.content select[multiple]{margin-bottom:.8em}.content option{padding:0 .4em .1em}.content button{padding:.3em .5em}.content input[type='radio']{position:relative;bottom:-.2em}.content dt{margin-top:.8em;margin-bottom:.4em}.content ul,.content ol{margin-left:2.2em}.content caption,.content ul ul,content ol ul,.content ul ol,content ol ol{margin-bottom:0}/*
+_______________________________
+END */
+
+body {
+  font-family: "Crimson Text", "Minion Pro", Georgia, Times;
+  color: black;
+  font-size: 0.8em;
+  margin: 0 auto;
+  width: 80%; 
+  margin-left: auto !important;
+  margin-right: auto !important; 
+	max-width: 1000px;
+}
+
+code.url {font-family:Hoefler Text, Georgia, serif;}
+
+
+@media only screen and (max-device-width: 480px) {
+  body, .blog, img, ul, li {
+    width: 90% !important;
+    height: auto;
+    font-size: 85%;
+  }
+  .pages a {
+    margin: 0 0 0 7px !important;
+  }
+  .blog-info h1  {
+    margin: 0 7px 0 0 !important;
+  }
+
+}
+
+.container {
+  margin: 175px 0;
+
+.printOnly {
+  display: none;
+}
+}
+
+
+
+p.caption {
+	text-align:center;
+  font-size: 80%;
+	margin-left: auto !important;
+	margin-right: auto !important; 
+	max-width:480px;
+  border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	
+	width:100%;
+	left:0;
+	bottom:-20px;
+}
+
+.caption:empty {
+	border-top:none;
+	border-bottom:none;
+}
+
+blockquote {
+	max-width:90%; 
+	margin-left: auto !important;
+	margin-right: auto !important;
+	padding-left: 8px;
+	border-left: 2px solid #ccc;
+	}
+
+
+
+.wrapper {
+  width: 100%;
+  height: auto;
+  margin: 0px;
+}
+
+iframe {
+  display: block;
+  margin: 0px auto;
+}
+
+img {
+	display: block;
+	margin: 10 10 10 10 px auto;
+  margin-left: auto !important;
+  margin-right: auto !important; 
+	max-width: 100%;
+	padding: 7px 7px 7px 7px ;
+	}
+	
+.share-buttons iframe,  .share-buttons div{
+  margin: 0;  
+}
+
+.blog {
+  width: 80%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+	max-width: 1000px;
+}
+
+.content hr {
+  background: #ccc;
+}
+
+.content {
+  margin-bottom: 175px;
+}
+
+/* th,b,h1,h2,h3,h4,h5,h6,dt {
+  font-family:sans-serif;
+}
+*/
+.title {
+  padding-bottom: 35px;
+  margin-bottom: 0px; 
+}
+
+.title h2 {
+  font-size: 2.5em;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.archive-title {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 35px;
+  margin-bottom: 35px; 
+  font-size: 120%;
+}
+
+.date {
+  margin-bottom: 15px;
+  display: block;
+  min-width: 1px;
+}
+
+.archive-date {
+  margin-bottom: 17px;
+  font-size: 120%;
+}
+
+a {
+	border-bottom:1px dashed #b8b8b8;
+	-webkit-transition: opacity .2s ease-in-out;}
+	
+h1 a{border-bottom:none;}
+h2 a{border-bottom:none;}
+h3 a{border-bottom:none;}
+
+
+a:hover { 
+	 opacity: 0.7; 
+}
+
+.body-post a, .body-page a, p.a, p.previous-articles a {
+  border-bottom:1px dashed #b8b8b8;
+}
+
+#menu {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  font: 14px/1 Helvetica, Arial, sans-serif;
+}
+
+
+
+.menu-top {
+  height: 50px;
+  line-height: 50px;
+  background: white;
+  color: black;
+  position: fixed;
+  top: 0; 
+  left: 0;
+  right: 0;
+}
+
+.blog-info {
+  height: 50px;
+  line-height:50px;
+  float: left;
+  width: 50%;
+}
+
+.blog-info h1 {
+  float: left;
+  font-weight: normal;
+  margin: 0 17px;
+}  
+
+.blog-description h2 {
+  font:16px/1 "Crimson Text", "Minion Pro", Times;
+  font-style: italic;
+  line-height: 50px;
+}
+
+.pages {
+  height: 50px;
+  line-height:50px;
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+  .pages a {
+    float: right;  
+    display:block;
+    border-bottom:none;
+    padding: 0 17px;
+  }
+
+.menu-bottom {
+  background: #4F4F4F;
+  color: #FFFFFF !important;
+  opacity: 0;
+  position: fixed;
+  bottom: 0; 
+  left: 0;
+  right: 0;
+  z-index: 99999;
+}
+
+.menu-bottom div { color: #FFFFFF !important;}
+
+
+p.previous-articles {
+  font-size: 125%;
+  margin-bottom: 35px;
+}
+
+.content ul li {margin-bottom:0.5em;}
+
+ul.tags {
+  border-top: 1px solid #ccc; 
+  margin: 20px 0;
+  padding: 10px 0 20px 0;
+}
+ 
+  ul.tags li {
+    list-style: none;
+    padding: 0;
+    margin: 0 7px 0 0; 
+    float: left; 
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+  }
+ 
+
+.share-buttons {
+  border-top: 1px solid #ccc; 
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+.share-buttons > .share-facebook, .share-buttons > .share-twitter, .share-buttons > .share-gplus {
+  opacity: .5;
+}
+
+
+.share-buttons:hover > .share-facebook, .share-buttons:hover > .share-twitter, .share-buttons:hover > .share-gplus {
+  opacity: 1
+}
+
+.share-twitter, .share-gplus {
+  float: left;
+  margin-top: 4px;
+}
+.share-facebook {
+  margin-right: 25px;
+  float: left;
+}
+
+/* Pagination */
+
+.pagination { 
+  height:36px;
+  margin:18px 0
+}
+
+.pagination ul {
+  float:left;margin:0;
+  border:0px solid #ddd;
+  border:0px solid rgba(0,0,0,0.15);
+  -webkit-border-radius:3px;
+  -moz-border-radius:3px;
+  border-radius:3px;
+}
+
+.pagination li {
+  display:inline;
+}
+
+.pagination a {
+  float:left;
+  padding:0 14px;
+  line-height:34px;
+  border-right:1px solid;
+  border-right-color:#ddd;
+  border-right-color:rgba(0,0,0,0.15);
+  *border-right-color:#ddd;
+  text-decoration:none
+}
+
+.pagination a:hover {
+  background-color:#f1f1f1
+}
+
+.pagination .active a {
+  color: black
+}
+
+.pagination .disabled a,.pagination .disabled a:hover {
+  background-color:transparent;
+  color:#bfbfbf
+}
+
+.pagination .next a {
+  border:0
+}
+
+
+
+/* Code Highlighting Stuff */
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; }
+td.lineNumbers { text-align: right; padding-right: 8px; padding-left: 2px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 8px; }
+code.r > span.kw { font-weight: bold; }
+code.r > span.dt { color: #800000; }
+code.r > span.dv { color: #0000ff; }
+code.r > span.bn { color: #0000ff; }
+code.r > span.fl { color: #800080; }
+code.r > span.ch { color: #ff00ff; }
+code.r > span.st { color: #dd0000; }
+code.r > span.co { color: #808080; font-style: italic; }
+code.r > span.ot { color: #8f5902; }
+code.r > span.al { color: #00ff00; font-weight: bold; }
+code.r > span.fu { color: #000080; }
+code.r > span.er { color: #ff0000; font-weight: bold; }
+.rout {font-weight: bold;}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 40px;
+}
+/* IE indents via margin-left */
+ol.linenums li {
+  padding: 0 5px;
+  color: rgba(0,0,0,.15);
+  line-height: 20px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+/* Alternate shading for lines */
+li.L1, li.L3, li.L5, li.L7, li.L9 {  }
+
+
+/* Disqus css */
+/* ---------- */
+
+.dsq-dc-logo {
+display: none; /* Turns off display of disqus logo */
+}
+.dsq-options {
+display: none; /* Turns off various disqus options */
+}
+
+#disqus_thread {
+margin-bottom: 10px !important;
+margin-top: 2em !important;
+}
+
+a.dsq-subscribe-email, a.dsq-subscribe-rss {
+text-decoration:none !important;
+font-style: normal;
+border-bottom:none !important;
+}
+
+a.dsq-toolbar-item, a.dsq-toolbar-icon, a.dsq-message-count {
+border-bottom:none !important;
+}
+
+#disq-content h3{color:rgb(13,110,161) !important;}
+
+.dsq-trackback-url{
+	font-family: Helvetica, Arial, sans-serif !important;
+	font-size: 14px !important;
+	}
+	
+.dsq-trackback-url input {color: #666 !important;}
+
+/* Footnotes */
+.footnoteRef {
+    font-size: 1em;
+    vertical-align: super;
+    color: rgb(13,110,161)
+}
+sup,sub,a.footnoteRef {
+	font-size: 1.5ex;
+	height: 0;
+	line-height: 1;
+	vertical-align: super;
+	position: relative;
+	border-bottom:none;
+}
+
+sub {
+    vertical-align: sub;
+    top: -1px;
+}
+
+.rssicon:before {  
+  font-family:Socialico;
+	content: 'r';  
+	font-size:4ex;
+	vertical-align: -10%;
+}
+
+.shareicon:before {  
+font-family:Socialico;
+content: '2';  
+font-size:4ex;
+vertical-align: -10%;
+}
+
+.hide{display:none;}                                            
+
+#a2apage_PTZ { display:none !important; }
+#a2apage_EMAIL { display:none !important; }
+
+.a2a_tabs, div.a2a_menu_powered_by {
+display:none !important;}
+}
+
+/* Tables */
+
+caption,col,colgroup,table,tbody,td,tfoot,th,thead,tr{
+    border-spacing:0;
+}
+table{
+    display:table;
+    table-layout:fixed;
+    border-collapse:collapse;
+    empty-cells:hide;
+    margin:0;padding:0;
+    margin-bottom:24px;
+    border:0;
+		margin-left: auto;
+		margin-right: auto;
+}
+caption{
+    display:table-caption;
+		font-weight: bold;
+		caption-side: top;
+		text-align:center;
+		padding-top:4px;
+		padding-bottom:4px;
+}
+col{display:table-column;}
+colgroup{display:table-column-group;}
+tbody{display:table-row-group;}
+tfoot{display:table-footer-group;}
+thead{display:table-header-group;}
+td,th{display:table-cell;}
+th{font-weight:bold;}
+tr{display:table-row;}
+
+table th {
+    padding:6px 2em;
+    font-size:0.95em;
+    line-height:1.2em;
+}
+
+table td{
+    padding:2px 2em;
+    font-size:0.95em;
+    line-height:1.2em;
+}
+
+
+table thead{
+    border-bottom:1px solid #45462f;
+		border-top: 2px solid #45462f;
+		padding-top:20px;
+}
+table tbody{
+		border-bottom:2px solid #45462f;
+}
+
+/* print */
+
+@page {size:8.5in 11in; margin: 1in; orphans:4; widows:2; }
+
+@media print
+{
+
+
+
+.content {font-size:110%;}
+table {page-break-inside:avoid}
+img {page-break-inside:avoid;}
+div.figure {page-break-inside:avoid;}
+div#headblock {text-align:center;}
+span {page-break-inside:avoid;}
+.container {
+  margin-top:0px !important;
+	margin-bottom: 0px !important;
+}
+.blog {
+  margin-left: auto !important;
+  margin-right: auto !important;
+	max-width: 7in !important;
+	width:7in !important;
+}
+body {
+	margin-left: auto !important;
+  margin-right: auto !important;
+	max-width: 7in !important;
+	width:7in !important;
+
+}
+
+hr{color:#ccc !important; background:#ccc !important; width:80% !important; height:0mm !important; border-top:1px solid #ccc !important;margin-left: auto !important;
+margin-right: auto !important;}	
+
+
+div#menu {display:none !important;}
+div#dsq-global-toolbar {display:none !important;}
+div#dsq-reply {display:none !important;}
+div#dsq-sort-by {display:none !important;}
+#dsq-reactions {display:none !important;}
+#dsq-footer {display:none !important;}
+div.dsq-trackback-url {display:none !important;}
+.noprint {display:none !important;}
+.dsq-comment-actions {display:none !important;}
+.dsq-comment-moderate {display:none !important;}
+
+h1 a:after{ 
+	white-space: pre;
+	content:"\A (From: http://noamross.net" attr(href) ")"; 
+	font-family:Georgia, serif;
+	font-size: 40%;
+	margin: 0;
+	font-style: italic;}
+	
+.printOnly {display: block;}
+
+}
+
+
+
+
+</style>
+
+</head>
+<body class="inverted">
+  <div id="wrapper">
+      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <script type="text/javascript" src="file://localhost/Users/noamross/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ "HTML-CSS": { availableFonts: ["TeX"], webfont: [null] }} ); </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ TeX: { extensions: ["autobold.js"] }} ); </script>
+
+</head>
+
+<style>#wrapper { max-width:1000px; margin:0 auto }</style>
+<body>
+<div class="wrapper">
+  <div class="blog">
+    <div class="container">
+      <div class="content">
+
+
+<div id="headblock">
+</div> 
+<div class="contenttext">
+<h2 id="kirchner-intro">Kirchner Intro</h2>
+<p>I’m quite excited about our next sparker. When I reached out to a friend in the Army Corps to ask who I should invite to this conference he said that he’d look into it, and when he got back to me he said “I have the best possible news - you got Alicia Kirchner”</p>
+<p>Alicia Kirchner is chief of planning for the U.S. Army Corps of Engineers Sacramento District. She has worked with the Corps of Engineers’ planning process and programs for the past 22 years, conducting feasibility studies and developing environmental compliance reports that lead to congressional authorization of projects for construction. She has spent much of that time developing decision documents for projects to reduce the risk of flooding to urbanized areas in western US, particularly in northern and central California, with focus on collaborative planning of multiple-purpose projects.</p>
+<p>What we’ve heard today:</p>
+<h3 id="jeff-mount">Jeff Mount:</h3>
+<p>Where we stand on the problem</p>
+<h3 id="phil-garone">Phil Garone:</h3>
+<p>The context of wetlands. Why there was damage, who were the groups who coalesced for preservation, and why</p>
+<h3 id="john-cain">John Cain</h3>
+<p>How we could modify the San Jaoquin for better habitat</p>
+<h3 id="igert">IGERT</h3>
+<p>Making better predictions Including more groups, and social goals, in the planning process</p>
+<h2 id="alicia-kirchner">Alicia Kirchner</h2>
+<p>How to bring people together</p>
+<h2 id="themes-of-panel">Themes of panel</h2>
+<ul>
+<li>Equity issues</li>
+</ul>
+
+</div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="http://dl.dropbox.com/u/3356641/jekyll-site/assets/themes/noamblog/footnote-links.js"></script>
+  <script type="text/javascript">$('div.contenttext').footnoteLinks();</script>
+</body>
+</html>
+
+    </div>
+</body>
+</html>
