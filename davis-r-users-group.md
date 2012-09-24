@@ -1,9 +1,7 @@
 ---
-layout: default
+layout: pagecom
 title: "Davis R Users' Group"
 ---
-
-# The Davis R Users' Group
 
 Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC Davis who support each other in using R for science. Our focus is providing a space for beginning and intermediate users to learn from each other.
 
