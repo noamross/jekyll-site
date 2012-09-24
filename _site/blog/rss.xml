@@ -4,13 +4,26 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-09-24T11:07:40-07:00</updated>
+ <updated>2012-09-24T11:09:00-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>An R Users' Group in Davis</title>
+   <link href="http://www.noamross.net/blog/2012/9/24/a-new-r-users--group.html"/>
+   <updated>2012-09-24T11:05:27-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/9/24/a-new-r-users--group</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;I’m excited to share that we’ve started a new R users’ group at UC Davis! Right now our main purpose is to run weekly 2-hour work/hack sessions where R users can get together to work through problems together. More info &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Regime Shifts in Forest Ecosystems</title>
