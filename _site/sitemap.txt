@@ -8,6 +8,7 @@ http://www.noamross.net/blog/research-blogging.xml
 http://www.noamross.net/blog/rss.xml
 http://www.noamross.net/categories.html
 http://www.noamross.net/connect.html
+http://www.noamross.net/davis-r-users-group.html
 http://www.noamross.net/index.html
 http://www.noamross.net/mongolia.html
 http://www.noamross.net/pages.html
