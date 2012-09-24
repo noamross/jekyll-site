@@ -62,6 +62,7 @@ There are a few courses at UC Davis that use R.
  - [Richard McElreath](http://xcelab.net/rm/)'s *Statistical Rethinking* (ANT298) is a course in Bayesian statistical methods which doesn't focus on R but teaches enough for the applications in the course.
  - [Marissa Baskett](http://www.des.ucdavis.edu/faculty/baskett/) and [Sebastian Schreiber](http://www-eve.ucdavis.edu/sschreiber/) teach *Computational methods in population biology* (ECL298) in alternate years. This course also isn't explicitly about R but teaches enough basics so as to be able to use it for the applications in the course.  They also created this handy [cheat sheet](http://www.des.ucdavis.edu/faculty/baskett/downloads/Rcommands.pdf)
  - *Design, Analysis, and Interpretation of Experiments* (PLS 205) has in the past provided an optional extra section to learn techniques in R in addition to SAS
+ - Carole Hom teaches BIS 132 - *Introduction to Dynamic Models in Modern Biology* where R is used for differential and difference equation modeling.
  - There are occasional [paid workshops](http://www.hafnerconsulting.com/ucd2012/) offered on campus
  
  
