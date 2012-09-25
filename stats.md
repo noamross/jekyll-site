@@ -3,35 +3,23 @@ layout: page
 title: "Statistics and Quantitative Classes for Davis GGE"
 ---
 
-
-
-
-
 The UC Davis Graduate Group in Ecology requires two courses in quantitative methods.  Since the group is so diverse, and such courses are taught by many departments at the University, I thought it would be helpful to collect information 
 
-Please add your two cents about this course in the [comments](#disqus_thread)!
+Please add your two cents about the courses you took in the comments for each 
 
- - [Survey: What what courses did you take?](#survey)
- - [Statistics courses by department](#courses-by-department)
- - [Other courses fulfilling quantitative requirements]
+
+-  <a onclick="navigate('/statsclasses/STA100.html')">Survey: What Stats/Quant Courses did you take</a><a onclick="navigate('/statsclasses/STA100.html')"> (Results)</a> ##
+- Statistics courses by department
  
-- - - 
 
-# Survey
-
-- - -
-
-
-# Courses by Department
-
- - [Statistics](#statistics)
+ - Statistics
      -  <a onclick="navigate('/statsclasses/STA100.html')">STA100. Applied Statistics for Biological Sciences</a>
      -  <a onclick="navigate('/statsclasses/STA120.html')">STA120. Probability and Random Variables for Engineers</a>
- - [Economics](#economics)
- - [Plant Sciences](#plant-sciences)
- - [Psychology](#psychology)
- - [Ecology and Evolution](#ecology-and-evolution)
- - [Ecology](#ecology)
+ - Economics
+ - Plant Sciences
+ - Psychology
+ - Ecology and Evolution
+ - Ecology
 
 <iframe width="800" height="800" src="" id="classframe" name="classframe" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
 
