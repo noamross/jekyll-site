@@ -11,7 +11,7 @@ Please add your two cents about the courses you took in the comments for each
 
 <a onclick="showhide('Survey');">**(Show/Hide the survey)**</a>
 
-<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", id="Survey" width="600" height="639" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", id="Survey" width="600" height="639" frameborder="0" marginheight="0" marginwidth="0" style="display:block;"></iframe>
 
 ## Courses by department
 
