@@ -21,9 +21,6 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
 
 - - -
 
-<iframe src="" name="classframe"/>
-
-
 
 # Courses by Department
 
@@ -36,5 +33,5 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
  - [Ecology and Evolution](#ecology-and-evolution)
  - [Ecology](#ecology)
 
-
+<iframe src="" name="classframe"></iframe>
 
