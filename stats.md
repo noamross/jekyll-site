@@ -17,7 +17,7 @@ Please add your two cents about the courses you took in the comments for each
 
         -  <a onclick="showhide('STA120');">STA120. Probability and Random Variables for Engineers</a>
 
-        <iframe width="800" height="800" src="/statsclasses/STA120.html" id="STA120" frameborder="0" scrolling="no" allowtransparency="true" display="block"></iframe>
+        <iframe width="800" height="800" src="/statsclasses/STA120.html" id="STA120" frameborder="0" scrolling="no" allowtransparency="true" display="hide"></iframe>
         
     - Economics
     - Plant Sciences
