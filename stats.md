@@ -16,7 +16,28 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", width="800" height="639" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
-<script src="https://docs.google.com/spreadsheet/gpub?url=http%3A%2F%2Fc2uqrpk8i3mtdu59snfsfm39744dvv9u-ss-opensocial.googleusercontent.com%2Fgadgets%2Fifr%3Fup_title%26up_minvalue%26up_maxvalue%26up_showvaluelabels%3D1%26up_showcategorylabels%3D1%26up_vertical%3D0%26up_stacked%3D0%26up_legend%3Dright%26up__table_query_url%3Dhttps%253A%252F%252Fdocs.google.com%252Fspreadsheet%252Ftq%253Frange%253DA2%25253AB8%2526key%253D0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE%2526gid%253D3%2526pub%253D1%26url%3Dhttp%253A%252F%252Fwww.google.com%252Fig%252Fmodules%252Fimage-bar-chart.xml%26spreadsheets%3Dspreadsheets&height=320&width=450"></script>
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1');
+  google.setOnLoadCallback(drawVisualization);
+
+  function drawVisualization() {
+    var wrapper = new google.visualization.ChartWrapper({
+      chartType: 'BarChart',
+      dataSourceUrl: 'https://docs.google.com/spreadsheet/tq?key=0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE&gid=2&headers=-1',
+      query: 'SELECT A,B WHERE B > 0 ORDER BY (0-B)',
+      options: {'title': 'Survey Results', 'legend': 'none'},
+      containerId: 'vis_div'
+    });
+    wrapper.draw()
+
+    // No query callback handler needed!
+  }
+</script>
+
+<div id="vis_div" style="width: 600px; height: 400px;"></div>
+
 
 </div>
 
