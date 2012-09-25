@@ -55,6 +55,12 @@
       {
           document.getElementById(iframe).src = url;
       }
+      
+      function showhide(id) 
+      {
+          if (document.getElementById(id).style.display=='none') document.getElementById(id).style.display=="block";
+          if (document.getElementById(id).style.display=='block') document.getElementById(id).style.display=="block";
+      }
   </script>
 </head>
 <body>
@@ -184,6 +190,7 @@
 <li>Ecology</li>
 </ul></li>
 </ul>
+<p><a onclick="showhide('classframe');">ShowHide</a></p>
 <iframe width="800" height="800" src="" id="classframe" name="classframe" frameborder="0" scrolling="no" allowtransparency="true"></iframe></p></div>
 
 
