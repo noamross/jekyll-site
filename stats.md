@@ -62,13 +62,53 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Ecology and Evolution ###
 
+- <a onclick="showhide('EVE231');">**EVE 231. Principles of Biological Data Analysis**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/EVE231.html" id="EVE231" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
 ### Economics ###
+
+- <a onclick="showhide('ECN204A');">**ECN 240A. Econometric Methods**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/ECN204A.html" id="ECN204A" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
+- <a onclick="showhide('ECN204B');">**ECN 240B. Econometric Methods**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/ECN204B.html" id="ECN204B" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 ### Political Science ###
 
+- <a onclick="showhide('POL211');">**POL 211. Research Methods in Political Science**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/POL211" id="POL211" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
+  - <a onclick="showhide('POL212');">**POL 212. Quantitative Analysis in Political Science**</a>
+
+    <iframe width="600" height="800" src="/statsclasses/POL212" id="POL212" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
+- <a onclick="showhide('POL213');">**POL 213. Quantitative Analysis in Political Science II**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/POL213" id="POL213" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
 ### Plant Sciences ###
 
+- <a onclick="showhide('PLS205');">**PLS205. Experimental Design and Analysis**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/PLS205" id="PLS205" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
+- <a onclick="showhide('PLS206');">**PLS206. Applied Multivariate Modeling in Agricultural and Environmental Sciences**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/PLS206" id="PLS206" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
+- <a onclick="showhide('PLS298');">**Applied statistical modeling of environmental data: Classical and Bayesian approaches**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/PLS298" id="PLS298" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
 ### Psychology ###
+
+- <a onclick="showhide('PSY204A');">**PSY204A. Statistical Analysis of Psychological Experiments**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/PSY204A" id="PSY204A" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 ### Statistics ###
 
