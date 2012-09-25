@@ -45,7 +45,32 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 Click on a course to see a description and comments.  Please add your own comments!
 
-### Statistics
+### Ecology ###
+
+- <a onclick="showhide('ECL290');">**ECL290. Design and Analysis of Ecological Experiments**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/ECL290.html" id="ECL290" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+        
+- <a onclick="showhide('ECL298');">**ECL 298.Computational methods in population biology**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/ECL298.html" id="ECL298" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
+- <a onclick="showhide('ECLANT298');">**ECL 298/ANT298: Statistical Rethinking**</a>
+
+  <iframe width="600" height="800" src="/statsclasses/ECLANT298.html" id="ECLANT298" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+
+
+### Ecology and Evolution ###
+
+### Economics ###
+
+### Political Science ###
+
+### Plant Sciences ###
+
+### Psychology ###
+
+### Statistics ###
 
 - <a onclick="showhide('STA120');">**STA120. Probability and Random Variables for Engineers**</a>
 
@@ -70,25 +95,3 @@ Click on a course to see a description and comments.  Please add your own commen
 - <a onclick="showhide('STA242');">**STA242. Introduction to Statistical Programming**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA242.html" id="STA242" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
-
-### Economics ###
-
-
-### Plant Sciences ###
-
-
-### Psychology ###
-
-
-### Ecology and Evolution ###
-
-
-### Ecology ###
-
-
-
-
-
-
-
-

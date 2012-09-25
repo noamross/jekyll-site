@@ -15,6 +15,9 @@ http://www.noamross.net/pages.html
 http://www.noamross.net/publications.html
 http://www.noamross.net/sitemap.txt
 http://www.noamross.net/stats.html
+http://www.noamross.net/statsclasses/ECL290.html
+http://www.noamross.net/statsclasses/ECL298.html
+http://www.noamross.net/statsclasses/ECLANT298.html
 http://www.noamross.net/statsclasses/STA100.html
 http://www.noamross.net/statsclasses/STA120.html
 http://www.noamross.net/statsclasses/STA130A.html
