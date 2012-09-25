@@ -1,0 +1,11 @@
+---
+layout: class
+---
+
+**Official Description**:  Lecture—3 hours; laboratory—1 hour. Prerequisite: one introductory class in Statistics (such as 13, 32, 100, or 102), or the equivalent. Organization of computations to access, transform, explore, analyze data and produce results. Concepts and vocabulary of statistical/scientific computing. GE credit: QL, SE.—I. (I.)
+
+**Instructors**: This is taught by [Duncan Temple-Lang](http://www.stat.ucdavis.edu/~duncan/)
+
+**Other info and comments**: Let us know in the comments
+
+**Software Used**: Primarily R, with a few other complementary tools

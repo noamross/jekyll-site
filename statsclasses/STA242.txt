@@ -1,0 +1,11 @@
+---
+layout: class
+---
+
+**Official Description**:Lecture—3 hours; laboratory—1 hour. Prerequisite: courses 130A and 130B or equivalent. Essentials of statistical computing using a general-purpose statistical language. Topics include algorithms; design; debugging and efficiency; object-oriented concepts; model specification and fitting; statistical visualization; data and text processing; databases; computer systems and platforms; comparison of scientific programming languages. Offered in alternate years.—II.
+
+**Instructors**: This is taught by [Duncan Temple-Lang](http://www.stat.ucdavis.edu/~duncan/)
+
+**Other info and comments**: Let us know in the comments
+
+**Software Used**: Primarily R, with a few other complementary tools

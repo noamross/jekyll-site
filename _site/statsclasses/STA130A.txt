@@ -32,18 +32,21 @@
       <div class="container">
 
         <div class="content">
-          <p><strong>Official Description</strong>: Lecture—3 hours; discussion—1 hour. Prerequisite: Mathematics 21A, B, C, and D. Basic concepts of probability theory with applications to electrical engineering, discrete and continuous random variables, conditional probability, combinatorics, bivariate distributions, transformation or random variables, law of large numbers, central limit theorem, and approximations. No credit for students who have completed course 131A or Civil and Environmental Engineering 114. GE credit: SciEng | QL, SE.—I, III. (I, III.) Mueller</p>
-<p><strong>Instructors</strong>: Let us know in the comments</p>
-<p><strong>Other info and comments</strong>: Let us know in the comments</p>
-<p><strong>Software Used</strong>: Let us know in the comments</p>
+          **Official Description**: Lecture—3 hours; discussion—1 hour. Prerequisite: Mathematics16B. Basic probability, densities and distributions, mean, variance, covariance, Chebyshev’s inequality, some special distributions, sampling distributions, central limit theorem and law of large numbers, point estimation, some methods of estimation, interval estimation, confidence intervals for certain quantities, computing sample sizes. Only 2 units of credit allowed to students who have taken course 131A.—I. (I.)
+
+**Instructors**: Let us know in the comments
+
+**Other info and comments**: Let us know in the comments
+
+**Software Used**: Let us know in the comments
           
 
 
   <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'noamrossgh'; // required: replace example with your forum shortname
-    var disqus_identifier = '/statsclasses/STA120.html';
-    var disqus_url = 'http://www.noamross.net/statsclasses/STA120.html';
+    var disqus_identifier = '/statsclasses/STA130A.txt';
+    var disqus_url = 'http://www.noamross.net/statsclasses/STA130A.txt';
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

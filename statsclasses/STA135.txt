@@ -1,0 +1,11 @@
+---
+layout: class
+---
+
+**Official Description**: Lecture—3 hours; discussion—1 hour. Prerequisite: course 130B, and preferably course 131B. Multivariate normal distribution; Mahalanobis distance; sampling distributions of the mean vector and covariance matrix; Hotelling’s T2; simultaneous inference; one-way MANOVA; discriminant analysis; principal components; canonical correlation; factor analysis. Intensive use of computer analyses and real data sets. GE credit: QL, SE.—III. (III.)
+
+**Instructors**: This is taught by [Duncan Temple-Lang](http://www.stat.ucdavis.edu/~duncan/)
+
+**Other info and comments**: Let us know in the comments
+
+**Software Used**: Primarily R, with a few other complementary tools
