@@ -13,7 +13,7 @@ Please add your two cents about the courses you took in the comments for each
     - Statistics
         -  <a onclick="showhide('STA100');">STA100. Applied Statistics for Biological Sciences</a>
 
-<iframe width="800" height="800" src="/statsclasses/STA100.html" id="STA100" frameborder="0" scrolling="no" allowtransparency="true" display="block"></iframe>
+        <iframe width="800" height="800" src="/statsclasses/STA100.html" id="STA100" frameborder="0" scrolling="no" allowtransparency="true" display="none"></iframe>
 
         -  <a onclick="showhide('STA120');">STA120. Probability and Random Variables for Engineers</a>
 
