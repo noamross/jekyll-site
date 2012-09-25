@@ -1,3 +1,7 @@
+---
+layout: page
+title: "Statistics and Quantitative Classes for Davis GGE"
+---
 # Statistics and Quantitative Classes for Davis GGE
 
 The UC Davis Graduate Group in Ecology requires two courses in quantitative methods.  Since the group is so diverse, and such courses are taught by many departments at the University, I thought it would be helpful to collect information 
