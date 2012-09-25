@@ -7,14 +7,17 @@ The UC Davis Graduate Group in Ecology requires two courses in quantitative meth
 
 Please add your two cents about the courses you took in the comments for each 
 
+## Survey ##
 
--  <a onclick="navigate('/statsclasses/STA100.html')">Survey: What Stats/Quant Courses did you take</a><a onclick="chgifr('/statsclasses/STA100.html', 'classframe')"> (Results)</a> ##
+<a onclick="showhide('Survey');">**(Show/Hide the survey)**</a>
+
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", id="Survey" width="600" height="639" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
 ## Courses by department
 
 ### Statistics
 
-- <a onclick="showhide('STA100');">**STA100. Applied Statistics for Biological Sciences**</a>
+
 
   <iframe width="600" height="800" src="/statsclasses/STA100.html" id="STA100" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
