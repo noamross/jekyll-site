@@ -26,7 +26,7 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
 
  - [Statistics](#statistics)
      -  <a href="/statsclasses/STA100.html" target="classframe">STA100. Applied Statistics for Biological Sciences</a>
-     -  <a href="/statsclasses/STA100.html" target="classframe">STA120. Probability and Random Variables for Engineers</a>
+     -  <a href="/statsclasses/STA120.html" target="classframe">STA120. Probability and Random Variables for Engineers</a>
  - [Economics](#economics)
  - [Plant Sciences](#plant-sciences)
  - [Psychology](#psychology)
