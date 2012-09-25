@@ -53,7 +53,7 @@ Click on a course to see a description and comments.  Please add your own!
         
 - <a onclick="showhide('STA130A');">**STA 130A. Mathematical Statistics (4)**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/STA130A.html" id="STA130B" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="/statsclasses/STA130A.html" id="STA130A" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('STA130B');">**STA 130B. Mathematical Statistics (4)**</a>
 
