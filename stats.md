@@ -3,29 +3,28 @@ layout: page
 title: "Statistics and Quantitative Classes for Davis GGE"
 ---
 
-The UC Davis Graduate Group in Ecology requires two courses in quantitative methods.  Since the group is so diverse, and such courses are taught by many departments at the University, I thought it would be helpful to collect information 
+The UC Davis Graduate Group in Ecology requires two courses in quantitative methods.  Since the group is so diverse, and such courses are taught by many departments at the University, I thought it would be helpful to collect information on courses that people have taken to fill this requirement.  On this page you will find descriptions of courses taken, as well student comments on the courses.  Please add your own comments to help make this a useful resource!
 
-Please add your two cents about the courses you took in the comments for each 
+ - [Survey: What stats/quant courses have you taken?](#survey)
+ - [Courses by department](#courses-by-department)
 
 ## Survey ##
 
-If you have already taken statistics or other quantitative methods class at Davis, please fill out this survey <a onclick="showhide('Survey');">(Show/Hide the survey)</a>:
+Please fill out the survey and see the results below! <a onclick="showhide('Survey');">(Show/Hide the survey)</a>:
 
 <div id="Survey" style="display:block;">
 
 <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", width="800" height="639" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE&transpose=0&headers=0&range=A1%3AB7&gid=2&pub=1","options":{"titleTextStyle":{"bold":true,"color":"#000","fontSize":16},"fontName":"Arial","animation":{"duration":500},"width":600,"hAxis":{"useFormatFromData":true,"title":"Number of Responses","minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},"chartArea":{"height":"","width":"","left":"","top":""},"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindowMode":null,"viewWindow":null,"maxValue":null},{"useFormatFromData":true}],"booleanRole":"certainty","title":"Survey Results","height":500,"domainAxis":{"direction":1},"legend":"none","annotations":{"domain":{}},"isStacked":false,"tooltip":{}},"state":{},"view":{},"chartType":"BarChart","chartName":"Chart 1"} </script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE&transpose=0&headers=0&gid=2&pub=1","options":{"titleTextStyle":{"bold":true,"color":"#000","fontSize":16},"fontName":"Arial","animation":{"duration":500},"width":800,"hAxis":{"title":"Number of Responses","useFormatFromData":true,"minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},"chartArea":{"height":"","width":"","left":"","top":""},"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindowMode":null,"viewWindow":null,"maxValue":null},{"useFormatFromData":true}],"booleanRole":"certainty","title":"Survey Results","height":600,"domainAxis":{"direction":1},"legend":"none","annotations":{"domain":{}},"tooltip":{},"isStacked":false},"state":{},"view":{},"chartType":"BarChart","chartName":"Chart 1"} </script>
 
 </div>
 
-## Courses by department
+## Courses by department ##
+
+Click on a course to see a description and comments.  Please add your own!
 
 ### Statistics
-
-
-
-  <iframe width="600" height="800" src="/statsclasses/STA100.html" id="STA100" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('STA120');">**STA120. Probability and Random Variables for Engineers**</a>
 
