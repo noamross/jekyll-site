@@ -20,7 +20,7 @@ Please add your two cents about the courses you took in the comments for each
     - Ecology
 
 
-<a onclick="showhide("classframe");">ShowHide</a>
+<a onclick="showhide('classframe');">ShowHide</a>
 
 <iframe width="800" height="800" src="" id="classframe" name="classframe" frameborder="0" scrolling="no" allowtransparency="true" display="block"></iframe>
 
