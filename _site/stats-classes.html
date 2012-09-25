@@ -72,9 +72,9 @@
 <p><strong>Instructors</strong>: <a href="#disqus_thread">Let us know in the comments</a></p>
 <p><strong>Other info and comments</strong>: <a href="#disqus_thread">Let us know in the comments</a></p>
 <p><strong>Software Used</strong>: <a href="#disqus_thread">Let us know in the comments</a></p>
-<div id="STA100">
-<a onclick="loadDisqus(jQuery(this), '<?= $id ?>', '<? the_permalink() ?>');">Show comments</a> 
-</div>
+
+<a id="STA100" onclick="loadDisqus(this, window.location.href);">Show comments</a> 
+
 
 
 
@@ -151,40 +151,39 @@
 <p>Mila: PLS206</p>
 <hr />
 <script type="text/javascript">
-var disqus_developr = 1;
-var disqus_shortname = 'noamrossgh';
-var disqus_identifier; //made of post id and guid
-var disqus_url; //post permalink
+  var disqus_shortname = 'noamrossgh';
+  var disqus_identifier; //made of post id and guid
+  var disqus_url; //post permalink
 
-function loadDisqus(source, identifier, url) {
+  function loadDisqus(source, url) {
 
-if (window.DISQUS) {
+  if (window.DISQUS) {
 
-   jQuery('#disqus_thread').insertAfter(source); //append the HTML after the link
+     jQuery('#disqus_thread').insertAfter(source); //append the HTML after the link
 
-   //if Disqus exists, call it's reset method with new parameters
-   DISQUS.reset({
-      reload: true,
-      config: function () {
-      this.page.identifier = identifier;
-      this.page.url = url;
-      }
-   });
+     //if Disqus exists, call it's reset method with new parameters
+     DISQUS.reset({
+        reload: true,
+        config: function () {
+        this.page.identifier = source.id;
+        this.page.url = url;
+        }
+     });
 
-} else {
+  } else {
 
-   //insert a wrapper in HTML after the relevant "show comments" link
-   jQuery('<div id="disqus_thread"></div>').insertAfter(source);
-   disqus_identifier = identifier; //set the identifier argument
-   disqus_url = url; //set the permalink argument
+     //insert a wrapper in HTML after the relevant "show comments" link
+     jQuery('<div id="disqus_thread"></div>').insertAfter(source);
+     disqus_identifier = source.id; //set the identifier argument
+     disqus_url = url; //set the permalink argument
 
-   //append the Disqus embed script to HTML
-   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-   dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-   jQuery('head').appendChild(dsq);
+     //append the Disqus embed script to HTML
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     jQuery('head').appendChild(dsq);
 
-}
-};
+  }
+  };
 </script>
 </div>
 
