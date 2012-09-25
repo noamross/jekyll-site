@@ -4,7 +4,7 @@ author: Noam Ross
 tags: [R]
 date: 12-09-24 11:05:27
 layout: post
-redirects: [/blah.html]
+redirects: [/blah]
 --- 
 
 
