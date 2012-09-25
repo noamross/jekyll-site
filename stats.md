@@ -51,23 +51,23 @@ Click on a course to see a description and comments.  Please add your own!
 
   <iframe width="600" height="800" src="/statsclasses/STA120.html" id="STA120" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
         
-- <a onclick="showhide('STA130A');">**STA 130A. Mathematical Statistics (4)**</a>
+- <a onclick="showhide('STA130A');">**STA 130A. Mathematical Statistics**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA130A.html" id="STA130A" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('STA130B');">**STA 130B. Mathematical Statistics (4)**</a>
+- <a onclick="showhide('STA130B');">**STA 130B. Mathematical Statistics**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA130B.html" id="STA130B" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('STA135');">**STA135. Multivariate Data Analysis (4)**</a>
+- <a onclick="showhide('STA135');">**STA135. Multivariate Data Analysis**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA135.html" id="STA135" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('STA141');">**STA141. Statistical Computing (4)**</a>
+- <a onclick="showhide('STA141');">**STA141. Statistical Computing**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA141.html" id="STA141" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('STA242');">**STA242. Introduction to Statistical Programming (4)**</a>
+- <a onclick="showhide('STA242');">**STA242. Introduction to Statistical Programming**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA242.html" id="STA242" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
