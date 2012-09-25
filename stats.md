@@ -11,8 +11,14 @@ Please add your two cents about the courses you took in the comments for each
 -  <a onclick="navigate('/statsclasses/STA100.html')">Survey: What Stats/Quant Courses did you take</a><a onclick="chgifr('/statsclasses/STA100.html', 'classframe')"> (Results)</a> ##
 -  Courses by department
     - Statistics
-        -  <a onclick="chgifr('/statsclasses/STA100.html', 'classframe')">STA100. Applied Statistics for Biological Sciences</a>
-        -  <a onclick="chgifr('/statsclasses/STA120.html', 'classframe')">STA120. Probability and Random Variables for Engineers</a>
+        -  <a onclick="showhide('STA100');">STA100. Applied Statistics for Biological Sciences</a>
+
+<iframe width="800" height="800" src="/statsclasses/STA100.html" id="STA100" frameborder="0" scrolling="no" allowtransparency="true" display="block"></iframe>
+
+        -  <a onclick="showhide('STA120');">STA120. Probability and Random Variables for Engineers</a>
+
+        <iframe width="800" height="800" src="/statsclasses/STA120.html" id="STA120" frameborder="0" scrolling="no" allowtransparency="true" display="block"></iframe>
+        
     - Economics
     - Plant Sciences
     - Psychology
@@ -20,7 +26,7 @@ Please add your two cents about the courses you took in the comments for each
     - Ecology
 
 
-<a onclick="showhide('classframe');">ShowHide</a>
 
-<iframe width="800" height="800" src="" id="classframe" name="classframe" frameborder="0" scrolling="no" allowtransparency="true" display="block"></iframe>
+
+
 
