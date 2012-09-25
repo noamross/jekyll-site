@@ -21,7 +21,7 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
 
 - - -
 
-<iframe height="800" width="800" frameborder="0" name="classframe" id="classframe" src="" scrolling="no" allowTransparency="true"/>
+<iframe src="" name="classframe"/>
 
 
 
