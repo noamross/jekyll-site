@@ -18,6 +18,11 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
 
 - - -
 
+<iframe height="800" width="800" frameborder="0" name="classframe" src="/statsclasses/STA100.html" scrolling="no" allowTransparency="true">
+</iframe>
+
+
+
 # Courses by Department
 
  - [Statistics](#statistics)
@@ -29,7 +34,4 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
  - [Ecology and Evolution](#ecology-and-evolution)
  - [Ecology](#ecology)
 
-
-<iframe height="800" width="800" frameborder="0" name="classframe" src="/statsclasses/STA100.html" scrolling="no" allowTransparency="true">
-</iframe>
 
