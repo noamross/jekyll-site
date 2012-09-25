@@ -38,11 +38,7 @@ Please add your two cents about the courses you took in the comments for each
 
   <iframe width="600" height="800" src="/statsclasses/STA141.html" id="STA141" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('STA141');">**STA141. Statistical Computing (4)**</a>
-
-  <iframe width="600" height="800" src="/statsclasses/STA141.html" id="STA141" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
-
-- <a onclick="showhide('STA141');">**STA242. Introduction to Statistical Programming (4)**</a>
+- <a onclick="showhide('STA242');">**STA242. Introduction to Statistical Programming (4)**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA242.html" id="STA242" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
