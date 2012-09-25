@@ -17,11 +17,11 @@ http://www.noamross.net/sitemap.txt
 http://www.noamross.net/stats.html
 http://www.noamross.net/statsclasses/STA100.html
 http://www.noamross.net/statsclasses/STA120.html
-http://www.noamross.net/statsclasses/STA130A.txt
-http://www.noamross.net/statsclasses/STA130B.txt
-http://www.noamross.net/statsclasses/STA135.txt
-http://www.noamross.net/statsclasses/STA141.txt
-http://www.noamross.net/statsclasses/STA242.txt
+http://www.noamross.net/statsclasses/STA130A.html
+http://www.noamross.net/statsclasses/STA130B.html
+http://www.noamross.net/statsclasses/STA135.html
+http://www.noamross.net/statsclasses/STA141.html
+http://www.noamross.net/statsclasses/STA242.html
 http://www.noamross.net/tags.html
 http://www.noamross.net/test/index.html
 
