@@ -12,7 +12,7 @@ Please add your two cents about the courses you took in the comments for each
 -  Courses by department
     - Statistics
         -  <a onclick="chgifr('/statsclasses/STA100.html', 'classframe')">STA100. Applied Statistics for Biological Sciences</a>
-        -  <a onclick="chgeifr('/statsclasses/STA120.html', 'classframe')">STA120. Probability and Random Variables for Engineers</a>
+        -  <a onclick="chgifr('/statsclasses/STA120.html', 'classframe')">STA120. Probability and Random Variables for Engineers</a>
     - Economics
     - Plant Sciences
     - Psychology
