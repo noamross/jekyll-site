@@ -150,7 +150,8 @@
 <p>Mateo: POL212 - regression, R and Stata. Network modeling.</p>
 <p>Mila: PLS206</p>
 <hr />
-<script type="text/javascript" 
+<script type="text/javascript">
+var disqus_developr = 1;
 var disqus_shortname = 'noamrossgh';
 var disqus_identifier; //made of post id and guid
 var disqus_url; //post permalink
@@ -173,26 +174,18 @@ if (window.DISQUS) {
 } else {
 
    //insert a wrapper in HTML after the relevant "show comments" link
-   jQuery('<div id="disqus_thread">
-<p></div>’).insertAfter(source); disqus_identifier = identifier; //set the identifier argument disqus_url = url; //set the permalink argument</p>
-<p>//append the Disqus embed script to HTML var dsq = document.createElement(‘script’); dsq.type = ‘text/javascript’; dsq.async = true; dsq.src = ‘http://’ + disqus_shortname + ’.disqus.com/embed.js’; jQuery(‘head’).appendChild(dsq);</p>
-<p>} }; </script></p>
-</div>
-<div id="disqus_thread">
-<script type="text/javascript">
-    var disqus_developr = 1;
-    var disqus_shortname = 'are277'; // required: replace example with your forum shortname
-    var disqus_identifier = 'stats-classes.html';
-    var disqus_title = '';
-    disqus_category_id = '1456358';
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+   jQuery('<div id="disqus_thread"></div>').insertAfter(source);
+   disqus_identifier = identifier; //set the identifier argument
+   disqus_url = url; //set the permalink argument
+
+   //append the Disqus embed script to HTML
+   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+   dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+   jQuery('head').appendChild(dsq);
+
+}
+};
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 
 
