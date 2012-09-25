@@ -43,7 +43,7 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 ## Courses by department ##
 
-Click on a course to see a description and comments.  Please add your own comments!
+Click on a course to see a description and comments.  Please add your own comments and ask questions!
 
 ### Ecology ###
 
@@ -80,35 +80,35 @@ Click on a course to see a description and comments.  Please add your own commen
 
 - <a onclick="showhide('POL211');">**POL 211. Research Methods in Political Science**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/POL211" id="POL211" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="/statsclasses/POL211.html" id="POL211" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
   - <a onclick="showhide('POL212');">**POL 212. Quantitative Analysis in Political Science**</a>
 
-    <iframe width="600" height="800" src="/statsclasses/POL212" id="POL212" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+    <iframe width="600" height="800" src="/statsclasses/POL212.html" id="POL212" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('POL213');">**POL 213. Quantitative Analysis in Political Science II**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/POL213" id="POL213" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="/statsclasses/POL213.html" id="POL213" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 ### Plant Sciences ###
 
 - <a onclick="showhide('PLS205');">**PLS205. Experimental Design and Analysis**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/PLS205" id="PLS205" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="/statsclasses/PLS205.html" id="PLS205" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('PLS206');">**PLS206. Applied Multivariate Modeling in Agricultural and Environmental Sciences**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/PLS206" id="PLS206" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="/statsclasses/PLS206.html" id="PLS206" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('PLS298');">**Applied statistical modeling of environmental data: Classical and Bayesian approaches**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/PLS298" id="PLS298" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="/statsclasses/PLS298.html" id="PLS298" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 ### Psychology ###
 
 - <a onclick="showhide('PSY204A');">**PSY204A. Statistical Analysis of Psychological Experiments**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/PSY204A" id="PSY204A" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="/statsclasses/PSY204A.html" id="PSY204A" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 ### Statistics ###
 
