@@ -51,9 +51,9 @@
   <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
   <script type="text/javascript">stLight.options({publisher: "4376beef-ffcc-441e-a877-904acf7f379b", theme:'8', onhover:false}); </script>
   <script>
-      function navigate(url)
+      function chgifr(url, iframe)
       {
-          document.getElementById('classframe').src = url;
+          document.getElementById(iframe).src = url;
       }
   </script>
 </head>
@@ -170,17 +170,19 @@
 <p>Please add your two cents about the courses you took in the comments for each</p>
 <ul>
 <li><a onclick="navigate('/statsclasses/STA100.html')">Survey: What Stats/Quant Courses did you take</a><a onclick="navigate('/statsclasses/STA100.html')"> (Results)</a> ##</li>
-<li><p>Statistics courses by department</p></li>
+<li>Courses by department
+<ul>
 <li>Statistics
 <ul>
-<li><a onclick="navigate('/statsclasses/STA100.html')">STA100. Applied Statistics for Biological Sciences</a></li>
-<li><a onclick="navigate('/statsclasses/STA120.html')">STA120. Probability and Random Variables for Engineers</a></li>
+<li><a onclick="changifr('/statsclasses/STA100.html', 'classframe')">STA100. Applied Statistics for Biological Sciences</a></li>
+<li><a onclick="navigate('/statsclasses/STA120.html', 'classframe')">STA120. Probability and Random Variables for Engineers</a></li>
 </ul></li>
 <li>Economics</li>
 <li>Plant Sciences</li>
 <li>Psychology</li>
 <li>Ecology and Evolution</li>
-<li><p>Ecology</p></li>
+<li>Ecology</li>
+</ul></li>
 </ul>
 <iframe width="800" height="800" src="" id="classframe" name="classframe" frameborder="0" scrolling="no" allowtransparency="true"></iframe></p></div>
 
