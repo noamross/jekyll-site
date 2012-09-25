@@ -43,7 +43,7 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 ## Courses by department ##
 
-Click on a course to see a description and comments.  Please add your own comments and ask questions!
+Click on a course to see a description and comments.  Please add your own comments and ask questions!  Reviews, descriptions, and links to professor/course/syllabus webpages are all helpful. 
 
 ### Ecology ###
 
