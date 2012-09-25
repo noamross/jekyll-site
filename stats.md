@@ -92,27 +92,27 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Plant Sciences ###
 
-- <a onclick="showhide('PLS205');">**PLS205. Experimental Design and Analysis**</a>
+- <a onclick="showhide('PLS205');">**PLS 205. Experimental Design and Analysis**</a>
 
   <iframe width="600" height="800" src="/statsclasses/PLS205.html" id="PLS205" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('PLS206');">**PLS206. Applied Multivariate Modeling in Agricultural and Environmental Sciences**</a>
+- <a onclick="showhide('PLS206');">**PLS 206. Applied Multivariate Modeling in Agricultural and Environmental Sciences**</a>
 
   <iframe width="600" height="800" src="/statsclasses/PLS206.html" id="PLS206" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('PLS298');">**Applied statistical modeling of environmental data: Classical and Bayesian approaches**</a>
+- <a onclick="showhide('PLS298');">**PLS 298. Applied statistical modeling of environmental data: Classical and Bayesian approaches**</a>
 
   <iframe width="600" height="800" src="/statsclasses/PLS298.html" id="PLS298" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 ### Psychology ###
 
-- <a onclick="showhide('PSY204A');">**PSY204A. Statistical Analysis of Psychological Experiments**</a>
+- <a onclick="showhide('PSY204A');">**PSY 204A. Statistical Analysis of Psychological Experiments**</a>
 
   <iframe width="600" height="800" src="/statsclasses/PSY204A.html" id="PSY204A" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
 
 ### Statistics ###
 
-- <a onclick="showhide('STA120');">**STA120. Probability and Random Variables for Engineers**</a>
+- <a onclick="showhide('STA120');">**STA 120. Probability and Random Variables for Engineers**</a>
 
   <iframe width="600" height="800" src="/statsclasses/STA120.html" id="STA120" frameborder="0" scrolling="no" allowtransparency="true" style="display:none;"></iframe>
         
