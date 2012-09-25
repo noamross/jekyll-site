@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<!--
+	Noam's theme, based on Readnik scriptogr.am theme
+-->
+<html lang="en">
+<head>
+  <title>{{site.author.name}} | {{page.title}}</title>
+  <meta name="description" content="{{author}} {{blog_title}}" />
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="ROBOTS" content="INDEX,FOLLOW">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta property="og:url" content="{{ BASE_PATH }}">
+  <meta property="og:site_name" content="{{ site.author.name }}">
+  <link rel="icon" type="image/x-icon" href="{{ ASSET_PATH }}/atom.ico">
+  <link href="{{ ASSET_PATH }}/css/style.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<div class="wrapper">
+  <div class="blog">
+ 
+
+      <div class="container">
+
+        <div class="content">
+          {{ content }}
+          {% include JB/comments %}
+        </div>
+      </div>
+</div>
+</body>
+</html>

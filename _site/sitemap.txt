@@ -14,6 +14,8 @@ http://www.noamross.net/mongolia.html
 http://www.noamross.net/pages.html
 http://www.noamross.net/publications.html
 http://www.noamross.net/sitemap.txt
+http://www.noamross.net/statsclasses/STA100.html
+http://www.noamross.net/statsclasses/STA120.html
 http://www.noamross.net/tags.html
 http://www.noamross.net/test/index.html
 
