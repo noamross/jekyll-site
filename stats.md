@@ -9,14 +9,13 @@ Please add your two cents about the courses you took in the comments for each
 
 ## Survey ##
 
-If you have already taken statistics or other quantitative methods class at Davis, please fill out this survery <a onclick="showhide('Survey');">(Show/Hide the survey)</a>:
+If you have already taken statistics or other quantitative methods class at Davis, please fill out this survey <a onclick="showhide('Survey');">(Show/Hide the survey)</a>:
 
 <div id="Survey" style="display:block;">
 
 <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", width="800" height="639" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE&transpose=0&headers=0&range=A1%3AB7&gid=2&pub=1","options":{"titleTextStyle":{"bold":true,"color":"#000","fontSize":16},"fontName":"Arial","animation":{"duration":500},"width":1280,"hAxis":{"useFormatFromData":true,"title":"Number of Responses","minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindowMode":null,"viewWindow":null,"maxValue":null},{"useFormatFromData":true}],"booleanRole":"certainty","title":"Survey Results","height":512,"domainAxis":{"direction":1},"legend":"none","annotations":{"domain":{}},"isStacked":false},"state":{},"view":{},"chartType":"BarChart","chartName":"Chart 1"} </script>
-
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE&transpose=0&headers=0&range=A1%3AB7&gid=2&pub=1","options":{"titleTextStyle":{"bold":true,"color":"#000","fontSize":16},"fontName":"Arial","animation":{"duration":500},"width":600,"hAxis":{"useFormatFromData":true,"title":"Number of Responses","minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},"chartArea":{"height":"","width":"","left":"","top":""},"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindowMode":null,"viewWindow":null,"maxValue":null},{"useFormatFromData":true}],"booleanRole":"certainty","title":"Survey Results","height":500,"domainAxis":{"direction":1},"legend":"none","annotations":{"domain":{}},"isStacked":false,"tooltip":{}},"state":{},"view":{},"chartType":"BarChart","chartName":"Chart 1"} </script>
 
 </div>
 
