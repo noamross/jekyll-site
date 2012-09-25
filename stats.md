@@ -9,11 +9,11 @@ Please add your two cents about the courses you took in the comments for each
 
 ## Survey ##
 
-If you have already taken statistics or other quantitative methods class at Davis, please fill out this survery<a onclick="showhide('Survey');">(Show/Hide the survey)</a>:
+If you have already taken statistics or other quantitative methods class at Davis, please fill out this survery <a onclick="showhide('Survey');">(Show/Hide the survey)</a>:
 
-<div id=id="Survey">
+<div id="Survey" style="display:block;">
 
-<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", width="800" height="639" frameborder="0" marginheight="0" marginwidth="0" style="display:block;"></iframe>
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ", width="800" height="639" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/static/modules/gviz/1.0/chart.js"> {"dataSourceUrl":"//docs.google.com/spreadsheet/tq?key=0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE&transpose=0&headers=0&range=E2%3AF8&gid=0&pub=1","options":{"vAxes":[{"useFormatFromData":true,"minValue":null,"viewWindowMode":null,"viewWindow":null,"maxValue":null},{"useFormatFromData":true}],"titleTextStyle":{"bold":true,"color":"#000","fontSize":16},"fontName":"Arial","booleanRole":"certainty","title":"Survey Results","animation":{"duration":0},"domainAxis":{"direction":1},"legend":"none","hAxis":{"title":"Number of Responses","useFormatFromData":true,"minValue":null,"viewWindowMode":"pretty","viewWindow":{"min":null,"max":null},"maxValue":null},"isStacked":false,"width":600,"height":512},"state":{},"view":{},"chartType":"BarChart","chartName":"Chart 1"} </script>
 
