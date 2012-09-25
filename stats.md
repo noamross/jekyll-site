@@ -30,6 +30,6 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
  - [Ecology](#ecology)
 
 
-<iframe height="800" width="800" frameborder="0" name="classframe", src="/statsclasses/STA100.html", scrolling="no" allowTransparency="true"
+<iframe height="800" width="800" frameborder="0" name="classframe", src="/statsclasses/STA100.html", scrolling="no" allowTransparency="true">
 </iframe>
 
