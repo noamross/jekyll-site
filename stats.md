@@ -33,5 +33,5 @@ Please add your two cents about this course in the [comments](#disqus_thread)!
  - [Ecology and Evolution](#ecology-and-evolution)
  - [Ecology](#ecology)
 
-<iframe width="800" height="800" src="" id="classframe" name="classframe"></iframe>
+<iframe width="800" height="800" src="" id="classframe" name="classframe" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
 
