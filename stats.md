@@ -82,7 +82,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="/statsclasses/POL211.html" id="POL211" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
-  - <a onclick="showhide('POL212');">**POL 212. Quantitative Analysis in Political Science**</a>
+- <a onclick="showhide('POL212');">**POL 212. Quantitative Analysis in Political Science**</a>
 
     <iframe width="600" height="800" src="/statsclasses/POL212.html" id="POL212" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
