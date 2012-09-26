@@ -14,7 +14,7 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 <div id="Survey" style="display:block;">
 
-<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ" width="800" height="844" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ" width="800" height="785" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Loading...</iframe>
 
 
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
