@@ -75,7 +75,7 @@ There are a few courses at UC Davis that use R.
 
 ### General Statistics Resources at UC Davis
 
- - The UC Davis Department of Statistics has a [consulting service](http://www.stat.ucdavis.edu/files/Statistical%20Lab%20Brochure%202011.pdf) that is free for disseration-related statistical advice
+ - The UC Davis Department of Statistics has a [consulting service](http://anson.ucdavis.edu/stats-lab/services) that is free for disseration-related statistical advice.  You get a 1-hour meeting with a statistician to discuss your research and they will send you a write-up of their recommendations.
  - [Kevin Rice](http://www.plantsciences.ucdavis.edu/ricelab/home.htm) Teaches *Design and Analysis of Ecological Experiments* (ECL290), a seminar of presentation and critique of ecology research plans, which is meant to help improve the statistical and scientific merits of dissertation research.
 
 

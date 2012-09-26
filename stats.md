@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: pagecom
 title: "Statistics and Quantitative Classes for Davis GGE"
 ---
 
@@ -7,6 +7,7 @@ The UC Davis Graduate Group in Ecology requires two courses in quantitative meth
 
  - [Survey: What stats/quant courses have you taken?](#survey)
  - [Courses by department](#courses-by-department)
+ - [Other Davis Stats Resources](#other-davis-stats-resources)
 
 ## Survey ##
 
@@ -135,3 +136,8 @@ Click on a course to see a description and comments.  Please add your own commen
 - <a onclick="showhide('STA242'); chgifr('/statsclasses/STA242.html', 'STA242');">**STA242. Introduction to Statistical Programming**</a>
 
   <iframe width="600" height="800" src="" id="STA242" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
+## Other Davis Stats Resources ##
+
+ - The UC Davis Department of Statistics has a [consulting service](http://anson.ucdavis.edu/stats-lab/services) that is free for disseration-related statistical advice.  You get a 1-hour meeting with a statistician to discuss your research and they will send you a write-up of their recommendations.
+ - The [Davis R Users' Group](www.noamross.net/davis-r-users-group.html) is an in-person and e-mail group for support in R programming
