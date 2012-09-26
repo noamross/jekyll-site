@@ -47,9 +47,9 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Ecology ###
 
-- <a onclick="showhide('ECL290');">**ECL290. Design and Analysis of Ecological Experiments**</a>
+- <a onclick="showhide('ECL290'); chgifr('statsclasses/ECL290.html', ECL290);">**ECL290. Design and Analysis of Ecological Experiments**</a>
 
-  <iframe width="600" height="800" src="/statsclasses/ECL290.html" id="ECL290" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="" id="ECL290" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
         
 - <a onclick="showhide('ECL298');">**ECL 298.Computational methods in population biology**</a>
 
