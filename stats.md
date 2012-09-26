@@ -46,6 +46,12 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 Click on a course to see a description and comments.  Please add your own comments and ask questions!  Reviews, descriptions, and links to professor/course/syllabus webpages are all helpful. 
 
+### Anthropology ###
+
+- <a onclick="showhide('ECLANT298'); chgifr('/statsclasses/ECLANT298.html', 'ECLANT298');">**/ANT298/ECL 298: Statistical Rethinking**</a>
+
+  <iframe width="600" height="800" src="" id="ECLANT298" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
 ### Ecology ###
 
 - <a onclick="showhide('ECL290'); chgifr('/statsclasses/ECL290.html', 'ECL290');">**ECL290. Design and Analysis of Ecological Experiments**</a>
@@ -55,11 +61,6 @@ Click on a course to see a description and comments.  Please add your own commen
 - <a onclick="showhide('ECL298'); chgifr('/statsclasses/ECL298.html', 'ECL298');">**ECL 298.Computational methods in population biology**</a>
 
   <iframe width="600" height="800" src="" id="ECL298" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
-
-- <a onclick="showhide('ECLANT298'); chgifr('/statsclasses/ECLANT298.html', 'ECLANT298');">**ECL 298/ANT298: Statistical Rethinking**</a>
-
-  <iframe width="600" height="800" src="" id="ECLANT298" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
-
 
 ### Ecology and Evolution ###
 
@@ -140,4 +141,4 @@ Click on a course to see a description and comments.  Please add your own commen
 ## Other Davis Stats Resources ##
 
  - The UC Davis Department of Statistics has a [consulting service](http://anson.ucdavis.edu/stats-lab/services) that is free for disseration-related statistical advice.  You get a 1-hour meeting with a statistician to discuss your research and they will send you a write-up of their recommendations.
- - The [Davis R Users' Group](davis-r-users-group.html) is an in-person and e-mail group for support in R programming
+ - The [Davis R Users' Group](davis-r-users-group.html) is an in-person and e-mail group for support in R programming, and its web page has a lot of R resources.
