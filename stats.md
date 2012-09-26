@@ -140,4 +140,4 @@ Click on a course to see a description and comments.  Please add your own commen
 ## Other Davis Stats Resources ##
 
  - The UC Davis Department of Statistics has a [consulting service](http://anson.ucdavis.edu/stats-lab/services) that is free for disseration-related statistical advice.  You get a 1-hour meeting with a statistician to discuss your research and they will send you a write-up of their recommendations.
- - The [Davis R Users' Group](www.noamross.net/davis-r-users-group.html) is an in-person and e-mail group for support in R programming
+ - The [Davis R Users' Group](davis-r-users-group.html) is an in-person and e-mail group for support in R programming
