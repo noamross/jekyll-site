@@ -48,7 +48,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Anthropology ###
 
-- <a onclick="showhide('ECLANT298'); chgifr('/statsclasses/ECLANT298.html', 'ECLANT298');">**/ANT298/ECL 298: Statistical Rethinking**</a>
+- <a onclick="showhide('ECLANT298'); chgifr('/statsclasses/ECLANT298.html', 'ECLANT298');">**ANT298/ECL 298: Statistical Rethinking**</a>
 
   <iframe width="600" height="800" src="" id="ECLANT298" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
