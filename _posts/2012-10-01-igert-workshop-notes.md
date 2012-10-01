@@ -1,7 +1,7 @@
 ---
 title: Multiple Goals in Floodplain Restoration - Workshop Notes
 author: Noam Ross
-tags: [floodplains workshop igert notes history]
+tags: [floodplains ecology history workshop igert notes]
 date: 12-10-01 15:08:48
 layout: post
 --- 
@@ -125,7 +125,7 @@ results with cottonwood, though both models need to be parameterized
 against local data in order to have more confidence in the results.
 
 *Here are our slides from the presentation (available at
-[figshare](http://dx.doi.org/10.6084/m9.figshare.96210):*
+[figshare](http://dx.doi.org/10.6084/m9.figshare.96210)):*
 
 <iframe src="http://www.slideshare.net/slideshow/embed_code/14546659?hostedIn=slideshare&page=upload" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
