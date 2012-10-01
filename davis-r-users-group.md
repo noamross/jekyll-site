@@ -65,6 +65,7 @@ There are a few courses at UC Davis that use R.
  - *Design, Analysis, and Interpretation of Experiments* (PLS 205) has in the past provided an optional extra section to learn techniques in R in addition to SAS
  - Carole Hom teaches *Introduction to Dynamic Models in Modern Biology* (BIS 132) where R is used for differential and difference equation modeling.
  - There are occasional [paid workshops](http://www.hafnerconsulting.com/ucd2012/) offered on campus
+ - At least one section of STA100 uses R
  
  
 ### Miscellaneous
