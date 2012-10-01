@@ -1,8 +1,8 @@
 ---
 title: Multiple Goals in Floodplain Restoration - Workshop Notes
 author: Noam Ross
-tags: [IGERT floodplains workshop notes]
-date: 12-09-26 11:26:45
+tags: [IGERT floodplains workshop notes history]
+date: 12-10-01 15:08:48
 layout: post
 --- 
 
