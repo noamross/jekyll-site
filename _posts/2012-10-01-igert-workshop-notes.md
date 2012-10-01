@@ -1,7 +1,7 @@
 ---
 title: Multiple Goals in Floodplain Restoration - Workshop Notes
 author: Noam Ross
-tags: [IGERT floodplains workshop notes history]
+tags: [igert floodplains history ecology notes workshop]
 date: 12-10-01 15:08:48
 layout: post
 --- 
@@ -123,6 +123,10 @@ to bigger floods in wet years, and this had an overall positive
 (projected) effect on the splittail population. There were similar
 results with cottonwood, though both models need to be parameterized
 against local data in order to have more confidence in the results.
+
+*Here are our slides from the presentation:*
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/14546659?hostedIn=slideshare&page=upload" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
 * * * * *
 
