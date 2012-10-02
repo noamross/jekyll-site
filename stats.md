@@ -8,7 +8,7 @@ The UC Davis Graduate Group in Ecology requires two courses in quantitative meth
  - [Survey: What stats/quant courses have you taken?](#survey)
  - [Courses by department](#courses-by-department)
  - [Other Davis Stats Resources](#other-davis-stats-resources)
- - [Comments/discussion about stats curriculum and requirements](#disqus-thread)
+ - [Comments/discussion about stats curriculum and requirements](#disqus_thread)
 
 ## Survey ##
 
