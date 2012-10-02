@@ -3,11 +3,12 @@ layout: pagecom
 title: "Statistics and Quantitative Classes for Davis GGE"
 ---
 
-The UC Davis Graduate Group in Ecology requires two courses in quantitative methods.  Since the group is so diverse, and such courses are taught by many departments at the University, I thought it would be helpful to collect information on courses that people have taken to fill this requirement.  On this page you will find descriptions of courses taken, as well student comments on the courses.  Please add your own comments to help make this a useful resource!
+The UC Davis Graduate Group in Ecology requires two courses in quantitative methods.  Since the group is so diverse, and such courses are taught by many departments at the University, I thought it would be helpful to collect information on courses that people have taken to fill this requirement.  On this page you will find descriptions of courses taken, as well student comments on the courses.  Please add your own comments, both on specific courses and on your experience with the curriculum in general, to help make this a useful resource!
 
  - [Survey: What stats/quant courses have you taken?](#survey)
  - [Courses by department](#courses-by-department)
  - [Other Davis Stats Resources](#other-davis-stats-resources)
+ - [Comments/discussion about stats curriculum and requirements](#disqus-thread)
 
 ## Survey ##
 
@@ -68,7 +69,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="EVE231" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
-### Economics ###
+### Economics (inc. Agricultural Economics) ###
 
 - <a onclick="showhide('ECN204A'); chgifr('/statsclasses/ECN204A.html', 'ECN204A');">**ECN 240A. Econometric Methods**</a>
 
@@ -77,6 +78,10 @@ Click on a course to see a description and comments.  Please add your own commen
 - <a onclick="showhide('ECN204B'); chgifr('/statsclasses/ECN204B.html', 'ECN204B');">**ECN 240B. Econometric Methods**</a>
 
   <iframe width="600" height="800" src="" id="ECN204B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
+  - <a onclick="showhide('ARE256'); chgifr('/statsclasses/ARE256.html', 'ARE256');">**ARE 256. Applied Econometrics**</a>
+
+    <iframe width="600" height="800" src="" id="ARE256" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 ### Political Science ###
 
