@@ -4,13 +4,69 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-01T16:05:04-07:00</updated>
+ <updated>2012-10-02T11:09:50-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Seminar in Ecological Stoichiometry: Day 1</title>
+   <link href="http://www.noamross.net/blog/2012/10/2/notes-on-ecological-stoichiometry--day-1.html"/>
+   <updated>2012-10-02T10:57:18-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/10/2/notes-on-ecological-stoichiometry--day-1</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;My advisor &lt;a href=&quot;http://two.ucdavis.edu/~me/&quot;&gt;Alan Hastings&lt;/a&gt; and colleague &lt;a href=&quot;http://www.researchgate.net/profile/Alison_Marklein/&quot;&gt;Alison Marklein&lt;/a&gt; have put together a great seminar this quarter on theoretical appraoches to nutrient flows and ecological stochiometry. I’m excited because this bridges my own current work, in population modeling, with my undergraduate training in ecosystem- and biogiochemical-based ecology.&lt;/p&gt;
+&lt;p&gt;I’ll try to blog about the papers we read as we go, and I’ve created a public &lt;a href=&quot;http://www.mendeley.com/groups/2632651/ecological-stoichiometry/papers/&quot;&gt;Mendeley Group&lt;/a&gt; where I’ll be posting the readings. The course description and initial reading list are below.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;Ecological Stoichiometry: Theory and Data&lt;/h3&gt;
+&lt;p&gt;Recently there has been increased attention to going beyond looking at just number of individuals or biomass and including other nutrients as a way to understand the dynamics of interacting species. We will go over both empirical and theoretical papers to understand current developments and open questions. Each student will give a presentation of approximately 25 minutes.&lt;/p&gt;
+&lt;p&gt;Ågren, G. I. (2004). The C : N : P stoichiometry of autotrophs - theory and observations. Ecology Letters, 7(3), 185–191. doi:10.1111/j.1461-0248.2004.00567.x&lt;/p&gt;
+&lt;p&gt;Ågren, G. I. (2008). Stoichiometry and Nutrition of Plant Growth in Natural Communities. Annual Review of Ecology, Evolution, and Systematics, 39(1), 153–170. doi:10.1146/annurev.ecolsys.39.110707.173515&lt;/p&gt;
+&lt;p&gt;Ågren, G. I., Wetterstedt, J. Å. M., &amp;amp; Billberger, M. F. K. (2012). Nutrient limitation on terrestrial plant growth - modeling the interaction between nitrogen and phosphorus. New Phytologist, 194(4), 953–960. doi:10.1111/j.1469-8137.2012.04116.x&lt;/p&gt;
+&lt;p&gt;Allen, A. P., &amp;amp; Gillooly, J. F. (2009). Towards an integration of ecological stoichiometry and the metabolic theory of ecology to better understand nutrient cycling. Ecology Letters, 12(5), 369–384. doi:10.1111/j.1461-0248.2009.01302.x&lt;/p&gt;
+&lt;p&gt;Andersen T, Elser JJ, Hessen DO (2004) Stoichiometry and population dynamics. Ecology Letters 7:884-900.&lt;/p&gt;
+&lt;p&gt;Andersen, T., Elser, J. J., &amp;amp; Hessen, D. O. (2004). Stoichiometry and population dynamics. Ecology Letters, 7(9), 884–900. doi:10.1111/j.1461-0248.2004.00646.x&lt;/p&gt;
+&lt;p&gt;Ballantyne, F., IV, Menge, D. N. L., Ostling, A., &amp;amp; Hosseini, P. (2008). Nutrient Recycling Affects Autotroph and Ecosystem Stoichiometry. The American Naturalist, 171(4), 511–523. doi:10.1086/528967&lt;/p&gt;
+&lt;p&gt;Boersma M, Elser JJ (2006) Too much of a good thing: On stoichiometrically balanced diets and maximal growth. Ecology 87:1325-1330.&lt;/p&gt;
+&lt;p&gt;Brown JH, Gillooly JF, Allen AP, Savage VM, West GB (2004) Toward a metabolic theory of ecology. Ecology 85:1771-1789.&lt;/p&gt;
+&lt;p&gt;Cherif, M., &amp;amp; Loreau, M. (2007a). Stoichiometric constraints on resource use, competitive interactions, and elemental cycling in microbial decomposers. The American Naturalist, 169(6), 709–724.&lt;/p&gt;
+&lt;p&gt;Cherif, M., &amp;amp; Loreau, M. (2007b). Stoichiometric Constraints on Resource Use, Competitive Interactions, and Elemental Cycling in Microbial Decomposers. The American Naturalist, 169(6), 709–724. doi:10.1086/516844&lt;/p&gt;
+&lt;p&gt;Cherif, M., &amp;amp; Loreau, M. (2008). When microbes and consumers determine the limiting nutrient of autotrophs: a theoretical analysis. Proceedings of the Royal Society B: Biological Sciences, 276(1656), 487–497. doi:10.1098/rspb.2008.0560&lt;/p&gt;
+&lt;p&gt;Cherif, M., &amp;amp; Loreau, M. (2010). Towards a more biologically realistic use of Droop’s equations to model growth under multiple nutrient limitation. Oikos, 119(6), 897–907. doi:10.1111/j.1600-0706.2010.18397.x&lt;/p&gt;
+&lt;p&gt;Daufresne, T., &amp;amp; Loreau, M. (2001a). Ecological stoichiometry, primary producer-decomposer interactions, and ecosystem persistence. Ecology, 82(11), 3069–3082.&lt;/p&gt;
+&lt;p&gt;Daufresne, T., &amp;amp; Loreau, M. (2001b). Plant–herbivore interactions and ecological stoichiometry: when do herbivores determine plant nutrient limitation? Ecology Letters, 4(3), 196–206.&lt;/p&gt;
+&lt;p&gt;Elser JJ, Hassett RP (1994) A stoichiometric analysis of the zooplankton-phytoplankton interaction in marine and fresh-water ecosystems. Nature 370:211-213.&lt;/p&gt;
+&lt;p&gt;Elser JJ, Bracken MES, Cleland EE, Gruner DS, Harpole WS, Hillebrand H, Ngai JT, Seabloom EW, Shurin JB, Smith JE (2007) Global analysis of nitrogen and phosphorus limitation of primary producers in freshwater, marine and terrestrial ecosystems. Ecology Letters 10:1135-1142.&lt;/p&gt;
+&lt;p&gt;Elser JJ, Chrzanowski TH, Sterner RW, Mills KH (1998) Stoichiometric constraints on food-web dynamics: A whole-lake experiment on the canadian shield. Ecosystems 1:120-136.&lt;/p&gt;
+&lt;p&gt;Elser JJ, Fagan WF, Denno RF, Dobberfuhl DR, Folarin A, Huberty A, Interlandi S, Kilham SS, McCauley E, Schulz KL, Siemann EH, Sterner RW (2000) Nutritional constraints in terrestrial and freshwater food webs. Nature 408:578-580.&lt;/p&gt;
+&lt;p&gt;Elser JJ, Sterner RW, Galford AE, Chrzanowski TH, Findlay DL, Mills KH, Paterson MJ, Stainton MP, Schindler DW (2000) Pelagic c : N : P stoichiometry in a eutrophied lake: Responses to a whole-lake food-web manipulation. Ecosystems 3:293-307.&lt;/p&gt;
+&lt;p&gt;Elser JJ, Sterner RW, Gorokhova E, Fagan WF, Markow TA, Cotner JB, Harrison JF, Hobbie SE, Odell GM, Weider LJ (2000) Biological stoichiometry from genes to ecosystems. Ecology Letters 3:540-550.&lt;/p&gt;
+&lt;p&gt;Elser, J. J., &amp;amp; Urabe, J. (1999). The stoichiometry of consumer-driven nutrient recycling: theory, observations, and consequences. Ecology, 80(3), 735–751.&lt;/p&gt;
+&lt;p&gt;Elser, J., Loladze, I., &amp;amp; Peace, A. (2012). Lotka re-loaded: Modeling trophic interactions under stoichiometric constraints. Ecological Modelling.&lt;/p&gt;
+&lt;p&gt;Etienne RS, Apol MEF, Olff H (2006) Demystifying the west, brown &amp;amp; enquist model of the allometry of metabolism. Functional Ecology 20:394-399.&lt;/p&gt;
+&lt;p&gt;Hall, E. K., Maixner, F., Franklin, O., Daims, H., Richter, A., &amp;amp; Battin, T. (2010). Linking Microbial and Ecosystem Ecology Using Ecological Stoichiometry: A Synthesis of Conceptual and Empirical Approaches. Ecosystems, 14(2), 261–273. doi:10.1007/s10021-010-9408-4&lt;/p&gt;
+&lt;p&gt;Hall, S. R. (2009). Stoichiometrically Explicit Food Webs: Feedbacks between Resource Supply, Elemental Constraints, and Species Diversity. Annual Review of Ecology, Evolution, and Systematics, 40(1), 503–528. doi:10.1146/annurev.ecolsys.39.110707.173518&lt;/p&gt;
+&lt;p&gt;Hassett RP, Cardinale B, Stabler LB, Elser JJ (1997) Ecological stoichiometry of n and p in pelagic ecosystems: Comparison of lakes and oceans with emphasis on the zooplankton-phytoplankton interaction. Limnology and Oceanography 42:648-662.&lt;/p&gt;
+&lt;p&gt;Ings TC, Montoya JM, Bascompte J, Bluthgen N, Brown L, Dormann CF, Edwards F, Figueroa D, Jacob U, Jones JI, Lauridsen RB, Ledger ME, Lewis HM, Olesen JM, van Veen FJF, Warren PH, Woodward G (2009) Ecological networks - beyond food webs. Journal of Animal Ecology 78:253-269.&lt;/p&gt;
+&lt;p&gt;Klausmeier, C. A., &amp;amp; Litchman, E. (2006). THEORETICAL APPROACHES TO PLANKTON ECOLOGY. American Naturalist, 1–1.&lt;/p&gt;
+&lt;p&gt;Klausmeier, C. A., Litchman, E., &amp;amp; Levin, S. A. (2004). Phytoplankton growth and stoichiometry under multiple nutrient limitation. Limnology and Oceanography, 1463–1470.&lt;/p&gt;
+&lt;p&gt;Klausmeier, C. A., Litchman, E., &amp;amp; Levin, S. A. (2007). A model of flexible uptake of two essential resources. Journal of Theoretical Biology, 246(2), 278–289. doi:10.1016/j.jtbi.2006.12.032&lt;/p&gt;
+&lt;p&gt;Kuang Y, Huisman J, Elser JJ (2004) Stoichiometric plant-herbivore models and their interpretation. Mathematical Biosciences and Engineering 1:215-222.&lt;/p&gt;
+&lt;p&gt;Loladze I, Kuang Y, Elser JJ (2000) Stoichiometry in producer-grazer systems: Linking energy flow with element cycling. Bulletin of Mathematical Biology 62:1137-1162.&lt;/p&gt;
+&lt;p&gt;Loladze I, Kuang Y, Elser JJ, Fagan WF (2004) Competition and stoichiometry: Coexistence of two predators on one prey. Theoretical Population Biology 65:1-15.&lt;/p&gt;
+&lt;p&gt;Muller EB, Nisbet RM, Kooijman S, Elser JJ, McCauley E (2001) Stoichiometric food quality and herbivore dynamics. Ecology Letters 4:519-529.&lt;/p&gt;
+&lt;p&gt;Neill C, Daufresne T, Jones CG (2009) A competitive coexistence principle? Oikos 118:1570-1578.&lt;/p&gt;
+&lt;p&gt;Stiefs D, van Voorn GAK, Kooi BW, Feudel U, Gross T (2010) Food quality in producer-grazer models: A generalized analysis. American Naturalist 176:367-380.&lt;/p&gt;
+&lt;p&gt;van der Meer J (2006) Metabolic theories in ecology. Trends in Ecology &amp;amp; Evolution 21:136-140.&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+ </entry>
  
  <entry>
    <title>Multiple Goals in Floodplain Restoration - Workshop Notes</title>
