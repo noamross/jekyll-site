@@ -92,7 +92,15 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="POL213" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
+  - <a onclick="showhide('POL279'); chgifr('/statsclasses/POL279.html', 'POL213');">**POL 279. Political Networks: Methods and Applications**</a>
+
+    <iframe width="600" height="800" src="" id="POL279" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
 ### Plant Sciences ###
+
+- <a onclick="showhide('PLS120'); chgifr('/statsclasses/PLS120.html', 'PLS120');">**PLS 120. Applied Statistics in Agricultural Science**</a>
+
+  <iframe width="600" height="800" src="" id="PLS120" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('PLS205'); chgifr('/statsclasses/PLS205.html', 'PLS205');">**PLS 205. Experimental Design and Analysis**</a>
 
