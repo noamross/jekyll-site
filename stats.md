@@ -55,6 +55,10 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Ecology ###
 
+- <a onclick="showhide('ECL231'); chgifr('/statsclasses/ECL231.html', 'ECL290');">**ECL 231.  Mathematical Methods in Population Biology**</a>
+
+  <iframe width="600" height="800" src="" id="ECL231" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
 - <a onclick="showhide('ECL290'); chgifr('/statsclasses/ECL290.html', 'ECL290');">**ECL290. Design and Analysis of Ecological Experiments**</a>
 
   <iframe width="600" height="800" src="" id="ECL290" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
@@ -79,9 +83,21 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="ECN204B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
-  - <a onclick="showhide('ARE256'); chgifr('/statsclasses/ARE256.html', 'ARE256');">**ARE 256. Applied Econometrics**</a>
+- <a onclick="showhide('ARE256'); chgifr('/statsclasses/ARE256.html', 'ARE256');">**ARE 256. Applied Econometrics**</a>
 
-    <iframe width="600" height="800" src="" id="ARE256" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="" id="ARE256" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+    
+### Epidemiology
+
+- <a onclick="showhide('EPI204'); chgifr('/statsclasses/EPI204.html', 'ARE256');">**EPI 204. Statistical Models, Methods, and Data Analysis for Scientists**</a>
+
+  <iframe width="600" height="800" src="" id="EPI204" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
+### Hydrology
+
+- <a onclick="showhide('HYD273'); chgifr('/statsclasses/HYD273.html', 'ARE256');">**HYD 273. Introduction to Geostatistics**</a>
+
+  <iframe width="600" height="800" src="" id="HYD273" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 ### Political Science ###
 
@@ -97,9 +113,9 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="POL213" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
-  - <a onclick="showhide('POL279'); chgifr('/statsclasses/POL279.html', 'POL213');">**POL 279. Political Networks: Methods and Applications**</a>
+- <a onclick="showhide('POL279'); chgifr('/statsclasses/POL279.html', 'POL213');">**POL 279. Political Networks: Methods and Applications**</a>
 
-    <iframe width="600" height="800" src="" id="POL279" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="" id="POL279" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 ### Plant Sciences ###
 
@@ -138,6 +154,10 @@ Click on a course to see a description and comments.  Please add your own commen
 - <a onclick="showhide('STA130B'); chgifr('/statsclasses/STA130B.html', 'STA130B');">**STA 130B. Mathematical Statistics**</a>
 
   <iframe width="600" height="800" src="" id="STA130B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
+- <a onclick="showhide('STA131A'); chgifr('/statsclasses/STA131A.html', 'STA130B');">**STA 131A. Introduction to Probability Theory**</a>
+
+  <iframe width="600" height="800" src="" id="STA131A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('STA135'); chgifr('/statsclasses/STA135.html', 'STA135');">**STA135. Multivariate Data Analysis**</a>
 
