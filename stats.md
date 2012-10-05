@@ -55,7 +55,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Ecology ###
 
-- <a onclick="showhide('ECL231'); chgifr('/statsclasses/ECL231.html', 'ECL290');">**ECL 231.  Mathematical Methods in Population Biology**</a>
+- <a onclick="showhide('ECL231'); chgifr('/statsclasses/ECL231.html', 'ECL231');">**ECL 231.  Mathematical Methods in Population Biology**</a>
 
   <iframe width="600" height="800" src="" id="ECL231" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
@@ -89,13 +89,13 @@ Click on a course to see a description and comments.  Please add your own commen
     
 ### Epidemiology
 
-- <a onclick="showhide('EPI204'); chgifr('/statsclasses/EPI204.html', 'ARE256');">**EPI 204. Statistical Models, Methods, and Data Analysis for Scientists**</a>
+- <a onclick="showhide('EPI204'); chgifr('/statsclasses/EPI204.html', 'EPI204');">**EPI 204. Statistical Models, Methods, and Data Analysis for Scientists**</a>
 
   <iframe width="600" height="800" src="" id="EPI204" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 ### Hydrology
 
-- <a onclick="showhide('HYD273'); chgifr('/statsclasses/HYD273.html', 'ARE256');">**HYD 273. Introduction to Geostatistics**</a>
+- <a onclick="showhide('HYD273'); chgifr('/statsclasses/HYD273.html', 'HYD273');">**HYD 273. Introduction to Geostatistics**</a>
 
   <iframe width="600" height="800" src="" id="HYD273" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
@@ -113,7 +113,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="POL213" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('POL279'); chgifr('/statsclasses/POL279.html', 'POL213');">**POL 279. Political Networks: Methods and Applications**</a>
+- <a onclick="showhide('POL279'); chgifr('/statsclasses/POL279.html', 'POL279');">**POL 279. Political Networks: Methods and Applications**</a>
 
   <iframe width="600" height="800" src="" id="POL279" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
