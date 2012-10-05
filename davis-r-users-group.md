@@ -32,7 +32,7 @@ Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC
  - [Google](http://www.google.com) is your first stop for most questions.  You'll most likely reach most of the resources below while searching for your specific question.
  - Our regular R work sessions and [listserv](https://groups.google.com/d/forum/davis-rug) are great places to ask questions, especially if you are not sure what you are looking for.
 
-###
+### D-RUG Resources
 
 Sometimes D-RUG members put together useful resources and tutorials.
 
