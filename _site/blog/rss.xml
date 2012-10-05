@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-05T12:32:05-07:00</updated>
+ <updated>2012-10-05T12:35:37-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>A quick introduction to `ggplot()`</title>
+   <title>A quick introduction to ggplot()</title>
    <link href="http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html"/>
    <updated>2012-10-05T12:05:10-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/5/ggplot-introduction</id>
@@ -43,12 +43,12 @@ colors &amp;lt;- &lt;span class=&quot;kw&quot;&gt;color_foo&lt;/span&gt;(&lt;spa
 &lt;span class=&quot;kw&quot;&gt;legend&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;topright&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;legend =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Plant1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Plant2&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
 &lt;span class=&quot;kw&quot;&gt;legend&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;bottomright&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;legend =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Type1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Type2&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Type3&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; colors)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-4.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-4.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;With &lt;code&gt;ggplot&lt;/code&gt;, you just do this:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(data.df, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; Axis1, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; Axis2, &lt;span class=&quot;dt&quot;&gt;shape =&lt;/span&gt; Plant, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; Type)) + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-5.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-5.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;And it looks much better!&lt;/p&gt;
 &lt;p&gt;But &lt;code&gt;ggplot()&lt;/code&gt; really shines when you have a lot of data. Here’s an example of some fish survey data that I produced with it:&lt;/p&gt;
@@ -78,7 +78,7 @@ a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;()
 a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Total Hours Sleep&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
 a&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-7.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-7.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Let’s parse what we just did. The &lt;code&gt;ggplot()&lt;/code&gt; command creates a plot object. In it we assigned a data set. &lt;code&gt;aes()&lt;/code&gt; creates what Hadley Wickham calls an &lt;em&gt;aesthetic&lt;/em&gt;: a mapping of variables to various parts of the plot.&lt;/p&gt;
 &lt;p&gt;We then add components to the plot. &lt;code&gt;geom_point()&lt;/code&gt; adds a layer of points, using the base aesthetic mapping. The third line adds labels. Typing the variable name &lt;code&gt;a&lt;/code&gt; displays the plot. Alternately, one can use the command &lt;code&gt;ggsave()&lt;/code&gt; to save the plot as a file, as in&lt;/p&gt;
@@ -89,7 +89,7 @@ a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;()
 a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Total Hours Sleep&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
 a&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-9.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-9.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;You can also use map &lt;em&gt;size&lt;/em&gt; and &lt;em&gt;alpha&lt;/em&gt; (transparency) to variables.&lt;/p&gt;
 &lt;p&gt;We can transform variables directly in the &lt;code&gt;ggplot&lt;/code&gt; call, as well:&lt;/p&gt;
@@ -99,7 +99,7 @@ a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span clas
     &lt;span class=&quot;kw&quot;&gt;scale_color_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Trophic Level&amp;quot;&lt;/span&gt;)
 a&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-10.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-10.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Within the &lt;code&gt;geom&lt;/code&gt; calls, we can change plotting options&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_rem/sleep_total, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; vore))
@@ -108,7 +108,7 @@ a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span clas
     &lt;span class=&quot;kw&quot;&gt;scale_color_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Trophic Level&amp;quot;&lt;/span&gt;)
 a&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-11.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-11.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Another way to split up the way we look at data is with &lt;em&gt;facets&lt;/em&gt;. These break up the plot into multiple plots. If you are splitting the plot up by one variable, use &lt;code&gt;facet_wrap&lt;/code&gt;. If you are using two variables, use &lt;code&gt;facet_grid&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_rem/sleep_total))
@@ -117,7 +117,7 @@ a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;facet_wrap&lt;/span&gt;(~vore)
 a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Log Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Sleep that is REM&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
 a&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-12.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-12.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_rem/sleep_total))
 a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
@@ -125,7 +125,7 @@ a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;facet_grid&lt;/span&gt;(conserv
 a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Log Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Sleep that is REM&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
 a&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-13.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-13.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Let’s use a different data set to so line plots:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(economics)&lt;/code&gt;&lt;/pre&gt;
@@ -140,7 +140,7 @@ a&lt;/code&gt;&lt;/pre&gt;
 a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;()
 a&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-14.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-14.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;We can add statistical transformations to this series, for instance:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; economics, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; date, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; unemploy))
@@ -150,7 +150,7 @@ a&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## geom_smooth: method=&amp;quot;auto&amp;quot; and size of largest group is &amp;lt;1000, so using
 ## loess. Use &amp;#39;method = x&amp;#39; to change the smoothing method.&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-15.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-15.png&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h3 id=&quot;some-resources&quot;&gt;Some resources:&lt;/h3&gt;
 &lt;ul&gt;
