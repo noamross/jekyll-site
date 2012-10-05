@@ -21,7 +21,7 @@ Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC
 
 ## Resources for R Help
 
-[Getting Started](#some-tips-on-getting-started) | [Web Resources](#web-resources) | [Mailing Lists](#other-mailing-lists) | [Books](#books) | [Courses](#r-courses) | [Misc](#miscellaneous) | [Stats at UC Davis](#general-statistics-resources-at-uc-davis)
+[Getting Started](#some-tips-on-getting-started) | [D-RUG Resources](#d-rug-resources) |[Web Resources](#web-resources) | [Mailing Lists](#other-mailing-lists) | [Books](#books) | [Courses](#r-courses) | [Misc](#miscellaneous) | [Stats at UCD](#general-statistics-resources-at-uc-davis)
 
 ***Please Add Additional Resources in the [Comments](#disqus_thread)!*** I will add them to the page.
 
@@ -31,6 +31,12 @@ Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC
  - After you install R, I recommend you install [RStudio](http://www.rstudio.org/).  RStudio is a program that makes R easier to use, and is being widely adopted by both beginning and advanced R users. Importantly, it works across most computer platforms, and has features that make it easy to [share your work](http://rpubs.com/), collaborate, and do [proper version control](http://rstudio.org/docs/version_control/overview). 
  - [Google](http://www.google.com) is your first stop for most questions.  You'll most likely reach most of the resources below while searching for your specific question.
  - Our regular R work sessions and [listserv](https://groups.google.com/d/forum/davis-rug) are great places to ask questions, especially if you are not sure what you are looking for.
+
+###
+
+Sometimes D-RUG members put together useful resources and tutorials.
+
+ - [An introduction to `ggplot()`](http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html)
 
 ### Web Resources
 
