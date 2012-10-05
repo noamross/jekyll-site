@@ -1,5 +1,5 @@
 ---
-title: A quick introduction to ggplot()
+title: A quick introduction to `ggplot()`
 author: Noam Ross
 tags: [R D-RUG ggplot]
 date: 12-10-05 12:05:10
@@ -7,10 +7,9 @@ layout: post
 --- 
 
 
-*I gave a short talk today to the [Davis R Users'
-Group](http://www.noamross.net/davis-r-users-group.html) about
-`ggplot()`. This what I presented. Additional resources [at the bottom
-of this post](#some-resources)*
+*I gave a short talk today to the [Davis R Users' Group] about ggplot.
+This what I presented. Additional resources [at the bottom of this
+post](#some-resources)*
 
 `ggplot` is an R package for data exploration and producing plots. It
 produces fantastic-looking graphics and allows one to slice and dice
@@ -53,7 +52,7 @@ legend("topright", legend = c("Plant1", "Plant2"), pch = 1:2)
 legend("bottomright", legend = c("Type1", "Type2", "Type3"), pch = 20, col = colors)
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-4.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4.png)
 
 With `ggplot`, you just do this:
 
@@ -61,7 +60,7 @@ With `ggplot`, you just do this:
 ggplot(data.df, aes(x = Axis1, y = Axis2, shape = Plant, color = Type)) + geom_point(size = 5)
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-5.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png)
 
 And it looks much better!
 
@@ -97,7 +96,7 @@ head(msleep)
     ## 5         4.0       0.7      0.6667  20.0 0.42300 600.000
     ## 6        14.4       2.2      0.7667   9.6      NA   3.850
 
-Now, lets start with a basic plot. Let's creat a scatterplot of body
+Now, lets start with a basic plot. Let's create a scatterplot of body
 weight against total hours sleep:
 
 ~~~~ {.r}
@@ -107,7 +106,7 @@ a <- a + xlab("Body Weight") + ylab("Total Hours Sleep") + ggtitle("Some Sleep D
 a
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-7.png)
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7.png)
 
 Let's parse what we just did. The `ggplot()` command creates a plot
 object. In it we assigned a data set. `aes()` creates what Hadley
@@ -134,7 +133,7 @@ a <- a + xlab("Body Weight") + ylab("Total Hours Sleep") + ggtitle("Some Sleep D
 a
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-9.png)
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png)
 
 You can also use map *size* and *alpha* (transparency) to variables.
 
@@ -148,7 +147,7 @@ a <- a + xlab("Log Body Weight") + ylab("Fraction of Sleep that is REM") + ggtit
 a
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-10.png)
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png)
 
 Within the `geom` calls, we can change plotting options
 
@@ -160,7 +159,7 @@ a <- a + xlab("Log Body Weight") + ylab("Fraction of Sleep that is REM") + ggtit
 a
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-11.png)
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11.png)
 
 Another way to split up the way we look at data is with *facets*. These
 break up the plot into multiple plots. If you are splitting the plot up
@@ -175,7 +174,7 @@ a <- a + xlab("Log Body Weight") + ylab("Fraction of Sleep that is REM") + ggtit
 a
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-12.png)
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png)
 
 ~~~~ {.r}
 a <- ggplot(data = msleep, aes(x = log(bodywt), y = sleep_rem/sleep_total))
@@ -185,7 +184,7 @@ a <- a + xlab("Log Body Weight") + ylab("Fraction of Sleep that is REM") + ggtit
 a
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-13.png)
+![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13.png)
 
 Let's use a different data set to so line plots:
 
@@ -207,7 +206,7 @@ a <- a + geom_line()
 a
 ~~~~
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-14.png)
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14.png)
 
 We can add statistical transformations to this series, for instance:
 
@@ -221,7 +220,7 @@ a
     ## geom_smooth: method="auto" and size of largest group is <1000, so using
     ## loess. Use 'method = x' to change the smoothing method.
 
-![](http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-15.png)
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15.png)
 
 ### Some resources:
 
