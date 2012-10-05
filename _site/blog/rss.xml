@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-05T12:35:37-07:00</updated>
+ <updated>2012-10-05T12:36:31-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;I gave a short talk today to the &lt;a href=&quot;www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; about &lt;code&gt;ggplot()&lt;/code&gt;. This what I presented. Additional resources &lt;a href=&quot;#some-resources&quot;&gt;at the bottom of this post&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;I gave a short talk today to the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; about &lt;code&gt;ggplot()&lt;/code&gt;. This what I presented. Additional resources &lt;a href=&quot;#some-resources&quot;&gt;at the bottom of this post&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;ggplot&lt;/code&gt; is an R package for data exploration and producing plots. It produces fantastic-looking graphics and allows one to slice and dice one’s data in many different ways.&lt;/p&gt;
 &lt;h3 id=&quot;comparing-with-base-graphics&quot;&gt;Comparing with base graphics&lt;/h3&gt;
 &lt;p&gt;&lt;em&gt;(This example from &lt;a href=&quot;http://stackoverflow.com/questions/11679019/recreating-a-ggplot2-geom-point-using-base-graphics&quot;&gt;Stack Overflow&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;

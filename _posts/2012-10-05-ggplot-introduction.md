@@ -8,9 +8,9 @@ layout: post
 
 
 *I gave a short talk today to the [Davis R Users'
-Group](www.noamross.net/davis-r-users-group.html) about `ggplot()`. This
-what I presented. Additional resources [at the bottom of this
-post](#some-resources)*
+Group](http://www.noamross.net/davis-r-users-group.html) about
+`ggplot()`. This what I presented. Additional resources [at the bottom
+of this post](#some-resources)*
 
 `ggplot` is an R package for data exploration and producing plots. It
 produces fantastic-looking graphics and allows one to slice and dice
