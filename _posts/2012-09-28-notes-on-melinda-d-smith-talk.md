@@ -1,7 +1,7 @@
 ---
 title: "Melinda D. Smith: Divergence in grassland responses to Fire and Grazing in N. America and S. Africa"
 author: Noam Ross
-tags: [grasslands lectures]
+tags: [grasslands, lectures]
 date: 12-09-27 16:01:02
 layout: post
 --- 

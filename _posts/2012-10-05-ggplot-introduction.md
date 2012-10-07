@@ -1,7 +1,7 @@
 ---
 title: A quick introduction to ggplot()
 author: Noam Ross
-tags: [R D-RUG ggplot]
+tags: [R, D-RUG, ggplot]
 date: 12-10-05 12:05:10
 layout: post
 --- 

@@ -1,7 +1,7 @@
 ---
 title: Forest Ecology Journals
 author: Noam Ross
-tags: [forests journals]
+tags: [forests, journals]
 date: 12-10-03 09:26:45
 layout: post
 --- 
