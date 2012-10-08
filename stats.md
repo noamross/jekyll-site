@@ -97,7 +97,7 @@ Click on a course to see a description and comments.  Please add your own commen
   
 ### Geography
 
-- <a onclick="showhide('GEO200CN'); chgifr('/statsclasses/GEO200CN.html', 'EPI204');">**GEO 200CN. Quantitative Geography**</a>
+- <a onclick="showhide('GEO200CN'); chgifr('/statsclasses/GEO200CN.html', 'GEO200CN');">**GEO 200CN. Quantitative Geography**</a>
 
   <iframe width="600" height="800" src="" id="GEO200CN" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
