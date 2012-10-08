@@ -12,6 +12,8 @@ layout: class
 
 > [Non-geography] students can take the class (and they do) without taking other geo classes. The ideal preparation is intro to stats + regression, a Geographic Information Systems (GIS) class, and familiarity with R.
 
+Dr. Hijman's may in the future teach a course focused more on inference with spatial data, which was taught as a 298 by [Robert Plant](http://www.plantsciences.ucdavis.edu/plant/)
+
 See also the [Geography Graduate Group course sequence for other relevant courses](http://geography.ucdavis.edu/handbook/phd-program)
 
 **Software used:** R
