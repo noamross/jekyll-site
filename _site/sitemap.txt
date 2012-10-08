@@ -25,6 +25,7 @@ http://www.noamross.net/statsclasses/ECN204B.html
 http://www.noamross.net/statsclasses/EPI204.html
 http://www.noamross.net/statsclasses/EPI204A.html
 http://www.noamross.net/statsclasses/EVE231.html
+http://www.noamross.net/statsclasses/GEO200CN.html
 http://www.noamross.net/statsclasses/HYD273.html
 http://www.noamross.net/statsclasses/PLS120.html
 http://www.noamross.net/statsclasses/PLS205.html

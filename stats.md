@@ -45,7 +45,9 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 ## Courses by department ##
 
-Click on a course to see a description and comments.  Please add your own comments and ask questions!  Reviews, descriptions, and links to professor/course/syllabus webpages are all helpful. 
+Click on a course to see a description and comments.  Please add your own comments and ask questions!  Reviews, descriptions, and links to professor/course/syllabus webpages are all helpful.
+
+***Important:*** *Inclusion on this webpage is no guarantee that a course will fullful your quantitative requirements.  That is up to your committee.*
 
 ### Anthropology ###
 
@@ -92,6 +94,12 @@ Click on a course to see a description and comments.  Please add your own commen
 - <a onclick="showhide('EPI204'); chgifr('/statsclasses/EPI204.html', 'EPI204');">**EPI 204. Statistical Models, Methods, and Data Analysis for Scientists**</a>
 
   <iframe width="600" height="800" src="" id="EPI204" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  
+### Geography
+
+- <a onclick="showhide('GEO200CN'); chgifr('/statsclasses/GEO200CN.html', 'EPI204');">**GEO 200CN. Quantitative Geography**</a>
+
+  <iframe width="600" height="800" src="" id="GEO200CN" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 ### Hydrology
 
