@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Noam Ross" />
+  <title>Sudden Oak Death Project: Notes for 10/12/12 Meeting with Jim</title>
+  <link rel="stylesheet" href="http://www.noamross.net/assets/themes/noamblog/css/style.css" type="text/css" />
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ "HTML-CSS": { availableFonts: ["TeX"], webfont: [null] }} ); </script>
+  <script type="text/x-mathjax-config">  MathJax.Hub.Config({ TeX: { extensions: ["autobold.js"] }} ); </script>
+
+</head>
+
+<style>#wrapper { max-width:1000px; margin:0 auto }</style>
+<body>
+<div class="wrapper">
+  <div class="blog">
+    <div class="container">
+      <div class="content">
+
+
+<div id="headblock">
+<h1 id="page.title">Sudden Oak Death Project: Notes for 10/12/12 Meeting with Jim</h1>
+<p><em>Noam Ross</em></p>
+<p>12-10-11 13:38:13</p>
+<hr />
+</div> 
+<div class="contenttext">
+<h2 id="defining-the-problem">1. Defining The Problem</h2>
+<p>The ecological side of this project is largely about creating a stochastic model of Sudden Oak Death dynamics, and using it to define this curve:</p>
+<div class="figure">
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/SOD_Trade-off.png" /><p class="caption"></p>
+</div>
+<p>The economic problem is attempting to minimize the probability of a disease outbreak given limited resources.</p>
+<p>The two potential strategies for managing the disease are:</p>
+<ul>
+<li><strong><em>Prevention</em></strong>: Reducing the probability of spores arriving and establishing on-site by preventative spraying, washing materials that go in and out of the site, and possibly eradicating other infestations farther away</li>
+<li><strong><em>Mitigation</em></strong>: Reducing the probability of established disease from reaching a level that would reduce the population of a species of interest by managing the density of hosts (of multiple species). The cost of these measures are both the direct cost of management actions, and the loss of ecosystem services from removing potential host trees.</li>
+</ul>
+<p>There’s an upper bound to mitigation actions in that you wouldn’t remove more hosts than would be lost from an outbreak. Defining the ecosystem service value of the tree is implicit when choosing the probability and severity of outbreak to manage for, and assuming that one will not remove more trees than an outbreak would. One goal of the project is to provide a clear framework for managers to make this choice.</p>
+<p>The second goal is to understand how the optimal choice changes in a <em>dynamic</em> system, where the shape of the curve above changes over time. For a give location, two factors should change this curve:</p>
+<ul>
+<li>The advance of the disease front to the area of interest, which increases the frequency of infection events, and</li>
+<li>Advances in knowledge of the disease behavior, reducing uncertainty of model parameters</li>
+</ul>
+<p>I want to define the optimal path of prevention and mitigation measures minimize outbreak probability over a management period, given the changes above.</p>
+<h2 id="work-plan-and-questions">2 Work Plan and Questions</h2>
+<p>Right now I am working on a model to represent disease outbreak on the stand level. My approach is to create a rather complex model (multispecies, with age structure), then go through a selection process of fitting to data and then reducing model complexity to the most parsimonious form. Even the simpler model produced, though, may be too complex for analytical work, in which case I will create a reduced-form model that produces a similar trade-off curve.</p>
+<p>The economic side should be able to proceed somewhat independently if I assume I know the form of the curve above. My next step should be to write down the <em>static</em> problem defined above as a model, and so some static analysis.</p>
+<h4 id="questions">Questions:</h4>
+<ul>
+<li>Do you have general feedback on the framework above?</li>
+<li>Any suggestions of papers to read that look at similar dynamic trade-offs?</li>
+<li>What do you think would be a useful chunk of work to give feedback in approximately 1 month?</li>
+</ul>
+<h2 id="other-business-qualifying-exams">3 Other Business: Qualifying Exams</h2>
+<ul>
+<li>I am aiming for the 2nd quarter, probably Late February or Early March. What are you travel plans and teaching obligations then?</li>
+<li>What’s your preference for timing/form of feedback of a dissertation proposal?</li>
+<li>In addition to reviewing my ARE204A and ARE277 notes, how should I prepare for your portion of the exam? What other material should I read up on, given my research agenda?</li>
+</ul>
+<p>Bridge work will form the core of my dissertation proposal. I anticipate these chapters:</p>
+<ul>
+<li>A theoretical treatment of how disease outbreak works when there are threshold behaviors</li>
+<li>An empirical model-fit of Sudden Oak Death in California</li>
+<li>The economic analysis of management options based on the above</li>
+</ul>
+</div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="http://dl.dropbox.com/u/3356641/jekyll-site/assets/themes/noamblog/footnote-links.js"></script>
+  <script type="text/javascript">$('div.contenttext').footnoteLinks();</script>
+</body>
+</html>
