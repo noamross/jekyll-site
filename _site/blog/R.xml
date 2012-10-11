@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-10T14:22:13-07:00</updated>
+ <updated>2012-10-10T19:32:20-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,149 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;I gave a short talk today to the [Davis R Users’ Group] about ggplot. This what I presented. Additional resources &lt;a href=&quot;#some-resources&quot;&gt;at the bottom of this post&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ggplot&lt;/code&gt; is an R package for data exploration and producing plots. It produces fantastic-looking graphics and allows one to slice and dice one’s data in many different ways.&lt;/p&gt;
-&lt;h3 id=&quot;comparing-with-base-graphics&quot;&gt;Comparing with base graphics&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;(This example from &lt;a href=&quot;http://stackoverflow.com/questions/11679019/recreating-a-ggplot2-geom-point-using-base-graphics&quot;&gt;Stack Overflow&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;First, get the package:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;install.packages&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;ggplot2&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(ggplot2)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let’s say we wanted to plot some two-variable data, changing color and shape by the sub-category of data. Here’s a data set:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;data.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;Plant =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Plant1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Plant1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Plant1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Plant2&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Plant2&amp;quot;&lt;/span&gt;, 
-    &lt;span class=&quot;st&quot;&gt;&amp;quot;Plant2&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;Type =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;Axis1 =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.2&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;0.4&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.8&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;0.2&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;0.7&lt;/span&gt;, 
-    &lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;Axis2 =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.3&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;0.3&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;, -&lt;span class=&quot;fl&quot;&gt;0.8&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Using normal R graphics, we might do this:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;color_foo &amp;lt;- &lt;span class=&quot;kw&quot;&gt;colorRampPalette&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;lightblue&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;darkblue&amp;quot;&lt;/span&gt;))
-colors &amp;lt;- &lt;span class=&quot;kw&quot;&gt;color_foo&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)
-
-&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;range&lt;/span&gt;(data.df[, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;]), &lt;span class=&quot;kw&quot;&gt;range&lt;/span&gt;(data.df[, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]), &lt;span class=&quot;dt&quot;&gt;xlab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Axis 1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ylab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Axis 2&amp;quot;&lt;/span&gt;, 
-    &lt;span class=&quot;dt&quot;&gt;type =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;n&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(data.df$Axis1, data.df$Axis2, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)[data.df$Plant], &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; colors[data.df$Type])
-&lt;span class=&quot;kw&quot;&gt;legend&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;topright&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;legend =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Plant1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Plant2&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;legend&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;bottomright&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;legend =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Type1&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Type2&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Type3&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; colors)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-4.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-4&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;With &lt;code&gt;ggplot&lt;/code&gt;, you just do this:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(data.df, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; Axis1, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; Axis2, &lt;span class=&quot;dt&quot;&gt;shape =&lt;/span&gt; Plant, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; Type)) + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-5.png&quot; alt=&quot;plot of chunk unnamed-chunk-5&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-5&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;And it looks much better!&lt;/p&gt;
-&lt;p&gt;But &lt;code&gt;ggplot()&lt;/code&gt; really shines when you have a lot of data. Here’s an example of some fish survey data that I produced with it:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cohortplot.png&quot; alt=&quot;Sacramento splittail surveyed in Suisun Marsh, 1979-2011, data from Peter Moyle and Teejay O’Rear&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Sacramento splittail surveyed in Suisun Marsh, 1979-2011, data from Peter Moyle and Teejay O’Rear&lt;/p&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;tutorial&quot;&gt;Tutorial&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;ggplot&lt;/code&gt; is best used on data in data frame form. Let’s look at a data set already in R, this about the sleep habits of different animal species&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(msleep)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##                         name      genus  vore        order conservation
-## 1                    Cheetah   Acinonyx carni    Carnivora           lc
-## 2                 Owl monkey      Aotus  omni     Primates         &amp;lt;NA&amp;gt;
-## 3            Mountain beaver Aplodontia herbi     Rodentia           nt
-## 4 Greater short-tailed shrew    Blarina  omni Soricomorpha           lc
-## 5                        Cow        Bos herbi Artiodactyla domesticated
-## 6           Three-toed sloth   Bradypus herbi       Pilosa         &amp;lt;NA&amp;gt;
-##   sleep_total sleep_rem sleep_cycle awake brainwt  bodywt
-## 1        12.1        NA          NA  11.9      NA  50.000
-## 2        17.0       1.8          NA   7.0 0.01550   0.480
-## 3        14.4       2.4          NA   9.6      NA   1.350
-## 4        14.9       2.3      0.1333   9.1 0.00029   0.019
-## 5         4.0       0.7      0.6667  20.0 0.42300 600.000
-## 6        14.4       2.2      0.7667   9.6      NA   3.850&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now, lets start with a basic plot. Let’s create a scatterplot of body weight against total hours sleep:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; bodywt, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_total))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;()
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Total Hours Sleep&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-7.png&quot; alt=&quot;plot of chunk unnamed-chunk-7&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-7&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Let’s parse what we just did. The &lt;code&gt;ggplot()&lt;/code&gt; command creates a plot object. In it we assigned a data set. &lt;code&gt;aes()&lt;/code&gt; creates what Hadley Wickham calls an &lt;em&gt;aesthetic&lt;/em&gt;: a mapping of variables to various parts of the plot.&lt;/p&gt;
-&lt;p&gt;We then add components to the plot. &lt;code&gt;geom_point()&lt;/code&gt; adds a layer of points, using the base aesthetic mapping. The third line adds labels. Typing the variable name &lt;code&gt;a&lt;/code&gt; displays the plot. Alternately, one can use the command &lt;code&gt;ggsave()&lt;/code&gt; to save the plot as a file, as in&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggsave&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;sleepplot.png&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;plot =&lt;/span&gt; a, &lt;span class=&quot;dt&quot;&gt;width =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;height =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now, one of the great things we can do with &lt;code&gt;ggplot&lt;/code&gt; is slice the data different ways. For instance, we can plot another variable against color:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; bodywt, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_total, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; vore))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;()
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Total Hours Sleep&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-9.png&quot; alt=&quot;plot of chunk unnamed-chunk-9&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-9&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;You can also use map &lt;em&gt;size&lt;/em&gt; and &lt;em&gt;alpha&lt;/em&gt; (transparency) to variables.&lt;/p&gt;
-&lt;p&gt;We can transform variables directly in the &lt;code&gt;ggplot&lt;/code&gt; call, as well:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_rem/sleep_total, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; vore))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;()
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Log Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Sleep that is REM&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;) + 
-    &lt;span class=&quot;kw&quot;&gt;scale_color_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Trophic Level&amp;quot;&lt;/span&gt;)
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-10.png&quot; alt=&quot;plot of chunk unnamed-chunk-10&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-10&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Within the &lt;code&gt;geom&lt;/code&gt; calls, we can change plotting options&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_rem/sleep_total, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; vore))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Log Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Sleep that is REM&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;) + 
-    &lt;span class=&quot;kw&quot;&gt;scale_color_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Trophic Level&amp;quot;&lt;/span&gt;)
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-11.png&quot; alt=&quot;plot of chunk unnamed-chunk-11&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-11&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Another way to split up the way we look at data is with &lt;em&gt;facets&lt;/em&gt;. These break up the plot into multiple plots. If you are splitting the plot up by one variable, use &lt;code&gt;facet_wrap&lt;/code&gt;. If you are using two variables, use &lt;code&gt;facet_grid&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_rem/sleep_total))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;facet_wrap&lt;/span&gt;(~vore)
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Log Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Sleep that is REM&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-12.png&quot; alt=&quot;plot of chunk unnamed-chunk-12&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-12&lt;/p&gt;
-&lt;/div&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_rem/sleep_total))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;facet_grid&lt;/span&gt;(conservation ~ vore)
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Log Body Weight&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Sleep that is REM&amp;quot;&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;ggtitle&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Some Sleep Data&amp;quot;&lt;/span&gt;)
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-13.png&quot; alt=&quot;plot of chunk unnamed-chunk-13&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-13&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Let’s use a different data set to so line plots:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(economics)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##         date   pce    pop psavert uempmed unemploy
-## 1 1967-06-30 507.8 198712     9.8     4.5     2944
-## 2 1967-07-31 510.9 198911     9.8     4.7     2945
-## 3 1967-08-31 516.7 199113     9.0     4.6     2958
-## 4 1967-09-30 513.3 199311     9.8     4.9     3143
-## 5 1967-10-31 518.5 199498     9.7     4.7     3066
-## 6 1967-11-30 526.2 199657     9.4     4.8     3018&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; economics, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; date, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; unemploy))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;()
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-14.png&quot; alt=&quot;plot of chunk unnamed-chunk-14&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-14&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;We can add statistical transformations to this series, for instance:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; economics, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; date, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; unemploy))
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;()
-a &amp;lt;- a + &lt;span class=&quot;kw&quot;&gt;geom_smooth&lt;/span&gt;()
-a&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## geom_smooth: method=&amp;quot;auto&amp;quot; and size of largest group is &amp;lt;1000, so using
-## loess. Use &amp;#39;method = x&amp;#39; to change the smoothing method.&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-15.png&quot; alt=&quot;plot of chunk unnamed-chunk-15&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-15&lt;/p&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;some-resources&quot;&gt;Some resources:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://ggplot2.org/&quot;&gt;The main ggplot website, including documentation and excerpts from the book&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;Note that that the full book is not available at that website. However you can get it online via the UCD library &lt;a href=&quot;http://dx.doi.org/10.1007/978-0-387-98141-3&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;The &lt;a href=&quot;http://learnr.wordpress.com/&quot;&gt;Learn R&lt;/a&gt; blog has some great examples.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://sape.inf.usi.ch/quick-reference/ggplot2&quot;&gt;A quick reference website that’s easier to understand than the documentation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.echen.me/2012/01/17/quick-introduction-to-ggplot2/&quot;&gt;A quick intro on a blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/hadley/ggplot2/wiki/-opts()-List&quot;&gt;A key to the many obscure display options&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;The latest version of ggplot has an updated “themes” system by which you can modify many aspects of the cart just by adding &lt;code&gt;+ theme_x()&lt;/code&gt;. Details &lt;a href=&quot;http://sape.inf.usi.ch/quick-reference/ggplot2/themes&quot;&gt;here&lt;/a&gt; and updates in the new version &lt;a href=&quot;https://github.com/wch/ggplot2/wiki/New-theme-system&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Some &lt;a href=&quot;https://github.com/jrnold/ggthemes&quot;&gt;nice themes&lt;/a&gt; and an &lt;a href=&quot;http://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs-in-r&quot;&gt;XKCD theme!&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
+&lt;/head&gt; </content>
  </entry>
  
  <entry>
@@ -177,7 +35,7 @@ a&lt;/code&gt;&lt;/pre&gt;
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I’m excited to share that we’ve started a new R users’ group at UC Davis! Right now our main purpose is to run weekly 2-hour work/hack sessions where R users can get together to work through problems together. More info &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content>
+&lt;/head&gt; </content>
  </entry>
  
  <entry>
@@ -190,31 +48,7 @@ a&lt;/code&gt;&lt;/pre&gt;
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I wrote a &lt;a href=&quot;https://github.com/noamross/Pollen/commit/a7ebd4a9f46466da4c420b9437c73f8b185be56b#pollendatafuntions.R&quot;&gt;few functions&lt;/a&gt; to grab data and from the &lt;a href=&quot;http://www.ncdc.noaa.gov/paleo/gpd.html&quot;&gt;Global Pollen Database&lt;/a&gt;:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;source&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;~/code/_Pollen/pollendatafuntions.R&amp;quot;&lt;/span&gt;)
-## Loading required package: stratigraph
-## Loading required package: grid
-## Loading required package: graphics
-## Loading required package: stats
-billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;billys&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;plot =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-## Number of taxa:  105 
-## Number of levels:  77 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/a.png&quot; alt=&quot;Arboreal Pollen over time at Billy’s Lake&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Arboreal Pollen over time at Billy’s Lake&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Clearly, there’s are trends at different time scales. The trouble with using S-Maps on this is that there are uneven sampling intervals. One option is to use linear interpolation to approximate even intervals:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;billyslin &amp;lt;- &lt;span class=&quot;kw&quot;&gt;linpctAP&lt;/span&gt;(billys, &lt;span class=&quot;dt&quot;&gt;ts =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;)
-billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;billys&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;plot =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-## Number of taxa:  105 
-## Number of levels:  77 
-&lt;span class=&quot;kw&quot;&gt;lines&lt;/span&gt;(billyslin[, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;], billyslin[, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(billyslin[, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;], billyslin[, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;, 
-    &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;16&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/b.png&quot; alt=&quot;With linearly interpolated evenly spaced samples&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;With linearly interpolated evenly spaced samples&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;This means introducing a new source of error into whatever model is ultimately used. What interval should be used to generate this? Here I created an equal number of points as are in the original data set. However, the sampling density is greater at more recent dates. S-Maps can handle missing data, but there need to be a good chunk of consecutive points.&lt;/p&gt;
-&lt;p&gt;The other option is start thinking about how to generalize S-Maps for data sampled at unequal intervals.&lt;/p&gt;</content>
+&lt;/head&gt; </content>
  </entry>
  
  
