@@ -72,6 +72,7 @@ There are a few courses at UC Davis that use R.
  - Carole Hom teaches *Introduction to Dynamic Models in Modern Biology* (BIS 132) where R is used for differential and difference equation modeling.
  - There are occasional [paid workshops](http://www.hafnerconsulting.com/ucd2012/) offered on campus
  - At least one section of STA100 uses R
+ - [Robert Hijmans](http://www.des.ucdavis.edu/FacultyInfo.aspx?ID_Number=83) teaches *Quantitative Geography* (GEO200CN).  It is a survey course about spatial data analysis and modeling using R, including subjects such as point pattern analysis, kriging, inference, cellular automata and Markov chains. It has lectures, disussions, and a intensive lab.
  
  
 ### Miscellaneous
