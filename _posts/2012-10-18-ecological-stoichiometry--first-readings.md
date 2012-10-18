@@ -1,7 +1,7 @@
 ---
 title: "Ecological Stoichiometry: Back to Basics with Elser"
 author: Noam Ross
-tags: [Stoichiometry class notes]
+tags: [stoichiometry class notes]
 date: 12-10-15 10:36:30
 layout: post
 --- 
@@ -30,7 +30,7 @@ lot of these principles go all the way back to Lotka (1925). In essence:
     structure is driven partly by these availabilities and how they
     propagate through physiology and trophic structure
 
-Here is Alison's presentation:
+Here is Alison's presentation. Papers she mentioned are cited below:
 
 <iframe src="http://www.slideshare.net/slideshow/embed_code/14790213" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
