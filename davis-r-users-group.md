@@ -37,6 +37,7 @@ Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC
 Sometimes D-RUG members put together useful resources and tutorials.
 
  - [An introduction to `ggplot()`](http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html)
+ - [An introduction to mixed models](http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html)
 
 ### Web Resources
 
