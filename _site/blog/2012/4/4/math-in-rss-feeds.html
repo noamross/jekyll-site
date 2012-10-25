@@ -231,7 +231,27 @@
 <p>by <em>Noam Ross</em>, 04 April 2012</p>
 <hr />
 </div>
-<div class="contenttext"><p></p></div>
+<div class="contenttext"><p><p>The equations in this blog are rendered using <a href="http://www.mathjax.org">MathJax</a>, which creates beautiful math from \(\LaTeX\)-style markup. However, the math doesn’t appear in RSS feeds, because RSS doesn’t allow Javascript. While I have a total of 12 RSS followers, this is how my closest collaborators, and my most math-y readers, are likely to read my posts, so I’ve been looking for a way to produce readable equations in the RSS feed.</p>
+<p>Since I switched producing my website with <a href="http://github.com/mojombo/jekyll">Jekyll</a>, I have access to the RSS-XML file itself. I realized I could post-process this to make the math readable by replacing MathJax with images.</p>
+<p><a href="www.codecogs.com/latex/eqneditor.php">Codecogs</a> can produce image files from \(\LaTeX\)-style math just by calling a URL. To use this on a website, the format is:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;http://latex.codecogs.com/png.latex?SOME LATEX&quot;</span><span class="ot"> alt=</span><span class="st">&quot;SOME LATEX&quot;</span> <span class="kw">/&gt;</span></code></pre>
+<p>or, for inline equations</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;http://latex.codecogs.com/png.latex?\inline SOME LATEX&quot;</span><span class="ot"> alt=</span><span class="st">&quot;\inline SOME LATEX&quot;</span> <span class="kw">/&gt;</span></code></pre>
+<p>The <code>alt=</code> means that the raw \(\LaTeX\) should show up in the RSS feed if images fail or are slow to render. Now, for XML, these need to be modified slightly for forbidden characters (<code>&lt;&gt;&amp;'&quot;</code>).</p>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="dv">&amp;lt;</span>img src=<span class="dv">&amp;quot;</span>http://latex.codecogs.com/png.latex?SOME LATEX<span class="dv">&amp;quot;</span> alt=<span class="dv">&amp;quot;</span>SOME LATEX1<span class="dv">&amp;quot;</span> /<span class="dv">&amp;gt;</span>
+<span class="dv">&amp;lt;</span>img src=<span class="dv">&amp;quot;</span>http://latex.codecogs.com/png.latex?\inline SOME LATEX<span class="dv">&amp;quot;</span> alt=<span class="dv">&amp;quot;</span>SOME LATEX<span class="dv">&amp;quot;</span> /<span class="dv">&amp;gt;</span></code></pre>
+<p>Forbidden characters are already converted in the \(\LaTeX\) equations themselves, because they’ve gone through Jekyll’s <code>xml_escape</code> function. Also, I want inline equations to be vertically centered, so I add <code>style=&quot;vertical-align:middle&quot;</code> for the inline equations.</p>
+<p>I now need to search the Jekyll-produce-XML file for equations, which are contained by <code>\[</code> and <code>\]</code>, or <code>\(</code> and <code>\)</code>, and replace them with the codecogs call. (Of course, the previous sentence will cause an error here). Normally I’d use ‘sed’, but the regular expression is a bit complicated for it, so I use perl instead:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">perl</span> -pi -e <span class="st">&#39;s|(\\\[)(.*?)(\\\])|&amp;lt;img src=&amp;quot;http://latex.codecogs.com/png.latex?\2&amp;quot; alt=&amp;quot;\2&amp;quot; /&amp;gt;|g&#39;</span> _site/blog/*.xml
+<span class="kw">perl</span> -pi -e <span class="st">&#39;s|(\\\()(.*?)(\\\))|&amp;lt;img style=&amp;quot;vertical-align:middle&amp;quot; src=&amp;quot;http://latex.codecogs.com/png.latex?\\inline \2&amp;quot; alt=&amp;quot;\2&amp;quot; /&amp;gt;|g&#39;</span> _site/blog/*.xml</code></pre>
+<p>These commands do the replacement on all the XML files in the directory, so if I have multiple RSS feeds it will handle them all.</p>
+<p>Now equations like this: \(x^2\), and below should display in RSS!:</p>
+<p>\[\frac{dK}{dt} = \delta \left(\frac{P_t h_t - TC^I_t - \pi^I_t}{K_t}\right)\]</p>
+<p>The only thing to remember is that display equations need to be separated by multiple line breaks, or they will display side by side in RSS.</p>
+<p>This is sort an inelegant hack and only works if you are running jekyll locally, but someone could potentially write a jekyll extension so you could include something like <code>{{ &quot;{{post.content | xml_escape | math_in_rss &quot;}}}}</code> in your RSS template.</p>
+<p><strong>Update (April 6, 2012)</strong>: Per Christian’s suggestion, I’ve wrapped the display equations in <code>div</code> tags so they center and each have a separate line. The script now looks like this:</p>
+<pre class="sh"><code>perl -pi -e &#39;s|(\\\[)(.*?)(\\\])|&amp;lt;div style=&amp;quot;text-align:center;&amp;quot;&amp;gt;&amp;lt;img src=&amp;quot;http://latex.codecogs.com/png.latex?\2&amp;quot; alt=&amp;quot;\2&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;|g&#39; _site/blog/*.xml
+perl -pi -e &#39;s|(\\\()(.*?)(\\\))|&amp;lt;img style=&amp;quot;vertical-align:middle&amp;quot; src=&amp;quot;http://latex.codecogs.com/png.latex?\\inline \2&amp;quot; alt=&amp;quot;\2&amp;quot; /&amp;gt;|g&#39; _site/blog/*.xml</code></pre></p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
