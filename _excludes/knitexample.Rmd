@@ -9,13 +9,13 @@ First, the input file was named as `knitr-upload.Rmd` ([source](https://github.c
 
 I used the code below to make sure **knitr** will upload images.
 
-``` {r setup}
+```{r setup}
 opts_knit$set(upload.fun = imgur_upload) # upload all images to imgur.com
 ````
 
 Now we write some code chunks in this markdown file:
 
-``` {r}
+```{r}
 ## a simple calculator
 1+1
 ## boring random numbers
@@ -26,7 +26,7 @@ rnorm(5)
 
 We can also produce plots which are uploaded to imgur.com:
 
-``` {r md-cars, message=FALSE}
+```{r md-cars, message=FALSE}
 library(ggplot2)
 qplot(hp, mpg, data=mtcars)+geom_smooth()
 ggpcp(mtcars) + geom_line()
