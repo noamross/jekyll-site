@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-26T10:54:50-07:00</updated>
+ <updated>2012-10-26T10:56:41-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>Using `plot.new` for better combined plots</title>
+   <title>Chris Hamm on using `plot.new()` for better combined plots</title>
    <link href="http://www.noamross.net/blog/2012/10/26/plotnew.html"/>
    <updated>2012-10-26T10:41:35-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/26/plotnew</id>
