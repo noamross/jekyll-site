@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-26T11:37:39-07:00</updated>
+ <updated>2012-10-26T12:02:33-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -333,12 +333,12 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
 &lt;/div&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Moore et al. (2001)/ Diatoms are iron and silicate limited. Different organisms limited in different areas. But this model doesn’t incorporate light limitation, nor secondary limitation. Moore et al. (2009)&lt;/li&gt;
+&lt;li&gt;Moore et al. (2001) Diatoms are iron and silicate limited. Different organisms limited in different areas. But this model doesn’t incorporate light limitation, nor secondary limitation. Moore et al. (2009)&lt;/li&gt;
 &lt;li&gt;&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
 &lt;li&gt;Found high P content in autotrophic communities, low in heterotrophs&lt;/li&gt;
 &lt;/ol&gt;&lt;/li&gt;
 &lt;li&gt;Most cyanobacteria are N fixers, but not those in Bertilsson et al. (2003)&lt;/li&gt;
-&lt;li&gt;@Berman-Frank2001 - N fixation is iron lmited, results in loss of photosynthetic&lt;/li&gt;
+&lt;li&gt;Berman-Frank and Cullen (2001) - N fixation is iron lmited, results in loss of photosynthetic&lt;/li&gt;
 &lt;li&gt;Kustka and Sanudo-Wilhelmy (2003) - Swotch between Fe and P limitation at distinct N:P ratio&lt;/li&gt;
 &lt;li&gt;White et al. (2006) - differences between lab and field. Organisms are flexible, but co-limitation limits extreme variation&lt;/li&gt;
 &lt;li&gt;How to reconcile Frigstad and Andersen (2011) with Bertilsson et al. (2003)? Filtration artifact?&lt;/li&gt;
@@ -380,6 +380,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
 &lt;p&gt;These organisms may limit growth if there were more N in the ocean.&lt;/p&gt;
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;p&gt;Apple, J. L., M. Wink, S. E. Wills, and J. G. Bishop. 2009. Successional change in phosphorus stoichiometry explains the inverse relationship between herbivory and lupin density on Mount St. Helens. PloS one.&lt;/p&gt;
+&lt;p&gt;Berman-Frank, I., and J. T. Cullen. 2001. Iron availability, cellular iron quotas, and nitrogen fixation in Trichodesmium. Limnology and ….&lt;/p&gt;
 &lt;p&gt;Bertilsson, S., O. Berglund, D. M. Karl, and S. W. Chisholm. 2003. Elemental composition of marine Prochlorococcus and Synechococcus: Implications for the ecological stoichiometry of the sea. Limnology and … 48:1721–1731.&lt;/p&gt;
 &lt;p&gt;Boersma, M., and J. J. Elser. 2006. Too much of a good thing: on stoichiometrically balanced diets and maximal growth. Ecology 87:1325–1330.&lt;/p&gt;
 &lt;p&gt;Frigstad, H., and T. Andersen. 2011. Seasonal variation in marine C: N: P stoichiometry: can the composition of seston explain stable Redfield ratios?. ….&lt;/p&gt;

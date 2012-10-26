@@ -56,17 +56,17 @@ of the Microbial Loop: J. Matthew Haggerty</a> </strong> from
 <strong><a href="http://www.slideshare.net/noamross" target="_blank">noamross</a></strong>
 </div>
 
--   Moore et al. (2001)/ Diatoms are iron and silicate limited.
-    Different organisms limited in different areas. But this model
-    doesn't incorporate light limitation, nor secondary limitation.
-    Moore et al. (2009)
+-   Moore et al. (2001) Diatoms are iron and silicate limited. Different
+    organisms limited in different areas. But this model doesn't
+    incorporate light limitation, nor secondary limitation. Moore et al.
+    (2009)
 -   1.  Found high P content in autotrophic communities, low in
         heterotrophs
 
 -   Most cyanobacteria are N fixers, but not those in Bertilsson et al.
     (2003)
--   @Berman-Frank2001 - N fixation is iron lmited, results in loss of
-    photosynthetic
+-   Berman-Frank and Cullen (2001) - N fixation is iron lmited, results
+    in loss of photosynthetic
 -   Kustka and Sanudo-Wilhelmy (2003) - Swotch between Fe and P
     limitation at distinct N:P ratio
 -   White et al. (2006) - differences between lab and field. Organisms
@@ -166,6 +166,9 @@ References
 Apple, J. L., M. Wink, S. E. Wills, and J. G. Bishop. 2009. Successional
 change in phosphorus stoichiometry explains the inverse relationship
 between herbivory and lupin density on Mount St. Helens. PloS one.
+
+Berman-Frank, I., and J. T. Cullen. 2001. Iron availability, cellular
+iron quotas, and nitrogen fixation in Trichodesmium. Limnology and ….
 
 Bertilsson, S., O. Berglund, D. M. Karl, and S. W. Chisholm. 2003.
 Elemental composition of marine Prochlorococcus and Synechococcus:
