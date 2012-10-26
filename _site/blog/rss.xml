@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-26T10:57:14-07:00</updated>
+ <updated>2012-10-26T11:37:39-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -298,6 +298,102 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  </entry>
  
  <entry>
+   <title>Ecological Stoichiometry: The Perils of Famine and Plenty</title>
+   <link href="http://www.noamross.net/blog/2012/10/22/ecological-stoichiometry--the-perils-of-famine-and-plenty.html"/>
+   <updated>2012-10-22T19:55:56-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/10/22/ecological-stoichiometry--the-perils-of-famine-and-plenty</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Pretty raw notes this week from a discussion about how food webs respond to nutrient starvation and excess.&lt;/p&gt;
+&lt;h3 id=&quot;whalen-on-consumption-in-food-webs&quot;&gt;Whalen on consumption in Food Webs&lt;/h3&gt;
+&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/14902810&quot; width=&quot;476&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Boersma and Elser (2006) - fitness cost of excessive P. Implications for models - but what about competition as a more likely limiting factor?&lt;/li&gt;
+&lt;li&gt;Not sure about the “food left on the table” argument.&lt;/li&gt;
+&lt;li&gt;What about the metabolic costs? Not mentioned in the paper.&lt;/li&gt;
+&lt;li&gt;Nonlinearity in P-growth relationship could be coexistence mechanism&lt;/li&gt;
+&lt;li&gt;Raubenheimer and Simpson (2004) - Fitness and body composition can be affected by food quality. Can’t maintain homeostasis. With locusts, fitness maximized at protein/carbohydrate balance, but body composition changes&lt;/li&gt;
+&lt;li&gt;Plath and Boersma (2001): Genralists may change intake behaviorally in response to P enrichment
+&lt;ul&gt;
+&lt;li&gt;Dynamic energy models of Daphinia S. Kooijman.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Raubenheimer and Simpson (2004) - organisms reach different compositions on monoculture diets, but diverse on polyculture diets (They promote geometric framework)&lt;/li&gt;
+&lt;li&gt;What are the evolutionary adaptations to food quality (gut architecture, consumption physiology, out-of-body digestion, feeding at multiple trophic levels/guilds (Some evidence of N-limited predators), seasonal issues). Cannibalism is optimal, but other costs? (Disease, etc.)&lt;/li&gt;
+&lt;li&gt;Apple et al. (2009) - High density of plants leads to low-P plants, making food quality low and reduction in predator abundance. Note that the plant (lupines) are N-fixers. However, there are other potential explanations (predation + plant cover)&lt;/li&gt;
+&lt;li&gt;Hawlena and Schmitz (2010): Predation causes more energy use in grasshoppers, increasing C consumption and then reducing fecal elemental composition. Higher C:N. Then changes the composition of plants, which are fertilized by grasshoppers.&lt;/li&gt;
+&lt;li&gt;What’s the correct scale? For higher trophic levels, is it more about macromolecules? Ecosystem v. 2-species interaction.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;john-haggerty-on-the-microbial-loop&quot;&gt;John Haggerty on the microbial loop&lt;/h3&gt;
+&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/14902842&quot; width=&quot;427&quot; height=&quot;356&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&quot; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&quot;margin-bottom:5px&quot;&gt; 
+&lt;strong&gt; &lt;a href=&quot;http://www.slideshare.net/noamross/stoichiometry-of-the-microbial-loop-j-matthew-haggerty&quot; title=&quot;Stoichiometry of the Microbial Loop: J. Matthew Haggerty&quot; target=&quot;_blank&quot;&gt;Stoichiometry of the Microbial Loop: J. Matthew Haggerty&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&quot;http://www.slideshare.net/noamross&quot; target=&quot;_blank&quot;&gt;noamross&lt;/a&gt;&lt;/strong&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Moore et al. (2001)/ Diatoms are iron and silicate limited. Different organisms limited in different areas. But this model doesn’t incorporate light limitation, nor secondary limitation. Moore et al. (2009)&lt;/li&gt;
+&lt;li&gt;&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;Found high P content in autotrophic communities, low in heterotrophs&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Most cyanobacteria are N fixers, but not those in Bertilsson et al. (2003)&lt;/li&gt;
+&lt;li&gt;@Berman-Frank2001 - N fixation is iron lmited, results in loss of photosynthetic&lt;/li&gt;
+&lt;li&gt;Kustka and Sanudo-Wilhelmy (2003) - Swotch between Fe and P limitation at distinct N:P ratio&lt;/li&gt;
+&lt;li&gt;White et al. (2006) - differences between lab and field. Organisms are flexible, but co-limitation limits extreme variation&lt;/li&gt;
+&lt;li&gt;How to reconcile Frigstad and Andersen (2011) with Bertilsson et al. (2003)? Filtration artifact?&lt;/li&gt;
+&lt;li&gt;Gruber et al. (2009) Ciliates prefer &lt;em&gt;older&lt;/em&gt; &lt;em&gt;E.Coli&lt;/em&gt; with higher levels of carbon.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;notes-on-boersma-and-elser-2006&quot;&gt;Notes on Boersma and Elser (2006)&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Central idea: There’s a cost to consuming foods with excess nutrients and needing to excrete the extra.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;(Given that human babies can die from excess nitrate in the water, I must agree)&lt;/p&gt;
+&lt;p&gt;Many lakes are P-limited, but it has been assumed that variation in P:C ratios above levels that limit growth - the threshold element ratio (TER) - is irrelevant to animal performance&lt;/p&gt;
+&lt;p&gt;Many of these studies come from aquaculture. Several taxa (Fig. 1) have a peak of growth at some fraction of dietary P. Ecological studies are rarer, typically using only 2 levels of treatment.&lt;/p&gt;
+&lt;h4 id=&quot;possible-mechanisms&quot;&gt;Possible mechanisms:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;In plants, excess P “might have changed other variables in the plants, such as carbohydrate availability”. What?&lt;/li&gt;
+&lt;li&gt;Since P enrichment is rare, organisms don’t adjust well to being carbon limited, reducing growth.&lt;/li&gt;
+&lt;li&gt;Experimental limitations, but also organisms that store P, have prevented this observation in ecological systems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;context&quot;&gt;Context&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Basal consumers in food webs are generally nutrient-deprived and more more likely not to have mechanisms to deal with excess nutrients. Similarly slow-growing and other low P-content organisms.&lt;/li&gt;
+&lt;li&gt;There can be considerable heterogeneity in nutrient content, leading to localized excesses in nutrients. This may be why we see what appear to be obvious food items under-utilized.&lt;/li&gt;
+&lt;li&gt;What about energetic cost of excretion?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;notes-on-bertilsson-et-al.-2003&quot;&gt;Notes on Bertilsson et al. (2003)&lt;/h3&gt;
+&lt;p&gt;Cyanobacterium &lt;em&gt;Prochlorococcus&lt;/em&gt; is the numerically dominant autotroph in the oceans, mostly present in warm waters. &lt;em&gt;Synechococcus&lt;/em&gt; is important, too, and bigger and more widely distributed, making them equivalent in global biomass.&lt;/p&gt;
+&lt;p&gt;Ocean POM stays close to the Redfield ratio (106:16:1), but there is considerable spatial and seasonal variability, in part due to organismal constraints.&lt;/p&gt;
+&lt;p&gt;Here they report on the plasticity of these organisms’ C:N:P ratio. This requires pure straints, only recently available.&lt;/p&gt;
+&lt;p&gt;The organisms differ in pigment size and motility.&lt;/p&gt;
+&lt;p&gt;When growth plateaued, P was added to verify P limitation.&lt;/p&gt;
+&lt;p&gt;Cutures reached stationary phase quicker in P-limited culture, and growth rates were lower in P-limited media, though not significantly.&lt;/p&gt;
+&lt;p&gt;P-limited cells had greater C content (by about 33%), as well as volume. Possibly because of need for more P in order to divide&lt;/p&gt;
+&lt;p&gt;Change in N content was variable. Only one species showed a difference, being N-enriched when P-enriched. Mostly C:N was tightly constrained.&lt;/p&gt;
+&lt;p&gt;But P-replete species gained 4X more P. (N:P ratios were 16 and 800, 50X difference)&lt;/p&gt;
+&lt;p&gt;Overall, all species had high C:N ratios, appear to have been P limited. P enrichment lower C:P significantly. These organisms have low P requirements, but can make use of more.&lt;/p&gt;
+&lt;p&gt;It’s possible these organisms are missed due to filtration techniques (less likely), or higher trophic levels are P-enriched (more likely).&lt;/p&gt;
+&lt;p&gt;P-starved level is likely the minimum, due to requirements just for maintaining a copy of DNA. (50% of measured amount)&lt;/p&gt;
+&lt;p&gt;DNA/RNA ratio must be 1:1, while in most organisms RNA is much greater.&lt;/p&gt;
+&lt;p&gt;Low P particles may be less appealing to predators (but don’t they have to eat more then?)&lt;/p&gt;
+&lt;p&gt;Low P-content may be a strategy to reduce virus-driven mortality.&lt;/p&gt;
+&lt;p&gt;These organisms may limit growth if there were more N in the ocean.&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;Apple, J. L., M. Wink, S. E. Wills, and J. G. Bishop. 2009. Successional change in phosphorus stoichiometry explains the inverse relationship between herbivory and lupin density on Mount St. Helens. PloS one.&lt;/p&gt;
+&lt;p&gt;Bertilsson, S., O. Berglund, D. M. Karl, and S. W. Chisholm. 2003. Elemental composition of marine Prochlorococcus and Synechococcus: Implications for the ecological stoichiometry of the sea. Limnology and … 48:1721–1731.&lt;/p&gt;
+&lt;p&gt;Boersma, M., and J. J. Elser. 2006. Too much of a good thing: on stoichiometrically balanced diets and maximal growth. Ecology 87:1325–1330.&lt;/p&gt;
+&lt;p&gt;Frigstad, H., and T. Andersen. 2011. Seasonal variation in marine C: N: P stoichiometry: can the composition of seston explain stable Redfield ratios?. ….&lt;/p&gt;
+&lt;p&gt;Gruber, D. F., S. Tuorto, and G. L. Taghon. 2009. Growth phase and elemental stoichiometry of bacterial prey influences ciliate grazing selectivity.. The Journal of eukaryotic microbiology 56:466–71.&lt;/p&gt;
+&lt;p&gt;Hawlena, D., and O. J. Schmitz. 2010. Herbivore physiological response to predation risk and implications for ecosystem nutrient dynamics. Proceedings of the National ….&lt;/p&gt;
+&lt;p&gt;Kustka, A. B., and S. A. Sanudo-Wilhelmy. 2003. Iron requirements for dinitrogen-and ammonium-supported growth in cultures of Trichodesmium (IMS 101): Comparison with nitrogen fixation rates and iron:. Limnology and ….&lt;/p&gt;
+&lt;p&gt;Moore, J. K., S. C. Doney, D. M. Glover, and I. Y. Fung. 2001. Iron cycling and nutrient-limitation patterns in surface waters of the World Ocean. Deep Sea Research Part II: ….&lt;/p&gt;
+&lt;p&gt;Moore, S. a, T. J. Wallington, R. J. Hobbs, P. R. Ehrlich, C. S. Holling, S. Levin, D. Lindenmayer, C. Pahl-Wostl, H. Possingham, M. G. Turner, and M. Westoby. 2009. Diversity in current ecological thinking: implications for environmental management.. Environmental management 43:17–27.&lt;/p&gt;
+&lt;p&gt;Plath, K., and M. Boersma. 2001. Mineral limitation of zooplankton: stoichiometric constraints and optimal foraging. Ecology.&lt;/p&gt;
+&lt;p&gt;Raubenheimer, D., and S. J. Simpson. 2004. Organismal stoichiometry: quantifying non-independence among food components. Ecology.&lt;/p&gt;
+&lt;p&gt;White, A. E., Y. H. Spitz, D. M. Karl, and R. M. Letelier. 2006. Flexible elemental stoichiometry in Trichodesmium spp. and its ecological implications. Limnology and oceanography.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Stella Copeland's Intro to Mixed Models in R</title>
    <link href="http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html"/>
    <updated>2012-10-19T10:26:56-07:00</updated>
@@ -345,95 +441,6 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
 &lt;p&gt;SGuin, C., Pelletier, L. G., &amp;amp; Hunsley, J. (1998). Toward a model of environmental activism. Environment and Behavior, 30(5), 628-652.&lt;/p&gt;
 &lt;p&gt;Quadrelli, R., &amp;amp; Peterson, S. (2007). The energy–climate challenge: Recent trends in CO2 emissions from fuel combustion. Energy Policy, 35(11), 5938-5952.&lt;/p&gt;
 &lt;/blockquote&gt;</content>
- </entry>
- 
- <entry>
-   <title>Ecological Stoichiometry: Back to Basics with Elser</title>
-   <link href="http://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings.html"/>
-   <updated>2012-10-15T10:36:30-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;span style=&quot;float: left; padding: 5px;&quot;&gt;&lt;a href=&quot;http://www.researchblogging.org&quot;&gt;&lt;img alt=&quot;ResearchBlogging.org&quot; src=&quot;http://www.researchblogging.org/public/citation_icons/rb2_large_gray.png&quot; style=&quot;border:0;&quot;/&gt;&lt;/a&gt;&lt;/span&gt;Our ecological stoichiometry course kicked off today. My initial training is in this area, which I called “ecosystem biogeochemistry”, but it was very much a geologically focused, big systems approach. It’s interesting to approach this material from a more organism- and population-centric perspective that most Davis ecologists have.&lt;/p&gt;
-&lt;p&gt;Today, &lt;a href=&quot;http://www.researchgate.net/profile/Alison_Marklein/&quot;&gt;Alison&lt;/a&gt; started us off with some first principles of nutrient constraints on ecology. Drawing a lot from Sterner and Elser (2002), but noting that a lot of these principles go all the way back to Lotka (1925). In essence:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Organism growth is limited by nutrients, and they take up (and excrete) nutrients preferentially to get the ratios they need&lt;/li&gt;
-&lt;li&gt;Nutrient requirements are driven by the elemental composition of biomolecules&lt;/li&gt;
-&lt;li&gt;Different nutrients are limited by different processes. N is widely available in the atmosphere, but energetically costly to acquire. P is rarer and locked up in mineral deposits.&lt;/li&gt;
-&lt;li&gt;Ecosystems vary widely in the nutrients available, and ecological structure is driven partly by these availabilities and how they propagate through physiology and trophic structure&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Alison gave a lot more than this. I’ll embed her slides here as soon as they are available.&lt;/p&gt;
-&lt;p&gt;Then we dove into a couple of papers:&lt;/p&gt;
-&lt;h2 id=&quot;linking-scales-elser-et-al.-2000a&quot;&gt;Linking scales: Elser et al. (2000a)&lt;/h2&gt;
-&lt;p&gt;This is a pretty great review. I didn’t learn about the RNA linkage when I first studied this stuff. Elser et. al. lay out a pretty convincing case that phosphorus limitation is driven by the need for ribosomal RNA for growth:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Organisms with high nutrient compositions (High C:N/P ratios). are more vulnerable to poor food quality&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Most animals maintain relatively constant nutrient ratios, except for storage and structural materials. &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu&amp;#39;&quot; alt=&quot;\mu&amp;#39;&quot; /&gt; declines when foods have low nutrient content. (Lots of variation among taxa, though.)&lt;/li&gt;
-&lt;li&gt;P is correlated with rRNA content, and in &lt;em&gt;Daphnia&lt;/em&gt; and other species, differences in rRNA content are sufficient to explain differences in P.&lt;/li&gt;
-&lt;li&gt;Organisms are in part characterized by their maximum temp-normalized max growth rate, &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu_m&quot; alt=&quot;\mu_m&quot; /&gt;. &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu&amp;#39;&quot; alt=&quot;\mu&amp;#39;&quot; /&gt; is their realized rate.&lt;/li&gt;
-&lt;li&gt;Organisms with high &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu_m&quot; alt=&quot;\mu_m&quot; /&gt; have high maximum rRNA levels.&lt;/li&gt;
-&lt;li&gt;For organisms without P storage mechanisms, P requirements are driven by growth rate due to demands for P-rich rRNA in growing cells.&lt;/li&gt;
-&lt;li&gt;For autotrophs, N:P increases with size, and &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu_m&quot; alt=&quot;\mu_m&quot; /&gt; decreases. But there is just as much variation within one species of algae growing under different conditions, and such ratios can track nutrient supply for many autotrophs.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;There’s also a really intriguing evolutionary component here. Elser et al. point out that, while ribosomal DNA sequences are highly conserved across taxa, there’s LOTS of variation in the intergene spacer regions between the genes for rRNA, and gene copy numbers, and these areas appear to have a lot of control over gene expression. These areas change under selection pressure on growth rate.&lt;/p&gt;
-&lt;h2 id=&quot;experimental-manipulation-elser-et-al.-2000a&quot;&gt;Experimental Manipulation: Elser et al. (2000a)&lt;/h2&gt;
-&lt;p&gt;This is a classic whole-lake manipulation study performed at the Experimental Lakes Area in Canada (&lt;a href=&quot;http://saveela.org/&quot;&gt;Save the ELA!&lt;/a&gt;). Elser et. al. take a look at the interaction of two major frameworks in lake ecology: trophic structure and nutrient fertilization. Trophic structure can modify how ecosystem compensation occurs in response to nutrient loading, e.g., previous studies showed that phytoplankton nutrient limitation switched from P to N depending on the species composition of zooplankton. Here they examine how a trophic manipulation - adding an apex predator - modifies nutrient cycling.&lt;/p&gt;
-&lt;h3 id=&quot;hypotheses&quot;&gt;Hypotheses&lt;/h3&gt;
-&lt;p&gt;Enhanced piscivory will result in:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Decreased C:P and N:P ratios in zooplankton&lt;/li&gt;
-&lt;li&gt;Zooplankton P becoming an important part of the total P pool&lt;/li&gt;
-&lt;li&gt;Increased sedimentation loss of P&lt;/li&gt;
-&lt;li&gt;Increased relative availability of inorganic N (compared with P)&lt;/li&gt;
-&lt;li&gt;N fixation would decrease&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;methods&quot;&gt;Methods&lt;/h3&gt;
-&lt;h4 id=&quot;study-site-experimental-lake-l227&quot;&gt;Study Site: Experimental Lake L227&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;5 ha, 10-m max depth lake in the ELA&lt;/li&gt;
-&lt;li&gt;Strong thermal stratification&lt;/li&gt;
-&lt;li&gt;Artificially eutrophied with enhanced P since 1990&lt;/li&gt;
-&lt;li&gt;High cyprinid (minnow) population&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;manipulation&quot;&gt;Manipulation&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;200 pike added in 1993-1994&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;monitoring&quot;&gt;Monitoring&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;1992-1996&lt;/li&gt;
-&lt;li&gt;Minnow sampling&lt;/li&gt;
-&lt;li&gt;C,N, and P assessed in organic and inorganic pools&lt;/li&gt;
-&lt;li&gt;Sediment trapping for C, N and P&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Minnow populations reduced by 4X at first, driven to extinction by 1996&lt;/li&gt;
-&lt;li&gt;Zooplankton increased 4X in 1996, increasing in size, too, then crashing as invertebrate predators grew.&lt;/li&gt;
-&lt;li&gt;Phytoplankton decline&lt;/li&gt;
-&lt;li&gt;Seston C:P declines, bacteria decline, particulate C residence time declines, particulate P residence time declines&lt;/li&gt;
-&lt;li&gt;Inorganic N:Dissolved P ratio increases&lt;/li&gt;
-&lt;li&gt;N-fixing cyanobactria crash. Appear to only be present with TIN:TDP ratio is low enough. Need enough P for fixation to be energetically favorable&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;discussion&quot;&gt;Discussion&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Zooplankton biomass became P-enriched via dominance by P-rich &lt;em&gt;Daphnia&lt;/em&gt; species.&lt;/li&gt;
-&lt;li&gt;Zooplankton went from 1% to 32% of the P pool, and locked up much of available P, and making N more relatively available.&lt;/li&gt;
-&lt;li&gt;Food-web configuration modified sedimentation by changing particle residence time.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;thoughts&quot;&gt;Thoughts:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Given the &lt;em&gt;Daphnia&lt;/em&gt; appearance, should we consider how the available species pool could affect each trophic level response?&lt;/li&gt;
-&lt;li&gt;Alternative stable states: Wasn’t this just a long transient to a new equilibrium created by introducing the pike?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
-&lt;p&gt;&lt;span class=&quot;Z3988&quot; title=&quot;ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecology+Letters&amp;rft_id=info%3Adoi%2F10.1046%2Fj.1461-0248.2000.00185.x&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Biological+stoichiometry+from+genes+to+ecosystems&amp;rft.issn=1461-023X&amp;rft.date=2000&amp;rft.volume=3&amp;rft.issue=6&amp;rft.spage=540&amp;rft.epage=550&amp;rft.artnum=http%3A%2F%2Fdoi.wiley.com%2F10.1046%2Fj.1461-0248.2000.00185.x&amp;rft.au=Elser%2C+J.&amp;rft.au=Sterner%2C+R.&amp;rft.au=Gorokhova%2C+E.&amp;rft.au=Fagan%2C+W.&amp;rft.au=Markow%2C+T.&amp;rft.au=Cotner%2C+J.&amp;rft.au=Harrison%2C+J.&amp;rft.au=Hobbie%2C+S.&amp;rft.au=Odell%2C+G.&amp;rft.au=Weider%2C+L.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation&quot;&gt;&lt;/span&gt; &lt;span class=&quot;Z3988&quot; title=&quot;ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecosystems&amp;rft_id=info%3Adoi%2F10.1007%2Fs100210000027&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Pelagic+C%3AN%3AP+Stoichiometry+in+a+Eutrophied+Lake%3A+Responses+to+a+Whole-Lake+Food-Web+Manipulation&amp;rft.issn=1432-9840&amp;rft.date=2000&amp;rft.volume=3&amp;rft.issue=3&amp;rft.spage=293&amp;rft.epage=307&amp;rft.artnum=http%3A%2F%2Fwww.springerlink.com%2Fopenurl.asp%3Fgenre%3Darticle%26id%3Ddoi%3A10.1007%2Fs100210000027&amp;rft.au=Elser%2C+J.&amp;rft.au=Sterner%2C+R.&amp;rft.au=Galford%2C+A.&amp;rft.au=Chrzanowski%2C+T.&amp;rft.au=Findlay%2C+D.&amp;rft.au=Mills%2C+K.&amp;rft.au=Paterson%2C+M.&amp;rft.au=Stainton%2C+M.&amp;rft.au=Schindler%2C+D.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation&quot;&gt;&lt;/span&gt; Elser, J. J., R. W. Sterner, A. E. Galford, T. H. Chrzanowski, D. L. Findlay, K. H. Mills, M. J. Paterson, M. P. Stainton, and D. W. Schindler. 2000a. Pelagic C:N:P Stoichiometry in a Eutrophied Lake: Responses to a Whole-Lake Food-Web Manipulation. Ecosystems 3:293–307.&lt;/p&gt;
-&lt;p&gt;Elser, J. J., R. W. Sterner, E. Gorokhova, W. F. Fagan, T. a Markow, J. B. Cotner, J. F. Harrison, S. E. Hobbie, G. M. Odell, and L. W. Weider. 2000a. Biological stoichiometry from genes to ecosystems. Ecology Letters 3:540–550.&lt;/p&gt;
-&lt;p&gt;Lotka, A. J. 1925. Elements of physical biology. . Williams &amp;amp; Wilkins, Baltimore.&lt;/p&gt;
-&lt;p&gt;Sterner, R. W., and J. J. Elser. 2002. Ecological stoichiometry: the biology of elements from molecules to the biosphere. . Princeton University Press.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -530,6 +537,95 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
 &lt;p&gt;Vitousek, P. M., Porder, S., Houlton, B. Z., &amp;amp; Chadwick, O. A. (2010). Terrestrial phosphorus limitation: mechanisms, implications, and nitrogen-phosphorus interactions. Ecological Applications, 20(1), 5–15.&lt;/p&gt;
 &lt;p&gt;Walker, T. W., &amp;amp; Syers, J. K. (1976). The fate of phosphorus during pedogenesis. Geoderma, 15(1), 1–19.&lt;/p&gt;
 &lt;p&gt;Elser, J. J., R. W. Sterner, A. E. Galford, T. H. Chrzanowski, D. L. Findlay, K. H. Mills, M. J. Paterson, M. P. Stainton, and D. W. Schindler. 2000a. Pelagic C:N:P Stoichiometry in a Eutrophied Lake: Responses to a Whole-Lake Food-Web Manipulation. Ecosystems 3:293–307.&lt;/p&gt;
+&lt;p&gt;Elser, J. J., R. W. Sterner, E. Gorokhova, W. F. Fagan, T. a Markow, J. B. Cotner, J. F. Harrison, S. E. Hobbie, G. M. Odell, and L. W. Weider. 2000a. Biological stoichiometry from genes to ecosystems. Ecology Letters 3:540–550.&lt;/p&gt;
+&lt;p&gt;Lotka, A. J. 1925. Elements of physical biology. . Williams &amp;amp; Wilkins, Baltimore.&lt;/p&gt;
+&lt;p&gt;Sterner, R. W., and J. J. Elser. 2002. Ecological stoichiometry: the biology of elements from molecules to the biosphere. . Princeton University Press.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Ecological Stoichiometry: Back to Basics with Elser</title>
+   <link href="http://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings.html"/>
+   <updated>2012-10-15T10:36:30-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;span style=&quot;float: left; padding: 5px;&quot;&gt;&lt;a href=&quot;http://www.researchblogging.org&quot;&gt;&lt;img alt=&quot;ResearchBlogging.org&quot; src=&quot;http://www.researchblogging.org/public/citation_icons/rb2_large_gray.png&quot; style=&quot;border:0;&quot;/&gt;&lt;/a&gt;&lt;/span&gt;Our ecological stoichiometry course kicked off today. My initial training is in this area, which I called “ecosystem biogeochemistry”, but it was very much a geologically focused, big systems approach. It’s interesting to approach this material from a more organism- and population-centric perspective that most Davis ecologists have.&lt;/p&gt;
+&lt;p&gt;Today, &lt;a href=&quot;http://www.researchgate.net/profile/Alison_Marklein/&quot;&gt;Alison&lt;/a&gt; started us off with some first principles of nutrient constraints on ecology. Drawing a lot from Sterner and Elser (2002), but noting that a lot of these principles go all the way back to Lotka (1925). In essence:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Organism growth is limited by nutrients, and they take up (and excrete) nutrients preferentially to get the ratios they need&lt;/li&gt;
+&lt;li&gt;Nutrient requirements are driven by the elemental composition of biomolecules&lt;/li&gt;
+&lt;li&gt;Different nutrients are limited by different processes. N is widely available in the atmosphere, but energetically costly to acquire. P is rarer and locked up in mineral deposits.&lt;/li&gt;
+&lt;li&gt;Ecosystems vary widely in the nutrients available, and ecological structure is driven partly by these availabilities and how they propagate through physiology and trophic structure&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Alison gave a lot more than this. I’ll embed her slides here as soon as they are available.&lt;/p&gt;
+&lt;p&gt;Then we dove into a couple of papers:&lt;/p&gt;
+&lt;h2 id=&quot;linking-scales-elser-et-al.-2000a&quot;&gt;Linking scales: Elser et al. (2000a)&lt;/h2&gt;
+&lt;p&gt;This is a pretty great review. I didn’t learn about the RNA linkage when I first studied this stuff. Elser et. al. lay out a pretty convincing case that phosphorus limitation is driven by the need for ribosomal RNA for growth:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Organisms with high nutrient compositions (High C:N/P ratios). are more vulnerable to poor food quality&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Most animals maintain relatively constant nutrient ratios, except for storage and structural materials. &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu&amp;#39;&quot; alt=&quot;\mu&amp;#39;&quot; /&gt; declines when foods have low nutrient content. (Lots of variation among taxa, though.)&lt;/li&gt;
+&lt;li&gt;P is correlated with rRNA content, and in &lt;em&gt;Daphnia&lt;/em&gt; and other species, differences in rRNA content are sufficient to explain differences in P.&lt;/li&gt;
+&lt;li&gt;Organisms are in part characterized by their maximum temp-normalized max growth rate, &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu_m&quot; alt=&quot;\mu_m&quot; /&gt;. &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu&amp;#39;&quot; alt=&quot;\mu&amp;#39;&quot; /&gt; is their realized rate.&lt;/li&gt;
+&lt;li&gt;Organisms with high &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu_m&quot; alt=&quot;\mu_m&quot; /&gt; have high maximum rRNA levels.&lt;/li&gt;
+&lt;li&gt;For organisms without P storage mechanisms, P requirements are driven by growth rate due to demands for P-rich rRNA in growing cells.&lt;/li&gt;
+&lt;li&gt;For autotrophs, N:P increases with size, and &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu_m&quot; alt=&quot;\mu_m&quot; /&gt; decreases. But there is just as much variation within one species of algae growing under different conditions, and such ratios can track nutrient supply for many autotrophs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There’s also a really intriguing evolutionary component here. Elser et al. point out that, while ribosomal DNA sequences are highly conserved across taxa, there’s LOTS of variation in the intergene spacer regions between the genes for rRNA, and gene copy numbers, and these areas appear to have a lot of control over gene expression. These areas change under selection pressure on growth rate.&lt;/p&gt;
+&lt;h2 id=&quot;experimental-manipulation-elser-et-al.-2000a&quot;&gt;Experimental Manipulation: Elser et al. (2000a)&lt;/h2&gt;
+&lt;p&gt;This is a classic whole-lake manipulation study performed at the Experimental Lakes Area in Canada (&lt;a href=&quot;http://saveela.org/&quot;&gt;Save the ELA!&lt;/a&gt;). Elser et. al. take a look at the interaction of two major frameworks in lake ecology: trophic structure and nutrient fertilization. Trophic structure can modify how ecosystem compensation occurs in response to nutrient loading, e.g., previous studies showed that phytoplankton nutrient limitation switched from P to N depending on the species composition of zooplankton. Here they examine how a trophic manipulation - adding an apex predator - modifies nutrient cycling.&lt;/p&gt;
+&lt;h3 id=&quot;hypotheses&quot;&gt;Hypotheses&lt;/h3&gt;
+&lt;p&gt;Enhanced piscivory will result in:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Decreased C:P and N:P ratios in zooplankton&lt;/li&gt;
+&lt;li&gt;Zooplankton P becoming an important part of the total P pool&lt;/li&gt;
+&lt;li&gt;Increased sedimentation loss of P&lt;/li&gt;
+&lt;li&gt;Increased relative availability of inorganic N (compared with P)&lt;/li&gt;
+&lt;li&gt;N fixation would decrease&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;methods&quot;&gt;Methods&lt;/h3&gt;
+&lt;h4 id=&quot;study-site-experimental-lake-l227&quot;&gt;Study Site: Experimental Lake L227&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;5 ha, 10-m max depth lake in the ELA&lt;/li&gt;
+&lt;li&gt;Strong thermal stratification&lt;/li&gt;
+&lt;li&gt;Artificially eutrophied with enhanced P since 1990&lt;/li&gt;
+&lt;li&gt;High cyprinid (minnow) population&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;manipulation&quot;&gt;Manipulation&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;200 pike added in 1993-1994&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;monitoring&quot;&gt;Monitoring&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;1992-1996&lt;/li&gt;
+&lt;li&gt;Minnow sampling&lt;/li&gt;
+&lt;li&gt;C,N, and P assessed in organic and inorganic pools&lt;/li&gt;
+&lt;li&gt;Sediment trapping for C, N and P&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Minnow populations reduced by 4X at first, driven to extinction by 1996&lt;/li&gt;
+&lt;li&gt;Zooplankton increased 4X in 1996, increasing in size, too, then crashing as invertebrate predators grew.&lt;/li&gt;
+&lt;li&gt;Phytoplankton decline&lt;/li&gt;
+&lt;li&gt;Seston C:P declines, bacteria decline, particulate C residence time declines, particulate P residence time declines&lt;/li&gt;
+&lt;li&gt;Inorganic N:Dissolved P ratio increases&lt;/li&gt;
+&lt;li&gt;N-fixing cyanobactria crash. Appear to only be present with TIN:TDP ratio is low enough. Need enough P for fixation to be energetically favorable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;discussion&quot;&gt;Discussion&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Zooplankton biomass became P-enriched via dominance by P-rich &lt;em&gt;Daphnia&lt;/em&gt; species.&lt;/li&gt;
+&lt;li&gt;Zooplankton went from 1% to 32% of the P pool, and locked up much of available P, and making N more relatively available.&lt;/li&gt;
+&lt;li&gt;Food-web configuration modified sedimentation by changing particle residence time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;thoughts&quot;&gt;Thoughts:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Given the &lt;em&gt;Daphnia&lt;/em&gt; appearance, should we consider how the available species pool could affect each trophic level response?&lt;/li&gt;
+&lt;li&gt;Alternative stable states: Wasn’t this just a long transient to a new equilibrium created by introducing the pike?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;p&gt;&lt;span class=&quot;Z3988&quot; title=&quot;ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecology+Letters&amp;rft_id=info%3Adoi%2F10.1046%2Fj.1461-0248.2000.00185.x&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Biological+stoichiometry+from+genes+to+ecosystems&amp;rft.issn=1461-023X&amp;rft.date=2000&amp;rft.volume=3&amp;rft.issue=6&amp;rft.spage=540&amp;rft.epage=550&amp;rft.artnum=http%3A%2F%2Fdoi.wiley.com%2F10.1046%2Fj.1461-0248.2000.00185.x&amp;rft.au=Elser%2C+J.&amp;rft.au=Sterner%2C+R.&amp;rft.au=Gorokhova%2C+E.&amp;rft.au=Fagan%2C+W.&amp;rft.au=Markow%2C+T.&amp;rft.au=Cotner%2C+J.&amp;rft.au=Harrison%2C+J.&amp;rft.au=Hobbie%2C+S.&amp;rft.au=Odell%2C+G.&amp;rft.au=Weider%2C+L.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation&quot;&gt;&lt;/span&gt; &lt;span class=&quot;Z3988&quot; title=&quot;ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.jtitle=Ecosystems&amp;rft_id=info%3Adoi%2F10.1007%2Fs100210000027&amp;rfr_id=info%3Asid%2Fresearchblogging.org&amp;rft.atitle=Pelagic+C%3AN%3AP+Stoichiometry+in+a+Eutrophied+Lake%3A+Responses+to+a+Whole-Lake+Food-Web+Manipulation&amp;rft.issn=1432-9840&amp;rft.date=2000&amp;rft.volume=3&amp;rft.issue=3&amp;rft.spage=293&amp;rft.epage=307&amp;rft.artnum=http%3A%2F%2Fwww.springerlink.com%2Fopenurl.asp%3Fgenre%3Darticle%26id%3Ddoi%3A10.1007%2Fs100210000027&amp;rft.au=Elser%2C+J.&amp;rft.au=Sterner%2C+R.&amp;rft.au=Galford%2C+A.&amp;rft.au=Chrzanowski%2C+T.&amp;rft.au=Findlay%2C+D.&amp;rft.au=Mills%2C+K.&amp;rft.au=Paterson%2C+M.&amp;rft.au=Stainton%2C+M.&amp;rft.au=Schindler%2C+D.&amp;rfe_dat=bpr3.included=1;bpr3.tags=Ecology+%2F+Conservation&quot;&gt;&lt;/span&gt; Elser, J. J., R. W. Sterner, A. E. Galford, T. H. Chrzanowski, D. L. Findlay, K. H. Mills, M. J. Paterson, M. P. Stainton, and D. W. Schindler. 2000a. Pelagic C:N:P Stoichiometry in a Eutrophied Lake: Responses to a Whole-Lake Food-Web Manipulation. Ecosystems 3:293–307.&lt;/p&gt;
 &lt;p&gt;Elser, J. J., R. W. Sterner, E. Gorokhova, W. F. Fagan, T. a Markow, J. B. Cotner, J. F. Harrison, S. E. Hobbie, G. M. Odell, and L. W. Weider. 2000a. Biological stoichiometry from genes to ecosystems. Ecology Letters 3:540–550.&lt;/p&gt;
 &lt;p&gt;Lotka, A. J. 1925. Elements of physical biology. . Williams &amp;amp; Wilkins, Baltimore.&lt;/p&gt;
 &lt;p&gt;Sterner, R. W., and J. J. Elser. 2002. Ecological stoichiometry: the biology of elements from molecules to the biosphere. . Princeton University Press.&lt;/p&gt;</content>
