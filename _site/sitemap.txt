@@ -53,7 +53,6 @@ http://www.noamross.net/blog/2012/10/22/ecological-stoichiometry--the-perils-of-
 http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html
 http://www.noamross.net/blog/2012/10/19/scb-voter-s-guide.html
 http://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings.html
-http://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings.html
 http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html
 http://www.noamross.net/blog/2012/10/3/forest-ecology-journals.html
 http://www.noamross.net/blog/2012/10/2/notes-on-ecological-stoichiometry--day-1.html

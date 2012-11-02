@@ -1,7 +1,7 @@
 ---
 title: A Science-based Voter's Guide
 author: Noam Ross
-tags: [SCB voting policy]
+tags: [SCB, voting, policy]
 date: 12-10-19 09:43:28
 layout: post
 --- 

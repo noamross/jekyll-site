@@ -1,7 +1,7 @@
 ---
 title: Stella Copeland's Intro to Mixed Models in R
 author: Noam Ross
-tags: [R D-RGUG mixedmodels stats]
+tags: [R, D-RUG, mixedmodels, stats]
 date: 12-10-19 10:26:56
 layout: post
 --- 

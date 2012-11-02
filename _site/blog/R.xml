@@ -4,13 +4,376 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-02T11:40:34-07:00</updated>
+ <updated>2012-11-02T11:50:28-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Ryan Peek on Customizing Your R Setup</title>
+   <link href="http://www.noamross.net/blog/2012/11/2/rprofile.html"/>
+   <updated>2012-11-02T11:37:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/11/2/rprofile</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://watershed.ucdavis.edu/people/ryan-peek&quot;&gt;Ryan Peek&lt;/a&gt; showed us how to use an &lt;code&gt;.Rprofile&lt;/code&gt; file to customize your R setup. Here are his instructions and script:&lt;/p&gt;
+&lt;h2 id=&quot;for-windows&quot;&gt;For Windows&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;To change profile for R, go here:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C:\Program Files\R\R-2.15.1\etc&lt;/code&gt; (or whatever version you are using)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Edit the “Rprofile.site” file&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Restart R&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;for-macs&quot;&gt;For Macs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create your Rprofile file. -use TextEdit or another editor to create a file called Rprofile.txt&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In a terminal window, type:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt;&amp;gt; cp Rprofile.txt .Rprofile&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(which copies the visible Rprofile.txt to the invisible .Rprofile)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can check this by doing &lt;code&gt;&amp;gt;ls -la&lt;/code&gt; again to see it in the directory listing.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Restart R&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that you can save &lt;code&gt;.Rprofile&lt;/code&gt; in your home directory, or, if you are using R Studio, in a &lt;em&gt;project&lt;/em&gt; directory. In the latter case, the profile will only be loaded when you load that project.&lt;/p&gt;
+&lt;h3 id=&quot;things-to-put-in-the-.rprofile-file&quot;&gt;Things to put in the &lt;code&gt;.Rprofile&lt;/code&gt; file:&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Set a local CRAN Mirror:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;local&lt;/span&gt;({r &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getOption&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;repos&amp;quot;&lt;/span&gt;)
+       r[&lt;span class=&quot;st&quot;&gt;&amp;quot;CRAN&amp;quot;&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;st&quot;&gt;&amp;quot;http://cran.cnr.berkeley.edu/&amp;quot;&lt;/span&gt;
+       &lt;span class=&quot;kw&quot;&gt;options&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;repos=&lt;/span&gt;r)})&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Set machine-specific options:&lt;/em&gt;&lt;/strong&gt; If you use Dropbox or something similar to sync R files across computers, you can use &lt;code&gt;Sys.info()&lt;/code&gt; to set options specifically for your machine. This code sets the root path differently for different machines:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;if(&lt;span class=&quot;kw&quot;&gt;Sys.info&lt;/span&gt;()[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]==&lt;span class=&quot;st&quot;&gt;&amp;quot;Work-PC&amp;quot;&lt;/span&gt;) {
+  root&amp;lt;-&lt;span class=&quot;st&quot;&gt;&amp;quot;C://Users//Ryan//Desktop//Dropbox//R//&amp;quot;&lt;/span&gt;
+} else if(&lt;span class=&quot;kw&quot;&gt;Sys.info&lt;/span&gt;()[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]==&lt;span class=&quot;st&quot;&gt;&amp;quot;Mac.local&amp;quot;&lt;/span&gt;) {
+  root&amp;lt;-&lt;span class=&quot;st&quot;&gt;&amp;quot;/Users/Ryan/Dropbox/R/&amp;quot;&lt;/span&gt;
+} else {
+  root&amp;lt;-&lt;span class=&quot;st&quot;&gt;&amp;quot;C://Users//rapeek//Dropbox//R//&amp;quot;&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Set a welcome message and load a file of other useful functions:&lt;/em&gt;&lt;/strong&gt; Anything in the &lt;code&gt;.First&lt;/code&gt; function is run on startup&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;.First &amp;lt;- function(){
+    &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;Welcome to R!&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+    &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;---------------&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+    
+    if(&lt;span class=&quot;kw&quot;&gt;file.exists&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;~/RbasicFunctions_example.r&amp;quot;&lt;/span&gt;)){
+        &lt;span class=&quot;kw&quot;&gt;source&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;~/RbasicFunctions_example.r&amp;quot;&lt;/span&gt;)
+        &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;RbasicFunctions_example.r was loaded, providing the following functions:&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+        &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;use  &amp;#39;print.functions()&amp;#39;  to view&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;helper-functions&quot;&gt;Helper functions&lt;/h3&gt;
+&lt;p&gt;Here’s Ryan’s file, called above as &lt;code&gt;RbasicFunctions_example.r&lt;/code&gt;, which has his helper functions. Running &lt;code&gt;print.functions()&lt;/code&gt; will display a list of these with short explanations:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/4003343.js?file=RbasicFunctions_example.r&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A lot of other useful options for R profile files are found in &lt;a href=&quot;http://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile&quot;&gt;this Stack Overflow discussion&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Chris Hamm on using plot.new() for better combined plots</title>
+   <link href="http://www.noamross.net/blog/2012/10/26/plotnew.html"/>
+   <updated>2012-10-26T10:41:35-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/10/26/plotnew</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;At DRUG today, &lt;a href=&quot;https://www.msu.edu/~chamm/Welcome.html&quot;&gt;Chris Hamm&lt;/a&gt; (&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--
+h='&amp;#x75;&amp;#x63;&amp;#100;&amp;#x61;&amp;#118;&amp;#x69;&amp;#x73;&amp;#46;&amp;#x65;&amp;#100;&amp;#x75;';a='&amp;#64;';n='&amp;#x63;&amp;#x61;&amp;#104;&amp;#x61;&amp;#x6d;&amp;#x6d;';e=n+a+h;
+document.write('&lt;a h'+'ref'+'=&quot;ma'+'ilto'+':'+e+'&quot;&gt;'+'email'+'&lt;\/'+'a'+'&gt;');
+// --&gt;
+&lt;/script&gt;&lt;noscript&gt;&amp;#x65;&amp;#x6d;&amp;#x61;&amp;#x69;&amp;#108;&amp;#32;&amp;#40;&amp;#x63;&amp;#x61;&amp;#104;&amp;#x61;&amp;#x6d;&amp;#x6d;&amp;#32;&amp;#x61;&amp;#116;&amp;#32;&amp;#x75;&amp;#x63;&amp;#100;&amp;#x61;&amp;#118;&amp;#x69;&amp;#x73;&amp;#32;&amp;#100;&amp;#x6f;&amp;#116;&amp;#32;&amp;#x65;&amp;#100;&amp;#x75;&amp;#x29;&lt;/noscript&gt;) showed us an easier way to combine multiple figures into one plot using &lt;code&gt;plot.new&lt;/code&gt;, rather than &lt;code&gt;par(mfrow=...)&lt;/code&gt; Here’s his script:&lt;/p&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style type=&quot;text/css&quot;&gt;.knitr.inline {
+  background-color: #f7f7f7;
+  border:solid 1px #B0B0B0;
+}
+.error {
+    font-weight: bold;
+    color: #FF0000;
+}, 
+.warning {
+    font-weight: bold;
+} 
+.message {
+    font-style: italic;
+} 
+.source, .output, .warning, .error, .message {
+    padding: 0em 1em;
+  border:solid 1px #F7F7F7;
+}
+.source {
+  background-color: #f7f7f7;
+}
+.rimage.left {
+  text-align: left;
+}
+.rimage.right {
+  text-align: right;
+}
+.rimage.center {
+  text-align: center;
+}
+
+.source {
+  color: #333333;
+}
+.background {
+  color: #F7F7F7;
+}
+
+.number {
+  color: #000000;
+}
+
+.functioncall {
+  color: #800054;
+  font-weight: bolder;
+}
+
+.string {
+  color: #9999FF;
+}
+
+.keyword {
+  font-weight: bolder;
+  color: black;
+}
+
+.argument {
+  color: #B04005;
+}
+
+.comment {
+  color: #2E9957;
+}
+
+.roxygencomment {
+  color: #707AB3;
+}
+
+.formalargs {
+  color: #B04005;
+}
+
+.eqformalargs {
+  color: #B04005;
+}
+
+.assignement {
+  font-weight: bolder;
+  color: #000000;
+}
+
+.package {
+  color: #96B525;
+}
+
+.slot {
+  font-style: italic;
+}
+
+.symbol {
+  color: #000000;
+}
+
+.prompt {
+  color: #333333;
+}
+&lt;/style&gt;
+  &lt;title&gt;
+A Report Generated by knitr
+&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;chunk&quot;&gt;&lt;div class=&quot;rcode&quot;&gt;&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;# &lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;() cahamm@ucdavis.edu
+
+&lt;span class=&quot;comment&quot;&gt;#I discovered this plotting method when trying to add an inset figure&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;# to a plot&lt;/span&gt;
+
+&lt;span class=&quot;comment&quot;&gt;# plot.new is part of the traditional graphics. This function starts a new plot with the&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;# scale of the x- and y- axes to (0,1) This allows you to specify the location of each
+&lt;span class=&quot;comment&quot;&gt;# pane or inset and provides a high level of customizability for R graphics&lt;/span&gt;
+
+&lt;span class=&quot;comment&quot;&gt;############### Plotting multiple panes, the old way&lt;/span&gt;
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mfrow = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 1))
+
+&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B1$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;Degrees C&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;3 January - 13 March, 2011&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, 
+    ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-25, 15), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 2)
+&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T1$TMP, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 2, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2)
+# line at &lt;span class=&quot;functioncall&quot;&gt;DD50&lt;/span&gt; (10C = 50F)
+&lt;span class=&quot;functioncall&quot;&gt;legend&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;topleft&quot;&lt;/span&gt;, legend = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Ground Level&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;1m Height&quot;&lt;/span&gt;), col = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;black&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;), lty = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(1, 
+    2), lwd = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(2, 2), bty = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;)
+
+&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B2$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;Degrees C&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;13 March - 7 May, 2011&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, lwd = 2, 
+    ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-10, 35), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;)
+&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T2$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 2)
+
+&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B3$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;Degrees C&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;7 May - 16 July, 2011&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 
+    38), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 2)
+&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T3$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 2)
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rimage center&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/figure.plot.new/plot-new-T-Rhtmlauto-report1.png&quot;  class=&quot;plot&quot; /&gt;
+&lt;/div&gt;&lt;div class=&quot;rcode&quot;&gt;
+&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;
+&lt;span class=&quot;comment&quot;&gt;#### Using the new way&lt;/span&gt;
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(1, 5, 0, 0))  #set up the margins &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; the overall plot
+&lt;span class=&quot;functioncall&quot;&gt;quartz&lt;/span&gt;(height = 8, width = 8)
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0.65, 1), new = T)  #now tell it where you want the new plot, reads x1 x2, y1 &lt;span class=&quot;functioncall&quot;&gt;y2&lt;/span&gt; (left and right bounds, top and bottom bounds)
+&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;warning&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;## Warning: calling par(new=TRUE) with no plot
+&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 6, 1, 1))  #set the margins &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; the new plot
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B1$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-25, 15), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 3, 
+    las = 1, bty = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, cex.axis = 1.5)
+&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;3 January - 13 March, 2011&quot;&lt;/span&gt;, side = 1, line = 0.5, adj = 0.5, cex = 1.5)
+&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T1$TMP, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 4, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2)
+&lt;span class=&quot;functioncall&quot;&gt;legend&lt;/span&gt;(x = 0, y = 19, legend = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1m Height&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;Ground Level&quot;&lt;/span&gt;), col = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;black&quot;&lt;/span&gt;), lty = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(4, 
+    1), lwd = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 2), bty = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;)
+
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0.35, 0.7), new = T)
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 6, 1, 1))
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B2$TMP, ylab = (&lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;functioncall&quot;&gt;Temperature&lt;/span&gt; (&quot;&lt;/span&gt;, degree, &lt;span class=&quot;string&quot;&gt;&quot;C)&quot;&lt;/span&gt;))), xlab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, 
+    lty = 1, lwd = 3, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-10, 35), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, bty = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, las = 1, cex.axis = 1.5, cex.lab = 1.5)
+&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T2$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 4)
+&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;13 March - 7 May, 2011&quot;&lt;/span&gt;, side = 1, line = 0.5, adj = 0.5, cex = 1.5)
+
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0, 0.35), new = T)
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 6, 1, 1))
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B3$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 38), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 3, 
+    las = 1, bty = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, cex.axis = 1.5)
+&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T3$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 4)
+&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;7 May - 16 July, 2011&quot;&lt;/span&gt;, side = 1, line = 0.5, adj = 0.5, cex = 1.5)
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rimage center&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/figure.plot.new/plot-new-T-Rhtmlauto-report2.png&quot;  class=&quot;plot&quot; /&gt;
+&lt;/div&gt;&lt;div class=&quot;rcode&quot;&gt;
+&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;
+&lt;span class=&quot;comment&quot;&gt;############# Puting it all together&lt;/span&gt;
+&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(MASS)
+&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(MCMCpack)
+&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(compositions)
+&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(grDevices)
+
+w &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;rdirichlet&lt;/span&gt;(50000, &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(5, 0.5, 2))
+&lt;span class=&quot;functioncall&quot;&gt;colnames&lt;/span&gt;(w) &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;B&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;C&quot;&lt;/span&gt;)
+ind1 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;rmultinom&lt;/span&gt;(1, 40, w[1, ])
+ind2 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;rmultinom&lt;/span&gt;(1, 22, w[2, ])
+
+
+
+&lt;span class=&quot;functioncall&quot;&gt;quartz&lt;/span&gt;(width = 6.8, height = 4.5)
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.4, 0.6, 0.75, 0.95), mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 0, 0, 0))
+&lt;span class=&quot;functioncall&quot;&gt;plot.rcomp&lt;/span&gt;(w, col = &lt;span class=&quot;functioncall&quot;&gt;rgb&lt;/span&gt;(1, 0, 0, 0.1), pch = &lt;span class=&quot;string&quot;&gt;&quot;.&quot;&lt;/span&gt;, labels = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;B&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;C&quot;&lt;/span&gt;))
+
+&lt;span class=&quot;comment&quot;&gt;# Individual count data&lt;/span&gt;
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0.1, 0.3), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
+# &lt;span class=&quot;functioncall&quot;&gt;plot.window&lt;/span&gt;(xlim=&lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0,1),ylim=&lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0,0.75))
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+# &lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.2,0.2,&lt;span class=&quot;string&quot;&gt;'x'&lt;/span&gt;,font=3,family=&lt;span class=&quot;string&quot;&gt;'Arial'&lt;/span&gt;,cex=2)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.1, 0.6, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1A&quot;&lt;/span&gt;)]) == 36), pos = 4)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.1, 0.4, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1B&quot;&lt;/span&gt;)]) == 1), pos = 4)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.1, 0.2, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1C&quot;&lt;/span&gt;)]) == 3), pos = 4)
+
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.4, 0.6, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2A&quot;&lt;/span&gt;)]) == 15), pos = 4)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.4, 0.4, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2B&quot;&lt;/span&gt;)]) == 3), pos = 4)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.4, 0.2, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2C&quot;&lt;/span&gt;)]) == 11), pos = 4)
+
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.74, 0.6, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;iA&quot;&lt;/span&gt;)]) == 13), pos = 4)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.74, 0.4, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;iB&quot;&lt;/span&gt;)]) == 4), pos = 4)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.74, 0.2, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;iC&quot;&lt;/span&gt;)]) == 5), pos = 4)
+
+
+&lt;span class=&quot;comment&quot;&gt;# individual probs given count data&lt;/span&gt;
+Px1 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(36, 1, 3)/40
+Px2 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(15, 3, 11)/29
+Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5)/22
+
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.15, 0.25, 0.4, 0.6), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+&lt;span class=&quot;functioncall&quot;&gt;barplot&lt;/span&gt;(Px1, names.arg = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;), ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1), col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, cex.axis = 0.5, cex.names = 0.75, 
+    las = 1)
+&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A  B  C&quot;&lt;/span&gt;, side = 1)
+&lt;span class=&quot;functioncall&quot;&gt;abline&lt;/span&gt;(h = 0, lwd = 2)
+
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.43, 0.53, 0.4, 0.6), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+&lt;span class=&quot;functioncall&quot;&gt;barplot&lt;/span&gt;(Px2, names.arg = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;), ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1), col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, cex.axis = 0.5, cex.names = 0.75, 
+    las = 1)
+&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A  B  C&quot;&lt;/span&gt;, side = 1)
+&lt;span class=&quot;functioncall&quot;&gt;abline&lt;/span&gt;(h = 0, lwd = 2)
+
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.74, 0.84, 0.4, 0.6), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
+# &lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig=&lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.71,0.81,0.4,0.6),new=&lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+&lt;span class=&quot;functioncall&quot;&gt;barplot&lt;/span&gt;(Px3, names.arg = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;), ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1), col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, cex.axis = 0.5, cex.names = 0.75, 
+    las = 1)
+&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A  B  C&quot;&lt;/span&gt;, side = 1)
+&lt;span class=&quot;functioncall&quot;&gt;abline&lt;/span&gt;(h = 0, lwd = 2)
+
+&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0, 1), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
+&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.62, 0.51, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(...), pos = 2, cex = 2)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.08, 0.5, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1j&quot;&lt;/span&gt;, sep = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)]) == &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;), pos = 2, cex = 1)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.38, 0.5, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2j&quot;&lt;/span&gt;, sep = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)]) == &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;), pos = 2, cex = 1)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.71, 0.5, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;ij&quot;&lt;/span&gt;, sep = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)]) == &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;), pos = 2, cex = 1)
+# &lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.68,0.5,&lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'ij'&lt;/span&gt;,sep=&lt;span class=&quot;string&quot;&gt;''&lt;/span&gt;)])==&lt;span class=&quot;string&quot;&gt;''&lt;/span&gt;),pos=2,cex=1)
+
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.04, 0.22, &lt;span class=&quot;string&quot;&gt;&quot;Individual\ncounts&quot;&lt;/span&gt;, pos = 1, cex = 1)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(-0.05, 0.65, &lt;span class=&quot;string&quot;&gt;&quot;Individual probabilities&quot;&lt;/span&gt;, pos = 4, cex = 1)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.04, 0.87, &lt;span class=&quot;string&quot;&gt;&quot;Population&quot;&lt;/span&gt;, pos = 1, cex = 1)
+
+&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.16, 0.23, 0.16, 0.33, angle = 20, length = 0.15, lwd = 2)
+&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.46, 0.23, 0.46, 0.33, angle = 20, length = 0.15, lwd = 2)
+&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.795, 0.23, 0.795, 0.33, angle = 20, length = 0.15, lwd = 2)
+
+&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.53, 0.75, 0.7, 0.63, angle = 20, length = 0.15, lwd = 2, code = 3)
+&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.47, 0.75, 0.3, 0.63, angle = 20, length = 0.15, lwd = 2, code = 3)
+&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.5, 0.75, 0.5, 0.63, angle = 20, length = 0.15, lwd = 2, code = 3)
+
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.72, 0.89, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(alpha[&lt;span class=&quot;string&quot;&gt;&quot;A&quot;&lt;/span&gt;]) == &lt;span class=&quot;string&quot;&gt;&quot;5.0&quot;&lt;/span&gt;), pos = 1, cex = 1)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.72, 0.85, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(alpha[&lt;span class=&quot;string&quot;&gt;&quot;B&quot;&lt;/span&gt;]) == &lt;span class=&quot;string&quot;&gt;&quot;0.5&quot;&lt;/span&gt;), pos = 1, cex = 1)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.72, 0.81, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(alpha[&lt;span class=&quot;string&quot;&gt;&quot;C&quot;&lt;/span&gt;]) == &lt;span class=&quot;string&quot;&gt;&quot;2.0&quot;&lt;/span&gt;), pos = 1, cex = 1)
+
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.92, 0.65, &lt;span class=&quot;string&quot;&gt;&quot;Multinomial&quot;&lt;/span&gt;)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.94, 0.87, &lt;span class=&quot;string&quot;&gt;&quot;Dirichlet&quot;&lt;/span&gt;)
+
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.083, 0.95, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;underline&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Hierarchical level&quot;&lt;/span&gt;)), cex = 1.2)
+&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.89, 0.95, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;underline&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Modeled distribution&quot;&lt;/span&gt;)), cex = 1.2)
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rimage center&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/figure.plot.new/plot-new-T-Rhtmlauto-report3.png&quot;  class=&quot;plot&quot; /&gt;
+&lt;/div&gt;&lt;div class=&quot;rcode&quot;&gt;
+&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;
+&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Stella Copeland's Intro to Mixed Models in R</title>
+   <link href="http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html"/>
+   <updated>2012-10-19T10:26:56-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;In D-RUG today, &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/Harrison/people/stella/copeland.html&quot;&gt;Stella Copeland&lt;/a&gt; gave a quick introduction to mixed models in R. Here’s the script that she presented:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/3919839.js?file=Mixed models R code - 10192012&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Get the data file for this script &lt;a href=&quot;https://gist.github.com/3919839#file_mixed_model_ex_data&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Stella also recommends &lt;a href=&quot;http://dx.doi.org/10.1016/j.tree.2008.10.008&quot;&gt;this paper&lt;/a&gt; by &lt;a href=&quot;http://www.math.mcmaster.ca/~bolker/&quot;&gt;Ben Bolker&lt;/a&gt; as a quick introduction to the topic.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>A quick introduction to ggplot()</title>

@@ -1,7 +1,7 @@
 ---
 title: "Ecological Stoichiometry: The Perils of Famine and Plenty"
 author: Noam Ross
-tags: [stoichiometry class notes]
+tags: [stoichiometry, class, notes]
 date: 12-10-22 19:55:56
 layout: post
 --- 
