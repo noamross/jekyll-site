@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-02T11:50:28-07:00</updated>
+ <updated>2012-11-02T14:40:57-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -67,7 +67,7 @@
     }
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&quot;helper-functions&quot;&gt;Helper functions&lt;/h3&gt;
-&lt;p&gt;Here’s Ryan’s file, called above as &lt;code&gt;RbasicFunctions_example.r&lt;/code&gt;, which has his helper functions. Running &lt;code&gt;print.functions()&lt;/code&gt; will display a list of these with short explanations:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/4003343&quot;&gt;Here’s Ryan’s file&lt;/a&gt;, called above as &lt;code&gt;RbasicFunctions_example.r&lt;/code&gt;, which has his helper functions. Running &lt;code&gt;print.functions()&lt;/code&gt; will display a list of these with short explanations:&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/4003343.js?file=RbasicFunctions_example.r&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;A lot of other useful options for R profile files are found in &lt;a href=&quot;http://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile&quot;&gt;this Stack Overflow discussion&lt;/a&gt;&lt;/p&gt;</content>
