@@ -4,13 +4,74 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-10-26T12:02:33-07:00</updated>
+ <updated>2012-11-02T11:37:41-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Ryan Peek on Customizing Your R Setup</title>
+   <link href="http://www.noamross.net/blog/2012/11/2/rprofile.html"/>
+   <updated>2012-11-02T11:37:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/11/2/rprofile</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://watershed.ucdavis.edu/people/ryan-peek&quot;&gt;Ryan Peek&lt;/a&gt; showed us how to use an &lt;code&gt;.Rprofile&lt;/code&gt; file to customize your R setup. Here are his instructions and script:&lt;/p&gt;
+&lt;h2 id=&quot;for-windows&quot;&gt;For Windows&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;To change profile for R, go here:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;C:\Program Files\R\R-2.15.1\etc&lt;/code&gt; (or whatever version you are using)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Edit the “Rprofile.site” file&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Restart R&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;for-macs&quot;&gt;For Macs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Create your Rprofile file. -use TextEdit or another editor to create a file called Rprofile.txt&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;In a terminal window, type:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;gt;&amp;gt; cp Rprofile.txt .Rprofile&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(which copies the visible Rprofile.txt to the invisible .Rprofile)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can check this by doing &lt;code&gt;&amp;gt;ls -la&lt;/code&gt; again to see it in the directory listing.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Restart R&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that you can save &lt;code&gt;.Rprofile&lt;/code&gt; in your home directory, or, if you are using R Studio, in a &lt;em&gt;project&lt;/em&gt; directory. In the latter case, the profile will only be loaded when you load that project.&lt;/p&gt;
+&lt;h3 id=&quot;things-to-put-in-the-.rprofile-file&quot;&gt;Things to put in the &lt;code&gt;.Rprofile&lt;/code&gt; file:&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Set a local CRAN Mirror:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;local&lt;/span&gt;({r &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getOption&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;repos&amp;quot;&lt;/span&gt;)
+       r[&lt;span class=&quot;st&quot;&gt;&amp;quot;CRAN&amp;quot;&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;st&quot;&gt;&amp;quot;http://cran.cnr.berkeley.edu/&amp;quot;&lt;/span&gt;
+       &lt;span class=&quot;kw&quot;&gt;options&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;repos=&lt;/span&gt;r)})&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Set machine-specific options:&lt;/em&gt;&lt;/strong&gt; If you use Dropbox or something similar to sync R files across computers, you can use &lt;code&gt;Sys.info()&lt;/code&gt; to set options specifically for your machine. This code sets the root path differently for different machines:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;if(&lt;span class=&quot;kw&quot;&gt;Sys.info&lt;/span&gt;()[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]==&lt;span class=&quot;st&quot;&gt;&amp;quot;Work-PC&amp;quot;&lt;/span&gt;) {
+  root&amp;lt;-&lt;span class=&quot;st&quot;&gt;&amp;quot;C://Users//Ryan//Desktop//Dropbox//R//&amp;quot;&lt;/span&gt;
+} else if(&lt;span class=&quot;kw&quot;&gt;Sys.info&lt;/span&gt;()[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]==&lt;span class=&quot;st&quot;&gt;&amp;quot;Mac.local&amp;quot;&lt;/span&gt;) {
+  root&amp;lt;-&lt;span class=&quot;st&quot;&gt;&amp;quot;/Users/Ryan/Dropbox/R/&amp;quot;&lt;/span&gt;
+} else {
+  root&amp;lt;-&lt;span class=&quot;st&quot;&gt;&amp;quot;C://Users//rapeek//Dropbox//R//&amp;quot;&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Set a welcome message and load a file of other useful functions:&lt;/em&gt;&lt;/strong&gt; Anything in the &lt;code&gt;.First&lt;/code&gt; function is run on startup&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;.First &amp;lt;- function(){
+    &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;Welcome to R!&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+    &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;---------------&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+    
+    if(&lt;span class=&quot;kw&quot;&gt;file.exists&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;~/RbasicFunctions_example.r&amp;quot;&lt;/span&gt;)){
+        &lt;span class=&quot;kw&quot;&gt;source&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;~/RbasicFunctions_example.r&amp;quot;&lt;/span&gt;)
+        &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;RbasicFunctions_example.r was loaded, providing the following functions:&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+        &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;use  &amp;#39;print.functions()&amp;#39;  to view&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;helper-functions&quot;&gt;Helper functions&lt;/h3&gt;
+&lt;p&gt;Here’s Ryan’s file, called above as &lt;code&gt;RbasicFunctions_example.r&lt;/code&gt;, which has his helper functions. Running &lt;code&gt;print.functions()&lt;/code&gt; will display a list of these with short explanations:&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/4003343.js?file=RbasicFunctions_example.r&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A lot of other useful options for R profile files are found in &lt;a href=&quot;http://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile&quot;&gt;this Stack Overflow discussion&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Chris Hamm on using plot.new() for better combined plots</title>

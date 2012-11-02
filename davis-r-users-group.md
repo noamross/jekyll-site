@@ -37,6 +37,8 @@ Sometimes D-RUG members put together useful resources and tutorials.
 
  - [An introduction to `ggplot()`](http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html)
  - [An introduction to mixed models](http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html)
+ - [Using `plot.new()` for better combined plots](http://www.noamross.net/blog/2012/10/26/plotnew.html)
+ - [Customizing your R setup with .Rprofile]()
 
 ### Web Resources
 
