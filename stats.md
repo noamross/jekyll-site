@@ -77,13 +77,13 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Economics (inc. Agricultural Economics) ###
 
-- <a onclick="showhide('ECN204A'); chgifr('/statsclasses/ECN204A.html', 'ECN204A');">**ECN 240A. Econometric Methods**</a>
+- <a onclick="showhide('ECN244A'); chgifr('/statsclasses/ECN240A.html', 'ECN240A');">**ECN 240A. Econometric Methods**</a>
 
-  <iframe width="600" height="800" src="" id="ECN204A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="" id="ECN240A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('ECN204B'); chgifr('/statsclasses/ECN204B.html', 'ECN204B');">**ECN 240B. Econometric Methods**</a>
+- <a onclick="showhide('ECN240B'); chgifr('/statsclasses/ECN240B.html', 'ECN204B');">**ECN 240B. Econometric Methods**</a>
 
-  <iframe width="600" height="800" src="" id="ECN204B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="" id="ECN240B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 - <a onclick="showhide('ARE256'); chgifr('/statsclasses/ARE256.html', 'ARE256');">**ARE 256. Applied Econometrics**</a>
 
