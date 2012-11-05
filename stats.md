@@ -49,6 +49,8 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ***Important:*** *Inclusion on this webpage is no guarantee that a course will fullful your quantitative requirements.  That is up to your committee.*
 
+**Courses Updated 11/5/12**: ECN204A, POL212, POL279, PLS205, STA130B
+
 ### Anthropology ###
 
 - <a onclick="showhide('ECLANT298'); chgifr('/statsclasses/ECLANT298.html', 'ECLANT298');">**ANT298/ECL 298: Statistical Rethinking**</a>
