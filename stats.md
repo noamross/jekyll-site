@@ -77,7 +77,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Economics (inc. Agricultural Economics) ###
 
-- <a onclick="showhide('ECN244A'); chgifr('/statsclasses/ECN240A.html', 'ECN240A');">**ECN 240A. Econometric Methods**</a>
+- <a onclick="showhide('ECN240A'); chgifr('/statsclasses/ECN240A.html', 'ECN240A');">**ECN 240A. Econometric Methods**</a>
 
   <iframe width="600" height="800" src="" id="ECN240A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
