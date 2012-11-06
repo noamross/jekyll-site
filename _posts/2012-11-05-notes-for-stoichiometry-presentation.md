@@ -1,5 +1,6 @@
 ---
-title: Dynamics of Coupled Nutrient Cycling and Acclimation: 3 Modeling Papers
+title: "Dynamics of Coupled Nutrient Cycling and Acclimation: 3 Modeling
+       Papers"
 author: Noam Ross
 tags: [stoichiometry, class, notes, lecture]
 date: 12-11-05 19:47:23
