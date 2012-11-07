@@ -49,7 +49,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ***Important:*** *Inclusion on this webpage is no guarantee that a course will fullful your quantitative requirements.  That is up to your committee.*
 
-**Courses Updated 11/5/12**: ECN204A, POL212, POL279, PLS205, STA130B
+**Courses Updated 11/5/12**: ANT298, ECN204A, POL212, POL279, PLS205, STA130B
 
 ### Anthropology ###
 
