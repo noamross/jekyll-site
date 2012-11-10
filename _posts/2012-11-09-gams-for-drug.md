@@ -17,6 +17,9 @@ script. You can get the original script and data
 Also, check the comments below for some discussion of other options for
 this type of analysis, such as boosted regression trees.
 
+<iframe src="http://www.slideshare.net/slideshow/embed_code/15108978" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+
 ~~~~ {.r}
 ## GAMs using mgcv and amphibian presence/absence dataset
 ## code and data by Rosemary Hartman (rosehartman at gmail dot com)

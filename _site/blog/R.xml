@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-09T13:17:00-08:00</updated>
+ <updated>2012-11-09T18:06:30-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -24,6 +24,9 @@
   &lt;/style&gt;
 &lt;/head&gt; &lt;p&gt;Today at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, Rosemary Hartman took us through her work in progress fitting general additive models to organism presence/absence data. Below is her presentation and script. You can get the original script and data &lt;a href=&quot;https://gist.github.com/4048075&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Also, check the comments below for some discussion of other options for this type of analysis, such as boosted regression trees.&lt;/p&gt;
+&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/15108978&quot; width=&quot;476&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
+
+
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## GAMs using mgcv and amphibian presence/absence dataset
 ## code and data by Rosemary Hartman (rosehartman at gmail dot com)
 
