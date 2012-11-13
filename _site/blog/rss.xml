@@ -4,13 +4,68 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-09T18:06:30-08:00</updated>
+ <updated>2012-11-13T12:13:27-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Ecological Stoichiometry: Population Dynamics</title>
+   <link href="http://www.noamross.net/blog/2012/11/13/ecological-stoichiometry--notes-on-andersen-et-al-2004.html"/>
+   <updated>2012-11-13T10:05:03-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/11/13/ecological-stoichiometry--notes-on-andersen-et-al-2004</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Lauren Yamane talked about Andersen et al. (2004) in our Ecological Stoichiometry course today. Here are her slides, and below, my rough notes on the paper:&lt;/p&gt;
+&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/15160658&quot; width=&quot;427&quot; height=&quot;356&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&quot; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; 
+
+&lt;h2 id=&quot;notes-on-the-paper&quot;&gt;Notes on the Paper&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Stoichiometry is a way of representing food quality - there is evidence that consumers have preference for high quality (e.g., low C:N) food.&lt;/li&gt;
+&lt;li&gt;There is often a mismatch between composition of prey (autotrophs) and needs of consumers. Autotrophs have variable C:N ratios, consumers are more constrained.
+&lt;ul&gt;
+&lt;li&gt;This mismatch affects carbon transfer efficiency&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Food quality can drive population fluctuations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;biological-basis&quot;&gt;Biological Basis&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;N and P driven by needs of protein and RNA&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;growth rate hypothesis&lt;/strong&gt; states that high P-content in organisms that are&lt;/li&gt;
+&lt;li&gt;Among plants there is much more flexibility, but also lower relative N and P requirements&lt;/li&gt;
+&lt;li&gt;Heterotrophs have CNP ratios an order of magnitude below autotrophs&lt;/li&gt;
+&lt;li&gt;Differences between autotrophs and heterotrophs are limiting but also drive nutrient cycling and release&lt;/li&gt;
+&lt;li&gt;Threshold element ratio (TER) is the critical ratio where limitation shifts from C/energy to another element. However above this, transfer efficiency decreases as consumers need to excrete extra nutrients.&lt;/li&gt;
+&lt;li&gt;Nutrient requirements vary throughout development. Some stages may be more limiting.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;density-dependence&quot;&gt;Density Dependence&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Density dependence of food quality could be positive or negative
+&lt;ul&gt;
+&lt;li&gt;Grazing of plants may lead to density dependence via quality reduction due to either selective grazing of choice nutrients or induced plant defenses.&lt;/li&gt;
+&lt;li&gt;Alternatively, grazers can mobilize nutrients otherwise difficult for other organisms to acquire, speed up cycling due to lower plant biomass under same nutrient inputs&lt;/li&gt;
+&lt;li&gt;Chemostat experiments with &lt;em&gt;Daphnia&lt;/em&gt; have confirmed the latter effect&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;In elaborations on L-V models&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, including nutrient limitation bounds the possible regions of predator-prey phase space. The constraint stabilizes the system.&lt;/li&gt;
+&lt;li&gt;Nutrient limitation implies that growth is limited by populations of all species in the system&lt;/li&gt;
+&lt;li&gt;The effect of nutrient on dynamics is limited to nutrient-constrained systems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Idea - stoichiometry is a great mechanism for looking at seasonal and transient effects&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;Andersen, T., J. J. Elser, and D. O. Hessen. 2004. Stoichiometry and population dynamics. Ecology Letters 7:884–900.&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Alan points out that Lotka himself actually talked quite a bit about stoichiometry.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Exploring GAMs with Rosemary Hartman</title>
