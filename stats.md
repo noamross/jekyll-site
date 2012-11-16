@@ -51,9 +51,16 @@ Click on a course to see a description and comments.  Please add your own commen
 
 **Courses Updated 11/5/12**: ANT298, ECN204A, POL212, POL279, PLS205, STA130B
 
+
+### Animal Sciences ### 
+
+- <a onclick="showhide('ABG250'); chgifr('/statsclasses/ABG250.html', 'ABG250');">**ABG 250. Mathematical Modeling in Biological Systems**</a>
+
+  <iframe width="600" height="800" src="" id="ABG250" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
 ### Anthropology ###
 
-- <a onclick="showhide('ECLANT298'); chgifr('/statsclasses/ECLANT298.html', 'ECLANT298');">**ANT298/ECL 298: Statistical Rethinking**</a>
+- <a onclick="showhide('ECLANT298'); chgifr('/statsclasses/ECLANT298.html', 'ECLANT298');">**ANT298/ECL 298. Statistical Rethinking**</a>
 
   <iframe width="600" height="800" src="" id="ECLANT298" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
