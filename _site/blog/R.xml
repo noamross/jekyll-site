@@ -4,13 +4,332 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-16T10:07:26-08:00</updated>
+ <updated>2012-11-16T18:15:57-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Simulating Sudden Oak Death Dynamics</title>
+   <link href="http://www.noamross.net/blog/2012/11/16/sod-dynamics-1.html"/>
+   <updated>2012-11-16T10:22:42-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/11/16/sod-dynamics-1</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;I am working on a project with the &lt;a href=&quot;http://ucanr.edu/sites/rizzolab/&quot;&gt;Rizzo Lab&lt;/a&gt; on a project examining the dynamics of [Sudden Oak Death]. I really have to write more about this, but today I’m just going to post the results of an initial exercise.&lt;/p&gt;
+&lt;p&gt;Here I attempt to replicate model results from Cobb et al. (2012). The model in that paper simulates the spread of disease and resulting tree mortality and stand dynamics in a mixed system of tanoak, bay laurel, and redwood. In this system, only tanoak and bay laurel carry the disease, and it mostly only kills tanoak, but all three species compete for space in the forest.&lt;/p&gt;
+&lt;p&gt;I’m developing this model as an R package -&lt;code&gt;&amp;quot;SODDr&amp;quot;&lt;/code&gt; (Sudden Oak Death Dynamics in R), to replicate this work, you can install it from github. Note that this is a very rough package and is changing, so you’ll need to install the version specific to this analysis:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(devtools) &lt;span class=&quot;co&quot;&gt;# devtools enables intsallation from alternate code locations&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;install_github&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;SODDr&amp;quot;&lt;/span&gt;,&lt;span class=&quot;st&quot;&gt;&amp;quot;noamross&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;1c139e1f98&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(SODDr)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;My model modifies the original in a few ways. First, it’s designed to be much more flexible, and make it easy to modify the number of species, size classes, and and disease parameters. Secondly, it is in a discrete- rather than continuous-time framework. This will make it easier to include stochasticity down the road, and ultimately fit it to actual data.&lt;/p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;First, I load a CSV file of parameters&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;treeparms.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;read.csv&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;system.file&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;paper_tree_parms_eq.csv&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;package =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;SODDr&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;stringsAsFactors =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(treeparms.df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   species ageclass S.mortality I.mortality S.recruit I.recruit
+## 1       1        1      0.0061       0.019        NA        NA
+## 2       1        2      0.0031       0.022     0.007     0.007
+## 3       1        3      0.0011       0.035     0.020     0.020
+## 4       1        4      0.0320       0.140     0.073     0.073
+## 5       2        1      0.0200       0.020        NA        NA
+## 6       3        1      0.0050       0.020        NA        NA
+##   S.transition I.transition S.resprout I.resprout recover space
+## 1      0.05212      0.05212          0        0.5    0.01    NA
+## 2      0.01848      0.01848          0        0.5    0.01    NA
+## 3      0.01473      0.01473          0        0.5    0.01    NA
+## 4      0.00000      0.00000          0        0.5    0.01    NA
+## 5      0.00000      0.00000          0        0.0    0.10     1
+## 6      0.00000      0.00000          0        0.0    0.10     1
+##            kernel.fn kernel.par1 kernel.par2  S.init I.init waifw1 waifw2
+## 1 adjacent.dispersal         0.5       0.125 0.03860      0   0.33   0.33
+## 2 adjacent.dispersal         0.5       0.125 0.09785      0   0.32   0.32
+## 3 adjacent.dispersal         0.5       0.125 0.11379      0   0.30   0.30
+## 4 adjacent.dispersal         0.5       0.125 0.04827      0   0.24   0.24
+## 5 adjacent.dispersal         0.5       0.125 0.11550      0   0.30   0.30
+## 6 adjacent.dispersal         0.5       0.125 0.32550      0   0.00   0.00
+##   waifw3 waifw4 waifw5 waifw6
+## 1   0.33   0.33   1.46      0
+## 2   0.32   0.32   1.46      0
+## 3   0.30   0.30   1.46      0
+## 4   0.24   0.24   1.46      0
+## 5   0.30   0.30   1.33      0
+## 6   0.00   0.00   0.00      0&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This data set includes all of the model parameters as defined by Cobb et al. (2012). For each species and age class, there are parameters for mortality, recruitment, transition between classes, the probability of resprouting, and recovering from disease. There are also parameters the the relative amount of space occupied by trees of each species/class.&lt;/p&gt;
+&lt;p&gt;For each species/class, the table includes a kernel function to describe dispersal of disease spores from diseased trees, and parameters for that function. The last set of columns represent the “”Who Acquires Infection From Whom&amp;quot; (WAIFW) matrix (Anderson and May 1985), which describes the vulnerability of each class to spores originating from others.&lt;/p&gt;
+&lt;p&gt;Note that several values, such as the space occupied by different tanoak size classes, and recruitment rates, are missing. This is because, per the original paper, I calculate these so as to parameterize the model for steady-state conditions in the absence of disease. Here I do that, using equation 8 in the papers’ supplement:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;treeparms.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;within&lt;/span&gt;(treeparms.df, {
+    &lt;span class=&quot;co&quot;&gt;# Calculate the relative space requirements of tanoak size classes based&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# on initial conditions&lt;/span&gt;
+    space[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;fl&quot;&gt;0.25&lt;/span&gt; * (&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;])/S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;])
+    
+    &lt;span class=&quot;co&quot;&gt;# Set recruitment rates to steady-state levels.  For Redwood and Bay, this&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# is simply the mortality rate divided by the density-dependence&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# coefficient at simulation start.  For tanoak, which has multiple size&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# classes, it&amp;#39;s a but more involved&lt;/span&gt;
+    
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] &amp;lt;- S.mortality[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] &amp;lt;- I.mortality[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &amp;lt;- S.mortality[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &amp;lt;- I.mortality[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    
+    A2 &amp;lt;- S.transition[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]/(S.transition[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;])
+    A3 &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]/(S.transition[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;])) * A2
+    A4 &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;]/S.mortality[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]) * A3
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;])/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space)) - 
+        (S.recruit[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] * A2 + S.recruit[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] * A3 + S.recruit[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] * A4)
+    
+    
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- S.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
+    A2 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+    A3 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+    A4 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+})&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The original model allows only dispersal between adjacent cells, so ameters table calls the dispersal kernel &lt;code&gt;adjacent.dispersal&lt;/code&gt;, and gives two parameters. This function outputs the first parameter when within the cell, the second for dispersal to adjacent cells, and zero for other cells:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(adjacent.dispersal)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## function (distance, local, adjacent) 
+## {
+##     ifelse(distance &amp;lt; 0.5, local, ifelse(distance &amp;lt; 1.5, adjacent, 
+##         0))
+## }
+## &amp;lt;environment: namespace:SODDr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next I set up the locations in the model. These must be in the form of a matrix with the first column being site numbers, and the second being &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;y&lt;/code&gt; coordinates. &lt;code&gt;MakeLattice&lt;/code&gt; is a convenience function that creates a regularly spaced grid:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;locations &amp;lt;- &lt;span class=&quot;kw&quot;&gt;MakeLattice&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;nx =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ny =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;dist =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(locations)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##      location x y
+## [1,]        1 0 0
+## [2,]        2 0 1
+## [3,]        3 0 2
+## [4,]        4 0 3
+## [5,]        5 0 4
+## [6,]        6 0 5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next, I create a matrix of initial population values, which should be sized by number of locations by number of species/size classes &lt;em&gt;times 2&lt;/em&gt;. They should be in order of the classes as they appear in the data table, but alternating &lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline S,I,S,I\dots&quot; alt=&quot;S,I,S,I\dots&quot; /&gt;. In this case, initial populations are uniform across the landscape and equal to the &lt;code&gt;init&lt;/code&gt; values from the parameters table.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;initial.vec = &lt;span class=&quot;kw&quot;&gt;as.vector&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;rbind&lt;/span&gt;(treeparms.df$S.init, treeparms.df$I.init))
+init &amp;lt;- &lt;span class=&quot;kw&quot;&gt;matrix&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; initial.vec, &lt;span class=&quot;dt&quot;&gt;nrow =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(locations), &lt;span class=&quot;dt&quot;&gt;ncol =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; * &lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(treeparms.df), 
+    &lt;span class=&quot;dt&quot;&gt;byrow =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, we set the time steps for the model&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;time.steps &amp;lt;- &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;do-it&quot;&gt;Do it!&lt;/h2&gt;
+&lt;p&gt;Running &lt;code&gt;SODModel&lt;/code&gt; runs the model and generates a dataframe of population by time, species, size class, and disease status&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;pop.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;SODModel&lt;/span&gt;(treeparms.df, locations, time.steps, init)
+&lt;span class=&quot;kw&quot;&gt;str&lt;/span&gt;(pop.df)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## &amp;#39;data.frame&amp;#39;:    480000 obs. of  6 variables:
+##  $ Time      : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ Location  : int  1 1 1 1 1 1 1 1 1 1 ...
+##  $ Species   : Factor w/ 3 levels &amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;: 1 1 1 1 1 1 1 1 2 2 ...
+##  $ AgeClass  : Factor w/ 4 levels &amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;,&amp;quot;4&amp;quot;: 1 1 2 2 3 3 4 4 1 1 ...
+##  $ Disease   : Factor w/ 2 levels &amp;quot;S&amp;quot;,&amp;quot;I&amp;quot;: 1 2 1 2 1 2 1 2 1 2 ...
+##  $ Population: num  0.0386 0 0.0978 0 0.1138 ...&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+&lt;p&gt;Here are the results, broken up by species and age class:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(ggplot2)
+&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(plyr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Attaching package: &amp;#39;plyr&amp;#39;
+
+## The following object(s) are masked from &amp;#39;package:twitteR&amp;#39;:
+## 
+## id&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;pop.df.totals &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(pop.df, &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Disease&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;AgeClass&amp;quot;&lt;/span&gt;), 
+    summarise, &lt;span class=&quot;dt&quot;&gt;TotPop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(Population))
+dynamic.plot &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(pop.df.totals, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; Time, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; TotPop, &lt;span class=&quot;dt&quot;&gt;fill =&lt;/span&gt; Disease, 
+    &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; AgeClass)) + &lt;span class=&quot;kw&quot;&gt;geom_area&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;position =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;stack&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;alpha =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.6&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;facet_grid&lt;/span&gt;(~Species)
+dynamic.plot&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/initrun.png&quot; alt=&quot;Population dynamics broken up by species (left to right, Tanoak, Bay, Redwood), and Size Class&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Population dynamics broken up by species (left to right, Tanoak, Bay, Redwood), and Size Class&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The plot shows This isn’t quite steady-state, I suspect because of some rounding errors in copying parameters from the paper.&lt;/p&gt;
+&lt;p&gt;We can make a plot in the style of Cobb et al. (2012), showing only the populations of small and large tanoaks as a proportion of the total population:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;paper.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;transform&lt;/span&gt;(pop.df.totals, &lt;span class=&quot;dt&quot;&gt;Size =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;ifelse&lt;/span&gt;(AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt; | AgeClass == 
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Small&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Large&amp;quot;&lt;/span&gt;)), &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Size&amp;quot;&lt;/span&gt;), summarise, &lt;span class=&quot;dt&quot;&gt;SizePop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(TotPop))
+paper.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(paper.df, &lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, transform, &lt;span class=&quot;dt&quot;&gt;Pct =&lt;/span&gt; SizePop/&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(SizePop))
+paper.plot &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(paper.df, Species == &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; Time, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; Pct, 
+    &lt;span class=&quot;dt&quot;&gt;lty =&lt;/span&gt; Size)) + &lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;scale_y_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;limits =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.6&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_x_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_linetype_manual&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;values =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, 
+    &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;theme_bw&lt;/span&gt;() + &lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;panel.grid.major =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;(), &lt;span class=&quot;dt&quot;&gt;panel.grid.minor =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;())
+paper.plot&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/papeplot.png&quot; alt=&quot;Tanoak as a fraction of total population over time, no disease&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Tanoak as a fraction of total population over time, no disease&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now, let’s change the initial conditions to include disease and see what happens. I change the populations of tanoak and bay in one pixel to infectious instead of healthy and run the model:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] &amp;lt;- init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;] &amp;lt;- init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;]
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+pop2.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;SODModel&lt;/span&gt;(treeparms.df, locations, time.steps, init)
+pop2.df.totals &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(pop2.df, &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Disease&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;AgeClass&amp;quot;&lt;/span&gt;), 
+    summarise, &lt;span class=&quot;dt&quot;&gt;TotPop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(Population))
+paper2.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;transform&lt;/span&gt;(pop2.df.totals, &lt;span class=&quot;dt&quot;&gt;Size =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;ifelse&lt;/span&gt;(AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt; | 
+    AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Small&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Large&amp;quot;&lt;/span&gt;)), &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Size&amp;quot;&lt;/span&gt;), summarise, 
+    &lt;span class=&quot;dt&quot;&gt;SizePop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(TotPop))
+paper2.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(paper2.df, &lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, transform, &lt;span class=&quot;dt&quot;&gt;Pct =&lt;/span&gt; SizePop/&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(SizePop))
+paper2.plot &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(paper2.df, Species == &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; Time, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; Pct, 
+    &lt;span class=&quot;dt&quot;&gt;lty =&lt;/span&gt; Size)) + &lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;scale_y_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;limits =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.6&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_x_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_linetype_manual&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;values =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, 
+    &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;theme_bw&lt;/span&gt;() + &lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;panel.grid.major =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;(), &lt;span class=&quot;dt&quot;&gt;panel.grid.minor =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;())
+paper2.plot&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/disease1.png&quot; alt=&quot;Tanoak as a fraction of total population, using baseline initial conditions and introducing disease&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Tanoak as a fraction of total population, using baseline initial conditions and introducing disease&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Qualitatively, this looks a lot like the original result:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cobb20124a.png&quot; alt=&quot;Figure 4a from Cobb et al. (2012)&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Figure 4a from Cobb et al. (2012)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The main difference is the overall rate of change, which is expected because I haven’t corrected any parameters for the change from continuous to discrete time.&lt;/p&gt;
+&lt;p&gt;Now I simulate a scenario with mostly tanoak, some redwood, and no bay laurel, with disease, using the parameters previously calulated for the steady state without disease:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;treeparms.df$S.init &amp;lt;- &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.7&lt;/span&gt; * treeparms.df$S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]/&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(treeparms.df$S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]), 
+    &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.19&lt;/span&gt;)
+
+initial.vec = &lt;span class=&quot;kw&quot;&gt;as.vector&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;rbind&lt;/span&gt;(treeparms.df$S.init, treeparms.df$I.init))
+init &amp;lt;- &lt;span class=&quot;kw&quot;&gt;matrix&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; initial.vec, &lt;span class=&quot;dt&quot;&gt;nrow =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(locations), &lt;span class=&quot;dt&quot;&gt;ncol =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; * &lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(treeparms.df), 
+    &lt;span class=&quot;dt&quot;&gt;byrow =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
+
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] &amp;lt;- init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;] &amp;lt;- init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;]
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+
+treeparms.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;within&lt;/span&gt;(treeparms.df, {
+    &lt;span class=&quot;co&quot;&gt;# Calculate the relative space requirements of tanoak size classes based&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# on initial conditions&lt;/span&gt;
+    space[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;fl&quot;&gt;0.25&lt;/span&gt; * (&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;])/S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;])
+    
+    &lt;span class=&quot;co&quot;&gt;# Set recruitment rates to steady-state levels.  For Redwood and Bay, this&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# is simply the mortality rate divided by the density-dependence&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# coefficient at simulation start.  For tanoak, which has multiple size&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# classes, it&amp;#39;s a but more involved&lt;/span&gt;
+    
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] &amp;lt;- S.mortality[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] &amp;lt;- I.mortality[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &amp;lt;- S.mortality[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &amp;lt;- I.mortality[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    
+    A2 &amp;lt;- S.transition[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]/(S.transition[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;])
+    A3 &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]/(S.transition[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;])) * A2
+    A4 &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;]/S.mortality[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]) * A3
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;])/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space)) - 
+        (S.recruit[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] * A2 + S.recruit[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] * A3 + S.recruit[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] * A4)
+    
+    
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- S.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
+    A2 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+    A3 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+    A4 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+})
+
+pop3.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;SODModel&lt;/span&gt;(treeparms.df, locations, time.steps, init)
+pop3.df.totals &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(pop3.df, &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Disease&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;AgeClass&amp;quot;&lt;/span&gt;), 
+    summarise, &lt;span class=&quot;dt&quot;&gt;TotPop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(Population))
+paper3.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;transform&lt;/span&gt;(pop3.df.totals, &lt;span class=&quot;dt&quot;&gt;Size =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;ifelse&lt;/span&gt;(AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt; | 
+    AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Small&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Large&amp;quot;&lt;/span&gt;)), &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Size&amp;quot;&lt;/span&gt;), summarise, 
+    &lt;span class=&quot;dt&quot;&gt;SizePop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(TotPop))
+paper3.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(paper3.df, &lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, transform, &lt;span class=&quot;dt&quot;&gt;Pct =&lt;/span&gt; SizePop/&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(SizePop))
+paper3.plot &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(paper3.df, Species == &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; Time, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; Pct, 
+    &lt;span class=&quot;dt&quot;&gt;lty =&lt;/span&gt; Size)) + &lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;scale_y_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;limits =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.6&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_x_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_linetype_manual&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;values =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, 
+    &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;theme_bw&lt;/span&gt;() + &lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;panel.grid.major =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;(), &lt;span class=&quot;dt&quot;&gt;panel.grid.minor =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;())
+paper3.plot&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: Removed 5 rows containing missing values (geom_path).&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/disease2.png&quot; alt=&quot;Tanoak dynamics under the Mostly Tanoak scenario&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Tanoak dynamics under the “Mostly Tanoak” scenario&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Again, qualitatively similar to the original results:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cobb2012fig4b.png&quot; alt=&quot;Fig 4b from Cobb et al. (2012)&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Fig 4b from Cobb et al. (2012)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Finally, I simulation the “Mostly Redwwod” scenario:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;treeparms.df$S.init &amp;lt;- &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.08&lt;/span&gt; * treeparms.df$S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]/&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(treeparms.df$S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]), 
+    &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.69&lt;/span&gt;)
+
+initial.vec = &lt;span class=&quot;kw&quot;&gt;as.vector&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;rbind&lt;/span&gt;(treeparms.df$S.init, treeparms.df$I.init))
+init &amp;lt;- &lt;span class=&quot;kw&quot;&gt;matrix&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; initial.vec, &lt;span class=&quot;dt&quot;&gt;nrow =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(locations), &lt;span class=&quot;dt&quot;&gt;ncol =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; * &lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(treeparms.df), 
+    &lt;span class=&quot;dt&quot;&gt;byrow =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
+
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] &amp;lt;- init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;] &amp;lt;- init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;]
+init[&lt;span class=&quot;dv&quot;&gt;190&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+
+treeparms.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;within&lt;/span&gt;(treeparms.df, {
+    &lt;span class=&quot;co&quot;&gt;# Calculate the relative space requirements of tanoak size classes based&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# on initial conditions&lt;/span&gt;
+    space[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] &amp;lt;- &lt;span class=&quot;fl&quot;&gt;0.25&lt;/span&gt; * (&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;])/S.init[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;])
+    
+    &lt;span class=&quot;co&quot;&gt;# Set recruitment rates to steady-state levels.  For Redwood and Bay, this&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# is simply the mortality rate divided by the density-dependence&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# coefficient at simulation start.  For tanoak, which has multiple size&lt;/span&gt;
+    &lt;span class=&quot;co&quot;&gt;# classes, it&amp;#39;s a but more involved&lt;/span&gt;
+    
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] &amp;lt;- S.mortality[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] &amp;lt;- I.mortality[&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &amp;lt;- S.mortality[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &amp;lt;- I.mortality[&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space))
+    
+    A2 &amp;lt;- S.transition[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]/(S.transition[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;])
+    A3 &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]/(S.transition[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;])) * A2
+    A4 &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;]/S.mortality[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;]) * A3
+    S.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- (S.transition[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] + S.mortality[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;])/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; - &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(S.init * space)) - 
+        (S.recruit[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] * A2 + S.recruit[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] * A3 + S.recruit[&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] * A4)
+    
+    
+    I.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;- S.recruit[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
+    A2 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+    A3 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+    A4 &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+})
+
+pop4.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;SODModel&lt;/span&gt;(treeparms.df, locations, time.steps, init)
+pop4.df.totals &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(pop4.df, &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Disease&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;AgeClass&amp;quot;&lt;/span&gt;), 
+    summarise, &lt;span class=&quot;dt&quot;&gt;TotPop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(Population))
+paper4.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;transform&lt;/span&gt;(pop4.df.totals, &lt;span class=&quot;dt&quot;&gt;Size =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;ifelse&lt;/span&gt;(AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt; | 
+    AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Small&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Large&amp;quot;&lt;/span&gt;)), &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Species&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Size&amp;quot;&lt;/span&gt;), summarise, 
+    &lt;span class=&quot;dt&quot;&gt;SizePop =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(TotPop))
+paper4.df &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(paper4.df, &lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, transform, &lt;span class=&quot;dt&quot;&gt;Pct =&lt;/span&gt; SizePop/&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(SizePop))
+paper4.plot &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(paper4.df, Species == &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; Time, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; Pct, 
+    &lt;span class=&quot;dt&quot;&gt;lty =&lt;/span&gt; Size)) + &lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) + &lt;span class=&quot;kw&quot;&gt;scale_y_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;limits =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.6&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_x_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;expand =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_linetype_manual&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;values =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, 
+    &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;theme_bw&lt;/span&gt;() + &lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;panel.grid.major =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;(), &lt;span class=&quot;dt&quot;&gt;panel.grid.minor =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;())
+paper4.plot&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/disease3.png&quot; alt=&quot;Tanoak dynamics under the mostly redwood scenario&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Tanoak dynamics under the “mostly redwood” scenario&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Success! Same results as the original:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cobb2012fig4c.png&quot; alt=&quot;Figure 4c from Cobb et al. (2012)&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Figure 4c from Cobb et al. (2012)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now, for fun, let’s make an animation of how the disease progresses through the stand. I will use the “Mostly Tanoak” scenario&amp;quot;, and plot the adult population as intensity, and the fraction of trees diseased as hue.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tanspc &amp;lt;- &lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(pop3.df, Species == &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
+tanspc$Species &amp;lt;- &lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
+tanspc &amp;lt;- &lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(tanspc, &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Location&amp;quot;&lt;/span&gt;), function(x) {
+    &lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;TotTan =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(x$Population[&lt;span class=&quot;kw&quot;&gt;which&lt;/span&gt;(x$AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;3&amp;quot;&lt;/span&gt; | x$AgeClass == 
+        &lt;span class=&quot;st&quot;&gt;&amp;quot;4&amp;quot;&lt;/span&gt;)]), &lt;span class=&quot;dt&quot;&gt;FracDisease =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(x$Population[&lt;span class=&quot;kw&quot;&gt;which&lt;/span&gt;(x$Disease == &lt;span class=&quot;st&quot;&gt;&amp;quot;I&amp;quot;&lt;/span&gt; &amp;amp; (x$AgeClass == 
+        &lt;span class=&quot;st&quot;&gt;&amp;quot;3&amp;quot;&lt;/span&gt; | x$AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;4&amp;quot;&lt;/span&gt;))])/&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(x$Population[&lt;span class=&quot;kw&quot;&gt;which&lt;/span&gt;(x$AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;3&amp;quot;&lt;/span&gt; | 
+        x$AgeClass == &lt;span class=&quot;st&quot;&gt;&amp;quot;4&amp;quot;&lt;/span&gt;)]))
+})
+tanspc &amp;lt;- &lt;span class=&quot;kw&quot;&gt;merge&lt;/span&gt;(tanspc, &lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(locations), &lt;span class=&quot;dt&quot;&gt;by.x =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Location&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;by.y =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;location&amp;quot;&lt;/span&gt;)
+dis.limits &amp;lt;- &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;min&lt;/span&gt;(tanspc$FracDisease), &lt;span class=&quot;kw&quot;&gt;max&lt;/span&gt;(tanspc$FracDisease))
+pop.limits &amp;lt;- &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;min&lt;/span&gt;(tanspc$TotTan), &lt;span class=&quot;kw&quot;&gt;max&lt;/span&gt;(tanspc$TotTan))
+&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(animation)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Loading required package: animation&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ani.options&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;nmax =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;50&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;loop =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;interval =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.2&lt;/span&gt;)
+for (time in time.steps) {
+    &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(tanspc, Time == time), &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; x, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; y, &lt;span class=&quot;dt&quot;&gt;fill =&lt;/span&gt; FracDisease, 
+        &lt;span class=&quot;dt&quot;&gt;alpha =&lt;/span&gt; TotTan)) + &lt;span class=&quot;kw&quot;&gt;geom_tile&lt;/span&gt;() + &lt;span class=&quot;kw&quot;&gt;scale_alpha&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;TanoakPopulation&amp;quot;&lt;/span&gt;, 
+        &lt;span class=&quot;dt&quot;&gt;limits =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.4&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;breaks =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;seq&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.4&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;)) + &lt;span class=&quot;kw&quot;&gt;scale_fill_continuous&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction Diseased&amp;quot;&lt;/span&gt;, 
+        &lt;span class=&quot;dt&quot;&gt;limits =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;breaks =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;seq&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.25&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;low =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;#408000&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;high =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;#FF8000&amp;quot;&lt;/span&gt;) + 
+        &lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;rect =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;(), &lt;span class=&quot;dt&quot;&gt;line =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_blank&lt;/span&gt;()))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;video   controls=&quot;controls&quot; loop=&quot;loop&quot;&gt;&lt;source src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/tanoak-anim.mp4&quot; type=&quot;video/mp4&quot; /&gt;video of chunk tanoak-anim&lt;/video&gt;&lt;/p&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;Anderson, R. M., and R. M. May. 1985. Age-related changes in the rate of disease transmission: implications for the design of vaccination programmes. J. Hyg. Camb.&lt;/p&gt;
+&lt;p&gt;Cobb, R. C., J. a. N. Filipe, R. K. Meentemeyer, C. a Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Exploring GAMs with Rosemary Hartman</title>
