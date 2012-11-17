@@ -8,9 +8,9 @@ layout: post
 
 
 I am working on a project with the [Rizzo
-Lab](http://ucanr.edu/sites/rizzolab/) on a project examining the
-dynamics of [Sudden Oak Death]. I really have to write more about this,
-but today I'm just going to post the results of an initial exercise.
+Lab](http://ucanr.edu/sites/rizzolab/) examining the dynamics of [Sudden
+Oak Death]. I really have to write more about this, but today I'm just
+going to post the results of an initial exercise.
 
 Here I attempt to replicate model results from Cobb et al. (2012). The
 model in that paper simulates the spread of disease and resulting tree

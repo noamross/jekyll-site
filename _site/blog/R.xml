@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-16T18:15:57-08:00</updated>
+ <updated>2012-11-16T18:17:37-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I am working on a project with the &lt;a href=&quot;http://ucanr.edu/sites/rizzolab/&quot;&gt;Rizzo Lab&lt;/a&gt; on a project examining the dynamics of [Sudden Oak Death]. I really have to write more about this, but today I’m just going to post the results of an initial exercise.&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;I am working on a project with the &lt;a href=&quot;http://ucanr.edu/sites/rizzolab/&quot;&gt;Rizzo Lab&lt;/a&gt; examining the dynamics of [Sudden Oak Death]. I really have to write more about this, but today I’m just going to post the results of an initial exercise.&lt;/p&gt;
 &lt;p&gt;Here I attempt to replicate model results from Cobb et al. (2012). The model in that paper simulates the spread of disease and resulting tree mortality and stand dynamics in a mixed system of tanoak, bay laurel, and redwood. In this system, only tanoak and bay laurel carry the disease, and it mostly only kills tanoak, but all three species compete for space in the forest.&lt;/p&gt;
 &lt;p&gt;I’m developing this model as an R package -&lt;code&gt;&amp;quot;SODDr&amp;quot;&lt;/code&gt; (Sudden Oak Death Dynamics in R), to replicate this work, you can install it from github. Note that this is a very rough package and is changing, so you’ll need to install the version specific to this analysis:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(devtools) &lt;span class=&quot;co&quot;&gt;# devtools enables intsallation from alternate code locations&lt;/span&gt;
