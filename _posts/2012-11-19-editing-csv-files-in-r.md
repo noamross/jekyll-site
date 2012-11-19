@@ -1,7 +1,7 @@
 ---
 title: A quick function for editing CSV files in R
 author: Noam Ross
-tags: [R, RStudio, code]
+tags: [R, Rstudio, code]
 date: 12-11-19 13:47:25
 layout: post
 --- 
@@ -48,3 +48,7 @@ Here it is [as a gist](https://gist.github.com/4114258)
 This works in RStudio my Mac but unfortunately not when I'm working on
 my server, because RStudio server doesn't support a data editor. (I know
 it's been requested a few times - let's hope they add it in!)
+
+**Update:**" [David Harris](https://twitter.com/davidjayharris) notes
+that "if you try this on a Mountain Lion Mac without X11/XQuartz, it
+will cause a fatal error."

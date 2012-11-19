@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-19T14:07:50-08:00</updated>
+ <updated>2012-11-19T14:23:43-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -47,7 +47,8 @@ fix.csv &amp;lt;- function(file, &lt;span class=&quot;dt&quot;&gt;new.name=&lt;/
               &lt;span class=&quot;dt&quot;&gt;row.names=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;)
 }&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Here it is &lt;a href=&quot;https://gist.github.com/4114258&quot;&gt;as a gist&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This works in RStudio my Mac but unfortunately not when I’m working on my server, because RStudio server doesn’t support a data editor. (I know it’s been requested a few times - let’s hope they add it in!)&lt;/p&gt;</content>
+&lt;p&gt;This works in RStudio my Mac but unfortunately not when I’m working on my server, because RStudio server doesn’t support a data editor. (I know it’s been requested a few times - let’s hope they add it in!)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt;&amp;quot; &lt;a href=&quot;https://twitter.com/davidjayharris&quot;&gt;David Harris&lt;/a&gt; notes that “if you try this on a Mountain Lion Mac without X11/XQuartz, it will cause a fatal error.”&lt;/p&gt;</content>
  </entry>
  
  <entry>
