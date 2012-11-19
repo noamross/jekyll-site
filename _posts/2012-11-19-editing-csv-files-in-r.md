@@ -8,11 +8,13 @@ layout: post
 
 
 I've been hunting for a lightweight CSV editor for OSX so I could to
-make fixes to data files so I wouldn't have to fire up Excel. While you
-can edit a CSV file in any text editor, it's a pain to navigate the
-files without a spreadsheet-like interface.
+make fixes to data files and not need to fire up Excel. While you can
+edit a CSV file in any text editor, it's a pain to navigate the files
+without a spreadsheet-like interface. Unfortunately [there doesn't seem
+to be a good, free option out
+there](http://apple.stackexchange.com/questions/66214/are-there-any-free-and-lightweight-spreadsheet-programs-for-the-mac).
 
-Then I remembered R has a native XCode editor for editing data frames,
+Today I remembered R has a native XCode editor for editing data frames,
 and I realized I could write a function that would load the CSV as a
 data frame, let me edit it, then close and save it in CSV format again.
 Here's the function. This is now part of my `.Rprofile` file, and makes
@@ -43,5 +45,5 @@ tweaking data files a snap:
 Here it is [as a gist](https://gist.github.com/4114258)
 
 This works in RStudio my Mac but unfortunately not when I'm working on
-my server, because RStudio server doesn't support a data editor
-(although I know it's been requested a few times.)
+my server, because RStudio server doesn't support a data editor. (I know
+it's been requested a few times - let's hope they add it in!)

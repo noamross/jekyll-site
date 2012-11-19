@@ -233,8 +233,8 @@
 <p>by <em>Noam Ross</em>, 19 November 2012</p>
 <hr />
 </div>
-<div class="contenttext"><p><p>I’ve been hunting for a lightweight CSV editor for OSX so I could to make fixes to data files so I wouldn’t have to fire up Excel. While you can edit a CSV file in any text editor, it’s a pain to navigate the files without a spreadsheet-like interface.</p>
-<p>Then I remembered R has a native XCode editor for editing data frames, and I realized I could write a function that would load the CSV as a data frame, let me edit it, then close and save it in CSV format again. Here’s the function. This is now part of my <code>.Rprofile</code> file, and makes tweaking data files a snap:</p>
+<div class="contenttext"><p><p>I’ve been hunting for a lightweight CSV editor for OSX so I could to make fixes to data files and not need to fire up Excel. While you can edit a CSV file in any text editor, it’s a pain to navigate the files without a spreadsheet-like interface. Unfortunately <a href="http://apple.stackexchange.com/questions/66214/are-there-any-free-and-lightweight-spreadsheet-programs-for-the-mac">there doesn’t seem to be a good, free option out there</a>.</p>
+<p>Today I remembered R has a native XCode editor for editing data frames, and I realized I could write a function that would load the CSV as a data frame, let me edit it, then close and save it in CSV format again. Here’s the function. This is now part of my <code>.Rprofile</code> file, and makes tweaking data files a snap:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#&#39; Use the data editor for a CSV file</span>
 <span class="co">#&#39; </span>
 <span class="co">#&#39; This function loads a CSV file, lets the user edit it in the native data</span>
@@ -257,7 +257,7 @@ fix.csv &lt;- function(file, <span class="dt">new.name=</span><span class="ot">T
               <span class="dt">row.names=</span><span class="ot">FALSE</span>)
 }</code></pre>
 <p>Here it is <a href="https://gist.github.com/4114258">as a gist</a></p>
-<p>This works in RStudio my Mac but unfortunately not when I’m working on my server, because RStudio server doesn’t support a data editor (although I know it’s been requested a few times.)</p></p></div>
+<p>This works in RStudio my Mac but unfortunately not when I’m working on my server, because RStudio server doesn’t support a data editor. (I know it’s been requested a few times - let’s hope they add it in!)</p></p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
