@@ -23,7 +23,8 @@ tweaking data files a snap:
     #' Use the data editor for a CSV file
     #' 
     #' This function loads a CSV file, lets the user edit it in the native data
-    #' editor, then re-saves it, prompting the user for a new name if desired.
+    #' editor, then re-saves it, prompting the user for a new file name if 
+    #' desired.
     #' 
     fix.csv <- function(file, new.name=TRUE, sep=",", comment.char="") {
       tmpframe <- read.csv(file, sep=sep,quote="", colClasses="character",

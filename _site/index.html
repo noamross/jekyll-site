@@ -236,7 +236,8 @@
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#&#39; Use the data editor for a CSV file</span>
 <span class="co">#&#39; </span>
 <span class="co">#&#39; This function loads a CSV file, lets the user edit it in the native data</span>
-<span class="co">#&#39; editor, then re-saves it, prompting the user for a new name if desired.</span>
+<span class="co">#&#39; editor, then re-saves it, prompting the user for a new file name if </span>
+<span class="co">#&#39; desired.</span>
 <span class="co">#&#39; </span>
 fix.csv &lt;- function(file, <span class="dt">new.name=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">comment.char=</span><span class="st">&quot;&quot;</span>) {
   tmpframe &lt;- <span class="kw">read.csv</span>(file, <span class="dt">sep=</span>sep,<span class="dt">quote=</span><span class="st">&quot;&quot;</span>, <span class="dt">colClasses=</span><span class="st">&quot;character&quot;</span>,

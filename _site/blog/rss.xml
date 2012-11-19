@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-19T14:01:53-08:00</updated>
+ <updated>2012-11-19T14:07:50-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -27,7 +27,8 @@
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;#&amp;#39; Use the data editor for a CSV file&lt;/span&gt;
 &lt;span class=&quot;co&quot;&gt;#&amp;#39; &lt;/span&gt;
 &lt;span class=&quot;co&quot;&gt;#&amp;#39; This function loads a CSV file, lets the user edit it in the native data&lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#&amp;#39; editor, then re-saves it, prompting the user for a new name if desired.&lt;/span&gt;
+&lt;span class=&quot;co&quot;&gt;#&amp;#39; editor, then re-saves it, prompting the user for a new file name if &lt;/span&gt;
+&lt;span class=&quot;co&quot;&gt;#&amp;#39; desired.&lt;/span&gt;
 &lt;span class=&quot;co&quot;&gt;#&amp;#39; &lt;/span&gt;
 fix.csv &amp;lt;- function(file, &lt;span class=&quot;dt&quot;&gt;new.name=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;,&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;comment.char=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;) {
   tmpframe &amp;lt;- &lt;span class=&quot;kw&quot;&gt;read.csv&lt;/span&gt;(file, &lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;sep,&lt;span class=&quot;dt&quot;&gt;quote=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;colClasses=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;character&amp;quot;&lt;/span&gt;,
