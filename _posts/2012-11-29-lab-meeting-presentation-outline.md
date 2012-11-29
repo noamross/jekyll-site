@@ -1,7 +1,7 @@
 ---
 title: A multi-species, age-structured model for forest disease
 author: Noam Ross
-tags: [SOD, notes, model]
+tags: [SOD, forests, model, notes]
 date: 12-11-28 18:00:20
 layout: post
 --- 
@@ -257,7 +257,7 @@ Now that I have the model replicated and working, I have a few tasks:
 Some areas of concern
 ---------------------
 
--   **Density Dependence** the current form of density-dependence only
+-   **Density Dependence:** The current form of density-dependence only
     accounts for competition at recruitment. It's also unstable, causing
     *negative* recruitment in some cases. Unsure how to represent this
     better without too much complication
@@ -308,7 +308,7 @@ Gimenez, O., J. D. Lebreton, J. M. Gaillard, R. Choquet, and R. Pradel.
 models. Theoretical Population Biology 82:307–316.
 
 Lee, C. T., M. F. Hoopes, J. Diehl, W. Gilliland, G. Huxel, E. V.
-Leaver, K. McCann, J. Umbanhowar, and a Mogilner. 2001. Non-local
+Leaver, K. McCann, J. Umbanhowar, and A. Mogilner. 2001. Non-local
 concepts and models in biology.. Journal of theoretical biology
 210:201–19.
 

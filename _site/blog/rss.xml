@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-11-29T13:25:46-08:00</updated>
+ <updated>2012-11-29T13:28:11-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -165,7 +165,7 @@ b_{2,I} \end{bmatrix}\]&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;some-areas-of-concern&quot;&gt;Some areas of concern&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Density Dependence&lt;/strong&gt; the current form of density-dependence only accounts for competition at recruitment. It’s also unstable, causing &lt;em&gt;negative&lt;/em&gt; recruitment in some cases. Unsure how to represent this better without too much complication&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Density Dependence:&lt;/strong&gt; The current form of density-dependence only accounts for competition at recruitment. It’s also unstable, causing &lt;em&gt;negative&lt;/em&gt; recruitment in some cases. Unsure how to represent this better without too much complication&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;On a related note, the current “space” allocation of the trees implies that there’s greater suppression of new seedlings by the smallest and largest age classes than the middle age classes. Does this make sense?&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
@@ -185,7 +185,7 @@ b_{2,I} \end{bmatrix}\]&lt;/p&gt;
 &lt;p&gt;Chesson, P., and C. T. Lee. 2005. Families of discrete kernels for modeling dispersal.. Theoretical population biology 67:241–56.&lt;/p&gt;
 &lt;p&gt;Cobb, R. C., J. A. N. Filipe, R. K. Meentemeyer, C. A. Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology.&lt;/p&gt;
 &lt;p&gt;Gimenez, O., J. D. Lebreton, J. M. Gaillard, R. Choquet, and R. Pradel. 2012. Estimating demographic parameters using hidden process dynamic models. Theoretical Population Biology 82:307–316.&lt;/p&gt;
-&lt;p&gt;Lee, C. T., M. F. Hoopes, J. Diehl, W. Gilliland, G. Huxel, E. V. Leaver, K. McCann, J. Umbanhowar, and a Mogilner. 2001. Non-local concepts and models in biology.. Journal of theoretical biology 210:201–19.&lt;/p&gt;
+&lt;p&gt;Lee, C. T., M. F. Hoopes, J. Diehl, W. Gilliland, G. Huxel, E. V. Leaver, K. McCann, J. Umbanhowar, and A. Mogilner. 2001. Non-local concepts and models in biology.. Journal of theoretical biology 210:201–19.&lt;/p&gt;
 &lt;p&gt;Metz, M. R., K. M. Frangioso, A. C. Wickland, R. K. Meentemeyer, and D. M. Rizzo. 2012. An emergent disease causes directional changes in forest species composition in coastal California. Ecosphere 3:86.&lt;/p&gt;</content>
  </entry>
  
