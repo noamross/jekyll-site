@@ -14,6 +14,8 @@ The UC Davis Graduate Group in Ecology requires two courses in quantitative meth
 
 Please fill out the survey and see the results below! <a onclick="showhide('Survey'); chgifr('/statsclasses/Survey.html', 'Survey');">(Show/Hide the survey)</a>:
 
+***If you have filled out the survey before and are back to add classes you have taken recently, please check ONLY the new classes***
+
 <div id="Survey" style="display:block;">
 
 <iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ" width="800" height="1050" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto">Loading...</iframe>
