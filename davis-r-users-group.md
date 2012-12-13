@@ -5,17 +5,13 @@ title: "Davis R Users' Group"
 
 Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC Davis who support each other in using R for science. Our focus is providing a space for beginning and intermediate users to learn from each other.
 
--   ***Come to our weekly work sessions***.
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dGw5Zm50dkFoUVNOXzNPeFRXcFFET0E6MQ" width="760" height="625" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
-This is the core purpose of DRUG.  We have weekly, 2-hour work sessions where people bring their computers to work on their own projects, and ask each other questions as needed.  There is no instruction and we have no TAs - just mutual support in R, statistics, and related topics.
+-   ***Come to our weekly work sessions***: This is the core purpose of DRUG.  We have weekly, 2-hour work sessions where people bring their computers to work on their own projects, and ask each other questions as needed.  There is no instruction and we have no TAs - just mutual support in R, statistics, and related topics.
 
-For fall 2012, work sessions will be held on **Fridays 10-12 AM** in **Plant and Environmental Sciences 2005**.
-
- - ***Join the [mailing list](https://groups.google.com/d/forum/davis-rug)***. 
-   The mailing list is an online supplement to our in-person work sessions.
+ - ***Join the [mailing list](https://groups.google.com/d/forum/davis-rug)***: The mailing list is an online supplement to our in-person work sessions.
  
- - ***Use the resources below***.
-   We've compiled a list of resources to help you get started using R and find answers to your questions.
+ - ***Use the resources below***: We've compiled a list of resources to help you get started using R and find answers to your questions.
 
 -------
 
