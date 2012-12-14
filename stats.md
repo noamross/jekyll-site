@@ -192,7 +192,7 @@ Click on a course to see a description and comments.  Please add your own commen
   
 ### Wildlife, Fish & Conservation Biology
 
-- <a onclick="showhide('WFC222'); chgifr('/statsclasses/WFC222.html', 'STA242');">**WFC222. Advanced Population Dynamics**</a>
+- <a onclick="showhide('WFC222'); chgifr('/statsclasses/WFC222.html', 'WFC222');">**WFC222. Advanced Population Dynamics**</a>
 
   <iframe width="600" height="800" src="" id="WFC222" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
