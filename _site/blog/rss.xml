@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2012-12-17T18:05:44-08:00</updated>
+ <updated>2012-12-21T12:01:00-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -13,9 +13,241 @@
 
  
  <entry>
+   <title>Quals Reading: Four Reviews of Forest Epidemiology</title>
+   <link href="http://www.noamross.net/blog/2012/12/21/landscape-epidemiology-readings.html"/>
+   <updated>2012-12-21T11:58:31-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2012/12/21/landscape-epidemiology-readings</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Here’s the first of my quals reading summaries, this landscape forest pathology. &lt;a href=&quot;http://ucanr.org/sites/rizzolab/&quot;&gt;David Rizzo&lt;/a&gt; will be examining me on this topic.&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Much of our knowledge of pathology is at the organismal level (host-pathogen interactions), but actual management occurs at stand, forest, and regional levels. To understand and manage forest diseases at this scale, we need appropriate epidemiological and landscape ecology tools and frameworks.&lt;/p&gt;
+&lt;p&gt;Gilbert and Hubbell (1996) discusses the differences between traditional, agriculturally-focused plant pathology and pathology at the forest community level, with conservation management goals. In these communities, diseases are a normal part of the community, but the authors distinguish between &lt;em&gt;endemic&lt;/em&gt; diseases, which are an important part of the ecosystem, and &lt;em&gt;epidemic&lt;/em&gt; diseases, which are short-term, often malignant disturbances. They note that epidemics are rarely regular parts of forest dynamics, but are often due to human intervention, be it introduction of disease or modification. They can also occur in response to stochastic climate events.&lt;/p&gt;
+&lt;p&gt;Modifications that trigger epidemics may include homogenization of ecosystems or surrounding agricultural systems, introduction or enhancement of disease vectors, or modifying community composition. Since composition, spatial structure, genetic and species diversity all regulate endemic disease, it has the potential to become epidemic as these things change.&lt;/p&gt;
+&lt;p&gt;However the distinction between endemic and epidemic isn’t so clear, because forest systems are not static and rarely in anything like a dynamic equilibrium., which is what Gilbert and Hubbell (1996)’s conception of “endemic” disease seems to be. The case of the root rot &lt;em&gt;Phellinus weirri&lt;/em&gt;, as described by Hansen and Goheen (2000) demonstrates this. &lt;em&gt;P. weirri&lt;/em&gt; spreads through root systems in slowly exapanding centers, or genets, which can grow for hundreds or thousands of years. Within these genets, disease-resistant trees form community structures different from the disease-free matrix, but even within the genets community structures vary along a cline from the edge to the center. Succession occurs within the genet, but also in response to fire and wind events, and the result is a complex community and spatial structure to the forest which never reaches a “climax” community. Instead, the system is constantly in flux, and the community composition is a result of legacy/stochastic events and the interaction of many processes (genet spread, tree growth, tree competition). The relative rates of these processes are important in structuring the community.&lt;/p&gt;
+&lt;p&gt;The complexity of these large-scale processes require a landscape perspective, which both Holdenrieder et al. (2004) and Meentemeyer et al. (2012) advocate. Holdenrieder et al. (2004) focus on the importance of landscape heterogeneity on disease spread. Heterogeneity in environment, patterns of dispersal, host availability and genetic composition are all important in understanding how pathogens move through populations. Meentemeyer et al. (2012) expand on this in a few key areas: First, the importance of a &lt;em&gt;dynamic&lt;/em&gt; perspective that examines feedbacks between landscape ecological processes and disease, based on expansions of the SIR framework. Secondly, a &lt;em&gt;multi-scale&lt;/em&gt; perspective that examines processes at different spatial scales, and matches the scales of process, observation, analysis and management. Just as important are matching the data collected to the process analyzed, and proxies for landscape processes (e.g., climate proxies, or proxies for dispersal distance). Meentemeyer et al. (2012) also discuss different approaches to modeling and analysis for both inference and prediction, noting that these goals result not only in different modeling approaches, but also the type and scale of data collected.&lt;/p&gt;
+&lt;h2 id=&quot;gilbert-and-hubbell-1996---plant-diseases-and-the-conservation-of-tropical-forests&quot;&gt;Gilbert and Hubbell (1996) - Plant Diseases and the Conservation of Tropical Forests&lt;/h2&gt;
+&lt;h2 id=&quot;summary-key-points&quot;&gt;Summary / Key Points&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Diseases regulate plant community structure, function, and evolution&lt;/li&gt;
+&lt;li&gt;Diverse, endemic pathogens are common, but human intervention, disturbance, and climate events incite short-term epidemics with long-term recovery, if any.&lt;/li&gt;
+&lt;li&gt;Intervention is required at different scales (plant wounding, fragmentation, community restructuring) to incite epidemics&lt;/li&gt;
+&lt;li&gt;Plant spatial structure, genetic and species diversity effect the ability of disease to disperse and take hold&lt;/li&gt;
+&lt;li&gt;Fragmentation can leave forest vulnerable to disease due to small population sizes, lower diversity, and edge and interaction effects with agriculture (exposure to new diseases, adjacent monocultures)&lt;/li&gt;
+&lt;li&gt;Reserve design needs to consider the spatial spread mechanisms of disease and its interaction with the surrounding habitat matrix&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;factors-influencing-disease-development&quot;&gt;Factors influencing disease development&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Epidemics are typically bad for conservation, but endemics may be essenial&lt;/li&gt;
+&lt;li&gt;Disease requires pathogen, host and favorable environment&lt;/li&gt;
+&lt;li&gt;Endemics are common, but epidemics tend to result from human intervention (introduction of pathogens or stressors, community modification) or climatic events.&lt;/li&gt;
+&lt;li&gt;Similar framework to invasives/pests&lt;/li&gt;
+&lt;li&gt;Host density is important to disease, but so is &lt;em&gt;heterogeneity of pathogen reproduction and dispersal rates&lt;/em&gt;, which help the pathogen spread at multiple scales.&lt;/li&gt;
+&lt;li&gt;Logging can increase spread of stump-infecting fungi (&lt;em&gt;Armillaria&lt;/em&gt;, &lt;em&gt;Heterobasidion&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Many pathogens require wounds, usually from herbivores or humans, to successfully infect trees&lt;/li&gt;
+&lt;li&gt;Plantations are vulnerable to disease due to host density and homogeneity&lt;/li&gt;
+&lt;li&gt;Dieback diseases can often be attributed to drought&lt;/li&gt;
+&lt;li&gt;Many diseases are associated with &lt;strong&gt;forest decline&lt;/strong&gt; - a mix of biotic and abiotic factors (pollution, drought, poor soil)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;direct-negative-effects-of-disease&quot;&gt;Direct negative effects of disease&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Negative effects of epidemics may last a long time (decades) because of long-term effects on reproduction and growth, and the retention of pathogens as saprophytes.&lt;/li&gt;
+&lt;li&gt;Disease that targets sub-populations (genetic, age cohorts), can re-structure the population, reduce genetic diversity&lt;/li&gt;
+&lt;li&gt;Small populations are vulnerable to disease due to combination of low diversity and stochastic population reductions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;direct-positive-effects-of-disease&quot;&gt;Direct positive effects of disease&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Diseases create disturbances, gaps, and micro-habitat (e.g., holes in trees) important for diversity.&lt;/li&gt;
+&lt;li&gt;Promotes diversity through Janzen-Connel mechansism (greater survival of further dispersing organisms)&lt;/li&gt;
+&lt;li&gt;Diseases are generally more harmful on local genotypes, esp. in tropics, where leaves are long-lived.&lt;/li&gt;
+&lt;li&gt;Disease modify competetive dynamics, (e.g., root rot &lt;em&gt;Phellinus weirii&lt;/em&gt; favor Pacific fur over otherwise dominant hemlock.)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;density-and-dominance&quot;&gt;Density and Dominance&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Small and homogenous populations of trees have less diverse pathogens, and are also more vulnerable.&lt;/li&gt;
+&lt;li&gt;Loss of dispersers may leave trees vulnerable due to high local densities&lt;/li&gt;
+&lt;li&gt;High diversity may reduce disease spread in the case of species-specific diseases, but not in the case of more general diseases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;interactions-with-agriculture&quot;&gt;Interactions with agriculture&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Natural ecosystems ar reservoirs for agricultural pests, but natural fragments in agricultural landscapes can be vulnerable to epidemics that begin in agricultural monocultures, or to introductions from agricultura/horticultural imports.
+&lt;ul&gt;
+&lt;li&gt;This may be especially to for heteroecious rusts, which require two hosts to complete the life cycle. Ag/wild interfaces may promote the disease.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Agricultural disease may lead to rapid deforestation as farmers look for “uncontaminated lands”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;disease-and-reserve-design&quot;&gt;Disease and reserve design&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Recovery is usually much longer than epidemic length&lt;/li&gt;
+&lt;li&gt;Dividing reserves into small parts may provide some protection due to transmission barriers.&lt;/li&gt;
+&lt;li&gt;However, agricultural/edge effects may make larger reserves preferable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;hansen-and-goheen-2000---root-pathogen-control-of-forest-structure&quot;&gt;Hansen and Goheen (2000) - Root Pathogen Control of Forest Structure&lt;/h2&gt;
+&lt;h2 id=&quot;summary-key-points-1&quot;&gt;Summary / Key points&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Root-rot diseases are important in structuring forest communities&lt;/li&gt;
+&lt;li&gt;They are very common in Western North American forests&lt;/li&gt;
+&lt;li&gt;The way a disease structures a forest is influenced by how it affects different hosts, its rate and mode of spread, spatial scale, and how it dies out.&lt;/li&gt;
+&lt;li&gt;The relative rates of infection, mortality, and regeneration are important in the structure, as well&lt;/li&gt;
+&lt;li&gt;Root disease and stand dynamics take place over very long periods. A forest is likely never in an equilibrium in terms of root/soil pathogens.&lt;/li&gt;
+&lt;li&gt;Root pathogens generate a distinct patchiness in communities&lt;/li&gt;
+&lt;li&gt;Individual variation in vulnerability is NOT neccessary to generate the clinal patterns at the edge of disease patches&lt;/li&gt;
+&lt;li&gt;As stands age, multi-disease interactions become more important and the total disease burden can accumulate so as to radically change the community, but events like fire can reset this pattern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Pathogens provide essential functions to forests, but much understanding of them has been in the framework of disease as a pest in decay-free plantation forestry&lt;/li&gt;
+&lt;li&gt;Native, endemic pathogens can kill even healthy trees&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Phellinus weirri&lt;/em&gt; acts as a disturbance agent, killing trees and creating expanding gaps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;system-northwestern-coniferous-forest&quot;&gt;System: Northwestern Coniferous Forest&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;In Douglas-fir forest, succession is reset by fire and clear-cutting. Diversity increases rapidly in early years, then decreases as Douglas fir grows and shades the understory. Shade-tolerant trees (hemlock) establish in the understory and only grow to the canopy when long-lived Douglas-fir is disturbed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;phellinus-weirri&quot;&gt;&lt;em&gt;Phellinus weirri&lt;/em&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Agent of root rot, damaging to timber Douglas-fir forests&lt;/li&gt;
+&lt;li&gt;Wide host range in conifers, but motly harms Douglas-fir, mountain hemlock, and grand/white fir. Some species infected but not harmed. Hardwoods immune.&lt;/li&gt;
+&lt;li&gt;Spreads via roots via mycelia, initiates xylem decay. Trees topple from weak root networks even if they still have healthy crowns.&lt;/li&gt;
+&lt;li&gt;Mortality front moves ~30cm/yr, unevenly&lt;/li&gt;
+&lt;li&gt;3 distinct subspecies&lt;/li&gt;
+&lt;li&gt;Many independent centers/“genets” in a forest. Each grows slowly, lasts 100s-1000s of years, slows when it loses contact with vulnerable species.&lt;/li&gt;
+&lt;li&gt;Genets die in center of mortality after hosts are all dead, and after fires. Effectively, they break up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;effects-on-forests&quot;&gt;Effects on Forests&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Regenerating Douglas-fir forests have gaps where genets are&lt;/li&gt;
+&lt;li&gt;Infection covers 12-80% of Doug-fir forests&lt;/li&gt;
+&lt;li&gt;Mortality impact is enhanced by interaction with wind, beetles. Wind topples, beetles infest infected trees&lt;/li&gt;
+&lt;li&gt;As stands age, infected forest become increasingly uneven-aged. More structural diversity&lt;/li&gt;
+&lt;li&gt;In &lt;em&gt;mountain&lt;/em&gt; hemlock forests, hemlock is killed but continuously regenerates and dies in genets, creating a unique community structure with resistant pines&lt;/li&gt;
+&lt;li&gt;In Douglas-fir, forests, shade-tolerant, resistant trees (&lt;em&gt;western&lt;/em&gt; hemlock*) form dense canopies behind the mortality front. In forests without resistant trees, high-light shrub areas form&lt;/li&gt;
+&lt;li&gt;These dense areas may be more likely to have stand-replacing fires, which hav varying successional processes afterwards&lt;/li&gt;
+&lt;li&gt;These patches attract specific animal communities&lt;/li&gt;
+&lt;li&gt;Decomposition and nutrient availability increases behind the mortality front, but there is a lag (~10 ft / 30 yrs) before the soil is hospitable to new seedlings&lt;/li&gt;
+&lt;li&gt;The center has abundant woody depbris and decomposer species&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;effect-of-tree-vigor&quot;&gt;Effect of tree vigor&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Old hypothesis: The first vulnerable trees establishing behind the mortality front are more vigorous due to increased nutrients and are less susceptible to infection&lt;/li&gt;
+&lt;li&gt;New hypothesis: These trees are also vulnerable, but they die small so disease spread is limited&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;old-growth-forests&quot;&gt;Old growth forests&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Many of the strucutural characteristics of old-growth forests are due to rot pathogens, which enhance horizontal and vertical structural diversity&lt;/li&gt;
+&lt;li&gt;Stem rots are also endemic to such forests, and important in causing mortality and providing stem habitat for animals&lt;/li&gt;
+&lt;li&gt;Dwarf mistletoes are common in older, complex stands.&lt;/li&gt;
+&lt;li&gt;In concert, these pathogens can dramatically alter species composition and reduce biomass.&lt;/li&gt;
+&lt;li&gt;Stands with fire history have less of this disease-driven decline&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;managed-forests&quot;&gt;Managed forests&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Human intervention has driven an increase in Douglas-fir and other vulneratble species, and thus an increase in &lt;em&gt;P. weirii&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Stump-cutting increases the infection rate.&lt;/li&gt;
+&lt;li&gt;Forest management plans do not adequately consider the effects and causes of disease&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;modeling&quot;&gt;Modeling&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The Western Rood Disease Model is an extension to FVS which can be used in forest planning&lt;/li&gt;
+&lt;li&gt;But data on disease prevalance is scarce, and interaction of pathogens isn’t get modled.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;holdenrieder-et-al.-2004-landscape-pathology&quot;&gt;Holdenrieder et al. (2004): Landscape pathology&lt;/h2&gt;
+&lt;h3 id=&quot;summary-key-points-2&quot;&gt;Summary / Key Points&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Large-scale spatial perspectives are important in studying forest disease&lt;/li&gt;
+&lt;li&gt;At these scales, landscape heterogeneity, species composition, and host/pathogen genetics vary across space. Land-use and infection legacies also important&lt;/li&gt;
+&lt;li&gt;When considering conservation, balance between connectivity and fragmentation depends on their relative effects on host/pathogen growth&lt;/li&gt;
+&lt;li&gt;Look at Park et al. (2002) for spatial influences on epidemics&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;introduction-1&quot;&gt;Introduction&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Diseases can affect landscape structure and vice versa (e.g., landslides after tree mortality)&lt;/li&gt;
+&lt;li&gt;Many disease outbreaks occur at regional scales&lt;/li&gt;
+&lt;li&gt;Important to study disease at large scales to understand it&lt;/li&gt;
+&lt;li&gt;Epidemiological and landscape tools have recently been used to deal with these large-scale studies&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;fragmentation&quot;&gt;Fragmentation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Fragmentation &lt;em&gt;may&lt;/em&gt; limit disease spread, but it has complex effects on host, reservoir, and pathogen populations.&lt;/li&gt;
+&lt;li&gt;Fragmentation may hinder host migration, resulting in greater vulnerability due to altered environmental conditions and reduced genetic resources&lt;/li&gt;
+&lt;li&gt;Pathogens can spread through corridors - relative rates important&lt;/li&gt;
+&lt;li&gt;Fusiform rust &lt;em&gt;Cronartium quercuum&lt;/em&gt; has been shown to increase in more interconnected landscapes&lt;/li&gt;
+&lt;li&gt;Connectivity can come from placement of fragments (&lt;em&gt;Cronartium quercuum&lt;/em&gt;), or transfer of propogules on vehicles (in root pathogen &lt;em&gt;Phytophthora lateralis&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;predisposing-environmental-features&quot;&gt;Predisposing environmental features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Site-specific variables such as climate, slope, soil properties, etc. effect disease incidence and virulence, but the scale of measurement is important&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;host-and-pathogen-landscape-patterns&quot;&gt;Host and pathogen landscape patterns&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;(Alternate) host availability may be more important than environmental factors in predicting arrival of pathogen&lt;/li&gt;
+&lt;li&gt;Historical factors, such as previous species composition or history of infection, have an effect because of residual disease reservoirs&lt;/li&gt;
+&lt;li&gt;Landscape patterns of both host and pathogen genetic variation may be important, as in the case of &lt;em&gt;Armillaria&lt;/em&gt; root rot genets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;landscape-perspectives-on-sudden-oak-death&quot;&gt;Landscape perspectives on Sudden Oak Death&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Research found clustering patterns between 100 and 300 m&lt;/li&gt;
+&lt;li&gt;Occurrence at all slope positions helped suggest the wind-blown rain transmission mechanism.&lt;/li&gt;
+&lt;li&gt;Forest edge effects suggest imoprtance of understory foliar hosts that prefer high-light environments&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;meentemeyer-et-al.-2004---landscape-epidemiology-of-emerging-infectious-disease&quot;&gt;Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging Infectious Disease&lt;/h2&gt;
+&lt;h3 id=&quot;summary-key-points-3&quot;&gt;Summary / Key Points&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Landscape epidemiology examines disease processes at large spatial scales, considering heterogeneity, connectivity, and other large-scale patterns and processes&lt;/li&gt;
+&lt;li&gt;Most diseases have processes that occur at multiple spatial scales - study that considers multiple scales and their interaction are important&lt;/li&gt;
+&lt;li&gt;Spread and the endemic/epidemic gradient are in part scale-dependent&lt;/li&gt;
+&lt;li&gt;Study design has to consider the scales of process, observation, analysis and management, as well as the analytical goals.&lt;/li&gt;
+&lt;li&gt;Direct observations are often more useful than proxies. Also direct consideration of spatial processes (dispersal) rather than proxies like distance.&lt;/li&gt;
+&lt;li&gt;Parsimony/complexity trade-offs must consisder data availability and management goals, as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;introduction-2&quot;&gt;Introduction&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Disease occurs in a complex spatiotemporal landscape with heterogeneity in environments and dispersal mechanisms&lt;/li&gt;
+&lt;li&gt;Temporal components of landscapes require modeling tools beyond GIS&lt;/li&gt;
+&lt;li&gt;Most landscape epidemiology research is observational rather than model- or experiment-based. Multiscale approaches are rare&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;key-considerations-in-landscape-level-analysis&quot;&gt;Key considerations in landscape-level analysis&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Appropriate spatial scale: Corridors are important for vector-borne, but not wind-borne diseases&lt;/li&gt;
+&lt;li&gt;Geographic disequilibrium - classification of emerging, invasice, and endemic depend on scale of analsysis&lt;/li&gt;
+&lt;li&gt;Consider scale in the infectious process, the level of the data, and the analytical scale. Mismatches can lead to poor inference&lt;/li&gt;
+&lt;li&gt;Static vs. dynamic analysis. Logit models of disease incidence do not help predict future behavior. SIR models are dynamic, but require considerably more complexity to include landscape information.&lt;/li&gt;
+&lt;li&gt;Spatially implicit or explicit? Can be implicit when only environmental heterogeneity is considered, but impicity when there is interaction among location in process.&lt;/li&gt;
+&lt;li&gt;Predictor variables: Many are indirect (e.g., slope), rather than direct measures of factors influencing process. Similarly, consider spatial connectivity statistics and proxies, and how thy relate to dispersal ability, etc.&lt;/li&gt;
+&lt;li&gt;Inference or prediction? Parsimony and predictivity important in model, but for application must consider whether predictive variables will be available for management. Also, difference between actual and potential disease distribution - ecological theory important here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;analytical-frontiers&quot;&gt;Analytical Frontiers&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Multiscale analysis - ecosystems and epidemiological processes have spatial hierarchies.&lt;/li&gt;
+&lt;li&gt;Some processes, like power-law dispersal, can be scale-invariant. But many lead to different patterns and processes at different scales.&lt;/li&gt;
+&lt;li&gt;Multi-scale analysis helps avoid scaling-up problems. Approaches include nested sampling and analysis, inclusion of spatial dependent-autocorrelation in prediction&lt;/li&gt;
+&lt;li&gt;Landscape connectivity - Ellis et al. (2010) use a “least cost friction” approach to determine the importance of connectivity relative to environtal variables in transmission between patches (for SOD)&lt;/li&gt;
+&lt;li&gt;Examining connectivity at different scales with multiple transmission mechanisms&lt;/li&gt;
+&lt;li&gt;Graph theory to analyze connectivity&lt;/li&gt;
+&lt;li&gt;Optimal disease control with landscape dynamics: Using landscape models to explore possible control scenarios&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;whats-next&quot;&gt;What’s next&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Interacting disturbances - e.g., logging/disease/fire&lt;/li&gt;
+&lt;li&gt;Reciprical socio-ecological feedbacks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+&lt;p&gt;Ellis, A. M., T. Václavík, and R. K. Meentemeyer. 2010. When is connectivity important? A case study of the spatial pattern of sudden oak death. Oikos 119:485–94.&lt;/p&gt;
+&lt;p&gt;Gilbert, G. S., and S. P. Hubbell. 1996. Diseases and the Tropical of Conservation Forests. BioScience 46:98–106.&lt;/p&gt;
+&lt;p&gt;Hansen, E. M., and E. M. Goheen. 2000. Phellinus Weirii and other Native Root Pathogens as Determinants of Forest Structure and Process in Western North America. Annual review of phytopathology 38:515–539.&lt;/p&gt;
+&lt;p&gt;Holdenrieder, O., M. Pautasso, P. J. Weisberg, and D. Lonsdale. 2004. Tree diseases and landscape processes: the challenge of landscape pathology.. Trends in ecology &amp;amp; evolution (Personal edition) 19:446–52.&lt;/p&gt;
+&lt;p&gt;Meentemeyer, R. K., S. E. Haas, and T. Václavík. 2012. Landscape epidemiology of emerging infectious diseases in natural and human-altered ecosystems. Annual review of phytopathology 50:379–402.&lt;/p&gt;
+&lt;p&gt;Meentemeyer, R., D. Rizzo, W. Mark, and E. Lotz. 2004. Mapping the risk of establishment and spread of sudden oak death in California. Forest Ecology and Management 200:195–214.&lt;/p&gt;
+&lt;p&gt;Park, A. W., S. Gubbins, and C. A. Gilligan. 2002. Extinction times for closed epidemics: the effects of host spatial structure. Ecology Letters 5:747–755.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Qualifying Exam Reading List</title>
    <link href="http://www.noamross.net/blog/2012/12/17/quals-reading-list.html"/>
-   <updated>2012-12-17T16:20:45-08:00</updated>
+   <updated>2012-12-17T16:20:45-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/12/17/quals-reading-list</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -225,7 +457,7 @@
  <entry>
    <title>Lauren Yamane on Matrix Population Models in R</title>
    <link href="http://www.noamross.net/blog/2012/11/30/lauren-yamane-on-matrix-population-models.html"/>
-   <updated>2012-11-30T10:11:17-08:00</updated>
+   <updated>2012-11-30T10:11:17-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/30/lauren-yamane-on-matrix-population-models</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -392,7 +624,7 @@ ev5_noF = &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;k
  <entry>
    <title>A multi-species, age-structured model for forest disease</title>
    <link href="http://www.noamross.net/blog/2012/11/28/lab-meeting-presentation-outline.html"/>
-   <updated>2012-11-28T18:00:20-08:00</updated>
+   <updated>2012-11-28T18:00:20-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/28/lab-meeting-presentation-outline</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -569,7 +801,7 @@ b_{2,I} \end{bmatrix}\]&lt;/p&gt;
  <entry>
    <title>A quick function for editing CSV files in R</title>
    <link href="http://www.noamross.net/blog/2012/11/19/editing-csv-files-in-r.html"/>
-   <updated>2012-11-19T13:47:25-08:00</updated>
+   <updated>2012-11-19T13:47:25-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/19/editing-csv-files-in-r</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -608,7 +840,7 @@ fix.csv &amp;lt;- function(file, &lt;span class=&quot;dt&quot;&gt;new.name=&lt;/
  <entry>
    <title>Simulating Sudden Oak Death Dynamics</title>
    <link href="http://www.noamross.net/blog/2012/11/16/sod-dynamics-1.html"/>
-   <updated>2012-11-16T10:22:42-08:00</updated>
+   <updated>2012-11-16T10:22:42-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/16/sod-dynamics-1</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -927,7 +1159,7 @@ for (time in time.steps) {
  <entry>
    <title>Jordi Bascompte on Mutualistic Networks</title>
    <link href="http://www.noamross.net/blog/2012/11/15/lecture---jordi-bascompte.html"/>
-   <updated>2012-11-15T16:09:23-08:00</updated>
+   <updated>2012-11-15T16:09:23-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/15/lecture---jordi-bascompte</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -970,7 +1202,7 @@ for (time in time.steps) {
  <entry>
    <title>Ecological Stoichiometry: Population Dynamics</title>
    <link href="http://www.noamross.net/blog/2012/11/13/ecological-stoichiometry--notes-on-andersen-et-al-2004.html"/>
-   <updated>2012-11-13T10:05:03-08:00</updated>
+   <updated>2012-11-13T10:05:03-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/13/ecological-stoichiometry--notes-on-andersen-et-al-2004</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -1025,7 +1257,7 @@ for (time in time.steps) {
  <entry>
    <title>Exploring GAMs with Rosemary Hartman</title>
    <link href="http://www.noamross.net/blog/2012/11/9/gams-for-drug.html"/>
-   <updated>2012-11-09T12:49:25-08:00</updated>
+   <updated>2012-11-09T12:49:25-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/9/gams-for-drug</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2044,7 +2276,7 @@ fish1 &amp;lt;- &lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~ BU
  <entry>
    <title>Dynamics of Coupled Nutrient Cycling and Acclimation: 3 Modeling Papers</title>
    <link href="http://www.noamross.net/blog/2012/11/5/notes-for-stoichiometry-presentation.html"/>
-   <updated>2012-11-05T19:47:23-08:00</updated>
+   <updated>2012-11-05T19:47:23-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/5/notes-for-stoichiometry-presentation</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2136,7 +2368,7 @@ fish1 &amp;lt;- &lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~ BU
  <entry>
    <title>Ryan Peek on Customizing Your R Setup</title>
    <link href="http://www.noamross.net/blog/2012/11/2/rprofile.html"/>
-   <updated>2012-11-02T11:37:00-07:00</updated>
+   <updated>2012-11-02T11:37:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/2/rprofile</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2197,7 +2429,7 @@ fish1 &amp;lt;- &lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~ BU
  <entry>
    <title>Chris Hamm on using plot.new() for better combined plots</title>
    <link href="http://www.noamross.net/blog/2012/10/26/plotnew.html"/>
-   <updated>2012-10-26T10:41:35-07:00</updated>
+   <updated>2012-10-26T10:41:35-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/26/plotnew</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2482,7 +2714,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>Ecological Stoichiometry: The Perils of Famine and Plenty</title>
    <link href="http://www.noamross.net/blog/2012/10/22/ecological-stoichiometry--the-perils-of-famine-and-plenty.html"/>
-   <updated>2012-10-22T19:55:56-07:00</updated>
+   <updated>2012-10-22T19:55:56-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/22/ecological-stoichiometry--the-perils-of-famine-and-plenty</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2579,7 +2811,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>Stella Copeland's Intro to Mixed Models in R</title>
    <link href="http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html"/>
-   <updated>2012-10-19T10:26:56-07:00</updated>
+   <updated>2012-10-19T10:26:56-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2596,7 +2828,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>A Science-based Voter's Guide</title>
    <link href="http://www.noamross.net/blog/2012/10/19/scb-voter-s-guide.html"/>
-   <updated>2012-10-19T09:43:28-07:00</updated>
+   <updated>2012-10-19T09:43:28-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/19/scb-voter-s-guide</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2629,7 +2861,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>Ecological Stoichiometry: Back to Basics with Elser</title>
    <link href="http://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings.html"/>
-   <updated>2012-10-15T10:36:30-07:00</updated>
+   <updated>2012-10-15T10:36:30-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2728,7 +2960,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>A quick introduction to ggplot()</title>
    <link href="http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html"/>
-   <updated>2012-10-05T12:05:10-07:00</updated>
+   <updated>2012-10-05T12:05:10-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/5/ggplot-introduction</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2883,7 +3115,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Forest Ecology Journals</title>
    <link href="http://www.noamross.net/blog/2012/10/3/forest-ecology-journals.html"/>
-   <updated>2012-10-03T09:26:45-07:00</updated>
+   <updated>2012-10-03T09:26:45-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/3/forest-ecology-journals</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2905,7 +3137,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Seminar in Ecological Stoichiometry: Day 1</title>
    <link href="http://www.noamross.net/blog/2012/10/2/notes-on-ecological-stoichiometry--day-1.html"/>
-   <updated>2012-10-02T10:57:18-07:00</updated>
+   <updated>2012-10-02T10:57:18-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/2/notes-on-ecological-stoichiometry--day-1</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2961,7 +3193,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Multiple Goals in Floodplain Restoration - Workshop Notes</title>
    <link href="http://www.noamross.net/blog/2012/10/1/igert-workshop-notes.html"/>
-   <updated>2012-10-01T15:08:48-07:00</updated>
+   <updated>2012-10-01T15:08:48-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/1/igert-workshop-notes</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3023,7 +3255,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Melinda D. Smith: Divergence in grassland responses to Fire and Grazing in N. America and S. Africa</title>
    <link href="http://www.noamross.net/blog/2012/9/27/notes-on-melinda-d-smith-talk.html"/>
-   <updated>2012-09-27T16:01:02-07:00</updated>
+   <updated>2012-09-27T16:01:02-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/9/27/notes-on-melinda-d-smith-talk</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3143,7 +3375,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>An R Users' Group in Davis</title>
    <link href="http://www.noamross.net/blog/2012/9/24/a-new-r-users--group.html"/>
-   <updated>2012-09-24T11:05:27-07:00</updated>
+   <updated>2012-09-24T11:05:27-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/9/24/a-new-r-users--group</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3156,7 +3388,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Regime Shifts in Forest Ecosystems</title>
    <link href="http://www.noamross.net/blog/2012/7/2/regime-shifts-in-forest-ecosystems.html"/>
-   <updated>2012-07-02T14:43:01-07:00</updated>
+   <updated>2012-07-02T14:43:01-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/7/2/regime-shifts-in-forest-ecosystems</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3217,7 +3449,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Trade-Offs and Synergies in Floodplain Management - A Historical-Ecological Approach</title>
    <link href="http://www.noamross.net/blog/2012/6/1/trade-offs-and-synergies-in-floodplain-management.html"/>
-   <updated>2012-06-01T00:00:00-07:00</updated>
+   <updated>2012-06-01T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/6/1/trade-offs-and-synergies-in-floodplain-management</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3236,7 +3468,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Carl Walters on Surprises in Adaptive Management at the Grand Canyon</title>
    <link href="http://www.noamross.net/blog/2012/5/25/carl-walters-on-surprises-in-adaptive-management-at-the-grand-canyon.html"/>
-   <updated>2012-05-25T00:00:00-07:00</updated>
+   <updated>2012-05-25T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/5/25/carl-walters-on-surprises-in-adaptive-management-at-the-grand-canyon</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3339,7 +3571,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Jo Albers on Invasive Species in a River Network</title>
    <link href="http://www.noamross.net/blog/2012/5/15/heidi-albers-talk-may-15-2012.html"/>
-   <updated>2012-05-15T00:00:00-07:00</updated>
+   <updated>2012-05-15T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/5/15/heidi-albers-talk-may-15-2012</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3458,7 +3690,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Holly Doremus on Adaptive Management</title>
    <link href="http://www.noamross.net/blog/2012/4/20/lecture-from-holly-doremus---adaptive-management.html"/>
-   <updated>2012-04-20T00:00:00-07:00</updated>
+   <updated>2012-04-20T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/20/lecture-from-holly-doremus---adaptive-management</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3535,7 +3767,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Displaying Math in RSS feeds</title>
    <link href="http://www.noamross.net/blog/2012/4/4/math-in-rss-feeds.html"/>
-   <updated>2012-04-04T11:02:57-07:00</updated>
+   <updated>2012-04-04T11:02:57-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/4/math-in-rss-feeds</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3568,7 +3800,7 @@ perl -pi -e &amp;#39;s|(\\&lt;img style=&quot;vertical-align:middle&quot; src=&q
  <entry>
    <title>Exploring Pollen Data</title>
    <link href="http://www.noamross.net/blog/2012/4/2/exploring-pollen-data-knit.html"/>
-   <updated>2012-04-02T15:06:18-07:00</updated>
+   <updated>2012-04-02T15:06:18-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/2/exploring-pollen-data-knit</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3605,7 +3837,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>A New, Shiny Website!</title>
    <link href="http://www.noamross.net/blog/2012/4/1/a-new-shiny-website.html"/>
-   <updated>2012-04-01T17:27:15-07:00</updated>
+   <updated>2012-04-01T17:27:15-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/1/a-new-shiny-website</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3623,7 +3855,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Links and Resources</title>
    <link href="http://www.noamross.net/blog/2012/4/1/links-and-resources.html"/>
-   <updated>2012-04-01T16:44:09-07:00</updated>
+   <updated>2012-04-01T16:44:09-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/1/links-and-resources</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3668,7 +3900,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Notes on S-maps and regime shifts</title>
    <link href="http://www.noamross.net/blog/2012/1/31/notes-on-s-maps-and-regime-shifts.html"/>
-   <updated>2012-01-31T00:00:00-08:00</updated>
+   <updated>2012-01-31T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/31/notes-on-s-maps-and-regime-shifts</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3762,7 +3994,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Jan 17</title>
    <link href="http://www.noamross.net/blog/2012/1/18/jan-17.html"/>
-   <updated>2012-01-18T00:00:00-08:00</updated>
+   <updated>2012-01-18T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/18/jan-17</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3796,7 +4028,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>January 10, 2012</title>
    <link href="http://www.noamross.net/blog/2012/1/11/january-10-2012.html"/>
-   <updated>2012-01-11T00:00:00-08:00</updated>
+   <updated>2012-01-11T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/11/january-10-2012</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3839,7 +4071,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Back in the Saddle January 9, 2012</title>
    <link href="http://www.noamross.net/blog/2012/1/10/back-in-the-saddle-january-9-2012.html"/>
-   <updated>2012-01-10T00:00:00-08:00</updated>
+   <updated>2012-01-10T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/10/back-in-the-saddle-january-9-2012</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3873,7 +4105,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Forest Pest Outbreaks - A Bibliography</title>
    <link href="http://www.noamross.net/blog/2011/12/6/forest-pest-outbreaks--a-bibliography.html"/>
-   <updated>2011-12-06T00:00:00-08:00</updated>
+   <updated>2011-12-06T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/12/6/forest-pest-outbreaks--a-bibliography</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3892,7 +4124,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Pollen project sources</title>
    <link href="http://www.noamross.net/blog/2011/11/28/pollen-project-sources.html"/>
-   <updated>2011-11-28T00:00:00-08:00</updated>
+   <updated>2011-11-28T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/11/28/pollen-project-sources</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3922,7 +4154,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Monday, November 28, 2011</title>
    <link href="http://www.noamross.net/blog/2011/11/28/monday-november-28-2011.html"/>
-   <updated>2011-11-28T00:00:00-08:00</updated>
+   <updated>2011-11-28T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/11/28/monday-november-28-2011</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3946,7 +4178,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Extinction debt, dark diversity, and how things are much worse than they look</title>
    <link href="http://www.noamross.net/blog/2011/11/28/extinction-debt-dark-diversity-and-how-things-are-much-worse.html"/>
-   <updated>2011-11-28T00:00:00-08:00</updated>
+   <updated>2011-11-28T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/11/28/extinction-debt-dark-diversity-and-how-things-are-much-worse</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3972,7 +4204,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Can Novel Ecosystems Do the Job of "Natural" Ones?</title>
    <link href="http://www.noamross.net/blog/2011/9/1/can-novel-ecosystems-do-the-job-of-natural-ones.html"/>
-   <updated>2011-09-01T00:00:00-07:00</updated>
+   <updated>2011-09-01T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/9/1/can-novel-ecosystems-do-the-job-of-natural-ones</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3988,7 +4220,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Climate Change and Credit Risk in the Chemicals Sector</title>
    <link href="http://www.noamross.net/blog/2011/2/22/climate-change-and-credit-risk-in-the-chemicals-sector.html"/>
-   <updated>2011-02-22T00:00:00-08:00</updated>
+   <updated>2011-02-22T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/2/22/climate-change-and-credit-risk-in-the-chemicals-sector</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4006,7 +4238,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Delving into the Green Economy Report</title>
    <link href="http://www.noamross.net/blog/2011/2/21/delving-into-the-green-economy-report.html"/>
-   <updated>2011-02-21T00:00:00-08:00</updated>
+   <updated>2011-02-21T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/2/21/delving-into-the-green-economy-report</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4024,7 +4256,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Of Billabongs, Weevils, and Alternative Stable States</title>
    <link href="http://www.noamross.net/blog/2011/2/3/of-billabongs-weevils-and-alternative-stable-states.html"/>
-   <updated>2011-02-03T00:00:00-08:00</updated>
+   <updated>2011-02-03T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/2/3/of-billabongs-weevils-and-alternative-stable-states</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4060,7 +4292,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Tipping Points and the Precautionary Principle</title>
    <link href="http://www.noamross.net/blog/2011/1/24/tipping-points-and-the-precautionary-principle.html"/>
-   <updated>2011-01-24T00:00:00-08:00</updated>
+   <updated>2011-01-24T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/24/tipping-points-and-the-precautionary-principle</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4088,7 +4320,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>My article on rural abandonment and ecosystem services at GOOD</title>
    <link href="http://www.noamross.net/blog/2011/1/17/my-article-on-rural-abandonment-and-ecosystem-services-at-go.html"/>
-   <updated>2011-01-17T00:00:00-08:00</updated>
+   <updated>2011-01-17T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/17/my-article-on-rural-abandonment-and-ecosystem-services-at-go</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4109,7 +4341,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>George Sugihara on Early Warnings</title>
    <link href="http://www.noamross.net/blog/2011/1/17/george-sugihara-on-early-warnings.html"/>
-   <updated>2011-01-17T00:00:00-08:00</updated>
+   <updated>2011-01-17T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/17/george-sugihara-on-early-warnings</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4128,7 +4360,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Jellyfish and Ocean Tipping Points</title>
    <link href="http://www.noamross.net/blog/2011/1/15/jellyfish-and-ocean-tipping-points.html"/>
-   <updated>2011-01-15T00:00:00-08:00</updated>
+   <updated>2011-01-15T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/15/jellyfish-and-ocean-tipping-points</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4148,7 +4380,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>REDD+ and Financial Resilience for Conservation</title>
    <link href="http://www.noamross.net/blog/2011/1/7/redd-and-financial-resilience-for-conservation.html"/>
-   <updated>2011-01-07T00:00:00-08:00</updated>
+   <updated>2011-01-07T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/7/redd-and-financial-resilience-for-conservation</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4177,7 +4409,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Preparing for unexpected opportunities in Borneo</title>
    <link href="http://www.noamross.net/blog/2011/1/2/preparing-for-unexpected-opportunities-in-borneo.html"/>
-   <updated>2011-01-02T00:00:00-08:00</updated>
+   <updated>2011-01-02T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/2/preparing-for-unexpected-opportunities-in-borneo</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4201,7 +4433,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Tackling investor risk in forest restoration</title>
    <link href="http://www.noamross.net/blog/2010/12/21/tackling-investor-risk-in-forest-restoration.html"/>
-   <updated>2010-12-21T00:00:00-08:00</updated>
+   <updated>2010-12-21T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/12/21/tackling-investor-risk-in-forest-restoration</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4219,7 +4451,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Managing New Invasion Risks from Biofuel Crops</title>
    <link href="http://www.noamross.net/blog/2010/12/16/managing-new-invasion-risks-from-biofuel-crops.html"/>
-   <updated>2010-12-16T00:00:00-08:00</updated>
+   <updated>2010-12-16T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/12/16/managing-new-invasion-risks-from-biofuel-crops</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4239,7 +4471,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Good environmental management lowers cost of borrowing</title>
    <link href="http://www.noamross.net/blog/2010/12/6/good-environmental-management-lowers-cost-of-borrowing.html"/>
-   <updated>2010-12-06T00:00:00-08:00</updated>
+   <updated>2010-12-06T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/12/6/good-environmental-management-lowers-cost-of-borrowing</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4259,7 +4491,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Fishing for metrics</title>
    <link href="http://www.noamross.net/blog/2010/11/20/fishing-for-metrics.html"/>
-   <updated>2010-11-20T00:00:00-08:00</updated>
+   <updated>2010-11-20T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/11/20/fishing-for-metrics</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4280,7 +4512,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Apparently, there's nothing left to learn about ecosystem services</title>
    <link href="http://www.noamross.net/blog/2010/11/17/apparently-theres-nothing-left-to-learn-about-ecosystem-serv.html"/>
-   <updated>2010-11-17T00:00:00-08:00</updated>
+   <updated>2010-11-17T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/11/17/apparently-theres-nothing-left-to-learn-about-ecosystem-serv</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4301,7 +4533,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>PricewaterhouseCoopers gets into the ecosystem services game</title>
    <link href="http://www.noamross.net/blog/2010/11/14/pricewaterhousecoopers-gets-into-the-ecosystem-services-game.html"/>
-   <updated>2010-11-14T00:00:00-08:00</updated>
+   <updated>2010-11-14T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/11/14/pricewaterhousecoopers-gets-into-the-ecosystem-services-game</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4320,7 +4552,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>What do we do with forecasts of the future?</title>
    <link href="http://www.noamross.net/blog/2010/10/28/what-do-we-do-with-forecasts-of-the-future-.html"/>
-   <updated>2010-10-28T00:00:00-07:00</updated>
+   <updated>2010-10-28T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/28/what-do-we-do-with-forecasts-of-the-future-</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4364,7 +4596,7 @@ date: 2010-11-01
  <entry>
    <title>Thinking about TEEB</title>
    <link href="http://www.noamross.net/blog/2010/10/23/thinking-about-teeb.html"/>
-   <updated>2010-10-23T00:00:00-07:00</updated>
+   <updated>2010-10-23T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/23/thinking-about-teeb</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4415,7 +4647,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>New approaches to looking at water-related financial risks</title>
    <link href="http://www.noamross.net/blog/2010/10/21/new-approaches-to-looking-at-water-related-financial-risks.html"/>
-   <updated>2010-10-21T00:00:00-07:00</updated>
+   <updated>2010-10-21T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/21/new-approaches-to-looking-at-water-related-financial-risks</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4438,7 +4670,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Reading philosophy can get you down</title>
    <link href="http://www.noamross.net/blog/2010/10/18/reading-philosophy-can-get-you-down.html"/>
-   <updated>2010-10-18T00:00:00-07:00</updated>
+   <updated>2010-10-18T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/18/reading-philosophy-can-get-you-down</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4457,7 +4689,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Why the carbon market needs ecologists</title>
    <link href="http://www.noamross.net/blog/2010/10/16/why-the-carbon-market-needs-ecologists.html"/>
-   <updated>2010-10-16T00:00:00-07:00</updated>
+   <updated>2010-10-16T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/16/why-the-carbon-market-needs-ecologists</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4480,7 +4712,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Saving more than species at Nagoya</title>
    <link href="http://www.noamross.net/blog/2010/10/16/saving-more-than-species-at-nagoya.html"/>
-   <updated>2010-10-16T00:00:00-07:00</updated>
+   <updated>2010-10-16T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/16/saving-more-than-species-at-nagoya</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4507,7 +4739,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Liability for stolen ecosystem services</title>
    <link href="http://www.noamross.net/blog/2010/10/11/liability-for-stolen-ecosystem-services.html"/>
-   <updated>2010-10-11T00:00:00-07:00</updated>
+   <updated>2010-10-11T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/11/liability-for-stolen-ecosystem-services</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4527,7 +4759,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Does ecology tell us that some species are worth more than others?</title>
    <link href="http://www.noamross.net/blog/2010/10/11/does-ecology-tell-us-that-some-species-are-worth-more-than-o.html"/>
-   <updated>2010-10-11T00:00:00-07:00</updated>
+   <updated>2010-10-11T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/11/does-ecology-tell-us-that-some-species-are-worth-more-than-o</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4551,7 +4783,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Measuring resilience to climate-change driven crop failure</title>
    <link href="http://www.noamross.net/blog/2010/10/8/measuring-resilience-to-climate-change-driven-crop-failure.html"/>
-   <updated>2010-10-08T00:00:00-07:00</updated>
+   <updated>2010-10-08T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/8/measuring-resilience-to-climate-change-driven-crop-failure</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4571,7 +4803,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>In honeybee collapse, cure the patient, not just the disease.</title>
    <link href="http://www.noamross.net/blog/2010/10/7/in-honeybee-collapse-cure-the-patient-not-just-the-disease.html"/>
-   <updated>2010-10-07T00:00:00-07:00</updated>
+   <updated>2010-10-07T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/7/in-honeybee-collapse-cure-the-patient-not-just-the-disease</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4590,7 +4822,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Rapid evolution as a warning sign</title>
    <link href="http://www.noamross.net/blog/2010/10/2/rapid-evolution-as-a-warning-sign.html"/>
-   <updated>2010-10-02T00:00:00-07:00</updated>
+   <updated>2010-10-02T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/2/rapid-evolution-as-a-warning-sign</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4609,7 +4841,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Harmful algal blooms highlight risks from cascading ecological collapse</title>
    <link href="http://www.noamross.net/blog/2010/10/1/harmful-algal-blooms-highlight-risks-from-cascading-ecologic.html"/>
-   <updated>2010-10-01T00:00:00-07:00</updated>
+   <updated>2010-10-01T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/1/harmful-algal-blooms-highlight-risks-from-cascading-ecologic</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4628,7 +4860,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Payments for ecosystem services are great, unless we do them enough to make a difference</title>
    <link href="http://www.noamross.net/blog/2010/9/30/payments-for-ecosystem-services-are-great-unless-we-do-them.html"/>
-   <updated>2010-09-30T00:00:00-07:00</updated>
+   <updated>2010-09-30T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/30/payments-for-ecosystem-services-are-great-unless-we-do-them</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4656,7 +4888,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>A species is priceless - does that mean that it is worth nothing or everything?</title>
    <link href="http://www.noamross.net/blog/2010/9/27/a-species-is-priceless-does-that-mean-that-it-is-worth-nothi.html"/>
-   <updated>2010-09-27T00:00:00-07:00</updated>
+   <updated>2010-09-27T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/27/a-species-is-priceless-does-that-mean-that-it-is-worth-nothi</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4676,7 +4908,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Risk, Insurance, LUST, and Fish</title>
    <link href="http://www.noamross.net/blog/2010/9/24/risk-insurance-lust-and-fish.html"/>
-   <updated>2010-09-24T00:00:00-07:00</updated>
+   <updated>2010-09-24T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/24/risk-insurance-lust-and-fish</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4701,7 +4933,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Money Quote</title>
    <link href="http://www.noamross.net/blog/2010/9/23/money-quote.html"/>
-   <updated>2010-09-23T00:00:00-07:00</updated>
+   <updated>2010-09-23T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/23/money-quote</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4725,7 +4957,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>In the News:  Hysteresis in Coral Reefs</title>
    <link href="http://www.noamross.net/blog/2010/9/21/in-the-news-hysteresis-in-coral-reefs.html"/>
-   <updated>2010-09-21T00:00:00-07:00</updated>
+   <updated>2010-09-21T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/21/in-the-news-hysteresis-in-coral-reefs</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4753,7 +4985,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Species in a Bucket</title>
    <link href="http://www.noamross.net/blog/2010/9/17/species-in-a-bucket.html"/>
-   <updated>2010-09-17T00:00:00-07:00</updated>
+   <updated>2010-09-17T00:00:00-06:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/17/species-in-a-bucket</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
