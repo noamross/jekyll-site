@@ -1,8 +1,8 @@
 ---
 title: "Quals Reading: Four Reviews of Forest Epidemiology"
 author: "Noam Ross"
-tags: [quals, SOD, forest, epidemiology]
-date: "12-12-21 11:58:31"
+tags: [SOD, quals, forests, diseases, epidemiology]
+date: "12-12-21 12:02:48"
 layout: post
 --- 
 
@@ -75,11 +75,65 @@ different approaches to modeling and analysis for both inference and
 prediction, noting that these goals result not only in different
 modeling approaches, but also the type and scale of data collected.
 
-Gilbert and Hubbell (1996) - Plant Diseases and the Conservation of Tropical Forests
-------------------------------------------------------------------------------------
+Notes on Readings
+-----------------
 
-Summary / Key Points
---------------------
+-   [Gilbert and Hubbell (1996) - Plant Diseases and the Conservation of
+    Tropical
+    Forests](#gilbert1996---plant-diseases-and-the-conservation-of-tropical-forests)
+-   [Summary / Key Points](#summary-key-points-1)
+    -   [Factors influencing disease
+        development](#factors-influencing-disease-development)
+    -   [Direct negative effects of
+        disease](#direct-negative-effects-of-disease)
+    -   [Direct positive effects of
+        disease](#direct-positive-effects-of-disease)
+    -   [Density and Dominance](#density-and-dominance)
+    -   [Interactions with agriculture](#interactions-with-agriculture)
+    -   [Disease and reserve design](#disease-and-reserve-design)
+
+-   [Hansen and Goheen (2000) - Root Pathogen Control of Forest
+    Structure](#hansen2000---root-pathogen-control-of-forest-structure)
+-   [Summary / Key points](#summary-key-points-1)
+    -   [Introduction](#introduction)
+    -   [System: Northwestern Coniferous
+        Forest](#system-northwestern-coniferous-forest)
+    -   [*Phellinus weirri*](#phellinus-weirri)
+    -   [Effects on Forests](#effects-on-forests)
+    -   [Effect of tree vigor](#effect-of-tree-vigor)
+    -   [Old growth forests](#old-growth-forests)
+    -   [Managed forests](#managed-forests)
+    -   [Modeling](#modeling)
+
+-   [Holdenrieder et al. (2004): Landscape
+    pathology](#holdenrieder2004-landscape-pathology)
+    -   [Summary / Key Points](#summary-key-points-2)
+    -   [Introduction](#introduction-1)
+    -   [Fragmentation](#fragmentation)
+    -   [Predisposing environmental
+        features](#predisposing-environmental-features)
+    -   [Host and pathogen landscape
+        patterns](#host-and-pathogen-landscape-patterns)
+    -   [Landscape perspectives on Sudden Oak
+        Death](#landscape-perspectives-on-sudden-oak-death)
+
+-   [Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging
+    Infectious
+    Disease](#meentemeyer2004---landscape-epidemiology-of-emerging-infectious-disease)
+    -   [Summary / Key Points](#summary-key-points-3)
+    -   [Introduction](#introduction-2)
+    -   [Key considerations in landscape-level
+        analysis](#key-considerations-in-landscape-level-analysis)
+    -   [Analytical Frontiers](#analytical-frontiers)
+    -   [What's next](#whats-next)
+
+-   [References](#references)
+
+[Gilbert and Hubbell (1996) - Plant Diseases and the Conservation of Tropical Forests](#TOC)
+--------------------------------------------------------------------------------------------
+
+[Summary / Key Points](#TOC)
+----------------------------
 
 -   Diseases regulate plant community structure, function, and evolution
 -   Diverse, endemic pathogens are common, but human intervention,
@@ -95,7 +149,7 @@ Summary / Key Points
 -   Reserve design needs to consider the spatial spread mechanisms of
     disease and its interaction with the surrounding habitat matrix
 
-### Factors influencing disease development
+### [Factors influencing disease development](#TOC)
 
 -   Epidemics are typically bad for conservation, but endemics may be
     essenial
@@ -117,7 +171,7 @@ Summary / Key Points
 -   Many diseases are associated with **forest decline** - a mix of
     biotic and abiotic factors (pollution, drought, poor soil)
 
-### Direct negative effects of disease
+### [Direct negative effects of disease](#TOC)
 
 -   Negative effects of epidemics may last a long time (decades) because
     of long-term effects on reproduction and growth, and the retention
@@ -127,7 +181,7 @@ Summary / Key Points
 -   Small populations are vulnerable to disease due to combination of
     low diversity and stochastic population reductions
 
-### Direct positive effects of disease
+### [Direct positive effects of disease](#TOC)
 
 -   Diseases create disturbances, gaps, and micro-habitat (e.g., holes
     in trees) important for diversity.
@@ -138,7 +192,7 @@ Summary / Key Points
 -   Disease modify competetive dynamics, (e.g., root rot *Phellinus
     weirii* favor Pacific fur over otherwise dominant hemlock.)
 
-### Density and Dominance
+### [Density and Dominance](#TOC)
 
 -   Small and homogenous populations of trees have less diverse
     pathogens, and are also more vulnerable.
@@ -148,7 +202,7 @@ Summary / Key Points
     species-specific diseases, but not in the case of more general
     diseases
 
-### Interactions with agriculture
+### [Interactions with agriculture](#TOC)
 
 -   Natural ecosystems ar reservoirs for agricultural pests, but natural
     fragments in agricultural landscapes can be vulnerable to epidemics
@@ -161,7 +215,7 @@ Summary / Key Points
 -   Agricultural disease may lead to rapid deforestation as farmers look
     for "uncontaminated lands"
 
-### Disease and reserve design
+### [Disease and reserve design](#TOC)
 
 -   Recovery is usually much longer than epidemic length
 -   Dividing reserves into small parts may provide some protection due
@@ -169,11 +223,11 @@ Summary / Key Points
 -   However, agricultural/edge effects may make larger reserves
     preferable
 
-Hansen and Goheen (2000) - Root Pathogen Control of Forest Structure
---------------------------------------------------------------------
+[Hansen and Goheen (2000) - Root Pathogen Control of Forest Structure](#TOC)
+----------------------------------------------------------------------------
 
-Summary / Key points
---------------------
+[Summary / Key points](#TOC)
+----------------------------
 
 -   Root-rot diseases are important in structuring forest communities
 -   They are very common in Western North American forests
@@ -192,7 +246,7 @@ Summary / Key points
     the total disease burden can accumulate so as to radically change
     the community, but events like fire can reset this pattern.
 
-### Introduction
+### [Introduction](#TOC)
 
 -   Pathogens provide essential functions to forests, but much
     understanding of them has been in the framework of disease as a pest
@@ -201,7 +255,7 @@ Summary / Key points
 -   *Phellinus weirri* acts as a disturbance agent, killing trees and
     creating expanding gaps.
 
-### System: Northwestern Coniferous Forest
+### [System: Northwestern Coniferous Forest](#TOC)
 
 -   In Douglas-fir forest, succession is reset by fire and
     clear-cutting. Diversity increases rapidly in early years, then
@@ -209,7 +263,7 @@ Summary / Key points
     Shade-tolerant trees (hemlock) establish in the understory and only
     grow to the canopy when long-lived Douglas-fir is disturbed.
 
-### *Phellinus weirri*
+### [*Phellinus weirri*](#TOC)
 
 -   Agent of root rot, damaging to timber Douglas-fir forests
 -   Wide host range in conifers, but motly harms Douglas-fir, mountain
@@ -225,7 +279,7 @@ Summary / Key points
 -   Genets die in center of mortality after hosts are all dead, and
     after fires. Effectively, they break up.
 
-### Effects on Forests
+### [Effects on Forests](#TOC)
 
 -   Regenerating Douglas-fir forests have gaps where genets are
 -   Infection covers 12-80% of Doug-fir forests
@@ -247,7 +301,7 @@ Summary / Key points
     soil is hospitable to new seedlings
 -   The center has abundant woody depbris and decomposer species
 
-### Effect of tree vigor
+### [Effect of tree vigor](#TOC)
 
 -   Old hypothesis: The first vulnerable trees establishing behind the
     mortality front are more vigorous due to increased nutrients and are
@@ -255,7 +309,7 @@ Summary / Key points
 -   New hypothesis: These trees are also vulnerable, but they die small
     so disease spread is limited
 
-### Old growth forests
+### [Old growth forests](#TOC)
 
 -   Many of the strucutural characteristics of old-growth forests are
     due to rot pathogens, which enhance horizontal and vertical
@@ -267,7 +321,7 @@ Summary / Key points
     composition and reduce biomass.
 -   Stands with fire history have less of this disease-driven decline
 
-### Managed forests
+### [Managed forests](#TOC)
 
 -   Human intervention has driven an increase in Douglas-fir and other
     vulneratble species, and thus an increase in *P. weirii*
@@ -275,17 +329,17 @@ Summary / Key points
 -   Forest management plans do not adequately consider the effects and
     causes of disease
 
-### Modeling
+### [Modeling](#TOC)
 
 -   The Western Rood Disease Model is an extension to FVS which can be
     used in forest planning
 -   But data on disease prevalance is scarce, and interaction of
     pathogens isn't get modled.
 
-Holdenrieder et al. (2004): Landscape pathology
------------------------------------------------
+[Holdenrieder et al. (2004): Landscape pathology](#TOC)
+-------------------------------------------------------
 
-### Summary / Key Points
+### [Summary / Key Points](#TOC)
 
 -   Large-scale spatial perspectives are important in studying forest
     disease
@@ -297,7 +351,7 @@ Holdenrieder et al. (2004): Landscape pathology
     growth
 -   Look at Park et al. (2002) for spatial influences on epidemics
 
-### Introduction
+### [Introduction](#TOC)
 
 -   Diseases can affect landscape structure and vice versa (e.g.,
     landslides after tree mortality)
@@ -306,7 +360,7 @@ Holdenrieder et al. (2004): Landscape pathology
 -   Epidemiological and landscape tools have recently been used to deal
     with these large-scale studies
 
-### Fragmentation
+### [Fragmentation](#TOC)
 
 -   Fragmentation *may* limit disease spread, but it has complex effects
     on host, reservoir, and pathogen populations.
@@ -320,13 +374,13 @@ Holdenrieder et al. (2004): Landscape pathology
     quercuum*), or transfer of propogules on vehicles (in root pathogen
     *Phytophthora lateralis*)
 
-### Predisposing environmental features
+### [Predisposing environmental features](#TOC)
 
 -   Site-specific variables such as climate, slope, soil properties,
     etc. effect disease incidence and virulence, but the scale of
     measurement is important
 
-### Host and pathogen landscape patterns
+### [Host and pathogen landscape patterns](#TOC)
 
 -   (Alternate) host availability may be more important than
     environmental factors in predicting arrival of pathogen
@@ -335,7 +389,7 @@ Holdenrieder et al. (2004): Landscape pathology
 -   Landscape patterns of both host and pathogen genetic variation may
     be important, as in the case of *Armillaria* root rot genets.
 
-### Landscape perspectives on Sudden Oak Death
+### [Landscape perspectives on Sudden Oak Death](#TOC)
 
 -   Research found clustering patterns between 100 and 300 m
 -   Occurrence at all slope positions helped suggest the wind-blown rain
@@ -343,10 +397,10 @@ Holdenrieder et al. (2004): Landscape pathology
 -   Forest edge effects suggest imoprtance of understory foliar hosts
     that prefer high-light environments
 
-Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging Infectious Disease
----------------------------------------------------------------------------------
+[Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging Infectious Disease](#TOC)
+-----------------------------------------------------------------------------------------
 
-### Summary / Key Points
+### [Summary / Key Points](#TOC)
 
 -   Landscape epidemiology examines disease processes at large spatial
     scales, considering heterogeneity, connectivity, and other
@@ -363,7 +417,7 @@ Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging Infectious Diseas
 -   Parsimony/complexity trade-offs must consisder data availability and
     management goals, as well.
 
-### Introduction
+### [Introduction](#TOC)
 
 -   Disease occurs in a complex spatiotemporal landscape with
     heterogeneity in environments and dispersal mechanisms
@@ -371,7 +425,7 @@ Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging Infectious Diseas
 -   Most landscape epidemiology research is observational rather than
     model- or experiment-based. Multiscale approaches are rare
 
-### Key considerations in landscape-level analysis
+### [Key considerations in landscape-level analysis](#TOC)
 
 -   Appropriate spatial scale: Corridors are important for vector-borne,
     but not wind-borne diseases
@@ -396,7 +450,7 @@ Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging Infectious Diseas
     actual and potential disease distribution - ecological theory
     important here.
 
-### Analytical Frontiers
+### [Analytical Frontiers](#TOC)
 
 -   Multiscale analysis - ecosystems and epidemiological processes have
     spatial hierarchies.
@@ -416,13 +470,13 @@ Meentemeyer et al. (2004) - Landscape Epidemiology of Emerging Infectious Diseas
 -   Optimal disease control with landscape dynamics: Using landscape
     models to explore possible control scenarios
 
-### What's next
+### [What's next](#TOC)
 
 -   Interacting disturbances - e.g., logging/disease/fire
 -   Reciprical socio-ecological feedbacks
 
-References
-----------
+[References](#TOC)
+------------------
 
 Ellis, A. M., T. Václavík, and R. K. Meentemeyer. 2010. When is
 connectivity important? A case study of the spatial pattern of sudden
