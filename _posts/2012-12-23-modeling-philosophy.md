@@ -197,8 +197,8 @@ Notes on Readings
 Aber, J. D. 1997. Why Don’t We Believe the Models?. Bulletin of the
 Ecological Society of America 78:232–233.
 
-Levins, R. 1966. The Strategy of Model Building in Population Biology
-54:421–431.
+Levins, R. 1966. The strategy of model building in population biology.
+American Scientist 54:421–431.
 
-May, R. M. 2004. Uses and abuses of mathematics in biology.. Science
-(New York, N.Y.) 303:790–3.
+May, R. M. 2004. Uses and abuses of mathematics in biology. Science
+303:790–3.
