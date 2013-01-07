@@ -88,7 +88,10 @@ Your real data is probably considerably larger and more complex, and could be in
 the form of a data frame, list, or any other number of objects. Try running
 `dput(mtcars)` to see the results with a larger data set. It's often shorter to
 using `dput` on cleaned-up, manipulated data than including a lot of
-data-manipulation steps in your MRE.
+data-manipulation steps in your MRE. If your dataset is large, simply use `dput(head(mtcars))` to share only the first few rows.
+
+Similarly, it is easy to share more information about your set up using the `sessionInfo()` function. It returns information about your `R` version, your platform, base, and loaded packages, all of which are really helpful for troubleshooting purposes.
+Simply copy and paste the output from the function alongside your question.
 
 [Sharing R scripts with `gist.github.com`](#TOC)
 ================================================
