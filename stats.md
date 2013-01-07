@@ -49,7 +49,7 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 Click on a course to see a description and comments.  Please add your own comments and ask questions!  Reviews, descriptions, and links to professor/course/syllabus webpages are all helpful.
 
-***Important:*** *Inclusion on this webpage is no guarantee that a course will fullful your quantitative requirements.  That is up to your committee.*
+***Important:*** *Inclusion on this webpage is no guarantee that a course will fullful your quantitative requirements.  That is up to your committee.  Also, remember that, for GGE student, your quantitative methods examiner must be a member of the GGE.*
 
 **Courses Updated for Winter 2013**: ABG250, ANT298, ECN204A, POL212, POL279, PLS205, STA130B
 

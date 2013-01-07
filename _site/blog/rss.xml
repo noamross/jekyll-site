@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-01-01T17:38:26-07:00</updated>
+ <updated>2013-01-07T09:52:50-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>Quals Reading: Modeling Philosophy</title>
    <link href="http://www.noamross.net/blog/2012/12/23/modeling-philosophy.html"/>
-   <updated>2012-12-23T07:44:27-07:00</updated>
+   <updated>2012-12-23T07:44:27-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/12/23/modeling-philosophy</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -134,7 +134,7 @@
  <entry>
    <title>Quals Reading: Four Reviews of Forest Epidemiology</title>
    <link href="http://www.noamross.net/blog/2012/12/21/landscape-epidemiology-readings.html"/>
-   <updated>2012-12-21T12:02:48-07:00</updated>
+   <updated>2012-12-21T12:02:48-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/12/21/landscape-epidemiology-readings</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -409,7 +409,7 @@
  <entry>
    <title>Qualifying Exam Reading List</title>
    <link href="http://www.noamross.net/blog/2012/12/17/quals-reading-list.html"/>
-   <updated>2012-12-17T16:20:45-07:00</updated>
+   <updated>2012-12-17T16:20:45-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/12/17/quals-reading-list</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -619,7 +619,7 @@
  <entry>
    <title>Lauren Yamane on Matrix Population Models in R</title>
    <link href="http://www.noamross.net/blog/2012/11/30/lauren-yamane-on-matrix-population-models.html"/>
-   <updated>2012-11-30T10:11:17-07:00</updated>
+   <updated>2012-11-30T10:11:17-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/30/lauren-yamane-on-matrix-population-models</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -786,7 +786,7 @@ ev5_noF = &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;k
  <entry>
    <title>A multi-species, age-structured model for forest disease</title>
    <link href="http://www.noamross.net/blog/2012/11/28/lab-meeting-presentation-outline.html"/>
-   <updated>2012-11-28T18:00:20-07:00</updated>
+   <updated>2012-11-28T18:00:20-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/28/lab-meeting-presentation-outline</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -963,7 +963,7 @@ b_{2,I} \end{bmatrix}\]&lt;/p&gt;
  <entry>
    <title>A quick function for editing CSV files in R</title>
    <link href="http://www.noamross.net/blog/2012/11/19/editing-csv-files-in-r.html"/>
-   <updated>2012-11-19T13:47:25-07:00</updated>
+   <updated>2012-11-19T13:47:25-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/19/editing-csv-files-in-r</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -1002,7 +1002,7 @@ fix.csv &amp;lt;- function(file, &lt;span class=&quot;dt&quot;&gt;new.name=&lt;/
  <entry>
    <title>Simulating Sudden Oak Death Dynamics</title>
    <link href="http://www.noamross.net/blog/2012/11/16/sod-dynamics-1.html"/>
-   <updated>2012-11-16T10:22:42-07:00</updated>
+   <updated>2012-11-16T10:22:42-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/16/sod-dynamics-1</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -1321,7 +1321,7 @@ for (time in time.steps) {
  <entry>
    <title>Jordi Bascompte on Mutualistic Networks</title>
    <link href="http://www.noamross.net/blog/2012/11/15/lecture---jordi-bascompte.html"/>
-   <updated>2012-11-15T16:09:23-07:00</updated>
+   <updated>2012-11-15T16:09:23-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/15/lecture---jordi-bascompte</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -1364,7 +1364,7 @@ for (time in time.steps) {
  <entry>
    <title>Ecological Stoichiometry: Population Dynamics</title>
    <link href="http://www.noamross.net/blog/2012/11/13/ecological-stoichiometry--notes-on-andersen-et-al-2004.html"/>
-   <updated>2012-11-13T10:05:03-07:00</updated>
+   <updated>2012-11-13T10:05:03-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/13/ecological-stoichiometry--notes-on-andersen-et-al-2004</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -1419,7 +1419,7 @@ for (time in time.steps) {
  <entry>
    <title>Exploring GAMs with Rosemary Hartman</title>
    <link href="http://www.noamross.net/blog/2012/11/9/gams-for-drug.html"/>
-   <updated>2012-11-09T12:49:25-07:00</updated>
+   <updated>2012-11-09T12:49:25-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/9/gams-for-drug</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2438,7 +2438,7 @@ fish1 &amp;lt;- &lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~ BU
  <entry>
    <title>Dynamics of Coupled Nutrient Cycling and Acclimation: 3 Modeling Papers</title>
    <link href="http://www.noamross.net/blog/2012/11/5/notes-for-stoichiometry-presentation.html"/>
-   <updated>2012-11-05T19:47:23-07:00</updated>
+   <updated>2012-11-05T19:47:23-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/5/notes-for-stoichiometry-presentation</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2530,7 +2530,7 @@ fish1 &amp;lt;- &lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~ BU
  <entry>
    <title>Ryan Peek on Customizing Your R Setup</title>
    <link href="http://www.noamross.net/blog/2012/11/2/rprofile.html"/>
-   <updated>2012-11-02T11:37:00-06:00</updated>
+   <updated>2012-11-02T11:37:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/11/2/rprofile</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2591,7 +2591,7 @@ fish1 &amp;lt;- &lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~ BU
  <entry>
    <title>Chris Hamm on using plot.new() for better combined plots</title>
    <link href="http://www.noamross.net/blog/2012/10/26/plotnew.html"/>
-   <updated>2012-10-26T10:41:35-06:00</updated>
+   <updated>2012-10-26T10:41:35-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/26/plotnew</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2876,7 +2876,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>Ecological Stoichiometry: The Perils of Famine and Plenty</title>
    <link href="http://www.noamross.net/blog/2012/10/22/ecological-stoichiometry--the-perils-of-famine-and-plenty.html"/>
-   <updated>2012-10-22T19:55:56-06:00</updated>
+   <updated>2012-10-22T19:55:56-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/22/ecological-stoichiometry--the-perils-of-famine-and-plenty</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2973,7 +2973,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>Stella Copeland's Intro to Mixed Models in R</title>
    <link href="http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html"/>
-   <updated>2012-10-19T10:26:56-06:00</updated>
+   <updated>2012-10-19T10:26:56-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -2990,7 +2990,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>A Science-based Voter's Guide</title>
    <link href="http://www.noamross.net/blog/2012/10/19/scb-voter-s-guide.html"/>
-   <updated>2012-10-19T09:43:28-06:00</updated>
+   <updated>2012-10-19T09:43:28-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/19/scb-voter-s-guide</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3023,7 +3023,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>Ecological Stoichiometry: Back to Basics with Elser</title>
    <link href="http://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings.html"/>
-   <updated>2012-10-15T10:36:30-06:00</updated>
+   <updated>2012-10-15T10:36:30-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/15/ecological-stoichiometry--first-readings</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3122,7 +3122,7 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
  <entry>
    <title>A quick introduction to ggplot()</title>
    <link href="http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html"/>
-   <updated>2012-10-05T12:05:10-06:00</updated>
+   <updated>2012-10-05T12:05:10-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/5/ggplot-introduction</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3277,7 +3277,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Forest Ecology Journals</title>
    <link href="http://www.noamross.net/blog/2012/10/3/forest-ecology-journals.html"/>
-   <updated>2012-10-03T09:26:45-06:00</updated>
+   <updated>2012-10-03T09:26:45-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/3/forest-ecology-journals</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3299,7 +3299,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Seminar in Ecological Stoichiometry: Day 1</title>
    <link href="http://www.noamross.net/blog/2012/10/2/notes-on-ecological-stoichiometry--day-1.html"/>
-   <updated>2012-10-02T10:57:18-06:00</updated>
+   <updated>2012-10-02T10:57:18-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/2/notes-on-ecological-stoichiometry--day-1</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3355,7 +3355,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Multiple Goals in Floodplain Restoration - Workshop Notes</title>
    <link href="http://www.noamross.net/blog/2012/10/1/igert-workshop-notes.html"/>
-   <updated>2012-10-01T15:08:48-06:00</updated>
+   <updated>2012-10-01T15:08:48-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/10/1/igert-workshop-notes</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3417,7 +3417,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Melinda D. Smith: Divergence in grassland responses to Fire and Grazing in N. America and S. Africa</title>
    <link href="http://www.noamross.net/blog/2012/9/27/notes-on-melinda-d-smith-talk.html"/>
-   <updated>2012-09-27T16:01:02-06:00</updated>
+   <updated>2012-09-27T16:01:02-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/9/27/notes-on-melinda-d-smith-talk</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3537,7 +3537,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>An R Users' Group in Davis</title>
    <link href="http://www.noamross.net/blog/2012/9/24/a-new-r-users--group.html"/>
-   <updated>2012-09-24T11:05:27-06:00</updated>
+   <updated>2012-09-24T11:05:27-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/9/24/a-new-r-users--group</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3550,7 +3550,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Regime Shifts in Forest Ecosystems</title>
    <link href="http://www.noamross.net/blog/2012/7/2/regime-shifts-in-forest-ecosystems.html"/>
-   <updated>2012-07-02T14:43:01-06:00</updated>
+   <updated>2012-07-02T14:43:01-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/7/2/regime-shifts-in-forest-ecosystems</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3611,7 +3611,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Trade-Offs and Synergies in Floodplain Management - A Historical-Ecological Approach</title>
    <link href="http://www.noamross.net/blog/2012/6/1/trade-offs-and-synergies-in-floodplain-management.html"/>
-   <updated>2012-06-01T00:00:00-06:00</updated>
+   <updated>2012-06-01T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/6/1/trade-offs-and-synergies-in-floodplain-management</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3630,7 +3630,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Carl Walters on Surprises in Adaptive Management at the Grand Canyon</title>
    <link href="http://www.noamross.net/blog/2012/5/25/carl-walters-on-surprises-in-adaptive-management-at-the-grand-canyon.html"/>
-   <updated>2012-05-25T00:00:00-06:00</updated>
+   <updated>2012-05-25T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/5/25/carl-walters-on-surprises-in-adaptive-management-at-the-grand-canyon</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3733,7 +3733,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Jo Albers on Invasive Species in a River Network</title>
    <link href="http://www.noamross.net/blog/2012/5/15/heidi-albers-talk-may-15-2012.html"/>
-   <updated>2012-05-15T00:00:00-06:00</updated>
+   <updated>2012-05-15T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/5/15/heidi-albers-talk-may-15-2012</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3852,7 +3852,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Holly Doremus on Adaptive Management</title>
    <link href="http://www.noamross.net/blog/2012/4/20/lecture-from-holly-doremus---adaptive-management.html"/>
-   <updated>2012-04-20T00:00:00-06:00</updated>
+   <updated>2012-04-20T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/20/lecture-from-holly-doremus---adaptive-management</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3929,7 +3929,7 @@ a&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Displaying Math in RSS feeds</title>
    <link href="http://www.noamross.net/blog/2012/4/4/math-in-rss-feeds.html"/>
-   <updated>2012-04-04T11:02:57-06:00</updated>
+   <updated>2012-04-04T11:02:57-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/4/math-in-rss-feeds</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3962,7 +3962,7 @@ perl -pi -e &amp;#39;s|(\\&lt;img style=&quot;vertical-align:middle&quot; src=&q
  <entry>
    <title>Exploring Pollen Data</title>
    <link href="http://www.noamross.net/blog/2012/4/2/exploring-pollen-data-knit.html"/>
-   <updated>2012-04-02T15:06:18-06:00</updated>
+   <updated>2012-04-02T15:06:18-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/2/exploring-pollen-data-knit</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -3999,7 +3999,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>A New, Shiny Website!</title>
    <link href="http://www.noamross.net/blog/2012/4/1/a-new-shiny-website.html"/>
-   <updated>2012-04-01T17:27:15-06:00</updated>
+   <updated>2012-04-01T17:27:15-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/1/a-new-shiny-website</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4017,7 +4017,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Links and Resources</title>
    <link href="http://www.noamross.net/blog/2012/4/1/links-and-resources.html"/>
-   <updated>2012-04-01T16:44:09-06:00</updated>
+   <updated>2012-04-01T16:44:09-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/4/1/links-and-resources</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4062,7 +4062,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Notes on S-maps and regime shifts</title>
    <link href="http://www.noamross.net/blog/2012/1/31/notes-on-s-maps-and-regime-shifts.html"/>
-   <updated>2012-01-31T00:00:00-07:00</updated>
+   <updated>2012-01-31T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/31/notes-on-s-maps-and-regime-shifts</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4156,7 +4156,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Jan 17</title>
    <link href="http://www.noamross.net/blog/2012/1/18/jan-17.html"/>
-   <updated>2012-01-18T00:00:00-07:00</updated>
+   <updated>2012-01-18T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/18/jan-17</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4190,7 +4190,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>January 10, 2012</title>
    <link href="http://www.noamross.net/blog/2012/1/11/january-10-2012.html"/>
-   <updated>2012-01-11T00:00:00-07:00</updated>
+   <updated>2012-01-11T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/11/january-10-2012</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4233,7 +4233,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Back in the Saddle January 9, 2012</title>
    <link href="http://www.noamross.net/blog/2012/1/10/back-in-the-saddle-january-9-2012.html"/>
-   <updated>2012-01-10T00:00:00-07:00</updated>
+   <updated>2012-01-10T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2012/1/10/back-in-the-saddle-january-9-2012</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4267,7 +4267,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Forest Pest Outbreaks - A Bibliography</title>
    <link href="http://www.noamross.net/blog/2011/12/6/forest-pest-outbreaks--a-bibliography.html"/>
-   <updated>2011-12-06T00:00:00-07:00</updated>
+   <updated>2011-12-06T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/12/6/forest-pest-outbreaks--a-bibliography</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4286,7 +4286,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Pollen project sources</title>
    <link href="http://www.noamross.net/blog/2011/11/28/pollen-project-sources.html"/>
-   <updated>2011-11-28T00:00:00-07:00</updated>
+   <updated>2011-11-28T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/11/28/pollen-project-sources</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4316,7 +4316,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Monday, November 28, 2011</title>
    <link href="http://www.noamross.net/blog/2011/11/28/monday-november-28-2011.html"/>
-   <updated>2011-11-28T00:00:00-07:00</updated>
+   <updated>2011-11-28T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/11/28/monday-november-28-2011</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4340,7 +4340,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Extinction debt, dark diversity, and how things are much worse than they look</title>
    <link href="http://www.noamross.net/blog/2011/11/28/extinction-debt-dark-diversity-and-how-things-are-much-worse.html"/>
-   <updated>2011-11-28T00:00:00-07:00</updated>
+   <updated>2011-11-28T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/11/28/extinction-debt-dark-diversity-and-how-things-are-much-worse</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4366,7 +4366,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Can Novel Ecosystems Do the Job of "Natural" Ones?</title>
    <link href="http://www.noamross.net/blog/2011/9/1/can-novel-ecosystems-do-the-job-of-natural-ones.html"/>
-   <updated>2011-09-01T00:00:00-06:00</updated>
+   <updated>2011-09-01T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/9/1/can-novel-ecosystems-do-the-job-of-natural-ones</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4382,7 +4382,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Climate Change and Credit Risk in the Chemicals Sector</title>
    <link href="http://www.noamross.net/blog/2011/2/22/climate-change-and-credit-risk-in-the-chemicals-sector.html"/>
-   <updated>2011-02-22T00:00:00-07:00</updated>
+   <updated>2011-02-22T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/2/22/climate-change-and-credit-risk-in-the-chemicals-sector</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4400,7 +4400,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Delving into the Green Economy Report</title>
    <link href="http://www.noamross.net/blog/2011/2/21/delving-into-the-green-economy-report.html"/>
-   <updated>2011-02-21T00:00:00-07:00</updated>
+   <updated>2011-02-21T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/2/21/delving-into-the-green-economy-report</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4418,7 +4418,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Of Billabongs, Weevils, and Alternative Stable States</title>
    <link href="http://www.noamross.net/blog/2011/2/3/of-billabongs-weevils-and-alternative-stable-states.html"/>
-   <updated>2011-02-03T00:00:00-07:00</updated>
+   <updated>2011-02-03T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/2/3/of-billabongs-weevils-and-alternative-stable-states</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4454,7 +4454,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Tipping Points and the Precautionary Principle</title>
    <link href="http://www.noamross.net/blog/2011/1/24/tipping-points-and-the-precautionary-principle.html"/>
-   <updated>2011-01-24T00:00:00-07:00</updated>
+   <updated>2011-01-24T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/24/tipping-points-and-the-precautionary-principle</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4482,7 +4482,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>My article on rural abandonment and ecosystem services at GOOD</title>
    <link href="http://www.noamross.net/blog/2011/1/17/my-article-on-rural-abandonment-and-ecosystem-services-at-go.html"/>
-   <updated>2011-01-17T00:00:00-07:00</updated>
+   <updated>2011-01-17T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/17/my-article-on-rural-abandonment-and-ecosystem-services-at-go</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4503,7 +4503,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>George Sugihara on Early Warnings</title>
    <link href="http://www.noamross.net/blog/2011/1/17/george-sugihara-on-early-warnings.html"/>
-   <updated>2011-01-17T00:00:00-07:00</updated>
+   <updated>2011-01-17T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/17/george-sugihara-on-early-warnings</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4522,7 +4522,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Jellyfish and Ocean Tipping Points</title>
    <link href="http://www.noamross.net/blog/2011/1/15/jellyfish-and-ocean-tipping-points.html"/>
-   <updated>2011-01-15T00:00:00-07:00</updated>
+   <updated>2011-01-15T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/15/jellyfish-and-ocean-tipping-points</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4542,7 +4542,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>REDD+ and Financial Resilience for Conservation</title>
    <link href="http://www.noamross.net/blog/2011/1/7/redd-and-financial-resilience-for-conservation.html"/>
-   <updated>2011-01-07T00:00:00-07:00</updated>
+   <updated>2011-01-07T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/7/redd-and-financial-resilience-for-conservation</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4571,7 +4571,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Preparing for unexpected opportunities in Borneo</title>
    <link href="http://www.noamross.net/blog/2011/1/2/preparing-for-unexpected-opportunities-in-borneo.html"/>
-   <updated>2011-01-02T00:00:00-07:00</updated>
+   <updated>2011-01-02T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2011/1/2/preparing-for-unexpected-opportunities-in-borneo</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4595,7 +4595,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Tackling investor risk in forest restoration</title>
    <link href="http://www.noamross.net/blog/2010/12/21/tackling-investor-risk-in-forest-restoration.html"/>
-   <updated>2010-12-21T00:00:00-07:00</updated>
+   <updated>2010-12-21T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/12/21/tackling-investor-risk-in-forest-restoration</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4613,7 +4613,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Managing New Invasion Risks from Biofuel Crops</title>
    <link href="http://www.noamross.net/blog/2010/12/16/managing-new-invasion-risks-from-biofuel-crops.html"/>
-   <updated>2010-12-16T00:00:00-07:00</updated>
+   <updated>2010-12-16T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/12/16/managing-new-invasion-risks-from-biofuel-crops</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4633,7 +4633,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Good environmental management lowers cost of borrowing</title>
    <link href="http://www.noamross.net/blog/2010/12/6/good-environmental-management-lowers-cost-of-borrowing.html"/>
-   <updated>2010-12-06T00:00:00-07:00</updated>
+   <updated>2010-12-06T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/12/6/good-environmental-management-lowers-cost-of-borrowing</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4653,7 +4653,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Fishing for metrics</title>
    <link href="http://www.noamross.net/blog/2010/11/20/fishing-for-metrics.html"/>
-   <updated>2010-11-20T00:00:00-07:00</updated>
+   <updated>2010-11-20T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/11/20/fishing-for-metrics</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4674,7 +4674,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>Apparently, there's nothing left to learn about ecosystem services</title>
    <link href="http://www.noamross.net/blog/2010/11/17/apparently-theres-nothing-left-to-learn-about-ecosystem-serv.html"/>
-   <updated>2010-11-17T00:00:00-07:00</updated>
+   <updated>2010-11-17T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/11/17/apparently-theres-nothing-left-to-learn-about-ecosystem-serv</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4695,7 +4695,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>PricewaterhouseCoopers gets into the ecosystem services game</title>
    <link href="http://www.noamross.net/blog/2010/11/14/pricewaterhousecoopers-gets-into-the-ecosystem-services-game.html"/>
-   <updated>2010-11-14T00:00:00-07:00</updated>
+   <updated>2010-11-14T00:00:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/11/14/pricewaterhousecoopers-gets-into-the-ecosystem-services-game</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4714,7 +4714,7 @@ billys &amp;lt;- &lt;span class=&quot;kw&quot;&gt;getpctAP&lt;/span&gt;(&lt;span
  <entry>
    <title>What do we do with forecasts of the future?</title>
    <link href="http://www.noamross.net/blog/2010/10/28/what-do-we-do-with-forecasts-of-the-future-.html"/>
-   <updated>2010-10-28T00:00:00-06:00</updated>
+   <updated>2010-10-28T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/28/what-do-we-do-with-forecasts-of-the-future-</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4758,7 +4758,7 @@ date: 2010-11-01
  <entry>
    <title>Thinking about TEEB</title>
    <link href="http://www.noamross.net/blog/2010/10/23/thinking-about-teeb.html"/>
-   <updated>2010-10-23T00:00:00-06:00</updated>
+   <updated>2010-10-23T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/23/thinking-about-teeb</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4809,7 +4809,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>New approaches to looking at water-related financial risks</title>
    <link href="http://www.noamross.net/blog/2010/10/21/new-approaches-to-looking-at-water-related-financial-risks.html"/>
-   <updated>2010-10-21T00:00:00-06:00</updated>
+   <updated>2010-10-21T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/21/new-approaches-to-looking-at-water-related-financial-risks</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4832,7 +4832,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Reading philosophy can get you down</title>
    <link href="http://www.noamross.net/blog/2010/10/18/reading-philosophy-can-get-you-down.html"/>
-   <updated>2010-10-18T00:00:00-06:00</updated>
+   <updated>2010-10-18T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/18/reading-philosophy-can-get-you-down</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4851,7 +4851,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Why the carbon market needs ecologists</title>
    <link href="http://www.noamross.net/blog/2010/10/16/why-the-carbon-market-needs-ecologists.html"/>
-   <updated>2010-10-16T00:00:00-06:00</updated>
+   <updated>2010-10-16T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/16/why-the-carbon-market-needs-ecologists</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4874,7 +4874,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Saving more than species at Nagoya</title>
    <link href="http://www.noamross.net/blog/2010/10/16/saving-more-than-species-at-nagoya.html"/>
-   <updated>2010-10-16T00:00:00-06:00</updated>
+   <updated>2010-10-16T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/16/saving-more-than-species-at-nagoya</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4901,7 +4901,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Liability for stolen ecosystem services</title>
    <link href="http://www.noamross.net/blog/2010/10/11/liability-for-stolen-ecosystem-services.html"/>
-   <updated>2010-10-11T00:00:00-06:00</updated>
+   <updated>2010-10-11T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/11/liability-for-stolen-ecosystem-services</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4921,7 +4921,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Does ecology tell us that some species are worth more than others?</title>
    <link href="http://www.noamross.net/blog/2010/10/11/does-ecology-tell-us-that-some-species-are-worth-more-than-o.html"/>
-   <updated>2010-10-11T00:00:00-06:00</updated>
+   <updated>2010-10-11T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/11/does-ecology-tell-us-that-some-species-are-worth-more-than-o</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4945,7 +4945,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Measuring resilience to climate-change driven crop failure</title>
    <link href="http://www.noamross.net/blog/2010/10/8/measuring-resilience-to-climate-change-driven-crop-failure.html"/>
-   <updated>2010-10-08T00:00:00-06:00</updated>
+   <updated>2010-10-08T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/8/measuring-resilience-to-climate-change-driven-crop-failure</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4965,7 +4965,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>In honeybee collapse, cure the patient, not just the disease.</title>
    <link href="http://www.noamross.net/blog/2010/10/7/in-honeybee-collapse-cure-the-patient-not-just-the-disease.html"/>
-   <updated>2010-10-07T00:00:00-06:00</updated>
+   <updated>2010-10-07T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/7/in-honeybee-collapse-cure-the-patient-not-just-the-disease</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -4984,7 +4984,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Rapid evolution as a warning sign</title>
    <link href="http://www.noamross.net/blog/2010/10/2/rapid-evolution-as-a-warning-sign.html"/>
-   <updated>2010-10-02T00:00:00-06:00</updated>
+   <updated>2010-10-02T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/2/rapid-evolution-as-a-warning-sign</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -5003,7 +5003,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Harmful algal blooms highlight risks from cascading ecological collapse</title>
    <link href="http://www.noamross.net/blog/2010/10/1/harmful-algal-blooms-highlight-risks-from-cascading-ecologic.html"/>
-   <updated>2010-10-01T00:00:00-06:00</updated>
+   <updated>2010-10-01T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/10/1/harmful-algal-blooms-highlight-risks-from-cascading-ecologic</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -5022,7 +5022,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Payments for ecosystem services are great, unless we do them enough to make a difference</title>
    <link href="http://www.noamross.net/blog/2010/9/30/payments-for-ecosystem-services-are-great-unless-we-do-them.html"/>
-   <updated>2010-09-30T00:00:00-06:00</updated>
+   <updated>2010-09-30T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/30/payments-for-ecosystem-services-are-great-unless-we-do-them</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -5050,7 +5050,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>A species is priceless - does that mean that it is worth nothing or everything?</title>
    <link href="http://www.noamross.net/blog/2010/9/27/a-species-is-priceless-does-that-mean-that-it-is-worth-nothi.html"/>
-   <updated>2010-09-27T00:00:00-06:00</updated>
+   <updated>2010-09-27T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/27/a-species-is-priceless-does-that-mean-that-it-is-worth-nothi</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -5070,7 +5070,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Risk, Insurance, LUST, and Fish</title>
    <link href="http://www.noamross.net/blog/2010/9/24/risk-insurance-lust-and-fish.html"/>
-   <updated>2010-09-24T00:00:00-06:00</updated>
+   <updated>2010-09-24T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/24/risk-insurance-lust-and-fish</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -5095,7 +5095,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Money Quote</title>
    <link href="http://www.noamross.net/blog/2010/9/23/money-quote.html"/>
-   <updated>2010-09-23T00:00:00-06:00</updated>
+   <updated>2010-09-23T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/23/money-quote</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -5119,7 +5119,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>In the News:  Hysteresis in Coral Reefs</title>
    <link href="http://www.noamross.net/blog/2010/9/21/in-the-news-hysteresis-in-coral-reefs.html"/>
-   <updated>2010-09-21T00:00:00-06:00</updated>
+   <updated>2010-09-21T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/21/in-the-news-hysteresis-in-coral-reefs</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -5147,7 +5147,7 @@ The synthesis report instead focuses on a framework of &lt;em&gt;&lt;strong&gt;r
  <entry>
    <title>Species in a Bucket</title>
    <link href="http://www.noamross.net/blog/2010/9/17/species-in-a-bucket.html"/>
-   <updated>2010-09-17T00:00:00-06:00</updated>
+   <updated>2010-09-17T00:00:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2010/9/17/species-in-a-bucket</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
