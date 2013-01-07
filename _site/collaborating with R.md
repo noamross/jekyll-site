@@ -28,16 +28,14 @@ Topics
 ===================================================================
 
 There are a large number of online forums for discussing R and asking questions.
-Some of the most popular are [Stack
-Overflow](http://stackoverflow.com/questions/tagged/r), a general programmers
-Q&A website with a large R section, the
-[R-help](https://stat.ethz.ch/mailman/listinfo/r-help) listserv, [Cross-Validated](http://stats.stackexchange.com/), a statistics-focused Q&A site. You can also
-find specialty forums, like
-[R-sig-ecology](https://stat.ethz.ch/mailman/listinfo/r-sig-ecology), or local
+Some of the most popular are the
+[R-help](https://stat.ethz.ch/mailman/listinfo/r-help) listserv, the progamming Q&A site [Stack
+Overflow](http://stackoverflow.com/questions/tagged/r), and the statistics Q&A site [Cross-Validated](http://stats.stackexchange.com/).  (Be sure to look at the [R] tags on these two sites.)
+There are also specialist forums like [R-sig-ecology](https://stat.ethz.ch/mailman/listinfo/r-sig-ecology), or local
 forums like the [Davis R Users'
 Group](https://groups.google.com/forum/?fromgroups#!forum/davis-rug)
 
-These fora are great places to get help with your R. To get good answers, its
+These forums are great places to get help with your R. To get good answers, its
 important to know how to ask good questions. Key to a good question is a
 **minimal reproducible example** (MRE). In short, an MRE is a bit of code that,
 when copy-and-pasted from an e-mail into R, will reproduce the results or
@@ -183,6 +181,8 @@ automatically uploading the HTML document to their server at
 
 Like gists, documents at <http://rpubs.com/> can be updated and easily shared
 and accept comments.
+
+`knitr` based documents are great if you are blogging about your research.  You'll see a lot of them at <http://www.r-bloggers.com/>.
 
 [Collaborating and version control](#TOC)
 =========================================

@@ -66,6 +66,10 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="ECLANT298" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
+  - <a onclick="showhide('ANT261'); chgifr('/statsclasses/ANT261.html', 'ECLANT298');">**ANT 261. Modeling the Evolution of Social Behavior**</a>
+
+    <iframe width="600" height="800" src="" id="ANT261" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
 ### Ecology ###
 
 - <a onclick="showhide('ECL231'); chgifr('/statsclasses/ECL231.html', 'ECL231');">**ECL 231.  Mathematical Methods in Population Biology**</a>
