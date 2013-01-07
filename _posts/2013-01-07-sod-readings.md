@@ -2,12 +2,12 @@
 title: "Quals Reading: Sudden Oak Death"
 author: "Noam Ross"
 tags: [quals, SOD]
-date: "13-01-04 16:37:32"
+date: "13-01-07 10:07:16"
 layout: post
 --- 
 
 
-My study system is Sudden Oak Death (SOD) in california Forests, so my
+My study system is Sudden Oak Death (SOD) in California Forests, so my
 examiner [David Rizzo] has given me plenty of readings on the subject.
 
 There's too much for a pithy summary here, but some highlights about the
@@ -45,10 +45,67 @@ disease's biology:
 Notes on Readings
 -----------------
 
-Rizzo et al. (2005)
--------------------
+-   [Rizzo et al. (2005)](#swiecki2013)
+    -   [Summary](#summary)
+    -   [Introduction](#introduction)
+    -   [Levels and Complexity of
+        Management](#levels-and-complexity-of-management)
+    -   [Invaded Forests of California and
+        Oregon](#invaded-forests-of-california-and-oregon)
+    -   [Pathogen Characterization](#pathogen-characterization)
+    -   [*P. Ramoroum* in Forests](#p.-ramoroum-in-forests)
+        -   [Spatial Distribution](#spatial-distribution)
+        -   [Host Resistance](#host-resistance)
+        -   [Sporulation and Survival
+            Patterns](#sporulation-and-survival-patterns)
 
-### Summary
+    -   [Determination of Impacts](#determination-of-impacts)
+    -   [Management Actions](#management-actions)
+        -   [Monitoring](#monitoring)
+        -   [Diagnosis](#diagnosis)
+        -   [Eradication](#eradication)
+        -   [Stand manupulation](#stand-manupulation)
+        -   [Fire](#fire)
+        -   [Fungicides](#fungicides)
+        -   [Prevention of Human Spread](#prevention-of-human-spread)
+        -   [Restoration](#restoration)
+        -   [Conculusions](#conculusions)
+
+-   [Ellis et al. (2010) - Spatial Pattern and
+    Connectivity](#ellis2010---spatial-pattern-and-connectivity)
+    -   [Summary](#summary-1)
+    -   [Introduction](#introduction-1)
+    -   [Methods](#methods)
+    -   [Results](#results)
+
+-   [Grünwald et al. (2012) - Emergence of
+    SOD](#grunwald2012---emergence-of-sod)
+    -   [Summary](#summary-2)
+    -   [Biology](#biology)
+    -   [Repeated emergence](#repeated-emergence)
+    -   [Genetics](#genetics)
+    -   [Other *Phytophthora* species](#other-phytophthora-species)
+
+-   [Swiecki and Bernhardt (2013)](#swiecki2013)
+    -   [SOD Overview](#sod-overview)
+        -   [Biology](#biology-1)
+        -   [Life Cycle in Forests](#life-cycle-in-forests)
+        -   [Factors influencing SOD
+            variability](#factors-influencing-sod-variability)
+        -   [Development in hosts](#development-in-hosts)
+
+    -   [Managing Stands](#managing-stands)
+        -   [Prioritiation](#prioritiation)
+
+    -   [Technical Guidelines](#technical-guidelines)
+        -   [Reducing disease risk:](#reducing-disease-risk)
+        -   [Monitoring Diseased Stands](#monitoring-diseased-stands)
+        -   [Restoration](#restoration-1)
+
+[Rizzo et al. (2005)](#TOC)
+---------------------------
+
+### [Summary](#TOC)
 
 -   SOD management occurs at many scales, but the stand/landscape scale
     is the most complex
@@ -65,14 +122,14 @@ Rizzo et al. (2005)
 -   Management span, monitoring, diagnosis, eradication, stand
     manipulation, fungicides, quarantine and restoration.
 
-### Introduction
+### [Introduction](#TOC)
 
 -   Sudden oak death first observed as causing bleeding stem cankers and
     death in tanoak and coast live oak in 1990s
 -   Found in N. America, Europe, hosts in 40+ genera, though mortality
     limited to *Fagaceae*
 
-### Levels and Complexity of Management
+### [Levels and Complexity of Management](#TOC)
 
 -   Tree, stand/landscaoe, and regional/international levels
 -   At individual level, focus is on chemical control, lowering inoculum
@@ -97,7 +154,7 @@ Rizzo et al. (2005)
 -   Prevention, treatment, restoration, and convervation must be
     integrated
 
-### Invaded Forests of California and Oregon
+### [Invaded Forests of California and Oregon](#TOC)
 
 -   SOD found in forests that include oak and tonoak as structural
     component:
@@ -111,7 +168,7 @@ Rizzo et al. (2005)
     sprout from roots following logging/fire, are often overtopped in
     later succession. Horizonal structure is often very fine-scaled.
 
-### Pathogen Characterization
+### [Pathogen Characterization](#TOC)
 
 -   Geographic origin unknown, exotic to Europe and N. America
 -   Monophyletic group, with distinct European and American clades
@@ -128,9 +185,9 @@ Rizzo et al. (2005)
 -   Variation in resistnace to fungicides. European strains developing
     resistance to Metalaxyl, common in nursery settings
 
-### *P. Ramoroum* in Forests
+### [*P. Ramoroum* in Forests](#TOC)
 
-#### Spatial Distribution
+#### [Spatial Distribution](#TOC)
 
 -   Found from Big Sur to Curry County, OR. Mostly within 30km of coast
     or SF Bay.
@@ -146,13 +203,13 @@ Rizzo et al. (2005)
     exposure, edge effects more important. Positive disease association
     with water status, tree drought stress not important.
 
-#### Host Resistance
+#### [Host Resistance](#TOC)
 
 -   Trees display variation in susceptibility at individal level at all
     aptial scales.
 -   More population-level patterns in Bay Laurel than oak species
 
-#### Sporulation and Survival Patterns
+#### [Sporulation and Survival Patterns](#TOC)
 
 -   Sporangia produced on leaves (and small twigs on Tanoak) following
     rainfall. No sporulation directly from bleeding cankers.
@@ -168,7 +225,7 @@ Rizzo et al. (2005)
 -   Dispersal is long-tailed, sugesting occaisional long-distance
     dispersal
 
-### Determination of Impacts
+### [Determination of Impacts](#TOC)
 
 -   Doubles mortality of Coast Live Oak, quadruples tanoak.
 -   Spreads very quickly within a stand
@@ -178,19 +235,19 @@ Rizzo et al. (2005)
         mortality.
     -   Increased woody debris, change in nutrient cycling
 
-### Management Actions
+### [Management Actions](#TOC)
 
 See Table 2 in paper for research finding-management actions links
 
-#### Monitoring
+#### [Monitoring](#TOC)
 
-#### Diagnosis
+#### [Diagnosis](#TOC)
 
 -   Culture-based diagnosis dependent on environment, leads to false
     negatives
 -   Molecular assys better, but depends on part of plant tested
 
-#### Eradication
+#### [Eradication](#TOC)
 
 -   Possible at early stages of invasion
     -   Requires intensive survey, quaratine, cut, burning stump
@@ -199,7 +256,7 @@ See Table 2 in paper for research finding-management actions links
 -   Adaptive management to adjust buffer area, pre-emptive removal of
     hosts
 
-#### Stand manupulation
+#### [Stand manupulation](#TOC)
 
 -   Removal of infected plants
 -   Increasing interhost distance (but lower density may lead to more
@@ -207,41 +264,41 @@ See Table 2 in paper for research finding-management actions links
 -   Pruning branches may lessen load without major ecological community
     effects
 
-#### Fire
+#### [Fire](#TOC)
 
 -   Historical fire regimes in these forest highly variable and
     uncertain
 -   Both understory and stand-replacing fires may increase tanoak
 -   Smoke may kill foliar SOD
 
-#### Fungicides
+#### [Fungicides](#TOC)
 
 -   Phosphites injected, or applied to bark and leaves are effective.
     Soil treatments not
 -   Large-scale treatment very expensive, difficult to target the patchy
     distribution of disease
 
-#### Prevention of Human Spread
+#### [Prevention of Human Spread](#TOC)
 
 -   Surveillance and quarantine of ornamental nursery stock
 -   Possibilities in soil, waste, stream water
 
-#### Restoration
+#### [Restoration](#TOC)
 
 -   Possibility of introducing less-vulnerable tree variants
 -   Historic baseline often unknown
 -   Decadal restoration process
 
-#### Conculusions
+#### [Conculusions](#TOC)
 
 -   Forests with hosts may be vulnerable in British Columbia, other
     parts of world. Actual risk depend on climate, species composition
     and forest structure
 
-Ellis et al. (2010) - Spatial Pattern and Connectivity
-------------------------------------------------------
+[Ellis et al. (2010) - Spatial Pattern and Connectivity](#TOC)
+--------------------------------------------------------------
 
-### Summary
+### [Summary](#TOC)
 
 SOD severity is best predicted by a combination of environmental
 (biotic/abiotic) variables and connectivity to other areas of disease.
@@ -255,7 +312,7 @@ of dispersal and the scale of examination here.
 *Personal note: You need a table to compare model structures and
 results. Text description is terrible*
 
-### Introduction
+### [Introduction](#TOC)
 
 -   Three types of connectivity
     -   *Structural* - physical aspects of landscape
@@ -278,7 +335,7 @@ results. Text description is terrible*
 -   *Hypotesis 3*: Connectivity and environmental variables equal in
     influence
 
-### Methods
+### [Methods](#TOC)
 
 -   Data from 86 Plots in Sonoma County in 2005. Randonly established in
     host woodlands. Forest info and disease severity meaured in each.
@@ -286,11 +343,11 @@ results. Text description is terrible*
 -   Compared models of spread though simple Euclidean distance to
     effective distance (least-cost path based on friction assigned to
     each land cover type)
--   Model structure was
-    $$Y_i = \beta_0 + \sum \beta_j X_j + \beta_9 \lambda_i$$ Where $Y_i$
-    was disease incidence (sympotomatic leaves/stem), $X$ are
-    environmental variables and $\lambda$ is the spore burden based on a
-    negative-expotential dispersal kernel from all other points, via
+-   Model structure was \
+     *Y*~*i*~ = *β*~0~ + ∑ *β*~*j*~*X*~*j*~ + *β*~9~*λ*~*i*~\
+     Where *Y*~*i*~ was disease incidence (sympotomatic leaves/stem),
+    *X* are environmental variables and *λ* is the spore burden based on
+    a negative-expotential dispersal kernel from all other points, via
     Euclidean or effective distance, weighted by disease level at other
     sites.
 -   Environmental variables were canopy cover, precipitation, ave. daily
@@ -304,7 +361,7 @@ results. Text description is terrible*
     models that were selected consistently and compared via BIC/AIC
 -   Calculated standardized regression coeffficients
 
-### Results
+### [Results](#TOC)
 
 -   Models with both connectivity and environment peformed best
 -   Models with effective distance performed better than Euclidean
@@ -314,10 +371,10 @@ results. Text description is terrible*
     landscapes, indicating that non-host environments sometimes did
     carry disease
 
-Grünwald et al. (2012) - Emergence of SOD
------------------------------------------
+[Grünwald et al. (2012) - Emergence of SOD](#TOC)
+-------------------------------------------------
 
-### Summary
+### [Summary](#TOC)
 
 -   *P. ramorum* is a water mold that causes SOD, has a wide host range,
     and spreads by wind-blown rain
@@ -331,7 +388,7 @@ Grünwald et al. (2012) - Emergence of SOD
     common to *Phytophthora* species. It is possible that *P. Ramorum*
     may hybridize with other species.
 
-### Biology
+### [Biology](#TOC)
 
 -   *P. ramorum* is a water mold, most closely related to brown algae
     (e.g. kelp) and diatoms
@@ -347,7 +404,7 @@ Grünwald et al. (2012) - Emergence of SOD
     cankers on stem (discolored phloem and xylem, declining
     sap/hydraulic flow). Both sympoms in tanoak
 
-### Repeated emergence
+### [Repeated emergence](#TOC)
 
 -   Three clonal lineages, EU1, NA1, NA2, with all three present in N.
     America and only the first in Europe.
@@ -369,7 +426,7 @@ Grünwald et al. (2012) - Emergence of SOD
     lines are poorly compatible, probably were separate before their
     introduction, come from separate source populations
 
-### Genetics
+### [Genetics](#TOC)
 
 -   All clonal lines are of one mating type (\~gender), so no sexual
     production. A few of other mater type of EU1 found, but eradicated.
@@ -377,7 +434,7 @@ Grünwald et al. (2012) - Emergence of SOD
     reduced pathogenicity, reduced chromosome number, and reduced growth
     rates. This is consistent with *Phytophthora cinnamomi*.
 
-### Other *Phytophthora* species
+### [Other *Phytophthora* species](#TOC)
 
 -   Other *Phytophthora* species are pathogenic. Many more species have
     been discovered in recent years.
@@ -387,12 +444,12 @@ Grünwald et al. (2012) - Emergence of SOD
 -   However, species hybrids have been found and some have expanded host
     ranges.
 
-Swiecki and Bernhardt (2013)
-----------------------------
+[Swiecki and Bernhardt (2013)](#TOC)
+------------------------------------
 
-### SOD Overview
+### [SOD Overview](#TOC)
 
-#### Biology
+#### [Biology](#TOC)
 
 -   Trunk canker hosts of SOD are oaks (*Quercus*) species, and tanoak
     (*Nolithocarpus*). White oaks have not been found infected in the
@@ -405,7 +462,7 @@ Swiecki and Bernhardt (2013)
     chemical released by hosts, staging mass hyphal attacks
 -   The EU1 strain is more aggressive than the NA strains
 
-#### Life Cycle in Forests
+#### [Life Cycle in Forests](#TOC)
 
 -   More spores form in wetter conditions
 -   On tanoak, canopy infections moves down to the stem via rainwater
@@ -425,7 +482,7 @@ Swiecki and Bernhardt (2013)
     possibly climbing poison oak when bay is also present. This may be
     due to leaf shedding.
 
-#### Factors influencing SOD variability
+#### [Factors influencing SOD variability](#TOC)
 
 -   **Climate**: 12 hours of warm, wet conditions needed for sporgangga
     formation. Similar conditions for infection. Thus, infction greatest
@@ -436,7 +493,7 @@ Swiecki and Bernhardt (2013)
 -   Genetic variation, but this may be a small factor.
 -   Transport mechanisms: Human, wind, watrcourses, possibly animals
 
-#### Development in hosts
+#### [Development in hosts](#TOC)
 
 -   Infects the phloem tissue, mostly on lower trunk. Can reach vasular
     cambium, out xylem and sometimes spread vertically.
@@ -455,7 +512,7 @@ Swiecki and Bernhardt (2013)
     weather, host arrangement. In favorable conidtions most susceptible
     trees can be killed in a few years.
 
-### Managing Stands
+### [Managing Stands](#TOC)
 
 -   Most SOD-susceptible CA forests not managed for timber, provide
     various ecosystem services
@@ -479,7 +536,7 @@ Swiecki and Bernhardt (2013)
 -   Action for *after*: Cut or leave? Actively manage gaps for
     invasives, fire.
 
-#### Prioritiation
+#### [Prioritiation](#TOC)
 
 -   Prioritization especially important in large forest tracts.
 -   Which, how, and whn to treat?
@@ -487,13 +544,13 @@ Swiecki and Bernhardt (2013)
     and potential hazards
 -   Formal numeric ranking is one way to combine these assessments.
 
-### Technical Guidelines
+### [Technical Guidelines](#TOC)
 
 -   Exclusion: Avoid nursery stock near forests, do not move pruned host
     material, clean equipment/tools (spray disinfectant not effective).
     Wood may be burned, but drying also adequate.
 
-#### Reducing disease risk:
+#### [Reducing disease risk:](#TOC)
 
 -   Exposed wood increases risk; limit pruning to early dry season
 -   When removing California Bay, consider the total loss of canopy that
@@ -508,7 +565,7 @@ Swiecki and Bernhardt (2013)
     injection and bark spray most effective, applied each 1-2 yrs 4-6
     weeks before rainy season.
 
-#### Monitoring Diseased Stands
+#### [Monitoring Diseased Stands](#TOC)
 
 -   Annual monitoring for potential for stem failure recommended if fall
     hazard is source of concern. Additive risk factors in Tables 3-2 to
@@ -516,7 +573,7 @@ Swiecki and Bernhardt (2013)
 -   Oaks in various levels of disease and decay have varying
     contribution to fire risk
 
-#### Restoration
+#### [Restoration](#TOC)
 
 -   Consider costs, long-term sustainability, nontarget effects
 -   Oaks may be replaced (or recruited) in stands where bay is removd
