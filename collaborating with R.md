@@ -30,8 +30,8 @@ Topics
 There are a large number of online forums for discussing R and asking questions.
 Some of the most popular are [Stack
 Overflow](http://stackoverflow.com/questions/tagged/r), a general programmers
-Q&A website with a large R section, and the
-[R-help](https://stat.ethz.ch/mailman/listinfo/r-help) listserv. You can also
+Q&A website with a large R section, the
+[R-help](https://stat.ethz.ch/mailman/listinfo/r-help) listserv, [Cross-Validated](http://stats.stackexchange.com/), a statistics-focused Q&A site. You can also
 find specialty forums, like
 [R-sig-ecology](https://stat.ethz.ch/mailman/listinfo/r-sig-ecology), or local
 forums like the [Davis R Users'
