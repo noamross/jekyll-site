@@ -184,6 +184,8 @@ automatically uploading the HTML document to their server at
 Like gists, documents at <http://rpubs.com/> can be updated and easily shared
 and accept comments.
 
+`knitr` based documents are great if you are blogging about your research.  You'll see a lot of them at <http://www.r-bloggers.com/>.
+
 [Collaborating and version control](#TOC)
 =========================================
 
