@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Noam Ross - ARE277</title>
- <link href="http://www.noamross.net/blog/ARE277.xml" rel="self"/>
+ <title>Noam Ross - EcoBloggers</title>
+ <link href="http://www.noamross.net/blog/ecobloggers.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
  <updated>2013-01-07T16:03:57-08:00</updated>
  <id>http://www.noamross.net</id>

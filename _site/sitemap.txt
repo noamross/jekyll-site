@@ -3,6 +3,7 @@ http://www.noamross.net/404.html
 http://www.noamross.net/about.html
 http://www.noamross.net/archive.html
 http://www.noamross.net/blog/are277.xml
+http://www.noamross.net/blog/ecobloggers.xml
 http://www.noamross.net/blog/R.xml
 http://www.noamross.net/blog/research-blogging.xml
 http://www.noamross.net/blog/rss.xml
