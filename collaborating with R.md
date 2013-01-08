@@ -40,7 +40,7 @@ statistics Q&A site [Cross-Validated](http://stats.stackexchange.com/).
 specialist forums like
 [R-sig-ecology](https://stat.ethz.ch/mailman/listinfo/r-sig-ecology), or
 local forums like the [Davis R Users'
-Group](https://groups.google.com/forum/?fromgroups#!forum/davis-rug)
+Group](https://groups.google.com/forum/?fromgroups#!forum/davis-rug).
 
 These forums are great places to get help with your R. To get good
 answers, its important to know how to ask good questions. Key to a good
@@ -96,7 +96,7 @@ objects. Try running `dput(mtcars)` to see the results with a larger
 data set. It's often shorter to using `dput` on cleaned-up, manipulated
 data than including a lot of data-manipulation steps in your MRE. If
 your dataset is large, simply use `dput(head(mtcars))` to share only the
-first few rows.
+first few rows.  [Here](http://stackoverflow.com/questions/12647159/turning-a-data-frame-into-a-single-row) is an example of how using this method yields useful responses.
 
 Similarly, it is easy to share more information about your set up using
 the `sessionInfo()` function. It returns information about your R
