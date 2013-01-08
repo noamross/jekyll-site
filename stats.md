@@ -31,7 +31,7 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
       chartType: 'BarChart',
       dataSourceUrl: 'https://docs.google.com/spreadsheet/tq?key=0Anp1a9ooFRwOdExUVXJoektTQ3MyX25sa0RFN1B2clE&gid=2&headers=-1',
       query: 'SELECT A,B WHERE B > 0 ORDER BY (0-B)',
-      options: {'title': 'Survey Results (Refresh page for latest)', 'legend': 'none', 'hAxis.minValue': '0'},
+      options: {'title': 'Survey Results (Updated continuously)', 'legend': 'none', 'hAxis.minValue': '0'},
       containerId: 'vis_div'
     });
     wrapper.draw()
