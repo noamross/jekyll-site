@@ -8,7 +8,8 @@ visualization, but much of its power derives from a large, engaged *community*
 of users. This is an introduction to tools for engaging the community to improve
 your R code and collaborate with others.
 
-*(Am I missing anything?  Let me know in the [comments](#disqus_thread) and I'll update this guide.)*
+*(Am I missing anything? Let me know in the [comments](#disqus_thread) and I'll
+update this guide.)*
 
 Topics
 ======
@@ -26,28 +27,28 @@ Topics
 -   [Package creation and sharing](#package-creation-and-sharing)
 -   [RStudio](#rstudio)
 -   [Interactive R with Shiny](#interactive-r-with-shiny)
--   [Upcoming tools for real-time, interactive and collaborative
-    programming](#upcoming-tools-for-real-time-interactive-and-collaborative-programming)
+-   [Upcoming tools for real-time, interactive and collaborative programming](#upcoming-tools-for-real-time-interactive-and-collaborative-programming)
 -   [Engaging with R Communities Online](#engaging-with-r-communities-online)
 
 [Asking questions via e-mail, listservs and bulletin boards](#TOC)
 ==================================================================
 
-There are a large number of online forums for discussing R and asking questions.
-Some of the most popular are the
+One of the best ways to tap into the knowledge of the R community is to use the
+listservs and websites devoted to answering questions about R. There are a large
+number of these online forums. Some of the most popular are the
 [R-help](https://stat.ethz.ch/mailman/listinfo/r-help) listserv, the progamming
 Q&A site [Stack Overflow](http://stackoverflow.com/questions/tagged/r), and the
 statistics Q&A site [Cross-Validated](http://stats.stackexchange.com/). (Be sure
-to look at the [R] tags on these two sites.) There are also specialist forums
-like [R-sig-ecology](https://stat.ethz.ch/mailman/listinfo/r-sig-ecology), or
-[local forums](http://blog.revolutionanalytics.com/local-r-groups.html) like the
-[Davis R Users'
-Group](https://groups.google.com/forum/?fromgroups#!forum/davis-rug).
+to look at the [R] tags on these two sites.) There are also [specialty
+listservs](http://www.r-project.org/mail.html) like
+[R-sig-ecology](https://stat.ethz.ch/mailman/listinfo/r-sig-ecology), or [local
+forums](http://blog.revolutionanalytics.com/local-r-groups.html) like the [Davis
+R Users' Group](https://groups.google.com/forum/?fromgroups#!forum/davis-rug).
 
-These forums are great places to get help with your R. To get good answers, its
-important to know how to ask good questions. Key to a good question is a
-**minimal reproducible example** (MRE). In short, an MRE is a bit of code that,
-when copy-and-pasted from an e-mail into R, will reproduce the results or
+These forums are great places to get help with your R questions. To get good
+answers, though its important to know how to ask good questions. Key to a good
+question is a **minimal reproducible example** (MRE). An MRE is a bit of code
+that, when copy-and-pasted from an e-mail into R, will reproduce the results or
 problem you are asking about. Here is a [great guide to producing a reproducible
 example](http://stackoverflow.com/a/5963610/1757441). A few important
 components:
@@ -97,8 +98,8 @@ the form of a data frame, list, or any other number of objects. Try running
 using `dput` on cleaned-up, manipulated data than including a lot of
 data-manipulation steps in your MRE. If your dataset is large, simply use
 `dput(head(mtcars))` to share only the first few rows.
-[Here](http://git-scm.com/doc) is an example of how using this method yields
-useful responses.
+[Here](https://github.com/hadley/devtools/wiki) is an example of how using this
+method yields useful responses.
 
 Similarly, it is easy to share more information about your set up using the
 `sessionInfo()` function. It returns information about your R version, your
@@ -109,8 +110,9 @@ alongside your question.
 [Sharing R scripts with `gist.github.com`](#TOC)
 ================================================
 
-Sometimes you want to share an R script you've written. Creating a **gist** is a
-great way to do this that has several advantages over sharing over e-mail:
+Sometimes you want to share an R code that you've written. Creating a **gist**
+is a great way to do so. Gists are have several advantages over sharing over
+e-mail:
 
 -   You can share the code just by sending a URL
 -   Syntax highlighting makes the code easier to read
@@ -133,10 +135,10 @@ an R script and your source data file in one gist.
 [Sharing reports of code and results with `knitr`](#TOC)
 ========================================================
 
-Often you want to share the results of analyses you perform in R with
-colleagues. A good way to do this is with a *report* - a document of text, code,
-and results (often graphs). 'knitr' is an R package for making reports that can
-be printed or shared on the web.
+Often you want to share the results of analyses you perform in R with colleagues
+or the broader online community. A good way to do this is with a *report* - a
+document of text, code, and results (often graphs). 'knitr' is an R package for
+making reports that can be printed or shared on the web.
 
 `knitr` takes documents that are a mixture of text and code, extracts the code
 and runs it, and then inserts the code and results back in. This has several
@@ -148,7 +150,7 @@ advantages:
     your results, and reproduce them if they want.
 
 `knitr` can work with a variety of different document types: HTML, LaTeX, etc.,
-but most commonly people use *markdown*, which is a simple syntax designed for
+but most commonly people use **markdown**, which is a simple syntax designed for
 producing web pages. Here's what a short markdown document using `knitr` looks
 like:
 
@@ -180,16 +182,15 @@ like this:
 ![](http://dl.dropbox.com/u/3356641/blogstuff/knitexample.png)
 
 As you can see, your document has both your writing, code, and results,
-formatted in an easy-to-read way.
-
-`knitr` based documents are great if you are blogging about your research.
-You'll see a lot of them at <http://www.r-bloggers.com/>.
+formatted in an easy-to-read way. You can e-mail these documents or post them
+online for easy sharing.
 
 [Collaborating and version control](#TOC)
 =========================================
 
 If you are working with a team on a project that involves multiple R analyses
-and data sets,
+and data sets, you'll want a more robust system for collaboration that just
+e-mailing files around. Here are two options.
 
 [Dropbox](#TOC)
 ---------------
@@ -218,19 +219,24 @@ that include
 
 Git has a bit of a learning curve, but if you do a lot of programming work in R
 or other languages, it is well worth it. To get started, see the documentation
-[here](http://git-scm.com/doc)
+[here](https://github.com/hadley/devtools/wiki)
 
-Using Git alongside a web service like [Github](https://github.com/) lets you
-collaborate on projects in a very powerful way. Collaborators can work on code
-simultaneously, merge changes and resolve conflicts through github. In addition,
-the R package `devtools` lets you download and run files directly from github.
+Using Git alongside a web service like [Github](https://github.com/) or
+[Bitbucket](https://bitbucket.org/) lets you collaborate on projects in a very
+powerful way. Collaborators can work on code simultaneously, merge changes and
+resolve conflicts through the website. If you choose to make the project
+**open-source**, your code can be public and you can tap into the expertise of
+many other collaborators.
+
+The R package `devtools` lets you download and run files directly from these
+websites.
 
 [Package creation and sharing](#TOC)
 ====================================
 
 One of the great strengths of R is the collection of over 4,000 user created
 packages. You might want to create a package if you have developed a new method
-in R, or if you have a large collection of functions that would be useful to
+in R, or if you have a collection of helpful functions that would be useful to
 share. If you write a scientific publication using R for analysis, an
 accompanying package is a good way to make the data and methods accessible for
 other researchers to reproduce and build upon.
@@ -242,11 +248,13 @@ package `devtools` which provides many useful tools for package development.
 [RStudio](#TOC)
 ===============
 
-[RStudio](http://www.rstudio.com/) is a popular *integrated development
-environment* (IDE) - a program to make working in R easier. RStudio integrates a
-code editor, file browser, and many other tools into a single piece of software,
-and works on Mac, Windows, and Linux. It is not strictly a collaboration tool,
-but many of the tools mentioned above are integrated into RStudio.
+If you want use the tools described above, it is helpful to use software that
+integrates them into your workflow. [RStudio](http://www.rstudio.com/) is a
+popular *integrated development environment* (IDE). An IDE makes working in R
+easier by putting the R console, a text editor, file browser, help files,
+graphics and many other tools together into a cohesive interface. RStudio also
+integrates many of the collaborative tools described above. It is available for
+Mac, Windows, and Linux.
 
 ![](http://dl.dropbox.com/u/3356641/blogstuff/rstudio-windows.png)
 
@@ -256,9 +264,10 @@ web page and show a preview:
 
 ![](http://dl.dropbox.com/u/3356641/blogstuff/knitbutton.png)
 
-An additional benefit of using Rstudio is that it will give you the option of
-automatically uploading the HTML document to their server at
-<http://rpubs.com/>. Just hit the "Publish" in the preview window:
+An additional benefit of using `knitr` from Rstudio is that it will give you the
+option of automatically uploading the HTML document to their server at
+<http://rpubs.com/> so you can share it with anyone. Just hit the "Publish" in
+the preview window:
 
 ![](http://dl.dropbox.com/u/3356641/blogstuff/publish.png)
 
@@ -272,7 +281,9 @@ easier:
 ![](http://dl.dropbox.com/u/3356641/blogstuff/gitexample.png)
 
 Finally, the latest version of Rstudio has package creation tools based on the
-`devtools` package, including tools for testing and documenting packages:
+`devtools` package, including tools for testing and documenting packages. Like
+its Git interface, RStudio's package development tools make the process of
+package creation more intuitive:
 
 ![](http://dl.dropbox.com/u/3356641/blogstuff/buildexample.png)
 
@@ -295,7 +306,8 @@ allows such collaboration with documents. <https://www.stypi.com> is one such
 tool, though it doesn't have R-specific options yet. Yihui Xie, the creator of
 `knitr` has created an [interactive
 notebook](http://glimmer.rstudio.com/yihui/knitr/) based on Shiny and `knitr`
-which runs your knitr/R code on the web, but it is just a proof-of-concept.
+which runs your knitr/R code on the web, but it is just a proof-of-concept. Look
+out for new developments!
 
 [Engaging with R Communities Online](#TOC)
 ==========================================
@@ -303,26 +315,31 @@ which runs your knitr/R code on the web, but it is just a proof-of-concept.
 If you are looking for peers and collaborators in your work with R, there are a
 lot of places online to do so.
 
-In addition the listservs mentioned above, there are many [specialty
-listservs](http://www.r-project.org/mail.html) for specific platforms and
-applications, as well as [local user
-groups](http://blog.revolutionanalytics.com/local-r-groups.html), as well. Many
-packages have listservs associated with them for users to ask question and get
+**Listservs:**In addition the listservs mentioned above, there are many
+[specialty listservs](http://www.r-project.org/mail.html) for specific platforms
+and applications, and [local user
+groups](http://blog.revolutionanalytics.com/local-r-groups.html). Many packages
+have listservs associated with them, too, where users can ask question and get
 information about the latest updates. If you are learning how to use a new
-package, or use one heavily, it's helpful to sign up for these listservs.
+package it's helpful to sign up for these.
 
-[R-bloggers](r-bloggers.com) is a great website that aggregates many, many blogs
-by people who use R. Blogs range from people writing *about* R (e.g.,
+**Blogs**: [R-bloggers](r-bloggers.com) is a great website that aggregates many
+blogs by people who use R. Blogs range from people writing *about* R (e.g.,
 tutorials), to people blogging *with* R (e.g., `knitr` documents of their latest
-analysis). Following the site feed will help you discover other people doing
+analyses). Following the site feed will help you discover other people doing
 work similar to yours.
 
-If you're on twitter, the [\#rstats](https://twitter.com/search?q=%23rstats)
-hashtag is commonly used to discuss R. Many of developers of R packages are on
-twitter - it's a good way to ask questions of the directly.
+**Twitter**: If you're on twitter, the
+[\#rstats](https://twitter.com/search?q=%23rstats) hashtag is commonly used to
+discuss R, and you can often get answers to short questions very quickly. Many
+of developers of R packages and software are on twitter, so you can get
+information straight from the source.
 
-Many R package developers host their projects on websites like
-[Github](https://github.com/languages/R) and
+**Code Hosting Sites**: Many R package developers host their projects on
+websites like [Github](https://github.com/languages/R) and
 [R-forge](http://r-forge.r-project.org/). These sites have mechanisms for users
 to report bugs, make feature requests, and often find more information than is
-available in the documentation of a specific package.  You can often find the site used by a developer by looking at it's entry on [CRAN](http://cran.r-project.org/web/packages/available_packages_by_name.html) or the package revewing site [crantastic](http://crantastic.org/).
+available in the documentation of a specific package. You can often find the
+site used by a developer by looking at it's entry on
+[CRAN](http://cran.r-project.org/web/packages/available_packages_by_name.html)
+or the package revewing site [crantastic](http://crantastic.org/).
