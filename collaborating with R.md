@@ -319,7 +319,7 @@ If you're on twitter, the [\#rstats](https://twitter.com/search?q=%23rstats)
 hashtag is commonly used to discuss R. Many of developers of R packages are on
 twitter - it's a good way to ask questions of the directly.
 
-Many R package developers host their projects websites like
+Many R package developers host their projects on websites like
 [Github](https://github.com/languages/R) and
 [R-forge](http://r-forge.r-project.org/). These sites have mechanisms for users
 to report bugs, make feature requests, and often find more information than is
