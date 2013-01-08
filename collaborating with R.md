@@ -8,6 +8,8 @@ visualization, but much of its power derives from a large, engaged *community*
 of users. This is an introduction to tools for engaging the community to improve
 your R code and collaborate with others.
 
+*(Am I missing anything?  Let me know in the [comments](#disqus_thread) and I'll update this guide.)*
+
 Topics
 ======
 
