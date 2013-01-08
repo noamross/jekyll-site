@@ -323,4 +323,4 @@ Many R package developers host their projects on websites like
 [Github](https://github.com/languages/R) and
 [R-forge](http://r-forge.r-project.org/). These sites have mechanisms for users
 to report bugs, make feature requests, and often find more information than is
-available in the documentation of a specific package.  You can often find the hosting site for a package by looking at it's entry on [CRAN] or the package revewing site [crantastic](http://crantastic.org/).
+available in the documentation of a specific package.  You can often find the site used by a developer by looking at it's entry on [CRAN](http://cran.r-project.org/web/packages/available_packages_by_name.html) or the package revewing site [crantastic](http://crantastic.org/).
