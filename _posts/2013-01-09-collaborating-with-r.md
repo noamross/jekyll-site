@@ -2,7 +2,7 @@
 title: "Don't R alone! A guide to tools for collaboration with R"
 author: "Noam Ross"
 tags: [R, D-RUG, RStudio, github, tools, tutorials]
-date: "13-01-07 16:57:15"
+date: "13-01-09 09:10:36"
 layout: post
 --- 
 

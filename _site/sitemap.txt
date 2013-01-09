@@ -51,7 +51,7 @@ http://www.noamross.net/statsclasses/WFC222.html
 http://www.noamross.net/tags.html
 http://www.noamross.net/test/index.html
 
-http://www.noamross.net/blog/2013/1/7/collaborating-with-r.html
+http://www.noamross.net/blog/2013/1/9/collaborating-with-r.html
 http://www.noamross.net/blog/2013/1/7/sod-readings.html
 http://www.noamross.net/blog/2012/12/23/modeling-philosophy.html
 http://www.noamross.net/blog/2012/12/23/modeling-philosophy.html
