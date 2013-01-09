@@ -166,20 +166,22 @@ LaTeX, etc., but most commonly people use **markdown**, which is a
 simple syntax designed for producing web pages. Here's what a short
 markdown document using `knitr` looks like:
 
-    Title
-    =====
+~~~~ {.sourceCode .markdown}
+Title
+=====
 
-    This is an example document.  Here's a summary of some data:
+This is an example document.  Here's a summary of some data:
 
-    ```{r}
-    summary(cars)
-    ```
+```{r}
+summary(cars)
+```
 
-    Here is a plot of that data:
+Here is a plot of that data:
 
-    ```{r}
-    plot(cars)
-    ```
+```{r}
+plot(cars)
+```
+~~~~
 
 If you save this file as `example.Rmd` (R-markdown), and run
 

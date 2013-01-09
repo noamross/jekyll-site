@@ -307,20 +307,20 @@ df</code></pre>
 <li>Colleagues who read your report can see exactly the steps you took to reach your results, and reproduce them if they want.</li>
 </ul>
 <p><code>knitr</code> can work with a variety of different document types: HTML, LaTeX, etc., but most commonly people use <strong>markdown</strong>, which is a simple syntax designed for producing web pages. Here’s what a short markdown document using <code>knitr</code> looks like:</p>
-<pre class="sourceCode r"><code class="sourceCode r">Title
-<span class="er">=====</span>
+<pre class="sourceCode markdown"><code>Title
+=====
 
-This is an example document.  Here<span class="st">&#39;s a summary of some data:</span>
+This is an example document.  Here&#39;s a summary of some data:
 
-<span class="st">```{r}</span>
-<span class="st">summary(cars)</span>
-<span class="st">```</span>
+```{r}
+summary(cars)
+```
 
-<span class="st">Here is a plot of that data:</span>
+Here is a plot of that data:
 
-<span class="st">```{r}</span>
-<span class="st">plot(cars)</span>
-<span class="st">```</span></code></pre>
+```{r}
+plot(cars)
+```</code></pre>
 <p>If you save this file as <code>example.Rmd</code> (R-markdown), and run</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
 <span class="kw">library</span>(markdown)

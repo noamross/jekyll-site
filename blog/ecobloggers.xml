@@ -15,7 +15,7 @@ title : Atom Feed
    <email>{{ site.author.email }}</email>
  </author>
 
- {% for post in site.tags.ecobloggers %}
+ {% for post in site.tags.ecobloggers limit:10 %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="{{ site.production_url }}{{ post.url }}"/>

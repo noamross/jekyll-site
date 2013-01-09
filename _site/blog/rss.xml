@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-01-09T10:25:00-08:00</updated>
+ <updated>2013-01-09T10:34:32-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -92,20 +92,20 @@ df&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Colleagues who read your report can see exactly the steps you took to reach your results, and reproduce them if they want.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;code&gt;knitr&lt;/code&gt; can work with a variety of different document types: HTML, LaTeX, etc., but most commonly people use &lt;strong&gt;markdown&lt;/strong&gt;, which is a simple syntax designed for producing web pages. Here’s what a short markdown document using &lt;code&gt;knitr&lt;/code&gt; looks like:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;Title
-&lt;span class=&quot;er&quot;&gt;=====&lt;/span&gt;
+&lt;pre class=&quot;sourceCode markdown&quot;&gt;&lt;code&gt;Title
+=====
 
-This is an example document.  Here&lt;span class=&quot;st&quot;&gt;&amp;#39;s a summary of some data:&lt;/span&gt;
+This is an example document.  Here&amp;#39;s a summary of some data:
 
-&lt;span class=&quot;st&quot;&gt;```{r}&lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;summary(cars)&lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;```&lt;/span&gt;
+```{r}
+summary(cars)
+```
 
-&lt;span class=&quot;st&quot;&gt;Here is a plot of that data:&lt;/span&gt;
+Here is a plot of that data:
 
-&lt;span class=&quot;st&quot;&gt;```{r}&lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;plot(cars)&lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;```&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+```{r}
+plot(cars)
+```&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;If you save this file as &lt;code&gt;example.Rmd&lt;/code&gt; (R-markdown), and run&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(knitr)
 &lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(markdown)
