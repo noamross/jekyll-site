@@ -2,7 +2,7 @@
 title: "Quals Reading: Sudden Oak Death"
 author: "Noam Ross"
 tags: [quals, SOD]
-date: "13-01-07 10:07:16"
+date: "13-01-07 00:07:16"
 layout: post
 --- 
 
