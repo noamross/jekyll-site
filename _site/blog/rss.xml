@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-01-09T10:34:32-08:00</updated>
+ <updated>2013-01-12T18:45:05-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -85,7 +85,7 @@ df&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Signing up for the website is not neccessary, but it is needed if you want to revise your gist in the future.&lt;/p&gt;
 &lt;p&gt;A gist can include multiple files, so sometimes its useful for to include both an R script and your source data file in one gist.&lt;/p&gt;
 &lt;h2 id=&quot;sharing-reports-of-code-and-results-with-knitr&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Sharing reports of code and results with &lt;code&gt;knitr&lt;/code&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Often you want to share the results of analyses you perform in R with colleagues or the broader online community. A good way to do this is with a &lt;em&gt;report&lt;/em&gt; - a document of text, code, and results (often graphs). ‘knitr’ is an R package for making reports that can be printed or shared on the web.&lt;/p&gt;
+&lt;p&gt;Often you want to share the results of analyses you perform in R with colleagues or the broader online community. A good way to do this is with a &lt;em&gt;report&lt;/em&gt; - a document of text, code, and results (often graphs). &lt;code&gt;knitr&lt;/code&gt; is an R package for making reports that can be printed or shared on the web.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;knitr&lt;/code&gt; takes documents that are a mixture of text and code, extracts the code and runs it, and then inserts the code and results back in. This has several advantages:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;If you change your code, all you have to do is re-run knitr, rather than run the code, copy-and-paste results, and then do re-formatting&lt;/li&gt;

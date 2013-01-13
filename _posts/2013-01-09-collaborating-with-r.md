@@ -149,7 +149,7 @@ include both an R script and your source data file in one gist.
 Often you want to share the results of analyses you perform in R with
 colleagues or the broader online community. A good way to do this is
 with a *report* - a document of text, code, and results (often graphs).
-'knitr' is an R package for making reports that can be printed or shared
+`knitr` is an R package for making reports that can be printed or shared
 on the web.
 
 `knitr` takes documents that are a mixture of text and code, extracts
