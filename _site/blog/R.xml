@@ -4,13 +4,32 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-01-12T18:45:05-08:00</updated>
+ <updated>2013-01-17T10:13:06-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Steve Culman on the `plyr` Package</title>
+   <link href="http://www.noamross.net/blog/2013/1/17/steve-culman-on-plyr.html"/>
+   <updated>2013-01-17T10:11:48-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/1/17/steve-culman-on-plyr</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;At &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; yesteray, &lt;a href=&quot;http://ucanr.edu/sites/Jackson_Lab/Steve_Culman_519/&quot;&gt;Steve Culman&lt;/a&gt; gave us an introduction to the &lt;code&gt;plyr&lt;/code&gt; package and how to use it to manipulate data. Here’s his presentation, and the accompanying demonstration script:&lt;/p&gt;
+&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/16043843&quot; width=&quot;427&quot; height=&quot;356&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; style=&quot;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px&quot; allowfullscreen webkitallowfullscreen mozallowfullscreen&gt; &lt;/iframe&gt; 
+
+&lt;script src=&quot;https://gist.github.com/4558068.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Steve’s talk is based on &lt;a href=&quot;http://www.jstatsoft.org/v40/i01/paper&quot;&gt;this paper by Hadley Wickham in the Journal of Statistical Software&lt;/a&gt;. A lot of useful related resources are at &lt;a href=&quot;http://plyr.had.co.nz/&quot;&gt;Hadley Wickham’s &lt;code&gt;plyr&lt;/code&gt; website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We had a quick exchange about using &lt;code&gt;plyr&lt;/code&gt; for parallel processing. More on that was discussed on the listserv &lt;a href=&quot;https://groups.google.com/forum/#!msg/davis-rug/VLIXz5i3vZI/lWVNpRnr930J&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Don't R alone! A guide to tools for collaboration with R</title>
@@ -2233,19 +2252,6 @@ a&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;The latest version of ggplot has an updated “themes” system by which you can modify many aspects of the cart just by adding &lt;code&gt;+ theme_x()&lt;/code&gt;. Details &lt;a href=&quot;http://sape.inf.usi.ch/quick-reference/ggplot2/themes&quot;&gt;here&lt;/a&gt; and updates in the new version &lt;a href=&quot;https://github.com/wch/ggplot2/wiki/New-theme-system&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Some &lt;a href=&quot;https://github.com/jrnold/ggthemes&quot;&gt;nice themes&lt;/a&gt; and an &lt;a href=&quot;http://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs-in-r&quot;&gt;XKCD theme!&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
- </entry>
- 
- <entry>
-   <title>An R Users' Group in Davis</title>
-   <link href="http://www.noamross.net/blog/2012/9/24/a-new-r-users--group.html"/>
-   <updated>2012-09-24T11:05:27-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2012/9/24/a-new-r-users--group</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I’m excited to share that we’ve started a new R users’ group at UC Davis! Right now our main purpose is to run weekly 2-hour work/hack sessions where R users can get together to work through problems together. More info &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  
