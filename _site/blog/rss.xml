@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-01-17T10:17:48-08:00</updated>
+ <updated>2013-01-17T14:49:51-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -29,6 +29,23 @@
 
 &lt;p&gt;Steve’s talk is based on &lt;a href=&quot;http://www.jstatsoft.org/v40/i01/paper&quot;&gt;this paper by Hadley Wickham in the Journal of Statistical Software&lt;/a&gt;. A lot of useful related resources are at &lt;a href=&quot;http://plyr.had.co.nz/&quot;&gt;Hadley Wickham’s &lt;code&gt;plyr&lt;/code&gt; website&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;We had a quick exchange about using &lt;code&gt;plyr&lt;/code&gt; for parallel processing. More on that was discussed on the listserv &lt;a href=&quot;https://groups.google.com/forum/#!msg/davis-rug/VLIXz5i3vZI/lWVNpRnr930J&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Upgoer5</title>
+   <link href="http://www.noamross.net/blog/2013/1/17/upgoer5.html"/>
+   <updated>2013-01-17T00:00:00-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/1/17/upgoer5</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;The amazing &lt;a href=&quot;http://splasho.com/upgoer5/&quot;&gt;UpGoer5 text editor&lt;/a&gt; only allows you to use the 1000 most commonly used words in the english language. Here is &lt;a href=&quot;http://splasho.com/upgoer5/?i=H29gMKEcoJImVT1uoaxtqUWyMKZtM2I0VUAcL2ftLJ5xVTEcMFO2MKW5VUS1nJAeoUxhVPOWVTkio2ftLKDtnT93VTEyLKEbVT1iqzImVTWyqUqyMJ4tMTyzMzIlMJ50VTgcozEmVT9zVUElMJImVTShMPObo3ptM3WiqKOmVT9zVTEcMzMypzIhqPO0pzIyplOwnTShM2HtnT93VTMup3DtMTIuqTttoJ92MKZhVPOWVUElrFO0olOznJq1pzHto3I0VUqbMJ4toJShrFO0pzIyplO3nJkfVTEcMFO0o2qyqTuypvjtLJ5xVUEbMFO0rKOyVT9zVUEbnJ5aplO3MFOhMJIxVUEiVTgho3ptnJ4to3WxMKVtqT8tMzyaqKWyVUEbnKZto3I0VTSbMJSxVT9zVUEcoJHhVPOHnTIhVRxtqUW5VUEiVTMcM3IlMFOiqKDtq2uuqPO0olOxolO0olO0nTHtqUWyMKZto3MypvO0nJ1yVUImnJ5aVUEbMFOfMJSmqPOgo25yrFNtp28tqTuuqPOxMJS0nPOjpz9vLJWfrFO3nJkfVT5iqPOwo21yYPOyqzIhVTyzVT91pvOcMTIuplOiMvObo3ptMTIuqTttoJ92MKZtoJyanUDtLzHtq3Wiozpto3Vto2MzVTRtLzy0Yt==&quot;&gt;my research described using only those words&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Sometimes many trees get sick and die very quickly. I look at how death moves between different kinds of trees and how groups of different trees change how fast death moves. I try to figure out when many trees will die together, and the type of things we need to know in order to figure this out ahead of time. Then I try to figure out what to do to the trees over time using the least money so that death probably will not come, even if our ideas of how death moves might be wrong or off a bit.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You’ll find more amazing science descriptions if you check out the &lt;a href=&quot;https://twitter.com/search/realtime?q=%23upgoerfive&quot;&gt;#upgoer5&lt;/a&gt; tag on Twitter.&lt;/p&gt;</content>
  </entry>
  
  <entry>
@@ -1646,45 +1663,6 @@ b_{2,I} \end{bmatrix}\]&lt;/p&gt;
 &lt;p&gt;Gimenez, O., J. D. Lebreton, J. M. Gaillard, R. Choquet, and R. Pradel. 2012. Estimating demographic parameters using hidden process dynamic models. Theoretical Population Biology 82:307–316.&lt;/p&gt;
 &lt;p&gt;Lee, C. T., M. F. Hoopes, J. Diehl, W. Gilliland, G. Huxel, E. V. Leaver, K. McCann, J. Umbanhowar, and A. Mogilner. 2001. Non-local concepts and models in biology.. Journal of theoretical biology 210:201–19.&lt;/p&gt;
 &lt;p&gt;Metz, M. R., K. M. Frangioso, A. C. Wickland, R. K. Meentemeyer, and D. M. Rizzo. 2012. An emergent disease causes directional changes in forest species composition in coastal California. Ecosphere 3:86.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>A quick function for editing CSV files in R</title>
-   <link href="http://www.noamross.net/blog/2012/11/19/editing-csv-files-in-r.html"/>
-   <updated>2012-11-19T13:47:25-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2012/11/19/editing-csv-files-in-r</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I’ve been hunting for a lightweight CSV editor for OSX so I could to make fixes to data files and not need to fire up Excel. While you can edit a CSV file in any text editor, it’s a pain to navigate the files without a spreadsheet-like interface. Unfortunately &lt;a href=&quot;http://apple.stackexchange.com/questions/66214/are-there-any-free-and-lightweight-spreadsheet-programs-for-the-mac&quot;&gt;there doesn’t seem to be a good, free option out there&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Today I remembered R has a native XCode editor for editing data frames, and I realized I could write a function that would load the CSV as a data frame, let me edit it, then close and save it in CSV format again. Here’s the function. This is now part of my &lt;code&gt;.Rprofile&lt;/code&gt; file, and makes tweaking data files a snap:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;#&amp;#39; Use the data editor for a CSV file&lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#&amp;#39; &lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#&amp;#39; This function loads a CSV file, lets the user edit it in the native data&lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#&amp;#39; editor, then re-saves it, prompting the user for a new file name if &lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#&amp;#39; desired.&lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#&amp;#39; &lt;/span&gt;
-fix.csv &amp;lt;- function(file, &lt;span class=&quot;dt&quot;&gt;new.name=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;,&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;comment.char=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;) {
-  tmpframe &amp;lt;- &lt;span class=&quot;kw&quot;&gt;read.csv&lt;/span&gt;(file, &lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;sep,&lt;span class=&quot;dt&quot;&gt;quote=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;colClasses=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;character&amp;quot;&lt;/span&gt;,
-                       &lt;span class=&quot;dt&quot;&gt;stringsAsFactors=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;comment.char=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,
-                       &lt;span class=&quot;dt&quot;&gt;blank.lines.skip=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;na.strings=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;)
-  tmpframe &amp;lt;- &lt;span class=&quot;kw&quot;&gt;edit&lt;/span&gt;(tmpframe)
-  if(&lt;span class=&quot;kw&quot;&gt;is.character&lt;/span&gt;(new.name)) {
-    out.name &amp;lt;- new.name
-  } else if(new.name &amp;lt;- &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;) {
-    out.name &amp;lt;- &lt;span class=&quot;kw&quot;&gt;readline&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;prompt=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;Enter file name to save (Hit enter to use original):&amp;quot;&lt;/span&gt;)
-  } else {
-    out.name &amp;lt;- file
-  }
-  if(out.name==&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;) out.name &amp;lt;- file
-  &lt;span class=&quot;kw&quot;&gt;write.table&lt;/span&gt;(tmpframe, &lt;span class=&quot;dt&quot;&gt;file=&lt;/span&gt;out.name, &lt;span class=&quot;dt&quot;&gt;append=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;quote=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;sep,
-              &lt;span class=&quot;dt&quot;&gt;row.names=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here it is &lt;a href=&quot;https://gist.github.com/4114258&quot;&gt;as a gist&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This works in RStudio my Mac but unfortunately not when I’m working on my server, because RStudio server doesn’t support a data editor. (I know it’s been requested a few times - let’s hope they add it in!)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt;&amp;quot; &lt;a href=&quot;https://twitter.com/davidjayharris&quot;&gt;David Harris&lt;/a&gt; notes that “if you try this on a Mountain Lion Mac without X11/XQuartz, it will cause a fatal error.”&lt;/p&gt;</content>
  </entry>
  
  
