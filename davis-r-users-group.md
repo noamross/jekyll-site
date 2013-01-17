@@ -37,6 +37,7 @@ Sometimes D-RUG members put together useful resources and tutorials.
  - [Using `plot.new()` for better combined plots](http://www.noamross.net/blog/2012/10/26/plotnew.html)
  - [Customizing your R setup with `.Rprofile`](http://www.noamross.net/blog/2012/11/2/rprofile.html)
  - [A guide to tools for collaboration with R](http://www.noamross.net/blog/2013/1/7/collaborating-with-r.html)
+ - [Using the `plyr` package for data manipulation](http://www.noamross.net/blog/2013/1/17/steve-culman-on-plyr.html)
 
 ### Web Resources
 
