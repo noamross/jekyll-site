@@ -243,23 +243,23 @@
 <h2 id="rastetter-and-shaver-1992">Rastetter and Shaver (1992)</h2>
 <p>In this paper, Rastetter and Shaver introduce a model of plant growth on multiple nutrients, with the goal of understanding the conditions under which single- and multiple-nutrient limitation arise, the difference between short- and long-term behavior, and the role of organism-environment feedbacks. It’s not entirely clear whether this is on the scale of a single or a population.</p>
 <p>With this and the other papers, I’ll outline some essential parts of the model.</p>
-<p>Availability of nutients \((E)\) can by <em>constant</em> or <em>variable</em> - driven by the balance of uptake \((U)\) and replenishment rate \((R)\)</p>
-<p>\[\frac{dE_n}{dt} = R_n - U_n\]</p>
-<p>Uptake is a Michaelis-Menton function of nutrient availability limited, in part, by nutrient-specific uptake tissue surface area (roots, etc., \(SV\)):</p>
-<p>\[U_n = \frac{S_nV_n En}{k_n + E_n}\]</p>
-<p>with \(S_n=B_n^{2/3}\), the biomass made up of the respective nutrient.</p>
+<p>Availability of nutients <span class="math">\((E)\)</span> can by <em>constant</em> or <em>variable</em> - driven by the balance of uptake <span class="math">\((U)\)</span> and replenishment rate <span class="math">\((R)\)</span></p>
+<p><span class="math">\[\frac{dE_n}{dt} = R_n - U_n\]</span></p>
+<p>Uptake is a Michaelis-Menton function of nutrient availability limited, in part, by nutrient-specific uptake tissue surface area (roots, etc., <span class="math">\(SV\)</span>):</p>
+<p><span class="math">\[U_n = \frac{S_nV_n En}{k_n + E_n}\]</span></p>
+<p>with <span class="math">\(S_n=B_n^{2/3}\)</span>, the biomass made up of the respective nutrient.</p>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/mm.png" alt="The saturating Michalis-Menton function" /><p class="caption">The saturating Michalis-Menton function</p>
 </div>
-<p>\(V\) changes over time as the plant attempts to optimize uptake to balance the ratio in its biomass to reach an optimal value, \(Q\):</p>
-<p>\[\frac{dV_n}{dt} = a\left[\ln(Q) - \ln\left(\frac{B_n}{B_2}\right)\right] V_n\]</p>
+<p><span class="math">\(V\)</span> changes over time as the plant attempts to optimize uptake to balance the ratio in its biomass to reach an optimal value, <span class="math">\(Q\)</span>:</p>
+<p><span class="math">\[\frac{dV_n}{dt} = a\left[\ln(Q) - \ln\left(\frac{B_n}{B_2}\right)\right] V_n\]</span></p>
 <h3 id="equilibrium-solutions-three-cases">Equilibrium solutions: Three Cases</h3>
 <p>Case 1: When nutrient availability is <em>constant</em>, the plants act as if under multiple element limitation, though responses to increased nutrients may be small due to saturation of uptake.</p>
-<p>Case 2: When nutrients are <em>depletable</em>, plants act as if limited by <em>only one</em> nutrient (i.e., Liebig limitation), but the growth response is <em>linear</em> with respect to the replenishment rate \((R)\)</p>
+<p>Case 2: When nutrients are <em>depletable</em>, plants act as if limited by <em>only one</em> nutrient (i.e., Liebig limitation), but the growth response is <em>linear</em> with respect to the replenishment rate <span class="math">\((R)\)</span></p>
 <p>Case 3: When nutrients are a mix of constant and depletable, plants respond as in Case #2 when the depletable nutrient is limiting, but above a critical rate of replenishment, act as in Case #1, with saturating limitation of the non-depletable element.</p>
 <h3 id="dynamics">Dynamics</h3>
-<p>Simulations were run under this model, increasing the supply of one nutrient at \(T=50\) and a second nutrient at \(T=500\).</p>
-<p>Case 1: With nutrients undepletable, plants increased growth in response to increases in both nutrients, in both cases falling out of the optimal balance of nutrients \((Q)\), but finding a new equilibrium at higher biomass.</p>
+<p>Simulations were run under this model, increasing the supply of one nutrient at <span class="math">\(T=50\)</span> and a second nutrient at <span class="math">\(T=500\)</span>.</p>
+<p>Case 1: With nutrients undepletable, plants increased growth in response to increases in both nutrients, in both cases falling out of the optimal balance of nutrients <span class="math">\((Q)\)</span>, but finding a new equilibrium at higher biomass.</p>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/sim1.png" alt="From Fig. 1 of Rastetter and Shaver (1992) - simulation with undepletable nutrients" /><p class="caption">From Fig. 1 of Rastetter and Shaver (1992) - simulation with undepletable nutrients</p>
 </div>
@@ -267,31 +267,31 @@
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/sim4.png" alt="From Fig.2 Rastetter and Shaver (1992) - simulation with depletable nutrients" /><p class="caption">From Fig.2 Rastetter and Shaver (1992) - simulation with depletable nutrients</p>
 </div>
-<p>Case 3: In the mixed case, plants responded as in Case #2 until \(R\) was above the critical replenishment rate, then responded as in Case #1.</p>
+<p>Case 3: In the mixed case, plants responded as in Case #2 until <span class="math">\(R\)</span> was above the critical replenishment rate, then responded as in Case #1.</p>
 <h2 id="klausmeier-et-al.-2007">Klausmeier et al. (2007)</h2>
-<p>Klausmeier et al. use a similar framework to model the dynamics of microbial growth dynamics and competition. In their model, growth under two nutrients is subject to Liebig-style limitation of nutrient concentrations \((Q)\) <em>inside</em> cells, while <em>uptake</em> into cells \((U)\) is driven by Michaelis-Menton kinetics (designated by function \(f\), which is linear with respect to \(A\), the allocation term.):</p>
-<p>\[\frac{dQ_{n}}{dt} = f(R, A) - \mu \min \left(1 - \frac{Q_{min,n}}{Q_n}, 1-\frac{Q_{min,o}}{Q_o} \right) Q_n\]</p>
-<p>\[\frac{dB}{dt} = \mu \min \left(1 - \frac{Q_{min,n}}{Q_n}, 1-\frac{Q_{min,o}}{Q_o} \right) B - mB\]</p>
+<p>Klausmeier et al. use a similar framework to model the dynamics of microbial growth dynamics and competition. In their model, growth under two nutrients is subject to Liebig-style limitation of nutrient concentrations <span class="math">\((Q)\)</span> <em>inside</em> cells, while <em>uptake</em> into cells <span class="math">\((U)\)</span> is driven by Michaelis-Menton kinetics (designated by function <span class="math">\(f\)</span>, which is linear with respect to <span class="math">\(A\)</span>, the allocation term.):</p>
+<p><span class="math">\[\frac{dQ_{n}}{dt} = f(R, A) - \mu \min \left(1 - \frac{Q_{min,n}}{Q_n}, 1-\frac{Q_{min,o}}{Q_o} \right) Q_n\]</span></p>
+<p><span class="math">\[\frac{dB}{dt} = \mu \min \left(1 - \frac{Q_{min,n}}{Q_n}, 1-\frac{Q_{min,o}}{Q_o} \right) B - mB\]</span></p>
 <h3 id="optimal-strategies---static">Optimal strategies - Static</h3>
 <p>The authors show that a species whose allocation leads to co-limitation has a continuously stable strategy (an evolutionary stable strategy that is stable on its own).</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/optimaltradeoffA.png" alt="Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. A* is the continiously stable strategy, while species with A&#39; could be out-competed by A&#39;&#39; or A^*" /><p class="caption">Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. \(A*\) is the continiously stable strategy, while species with \(A&#39;\) could be out-competed by \(A&#39;&#39;\) or \(A^*\)</p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/optimaltradeoffA.png" alt="Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. A* is the continiously stable strategy, while species with A&#39; could be out-competed by A&#39;&#39; or A^*" /><p class="caption">Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. <span class="math">\(A*\)</span> is the continiously stable strategy, while species with <span class="math">\(A&#39;\)</span> could be out-competed by <span class="math">\(A&#39;&#39;\)</span> or <span class="math">\(A^*\)</span></p>
 </div>
 <h3 id="dynamics-1">Dynamics</h3>
-<p>To make allocation dynamic, the authors simply change \(A\) at a constant rate so as to reach the level where both nutrients are limiting:</p>
-<p>\[\frac{dA}{dt} = \begin{cases}
+<p>To make allocation dynamic, the authors simply change <span class="math">\(A\)</span> at a constant rate so as to reach the level where both nutrients are limiting:</p>
+<p><span class="math">\[\frac{dA}{dt} = \begin{cases}
  c(1-A) &amp;(P-Limited) \\
  -cA &amp;(N-limited)\\
  0 &amp; (colimited)
  \end{cases}
-\]</p>
+\]</span></p>
 <p>The authors show two consequences of dynamic allocation. First, plankton nutrient ratios can be sensitive to time of sampling, as it can take time for biomass nutrient ratios to adjust to environmental levels. This adjustment may take longer than the change in <em>biomass</em> that may result from changes in nutrient levels.</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/timesampratios.png" alt="Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios (Q_N/Q_P) vs. nutrient supply ratios (R_N/R_P) at differing sampling time from a change in nutrient supply ratios." /><p class="caption">Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios \((Q_N/Q_P)\) vs. nutrient supply ratios \((R_N/R_P)\) at differing sampling time from a change in nutrient supply ratios.</p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/timesampratios.png" alt="Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios (Q_N/Q_P) vs. nutrient supply ratios (R_N/R_P) at differing sampling time from a change in nutrient supply ratios." /><p class="caption">Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios <span class="math">\((Q_N/Q_P)\)</span> vs. nutrient supply ratios <span class="math">\((R_N/R_P)\)</span> at differing sampling time from a change in nutrient supply ratios.</p>
 </div>
 <p>Secondly, the relationship between allocation rate and growth response to nutrients is not simple. In simulations, organisms with <em>no</em> acclimation ability grow as quickly in response to a nutrient pulse as organisms that acclimate quickly, but slow acclimators do worse than both.</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/klausgrid.png" alt="Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates (c) to a pulse on one nutrient. From left to right, c increases, while variables from top to bottom are biomass (B), nutrient supply (R), allocation of uptake to P (A_P), and species biomass nutrient ratio (Q_N/Q_P)" /><p class="caption">Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates \((c)\) to a pulse on one nutrient. From left to right, \(c\) increases, while variables from top to bottom are biomass \((B)\), nutrient supply \((R)\), allocation of uptake to P \((A_P)\), and species biomass nutrient ratio \((Q_N/Q_P)\)</p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/klausgrid.png" alt="Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates (c) to a pulse on one nutrient. From left to right, c increases, while variables from top to bottom are biomass (B), nutrient supply (R), allocation of uptake to P (A_P), and species biomass nutrient ratio (Q_N/Q_P)" /><p class="caption">Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates <span class="math">\((c)\)</span> to a pulse on one nutrient. From left to right, <span class="math">\(c\)</span> increases, while variables from top to bottom are biomass <span class="math">\((B)\)</span>, nutrient supply <span class="math">\((R)\)</span>, allocation of uptake to P <span class="math">\((A_P)\)</span>, and species biomass nutrient ratio <span class="math">\((Q_N/Q_P)\)</span></p>
 </div>
 <p>The high growth rates of slow-acclimation organisms in response to a pulse suggest that this strategy may be superior in a fluctuating environment, and in simulations, this is the case.</p>
 <h2 id="rastetter-2011">Rastetter (2011)</h2>

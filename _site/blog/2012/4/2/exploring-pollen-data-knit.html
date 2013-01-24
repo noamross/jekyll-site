@@ -245,15 +245,15 @@
 ## Loading required package: grid
 ## Loading required package: graphics
 ## Loading required package: stats
-billys &lt;- <span class="kw">getpctAP</span>(<span class="st">&quot;billys&quot;</span>, <span class="dt">plot =</span> <span class="ot">TRUE</span>)
+billys &lt;-<span class="st"> </span><span class="kw">getpctAP</span>(<span class="st">&quot;billys&quot;</span>, <span class="dt">plot =</span> <span class="ot">TRUE</span>)
 ## Number of taxa:  105 
 ## Number of levels:  77 </code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/a.png" alt="Arboreal Pollen over time at Billy’s Lake" /><p class="caption">Arboreal Pollen over time at Billy’s Lake</p>
 </div>
 <p>Clearly, there’s are trends at different time scales. The trouble with using S-Maps on this is that there are uneven sampling intervals. One option is to use linear interpolation to approximate even intervals:</p>
-<pre class="sourceCode r"><code class="sourceCode r">billyslin &lt;- <span class="kw">linpctAP</span>(billys, <span class="dt">ts =</span> <span class="ot">FALSE</span>)
-billys &lt;- <span class="kw">getpctAP</span>(<span class="st">&quot;billys&quot;</span>, <span class="dt">plot =</span> <span class="ot">TRUE</span>)
+<pre class="sourceCode r"><code class="sourceCode r">billyslin &lt;-<span class="st"> </span><span class="kw">linpctAP</span>(billys, <span class="dt">ts =</span> <span class="ot">FALSE</span>)
+billys &lt;-<span class="st"> </span><span class="kw">getpctAP</span>(<span class="st">&quot;billys&quot;</span>, <span class="dt">plot =</span> <span class="ot">TRUE</span>)
 ## Number of taxa:  105 
 ## Number of levels:  77 
 <span class="kw">lines</span>(billyslin[, <span class="dv">1</span>], billyslin[, <span class="dv">2</span>], <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)

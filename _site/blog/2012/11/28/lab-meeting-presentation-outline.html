@@ -259,8 +259,8 @@
 <li><strong>SI-based:</strong> Trees may belong to a susceptible or infected class, which modifies growth and mortality parameters.</li>
 </ul>
 <h2 id="structure">Structure</h2>
-<p>The population at time \(t\) and location \(x\) is \(\boldsymbol N_{t,x}\), which is a vector that collapses species, size , and disease categories (“classes”). Thus, for two species, each with two size categories, we have vector of eight classes at one point in space at time:</p>
-<p>\[\boldsymbol N_{t,x} = \begin{bmatrix}
+<p>The population at time <span class="math">\(t\)</span> and location <span class="math">\(x\)</span> is <span class="math">\(\boldsymbol N_{t,x}\)</span>, which is a vector that collapses species, size , and disease categories (“classes”). Thus, for two species, each with two size categories, we have vector of eight classes at one point in space at time:</p>
+<p><span class="math">\[\boldsymbol N_{t,x} = \begin{bmatrix}
 a_{1,S} \\
 a_{1,I} \\
 a_{2,S} \\
@@ -268,7 +268,7 @@ a_{2,I} \\
 b_{1,S} \\
 b_{1,I} \\
 b_{2,S} \\
-b_{2,I} \end{bmatrix}\]</p>
+b_{2,I} \end{bmatrix}\]</span></p>
 <p>Demographic parameters vary these classes, so each demographic and epidemiological parameter is a vector. Here are the class-specific parameters:</p>
 <table>
 <col width="41%" />
@@ -281,43 +281,43 @@ b_{2,I} \end{bmatrix}\]</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">\(\boldsymbol m\)</td>
+<td align="left"><span class="math">\(\boldsymbol m\)</span></td>
 <td align="left">Probability of death per year. Varies by species, size, and disease status.</td>
 </tr>
 <tr class="even">
-<td align="left">\(\boldsymbol b\)</td>
+<td align="left"><span class="math">\(\boldsymbol b\)</span></td>
 <td align="left">Fecundity per individual per year. Varies by species and size.</td>
 </tr>
 <tr class="odd">
-<td align="left">\(\boldsymbol g\)</td>
+<td align="left"><span class="math">\(\boldsymbol g\)</span></td>
 <td align="left">Probability of transition to the next size class. Varies by species and size.</td>
 </tr>
 <tr class="even">
-<td align="left">\(\boldsymbol R&#39;\)</td>
+<td align="left"><span class="math">\(\boldsymbol R&#39;\)</span></td>
 <td align="left">Probability of recovery from disease. Varies by species.</td>
 </tr>
 <tr class="odd">
-<td align="left">\(\boldsymbol r\)</td>
+<td align="left"><span class="math">\(\boldsymbol r\)</span></td>
 <td align="left">Probability of resprouting after death by disease. Varies by species.</td>
 </tr>
 <tr class="even">
-<td align="left">\(\boldsymbol w\)</td>
+<td align="left"><span class="math">\(\boldsymbol w\)</span></td>
 <td align="left">Relative space taken up by an individual tree of the class. Varies by species and size.</td>
 </tr>
 </tbody>
 </table>
-<p>Individuals do not transition between species, but they transition between size classes according to \(g\).</p>
-<p>Individuals transition from \(S\) to \(I\) class at the rate of \(\boldsymbol \Lambda\), the class-specific force of infection. \(\Lambda\) on each class depends on both the burden of spores arriving in the cell and the class’s susceptibility to those spores. Spores arriving in the cell are calculated by summing the dispersal of spores for each infected class in the lattice, to get a vector of spore burden from each class for a location. This is multiplied by a “Who Acquires Infection From Whom” matrix (WAIFW, Anderson and May (1985)) to get \(\boldsymbol \Lambda\).</p>
-<p>\[\boldsymbol \Lambda_{t,x} = \phi (\boldsymbol N_t, x, \boldsymbol\theta) \boldsymbol W\]</p>
-<p>\(\phi\) is the dispersal kernel for spores from all trees to location \(x\), and \(\boldsymbol\theta\) is the vector of dispersal parameters for each class of tree. \(\boldsymbol W\) is the WAIFW matrix, which represents differing physiological susceptibility to disease as well as the vertical dispersal of spores. Vertical structure of the stand is important, as small trees being rained down upon with spores from infected tall trees are more likely to be infected than the other way around.</p>
-<p>Trees transition from \(I\) to \(S\) by recovery at rate \(\boldsymbol R_t\). Note that \(\boldsymbol R_t\) is actually the base probability of recovery mutliplied by the probability of escaping infection until the next year:</p>
-<p>\[R_{t} = (1-\Lambda_t) \times R&#39;\]</p>
-<p>Both \(S\) and \(I\) individuals are removed from the population via mortality. For some species (e.g., tanoak), this occurs at a higher rate in infected individuals</p>
-<p>Recruitment of new individuals is density-dependent, based on shading. New recruits in the first age class sprout at a rate equal to the fecundity and population of their species in the cell, times the amount of empty space \((E_x)\) for growth:</p>
-<p>\[E_{x,t} = 1 - \sum_i w_i N_{x,t,i}\]</p>
-<p>In addition, a tree may resprout upon death, usually when killed by disease. This occurs with probability \(\boldsymbol r\).</p>
-<p>With \(\Lambda, R\) and \(E\) calculated at each time step, we can create the transition matrix \(\boldsymbol L\) at time \(t\)</p>
-<p>\[\boldsymbol L_t = 
+<p>Individuals do not transition between species, but they transition between size classes according to <span class="math">\(g\)</span>.</p>
+<p>Individuals transition from <span class="math">\(S\)</span> to <span class="math">\(I\)</span> class at the rate of <span class="math">\(\boldsymbol \Lambda\)</span>, the class-specific force of infection. <span class="math">\(\Lambda\)</span> on each class depends on both the burden of spores arriving in the cell and the class’s susceptibility to those spores. Spores arriving in the cell are calculated by summing the dispersal of spores for each infected class in the lattice, to get a vector of spore burden from each class for a location. This is multiplied by a “Who Acquires Infection From Whom” matrix (WAIFW, Anderson and May (1985)) to get <span class="math">\(\boldsymbol \Lambda\)</span>.</p>
+<p><span class="math">\[\boldsymbol \Lambda_{t,x} = \phi (\boldsymbol N_t, x, \boldsymbol\theta) \boldsymbol W\]</span></p>
+<p><span class="math">\(\phi\)</span> is the dispersal kernel for spores from all trees to location <span class="math">\(x\)</span>, and <span class="math">\(\boldsymbol\theta\)</span> is the vector of dispersal parameters for each class of tree. <span class="math">\(\boldsymbol W\)</span> is the WAIFW matrix, which represents differing physiological susceptibility to disease as well as the vertical dispersal of spores. Vertical structure of the stand is important, as small trees being rained down upon with spores from infected tall trees are more likely to be infected than the other way around.</p>
+<p>Trees transition from <span class="math">\(I\)</span> to <span class="math">\(S\)</span> by recovery at rate <span class="math">\(\boldsymbol R_t\)</span>. Note that <span class="math">\(\boldsymbol R_t\)</span> is actually the base probability of recovery mutliplied by the probability of escaping infection until the next year:</p>
+<p><span class="math">\[R_{t} = (1-\Lambda_t) \times R&#39;\]</span></p>
+<p>Both <span class="math">\(S\)</span> and <span class="math">\(I\)</span> individuals are removed from the population via mortality. For some species (e.g., tanoak), this occurs at a higher rate in infected individuals</p>
+<p>Recruitment of new individuals is density-dependent, based on shading. New recruits in the first age class sprout at a rate equal to the fecundity and population of their species in the cell, times the amount of empty space <span class="math">\((E_x)\)</span> for growth:</p>
+<p><span class="math">\[E_{x,t} = 1 - \sum_i w_i N_{x,t,i}\]</span></p>
+<p>In addition, a tree may resprout upon death, usually when killed by disease. This occurs with probability <span class="math">\(\boldsymbol r\)</span>.</p>
+<p>With <span class="math">\(\Lambda, R\)</span> and <span class="math">\(E\)</span> calculated at each time step, we can create the transition matrix <span class="math">\(\boldsymbol L\)</span> at time <span class="math">\(t\)</span></p>
+<p><span class="math">\[\boldsymbol L_t = 
 \begin{bmatrix}
     (1-\Lambda_{1,t})(1-g_1-m_1) + b_1 E_t + r_1 m_1 &amp; R_{2,t} (1-g_2-m_2) + b_2 E_t + r_2 m_2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
     \Lambda_{1,t} (1-g_1-m_1) &amp; (1-R_{2,t})(1-g_2-m_2) &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -328,7 +328,7 @@ b_{2,I} \end{bmatrix}\]</p>
     0 &amp; 0 &amp; 0 &amp; 0 &amp; (1-\Lambda_{5,t})g_5 &amp; R_{6,t}g_6 &amp; (1-\Lambda_{7,t})(1-g_7-m_7) &amp; R_{8,t} (1-g_8-m_8) \\
     0 &amp; 0 &amp; 0 &amp; 0 &amp; \Lambda_{5,t} g_5 &amp; (1-R_{6,t})g_6 &amp; \Lambda_{7,t} (1-g_7-m_7) &amp; (1-R_{8,t})(1-g_8-m_8) 
 \end{bmatrix}
-\]</p>
+\]</span></p>
 <h2 id="parameterization">Parameterization</h2>
 <p>As implemented in Cobb et al. (2012), the model is parameterized as follows:</p>
 <ul>
@@ -343,7 +343,7 @@ b_{2,I} \end{bmatrix}\]</p>
 <li>50% of spores stay in cell of origin, 12.5% land in each of 8 adjacent cells</li>
 </ul></li>
 <li>Fecundities and space parameters were adjusted so as to achieve a steady state at compositions matching field measurements.</li>
-<li>20 \(\times\) 20 lattice</li>
+<li>20 <span class="math">\(\times\)</span> 20 lattice</li>
 <li>Disease introduced to all individuals in a center cell.</li>
 </ul>
 <h2 id="results">Results</h2>
@@ -395,7 +395,7 @@ b_{2,I} \end{bmatrix}\]</p>
 </ul>
 <h2 id="notes-from-lab-meeting">Notes from Lab Meeting</h2>
 <p>Lee et al. (2001) discuss the importance of the thickness of tails Thickness of tail affects rate of spread, but for population dynamic questions often are less important. Dispersnal kernels might not matter much.</p>
-<p>Using a simple zero/one switch for \(E\) could eliminate the artifact of negative recruitment.</p>
+<p>Using a simple zero/one switch for <span class="math">\(E\)</span> could eliminate the artifact of negative recruitment.</p>
 <p>Papers by Mark Lewis and Steve Pacala on spread of a population might be relevant here.</p>
 <h2 id="references">References</h2>
 <p>Anderson, R. M., and R. M. May. 1985. Age-related changes in the rate of disease transmission: implications for the design of vaccination programmes. J. Hyg. Camb.</p>

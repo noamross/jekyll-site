@@ -269,7 +269,7 @@
 </ul>
 </blockquote>
 <p>One useful trick for producing an MRE is the <code>dput()</code> command. <code>dput</code> takes any object in R and prints it in a form that can be copy-and-pasted. For instance, say you have a data frame like this:</p>
-<pre class="sourceCode r"><code class="sourceCode r">df &lt;- <span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>)
+<pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>)
 df</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##   a  b
 ## 1 1  6
@@ -282,9 +282,9 @@ df</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## structure(list(a = 1:5, b = 6:10), .Names = c(&quot;a&quot;, &quot;b&quot;), row.names = c(NA, 
 ## -5L), class = &quot;data.frame&quot;)</code></pre>
 <p>Now you can insert this data into your MRE by typing:</p>
-<pre class="sourceCode r"><code class="sourceCode r">df &lt;- <span class="kw">structure</span>(<span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>), <span class="dt">.Names =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), 
+<pre class="sourceCode r"><code class="sourceCode r">df &lt;-<span class="st"> </span><span class="kw">structure</span>(<span class="kw">list</span>(<span class="dt">a =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">b =</span> <span class="dv">6</span>:<span class="dv">10</span>), <span class="dt">.Names =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>), 
   <span class="dt">row.names =</span> <span class="kw">c</span>(<span class="ot">NA</span>, -5L), <span class="dt">class =</span> <span class="st">&quot;data.frame&quot;</span>)</code></pre>
-<p>Your real data is probably considerably larger and more complex, and could be in the form of a data frame, list, or any other number of objects. Try running <code>dput(mtcars)</code> to see the results with a larger data set. It’s often shorter to using <code>dput</code> on cleaned-up, manipulated data than including a lot of data-manipulation steps in your MRE. If your dataset is large, simply use <code>dput(head(mtcars))</code> to share only the first few rows. <a href="https://github.com/hadley/devtools/wiki">Here</a> is an example of how using this method yields useful responses.</p>
+<p>Your real data is probably considerably larger and more complex, and could be in the form of a data frame, list, or any other number of objects. Try running <code>dput(mtcars)</code> to see the results with a larger data set. It’s often shorter to use <code>dput</code> on cleaned-up, manipulated data than including a lot of data-manipulation steps in your MRE. If your dataset is large, simply use <code>dput(head(mtcars))</code> to share only the first few rows. <a href="http://stackoverflow.com/questions/12647159/turning-a-data-frame-into-a-single-row">Here</a> is an example of how using this method yields useful responses.</p>
 <p>Similarly, it is easy to share more information about your set up using the <code>sessionInfo()</code> function. It returns information about your R version, your platform, base, and loaded packages, all of which are really helpful for troubleshooting purposes. Simply copy and paste the output from the function alongside your question.</p>
 <h2 id="sharing-r-scripts-with-gist.github.com"><a href="#TOC">Sharing R scripts with <code>gist.github.com</code></a></h2>
 <p>Sometimes you want to share an R code that you’ve written. Creating a <strong>gist</strong> is a great way to do so. Gists are have several advantages over sharing over e-mail:</p>
@@ -295,9 +295,9 @@ df</code></pre>
 <li>The gist an be public or private</li>
 <li>People can comment on the gist and have a conversation</li>
 </ul>
-<p>To post your code as a gist, go to <a href="http://gist.github.com"><code class="url">http://gist.github.com</code></a>, and paste your code, and put in a brief description. You’ll get an easily sharable web page like this:</p>
+<p>To post your code as a gist, go to <a href="http://gist.github.com">http://gist.github.com</a>, and paste your code, and put in a brief description. You’ll get an easily sharable web page like this:</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/gistexample.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/gistexample.png" />
 </div>
 <p>Signing up for the website is not neccessary, but it is needed if you want to revise your gist in the future.</p>
 <p>A gist can include multiple files, so sometimes its useful for to include both an R script and your source data file in one gist.</p>
@@ -330,7 +330,7 @@ plot(cars)
 <span class="kw">markdownToHTML</span>(<span class="st">&quot;example.md&quot;</span>)</code></pre>
 <p>You get an HTML file called <code>example.HTML</code>. Open it in a browser and it looks like this:</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/knitexample.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/knitexample.png" />
 </div>
 <p>As you can see, your document has both your writing, code, and results, formatted in an easy-to-read way. You can e-mail these documents or post them online for easy sharing.</p>
 <h2 id="collaborating-and-version-control"><a href="#TOC">Collaborating and version control</a></h2>
@@ -338,7 +338,7 @@ plot(cars)
 <h3 id="dropbox"><a href="#TOC">Dropbox</a></h3>
 <p>An easy way to share your R files and maintain version control is to use <a href="https://www.dropbox.com/">Dropbox</a>. Dropbox is a service that syncs files across computers. If you and your collaborators share a Dropbox folder, changes will automatically stay up-to-date across all your computers. Importantly, Dropbox keeps previous versions of files and lets you revert to past versions, so you can go back if something in your code breaks:</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/dropboxexample.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/dropboxexample.png" />
 </div>
 <h3 id="git-and-github"><a href="#TOC">Git and Github</a></h3>
 <p><a href="http://git-scm.com/">Git</a> is a version-control system widely used by programmers. It’s much more powerful than Dropbox version control, with features that include</p>
@@ -358,30 +358,30 @@ plot(cars)
 <h2 id="rstudio"><a href="#TOC">RStudio</a></h2>
 <p>If you want use the tools described above, it is helpful to use software that integrates them into your workflow. <a href="http://www.rstudio.com/">RStudio</a> is a popular <em>integrated development environment</em> (IDE). An IDE makes working in R easier by putting the R console, a text editor, file browser, help files, graphics and many other tools together into a cohesive interface. RStudio also integrates many of the collaborative tools described above. It is available for Mac, Windows, and Linux.</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/rstudio-windows.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/rstudio-windows.png" />
 </div>
 <p>If you use Rstudio, <code>knitr</code> is automated for you. Just hit the “Knit HTML” button once you have written your R-markdown document, and it will generate the web page and show a preview:</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/knitbutton.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/knitbutton.png" />
 </div>
-<p>An additional benefit of using <code>knitr</code> from Rstudio is that it will give you the option of automatically uploading the HTML document to their server at <a href="http://rpubs.com/"><code class="url">http://rpubs.com/</code></a> so you can share it with anyone. Just hit the “Publish” in the preview window:</p>
+<p>An additional benefit of using <code>knitr</code> from Rstudio is that it will give you the option of automatically uploading the HTML document to their server at <a href="http://rpubs.com/">http://rpubs.com/</a> so you can share it with anyone. Just hit the “Publish” in the preview window:</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/publish.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/publish.png" />
 </div>
-<p>Like gists, documents at <a href="http://rpubs.com/"><code class="url">http://rpubs.com/</code></a> can be updated and easily shared and accept comments.</p>
+<p>Like gists, documents at <a href="http://rpubs.com/">http://rpubs.com/</a> can be updated and easily shared and accept comments.</p>
 <p>Git is also built into the Rstudio interface. Saving a version of your software is as easy as clicking a button. This makes the git learning curve a little easier:</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/gitexample.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/gitexample.png" />
 </div>
 <p>Finally, the latest version of Rstudio has package creation tools based on the <code>devtools</code> package, including tools for testing and documenting packages. Like its Git interface, RStudio’s package development tools make the process of package creation more intuitive:</p>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/buildexample.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/buildexample.png" />
 </div>
 <h2 id="interactive-r-with-shiny"><a href="#TOC">Interactive R with Shiny</a></h2>
 <p>A relatively new and exciting way to use R to share data analysis is <a href="http://www.rstudio.com/shiny/">Shiny</a>. Shiny is an R package that lets you create <em>interactive</em> web pages that let users explore your data and analysis. Here’s an example. Click on it to go to the interactive version:</p>
 <p><a href="http://www.rstudio.com/shiny/"><img src="http://dl.dropbox.com/u/3356641/blogstuff/shinyexample.png" /></a></p>
 <h2 id="upcoming-tools-for-real-time-interactive-and-collaborative-programming"><a href="#TOC">Upcoming tools for real-time, interactive and collaborative programming</a></h2>
-<p>In the next year or so we will likely see tools for live, interactive coding that allow you to collaborate in real time on R scripts the way Google Docs allows such collaboration with documents. <a href="https://www.stypi.com"><code class="url">https://www.stypi.com</code></a> is one such tool, though it doesn’t have R-specific options yet. Yihui Xie, the creator of <code>knitr</code> has created an <a href="http://glimmer.rstudio.com/yihui/knitr/">interactive notebook</a> based on Shiny and <code>knitr</code> which runs your knitr/R code on the web, but it is just a proof-of-concept. Look out for new developments!</p>
+<p>In the next year or so we will likely see tools for live, interactive coding that allow you to collaborate in real time on R scripts the way Google Docs allows such collaboration with documents. <a href="https://www.stypi.com">https://www.stypi.com</a> is one such tool, though it doesn’t have R-specific options yet. Yihui Xie, the creator of <code>knitr</code> has created an <a href="http://glimmer.rstudio.com/yihui/knitr/">interactive notebook</a> based on Shiny and <code>knitr</code> which runs your knitr/R code on the web, but it is just a proof-of-concept. Look out for new developments!</p>
 <h2 id="engaging-with-r-communities-online"><a href="#TOC">Engaging with R Communities Online</a></h2>
 <p>If you are looking for peers and collaborators in your work with R, there are a lot of places online to do so.</p>
 <p><strong>Listservs:</strong>In addition the listservs mentioned above, there are many <a href="http://www.r-project.org/mail.html">specialty listservs</a> for specific platforms and applications, and <a href="http://blog.revolutionanalytics.com/local-r-groups.html">local user groups</a>. Many packages have listservs associated with them, too, where users can ask question and get information about the latest updates. If you are learning how to use a new package it’s helpful to sign up for these.</p>

@@ -247,12 +247,12 @@
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
 <p>Let’s say we wanted to plot some two-variable data, changing color and shape by the sub-category of data. Here’s a data set:</p>
-<pre class="sourceCode r"><code class="sourceCode r">data.df &lt;- <span class="kw">data.frame</span>(<span class="dt">Plant =</span> <span class="kw">c</span>(<span class="st">&quot;Plant1&quot;</span>, <span class="st">&quot;Plant1&quot;</span>, <span class="st">&quot;Plant1&quot;</span>, <span class="st">&quot;Plant2&quot;</span>, <span class="st">&quot;Plant2&quot;</span>, 
+<pre class="sourceCode r"><code class="sourceCode r">data.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Plant =</span> <span class="kw">c</span>(<span class="st">&quot;Plant1&quot;</span>, <span class="st">&quot;Plant1&quot;</span>, <span class="st">&quot;Plant1&quot;</span>, <span class="st">&quot;Plant2&quot;</span>, <span class="st">&quot;Plant2&quot;</span>, 
     <span class="st">&quot;Plant2&quot;</span>), <span class="dt">Type =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">Axis1 =</span> <span class="kw">c</span>(<span class="fl">0.2</span>, -<span class="fl">0.4</span>, <span class="fl">0.8</span>, -<span class="fl">0.2</span>, -<span class="fl">0.7</span>, 
     <span class="fl">0.1</span>), <span class="dt">Axis2 =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.3</span>, -<span class="fl">0.1</span>, -<span class="fl">0.3</span>, -<span class="fl">0.1</span>, -<span class="fl">0.8</span>))</code></pre>
 <p>Using normal R graphics, we might do this:</p>
-<pre class="sourceCode r"><code class="sourceCode r">color_foo &lt;- <span class="kw">colorRampPalette</span>(<span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;darkblue&quot;</span>))
-colors &lt;- <span class="kw">color_foo</span>(<span class="dv">3</span>)
+<pre class="sourceCode r"><code class="sourceCode r">color_foo &lt;-<span class="st"> </span><span class="kw">colorRampPalette</span>(<span class="kw">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;darkblue&quot;</span>))
+colors &lt;-<span class="st"> </span><span class="kw">color_foo</span>(<span class="dv">3</span>)
 
 <span class="kw">plot</span>(<span class="kw">range</span>(data.df[, <span class="dv">3</span>]), <span class="kw">range</span>(data.df[, <span class="dv">4</span>]), <span class="dt">xlab =</span> <span class="st">&quot;Axis 1&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Axis 2&quot;</span>, 
     <span class="dt">type =</span> <span class="st">&quot;n&quot;</span>)
@@ -263,7 +263,7 @@ colors &lt;- <span class="kw">color_foo</span>(<span class="dv">3</span>)
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4" /><p class="caption">plot of chunk unnamed-chunk-4</p>
 </div>
 <p>With <code>ggplot</code>, you just do this:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(data.df, <span class="kw">aes</span>(<span class="dt">x =</span> Axis1, <span class="dt">y =</span> Axis2, <span class="dt">shape =</span> Plant, <span class="dt">color =</span> Type)) + <span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(data.df, <span class="kw">aes</span>(<span class="dt">x =</span> Axis1, <span class="dt">y =</span> Axis2, <span class="dt">shape =</span> Plant, <span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5" /><p class="caption">plot of chunk unnamed-chunk-5</p>
 </div>
@@ -290,9 +290,9 @@ colors &lt;- <span class="kw">color_foo</span>(<span class="dv">3</span>)
 ## 5         4.0       0.7      0.6667  20.0 0.42300 600.000
 ## 6        14.4       2.2      0.7667   9.6      NA   3.850</code></pre>
 <p>Now, lets start with a basic plot. Let’s create a scatterplot of body weight against total hours sleep:</p>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> bodywt, <span class="dt">y =</span> sleep_total))
-a &lt;- a + <span class="kw">geom_point</span>()
-a &lt;- a + <span class="kw">xlab</span>(<span class="st">&quot;Body Weight&quot;</span>) + <span class="kw">ylab</span>(<span class="st">&quot;Total Hours Sleep&quot;</span>) + <span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> bodywt, <span class="dt">y =</span> sleep_total))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>()
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Total Hours Sleep&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7" /><p class="caption">plot of chunk unnamed-chunk-7</p>
@@ -301,45 +301,45 @@ a</code></pre>
 <p>We then add components to the plot. <code>geom_point()</code> adds a layer of points, using the base aesthetic mapping. The third line adds labels. Typing the variable name <code>a</code> displays the plot. Alternately, one can use the command <code>ggsave()</code> to save the plot as a file, as in</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;sleepplot.png&quot;</span>, <span class="dt">plot =</span> a, <span class="dt">width =</span> <span class="dv">4</span>, <span class="dt">height =</span> <span class="dv">4</span>)</code></pre>
 <p>Now, one of the great things we can do with <code>ggplot</code> is slice the data different ways. For instance, we can plot another variable against color:</p>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> bodywt, <span class="dt">y =</span> sleep_total, <span class="dt">col =</span> vore))
-a &lt;- a + <span class="kw">geom_point</span>()
-a &lt;- a + <span class="kw">xlab</span>(<span class="st">&quot;Body Weight&quot;</span>) + <span class="kw">ylab</span>(<span class="st">&quot;Total Hours Sleep&quot;</span>) + <span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> bodywt, <span class="dt">y =</span> sleep_total, <span class="dt">col =</span> vore))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>()
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Total Hours Sleep&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9" /><p class="caption">plot of chunk unnamed-chunk-9</p>
 </div>
 <p>You can also use map <em>size</em> and <em>alpha</em> (transparency) to variables.</p>
 <p>We can transform variables directly in the <code>ggplot</code> call, as well:</p>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total, <span class="dt">col =</span> vore))
-a &lt;- a + <span class="kw">geom_point</span>()
-a &lt;- a + <span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) + <span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) + <span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>) + 
-    <span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Trophic Level&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total, <span class="dt">col =</span> vore))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>()
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>) +<span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Trophic Level&quot;</span>)
 a</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-10.png" alt="plot of chunk unnamed-chunk-10" /><p class="caption">plot of chunk unnamed-chunk-10</p>
 </div>
 <p>Within the <code>geom</code> calls, we can change plotting options</p>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total, <span class="dt">col =</span> vore))
-a &lt;- a + <span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)
-a &lt;- a + <span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) + <span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) + <span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>) + 
-    <span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Trophic Level&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total, <span class="dt">col =</span> vore))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>) +<span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Trophic Level&quot;</span>)
 a</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-11.png" alt="plot of chunk unnamed-chunk-11" /><p class="caption">plot of chunk unnamed-chunk-11</p>
 </div>
 <p>Another way to split up the way we look at data is with <em>facets</em>. These break up the plot into multiple plots. If you are splitting the plot up by one variable, use <code>facet_wrap</code>. If you are using two variables, use <code>facet_grid</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total))
-a &lt;- a + <span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)
-a &lt;- a + <span class="kw">facet_wrap</span>(~vore)
-a &lt;- a + <span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) + <span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) + <span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">facet_wrap</span>(~vore)
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-12.png" alt="plot of chunk unnamed-chunk-12" /><p class="caption">plot of chunk unnamed-chunk-12</p>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total))
-a &lt;- a + <span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>)
-a &lt;- a + <span class="kw">facet_grid</span>(conservation ~ vore)
-a &lt;- a + <span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) + <span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) + <span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>)
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">facet_grid</span>(conservation ~<span class="st"> </span>vore)
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-13.png" alt="plot of chunk unnamed-chunk-13" /><p class="caption">plot of chunk unnamed-chunk-13</p>
@@ -353,16 +353,16 @@ a</code></pre>
 ## 4 1967-09-30 513.3 199311     9.8     4.9     3143
 ## 5 1967-10-31 518.5 199498     9.7     4.7     3066
 ## 6 1967-11-30 526.2 199657     9.4     4.8     3018</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> economics, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> unemploy))
-a &lt;- a + <span class="kw">geom_line</span>()
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> economics, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> unemploy))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_line</span>()
 a</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-14.png" alt="plot of chunk unnamed-chunk-14" /><p class="caption">plot of chunk unnamed-chunk-14</p>
 </div>
 <p>We can add statistical transformations to this series, for instance:</p>
-<pre class="sourceCode r"><code class="sourceCode r">a &lt;- <span class="kw">ggplot</span>(<span class="dt">data =</span> economics, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> unemploy))
-a &lt;- a + <span class="kw">geom_line</span>()
-a &lt;- a + <span class="kw">geom_smooth</span>()
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> economics, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> unemploy))
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_line</span>()
+a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_smooth</span>()
 a</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## geom_smooth: method=&quot;auto&quot; and size of largest group is &lt;1000, so using
 ## loess. Use &#39;method = x&#39; to change the smoothing method.</code></pre>
@@ -378,7 +378,7 @@ a</code></pre>
 <li>The <a href="http://learnr.wordpress.com/">Learn R</a> blog has some great examples.</li>
 <li><a href="http://sape.inf.usi.ch/quick-reference/ggplot2">A quick reference website that’s easier to understand than the documentation</a></li>
 <li><a href="http://blog.echen.me/2012/01/17/quick-introduction-to-ggplot2/">A quick intro on a blog</a></li>
-<li><a href="https://github.com/hadley/ggplot2/wiki/-opts()-List">A key to the many obscure display options</a></li>
+<li><a href="https://github.com/hadley/ggplot2/wiki/-opts-List">A key to the many obscure display options</a></li>
 <li>The latest version of ggplot has an updated “themes” system by which you can modify many aspects of the cart just by adding <code>+ theme_x()</code>. Details <a href="http://sape.inf.usi.ch/quick-reference/ggplot2/themes">here</a> and updates in the new version <a href="https://github.com/wch/ggplot2/wiki/New-theme-system">here</a></li>
 <li>Some <a href="https://github.com/jrnold/ggthemes">nice themes</a> and an <a href="http://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs-in-r">XKCD theme!</a></li>
 </ul></p></div>

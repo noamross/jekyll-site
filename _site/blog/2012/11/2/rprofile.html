@@ -261,8 +261,8 @@
 <p>Note that you can save <code>.Rprofile</code> in your home directory, or, if you are using R Studio, in a <em>project</em> directory. In the latter case, the profile will only be loaded when you load that project.</p>
 <h3 id="things-to-put-in-the-.rprofile-file">Things to put in the <code>.Rprofile</code> file:</h3>
 <p><strong><em>Set a local CRAN Mirror:</em></strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">local</span>({r &lt;- <span class="kw">getOption</span>(<span class="st">&quot;repos&quot;</span>)
-       r[<span class="st">&quot;CRAN&quot;</span>] &lt;- <span class="st">&quot;http://cran.cnr.berkeley.edu/&quot;</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">local</span>({r &lt;-<span class="st"> </span><span class="kw">getOption</span>(<span class="st">&quot;repos&quot;</span>)
+       r[<span class="st">&quot;CRAN&quot;</span>] &lt;-<span class="st"> &quot;http://cran.cnr.berkeley.edu/&quot;</span>
        <span class="kw">options</span>(<span class="dt">repos=</span>r)})</code></pre>
 <p><strong><em>Set machine-specific options:</em></strong> If you use Dropbox or something similar to sync R files across computers, you can use <code>Sys.info()</code> to set options specifically for your machine. This code sets the root path differently for different machines:</p>
 <pre class="sourceCode r"><code class="sourceCode r">if(<span class="kw">Sys.info</span>()[<span class="dv">4</span>]==<span class="st">&quot;Work-PC&quot;</span>) {
@@ -273,7 +273,7 @@
   root&lt;-<span class="st">&quot;C://Users//rapeek//Dropbox//R//&quot;</span>
 }</code></pre>
 <p><strong><em>Set a welcome message and load a file of other useful functions:</em></strong> Anything in the <code>.First</code> function is run on startup</p>
-<pre class="sourceCode r"><code class="sourceCode r">.First &lt;- function(){
+<pre class="sourceCode r"><code class="sourceCode r">.First &lt;-<span class="st"> </span>function(){
     <span class="kw">cat</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Welcome to R!</span><span class="ch">\n</span><span class="st">&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
     <span class="kw">cat</span>(<span class="st">&quot;---------------</span><span class="ch">\n\n</span><span class="st">&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
     

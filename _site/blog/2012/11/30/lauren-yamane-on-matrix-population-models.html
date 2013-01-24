@@ -244,71 +244,71 @@
 <hr />
 <h2 id="a-discrete-time-age-structured-model-of-a-salmon-population-semelparous-that-can-live-to-age-5-with-fishing-and-environmental-stochasticity">A discrete time, age-structured model of a salmon population (semelparous) that can live to age 5, with fishing and environmental stochasticity</h2>
 <p>Parameter values</p>
-<pre class="sourceCode r"><code class="sourceCode r">a = <span class="dv">60</span>  <span class="co">#alpha for Beverton-Holt stock-recruitment curve</span>
-b = <span class="fl">0.00017</span>  <span class="co">#beta for Beverton-Holt</span>
-tf = <span class="dv">2000</span>  <span class="co">#number of time steps</span>
-N0 = <span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)  <span class="co">#initial population vector for 5 age classes</span>
-s = <span class="fl">0.28</span>  <span class="co">#survival rate with fishing</span>
-e = <span class="fl">0.1056</span>  <span class="co">#fraction of age 3 fish that spawn early (age 4 is mean spawner age)</span>
-l = <span class="fl">0.1056</span>  <span class="co">#fraction of age 4 fish that spawn late as age 5 fish</span>
-sx = <span class="kw">c</span>(s, s, (s * (<span class="dv">1</span> - e)), (s * (l)))  <span class="co">#survival vector for all ages with fishing, spawners die after spawning</span>
-t &lt;- <span class="dv">1</span>  <span class="co">#start off at time=1</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">a =<span class="st"> </span><span class="dv">60</span>  <span class="co">#alpha for Beverton-Holt stock-recruitment curve</span>
+b =<span class="st"> </span><span class="fl">0.00017</span>  <span class="co">#beta for Beverton-Holt</span>
+tf =<span class="st"> </span><span class="dv">2000</span>  <span class="co">#number of time steps</span>
+N0 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)  <span class="co">#initial population vector for 5 age classes</span>
+s =<span class="st"> </span><span class="fl">0.28</span>  <span class="co">#survival rate with fishing</span>
+e =<span class="st"> </span><span class="fl">0.1056</span>  <span class="co">#fraction of age 3 fish that spawn early (age 4 is mean spawner age)</span>
+l =<span class="st"> </span><span class="fl">0.1056</span>  <span class="co">#fraction of age 4 fish that spawn late as age 5 fish</span>
+sx =<span class="st"> </span><span class="kw">c</span>(s, s, (s *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>e)), (s *<span class="st"> </span>(l)))  <span class="co">#survival vector for all ages with fishing, spawners die after spawning</span>
+t &lt;-<span class="st"> </span><span class="dv">1</span>  <span class="co">#start off at time=1</span></code></pre>
 <p>Make a function for the age-structured matrix</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make a function for the age-structured matrix with fishing</span>
-AgeStructMatrix_F = function(sx, a, b, tf, N0) {
-    sig_r = <span class="fl">0.3</span>
-    ncls = <span class="kw">length</span>(N0)  <span class="co">#Number of age classes</span>
-    Nt_F = <span class="kw">matrix</span>(<span class="dv">0</span>, tf, ncls)  <span class="co">#Initialize output matrix with time steps as rows, age classes as columns</span>
-    Nt_F[<span class="dv">1</span>, ] = N0  <span class="co">#put initial values into first row of output matrix</span>
-    for (t in <span class="dv">1</span>:(tf - <span class="dv">1</span>)) {
+AgeStructMatrix_F =<span class="st"> </span>function(sx, a, b, tf, N0) {
+    sig_r =<span class="st"> </span><span class="fl">0.3</span>
+    ncls =<span class="st"> </span><span class="kw">length</span>(N0)  <span class="co">#Number of age classes</span>
+    Nt_F =<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">0</span>, tf, ncls)  <span class="co">#Initialize output matrix with time steps as rows, age classes as columns</span>
+    Nt_F[<span class="dv">1</span>, ] =<span class="st"> </span>N0  <span class="co">#put initial values into first row of output matrix</span>
+    for (t in <span class="dv">1</span>:(tf -<span class="st"> </span><span class="dv">1</span>)) {
         <span class="co">#for time step t in 1:1999</span>
-        Pt = (e * Nt_F[t, <span class="dv">3</span>]) + ((<span class="dv">1</span> - l) * Nt_F[t, <span class="dv">4</span>]) + Nt_F[t, <span class="dv">5</span>]  <span class="co">#number of spawners</span>
-        Nt_F[t + <span class="dv">1</span>, <span class="dv">1</span>] = ((a * Pt)/(<span class="dv">1</span> + (b * Pt))) * (<span class="kw">exp</span>(sig_r * <span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">0</span>, 
+        Pt =<span class="st"> </span>(e *<span class="st"> </span>Nt_F[t, <span class="dv">3</span>]) +<span class="st"> </span>((<span class="dv">1</span> -<span class="st"> </span>l) *<span class="st"> </span>Nt_F[t, <span class="dv">4</span>]) +<span class="st"> </span>Nt_F[t, <span class="dv">5</span>]  <span class="co">#number of spawners</span>
+        Nt_F[t +<span class="st"> </span><span class="dv">1</span>, <span class="dv">1</span>] =<span class="st"> </span>((a *<span class="st"> </span>Pt)/(<span class="dv">1</span> +<span class="st"> </span>(b *<span class="st"> </span>Pt))) *<span class="st"> </span>(<span class="kw">exp</span>(sig_r *<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean =</span> <span class="dv">0</span>, 
             <span class="dt">sd =</span> <span class="dv">1</span>)))  <span class="co">#number of recruits with environmental stochasticity</span>
-        Nt_F[t + <span class="dv">1</span>, <span class="dv">2</span>:ncls] = sx * Nt_F[t, <span class="dv">1</span>:(ncls - <span class="dv">1</span>)]  <span class="co">#number of age classes 2-5</span>
+        Nt_F[t +<span class="st"> </span><span class="dv">1</span>, <span class="dv">2</span>:ncls] =<span class="st"> </span>sx *<span class="st"> </span>Nt_F[t, <span class="dv">1</span>:(ncls -<span class="st"> </span><span class="dv">1</span>)]  <span class="co">#number of age classes 2-5</span>
     }
     <span class="kw">return</span>(Nt_F)
 }</code></pre>
 <p>Run model by calling function</p>
-<pre class="sourceCode r"><code class="sourceCode r">Nt_F = <span class="kw">AgeStructMatrix_F</span>(sx, a, b, tf, N0)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">Nt_F =<span class="st"> </span><span class="kw">AgeStructMatrix_F</span>(sx, a, b, tf, N0)</code></pre>
 <p>Plot of time series with all 5 age classes</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">matplot</span>(<span class="dv">1</span>:tf, Nt_F, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Population size&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Age-structured model with fishing&quot;</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ageclassplot.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ageclassplot.png" />
 </div>
 <p>Export text file for plot with age classes</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(Nt_F) &lt;- <span class="kw">c</span>(<span class="st">&quot;Recruits&quot;</span>, <span class="st">&quot;Age2&quot;</span>, <span class="st">&quot;Age3&quot;</span>, <span class="st">&quot;Age4&quot;</span>, <span class="st">&quot;Age5&quot;</span>)  <span class="co">#Rename columns</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(Nt_F) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Recruits&quot;</span>, <span class="st">&quot;Age2&quot;</span>, <span class="st">&quot;Age3&quot;</span>, <span class="st">&quot;Age4&quot;</span>, <span class="st">&quot;Age5&quot;</span>)  <span class="co">#Rename columns</span>
 <span class="kw">write.table</span>(Nt_F, <span class="st">&quot;~/Desktop/Nt_F.txt&quot;</span>, <span class="dt">col.names =</span> <span class="ot">TRUE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
     <span class="dt">quote =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)  <span class="co">#comma separated</span></code></pre>
 <p>Or plot of time series for total population</p>
-<pre class="sourceCode r"><code class="sourceCode r">Nt_F_totals = <span class="kw">rowSums</span>(Nt_F)
+<pre class="sourceCode r"><code class="sourceCode r">Nt_F_totals =<span class="st"> </span><span class="kw">rowSums</span>(Nt_F)
 <span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">1</span>:tf), Nt_F_totals, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Population size&quot;</span>, 
     <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/totalpopplot.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/totalpopplot.png" />
 </div>
 <p>Export text file for plot with total population</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.table</span>(Nt_F_totals, <span class="st">&quot;~/Desktop/Nt_F_totals.txt&quot;</span>, <span class="dt">col.names =</span> <span class="ot">FALSE</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>, 
     <span class="dt">quote =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;,&quot;</span>)</code></pre>
 <h2 id="stability-analysis-of-deterministic-population-model">Stability analysis of deterministic population model</h2>
 <p>This assumes that the partial differential equations that make up the Jacobian matrix have been determined analytically. Below are the parameters that were associated with my age-structured salmon model with fishing. I can compare the stability of the population with fishing to that with no fishing</p>
-<pre class="sourceCode r"><code class="sourceCode r">e &lt;- <span class="fl">0.1056</span>
-l &lt;- <span class="fl">0.1056</span>
-s &lt;- <span class="fl">0.28</span>  <span class="co">#survival with fishing</span>
-s_noF &lt;- <span class="fl">0.85</span>  <span class="co">#survival with no fishing</span>
-c &lt;- <span class="dv">1</span>/((e * (s^<span class="dv">2</span>) + (<span class="dv">1</span> - e) * (<span class="dv">1</span> - l) * (s^<span class="dv">3</span>) + (<span class="dv">1</span> - e) * l * (s^<span class="dv">4</span>)))
-c_noF &lt;- <span class="dv">1</span>/((e * (s_noF^<span class="dv">2</span>) + (<span class="dv">1</span> - e) * (<span class="dv">1</span> - l) * (s_noF^<span class="dv">3</span>) + (<span class="dv">1</span> - e) * l * (s_noF^<span class="dv">4</span>)))
-alpha &lt;- <span class="dv">60</span>
-beta &lt;- <span class="fl">0.00017</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">e &lt;-<span class="st"> </span><span class="fl">0.1056</span>
+l &lt;-<span class="st"> </span><span class="fl">0.1056</span>
+s &lt;-<span class="st"> </span><span class="fl">0.28</span>  <span class="co">#survival with fishing</span>
+s_noF &lt;-<span class="st"> </span><span class="fl">0.85</span>  <span class="co">#survival with no fishing</span>
+c &lt;-<span class="st"> </span><span class="dv">1</span>/((e *<span class="st"> </span>(s^<span class="dv">2</span>) +<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>e) *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>l) *<span class="st"> </span>(s^<span class="dv">3</span>) +<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>e) *<span class="st"> </span>l *<span class="st"> </span>(s^<span class="dv">4</span>)))
+c_noF &lt;-<span class="st"> </span><span class="dv">1</span>/((e *<span class="st"> </span>(s_noF^<span class="dv">2</span>) +<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>e) *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>l) *<span class="st"> </span>(s_noF^<span class="dv">3</span>) +<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>e) *<span class="st"> </span>l *<span class="st"> </span>(s_noF^<span class="dv">4</span>)))
+alpha &lt;-<span class="st"> </span><span class="dv">60</span>
+beta &lt;-<span class="st"> </span><span class="fl">0.00017</span></code></pre>
 <p>Fishing Jacobian</p>
-<pre class="sourceCode r"><code class="sourceCode r">one_F &lt;- <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((alpha * e)/(<span class="dv">1</span> + (<span class="dv">1</span>/(<span class="dv">2</span> * c)) * (-c + alpha + <span class="kw">sqrt</span>((c - alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), 
-    ((alpha * (<span class="dv">1</span> - l))/(<span class="dv">1</span> + (<span class="dv">1</span>/(<span class="dv">2</span> * c)) * (-c + alpha + <span class="kw">sqrt</span>((c - alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), 
-    (alpha/(<span class="dv">1</span> + (<span class="dv">1</span>/(<span class="dv">2</span> * c)) * (-c + alpha + <span class="kw">sqrt</span>((c - alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>))
-two_F &lt;- <span class="kw">c</span>(s, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
-three_F &lt;- <span class="kw">c</span>(<span class="dv">0</span>, s, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
-four_F &lt;- <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((<span class="dv">1</span> - e) * s), <span class="dv">0</span>, <span class="dv">0</span>)
-five_F &lt;- <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, (l * s), <span class="dv">0</span>)
-jacobian_F &lt;- <span class="kw">rbind</span>(one_F, two_F, three_F, four_F, five_F)
+<pre class="sourceCode r"><code class="sourceCode r">one_F &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((alpha *<span class="st"> </span>e)/(<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">1</span>/(<span class="dv">2</span> *<span class="st"> </span>c)) *<span class="st"> </span>(-c +<span class="st"> </span>alpha +<span class="st"> </span><span class="kw">sqrt</span>((c -<span class="st"> </span>alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), 
+    ((alpha *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>l))/(<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">1</span>/(<span class="dv">2</span> *<span class="st"> </span>c)) *<span class="st"> </span>(-c +<span class="st"> </span>alpha +<span class="st"> </span><span class="kw">sqrt</span>((c -<span class="st"> </span>alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), 
+    (alpha/(<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">1</span>/(<span class="dv">2</span> *<span class="st"> </span>c)) *<span class="st"> </span>(-c +<span class="st"> </span>alpha +<span class="st"> </span><span class="kw">sqrt</span>((c -<span class="st"> </span>alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>))
+two_F &lt;-<span class="st"> </span><span class="kw">c</span>(s, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
+three_F &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, s, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
+four_F &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((<span class="dv">1</span> -<span class="st"> </span>e) *<span class="st"> </span>s), <span class="dv">0</span>, <span class="dv">0</span>)
+five_F &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, (l *<span class="st"> </span>s), <span class="dv">0</span>)
+jacobian_F &lt;-<span class="st"> </span><span class="kw">rbind</span>(one_F, two_F, three_F, four_F, five_F)
 jacobian_F</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#         [,1] [,2]   [,3]     [,4]  [,5]</span>
 <span class="co"># one_F   0.00 0.00 2.5214 21.35558 23.88</span>
@@ -317,22 +317,22 @@ jacobian_F</code></pre>
 <span class="co"># four_F  0.00 0.00 0.2504  0.00000  0.00</span>
 <span class="co"># five_F  0.00 0.00 0.0000  0.02957  0.00</span></code></pre>
 <p>Fishing Eigenvalues</p>
-<pre class="sourceCode r"><code class="sourceCode r">ev_F &lt;- <span class="kw">eigen</span>(jacobian_F)
-ev1_F = <span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">1</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">1</span>]))
-ev2_F = <span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">2</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">2</span>]))
-ev3_F = <span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">3</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">3</span>]))
-ev4_F = <span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">4</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">4</span>]))
-ev5_F = <span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">5</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">5</span>]))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">ev_F &lt;-<span class="st"> </span><span class="kw">eigen</span>(jacobian_F)
+ev1_F =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">1</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">1</span>]))
+ev2_F =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">2</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">2</span>]))
+ev3_F =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">3</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">3</span>]))
+ev4_F =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">4</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">4</span>]))
+ev5_F =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_F$values[<span class="dv">5</span>]), <span class="kw">Im</span>(ev_F$values[<span class="dv">5</span>]))</code></pre>
 <p>No Fishing Jacobian</p>
-<pre class="sourceCode r"><code class="sourceCode r">one_noF &lt;- <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((alpha * e)/(<span class="dv">1</span> + (<span class="dv">1</span>/(<span class="dv">2</span> * c_noF)) * (-c_noF + alpha + <span class="kw">sqrt</span>((c_noF - 
-    alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), ((alpha * (<span class="dv">1</span> - l))/(<span class="dv">1</span> + (<span class="dv">1</span>/(<span class="dv">2</span> * c_noF)) * (-c_noF + alpha + 
-    <span class="kw">sqrt</span>((c_noF - alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), (alpha/(<span class="dv">1</span> + (<span class="dv">1</span>/(<span class="dv">2</span> * c_noF)) * (-c_noF + alpha + 
-    <span class="kw">sqrt</span>((c_noF - alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>))
-two_noF &lt;- <span class="kw">c</span>(s_noF, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
-three_noF &lt;- <span class="kw">c</span>(<span class="dv">0</span>, s_noF, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
-four_noF &lt;- <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((<span class="dv">1</span> - e) * s_noF), <span class="dv">0</span>, <span class="dv">0</span>)
-five_noF &lt;- <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, (l * s_noF), <span class="dv">0</span>)
-jacobian_noF &lt;- <span class="kw">rbind</span>(one_noF, two_noF, three_noF, four_noF, five_noF)
+<pre class="sourceCode r"><code class="sourceCode r">one_noF &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((alpha *<span class="st"> </span>e)/(<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">1</span>/(<span class="dv">2</span> *<span class="st"> </span>c_noF)) *<span class="st"> </span>(-c_noF +<span class="st"> </span>alpha +<span class="st"> </span><span class="kw">sqrt</span>((c_noF -<span class="st"> </span>
+<span class="st">    </span>alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), ((alpha *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>l))/(<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">1</span>/(<span class="dv">2</span> *<span class="st"> </span>c_noF)) *<span class="st"> </span>(-c_noF +<span class="st"> </span>alpha +<span class="st"> </span>
+<span class="st">    </span><span class="kw">sqrt</span>((c_noF -<span class="st"> </span>alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>), (alpha/(<span class="dv">1</span> +<span class="st"> </span>(<span class="dv">1</span>/(<span class="dv">2</span> *<span class="st"> </span>c_noF)) *<span class="st"> </span>(-c_noF +<span class="st"> </span>alpha +<span class="st"> </span>
+<span class="st">    </span><span class="kw">sqrt</span>((c_noF -<span class="st"> </span>alpha)^<span class="dv">2</span>)))^<span class="dv">2</span>))
+two_noF &lt;-<span class="st"> </span><span class="kw">c</span>(s_noF, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
+three_noF &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, s_noF, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
+four_noF &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, ((<span class="dv">1</span> -<span class="st"> </span>e) *<span class="st"> </span>s_noF), <span class="dv">0</span>, <span class="dv">0</span>)
+five_noF &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, (l *<span class="st"> </span>s_noF), <span class="dv">0</span>)
+jacobian_noF &lt;-<span class="st"> </span><span class="kw">rbind</span>(one_noF, two_noF, three_noF, four_noF, five_noF)
 jacobian_noF</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#           [,1] [,2]     [,3]    [,4]   [,5]</span>
 <span class="co"># one_noF   0.00 0.00 0.004625 0.03917 0.0438</span>
@@ -341,12 +341,12 @@ jacobian_noF</code></pre>
 <span class="co"># four_noF  0.00 0.00 0.760240 0.00000 0.0000</span>
 <span class="co"># five_noF  0.00 0.00 0.000000 0.08976 0.0000</span></code></pre>
 <p>No Fishing Eigenvalues</p>
-<pre class="sourceCode r"><code class="sourceCode r">ev_noF &lt;- <span class="kw">eigen</span>(jacobian_noF)
-ev1_noF = <span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">1</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">1</span>]))
-ev2_noF = <span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">2</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">2</span>]))
-ev3_noF = <span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">3</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">3</span>]))
-ev4_noF = <span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">4</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">4</span>]))
-ev5_noF = <span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">5</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">5</span>]))
+<pre class="sourceCode r"><code class="sourceCode r">ev_noF &lt;-<span class="st"> </span><span class="kw">eigen</span>(jacobian_noF)
+ev1_noF =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">1</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">1</span>]))
+ev2_noF =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">2</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">2</span>]))
+ev3_noF =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">3</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">3</span>]))
+ev4_noF =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">4</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">4</span>]))
+ev5_noF =<span class="st"> </span><span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<span class="dv">5</span>]), <span class="kw">Im</span>(ev_noF$values[<span class="dv">5</span>]))
 
 <span class="co"># Setup for plot, just remember to expand the plot interface first</span>
 <span class="kw">library</span>(plotrix)  <span class="co">#load plotrix</span></code></pre>
@@ -392,7 +392,7 @@ ev5_noF = <span class="kw">c</span>(<span class="kw">Re</span>(ev_noF$values[<sp
 <span class="kw">points</span>(<span class="fl">4.5</span>, <span class="fl">3.5</span>, <span class="dt">pch =</span> <span class="dv">6</span>, <span class="dt">cex =</span> <span class="fl">1.3</span>)
 <span class="kw">points</span>(<span class="fl">4.5</span>, <span class="fl">1.5</span>, <span class="dt">pch =</span> <span class="dv">5</span>, <span class="dt">cex =</span> <span class="fl">1.3</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ploteigenvalues.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ploteigenvalues.png" />
 </div></p></div>
 <ul class="tags">
   

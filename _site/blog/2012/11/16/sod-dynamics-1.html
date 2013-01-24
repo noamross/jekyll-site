@@ -248,7 +248,7 @@
 <p>My model modifies the original in a few ways. First, it’s designed to be much more flexible, and make it easy to modify the number of species, size classes, and and disease parameters. Secondly, it is in a discrete- rather than continuous-time framework. This will make it easier to include stochasticity down the road, and ultimately fit it to actual data.</p>
 <h2 id="setup">Setup</h2>
 <p>First, I load a CSV file of parameters</p>
-<pre class="sourceCode r"><code class="sourceCode r">treeparms.df &lt;- <span class="kw">read.csv</span>(<span class="kw">system.file</span>(<span class="st">&quot;paper_tree_parms_eq.csv&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;SODDr&quot;</span>), 
+<pre class="sourceCode r"><code class="sourceCode r">treeparms.df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">system.file</span>(<span class="st">&quot;paper_tree_parms_eq.csv&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;SODDr&quot;</span>), 
     <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
 <span class="kw">print</span>(treeparms.df)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##   species ageclass S.mortality I.mortality S.recruit I.recruit
@@ -280,34 +280,34 @@
 ## 5   0.30   0.30   1.33      0
 ## 6   0.00   0.00   0.00      0</code></pre>
 <p>This data set includes all of the model parameters as defined by Cobb et al. (2012). For each species and age class, there are parameters for mortality, recruitment, transition between classes, the probability of resprouting, and recovering from disease. There are also parameters the the relative amount of space occupied by trees of each species/class.</p>
-<p>For each species/class, the table includes a kernel function to describe dispersal of disease spores from diseased trees, and parameters for that function. The last set of columns represent the “”Who Acquires Infection From Whom&quot; (WAIFW) matrix (Anderson and May 1985), which describes the vulnerability of each class to spores originating from others.</p>
+<p>For each species/class, the table includes a kernel function to describe dispersal of disease spores from diseased trees, and parameters for that function. The last set of columns represent the “&quot;Who Acquires Infection From Whom” (WAIFW) matrix (Anderson and May 1985), which describes the vulnerability of each class to spores originating from others.</p>
 <p>Note that several values, such as the space occupied by different tanoak size classes, and recruitment rates, are missing. This is because, per the original paper, I calculate these so as to parameterize the model for steady-state conditions in the absence of disease. Here I do that, using equation 8 in the papers’ supplement:</p>
-<pre class="sourceCode r"><code class="sourceCode r">treeparms.df &lt;- <span class="kw">within</span>(treeparms.df, {
+<pre class="sourceCode r"><code class="sourceCode r">treeparms.df &lt;-<span class="st"> </span><span class="kw">within</span>(treeparms.df, {
     <span class="co"># Calculate the relative space requirements of tanoak size classes based</span>
     <span class="co"># on initial conditions</span>
-    space[<span class="dv">1</span>:<span class="dv">4</span>] &lt;- <span class="fl">0.25</span> * (<span class="kw">sum</span>(S.init[<span class="dv">1</span>:<span class="dv">4</span>])/S.init[<span class="dv">1</span>:<span class="dv">4</span>])
+    space[<span class="dv">1</span>:<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="fl">0.25</span> *<span class="st"> </span>(<span class="kw">sum</span>(S.init[<span class="dv">1</span>:<span class="dv">4</span>])/S.init[<span class="dv">1</span>:<span class="dv">4</span>])
     
     <span class="co"># Set recruitment rates to steady-state levels.  For Redwood and Bay, this</span>
     <span class="co"># is simply the mortality rate divided by the density-dependence</span>
     <span class="co"># coefficient at simulation start.  For tanoak, which has multiple size</span>
     <span class="co"># classes, it&#39;s a but more involved</span>
     
-    S.recruit[<span class="dv">5</span>] &lt;- S.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    I.recruit[<span class="dv">5</span>] &lt;- I.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    S.recruit[<span class="dv">6</span>] &lt;- S.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    I.recruit[<span class="dv">6</span>] &lt;- I.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
+    S.recruit[<span class="dv">5</span>] &lt;-<span class="st"> </span>S.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    I.recruit[<span class="dv">5</span>] &lt;-<span class="st"> </span>I.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    S.recruit[<span class="dv">6</span>] &lt;-<span class="st"> </span>S.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    I.recruit[<span class="dv">6</span>] &lt;-<span class="st"> </span>I.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
     
-    A2 &lt;- S.transition[<span class="dv">1</span>]/(S.transition[<span class="dv">2</span>] + S.mortality[<span class="dv">2</span>])
-    A3 &lt;- (S.transition[<span class="dv">2</span>]/(S.transition[<span class="dv">3</span>] + S.mortality[<span class="dv">3</span>])) * A2
-    A4 &lt;- (S.transition[<span class="dv">3</span>]/S.mortality[<span class="dv">4</span>]) * A3
-    S.recruit[<span class="dv">1</span>] &lt;- (S.transition[<span class="dv">1</span>] + S.mortality[<span class="dv">1</span>])/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space)) - 
-        (S.recruit[<span class="dv">2</span>] * A2 + S.recruit[<span class="dv">3</span>] * A3 + S.recruit[<span class="dv">4</span>] * A4)
+    A2 &lt;-<span class="st"> </span>S.transition[<span class="dv">1</span>]/(S.transition[<span class="dv">2</span>] +<span class="st"> </span>S.mortality[<span class="dv">2</span>])
+    A3 &lt;-<span class="st"> </span>(S.transition[<span class="dv">2</span>]/(S.transition[<span class="dv">3</span>] +<span class="st"> </span>S.mortality[<span class="dv">3</span>])) *<span class="st"> </span>A2
+    A4 &lt;-<span class="st"> </span>(S.transition[<span class="dv">3</span>]/S.mortality[<span class="dv">4</span>]) *<span class="st"> </span>A3
+    S.recruit[<span class="dv">1</span>] &lt;-<span class="st"> </span>(S.transition[<span class="dv">1</span>] +<span class="st"> </span>S.mortality[<span class="dv">1</span>])/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space)) -<span class="st"> </span>
+<span class="st">        </span>(S.recruit[<span class="dv">2</span>] *<span class="st"> </span>A2 +<span class="st"> </span>S.recruit[<span class="dv">3</span>] *<span class="st"> </span>A3 +<span class="st"> </span>S.recruit[<span class="dv">4</span>] *<span class="st"> </span>A4)
     
     
-    I.recruit[<span class="dv">1</span>] &lt;- S.recruit[<span class="dv">1</span>]
-    A2 &lt;- <span class="ot">NULL</span>
-    A3 &lt;- <span class="ot">NULL</span>
-    A4 &lt;- <span class="ot">NULL</span>
+    I.recruit[<span class="dv">1</span>] &lt;-<span class="st"> </span>S.recruit[<span class="dv">1</span>]
+    A2 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    A3 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    A4 &lt;-<span class="st"> </span><span class="ot">NULL</span>
 })</code></pre>
 <p>The original model allows only dispersal between adjacent cells, so ameters table calls the dispersal kernel <code>adjacent.dispersal</code>, and gives two parameters. This function outputs the first parameter when within the cell, the second for dispersal to adjacent cells, and zero for other cells:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(adjacent.dispersal)</code></pre>
@@ -318,7 +318,7 @@
 ## }
 ## &lt;environment: namespace:SODDr&gt;</code></pre>
 <p>Next I set up the locations in the model. These must be in the form of a matrix with the first column being site numbers, and the second being <code>x</code> and <code>y</code> coordinates. <code>MakeLattice</code> is a convenience function that creates a regularly spaced grid:</p>
-<pre class="sourceCode r"><code class="sourceCode r">locations &lt;- <span class="kw">MakeLattice</span>(<span class="dt">nx =</span> <span class="dv">20</span>, <span class="dt">ny =</span> <span class="dv">20</span>, <span class="dt">dist =</span> <span class="dv">1</span>)
+<pre class="sourceCode r"><code class="sourceCode r">locations &lt;-<span class="st"> </span><span class="kw">MakeLattice</span>(<span class="dt">nx =</span> <span class="dv">20</span>, <span class="dt">ny =</span> <span class="dv">20</span>, <span class="dt">dist =</span> <span class="dv">1</span>)
 <span class="kw">head</span>(locations)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##      location x y
 ## [1,]        1 0 0
@@ -327,15 +327,15 @@
 ## [4,]        4 0 3
 ## [5,]        5 0 4
 ## [6,]        6 0 5</code></pre>
-<p>Next, I create a matrix of initial population values, which should be sized by number of locations by number of species/size classes <em>times 2</em>. They should be in order of the classes as they appear in the data table, but alternating \(S,I,S,I\dots\). In this case, initial populations are uniform across the landscape and equal to the <code>init</code> values from the parameters table.</p>
-<pre class="sourceCode r"><code class="sourceCode r">initial.vec = <span class="kw">as.vector</span>(<span class="kw">rbind</span>(treeparms.df$S.init, treeparms.df$I.init))
-init &lt;- <span class="kw">matrix</span>(<span class="dt">data =</span> initial.vec, <span class="dt">nrow =</span> <span class="kw">nrow</span>(locations), <span class="dt">ncol =</span> <span class="dv">2</span> * <span class="kw">nrow</span>(treeparms.df), 
+<p>Next, I create a matrix of initial population values, which should be sized by number of locations by number of species/size classes <em>times 2</em>. They should be in order of the classes as they appear in the data table, but alternating <span class="math">\(S,I,S,I\dots\)</span>. In this case, initial populations are uniform across the landscape and equal to the <code>init</code> values from the parameters table.</p>
+<pre class="sourceCode r"><code class="sourceCode r">initial.vec =<span class="st"> </span><span class="kw">as.vector</span>(<span class="kw">rbind</span>(treeparms.df$S.init, treeparms.df$I.init))
+init &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> initial.vec, <span class="dt">nrow =</span> <span class="kw">nrow</span>(locations), <span class="dt">ncol =</span> <span class="dv">2</span> *<span class="st"> </span><span class="kw">nrow</span>(treeparms.df), 
     <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</code></pre>
 <p>Finally, we set the time steps for the model</p>
-<pre class="sourceCode r"><code class="sourceCode r">time.steps &lt;- <span class="dv">1</span>:<span class="dv">100</span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">time.steps &lt;-<span class="st"> </span><span class="dv">1</span>:<span class="dv">100</span></code></pre>
 <h2 id="do-it">Do it!</h2>
 <p>Running <code>SODModel</code> runs the model and generates a dataframe of population by time, species, size class, and disease status</p>
-<pre class="sourceCode r"><code class="sourceCode r">pop.df &lt;- <span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
+<pre class="sourceCode r"><code class="sourceCode r">pop.df &lt;-<span class="st"> </span><span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
 <span class="kw">str</span>(pop.df)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## &#39;data.frame&#39;:    480000 obs. of  6 variables:
 ##  $ Time      : int  1 1 1 1 1 1 1 1 1 1 ...
@@ -353,43 +353,43 @@ init &lt;- <span class="kw">matrix</span>(<span class="dt">data =</span> initial
 ## The following object(s) are masked from &#39;package:twitteR&#39;:
 ## 
 ## id</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">pop.df.totals &lt;- <span class="kw">ddply</span>(pop.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
+<pre class="sourceCode r"><code class="sourceCode r">pop.df.totals &lt;-<span class="st"> </span><span class="kw">ddply</span>(pop.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
     summarise, <span class="dt">TotPop =</span> <span class="kw">mean</span>(Population))
-dynamic.plot &lt;- <span class="kw">ggplot</span>(pop.df.totals, <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> TotPop, <span class="dt">fill =</span> Disease, 
-    <span class="dt">color =</span> AgeClass)) + <span class="kw">geom_area</span>(<span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) + <span class="kw">facet_grid</span>(~Species)
+dynamic.plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(pop.df.totals, <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> TotPop, <span class="dt">fill =</span> Disease, 
+    <span class="dt">color =</span> AgeClass)) +<span class="st"> </span><span class="kw">geom_area</span>(<span class="dt">position =</span> <span class="st">&quot;stack&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.6</span>) +<span class="st"> </span><span class="kw">facet_grid</span>(~Species)
 dynamic.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/initrun.png" alt="Population dynamics broken up by species (left to right, Tanoak, Bay, Redwood), and Size Class" /><p class="caption">Population dynamics broken up by species (left to right, Tanoak, Bay, Redwood), and Size Class</p>
 </div>
 <p>The plot shows This isn’t quite steady-state, I suspect because of some rounding errors in copying parameters from the paper.</p>
 <p>We can make a plot in the style of Cobb et al. (2012), showing only the populations of small and large tanoaks as a proportion of the total population:</p>
-<pre class="sourceCode r"><code class="sourceCode r">paper.df &lt;- <span class="kw">ddply</span>(<span class="kw">transform</span>(pop.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass == <span class="st">&quot;1&quot;</span> | AgeClass == 
-    <span class="st">&quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, <span class="dt">SizePop =</span> <span class="kw">sum</span>(TotPop))
-paper.df &lt;- <span class="kw">ddply</span>(paper.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
-paper.plot &lt;- <span class="kw">ggplot</span>(<span class="kw">subset</span>(paper.df, Species == <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
-    <span class="dt">lty =</span> Size)) + <span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) + <span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
-    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
-    <span class="dv">5</span>)) + <span class="kw">theme_bw</span>() + <span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
+<pre class="sourceCode r"><code class="sourceCode r">paper.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(<span class="kw">transform</span>(pop.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass ==<span class="st"> &quot;1&quot;</span> |<span class="st"> </span>AgeClass ==<span class="st"> </span>
+<span class="st">    &quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, <span class="dt">SizePop =</span> <span class="kw">sum</span>(TotPop))
+paper.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(paper.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
+paper.plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">subset</span>(paper.df, Species ==<span class="st"> </span><span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
+    <span class="dt">lty =</span> Size)) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) +<span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
+    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
+    <span class="dv">5</span>)) +<span class="st"> </span><span class="kw">theme_bw</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
 paper.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/papeplot.png" alt="Tanoak as a fraction of total population over time, no disease" /><p class="caption">Tanoak as a fraction of total population over time, no disease</p>
 </div>
 <p>Now, let’s change the initial conditions to include disease and see what happens. I change the populations of tanoak and bay in one pixel to infectious instead of healthy and run the model:</p>
-<pre class="sourceCode r"><code class="sourceCode r">init[<span class="dv">190</span>, <span class="dv">2</span>] &lt;- init[<span class="dv">190</span>, <span class="dv">1</span>]
-init[<span class="dv">190</span>, <span class="dv">1</span>] &lt;- <span class="dv">0</span>
-init[<span class="dv">190</span>, <span class="dv">10</span>] &lt;- init[<span class="dv">190</span>, <span class="dv">9</span>]
-init[<span class="dv">190</span>, <span class="dv">9</span>] &lt;- <span class="dv">0</span>
-pop2.df &lt;- <span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
-pop2.df.totals &lt;- <span class="kw">ddply</span>(pop2.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
+<pre class="sourceCode r"><code class="sourceCode r">init[<span class="dv">190</span>, <span class="dv">2</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">1</span>]
+init[<span class="dv">190</span>, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+init[<span class="dv">190</span>, <span class="dv">10</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">9</span>]
+init[<span class="dv">190</span>, <span class="dv">9</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+pop2.df &lt;-<span class="st"> </span><span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
+pop2.df.totals &lt;-<span class="st"> </span><span class="kw">ddply</span>(pop2.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
     summarise, <span class="dt">TotPop =</span> <span class="kw">mean</span>(Population))
-paper2.df &lt;- <span class="kw">ddply</span>(<span class="kw">transform</span>(pop2.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass == <span class="st">&quot;1&quot;</span> | 
-    AgeClass == <span class="st">&quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, 
+paper2.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(<span class="kw">transform</span>(pop2.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass ==<span class="st"> &quot;1&quot;</span> |<span class="st"> </span>
+<span class="st">    </span>AgeClass ==<span class="st"> &quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, 
     <span class="dt">SizePop =</span> <span class="kw">sum</span>(TotPop))
-paper2.df &lt;- <span class="kw">ddply</span>(paper2.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
-paper2.plot &lt;- <span class="kw">ggplot</span>(<span class="kw">subset</span>(paper2.df, Species == <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
-    <span class="dt">lty =</span> Size)) + <span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) + <span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
-    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
-    <span class="dv">5</span>)) + <span class="kw">theme_bw</span>() + <span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
+paper2.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(paper2.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
+paper2.plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">subset</span>(paper2.df, Species ==<span class="st"> </span><span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
+    <span class="dt">lty =</span> Size)) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) +<span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
+    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
+    <span class="dv">5</span>)) +<span class="st"> </span><span class="kw">theme_bw</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
 paper2.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/disease1.png" alt="Tanoak as a fraction of total population, using baseline initial conditions and introducing disease" /><p class="caption">Tanoak as a fraction of total population, using baseline initial conditions and introducing disease</p>
@@ -400,57 +400,57 @@ paper2.plot</code></pre>
 </div>
 <p>The main difference is the overall rate of change, which is expected because I haven’t corrected any parameters for the change from continuous to discrete time.</p>
 <p>Now I simulate a scenario with mostly tanoak, some redwood, and no bay laurel, with disease, using the parameters previously calulated for the steady state without disease:</p>
-<pre class="sourceCode r"><code class="sourceCode r">treeparms.df$S.init &lt;- <span class="kw">c</span>(<span class="fl">0.7</span> * treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]/<span class="kw">sum</span>(treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]), 
+<pre class="sourceCode r"><code class="sourceCode r">treeparms.df$S.init &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.7</span> *<span class="st"> </span>treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]/<span class="kw">sum</span>(treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]), 
     <span class="dv">0</span>, <span class="fl">0.19</span>)
 
-initial.vec = <span class="kw">as.vector</span>(<span class="kw">rbind</span>(treeparms.df$S.init, treeparms.df$I.init))
-init &lt;- <span class="kw">matrix</span>(<span class="dt">data =</span> initial.vec, <span class="dt">nrow =</span> <span class="kw">nrow</span>(locations), <span class="dt">ncol =</span> <span class="dv">2</span> * <span class="kw">nrow</span>(treeparms.df), 
+initial.vec =<span class="st"> </span><span class="kw">as.vector</span>(<span class="kw">rbind</span>(treeparms.df$S.init, treeparms.df$I.init))
+init &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> initial.vec, <span class="dt">nrow =</span> <span class="kw">nrow</span>(locations), <span class="dt">ncol =</span> <span class="dv">2</span> *<span class="st"> </span><span class="kw">nrow</span>(treeparms.df), 
     <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
 
-init[<span class="dv">190</span>, <span class="dv">2</span>] &lt;- init[<span class="dv">190</span>, <span class="dv">1</span>]
-init[<span class="dv">190</span>, <span class="dv">1</span>] &lt;- <span class="dv">0</span>
-init[<span class="dv">190</span>, <span class="dv">10</span>] &lt;- init[<span class="dv">190</span>, <span class="dv">9</span>]
-init[<span class="dv">190</span>, <span class="dv">9</span>] &lt;- <span class="dv">0</span>
+init[<span class="dv">190</span>, <span class="dv">2</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">1</span>]
+init[<span class="dv">190</span>, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+init[<span class="dv">190</span>, <span class="dv">10</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">9</span>]
+init[<span class="dv">190</span>, <span class="dv">9</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
 
-treeparms.df &lt;- <span class="kw">within</span>(treeparms.df, {
+treeparms.df &lt;-<span class="st"> </span><span class="kw">within</span>(treeparms.df, {
     <span class="co"># Calculate the relative space requirements of tanoak size classes based</span>
     <span class="co"># on initial conditions</span>
-    space[<span class="dv">1</span>:<span class="dv">4</span>] &lt;- <span class="fl">0.25</span> * (<span class="kw">sum</span>(S.init[<span class="dv">1</span>:<span class="dv">4</span>])/S.init[<span class="dv">1</span>:<span class="dv">4</span>])
+    space[<span class="dv">1</span>:<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="fl">0.25</span> *<span class="st"> </span>(<span class="kw">sum</span>(S.init[<span class="dv">1</span>:<span class="dv">4</span>])/S.init[<span class="dv">1</span>:<span class="dv">4</span>])
     
     <span class="co"># Set recruitment rates to steady-state levels.  For Redwood and Bay, this</span>
     <span class="co"># is simply the mortality rate divided by the density-dependence</span>
     <span class="co"># coefficient at simulation start.  For tanoak, which has multiple size</span>
     <span class="co"># classes, it&#39;s a but more involved</span>
     
-    S.recruit[<span class="dv">5</span>] &lt;- S.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    I.recruit[<span class="dv">5</span>] &lt;- I.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    S.recruit[<span class="dv">6</span>] &lt;- S.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    I.recruit[<span class="dv">6</span>] &lt;- I.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
+    S.recruit[<span class="dv">5</span>] &lt;-<span class="st"> </span>S.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    I.recruit[<span class="dv">5</span>] &lt;-<span class="st"> </span>I.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    S.recruit[<span class="dv">6</span>] &lt;-<span class="st"> </span>S.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    I.recruit[<span class="dv">6</span>] &lt;-<span class="st"> </span>I.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
     
-    A2 &lt;- S.transition[<span class="dv">1</span>]/(S.transition[<span class="dv">2</span>] + S.mortality[<span class="dv">2</span>])
-    A3 &lt;- (S.transition[<span class="dv">2</span>]/(S.transition[<span class="dv">3</span>] + S.mortality[<span class="dv">3</span>])) * A2
-    A4 &lt;- (S.transition[<span class="dv">3</span>]/S.mortality[<span class="dv">4</span>]) * A3
-    S.recruit[<span class="dv">1</span>] &lt;- (S.transition[<span class="dv">1</span>] + S.mortality[<span class="dv">1</span>])/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space)) - 
-        (S.recruit[<span class="dv">2</span>] * A2 + S.recruit[<span class="dv">3</span>] * A3 + S.recruit[<span class="dv">4</span>] * A4)
+    A2 &lt;-<span class="st"> </span>S.transition[<span class="dv">1</span>]/(S.transition[<span class="dv">2</span>] +<span class="st"> </span>S.mortality[<span class="dv">2</span>])
+    A3 &lt;-<span class="st"> </span>(S.transition[<span class="dv">2</span>]/(S.transition[<span class="dv">3</span>] +<span class="st"> </span>S.mortality[<span class="dv">3</span>])) *<span class="st"> </span>A2
+    A4 &lt;-<span class="st"> </span>(S.transition[<span class="dv">3</span>]/S.mortality[<span class="dv">4</span>]) *<span class="st"> </span>A3
+    S.recruit[<span class="dv">1</span>] &lt;-<span class="st"> </span>(S.transition[<span class="dv">1</span>] +<span class="st"> </span>S.mortality[<span class="dv">1</span>])/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space)) -<span class="st"> </span>
+<span class="st">        </span>(S.recruit[<span class="dv">2</span>] *<span class="st"> </span>A2 +<span class="st"> </span>S.recruit[<span class="dv">3</span>] *<span class="st"> </span>A3 +<span class="st"> </span>S.recruit[<span class="dv">4</span>] *<span class="st"> </span>A4)
     
     
-    I.recruit[<span class="dv">1</span>] &lt;- S.recruit[<span class="dv">1</span>]
-    A2 &lt;- <span class="ot">NULL</span>
-    A3 &lt;- <span class="ot">NULL</span>
-    A4 &lt;- <span class="ot">NULL</span>
+    I.recruit[<span class="dv">1</span>] &lt;-<span class="st"> </span>S.recruit[<span class="dv">1</span>]
+    A2 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    A3 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    A4 &lt;-<span class="st"> </span><span class="ot">NULL</span>
 })
 
-pop3.df &lt;- <span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
-pop3.df.totals &lt;- <span class="kw">ddply</span>(pop3.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
+pop3.df &lt;-<span class="st"> </span><span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
+pop3.df.totals &lt;-<span class="st"> </span><span class="kw">ddply</span>(pop3.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
     summarise, <span class="dt">TotPop =</span> <span class="kw">mean</span>(Population))
-paper3.df &lt;- <span class="kw">ddply</span>(<span class="kw">transform</span>(pop3.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass == <span class="st">&quot;1&quot;</span> | 
-    AgeClass == <span class="st">&quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, 
+paper3.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(<span class="kw">transform</span>(pop3.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass ==<span class="st"> &quot;1&quot;</span> |<span class="st"> </span>
+<span class="st">    </span>AgeClass ==<span class="st"> &quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, 
     <span class="dt">SizePop =</span> <span class="kw">sum</span>(TotPop))
-paper3.df &lt;- <span class="kw">ddply</span>(paper3.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
-paper3.plot &lt;- <span class="kw">ggplot</span>(<span class="kw">subset</span>(paper3.df, Species == <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
-    <span class="dt">lty =</span> Size)) + <span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) + <span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
-    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
-    <span class="dv">5</span>)) + <span class="kw">theme_bw</span>() + <span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
+paper3.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(paper3.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
+paper3.plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">subset</span>(paper3.df, Species ==<span class="st"> </span><span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
+    <span class="dt">lty =</span> Size)) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) +<span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
+    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
+    <span class="dv">5</span>)) +<span class="st"> </span><span class="kw">theme_bw</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
 paper3.plot</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: Removed 5 rows containing missing values (geom_path).</code></pre>
 <div class="figure">
@@ -461,57 +461,57 @@ paper3.plot</code></pre>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/cobb2012fig4b.png" alt="Fig 4b from Cobb et al. (2012)" /><p class="caption">Fig 4b from Cobb et al. (2012)</p>
 </div>
 <p>Finally, I simulation the “Mostly Redwwod” scenario:</p>
-<pre class="sourceCode r"><code class="sourceCode r">treeparms.df$S.init &lt;- <span class="kw">c</span>(<span class="fl">0.08</span> * treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]/<span class="kw">sum</span>(treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]), 
+<pre class="sourceCode r"><code class="sourceCode r">treeparms.df$S.init &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.08</span> *<span class="st"> </span>treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]/<span class="kw">sum</span>(treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]), 
     <span class="dv">0</span>, <span class="fl">0.69</span>)
 
-initial.vec = <span class="kw">as.vector</span>(<span class="kw">rbind</span>(treeparms.df$S.init, treeparms.df$I.init))
-init &lt;- <span class="kw">matrix</span>(<span class="dt">data =</span> initial.vec, <span class="dt">nrow =</span> <span class="kw">nrow</span>(locations), <span class="dt">ncol =</span> <span class="dv">2</span> * <span class="kw">nrow</span>(treeparms.df), 
+initial.vec =<span class="st"> </span><span class="kw">as.vector</span>(<span class="kw">rbind</span>(treeparms.df$S.init, treeparms.df$I.init))
+init &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> initial.vec, <span class="dt">nrow =</span> <span class="kw">nrow</span>(locations), <span class="dt">ncol =</span> <span class="dv">2</span> *<span class="st"> </span><span class="kw">nrow</span>(treeparms.df), 
     <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
 
-init[<span class="dv">190</span>, <span class="dv">2</span>] &lt;- init[<span class="dv">190</span>, <span class="dv">1</span>]
-init[<span class="dv">190</span>, <span class="dv">1</span>] &lt;- <span class="dv">0</span>
-init[<span class="dv">190</span>, <span class="dv">10</span>] &lt;- init[<span class="dv">190</span>, <span class="dv">9</span>]
-init[<span class="dv">190</span>, <span class="dv">9</span>] &lt;- <span class="dv">0</span>
+init[<span class="dv">190</span>, <span class="dv">2</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">1</span>]
+init[<span class="dv">190</span>, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
+init[<span class="dv">190</span>, <span class="dv">10</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">9</span>]
+init[<span class="dv">190</span>, <span class="dv">9</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
 
-treeparms.df &lt;- <span class="kw">within</span>(treeparms.df, {
+treeparms.df &lt;-<span class="st"> </span><span class="kw">within</span>(treeparms.df, {
     <span class="co"># Calculate the relative space requirements of tanoak size classes based</span>
     <span class="co"># on initial conditions</span>
-    space[<span class="dv">1</span>:<span class="dv">4</span>] &lt;- <span class="fl">0.25</span> * (<span class="kw">sum</span>(S.init[<span class="dv">1</span>:<span class="dv">4</span>])/S.init[<span class="dv">1</span>:<span class="dv">4</span>])
+    space[<span class="dv">1</span>:<span class="dv">4</span>] &lt;-<span class="st"> </span><span class="fl">0.25</span> *<span class="st"> </span>(<span class="kw">sum</span>(S.init[<span class="dv">1</span>:<span class="dv">4</span>])/S.init[<span class="dv">1</span>:<span class="dv">4</span>])
     
     <span class="co"># Set recruitment rates to steady-state levels.  For Redwood and Bay, this</span>
     <span class="co"># is simply the mortality rate divided by the density-dependence</span>
     <span class="co"># coefficient at simulation start.  For tanoak, which has multiple size</span>
     <span class="co"># classes, it&#39;s a but more involved</span>
     
-    S.recruit[<span class="dv">5</span>] &lt;- S.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    I.recruit[<span class="dv">5</span>] &lt;- I.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    S.recruit[<span class="dv">6</span>] &lt;- S.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
-    I.recruit[<span class="dv">6</span>] &lt;- I.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space))
+    S.recruit[<span class="dv">5</span>] &lt;-<span class="st"> </span>S.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    I.recruit[<span class="dv">5</span>] &lt;-<span class="st"> </span>I.mortality[<span class="dv">5</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    S.recruit[<span class="dv">6</span>] &lt;-<span class="st"> </span>S.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
+    I.recruit[<span class="dv">6</span>] &lt;-<span class="st"> </span>I.mortality[<span class="dv">6</span>]/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space))
     
-    A2 &lt;- S.transition[<span class="dv">1</span>]/(S.transition[<span class="dv">2</span>] + S.mortality[<span class="dv">2</span>])
-    A3 &lt;- (S.transition[<span class="dv">2</span>]/(S.transition[<span class="dv">3</span>] + S.mortality[<span class="dv">3</span>])) * A2
-    A4 &lt;- (S.transition[<span class="dv">3</span>]/S.mortality[<span class="dv">4</span>]) * A3
-    S.recruit[<span class="dv">1</span>] &lt;- (S.transition[<span class="dv">1</span>] + S.mortality[<span class="dv">1</span>])/(<span class="dv">1</span> - <span class="kw">sum</span>(S.init * space)) - 
-        (S.recruit[<span class="dv">2</span>] * A2 + S.recruit[<span class="dv">3</span>] * A3 + S.recruit[<span class="dv">4</span>] * A4)
+    A2 &lt;-<span class="st"> </span>S.transition[<span class="dv">1</span>]/(S.transition[<span class="dv">2</span>] +<span class="st"> </span>S.mortality[<span class="dv">2</span>])
+    A3 &lt;-<span class="st"> </span>(S.transition[<span class="dv">2</span>]/(S.transition[<span class="dv">3</span>] +<span class="st"> </span>S.mortality[<span class="dv">3</span>])) *<span class="st"> </span>A2
+    A4 &lt;-<span class="st"> </span>(S.transition[<span class="dv">3</span>]/S.mortality[<span class="dv">4</span>]) *<span class="st"> </span>A3
+    S.recruit[<span class="dv">1</span>] &lt;-<span class="st"> </span>(S.transition[<span class="dv">1</span>] +<span class="st"> </span>S.mortality[<span class="dv">1</span>])/(<span class="dv">1</span> -<span class="st"> </span><span class="kw">sum</span>(S.init *<span class="st"> </span>space)) -<span class="st"> </span>
+<span class="st">        </span>(S.recruit[<span class="dv">2</span>] *<span class="st"> </span>A2 +<span class="st"> </span>S.recruit[<span class="dv">3</span>] *<span class="st"> </span>A3 +<span class="st"> </span>S.recruit[<span class="dv">4</span>] *<span class="st"> </span>A4)
     
     
-    I.recruit[<span class="dv">1</span>] &lt;- S.recruit[<span class="dv">1</span>]
-    A2 &lt;- <span class="ot">NULL</span>
-    A3 &lt;- <span class="ot">NULL</span>
-    A4 &lt;- <span class="ot">NULL</span>
+    I.recruit[<span class="dv">1</span>] &lt;-<span class="st"> </span>S.recruit[<span class="dv">1</span>]
+    A2 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    A3 &lt;-<span class="st"> </span><span class="ot">NULL</span>
+    A4 &lt;-<span class="st"> </span><span class="ot">NULL</span>
 })
 
-pop4.df &lt;- <span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
-pop4.df.totals &lt;- <span class="kw">ddply</span>(pop4.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
+pop4.df &lt;-<span class="st"> </span><span class="kw">SODModel</span>(treeparms.df, locations, time.steps, init)
+pop4.df.totals &lt;-<span class="st"> </span><span class="kw">ddply</span>(pop4.df, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Disease&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;AgeClass&quot;</span>), 
     summarise, <span class="dt">TotPop =</span> <span class="kw">mean</span>(Population))
-paper4.df &lt;- <span class="kw">ddply</span>(<span class="kw">transform</span>(pop4.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass == <span class="st">&quot;1&quot;</span> | 
-    AgeClass == <span class="st">&quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, 
+paper4.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(<span class="kw">transform</span>(pop4.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass ==<span class="st"> &quot;1&quot;</span> |<span class="st"> </span>
+<span class="st">    </span>AgeClass ==<span class="st"> &quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, 
     <span class="dt">SizePop =</span> <span class="kw">sum</span>(TotPop))
-paper4.df &lt;- <span class="kw">ddply</span>(paper4.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
-paper4.plot &lt;- <span class="kw">ggplot</span>(<span class="kw">subset</span>(paper4.df, Species == <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
-    <span class="dt">lty =</span> Size)) + <span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) + <span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
-    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) + <span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
-    <span class="dv">5</span>)) + <span class="kw">theme_bw</span>() + <span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
+paper4.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(paper4.df, <span class="st">&quot;Time&quot;</span>, transform, <span class="dt">Pct =</span> SizePop/<span class="kw">sum</span>(SizePop))
+paper4.plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">subset</span>(paper4.df, Species ==<span class="st"> </span><span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> Pct, 
+    <span class="dt">lty =</span> Size)) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">lwd =</span> <span class="dv">1</span>) +<span class="st"> </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), 
+    <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)) +<span class="st"> </span><span class="kw">scale_linetype_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="dv">1</span>, 
+    <span class="dv">5</span>)) +<span class="st"> </span><span class="kw">theme_bw</span>() +<span class="st"> </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_blank</span>(), <span class="dt">panel.grid.minor =</span> <span class="kw">element_blank</span>())
 paper4.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/disease3.png" alt="Tanoak dynamics under the mostly redwood scenario" /><p class="caption">Tanoak dynamics under the “mostly redwood” scenario</p>
@@ -521,28 +521,31 @@ paper4.plot</code></pre>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/cobb2012fig4c.png" alt="Figure 4c from Cobb et al. (2012)" /><p class="caption">Figure 4c from Cobb et al. (2012)</p>
 </div>
 <p>Now, for fun, let’s make an animation of how the disease progresses through the stand. I will use the “Mostly Tanoak” scenario&quot;, and plot the adult population as intensity, and the fraction of trees diseased as hue.</p>
-<pre class="sourceCode r"><code class="sourceCode r">tanspc &lt;- <span class="kw">subset</span>(pop3.df, Species == <span class="dv">1</span>)
-tanspc$Species &lt;- <span class="ot">NULL</span>
-tanspc &lt;- <span class="kw">ddply</span>(tanspc, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Location&quot;</span>), function(x) {
-    <span class="kw">data.frame</span>(<span class="dt">TotTan =</span> <span class="kw">sum</span>(x$Population[<span class="kw">which</span>(x$AgeClass == <span class="st">&quot;3&quot;</span> | x$AgeClass == 
-        <span class="st">&quot;4&quot;</span>)]), <span class="dt">FracDisease =</span> <span class="kw">sum</span>(x$Population[<span class="kw">which</span>(x$Disease == <span class="st">&quot;I&quot;</span> &amp; (x$AgeClass == 
-        <span class="st">&quot;3&quot;</span> | x$AgeClass == <span class="st">&quot;4&quot;</span>))])/<span class="kw">sum</span>(x$Population[<span class="kw">which</span>(x$AgeClass == <span class="st">&quot;3&quot;</span> | 
-        x$AgeClass == <span class="st">&quot;4&quot;</span>)]))
+<pre class="sourceCode r"><code class="sourceCode r">tanspc &lt;-<span class="st"> </span><span class="kw">subset</span>(pop3.df, Species ==<span class="st"> </span><span class="dv">1</span>)
+tanspc$Species &lt;-<span class="st"> </span><span class="ot">NULL</span>
+tanspc &lt;-<span class="st"> </span><span class="kw">ddply</span>(tanspc, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Location&quot;</span>), function(x) {
+    <span class="kw">data.frame</span>(<span class="dt">TotTan =</span> <span class="kw">sum</span>(x$Population[<span class="kw">which</span>(x$AgeClass ==<span class="st"> &quot;3&quot;</span> |<span class="st"> </span>x$AgeClass ==<span class="st"> </span>
+<span class="st">        &quot;4&quot;</span>)]), <span class="dt">FracDisease =</span> <span class="kw">sum</span>(x$Population[<span class="kw">which</span>(x$Disease ==<span class="st"> &quot;I&quot;</span> &amp;<span class="st"> </span>(x$AgeClass ==<span class="st"> </span>
+<span class="st">        &quot;3&quot;</span> |<span class="st"> </span>x$AgeClass ==<span class="st"> &quot;4&quot;</span>))])/<span class="kw">sum</span>(x$Population[<span class="kw">which</span>(x$AgeClass ==<span class="st"> &quot;3&quot;</span> |<span class="st"> </span>
+<span class="st">        </span>x$AgeClass ==<span class="st"> &quot;4&quot;</span>)]))
 })
-tanspc &lt;- <span class="kw">merge</span>(tanspc, <span class="kw">as.data.frame</span>(locations), <span class="dt">by.x =</span> <span class="st">&quot;Location&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;location&quot;</span>)
-dis.limits &lt;- <span class="kw">c</span>(<span class="kw">min</span>(tanspc$FracDisease), <span class="kw">max</span>(tanspc$FracDisease))
-pop.limits &lt;- <span class="kw">c</span>(<span class="kw">min</span>(tanspc$TotTan), <span class="kw">max</span>(tanspc$TotTan))
+tanspc &lt;-<span class="st"> </span><span class="kw">merge</span>(tanspc, <span class="kw">as.data.frame</span>(locations), <span class="dt">by.x =</span> <span class="st">&quot;Location&quot;</span>, <span class="dt">by.y =</span> <span class="st">&quot;location&quot;</span>)
+dis.limits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">min</span>(tanspc$FracDisease), <span class="kw">max</span>(tanspc$FracDisease))
+pop.limits &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">min</span>(tanspc$TotTan), <span class="kw">max</span>(tanspc$TotTan))
 <span class="kw">require</span>(animation)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Loading required package: animation</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ani.options</span>(<span class="dt">nmax =</span> <span class="dv">50</span>, <span class="dt">loop =</span> <span class="ot">TRUE</span>, <span class="dt">interval =</span> <span class="fl">0.2</span>)
 for (time in time.steps) {
-    <span class="kw">print</span>(<span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="kw">subset</span>(tanspc, Time == time), <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">fill =</span> FracDisease, 
-        <span class="dt">alpha =</span> TotTan)) + <span class="kw">geom_tile</span>() + <span class="kw">scale_alpha</span>(<span class="dt">name =</span> <span class="st">&quot;TanoakPopulation&quot;</span>, 
-        <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>)) + <span class="kw">scale_fill_continuous</span>(<span class="dt">name =</span> <span class="st">&quot;Fraction Diseased&quot;</span>, 
-        <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.25</span>), <span class="dt">low =</span> <span class="st">&quot;#408000&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#FF8000&quot;</span>) + 
-        <span class="kw">theme</span>(<span class="dt">rect =</span> <span class="kw">element_blank</span>(), <span class="dt">line =</span> <span class="kw">element_blank</span>()))
+    <span class="kw">print</span>(<span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="kw">subset</span>(tanspc, Time ==<span class="st"> </span>time), <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">fill =</span> FracDisease, 
+        <span class="dt">alpha =</span> TotTan)) +<span class="st"> </span><span class="kw">geom_tile</span>() +<span class="st"> </span><span class="kw">scale_alpha</span>(<span class="dt">name =</span> <span class="st">&quot;TanoakPopulation&quot;</span>, 
+        <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>)) +<span class="st"> </span><span class="kw">scale_fill_continuous</span>(<span class="dt">name =</span> <span class="st">&quot;Fraction Diseased&quot;</span>, 
+        <span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.25</span>), <span class="dt">low =</span> <span class="st">&quot;#408000&quot;</span>, <span class="dt">high =</span> <span class="st">&quot;#FF8000&quot;</span>) +<span class="st"> </span>
+<span class="st">        </span><span class="kw">theme</span>(<span class="dt">rect =</span> <span class="kw">element_blank</span>(), <span class="dt">line =</span> <span class="kw">element_blank</span>()))
 }</code></pre>
-<p><video   controls="controls" loop="loop"><source src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/tanoak-anim.mp4" type="video/mp4" />video of chunk tanoak-anim</video></p>
+<video   controls="controls" loop="loop">
+<source src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/tanoak-anim.mp4" type="video/mp4" />video of chunk tanoak-anim
+</video>
+
 <h2 id="references">References</h2>
 <p>Anderson, R. M., and R. M. May. 1985. Age-related changes in the rate of disease transmission: implications for the design of vaccination programmes. J. Hyg. Camb.</p>
 <p>Cobb, R. C., J. a. N. Filipe, R. K. Meentemeyer, C. a Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology.</p></p></div>

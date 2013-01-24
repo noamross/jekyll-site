@@ -251,21 +251,21 @@
 <span class="kw">library</span>(mgcv)
 
 ## Now, attach your data set (or my data set)
-fishlakes &lt;- <span class="kw">read.csv</span>(<span class="st">&quot;fishlakes.csv&quot;</span>, <span class="dt">comment.char=</span><span class="st">&quot;#&quot;</span>)
+fishlakes &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;fishlakes.csv&quot;</span>, <span class="dt">comment.char=</span><span class="st">&quot;#&quot;</span>)
 
 ## create a full exploritory model using varibles you think are biologically
 ## significant (this is pretty subjective, and where you need to use your brain)
 ## For my data set, I am trying to predict the presence of cascades frogs
 
 
-fishlakes.logr &lt;- <span class="kw">gam</span>(treatment ~ ## &quot;treatment&quot; = breeding cascades frogs in lake
-  BUBO.breeding + ## breeding toads in lake
-  count.RACApops.1K +  ##  number of cascades frog populations within 1km
-  <span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) + ## amount of silt in lake bed
-  <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) + ## total lake area with emergent aquatic vegetation
-  <span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) + ## total lake area less than 10cm deep
-  <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>) + ## perportion of nearby water bodies with frogs weighted by distance
-  <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>),  ## average slope
+fishlakes.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>## &quot;treatment&quot; = breeding cascades frogs in lake
+<span class="st">  </span>BUBO.breeding +<span class="st"> </span>## breeding toads in lake
+<span class="st">  </span>count.RACApops.1K +<span class="st">  </span>##  number of cascades frog populations within 1km
+<span class="st">  </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span>## amount of silt in lake bed
+<span class="st">  </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +<span class="st"> </span>## total lake area with emergent aquatic vegetation
+<span class="st">  </span><span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span>## total lake area less than 10cm deep
+<span class="st">  </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span>## perportion of nearby water bodies with frogs weighted by distance
+<span class="st">  </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>),  ## average slope
   <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## this is a logistic function since I have binomial data</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: matrix not positive definite</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fishlakes.logr) ## Note, this model explains 68.5% of devience</code></pre>
@@ -314,7 +314,7 @@ fishlakes.logr &lt;- <span class="kw">gam</span>(treatment ~ ## &quot;treatment&
 ## s(weighted.dist)  5.000 2.237   1.064    0.63
 ## s(bank.slope)     5.000 2.219   0.965    0.42</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report1.png" /><p class="caption"></p>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report1.png" />
 </div>
 <pre class="sourceCode r"><code class="sourceCode r">## gives huge overspecification. I&#39;m not sure what to do about this.
 <span class="kw">plot</span>(fishlakes.logr) ## diagnostic plots for the smooths</code></pre>
@@ -324,9 +324,9 @@ fishlakes.logr &lt;- <span class="kw">gam</span>(treatment ~ ## &quot;treatment&
 ## just played around until my model stopped overspecifying
 
 
-for (i in <span class="dv">2</span>:<span class="dv">8</span>) { fishlakes.logr &lt;- <span class="kw">gam</span>(treatment ~ count.RACApops.1K + BUBO.breeding + <span class="kw">s</span>(silt.total, <span class="dt">k=</span>i) + <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span>i) + <span class="kw">s</span>(bank.slope, <span class="dt">k=</span>i) + <span class="kw">s</span>(area.10cm,  <span class="dt">k=</span>i) + <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span>i), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes);
-                  x &lt;- <span class="kw">summary</span>(fishlakes.logr);
-                  y &lt;- <span class="kw">AIC</span>(fishlakes.logr);
+for (i in <span class="dv">2</span>:<span class="dv">8</span>) { fishlakes.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>count.RACApops.1K +<span class="st"> </span>BUBO.breeding +<span class="st"> </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span>i) +<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span>i) +<span class="st"> </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span>i) +<span class="st"> </span><span class="kw">s</span>(area.10cm,  <span class="dt">k=</span>i) +<span class="st"> </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span>i), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes);
+                  x &lt;-<span class="st"> </span><span class="kw">summary</span>(fishlakes.logr);
+                  y &lt;-<span class="st"> </span><span class="kw">AIC</span>(fishlakes.logr);
                   <span class="kw">print</span>(i)
                   <span class="kw">print</span>(x)
                   <span class="kw">print</span>(y)
@@ -584,9 +584,9 @@ for (i in <span class="dv">2</span>:<span class="dv">8</span>) { fishlakes.logr 
 ## UBRE score = -0.16157  Scale est. = 1         n = 42
 ## [1] 35.21</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">
-for (i in <span class="dv">2</span>:<span class="dv">10</span>) { fishlakes.logr &lt;- <span class="kw">gam</span>(treatment ~ count.RACApops.1K + BUBO.breeding + <span class="kw">s</span>(silt.total, <span class="dt">k=</span>i) + <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) + <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(area.10cm,  <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes);
-                  x &lt;- <span class="kw">summary</span>(fishlakes.logr);
-                  y &lt;- <span class="kw">AIC</span>(fishlakes.logr);
+for (i in <span class="dv">2</span>:<span class="dv">10</span>) { fishlakes.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>count.RACApops.1K +<span class="st"> </span>BUBO.breeding +<span class="st"> </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span>i) +<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +<span class="st"> </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(area.10cm,  <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes);
+                  x &lt;-<span class="st"> </span><span class="kw">summary</span>(fishlakes.logr);
+                  y &lt;-<span class="st"> </span><span class="kw">AIC</span>(fishlakes.logr);
                   <span class="kw">print</span>(i)
                   <span class="kw">print</span>(x)
                   <span class="kw">print</span>(y)
@@ -864,8 +864,8 @@ for (i in <span class="dv">2</span>:<span class="dv">10</span>) { fishlakes.logr
 ## to see if adding the term leads to a significant improvement in residual deviance.
 
 ## fishlakes2.logr is the same model as fishlakes.logr without the &quot;bank slope&quot; term
-fishlakes2.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + count.RACApops.1K +
-  <span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) + <span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>),
+fishlakes2.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>BUBO.breeding +<span class="st"> </span>count.RACApops.1K +
+<span class="st">  </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +<span class="st"> </span><span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>),
                        <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: matrix not positive definite</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fishlakes2.logr) ## This model only explains 34.1% of deviance</code></pre>
@@ -915,8 +915,8 @@ fishlakes2.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + co
 ## should be included in the final model
 
 ## Now do the same with the rest of the varibles
-fishlakes3.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + count.RACApops.1K +<span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>)
-                       + <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) + <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>), 
+fishlakes3.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>BUBO.breeding +<span class="st"> </span>count.RACApops.1K +<span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>)
+                       +<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +<span class="st"> </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>), 
                        <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all variables except &quot;weighted distance&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: matrix not positive definite</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fishlakes3.logr) ## This model is way overspecified (100% of devience explained)</code></pre>
@@ -958,9 +958,9 @@ fishlakes3.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + co
 ## 2      24.6      0.127 2.59   -0.119         </code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Include &quot;weighted distance&quot; in final model
 
-fishlakes4.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding +count.RACApops.1K+ 
-  <span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) + 
-  <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), 
+fishlakes4.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>BUBO.breeding +count.RACApops.1K+<span class="st"> </span>
+<span class="st">  </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), 
                        <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all variables except area under 10cm</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: matrix not positive definite</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fishlakes4.logr) ## This model only explains 54.5% of deviance</code></pre>
@@ -1008,9 +1008,9 @@ fishlakes4.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding +cou
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 </code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## significant, leave &quot;area under 10cm&quot; out of final model
 
-fishlakes5.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + 
-  <span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>)+ <span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) + 
-  <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all variables except number</code></pre>
+fishlakes5.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>BUBO.breeding +<span class="st"> </span>
+<span class="st">  </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>)+<span class="st"> </span><span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all variables except number</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: matrix not positive definite</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## of frog populations within 1km
 <span class="kw">summary</span>(fishlakes5.logr) ## This model only explains 31.8% of deviance</code></pre>
@@ -1055,8 +1055,8 @@ fishlakes5.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding +
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 </code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Include &quot;count RACA pops&quot; in final model
 
-fishlakes6.logr &lt;-<span class="kw">gam</span>(treatment ~ BUBO.breeding + count.RACApops.1K+ 
-  <span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), 
+fishlakes6.logr &lt;-<span class="kw">gam</span>(treatment ~<span class="st"> </span>BUBO.breeding +<span class="st"> </span>count.RACApops.1K+<span class="st"> </span>
+<span class="st">  </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), 
                       <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all varibles except vegetated area</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: matrix not positive definite</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(fishlakes6.logr) ## This model explains 61.4% of deviance </code></pre>
@@ -1102,8 +1102,8 @@ fishlakes6.logr &lt;-<span class="kw">gam</span>(treatment ~ BUBO.breeding + cou
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 </code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## maybe drop vegetated area out of final model
 
-fishlakes7.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + count.RACApops.1K+  <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) + <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) + 
-  <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all variables except silt
+fishlakes7.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>BUBO.breeding +<span class="st"> </span>count.RACApops.1K+<span class="st">  </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +<span class="st"> </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all variables except silt
 <span class="kw">summary</span>(fishlakes7.logr) ## This model explains 63.3% of deviance </code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## 
 ## Family: binomial 
@@ -1149,8 +1149,8 @@ fishlakes7.logr &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + co
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 </code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## drop silt out of final model
 
-fishlakes8.logr &lt;- <span class="kw">gam</span>(treatment ~ count.RACApops.1K+ <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) + <span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) +
-  <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">5</span>) + <span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">5</span>) + <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">5</span>), 
+fishlakes8.logr &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>count.RACApops.1K+<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +<span class="st"> </span><span class="kw">s</span>(silt.total, <span class="dt">k=</span><span class="dv">6</span>) +
+<span class="st">  </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">5</span>) +<span class="st"> </span><span class="kw">s</span>(area.10cm, <span class="dt">k=</span><span class="dv">5</span>) +<span class="st"> </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">5</span>), 
                        <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes) ## all variables except toads</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: matrix not positive definite
 
@@ -1202,8 +1202,8 @@ fishlakes8.logr &lt;- <span class="kw">gam</span>(treatment ~ count.RACApops.1K+
 
 ## Now that we know what variables we are using, we need to figure out how to put them all in 
 ## a useful model. 
-fish1 &lt;- <span class="kw">gam</span>(treatment ~ BUBO.breeding + count.RACApops.1K + <span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) + <span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +
-  <span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes)
+fish1 &lt;-<span class="st"> </span><span class="kw">gam</span>(treatment ~<span class="st"> </span>BUBO.breeding +<span class="st"> </span>count.RACApops.1K +<span class="st"> </span><span class="kw">s</span>(bank.slope, <span class="dt">k=</span><span class="dv">6</span>) +<span class="st"> </span><span class="kw">s</span>(vegetated.area, <span class="dt">k=</span><span class="dv">7</span>) +
+<span class="st">  </span><span class="kw">s</span>(weighted.dist, <span class="dt">k=</span><span class="dv">6</span>), <span class="dt">family=</span><span class="kw">binomial</span>(<span class="st">&quot;logit&quot;</span>), <span class="dt">data=</span> fishlakes)
 <span class="kw">summary</span>(fish1)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## 
 ## Family: binomial 

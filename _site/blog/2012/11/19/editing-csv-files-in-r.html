@@ -247,19 +247,19 @@
 <span class="co">#&#39; editor, then re-saves it, prompting the user for a new file name if </span>
 <span class="co">#&#39; desired.</span>
 <span class="co">#&#39; </span>
-fix.csv &lt;- function(file, <span class="dt">new.name=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">comment.char=</span><span class="st">&quot;&quot;</span>) {
-  tmpframe &lt;- <span class="kw">read.csv</span>(file, <span class="dt">sep=</span>sep,<span class="dt">quote=</span><span class="st">&quot;&quot;</span>, <span class="dt">colClasses=</span><span class="st">&quot;character&quot;</span>,
+fix.csv &lt;-<span class="st"> </span>function(file, <span class="dt">new.name=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">comment.char=</span><span class="st">&quot;&quot;</span>) {
+  tmpframe &lt;-<span class="st"> </span><span class="kw">read.csv</span>(file, <span class="dt">sep=</span>sep,<span class="dt">quote=</span><span class="st">&quot;&quot;</span>, <span class="dt">colClasses=</span><span class="st">&quot;character&quot;</span>,
                        <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>, <span class="dt">comment.char=</span><span class="st">&quot;&quot;</span>,
                        <span class="dt">blank.lines.skip=</span><span class="ot">FALSE</span>, <span class="dt">na.strings=</span><span class="st">&quot;&quot;</span>)
-  tmpframe &lt;- <span class="kw">edit</span>(tmpframe)
+  tmpframe &lt;-<span class="st"> </span><span class="kw">edit</span>(tmpframe)
   if(<span class="kw">is.character</span>(new.name)) {
-    out.name &lt;- new.name
-  } else if(new.name &lt;- <span class="ot">TRUE</span>) {
-    out.name &lt;- <span class="kw">readline</span>(<span class="dt">prompt=</span><span class="st">&quot;Enter file name to save (Hit enter to use original):&quot;</span>)
+    out.name &lt;-<span class="st"> </span>new.name
+  } else if(new.name &lt;-<span class="st"> </span><span class="ot">TRUE</span>) {
+    out.name &lt;-<span class="st"> </span><span class="kw">readline</span>(<span class="dt">prompt=</span><span class="st">&quot;Enter file name to save (Hit enter to use original):&quot;</span>)
   } else {
-    out.name &lt;- file
+    out.name &lt;-<span class="st"> </span>file
   }
-  if(out.name==<span class="st">&quot;&quot;</span>) out.name &lt;- file
+  if(out.name==<span class="st">&quot;&quot;</span>) out.name &lt;-<span class="st"> </span>file
   <span class="kw">write.table</span>(tmpframe, <span class="dt">file=</span>out.name, <span class="dt">append=</span><span class="ot">FALSE</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>, <span class="dt">sep=</span>sep,
               <span class="dt">row.names=</span><span class="ot">FALSE</span>)
 }</code></pre>
