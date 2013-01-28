@@ -1,5 +1,8 @@
 ---
-tags: [SOD, dissertation, quals, writing]
+title: 
+author: 
+tags: [SOD, quals]
+date: 
 layout: post
 --- 
 
