@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-01-27T19:28:37-08:00</updated>
+ <updated>2013-01-27T19:37:35-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -13,16 +13,17 @@
 
  
  <entry>
-   <title>Dissertation Proposal</title>
+   <title>A Draft Dissertation Proposal:  Forest Disease Dynamics and Management</title>
    <link href="http://www.noamross.net/blog/2013/1/27/dissertation-proposal.html"/>
-   <updated>2013-01-27T19:28:37-08:00</updated>
+   <updated>2013-01-27T19:37:16-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/1/27/dissertation-proposal</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;A first draft, just out to my committee. Feedback welcome! A modifiable souce version can be found on github &lt;a href=&quot;https://github.com/noamross/openquals/blob/master/Dissertation%20Proposal.md&quot;&gt;here&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;abstract&quot;&gt;Abstract&lt;/h2&gt;
 &lt;p&gt;Forest disease spreads through plant communities structured by species composition, age distribution, and spatial arrangement. I propose to examine the consequences of the interaction of these components of population structure &lt;em&gt;Phytophthora ramorum&lt;/em&gt; invasion of California redwood forests. First, I will compare the dynamic behavior of a series of epidemiological models that include different combinations of population structure. Then I will fit these models to time-series data from a network of disease monitoring plots to determine what components of forest population structure are most important for prediction of disease spread. Using the most parsimoniuous models, I will determine optimal schedules of treatment to minimize the probability of precipitous decline of host populations.&lt;/p&gt;
 &lt;h2 id=&quot;introduction-modeling-disease-in-complex-populations-for-management&quot;&gt;Introduction: Modeling Disease in Complex Populations for Management&lt;/h2&gt;
 &lt;p&gt;Forest diseases can radically transform ecosystems. In North America, chestnut blight, Dutch elm disease and beech bark disease have caused precipitous declines in their hosts, leading to changes in the structure and function of forests. Changes from such diseases may be the dominant force changing the face of some forests in coming decades, overwhelming other forms of rapid environmental change such as climate change (Lovett et al. 2006).&lt;/p&gt;

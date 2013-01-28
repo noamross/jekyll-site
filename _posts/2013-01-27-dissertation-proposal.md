@@ -1,11 +1,12 @@
 ---
-title: 
-author: 
+title: "A Draft Dissertation Proposal:  Forest Disease Dynamics and Management"
+author: Noam Ross
 tags: [SOD, quals]
-date: 
+date: 13-01-27 19:37:16
 layout: post
 --- 
 
+*A first draft, just out to my committee.  Feedback welcome!  A modifiable souce version can be found on github [here](https://github.com/noamross/openquals/blob/master/Dissertation%20Proposal.md)*
 
 Abstract
 --------
