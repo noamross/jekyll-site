@@ -1,5 +1,5 @@
 ---
-tags: [Dissertation, SOD, quals, proposals]
+tags: [disseration, quals, SOD, writing]
 layout: post
 --- 
 
