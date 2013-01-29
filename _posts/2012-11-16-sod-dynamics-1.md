@@ -21,12 +21,11 @@ for space in the forest.
 
 I'm developing this model as an R package -`"SODDr"` (Sudden Oak Death
 Dynamics in R), to replicate this work, you can install it from github.
-Note that this is a very rough package and is changing, so you'll need
-to install the version specific to this analysis:
+Note that this is a very rough package and is changing.
 
 ~~~~ {.r}
 library(devtools) # devtools enables intsallation from alternate code locations
-install_github("SODDr","noamross",ref="1c139e1f98")
+install_github("SODDr","noamross")
 ~~~~
 
 ~~~~ {.r}

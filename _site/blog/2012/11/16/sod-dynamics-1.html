@@ -241,9 +241,9 @@
 </div>
 <div class="contenttext"><p><p>I am working on a project with the <a href="http://ucanr.edu/sites/rizzolab/">Rizzo Lab</a> examining the dynamics of [Sudden Oak Death]. I really have to write more about this, but today I’m just going to post the results of an initial exercise.</p>
 <p>Here I attempt to replicate model results from Cobb et al. (2012). The model in that paper simulates the spread of disease and resulting tree mortality and stand dynamics in a mixed system of tanoak, bay laurel, and redwood. In this system, only tanoak and bay laurel carry the disease, and it mostly only kills tanoak, but all three species compete for space in the forest.</p>
-<p>I’m developing this model as an R package -<code>&quot;SODDr&quot;</code> (Sudden Oak Death Dynamics in R), to replicate this work, you can install it from github. Note that this is a very rough package and is changing, so you’ll need to install the version specific to this analysis:</p>
+<p>I’m developing this model as an R package -<code>&quot;SODDr&quot;</code> (Sudden Oak Death Dynamics in R), to replicate this work, you can install it from github. Note that this is a very rough package and is changing.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools) <span class="co"># devtools enables intsallation from alternate code locations</span>
-<span class="kw">install_github</span>(<span class="st">&quot;SODDr&quot;</span>,<span class="st">&quot;noamross&quot;</span>,<span class="dt">ref=</span><span class="st">&quot;1c139e1f98&quot;</span>)</code></pre>
+<span class="kw">install_github</span>(<span class="st">&quot;SODDr&quot;</span>,<span class="st">&quot;noamross&quot;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(SODDr)</code></pre>
 <p>My model modifies the original in a few ways. First, it’s designed to be much more flexible, and make it easy to modify the number of species, size classes, and and disease parameters. Secondly, it is in a discrete- rather than continuous-time framework. This will make it easier to include stochasticity down the road, and ultimately fit it to actual data.</p>
 <h2 id="setup">Setup</h2>

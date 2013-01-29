@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-01-27T19:37:35-08:00</updated>
+ <updated>2013-01-28T16:12:22-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -410,9 +410,9 @@ fix.csv &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(file, &
   &lt;/style&gt;
 &lt;/head&gt; &lt;p&gt;I am working on a project with the &lt;a href=&quot;http://ucanr.edu/sites/rizzolab/&quot;&gt;Rizzo Lab&lt;/a&gt; examining the dynamics of [Sudden Oak Death]. I really have to write more about this, but today I’m just going to post the results of an initial exercise.&lt;/p&gt;
 &lt;p&gt;Here I attempt to replicate model results from Cobb et al. (2012). The model in that paper simulates the spread of disease and resulting tree mortality and stand dynamics in a mixed system of tanoak, bay laurel, and redwood. In this system, only tanoak and bay laurel carry the disease, and it mostly only kills tanoak, but all three species compete for space in the forest.&lt;/p&gt;
-&lt;p&gt;I’m developing this model as an R package -&lt;code&gt;&amp;quot;SODDr&amp;quot;&lt;/code&gt; (Sudden Oak Death Dynamics in R), to replicate this work, you can install it from github. Note that this is a very rough package and is changing, so you’ll need to install the version specific to this analysis:&lt;/p&gt;
+&lt;p&gt;I’m developing this model as an R package -&lt;code&gt;&amp;quot;SODDr&amp;quot;&lt;/code&gt; (Sudden Oak Death Dynamics in R), to replicate this work, you can install it from github. Note that this is a very rough package and is changing.&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(devtools) &lt;span class=&quot;co&quot;&gt;# devtools enables intsallation from alternate code locations&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;install_github&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;SODDr&amp;quot;&lt;/span&gt;,&lt;span class=&quot;st&quot;&gt;&amp;quot;noamross&amp;quot;&lt;/span&gt;,&lt;span class=&quot;dt&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;1c139e1f98&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;kw&quot;&gt;install_github&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;SODDr&amp;quot;&lt;/span&gt;,&lt;span class=&quot;st&quot;&gt;&amp;quot;noamross&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(SODDr)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;My model modifies the original in a few ways. First, it’s designed to be much more flexible, and make it easy to modify the number of species, size classes, and and disease parameters. Secondly, it is in a discrete- rather than continuous-time framework. This will make it easier to include stochasticity down the road, and ultimately fit it to actual data.&lt;/p&gt;
 &lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
