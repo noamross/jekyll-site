@@ -8,8 +8,8 @@ layout: post
 
 
 I am working on a project with the [Rizzo
-Lab](http://ucanr.edu/sites/rizzolab/) examining the dynamics of [Sudden
-Oak Death]. I really have to write more about this, but today I'm just
+Lab](http://ucanr.edu/sites/rizzolab/) examining the dynamics of Sudden
+Oak Death (SOD). I really have to write more about this, but today I'm just
 going to post the results of an initial exercise.
 
 Here I attempt to replicate model results from Cobb et al. (2012). The
@@ -17,7 +17,7 @@ model in that paper simulates the spread of disease and resulting tree
 mortality and stand dynamics in a mixed system of tanoak, bay laurel,
 and redwood. In this system, only tanoak and bay laurel carry the
 disease, and it mostly only kills tanoak, but all three species compete
-for space in the forest.
+for space in the forest.  More detail on the model found in the paper and the paper's supplement.
 
 I'm developing this model as an R package -`"SODDr"` (Sudden Oak Death
 Dynamics in R), to replicate this work, you can install it from github.
@@ -95,7 +95,7 @@ Note that several values, such as the space occupied by different tanoak
 size classes, and recruitment rates, are missing. This is because, per
 the original paper, I calculate these so as to parameterize the model
 for steady-state conditions in the absence of disease. Here I do that,
-using equation 8 in the papers' supplement:
+using Equation 8 in the papers' supplement:
 
 ~~~~ {.r}
 treeparms.df <- within(treeparms.df, {
@@ -128,7 +128,7 @@ treeparms.df <- within(treeparms.df, {
 ~~~~
 
 The original model allows only dispersal between adjacent cells, so
-ameters table calls the dispersal kernel `adjacent.dispersal`, and gives
+the parameters table calls the dispersal kernel `adjacent.dispersal`, and gives
 two parameters. This function outputs the first parameter when within
 the cell, the second for dispersal to adjacent cells, and zero for other
 cells:
@@ -165,7 +165,7 @@ head(locations)
 Next, I create a matrix of initial population values, which should be
 sized by number of locations by number of species/size classes *times
 2*. They should be in order of the classes as they appear in the data
-table, but alternating $S,I,S,I\dots$. In this case, initial populations
+table, but alternating $S,I,S,I,\dots$. In this case, initial populations
 are uniform across the landscape and equal to the `init` values from the
 parameters table.
 
@@ -228,7 +228,7 @@ dynamic.plot
 Redwood), and Size
 Class](http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/initrun.png)
 
-The plot shows This isn't quite steady-state, I suspect because of some
+The plot shows that this isn't quite steady-state, I suspect because of some
 rounding errors in copying parameters from the paper.
 
 We can make a plot in the style of Cobb et al. (2012), showing only the
@@ -251,7 +251,7 @@ disease](http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/papeplot.png)
 
 Now, let's change the initial conditions to include disease and see what
 happens. I change the populations of tanoak and bay in one pixel to
-infectious instead of healthy and run the model:
+infectious instead of susceptible and run the model:
 
 ~~~~ {.r}
 init[190, 2] <- init[190, 1]
@@ -354,7 +354,7 @@ Again, qualitatively similar to the original results:
 ![Fig 4b from Cobb et al.
 (2012)](http://dl.dropbox.com/u/3356641/blogstuff/cobb2012fig4b.png)
 
-Finally, I simulation the "Mostly Redwwod" scenario:
+Finally, I simulate the "Mostly Redwood" scenario:
 
 ~~~~ {.r}
 treeparms.df$S.init <- c(0.08 * treeparms.df$S.init[1:4]/sum(treeparms.df$S.init[1:4]), 

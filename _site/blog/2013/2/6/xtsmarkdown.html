@@ -5,7 +5,7 @@
 -->
 <html lang="en">
 <head>
-  <title>Noam Ross | Blog</title>
+  <title>Noam Ross | Ryan Peek on using xts and ggplot for time-series data</title>
   <meta name="description" content=" " />
   <meta name="author" content="Noam Ross">
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
@@ -234,10 +234,12 @@
 
         <div class="content">
           
-<div id="headblock"><h1 id="post.title"><a href="/blog/2013/2/6/xtsmarkdown.html">Ryan Peek on using xts and ggplot for time-series data</a></h1>
+<div id="headblock">
+<h1 id="page.title"><a href="/blog/2013/2/6/xtsmarkdown.html">Ryan Peek on using xts and ggplot for time-series data</a></h1>
 <p>by <em>Noam Ross</em>, 06 February 2013</p>
-<hr /></div>
-<div class="contenttext"><p>At <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> today, <a href="http://watershed.ucdavis.edu/people/ryan-peek">Ryan Peek</a> gave a presentation on how he takes data from his field instruments and visualizes it in R. Here are his notes. The original *.Rmd file and data can be found <a href="https://gist.github.com/noamross/4727029">here</a></p>
+<hr />
+</div>
+<div class="contenttext"><p><p>At <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> today, <a href="http://watershed.ucdavis.edu/people/ryan-peek">Ryan Peek</a> gave a presentation on how he takes data from his field instruments and visualizes it in R. Here are his notes. The original *.Rmd file and data can be found <a href="https://gist.github.com/noamross/4727029">here</a></p>
 <h2 id="short-how-to-on-using-xts-and-ggplot-for-time-series-data">SHORT HOW-TO ON USING XTS AND GGPLOT FOR TIME SERIES DATA</h2>
 <p>XTS is a very helpful package when working with time series data. I work with temperature and flow data frequently, so the ability to work with timeseries, and particularly to shift intervals (from 15 min to hourly or daily) can be very handy. Once data has been re-worked, <strong>ggplot2</strong> is a great package to plot data of all types.</p>
 <p>First read in some data and format to POSIXlt. There are 2 types of time, POSIXlt and POSIXct. POSIXct is generally what ggplot uses and is based on seconds, while POSIXlt can be re-classed into individual components quite easily, but year zero is calculated from 1900 (so 2011 would be year 111).</p>
@@ -343,11 +345,11 @@ Day &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class
 RUB</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png" />
-</div></div>
+</div></p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
-	  
+    
     <li><a href="/tags.html#R-ref">R</a></li>
     
     <li><a href="/tags.html#xts-ref">xts</a></li>
@@ -355,9 +357,12 @@ RUB</code></pre>
     <li><a href="/tags.html#ggplot-ref">ggplot</a></li>
     
     <li><a href="/tags.html#D-RUG-ref">D-RUG</a></li>
-    
+      
 </ul>
-<div id="disqus_thread"></div>
+
+
+
+  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'noamrossgh'; // required: replace example with your forum shortname
     var disqus_identifier = '/blog/2013/2/6/xtsmarkdown.html';
@@ -374,29 +379,14 @@ RUB</code></pre>
 
 
 
+
+
 <div class="noprint"><hr />
-<h1 id="previous-posts">Previous Posts</h1>
+<p> <strong>Previous Post</strong>: <em><a href="/blog/2013/1/27/dissertation-proposal.html">A Draft Dissertation Proposal:  Forest Disease Dynamics and Management</a></em> </p>
+<p></p></div>
 
-<ul>
-<li><strong><a href="/blog/2013/1/27/dissertation-proposal.html">A Draft Dissertation Proposal:  Forest Disease Dynamics and Management</a></strong></li>
-</ul>
 
-<ul>
-<li><strong><a href="/blog/2013/1/17/upgoer5.html">I try to figure out when many trees will die together</a></strong></li>
-</ul>
 
-<ul>
-<li><strong><a href="/blog/2013/1/17/steve-culman-on-plyr.html">Steve Culman on the `plyr` Package</a></strong></li>
-</ul>
-
-<ul>
-<li><strong><a href="/blog/2013/1/7/collaborating-with-r.html">Don't R alone! A guide to tools for collaboration with R</a></strong></li>
-</ul>
-
-<ul>
-<li><strong><a href="/blog/2013/1/7/sod-readings.html">Quals Reading: Sudden Oak Death</a></strong></li>
-</ul>
- </div>
         </div>
     
 

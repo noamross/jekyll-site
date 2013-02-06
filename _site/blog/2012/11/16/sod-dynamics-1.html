@@ -239,8 +239,8 @@
 <p>by <em>Noam Ross</em>, 16 November 2012</p>
 <hr />
 </div>
-<div class="contenttext"><p><p>I am working on a project with the <a href="http://ucanr.edu/sites/rizzolab/">Rizzo Lab</a> examining the dynamics of [Sudden Oak Death]. I really have to write more about this, but today I’m just going to post the results of an initial exercise.</p>
-<p>Here I attempt to replicate model results from Cobb et al. (2012). The model in that paper simulates the spread of disease and resulting tree mortality and stand dynamics in a mixed system of tanoak, bay laurel, and redwood. In this system, only tanoak and bay laurel carry the disease, and it mostly only kills tanoak, but all three species compete for space in the forest.</p>
+<div class="contenttext"><p><p>I am working on a project with the <a href="http://ucanr.edu/sites/rizzolab/">Rizzo Lab</a> examining the dynamics of Sudden Oak Death (SOD). I really have to write more about this, but today I’m just going to post the results of an initial exercise.</p>
+<p>Here I attempt to replicate model results from Cobb et al. (2012). The model in that paper simulates the spread of disease and resulting tree mortality and stand dynamics in a mixed system of tanoak, bay laurel, and redwood. In this system, only tanoak and bay laurel carry the disease, and it mostly only kills tanoak, but all three species compete for space in the forest. More detail on the model found in the paper and the paper’s supplement.</p>
 <p>I’m developing this model as an R package -<code>&quot;SODDr&quot;</code> (Sudden Oak Death Dynamics in R), to replicate this work, you can install it from github. Note that this is a very rough package and is changing.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools) <span class="co"># devtools enables intsallation from alternate code locations</span>
 <span class="kw">install_github</span>(<span class="st">&quot;SODDr&quot;</span>,<span class="st">&quot;noamross&quot;</span>)</code></pre>
@@ -281,7 +281,7 @@
 ## 6   0.00   0.00   0.00      0</code></pre>
 <p>This data set includes all of the model parameters as defined by Cobb et al. (2012). For each species and age class, there are parameters for mortality, recruitment, transition between classes, the probability of resprouting, and recovering from disease. There are also parameters the the relative amount of space occupied by trees of each species/class.</p>
 <p>For each species/class, the table includes a kernel function to describe dispersal of disease spores from diseased trees, and parameters for that function. The last set of columns represent the “&quot;Who Acquires Infection From Whom” (WAIFW) matrix (Anderson and May 1985), which describes the vulnerability of each class to spores originating from others.</p>
-<p>Note that several values, such as the space occupied by different tanoak size classes, and recruitment rates, are missing. This is because, per the original paper, I calculate these so as to parameterize the model for steady-state conditions in the absence of disease. Here I do that, using equation 8 in the papers’ supplement:</p>
+<p>Note that several values, such as the space occupied by different tanoak size classes, and recruitment rates, are missing. This is because, per the original paper, I calculate these so as to parameterize the model for steady-state conditions in the absence of disease. Here I do that, using Equation 8 in the papers’ supplement:</p>
 <pre class="sourceCode r"><code class="sourceCode r">treeparms.df &lt;-<span class="st"> </span><span class="kw">within</span>(treeparms.df, {
     <span class="co"># Calculate the relative space requirements of tanoak size classes based</span>
     <span class="co"># on initial conditions</span>
@@ -309,7 +309,7 @@
     A3 &lt;-<span class="st"> </span><span class="ot">NULL</span>
     A4 &lt;-<span class="st"> </span><span class="ot">NULL</span>
 })</code></pre>
-<p>The original model allows only dispersal between adjacent cells, so ameters table calls the dispersal kernel <code>adjacent.dispersal</code>, and gives two parameters. This function outputs the first parameter when within the cell, the second for dispersal to adjacent cells, and zero for other cells:</p>
+<p>The original model allows only dispersal between adjacent cells, so the parameters table calls the dispersal kernel <code>adjacent.dispersal</code>, and gives two parameters. This function outputs the first parameter when within the cell, the second for dispersal to adjacent cells, and zero for other cells:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(adjacent.dispersal)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## function (distance, local, adjacent) 
 ## {
@@ -327,7 +327,7 @@
 ## [4,]        4 0 3
 ## [5,]        5 0 4
 ## [6,]        6 0 5</code></pre>
-<p>Next, I create a matrix of initial population values, which should be sized by number of locations by number of species/size classes <em>times 2</em>. They should be in order of the classes as they appear in the data table, but alternating <span class="math">\(S,I,S,I\dots\)</span>. In this case, initial populations are uniform across the landscape and equal to the <code>init</code> values from the parameters table.</p>
+<p>Next, I create a matrix of initial population values, which should be sized by number of locations by number of species/size classes <em>times 2</em>. They should be in order of the classes as they appear in the data table, but alternating <span class="math">\(S,I,S,I,\dots\)</span>. In this case, initial populations are uniform across the landscape and equal to the <code>init</code> values from the parameters table.</p>
 <pre class="sourceCode r"><code class="sourceCode r">initial.vec =<span class="st"> </span><span class="kw">as.vector</span>(<span class="kw">rbind</span>(treeparms.df$S.init, treeparms.df$I.init))
 init &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data =</span> initial.vec, <span class="dt">nrow =</span> <span class="kw">nrow</span>(locations), <span class="dt">ncol =</span> <span class="dv">2</span> *<span class="st"> </span><span class="kw">nrow</span>(treeparms.df), 
     <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</code></pre>
@@ -361,7 +361,7 @@ dynamic.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/initrun.png" alt="Population dynamics broken up by species (left to right, Tanoak, Bay, Redwood), and Size Class" /><p class="caption">Population dynamics broken up by species (left to right, Tanoak, Bay, Redwood), and Size Class</p>
 </div>
-<p>The plot shows This isn’t quite steady-state, I suspect because of some rounding errors in copying parameters from the paper.</p>
+<p>The plot shows that this isn’t quite steady-state, I suspect because of some rounding errors in copying parameters from the paper.</p>
 <p>We can make a plot in the style of Cobb et al. (2012), showing only the populations of small and large tanoaks as a proportion of the total population:</p>
 <pre class="sourceCode r"><code class="sourceCode r">paper.df &lt;-<span class="st"> </span><span class="kw">ddply</span>(<span class="kw">transform</span>(pop.df.totals, <span class="dt">Size =</span> <span class="kw">ifelse</span>(AgeClass ==<span class="st"> &quot;1&quot;</span> |<span class="st"> </span>AgeClass ==<span class="st"> </span>
 <span class="st">    &quot;2&quot;</span>, <span class="st">&quot;Small&quot;</span>, <span class="st">&quot;Large&quot;</span>)), <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Species&quot;</span>, <span class="st">&quot;Size&quot;</span>), summarise, <span class="dt">SizePop =</span> <span class="kw">sum</span>(TotPop))
@@ -374,7 +374,7 @@ paper.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/tanoakdyn1/papeplot.png" alt="Tanoak as a fraction of total population over time, no disease" /><p class="caption">Tanoak as a fraction of total population over time, no disease</p>
 </div>
-<p>Now, let’s change the initial conditions to include disease and see what happens. I change the populations of tanoak and bay in one pixel to infectious instead of healthy and run the model:</p>
+<p>Now, let’s change the initial conditions to include disease and see what happens. I change the populations of tanoak and bay in one pixel to infectious instead of susceptible and run the model:</p>
 <pre class="sourceCode r"><code class="sourceCode r">init[<span class="dv">190</span>, <span class="dv">2</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">1</span>]
 init[<span class="dv">190</span>, <span class="dv">1</span>] &lt;-<span class="st"> </span><span class="dv">0</span>
 init[<span class="dv">190</span>, <span class="dv">10</span>] &lt;-<span class="st"> </span>init[<span class="dv">190</span>, <span class="dv">9</span>]
@@ -460,7 +460,7 @@ paper3.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/cobb2012fig4b.png" alt="Fig 4b from Cobb et al. (2012)" /><p class="caption">Fig 4b from Cobb et al. (2012)</p>
 </div>
-<p>Finally, I simulation the “Mostly Redwwod” scenario:</p>
+<p>Finally, I simulate the “Mostly Redwood” scenario:</p>
 <pre class="sourceCode r"><code class="sourceCode r">treeparms.df$S.init &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.08</span> *<span class="st"> </span>treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]/<span class="kw">sum</span>(treeparms.df$S.init[<span class="dv">1</span>:<span class="dv">4</span>]), 
     <span class="dv">0</span>, <span class="fl">0.69</span>)
 
