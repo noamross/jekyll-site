@@ -38,6 +38,7 @@ Sometimes D-RUG members put together useful resources and tutorials.
  - [Customizing your R setup with `.Rprofile`](http://www.noamross.net/blog/2012/11/2/rprofile.html)
  - [A guide to tools for collaboration with R](http://www.noamross.net/blog/2013/1/7/collaborating-with-r.html)
  - [Using the `plyr` package for data manipulation](http://www.noamross.net/blog/2013/1/17/steve-culman-on-plyr.html)
+ - [Using xts and ggplot for time-series data](http://www.noamross.net/blog/2013/2/6/xtsmarkdown.html)
 
 ### Web Resources
 
