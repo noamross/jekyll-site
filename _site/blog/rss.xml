@@ -4,13 +4,29 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-02-06T16:37:18-08:00</updated>
+ <updated>2013-02-13T16:53:26-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Mason Earles on interfacing R with the Forest Vegetation Simulator</title>
+   <link href="http://www.noamross.net/blog/2013/2/13/mason-earles-on-interfacing-r-with-fvs.html"/>
+   <updated>2013-02-13T15:06:42-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/2/13/mason-earles-on-interfacing-r-with-fvs</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://jmearles.net/&quot;&gt;Mason Earles&lt;/a&gt; gave a great presentation this week at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; about linking R with the &lt;a href=&quot;http://www.fs.fed.us/fmsc/fvs/&quot;&gt;Forest Vegetation Simulator (FVS)&lt;/a&gt;. FVS is a model developed by the US Forest Service to simulate forest growth over time. It’s written in FORTRAN and has been around since the 1970s.&lt;/p&gt;
+&lt;p&gt;FVS has recently gone open-source (its &lt;a href=&quot;http://code.google.com/p/open-fvs/&quot;&gt;repository is on google code&lt;/a&gt;), and now has &lt;a href=&quot;http://code.google.com/p/open-fvs/wiki/rFVS&quot;&gt;an alpha-level API which can be called from R&lt;/a&gt;. Mason showed us how he used the API along with some text manipulation functions to make the programs work together. Then he showed us how he used this to do some Monte Carlo simulations to look at the effects of stochastic fire and drought events.&lt;/p&gt;
+&lt;p&gt;Here are Mason’s slides:&lt;/p&gt;
+&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/16516293&quot; width=&quot;800&quot; height=&quot;600&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;</content>
+ </entry>
  
  <entry>
    <title>Ryan Peek on using xts and ggplot for time-series data</title>
@@ -1427,216 +1443,6 @@ plot(cars)
 &lt;p&gt;Meentemeyer, R. K., S. E. Haas, and T. Václavík. 2012. Landscape epidemiology of emerging infectious diseases in natural and human-altered ecosystems. Annual review of phytopathology 50:379–402.&lt;/p&gt;
 &lt;p&gt;Meentemeyer, R., D. Rizzo, W. Mark, and E. Lotz. 2004. Mapping the risk of establishment and spread of sudden oak death in California. Forest Ecology and Management 200:195–214.&lt;/p&gt;
 &lt;p&gt;Park, A. W., S. Gubbins, and C. A. Gilligan. 2002. Extinction times for closed epidemics: the effects of host spatial structure. Ecology Letters 5:747–755.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Qualifying Exam Reading List</title>
-   <link href="http://www.noamross.net/blog/2012/12/17/quals-reading-list.html"/>
-   <updated>2012-12-17T16:20:45-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2012/12/17/quals-reading-list</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;My qualifying exams are on March 5, 2013. 78 days away! I’ll be trying to blog my reading as well as the development of my proposal here and in a &lt;a href=&quot;http://github.com/noamross/openquals&quot;&gt;github repository&lt;/a&gt;. Today - my topics and reading list.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#forest-landscape-pathology&quot;&gt;Forest Landscape Pathology&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#landscape-level-disease-management&quot;&gt;Landscape-level disease management&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#sudden-oak-death&quot;&gt;Sudden Oak Death&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#model-construction-and-theory&quot;&gt;Model Construction and Theory&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#approaches-to-building-and-using-models&quot;&gt;Approaches to building and using models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#sir-epidemiological-models&quot;&gt;SIR epidemiological models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#population-structure-in-disease-dynamics&quot;&gt;Population structure in disease dynamics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#plant-specific-applications&quot;&gt;Plant-specific applications&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#confronting-models-with-data&quot;&gt;Confronting Models with Data&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#fitting-time-series-data-with-iterative-filtering&quot;&gt;Fitting time-series data with iterative filtering&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#model-comparison&quot;&gt;Model Comparison&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#natural-resource-economics&quot;&gt;Natural Resource Economics&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#forest-rotation-models&quot;&gt;Forest rotation models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#age-structured-harvest-models&quot;&gt;Age-structured harvest models&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#insect-control&quot;&gt;Insect control&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#references&quot;&gt;References&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr /&gt;
-&lt;h2 id=&quot;forest-landscape-pathology&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Forest Landscape Pathology&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Examiner: &lt;a href=&quot;http://ucanr.org/sites/rizzolab/&quot;&gt;David Rizzo&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;landscape-level-disease-management&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Landscape-level disease management&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Several papers on the landscape-scale approach to forest disease:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Gilbert and Hubbell (1996)&lt;/li&gt;
-&lt;li&gt;Hansen and Goheen (2000)&lt;/li&gt;
-&lt;li&gt;Holdenrieder et al. (2004)&lt;/li&gt;
-&lt;li&gt;Meentemeyer et al. (2012)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Case studies in forest from Tainter and Baker (1996). For each of these, read 1-2 refs to understand the relationships between tree-, stand-, and landscape-level processes, and how management approaches to the disease reflect these processes. How do the disease, ecosystem properties, and social context affect the efficacy of approaches such as resistance breeding, silvicultural treatment, eradication, spread-slowing?:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Root system decay&lt;/li&gt;
-&lt;li&gt;Needle Blight&lt;/li&gt;
-&lt;li&gt;White pine blister and fusifirm rust&lt;/li&gt;
-&lt;li&gt;Dwarf mistletoe&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Do the same for insects from our &lt;a href=&quot;https://docs.google.com/document/d/1S53Wo2L7wQ1TMp56U2_gG02usamiDKcGiFC_2dc80h8/edit&quot;&gt;forest outbreaks seminar&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Gypsy Moth&lt;/li&gt;
-&lt;li&gt;Bark beetles&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;sudden-oak-death&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Sudden Oak Death&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;In addition to ecological papers by &lt;a href=&quot;http://ucanr.org/sites/rizzolab/&quot;&gt;David Rizzo&lt;/a&gt; about Sudden Oak Death ecology, papers and reviews on the biology of the organism:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Rizzo et al. (2005)&lt;/li&gt;
-&lt;li&gt;Grünwald et al. (2012)&lt;/li&gt;
-&lt;li&gt;Swiecki and Bernhardt (2013)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;model-construction-and-theory&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Model Construction and Theory&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Examiner: &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/baskett/&quot;&gt;Marissa Baskett&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;approaches-to-building-and-using-models&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Approaches to building and using models&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Philosophical underpinnings of ecological models, how to go about designing your model, and interfacing with non-modeling fields&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Levins (1966)&lt;/li&gt;
-&lt;li&gt;Aber (1997)&lt;/li&gt;
-&lt;li&gt;May (2004)&lt;/li&gt;
-&lt;li&gt;Steve Pacala’s MacArthur Lecture (2011, unpublished)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;sir-epidemiological-models&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;SIR epidemiological models&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Basic epidemiological theory, the importance of &lt;em&gt;R&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt;, and its interpretation and derivation in increasingly complex model structures&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Kermack and Mckendrick (1927)&lt;/li&gt;
-&lt;li&gt;Kermack and McKendrick (1932)&lt;/li&gt;
-&lt;li&gt;Kermack and McKendrick (1933)&lt;/li&gt;
-&lt;li&gt;Anderson (1991)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;population-structure-in-disease-dynamics&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Population structure in disease dynamics&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;The role of intra- and inter-specific variation in disease transmission&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A general overview: Tuljapurkar et al. (2012)&lt;/li&gt;
-&lt;li&gt;The WAIFW framework and age-structured populations
-&lt;ul&gt;
-&lt;li&gt;Theoretical foundation: Anderson and May (1985)&lt;/li&gt;
-&lt;li&gt;Empirical examples: Dwyer et al. (1997), Metcalf et al. (2012)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Dynamics of pathogens with multiple hosts
-&lt;ul&gt;
-&lt;li&gt;Theoretical treatments Holt et al. (2003), Dobson (2004),&lt;/li&gt;
-&lt;li&gt;Empirical examples: Klepac et al. (2009), Craft and Hawthorne (2008)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Host spatial structure and clustering: Brown and Bolker (2004)
-&lt;ul&gt;
-&lt;li&gt;Other consequences of age structure on populations&lt;/li&gt;
-&lt;li&gt;Transient dynamics: Ezard et al. (2010), Caswell and Neubert (2005)&lt;/li&gt;
-&lt;li&gt;Modification of rate of spread: Bosch et al. (1990)&lt;/li&gt;
-&lt;li&gt;Applications: White et al. (2012)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For reference, see Diekman’s 2000 and 2012 book on mathematical epidemiology.&lt;/p&gt;
-&lt;h3 id=&quot;plant-specific-applications&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Plant-specific applications&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Models that inform my own. What is different, from a theoretical perspecticve, in plant/forest systems compared to animal systems?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Yellow dwarf virus: Borer et al. (2007), Moore et al. (2011), Seabloom et al. (2009)&lt;/li&gt;
-&lt;li&gt;Pollinator-borne anther smut: Ferrari et al. (2006)&lt;/li&gt;
-&lt;li&gt;Other examples from Gilligan and van den Bosch (2008)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;confronting-models-with-data&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Confronting Models with Data&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Examiner: &lt;a href=&quot;http://www.plantsciences.ucdavis.edu/faculty/latimer/index.htm&quot;&gt;Andrew Latimer&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;fitting-time-series-data-with-iterative-filtering&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Fitting time-series data with iterative filtering&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;How to estimate likelihood and maximum-likelihood parameters for dynamic ecological models, using multivariate time-series data?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Gimenez et al. (2012)&lt;/li&gt;
-&lt;li&gt;Arulampalam et al. (2002)&lt;/li&gt;
-&lt;li&gt;Ionides et al. (2006)&lt;/li&gt;
-&lt;li&gt;He et al. (2010)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;model-comparison&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Model Comparison&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;How do we compare and/or average models to select the best one for purposes of prediction and illuminating mechanisms?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;TODO&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;natural-resource-economics&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Natural Resource Economics&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Examiner: &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/Sanchirico/Index.htm&quot;&gt;Jim Sanchirico&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;forest-rotation-models&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Forest rotation models&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;Optimal management of timber forests under rotation, with ecosystem service values, and under stochastic risk. How do traditional models of fire apply to disease?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Forest rotation: Faustmann (1849) and Reed (1986)&lt;/li&gt;
-&lt;li&gt;Stochastic fire risk: Reed (1984)&lt;/li&gt;
-&lt;li&gt;Ecosystem service value: Hartman (1976)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;age-structured-harvest-models&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Age-structured harvest models&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;What are the differences and relative advantages of stand- and invidual-based forestry models?&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Tahvonen (2004); Tahvonen (2009); Tahvonen2011&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;insect-control&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Insect control&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;How do recent models of insect control apply to airborne diseases like SOD?&lt;/p&gt;
-&lt;p&gt;Gypsy Moth:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Bogich et al. (2008)&lt;/li&gt;
-&lt;li&gt;Blackwood et al. (2012)&lt;/li&gt;
-&lt;li&gt;Epanchin-Niell et al. (2012)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Mountain Pine Beetle:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Sims et al. (2010)&lt;/li&gt;
-&lt;li&gt;Sims et al. (2011)&lt;/li&gt;
-&lt;li&gt;Aadland et al. (2012)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Aadland, D., C. Sims, and D. Finnoff. 2012. Spatial Dynamics of Optimal Management in Bioeconomic Systems.&lt;/p&gt;
-&lt;p&gt;Aber, J. D. 1997. Why Don’t We Believe the Models?. Bulletin of the Ecological Society of America 78:232–233.&lt;/p&gt;
-&lt;p&gt;Anderson, R. M. 1991. Discussion: the Kermack-McKendrick epidemic threshold theorem. Bulletin of mathematical biology 53:121–134.&lt;/p&gt;
-&lt;p&gt;Anderson, R. M., and R. M. May. 1985. Age-related changes in the rate of disease transmission: implications for the design of vaccination programmes. J. Hyg. Camb.&lt;/p&gt;
-&lt;p&gt;Arulampalam, M. S., S. Maskell, N. Gordon, and T. Clapp. 2002. A tutorial on particle filters for online nonlinear/non-Gaussian Bayesian tracking. IEEE Transactions on Signal Processing 50:174–188.&lt;/p&gt;
-&lt;p&gt;Blackwood, J. C., L. Berec, T. Yamanaka, R. S. Epanchin-Niell, A. Hastings, and A. M. Liebhold. 2012. Bioeconomic synergy between tactics for insect eradication in the presence of Allee effects.. Proceedings. Biological sciences / The Royal Society 279:2807–2815.&lt;/p&gt;
-&lt;p&gt;Bogich, T. L., A. M. Liebhold, and K. Shea. 2008. To sample or eradicate? A cost minimization model for monitoring and managing an invasive species. Journal of Applied Ecology 45:1134–1142.&lt;/p&gt;
-&lt;p&gt;Borer, E. T., P. R. Hosseini, E. W. Seabloom, and A. P. Dobson. 2007. Pathogen-induced reversal of native dominance in a grassland community. Proceedings of the National Academy of Sciences of the United States of America 104:5473–8.&lt;/p&gt;
-&lt;p&gt;Bosch, F., J. A. J. Metz, and O. Diekmann. 1990. The velocity of spatial population expansion. Journal of Mathematical Biology:529–565.&lt;/p&gt;
-&lt;p&gt;Brown, D. H., and B. M. Bolker. 2004. The effects of disease dispersal and host clustering on the epidemic threshold in plants. Bulletin of mathematical biology 66:341–71.&lt;/p&gt;
-&lt;p&gt;Caswell, H., and M. G. Neubert. 2005. Reactivity and transient dynamics of discrete-time ecological systems. Journal of Difference Equations and Applications 11:295–310.&lt;/p&gt;
-&lt;p&gt;Craft, M. E., and P. L. Hawthorne. 2008. Dynamics of a multihost pathogen in a carnivore community. Journal of Animal Ecology 77:1257–1264.&lt;/p&gt;
-&lt;p&gt;Dobson, A. 2004. Population dynamics of pathogens with multiple host species.. The American naturalist 164 Suppl :64.&lt;/p&gt;
-&lt;p&gt;Dwyer, G., J. S. Elkinton, and J. P. Buonaccorsi. 1997. Host Heterogeneity in Susceptibility and Disease Dynamics : Tests of a Mathematical Model. The American Naturalist 150:685–707.&lt;/p&gt;
-&lt;p&gt;Epanchin-Niell, R. S., R. G. Haight, L. Berec, J. M. Kean, and A. M. Liebhold. 2012. Optimal surveillance and eradication of invasive species in heterogeneous landscapes.. Ecology letters 15:803–12.&lt;/p&gt;
-&lt;p&gt;Ezard, T. H. G., J. M. Bullock, H. J. Dalgleish, A. Millon, F. Pelletier, A. Ozgul, and D. N. Koons. 2010. Matrix models for a changeable world: the importance of transient dynamics in population management. Journal of Applied Ecology 47:515–523.&lt;/p&gt;
-&lt;p&gt;Faustmann, M. 1849. Berechmmg des Werthes, welchen Waldboden sowie nach nicht haubare Holzbestande fur die Weldwirtschaft besitzen. Allgemeine Font und Jagd Zeitung 25:441–445.&lt;/p&gt;
-&lt;p&gt;Ferrari, M. J., O. N. Bjø rnstad, J. L. Partain, and J. Antonovics. 2006. A Gravity Model for the Spread of a Pollinator-Borne Plant Pathogen. The American Naturalist 168.&lt;/p&gt;
-&lt;p&gt;Gilbert, G. S., and S. P. Hubbell. 1996. Diseases and the Tropical of Conservation Forests. BioScience 46:98–106.&lt;/p&gt;
-&lt;p&gt;Gilligan, C. A., and F. van den Bosch. 2008. Epidemiological models for invasion and persistence of pathogens.. Annual review of phytopathology 46:385–418.&lt;/p&gt;
-&lt;p&gt;Gimenez, O., J. D. Lebreton, J. M. Gaillard, R. Choquet, and R. Pradel. 2012. Estimating demographic parameters using hidden process dynamic models. Theoretical Population Biology 82:307–316.&lt;/p&gt;
-&lt;p&gt;Grünwald, N. J., M. Garbelotto, E. M. Goss, K. Heungens, and S. Prospero. 2012. Emergence of the sudden oak death pathogen Phytophthora ramorum. Trends in microbiology 20:131–8.&lt;/p&gt;
-&lt;p&gt;Hansen, E. M., and E. M. Goheen. 2000. Phellinus Weirii and other Native Root Pathogens as Determinants of Forest Structure and Process in Western North America. Annual review of phytopathology 38:515–539.&lt;/p&gt;
-&lt;p&gt;Hartman, R. 1976. The Harvesting Decision when a Standing Forest has Value. Economic Inquiry 14:52–58.&lt;/p&gt;
-&lt;p&gt;He, D., E. L. Ionides, and A. a King. 2010. Plug-and-play inference for disease dynamics: measles in large and small populations as a case study. Journal of the Royal Society, Interface / the Royal Society 7:271–83.&lt;/p&gt;
-&lt;p&gt;Holdenrieder, O., M. Pautasso, P. J. Weisberg, and D. Lonsdale. 2004. Tree diseases and landscape processes: the challenge of landscape pathology.. Trends in ecology &amp;amp; evolution (Personal edition) 19:446–52.&lt;/p&gt;
-&lt;p&gt;Holt, R. D., A. P. Dobson, M. Begon, R. G. Bowers, and E. M. Schauber. 2003. Parasite establishment in host communities. Ecology Letters 6:837–842.&lt;/p&gt;
-&lt;p&gt;Ionides, E. L., C. Bretó, and a a King. 2006. Inference for nonlinear dynamical systems. Proceedings of the National Academy of Sciences of the United States of America 103:18438–43.&lt;/p&gt;
-&lt;p&gt;Kermack, W. O., and A. G. McKendrick. 1932. Contributions to the mathematical theory of epidemics. II. The problem of endemicity. Proceedings of the Royal society of London. Series A 138:55.&lt;/p&gt;
-&lt;p&gt;Kermack, W. O., and A. G. McKendrick. 1933. Contributions to the mathematical theory of epidemics. III. Further studies of the problem of endemicity. Proceedings of the Royal Society of London. Series A 141:94.&lt;/p&gt;
-&lt;p&gt;Kermack, W. O., and A. G. Mckendrick. 1927. A Contribution to the Mathematical Theory of Epidemics. Proceedings of the Royal Society of London. Series A: Mathematical and Physical Sciences 115:700–721.&lt;/p&gt;
-&lt;p&gt;Klepac, P., L. W. Pomeroy, O. N. Bjø rnstad, T. Kuiken, A. D. M. E. Osterhaus, and J. M. Rijks. 2009. Stage-structured transmission of phocine distemper virus in the Dutch 2002 outbreak. Proceedings. Biological sciences / The Royal Society 276:2469–76.&lt;/p&gt;
-&lt;p&gt;Levins, R. 1966. The Strategy of Model Building in Population Biology 54:421–431.&lt;/p&gt;
-&lt;p&gt;May, R. M. 2004. Uses and abuses of mathematics in biology.. Science (New York, N.Y.) 303:790–3.&lt;/p&gt;
-&lt;p&gt;Meentemeyer, R. K., S. E. Haas, and T. Václavík. 2012. Landscape epidemiology of emerging infectious diseases in natural and human-altered ecosystems. Annual review of phytopathology 50:379–402.&lt;/p&gt;
-&lt;p&gt;Metcalf, C. J. E., J. Lessler, P. Klepac, A. Morice, B. T. Grenfell, and O. N. Bjø rnstad. 2012. Structured models of infectious disease: Inference with discrete data. Theoretical population biology 82:275–282.&lt;/p&gt;
-&lt;p&gt;Moore, S. M., C. a Manore, V. a Bokil, E. T. Borer, and P. R. Hosseini. 2011. Spatiotemporal model of barley and cereal yellow dwarf virus transmission dynamics with seasonality and plant competition.. Bulletin of mathematical biology 73:2707–30.&lt;/p&gt;
-&lt;p&gt;Reed, W. J. 1984. The effects of the risk of fire on the optimal rotation of a forest. Journal of Environmental Economics and Management 11:180–190.&lt;/p&gt;
-&lt;p&gt;Reed, W. J. 1986. Optimal harvesting models in forest management - A survey. Natural Resource Modeling.&lt;/p&gt;
-&lt;p&gt;Rizzo, D. M., M. Garbelotto, and E. M. Hansen. 2005. Phytophthora ramorum: integrative research and management of an emerging pathogen in California and Oregon forests. Annual review of phytopathology 43:309–35.&lt;/p&gt;
-&lt;p&gt;Seabloom, E. W., P. R. Hosseini, A. G. Power, and E. T. Borer. 2009. Diversity and composition of viral communities: coinfection of barley and cereal yellow dwarf viruses in California grasslands.. The American naturalist 173:79.&lt;/p&gt;
-&lt;p&gt;Sims, C., D. Aadland, and D. Finnoff. 2010. A dynamic bioeconomic analysis of mountain pine beetle epidemics. Journal of Economic Dynamics and Control 34:2407–2419.&lt;/p&gt;
-&lt;p&gt;Sims, C., D. Aadland, and D. Finnoff. 2011. Mountain-pine beetle outbreaks and shifting social preferences for ecosystem services.&lt;/p&gt;
-&lt;p&gt;Swiecki, T. J., and E. A. Bernhardt. 2013. Managing sudden oak death in California: before, during, and after Phytophthora ramorum invasion. . U.S. Department of Agriculture; Forest Service; Pacific Southwest Research Station.&lt;/p&gt;
-&lt;p&gt;Tahvonen, O. 2004. Optimal Harvesting of Forest Age Classes: A Survey of Some Recent Results. Mathematical Population Studies 11:205–232.&lt;/p&gt;
-&lt;p&gt;Tahvonen, O. 2009. Optimal choice between even- and uneven-aged forestry. Natural Resource Modeling 22:289–321.&lt;/p&gt;
-&lt;p&gt;Tainter, F. H., and F. A. Baker. 1996. Principles of Forest Pathology. . John Wiley &amp;amp; Sons.&lt;/p&gt;
-&lt;p&gt;Tuljapurkar, S., T. Coulson, and U. K. Steiner. 2012. Structured population models: Introduction. Theoretical population biology 82:241–3.&lt;/p&gt;
-&lt;p&gt;White, J. W., L. W. Botsford, A. Hastings, M. L. Baskett, D. M. Kaplan, and L. a.K Barnett. 2012. Transient responses of fished populations to marine reserve establishment. Conservation Letters 0.&lt;/p&gt;</content>
  </entry>
  
  

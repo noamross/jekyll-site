@@ -4,13 +4,29 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-02-06T16:37:18-08:00</updated>
+ <updated>2013-02-13T16:53:26-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Mason Earles on interfacing R with the Forest Vegetation Simulator</title>
+   <link href="http://www.noamross.net/blog/2013/2/13/mason-earles-on-interfacing-r-with-fvs.html"/>
+   <updated>2013-02-13T15:06:42-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/2/13/mason-earles-on-interfacing-r-with-fvs</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://jmearles.net/&quot;&gt;Mason Earles&lt;/a&gt; gave a great presentation this week at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; about linking R with the &lt;a href=&quot;http://www.fs.fed.us/fmsc/fvs/&quot;&gt;Forest Vegetation Simulator (FVS)&lt;/a&gt;. FVS is a model developed by the US Forest Service to simulate forest growth over time. It’s written in FORTRAN and has been around since the 1970s.&lt;/p&gt;
+&lt;p&gt;FVS has recently gone open-source (its &lt;a href=&quot;http://code.google.com/p/open-fvs/&quot;&gt;repository is on google code&lt;/a&gt;), and now has &lt;a href=&quot;http://code.google.com/p/open-fvs/wiki/rFVS&quot;&gt;an alpha-level API which can be called from R&lt;/a&gt;. Mason showed us how he used the API along with some text manipulation functions to make the programs work together. Then he showed us how he used this to do some Monte Carlo simulations to look at the effects of stochastic fire and drought events.&lt;/p&gt;
+&lt;p&gt;Here are Mason’s slides:&lt;/p&gt;
+&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/16516293&quot; width=&quot;800&quot; height=&quot;600&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;</content>
+ </entry>
  
  <entry>
    <title>Ryan Peek on using xts and ggplot for time-series data</title>
@@ -2202,23 +2218,6 @@ Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5
 
 &lt;/body&gt;
 &lt;/html&gt;</content>
- </entry>
- 
- <entry>
-   <title>Stella Copeland's Intro to Mixed Models in R</title>
-   <link href="http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html"/>
-   <updated>2012-10-19T10:26:56-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;In D-RUG today, &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/Harrison/people/stella/copeland.html&quot;&gt;Stella Copeland&lt;/a&gt; gave a quick introduction to mixed models in R. Here’s the script that she presented:&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/3919839.js?file=Mixed models R code - 10192012&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Get the data file for this script &lt;a href=&quot;https://gist.github.com/3919839#file_mixed_model_ex_data&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Stella also recommends &lt;a href=&quot;http://dx.doi.org/10.1016/j.tree.2008.10.008&quot;&gt;this paper&lt;/a&gt; by &lt;a href=&quot;http://www.math.mcmaster.ca/~bolker/&quot;&gt;Ben Bolker&lt;/a&gt; as a quick introduction to the topic.&lt;/p&gt;</content>
  </entry>
  
  
