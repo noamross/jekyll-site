@@ -607,5 +607,8 @@ Looks like a pretty good fit. Not too bad for the small size of the data
 set.
 
 And that's all I got. Hopefully you will find it helpful. Let me know if
-there is anything else I have forgotton or done wrong. \~ Rosemary
+there is anything else I have forgotton or done wrong.
+
+\~ Rosemary
+
 rosehartman@gmail.com

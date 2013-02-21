@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-02-20T17:18:33-08:00</updated>
+ <updated>2013-02-20T17:19:48-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -468,7 +468,9 @@ m11.cv &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&q
 ## Data: predict(m.ave, backtransform = TRUE) in 24 controls (fishlakes$treatment 0) &amp;lt; 18 cases (fishlakes$treatment 1).
 ## Area under the curve: 0.949&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Looks like a pretty good fit. Not too bad for the small size of the data set.&lt;/p&gt;
-&lt;p&gt;And that’s all I got. Hopefully you will find it helpful. Let me know if there is anything else I have forgotton or done wrong. ~ Rosemary rosehartman@gmail.com&lt;/p&gt;</content>
+&lt;p&gt;And that’s all I got. Hopefully you will find it helpful. Let me know if there is anything else I have forgotton or done wrong.&lt;/p&gt;
+&lt;p&gt;~ Rosemary&lt;/p&gt;
+&lt;p&gt;rosehartman@gmail.com&lt;/p&gt;</content>
  </entry>
  
  <entry>
