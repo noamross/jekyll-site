@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-02-20T17:21:41-08:00</updated>
+ <updated>2013-02-20T17:25:33-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;At &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;D-RUG&lt;/a&gt; this week &lt;a href=&quot;rosehartman@gmail.com&quot;&gt;Rosemary Hartman&lt;/a&gt; presented a really useful case study in model selection, based on her work on frog habitat. Here is her code run through ‘knitr’&lt;/em&gt;&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;At &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;D-RUG&lt;/a&gt; this week &lt;a href=&quot;rosehartman@gmail.com&quot;&gt;Rosemary Hartman&lt;/a&gt; presented a really useful case study in model selection, based on her work on frog habitat. Here is her code run through ‘knitr’. Original code and data are posted &lt;a href=&quot;https://gist.github.com/noamross/5001172&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;(yes, I am just doing this for the flying monkey)&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Editor’s note: we’re giving away flying monkey dolls from our sponsor, &lt;a href=&quot;revolutionanalytics.com&quot;&gt;Revolution Analytics&lt;/a&gt;, to all our D-RUG presenters.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;So, let’s say you want to find out where things are and why they are there. But there are a lot of reasons someone might be somewhere&lt;/p&gt;

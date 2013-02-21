@@ -10,7 +10,8 @@ layout: post
 *At [D-RUG](http://www.noamross.net/davis-r-users-group.html) this week
 [Rosemary Hartman](rosehartman@gmail.com) presented a really useful case
 study in model selection, based on her work on frog habitat. Here is her
-code run through 'knitr'*
+code run through 'knitr'. Original code and data are posted
+[here](https://gist.github.com/noamross/5001172).*
 
 (yes, I am just doing this for the flying monkey)
 
