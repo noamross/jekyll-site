@@ -4,13 +4,472 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-02-13T16:53:26-08:00</updated>
+ <updated>2013-02-20T17:18:33-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Model Selection and Multi-Model Inference</title>
+   <link href="http://www.noamross.net/blog/2013/2/20/model-selection-drug.html"/>
+   <updated>2013-02-20T17:14:43-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/2/20/model-selection-drug</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;At &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;D-RUG&lt;/a&gt; this week Rosemary Hartman presented a really useful case study in model selection, based on her work on frog habitat. Here is her code run through ‘knitr’&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;(yes, I am just doing this for the flying monkey)&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Editor’s note: we’re giving away flying monkey dolls from our sponsor, &lt;a href=&quot;revolutionanalytics.com&quot;&gt;Revolution Analytics&lt;/a&gt;, to all our D-RUG presenters.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So, let’s say you want to find out where things are and why they are there. But there are a lot of reasons someone might be somewhere&lt;/p&gt;
+&lt;p&gt;Let’s say these things are fishermen, And we aren’t sure what the reasons are yet.&lt;/p&gt;
+&lt;p&gt;Start by making some good guesses. Maybe they all go to the big lakes. Maybe they all go to the lakes that CDFW stocks with fish. Maybe they go to the lakes with lots of frogs (not likely, but hey, why not try?) Once you have all your guesses, you need to figure out which one is right. There are two basic methods to use (or two that I have been exploring)&lt;/p&gt;
+&lt;p&gt;Method #1: The kitchen sink&lt;/p&gt;
+&lt;p&gt;load package “glmulti”&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(glmulti)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;load the data&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;lakes.df2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;read.csv&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;lakes.df2.csv&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;create a model that has all the predictor variables you would like to test&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;global.model &amp;lt;-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;# number of fishermen&lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;                       &lt;/span&gt;stocked+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;# CDFW fish stocking y/n&lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;                       &lt;/span&gt;cows+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;# cattle grazing in area y/n&lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;                       &lt;/span&gt;herp.rich+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;# amphibian species richness&lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;                       &lt;/span&gt;fish.rich+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;# fish species richness&lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;                       &lt;/span&gt;visitors+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;# total number of visitors&lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;                       &lt;/span&gt;logsize, &lt;span class=&quot;co&quot;&gt;# log of the area&lt;/span&gt;
+                     &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt;lakes.df2) &lt;span class=&quot;co&quot;&gt;# data frame we got this from&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we will use the “glmulti” function to find the best model; this goes through every possible model and finds the best one.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fish.model &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glmulti&lt;/span&gt;(global.model, &lt;span class=&quot;co&quot;&gt;# use the model with built as a starting point&lt;/span&gt;
+                      &lt;span class=&quot;dt&quot;&gt;level =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;,  &lt;span class=&quot;co&quot;&gt;#  just look at main effects&lt;/span&gt;
+                      &lt;span class=&quot;dt&quot;&gt;crit=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;aicc&amp;quot;&lt;/span&gt;) &lt;span class=&quot;co&quot;&gt;# use AICc because it works better than AIC for small sample sizes&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Initialization...
+## TASK: Exhaustive screening of candidate set.
+## Fitting...
+## 
+## After 50 models:
+## Best model: fish~1+cows+herp.rich+visitors+logsize
+## Crit= 201.820969266156
+## Mean crit= 355.848076682524&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-4.png&quot; /&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Completed.&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
+&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fish.model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## $name
+## [1] &amp;quot;glmulti.analysis&amp;quot;
+## 
+## $method
+## [1] &amp;quot;h&amp;quot;
+## 
+## $fitting
+## [1] &amp;quot;glm&amp;quot;
+## 
+## $crit
+## [1] &amp;quot;aicc&amp;quot;
+## 
+## $level
+## [1] 1
+## 
+## $marginality
+## [1] FALSE
+## 
+## $confsetsize
+## [1] 100
+## 
+## $bestic
+## [1] 201.8
+## 
+## $icvalues
+##  [1] 201.8 203.4 204.7 205.0 206.4 206.5 206.5 208.3 225.4 227.7 230.6
+## [12] 231.2 232.7 233.2 233.5 235.1 236.0 236.4 238.2 238.3 238.4 238.8
+## [23] 240.7 240.9 258.2 259.3 260.2 261.0 261.1 261.7 262.0 262.6 265.1
+## [34] 267.6 268.1 270.5 276.0 277.4 278.3 279.8 310.2 311.5 313.6 314.0
+## [45] 315.4 316.2 319.0 319.7 500.6 502.0 502.5 503.0 503.8 504.8 511.3
+## [56] 513.2 599.7 601.4 610.5 614.9 615.3 624.1 629.2 638.6
+## 
+## $bestmodel
+## [1] &amp;quot;fish ~ 1 + cows + herp.rich + visitors + logsize&amp;quot;
+## 
+## $modelweights
+##  [1] 4.485e-01 2.024e-01 1.075e-01 9.285e-02 4.464e-02 4.343e-02 4.310e-02
+##  [8] 1.767e-02 3.399e-06 1.065e-06 2.477e-07 1.895e-07 8.849e-08 6.754e-08
+## [15] 6.011e-08 2.630e-08 1.704e-08 1.404e-08 5.716e-09 5.287e-09 4.990e-09
+## [22] 4.134e-09 1.618e-09 1.436e-09 2.540e-13 1.465e-13 9.334e-14 6.306e-14
+## [29] 5.969e-14 4.361e-14 3.790e-14 2.885e-14 8.119e-15 2.304e-15 1.837e-15
+## [36] 5.540e-16 3.542e-17 1.739e-17 1.096e-17 5.151e-18 1.300e-24 7.003e-25
+## [43] 2.397e-25 1.957e-25 9.964e-26 6.413e-26 1.594e-26 1.123e-26 5.852e-66
+## [50] 2.976e-66 2.260e-66 1.801e-66 1.220e-66 7.203e-67 2.847e-68 1.069e-68
+## [57] 1.836e-87 7.713e-88 8.222e-90 9.195e-91 7.394e-91 9.070e-93 7.028e-94
+## [64] 6.396e-96
+## 
+## $includeobjects
+## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That showed us the best model, now lets look at some of the others&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;weightable&lt;/span&gt;(fish.model)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##                                                                     model
+## 1                        fish ~ 1 + cows + herp.rich + visitors + logsize
+## 2            fish ~ 1 + cows + herp.rich + fish.rich + visitors + logsize
+## 3              fish ~ 1 + stocked + cows + herp.rich + visitors + logsize
+## 4                                    fish ~ 1 + cows + visitors + logsize
+## 5                        fish ~ 1 + cows + fish.rich + visitors + logsize
+## 6                          fish ~ 1 + stocked + cows + visitors + logsize
+## 7  fish ~ 1 + stocked + cows + herp.rich + fish.rich + visitors + logsize
+## 8              fish ~ 1 + stocked + cows + fish.rich + visitors + logsize
+## 9                         fish ~ 1 + stocked + cows + herp.rich + logsize
+## 10            fish ~ 1 + stocked + cows + herp.rich + fish.rich + logsize
+## 11                                  fish ~ 1 + cows + herp.rich + logsize
+## 12                                    fish ~ 1 + stocked + cows + logsize
+## 13                                              fish ~ 1 + cows + logsize
+## 14                      fish ~ 1 + cows + herp.rich + fish.rich + logsize
+## 15                        fish ~ 1 + stocked + cows + fish.rich + logsize
+## 16                                  fish ~ 1 + cows + fish.rich + logsize
+## 17                              fish ~ 1 + herp.rich + visitors + logsize
+## 18                                          fish ~ 1 + visitors + logsize
+## 19                  fish ~ 1 + herp.rich + fish.rich + visitors + logsize
+## 20                              fish ~ 1 + fish.rich + visitors + logsize
+## 21                    fish ~ 1 + stocked + herp.rich + visitors + logsize
+## 22                                fish ~ 1 + stocked + visitors + logsize
+## 23        fish ~ 1 + stocked + herp.rich + fish.rich + visitors + logsize
+## 24                    fish ~ 1 + stocked + fish.rich + visitors + logsize
+## 25                     fish ~ 1 + cows + herp.rich + fish.rich + visitors
+## 26                                 fish ~ 1 + cows + herp.rich + visitors
+## 27           fish ~ 1 + stocked + cows + herp.rich + fish.rich + visitors
+## 28                                 fish ~ 1 + cows + fish.rich + visitors
+## 29                       fish ~ 1 + stocked + cows + herp.rich + visitors
+## 30                                             fish ~ 1 + cows + visitors
+## 31                       fish ~ 1 + stocked + cows + fish.rich + visitors
+## 32                                   fish ~ 1 + stocked + cows + visitors
+## 33                               fish ~ 1 + stocked + herp.rich + logsize
+## 34                   fish ~ 1 + stocked + herp.rich + fish.rich + logsize
+## 35                                           fish ~ 1 + stocked + logsize
+## 36                               fish ~ 1 + stocked + fish.rich + logsize
+## 37                                                     fish ~ 1 + logsize
+## 38                                         fish ~ 1 + herp.rich + logsize
+## 39                                         fish ~ 1 + fish.rich + logsize
+## 40                             fish ~ 1 + herp.rich + fish.rich + logsize
+## 41                      fish ~ 1 + stocked + cows + herp.rich + fish.rich
+## 42                                  fish ~ 1 + stocked + cows + fish.rich
+## 43                                            fish ~ 1 + cows + fish.rich
+## 44                                fish ~ 1 + cows + herp.rich + fish.rich
+## 45                                  fish ~ 1 + stocked + cows + herp.rich
+## 46                                              fish ~ 1 + stocked + cows
+## 47                                                        fish ~ 1 + cows
+## 48                                            fish ~ 1 + cows + herp.rich
+## 49                            fish ~ 1 + herp.rich + fish.rich + visitors
+## 50                  fish ~ 1 + stocked + herp.rich + fish.rich + visitors
+## 51                                        fish ~ 1 + herp.rich + visitors
+## 52                                        fish ~ 1 + fish.rich + visitors
+## 53                              fish ~ 1 + stocked + herp.rich + visitors
+## 54                              fish ~ 1 + stocked + fish.rich + visitors
+## 55                                                    fish ~ 1 + visitors
+## 56                                          fish ~ 1 + stocked + visitors
+## 57                             fish ~ 1 + stocked + herp.rich + fish.rich
+## 58                                         fish ~ 1 + stocked + fish.rich
+## 59                                         fish ~ 1 + stocked + herp.rich
+## 60                                                   fish ~ 1 + fish.rich
+## 61                                       fish ~ 1 + herp.rich + fish.rich
+## 62                                                     fish ~ 1 + stocked
+## 63                                                   fish ~ 1 + herp.rich
+## 64                                                               fish ~ 1
+##     aicc   weights
+## 1  201.8 4.485e-01
+## 2  203.4 2.024e-01
+## 3  204.7 1.075e-01
+## 4  205.0 9.285e-02
+## 5  206.4 4.464e-02
+## 6  206.5 4.343e-02
+## 7  206.5 4.310e-02
+## 8  208.3 1.767e-02
+## 9  225.4 3.399e-06
+## 10 227.7 1.065e-06
+## 11 230.6 2.477e-07
+## 12 231.2 1.895e-07
+## 13 232.7 8.849e-08
+## 14 233.2 6.754e-08
+## 15 233.5 6.011e-08
+## 16 235.1 2.630e-08
+## 17 236.0 1.704e-08
+## 18 236.4 1.404e-08
+## 19 238.2 5.716e-09
+## 20 238.3 5.287e-09
+## 21 238.4 4.990e-09
+## 22 238.8 4.134e-09
+## 23 240.7 1.618e-09
+## 24 240.9 1.436e-09
+## 25 258.2 2.540e-13
+## 26 259.3 1.465e-13
+## 27 260.2 9.334e-14
+## 28 261.0 6.306e-14
+## 29 261.1 5.969e-14
+## 30 261.7 4.361e-14
+## 31 262.0 3.790e-14
+## 32 262.6 2.885e-14
+## 33 265.1 8.119e-15
+## 34 267.6 2.304e-15
+## 35 268.1 1.837e-15
+## 36 270.5 5.540e-16
+## 37 276.0 3.542e-17
+## 38 277.4 1.739e-17
+## 39 278.3 1.096e-17
+## 40 279.8 5.151e-18
+## 41 310.2 1.300e-24
+## 42 311.5 7.003e-25
+## 43 313.6 2.397e-25
+## 44 314.0 1.957e-25
+## 45 315.4 9.964e-26
+## 46 316.2 6.413e-26
+## 47 319.0 1.594e-26
+## 48 319.7 1.123e-26
+## 49 500.6 5.852e-66
+## 50 502.0 2.976e-66
+## 51 502.5 2.260e-66
+## 52 503.0 1.801e-66
+## 53 503.8 1.220e-66
+## 54 504.8 7.203e-67
+## 55 511.3 2.847e-68
+## 56 513.2 1.069e-68
+## 57 599.7 1.836e-87
+## 58 601.4 7.713e-88
+## 59 610.5 8.222e-90
+## 60 614.9 9.195e-91
+## 61 615.3 7.394e-91
+## 62 624.1 9.070e-93
+## 63 629.2 7.028e-94
+## 64 638.6 6.396e-96&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So this is the best model&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;herp.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)
+&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(f)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
+## Call:
+## glm(formula = fish ~ 1 + cows + herp.rich + visitors + logsize, 
+##     data = lakes.df2)
+## 
+## Deviance Residuals: 
+##    Min      1Q  Median      3Q     Max  
+## -4.744  -1.350  -0.243   0.986  10.483  
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept)  -0.5262     0.8914   -0.59    0.559    
+## cowsy        -1.5214     1.2088   -1.26    0.217    
+## herp.rich     0.7614     0.3219    2.37    0.024 *  
+## visitors      0.1799     0.0277    6.49  1.8e-07 ***
+## logsize       1.0498     1.1590    0.91    0.371    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
+## 
+## (Dispersion parameter for gaussian family taken to be 7.225)
+## 
+##     Null deviance: 791.60  on 39  degrees of freedom
+## Residual deviance: 252.87  on 35  degrees of freedom
+##   (79 observations deleted due to missingness)
+## AIC: 199.3
+## 
+## Number of Fisher Scoring iterations: 2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I hate trying to interpret models based on tables of coeficients. Let’s look at some graphs&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(visreg)
+&lt;span class=&quot;kw&quot;&gt;visreg&lt;/span&gt;(f)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-71.png&quot; /&gt; &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-72.png&quot; /&gt; &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-73.png&quot; /&gt; &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-74.png&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;But according to theory, models with AIC within two points of each other are basically equal. So what about the other models? Should we totally throw them out? Looking at the table of aicc weights, there is a pretty big jump between model 8 and model 9. So lets try averaging the top 8 models if we want to use this to make predictions, evaluate variable importance, etc.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(MuMIn)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;run the top 8 models&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;f2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;herp.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;fish.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)
+f3 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;stocked +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;herp.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)
+f4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)
+f5 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;fish.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)
+f6 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;stocked +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)
+f7 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;stocked +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;herp.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;fish.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)
+f8 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(fish ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;stocked +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;cows +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;fish.rich +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;visitors +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logsize, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; lakes.df2)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;average the models together&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;f.ave &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;model.avg&lt;/span&gt;(f, f2, f3, f4, f5, f6, f7, f8)
+&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(f.ave)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
+## Call:
+## model.avg.default(object = f, f2, f3, f4, f5, f6, f7, f8)
+## 
+## Component models:
+##        df logLik  AICc Delta Weight
+## 1346    6 -93.64 201.8  0.00   0.45
+## 12346   7 -92.96 203.4  1.59   0.20
+## 13456   7 -93.59 204.7  2.86   0.11
+## 146     5 -96.60 205.0  3.15   0.09
+## 1246    6 -95.95 206.4  4.61   0.04
+## 1456    6 -95.97 206.5  4.67   0.04
+## 123456  8 -92.93 206.5  4.68   0.04
+## 12456   7 -95.39 208.3  6.47   0.02
+## 
+## Term codes:
+##      cows fish.rich herp.rich   logsize   stocked  visitors 
+##         1         2         3         4         5         6 
+## 
+## Model-averaged coefficients: 
+##             Estimate Std. Error Adjusted SE z value Pr(&amp;gt;|z|)    
+## (Intercept)  -0.5422     1.2363      1.2673    0.43    0.669    
+## cowsy        -1.3751     1.2596      1.3019    1.06    0.291    
+## herp.rich     0.7523     0.3274      0.3393    2.22    0.027 *  
+## visitors      0.1841     0.0305      0.0316    5.83   &amp;lt;2e-16 ***
+## logsize       0.7763     1.2689      1.3119    0.59    0.554    
+## fish.rich     0.7784     0.7245      0.7512    1.04    0.300    
+## stockedy     -0.7316     1.6009      1.6539    0.44    0.658    
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
+## 
+## Full model-averaged coefficients (with shrinkage): 
+##  (Intercept)  cowsy herp.rich visitors logsize fish.rich stockedy
+##       -0.542 -1.375     0.603    0.184   0.776     0.240   -0.155
+## 
+## Relative variable importance:
+##      cows   logsize  visitors herp.rich fish.rich   stocked 
+##      1.00      1.00      1.00      0.80      0.31      0.21&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we know the relative variable importance, all of the avereged coefficents, etc, and can use the “predict” funciton to predict how many fishermen will be at the next lake. Graphing these are more difficult, so we’ll skip this for now. Ask me later if you really want to know.&lt;/p&gt;
+&lt;p&gt;Model selection method #2: Use your brain We often can discard (or choose) some models a priori based on our knowlege of the system. It’s usually better to do it this way if you have several hundered possible combination of variables, or want to put in some interaction terms. I used this method for my frog data. load package bbmle&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(bbmle)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;load the data&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fishlakes &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;read.csv&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;fishlakes.csv&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Decide on which set of models you want to use. This is hard. A statistician who knows a lot more than I do told me so. I spent a long time playing around with different transformations, predictor variables, and combinations before I came up with a set of hypotheses (models) that I was happy with.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;m1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logveg +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;bank.slope, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logveg +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;silt.total +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;bank.slope, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m3 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;raca.basin +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logveg +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;bank.slope, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logveg +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;bank.slope, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m5 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logveg +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;bank.slope +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;raca.basin, 
+    &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m6 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;raca.basin *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m7 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;herbacious +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;raca.basin +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;lakes.basin, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m8 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m9 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;herbacious +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;bank.slope +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logveg, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m10 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;raca.basin +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;herbacious +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;lakes.basin, 
+    &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)
+m11 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;bank.slope +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;logveg +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding:raca.basin, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), 
+    &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now let’s rank them via AICc&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;AICctab&lt;/span&gt;(m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, &lt;span class=&quot;dt&quot;&gt;base =&lt;/span&gt; T, &lt;span class=&quot;dt&quot;&gt;weights =&lt;/span&gt; T, 
+    &lt;span class=&quot;dt&quot;&gt;nobs =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;length&lt;/span&gt;(fishlakes))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##     AICc df dAICc weight 
+## m11 35.9 5   0.0  0.79445
+## m4  40.5 4   4.6  0.08072
+## m9  40.9 5   5.1  0.06336
+## m1  42.9 3   7.0  0.02424
+## m5  43.0 5   7.1  0.02275
+## m2  45.3 4   9.4  0.00734
+## m3  45.3 4   9.4  0.00708
+## m8  56.6 2  20.7  &amp;lt; 0.001
+## m10 57.1 6  21.2  &amp;lt; 0.001
+## m6  57.3 4  21.4  &amp;lt; 0.001
+## m7  62.1 4  26.2  &amp;lt; 0.001&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Model m11 comes out ahead by quite a bit, but we’ll average the top two models, just to show you how its done.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;m.ave &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;model.avg&lt;/span&gt;(m4, m11)
+&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(m.ave)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
+## Call:
+## model.avg.default(object = m4, m11)
+## 
+## Component models:
+##     df logLik  AICc Delta Weight
+## 134  5 -12.09 35.84  0.00   0.91
+## 123  4 -15.68 40.43  4.59   0.09
+## 
+## Term codes:
+##               bank.slope            BUBO.breeding                   logveg 
+##                        1                        2                        3 
+## BUBO.breeding:raca.basin 
+##                        4 
+## 
+## Model-averaged coefficients: 
+##                           Estimate Std. Error Adjusted SE z value Pr(&amp;gt;|z|)
+## (Intercept)                 -1.356      3.575       3.694    0.37    0.714
+## bank.slope                 -19.935      8.233       8.503    2.34    0.019
+## logveg                       1.783      1.366       1.409    1.26    0.206
+## BUBO.breedingn:raca.basin   -0.965      0.973       1.006    0.96    0.337
+## BUBO.breedingy:raca.basin    1.313      0.699       0.722    1.82    0.069
+## BUBO.breedingy               2.077      1.055       1.090    1.91    0.057
+##                            
+## (Intercept)                
+## bank.slope                *
+## logveg                     
+## BUBO.breedingn:raca.basin  
+## BUBO.breedingy:raca.basin .
+## BUBO.breedingy            .
+## ---
+## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
+## 
+## Full model-averaged coefficients (with shrinkage): 
+##  (Intercept) bank.slope  logveg BUBO.breedingn:raca.basin
+##       -1.356    -19.935   1.783                    -0.877
+##  BUBO.breedingy:raca.basin BUBO.breedingy
+##                      1.193          0.190
+## 
+## Relative variable importance:
+##               bank.slope                   logveg BUBO.breeding:raca.basin 
+##                     1.00                     1.00                     0.91 
+##            BUBO.breeding 
+##                     0.09&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# OK, there is a predictive model, but how good is it?&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s try cross-validation first. If this was a single model, we could try using the cv.glm function from the “boot” library like this:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;boot&amp;quot;&lt;/span&gt;)
+cost &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(r, &lt;span class=&quot;dt&quot;&gt;pi =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;abs&lt;/span&gt;(r -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;pi) &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;)  ## cost function necessary for binomial data
+m11.cv &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;cv.glm&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; fishlakes, m11, cost, &lt;span class=&quot;dt&quot;&gt;K =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;42&lt;/span&gt;)  &lt;span class=&quot;co&quot;&gt;# use leave-one-out cross validation (can use K-fold cross validation for larger data sets)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now lets see what our error rate was:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;m11.cv$delta&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 0.2381 0.2438&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That’s not too bad. IF we want to check the error rate of an averaged model, you need to get more creative. I’ve written some code to do this for averaged models that only have two component models. It shouldn’t be too hard to adapt this for more models.&lt;/p&gt;
+&lt;p&gt;function for leave one out cross validation of averaged models&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;Cross &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(model1, model2, data, cost) {
+    &lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(MuMIn)
+    nobs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(data)
+    model.ave &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;model.avg&lt;/span&gt;(model1, model2)
+    values &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;matrix&lt;/span&gt;(&lt;span class=&quot;ot&quot;&gt;NA&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;nrow =&lt;/span&gt; nobs, &lt;span class=&quot;dt&quot;&gt;ncol =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)
+    values[, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;data$treatment
+    values[, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;predict&lt;/span&gt;(model.ave, &lt;span class=&quot;dt&quot;&gt;type =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;response&amp;quot;&lt;/span&gt;)
+    CV =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+    for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:nobs) {
+        data2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;data[-i, ]  &lt;span class=&quot;co&quot;&gt;# leave out one observasion&lt;/span&gt;
+        model12 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(model1$formula, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; model1$family, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; data2)
+        model22 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;glm&lt;/span&gt;(model2$formula, &lt;span class=&quot;dt&quot;&gt;family =&lt;/span&gt; model2$family, &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; data2)
+        model.ave2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;model.avg&lt;/span&gt;(model12, model22)
+        values[i, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;predict&lt;/span&gt;(model.ave2, &lt;span class=&quot;dt&quot;&gt;newdata =&lt;/span&gt; data[i, ], &lt;span class=&quot;dt&quot;&gt;type =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;response&amp;quot;&lt;/span&gt;)
+        values[i, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;round&lt;/span&gt;(values[i, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;])
+        if (values[i, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;] ==&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;values[i, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]) 
+            (values[i, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) else values[i, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;
+        
+    }
+    cv =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;abs&lt;/span&gt;(values[, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;] -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;values[, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]) &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;)
+    &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt;(cv)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Use the function on the component models&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;Cross&lt;/span&gt;(m11, m4, fishlakes, cost)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
+
+## [1] 0.2381&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That looks reasonable Another method to test model accurace is Area Under the Reciever Operater Curve (AUC) This is baisically a plot of true presences versus false presences in a presence-absense model. Load the library “pROC”&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(pROC)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Make your reciever-operater curve&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;m.roc &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;roc&lt;/span&gt;(fishlakes$treatment, &lt;span class=&quot;kw&quot;&gt;predict&lt;/span&gt;(m.ave, &lt;span class=&quot;dt&quot;&gt;backtransform =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;))
+&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(m.roc)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-22.png&quot; /&gt;
+&lt;/div&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
+## Call:
+## roc.default(response = fishlakes$treatment, predictor = predict(m.ave,     backtransform = TRUE))
+## 
+## Data: predict(m.ave, backtransform = TRUE) in 24 controls (fishlakes$treatment 0) &amp;lt; 18 cases (fishlakes$treatment 1).
+## Area under the curve: 0.949&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Looks like a pretty good fit. Not too bad for the small size of the data set.&lt;/p&gt;
+&lt;p&gt;And that’s all I got. Hopefully you will find it helpful. Let me know if there is anything else I have forgotton or done wrong. ~ Rosemary rosehartman@gmail.com&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Mason Earles on interfacing R with the Forest Vegetation Simulator</title>
@@ -1933,291 +2392,6 @@ fish1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&qu
 &lt;script src=&quot;https://gist.github.com/4003343.js?file=RbasicFunctions_example.r&quot;&gt;&lt;/script&gt;
 
 &lt;p&gt;A lot of other useful options for R profile files are found in &lt;a href=&quot;http://stackoverflow.com/questions/1189759/expert-r-users-whats-in-your-rprofile&quot;&gt;this Stack Overflow discussion&lt;/a&gt;&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Chris Hamm on using plot.new() for better combined plots</title>
-   <link href="http://www.noamross.net/blog/2012/10/26/plotnew.html"/>
-   <updated>2012-10-26T10:41:35-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2012/10/26/plotnew</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;At DRUG today, &lt;a href=&quot;https://www.msu.edu/~chamm/Welcome.html&quot;&gt;Chris Hamm&lt;/a&gt; (&lt;script type=&quot;text/javascript&quot;&gt;
-&lt;!--
-h='&amp;#x75;&amp;#x63;&amp;#100;&amp;#x61;&amp;#118;&amp;#x69;&amp;#x73;&amp;#46;&amp;#x65;&amp;#100;&amp;#x75;';a='&amp;#64;';n='&amp;#x63;&amp;#x61;&amp;#104;&amp;#x61;&amp;#x6d;&amp;#x6d;';e=n+a+h;
-document.write('&lt;a h'+'ref'+'=&quot;ma'+'ilto'+':'+e+'&quot;&gt;'+'email'+'&lt;\/'+'a'+'&gt;');
-// --&gt;
-&lt;/script&gt;&lt;noscript&gt;&amp;#x65;&amp;#x6d;&amp;#x61;&amp;#x69;&amp;#108;&amp;#32;&amp;#40;&amp;#x63;&amp;#x61;&amp;#104;&amp;#x61;&amp;#x6d;&amp;#x6d;&amp;#32;&amp;#x61;&amp;#116;&amp;#32;&amp;#x75;&amp;#x63;&amp;#100;&amp;#x61;&amp;#118;&amp;#x69;&amp;#x73;&amp;#32;&amp;#100;&amp;#x6f;&amp;#116;&amp;#32;&amp;#x65;&amp;#100;&amp;#x75;&amp;#x29;&lt;/noscript&gt;) showed us an easier way to combine multiple figures into one plot using &lt;code&gt;plot.new&lt;/code&gt;, rather than &lt;code&gt;par(mfrow=...)&lt;/code&gt; Here’s his script:&lt;/p&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;style type=&quot;text/css&quot;&gt;.knitr.inline {
-  background-color: #f7f7f7;
-  border:solid 1px #B0B0B0;
-}
-.error {
-    font-weight: bold;
-    color: #FF0000;
-}, 
-.warning {
-    font-weight: bold;
-} 
-.message {
-    font-style: italic;
-} 
-.source, .output, .warning, .error, .message {
-    padding: 0em 1em;
-  border:solid 1px #F7F7F7;
-}
-.source {
-  background-color: #f7f7f7;
-}
-.rimage.left {
-  text-align: left;
-}
-.rimage.right {
-  text-align: right;
-}
-.rimage.center {
-  text-align: center;
-}
-
-.source {
-  color: #333333;
-}
-.background {
-  color: #F7F7F7;
-}
-
-.number {
-  color: #000000;
-}
-
-.functioncall {
-  color: #800054;
-  font-weight: bolder;
-}
-
-.string {
-  color: #9999FF;
-}
-
-.keyword {
-  font-weight: bolder;
-  color: black;
-}
-
-.argument {
-  color: #B04005;
-}
-
-.comment {
-  color: #2E9957;
-}
-
-.roxygencomment {
-  color: #707AB3;
-}
-
-.formalargs {
-  color: #B04005;
-}
-
-.eqformalargs {
-  color: #B04005;
-}
-
-.assignement {
-  font-weight: bolder;
-  color: #000000;
-}
-
-.package {
-  color: #96B525;
-}
-
-.slot {
-  font-style: italic;
-}
-
-.symbol {
-  color: #000000;
-}
-
-.prompt {
-  color: #333333;
-}
-&lt;/style&gt;
-  &lt;title&gt;
-A Report Generated by knitr
-&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;div class=&quot;chunk&quot;&gt;&lt;div class=&quot;rcode&quot;&gt;&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;# &lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;() cahamm@ucdavis.edu
-
-&lt;span class=&quot;comment&quot;&gt;#I discovered this plotting method when trying to add an inset figure&lt;/span&gt;
-&lt;span class=&quot;comment&quot;&gt;# to a plot&lt;/span&gt;
-
-&lt;span class=&quot;comment&quot;&gt;# plot.new is part of the traditional graphics. This function starts a new plot with the&lt;/span&gt;
-&lt;span class=&quot;comment&quot;&gt;# scale of the x- and y- axes to (0,1) This allows you to specify the location of each
-&lt;span class=&quot;comment&quot;&gt;# pane or inset and provides a high level of customizability for R graphics&lt;/span&gt;
-
-&lt;span class=&quot;comment&quot;&gt;############### Plotting multiple panes, the old way&lt;/span&gt;
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mfrow = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 1))
-
-&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B1$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;Degrees C&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;3 January - 13 March, 2011&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, 
-    ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-25, 15), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 2)
-&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T1$TMP, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 2, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2)
-# line at &lt;span class=&quot;functioncall&quot;&gt;DD50&lt;/span&gt; (10C = 50F)
-&lt;span class=&quot;functioncall&quot;&gt;legend&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;topleft&quot;&lt;/span&gt;, legend = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Ground Level&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;1m Height&quot;&lt;/span&gt;), col = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;black&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;), lty = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(1, 
-    2), lwd = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(2, 2), bty = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;)
-
-&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B2$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;Degrees C&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;13 March - 7 May, 2011&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, lwd = 2, 
-    ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-10, 35), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;)
-&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T2$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 2)
-
-&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B3$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;Degrees C&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;7 May - 16 July, 2011&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 
-    38), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 2)
-&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T3$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 2)
-&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rimage center&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/figure.plot.new/plot-new-T-Rhtmlauto-report1.png&quot;  class=&quot;plot&quot; /&gt;
-&lt;/div&gt;&lt;div class=&quot;rcode&quot;&gt;
-&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;
-&lt;span class=&quot;comment&quot;&gt;#### Using the new way&lt;/span&gt;
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(1, 5, 0, 0))  #set up the margins &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; the overall plot
-&lt;span class=&quot;functioncall&quot;&gt;quartz&lt;/span&gt;(height = 8, width = 8)
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0.65, 1), new = T)  #now tell it where you want the new plot, reads x1 x2, y1 &lt;span class=&quot;functioncall&quot;&gt;y2&lt;/span&gt; (left and right bounds, top and bottom bounds)
-&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;warning&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;## Warning: calling par(new=TRUE) with no plot
-&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 6, 1, 1))  #set the margins &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; the new plot
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B1$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-25, 15), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 3, 
-    las = 1, bty = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, cex.axis = 1.5)
-&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;3 January - 13 March, 2011&quot;&lt;/span&gt;, side = 1, line = 0.5, adj = 0.5, cex = 1.5)
-&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T1$TMP, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 4, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2)
-&lt;span class=&quot;functioncall&quot;&gt;legend&lt;/span&gt;(x = 0, y = 19, legend = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1m Height&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;Ground Level&quot;&lt;/span&gt;), col = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;black&quot;&lt;/span&gt;), lty = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(4, 
-    1), lwd = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 2), bty = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;)
-
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0.35, 0.7), new = T)
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 6, 1, 1))
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B2$TMP, ylab = (&lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;&lt;span class=&quot;functioncall&quot;&gt;Temperature&lt;/span&gt; (&quot;&lt;/span&gt;, degree, &lt;span class=&quot;string&quot;&gt;&quot;C)&quot;&lt;/span&gt;))), xlab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, 
-    lty = 1, lwd = 3, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(-10, 35), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, bty = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, las = 1, cex.axis = 1.5, cex.lab = 1.5)
-&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T2$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 4)
-&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;13 March - 7 May, 2011&quot;&lt;/span&gt;, side = 1, line = 0.5, adj = 0.5, cex = 1.5)
-
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0, 0.35), new = T)
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(3, 6, 1, 1))
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-&lt;span class=&quot;functioncall&quot;&gt;plot&lt;/span&gt;(P2B3$TMP, ylab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, xlab = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;, type = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, lty = 1, ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 38), xaxt = &lt;span class=&quot;string&quot;&gt;&quot;n&quot;&lt;/span&gt;, lwd = 3, 
-    las = 1, bty = &lt;span class=&quot;string&quot;&gt;&quot;l&quot;&lt;/span&gt;, cex.axis = 1.5)
-&lt;span class=&quot;functioncall&quot;&gt;lines&lt;/span&gt;(P2T3$TMP, col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, lwd = 2, lty = 4)
-&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;7 May - 16 July, 2011&quot;&lt;/span&gt;, side = 1, line = 0.5, adj = 0.5, cex = 1.5)
-&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rimage center&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/figure.plot.new/plot-new-T-Rhtmlauto-report2.png&quot;  class=&quot;plot&quot; /&gt;
-&lt;/div&gt;&lt;div class=&quot;rcode&quot;&gt;
-&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;
-&lt;span class=&quot;comment&quot;&gt;############# Puting it all together&lt;/span&gt;
-&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(MASS)
-&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(MCMCpack)
-&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(compositions)
-&lt;span class=&quot;functioncall&quot;&gt;library&lt;/span&gt;(grDevices)
-
-w &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;rdirichlet&lt;/span&gt;(50000, &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(5, 0.5, 2))
-&lt;span class=&quot;functioncall&quot;&gt;colnames&lt;/span&gt;(w) &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;B&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;C&quot;&lt;/span&gt;)
-ind1 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;rmultinom&lt;/span&gt;(1, 40, w[1, ])
-ind2 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;rmultinom&lt;/span&gt;(1, 22, w[2, ])
-
-
-
-&lt;span class=&quot;functioncall&quot;&gt;quartz&lt;/span&gt;(width = 6.8, height = 4.5)
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.4, 0.6, 0.75, 0.95), mar = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 0, 0, 0))
-&lt;span class=&quot;functioncall&quot;&gt;plot.rcomp&lt;/span&gt;(w, col = &lt;span class=&quot;functioncall&quot;&gt;rgb&lt;/span&gt;(1, 0, 0, 0.1), pch = &lt;span class=&quot;string&quot;&gt;&quot;.&quot;&lt;/span&gt;, labels = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;B&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;C&quot;&lt;/span&gt;))
-
-&lt;span class=&quot;comment&quot;&gt;# Individual count data&lt;/span&gt;
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0.1, 0.3), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
-# &lt;span class=&quot;functioncall&quot;&gt;plot.window&lt;/span&gt;(xlim=&lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0,1),ylim=&lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0,0.75))
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-# &lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.2,0.2,&lt;span class=&quot;string&quot;&gt;'x'&lt;/span&gt;,font=3,family=&lt;span class=&quot;string&quot;&gt;'Arial'&lt;/span&gt;,cex=2)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.1, 0.6, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1A&quot;&lt;/span&gt;)]) == 36), pos = 4)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.1, 0.4, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1B&quot;&lt;/span&gt;)]) == 1), pos = 4)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.1, 0.2, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1C&quot;&lt;/span&gt;)]) == 3), pos = 4)
-
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.4, 0.6, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2A&quot;&lt;/span&gt;)]) == 15), pos = 4)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.4, 0.4, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2B&quot;&lt;/span&gt;)]) == 3), pos = 4)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.4, 0.2, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2C&quot;&lt;/span&gt;)]) == 11), pos = 4)
-
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.74, 0.6, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;iA&quot;&lt;/span&gt;)]) == 13), pos = 4)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.74, 0.4, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;iB&quot;&lt;/span&gt;)]) == 4), pos = 4)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.74, 0.2, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(x[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;iC&quot;&lt;/span&gt;)]) == 5), pos = 4)
-
-
-&lt;span class=&quot;comment&quot;&gt;# individual probs given count data&lt;/span&gt;
-Px1 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(36, 1, 3)/40
-Px2 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(15, 3, 11)/29
-Px3 &amp;lt;- &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(13, 4, 5)/22
-
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.15, 0.25, 0.4, 0.6), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-&lt;span class=&quot;functioncall&quot;&gt;barplot&lt;/span&gt;(Px1, names.arg = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;), ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1), col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, cex.axis = 0.5, cex.names = 0.75, 
-    las = 1)
-&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A  B  C&quot;&lt;/span&gt;, side = 1)
-&lt;span class=&quot;functioncall&quot;&gt;abline&lt;/span&gt;(h = 0, lwd = 2)
-
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.43, 0.53, 0.4, 0.6), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-&lt;span class=&quot;functioncall&quot;&gt;barplot&lt;/span&gt;(Px2, names.arg = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;), ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1), col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, cex.axis = 0.5, cex.names = 0.75, 
-    las = 1)
-&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A  B  C&quot;&lt;/span&gt;, side = 1)
-&lt;span class=&quot;functioncall&quot;&gt;abline&lt;/span&gt;(h = 0, lwd = 2)
-
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.74, 0.84, 0.4, 0.6), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
-# &lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig=&lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0.71,0.81,0.4,0.6),new=&lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-&lt;span class=&quot;functioncall&quot;&gt;barplot&lt;/span&gt;(Px3, names.arg = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;), ylim = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1), col = &lt;span class=&quot;string&quot;&gt;&quot;red&quot;&lt;/span&gt;, cex.axis = 0.5, cex.names = 0.75, 
-    las = 1)
-&lt;span class=&quot;functioncall&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;A  B  C&quot;&lt;/span&gt;, side = 1)
-&lt;span class=&quot;functioncall&quot;&gt;abline&lt;/span&gt;(h = 0, lwd = 2)
-
-&lt;span class=&quot;functioncall&quot;&gt;par&lt;/span&gt;(fig = &lt;span class=&quot;functioncall&quot;&gt;c&lt;/span&gt;(0, 1, 0, 1), new = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;)
-&lt;span class=&quot;functioncall&quot;&gt;plot.new&lt;/span&gt;()
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.62, 0.51, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(...), pos = 2, cex = 2)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.08, 0.5, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;1j&quot;&lt;/span&gt;, sep = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)]) == &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;), pos = 2, cex = 1)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.38, 0.5, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;2j&quot;&lt;/span&gt;, sep = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)]) == &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;), pos = 2, cex = 1)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.71, 0.5, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;ij&quot;&lt;/span&gt;, sep = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;)]) == &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;), pos = 2, cex = 1)
-# &lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.68,0.5,&lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(Px[&lt;span class=&quot;functioncall&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;'ij'&lt;/span&gt;,sep=&lt;span class=&quot;string&quot;&gt;''&lt;/span&gt;)])==&lt;span class=&quot;string&quot;&gt;''&lt;/span&gt;),pos=2,cex=1)
-
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.04, 0.22, &lt;span class=&quot;string&quot;&gt;&quot;Individual\ncounts&quot;&lt;/span&gt;, pos = 1, cex = 1)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(-0.05, 0.65, &lt;span class=&quot;string&quot;&gt;&quot;Individual probabilities&quot;&lt;/span&gt;, pos = 4, cex = 1)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.04, 0.87, &lt;span class=&quot;string&quot;&gt;&quot;Population&quot;&lt;/span&gt;, pos = 1, cex = 1)
-
-&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.16, 0.23, 0.16, 0.33, angle = 20, length = 0.15, lwd = 2)
-&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.46, 0.23, 0.46, 0.33, angle = 20, length = 0.15, lwd = 2)
-&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.795, 0.23, 0.795, 0.33, angle = 20, length = 0.15, lwd = 2)
-
-&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.53, 0.75, 0.7, 0.63, angle = 20, length = 0.15, lwd = 2, code = 3)
-&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.47, 0.75, 0.3, 0.63, angle = 20, length = 0.15, lwd = 2, code = 3)
-&lt;span class=&quot;functioncall&quot;&gt;arrows&lt;/span&gt;(0.5, 0.75, 0.5, 0.63, angle = 20, length = 0.15, lwd = 2, code = 3)
-
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.72, 0.89, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(alpha[&lt;span class=&quot;string&quot;&gt;&quot;A&quot;&lt;/span&gt;]) == &lt;span class=&quot;string&quot;&gt;&quot;5.0&quot;&lt;/span&gt;), pos = 1, cex = 1)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.72, 0.85, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(alpha[&lt;span class=&quot;string&quot;&gt;&quot;B&quot;&lt;/span&gt;]) == &lt;span class=&quot;string&quot;&gt;&quot;0.5&quot;&lt;/span&gt;), pos = 1, cex = 1)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.72, 0.81, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;italic&lt;/span&gt;(alpha[&lt;span class=&quot;string&quot;&gt;&quot;C&quot;&lt;/span&gt;]) == &lt;span class=&quot;string&quot;&gt;&quot;2.0&quot;&lt;/span&gt;), pos = 1, cex = 1)
-
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.92, 0.65, &lt;span class=&quot;string&quot;&gt;&quot;Multinomial&quot;&lt;/span&gt;)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.94, 0.87, &lt;span class=&quot;string&quot;&gt;&quot;Dirichlet&quot;&lt;/span&gt;)
-
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.083, 0.95, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;underline&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Hierarchical level&quot;&lt;/span&gt;)), cex = 1.2)
-&lt;span class=&quot;functioncall&quot;&gt;text&lt;/span&gt;(0.89, 0.95, &lt;span class=&quot;functioncall&quot;&gt;expression&lt;/span&gt;(&lt;span class=&quot;functioncall&quot;&gt;underline&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Modeled distribution&quot;&lt;/span&gt;)), cex = 1.2)
-&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;rimage center&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/figure.plot.new/plot-new-T-Rhtmlauto-report3.png&quot;  class=&quot;plot&quot; /&gt;
-&lt;/div&gt;&lt;div class=&quot;rcode&quot;&gt;
-&lt;div class=&quot;source&quot;&gt;&lt;pre class=&quot;knitr r&quot;&gt;
-&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</content>
  </entry>
  
  
