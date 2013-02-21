@@ -237,7 +237,7 @@
 <div id="headblock"><h1 id="post.title"><a href="/blog/2013/2/20/model-selection-drug.html">Model Selection and Multi-Model Inference</a></h1>
 <p>by <em>Rosemary Hartman</em>, 20 February 2013</p>
 <hr /></div>
-<div class="contenttext"><p><em>At <a href="http://www.noamross.net/davis-r-users-group.html">D-RUG</a> this week Rosemary Hartman presented a really useful case study in model selection, based on her work on frog habitat. Here is her code run through ‘knitr’</em></p>
+<div class="contenttext"><p><em>At <a href="http://www.noamross.net/davis-r-users-group.html">D-RUG</a> this week <a href="rosehartman@gmail.com">Rosemary Hartman</a> presented a really useful case study in model selection, based on her work on frog habitat. Here is her code run through ‘knitr’</em></p>
 <p>(yes, I am just doing this for the flying monkey)</p>
 <p><em>Editor’s note: we’re giving away flying monkey dolls from our sponsor, <a href="revolutionanalytics.com">Revolution Analytics</a>, to all our D-RUG presenters.</em></p>
 <p>So, let’s say you want to find out where things are and why they are there. But there are a lot of reasons someone might be somewhere</p>
@@ -639,7 +639,8 @@ m11.cv &lt;-<span class="st"> </span><span class="kw">cv.glm</span>(<span class=
 <p>Now lets see what our error rate was:</p>
 <pre class="sourceCode r"><code class="sourceCode r">m11.cv$delta</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## [1] 0.2381 0.2438</code></pre>
-<p>That’s not too bad. IF we want to check the error rate of an averaged model, you need to get more creative. I’ve written some code to do this for averaged models that only have two component models. It shouldn’t be too hard to adapt this for more models.</p>
+<p>That’s not too bad.</p>
+<p>IF we want to check the error rate of an averaged model, you need to get more creative. I’ve written some code to do this for averaged models that only have two component models. It shouldn’t be too hard to adapt this for more models.</p>
 <p>function for leave one out cross validation of averaged models</p>
 <pre class="sourceCode r"><code class="sourceCode r">Cross &lt;-<span class="st"> </span>function(model1, model2, data, cost) {
     <span class="kw">library</span>(MuMIn)
@@ -668,7 +669,9 @@ m11.cv &lt;-<span class="st"> </span><span class="kw">cv.glm</span>(<span class=
 <pre class="sourceCode r"><code class="sourceCode r">## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
 
 ## [1] 0.2381</code></pre>
-<p>That looks reasonable Another method to test model accurace is Area Under the Reciever Operater Curve (AUC) This is baisically a plot of true presences versus false presences in a presence-absense model. Load the library “pROC”</p>
+<p>That looks reasonable</p>
+<p>Another method to test model accurace is Area Under the Reciever Operater Curve (AUC) This is baisically a plot of true presences versus false presences in a presence-absense model.</p>
+<p>Load the library “pROC”</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pROC)</code></pre>
 <p>Make your reciever-operater curve</p>
 <pre class="sourceCode r"><code class="sourceCode r">m.roc &lt;-<span class="st"> </span><span class="kw">roc</span>(fishlakes$treatment, <span class="kw">predict</span>(m.ave, <span class="dt">backtransform =</span> <span class="ot">TRUE</span>))

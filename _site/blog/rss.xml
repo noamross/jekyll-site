@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-02-20T17:19:48-08:00</updated>
+ <updated>2013-02-20T17:21:41-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;At &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;D-RUG&lt;/a&gt; this week Rosemary Hartman presented a really useful case study in model selection, based on her work on frog habitat. Here is her code run through ‘knitr’&lt;/em&gt;&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;At &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;D-RUG&lt;/a&gt; this week &lt;a href=&quot;rosehartman@gmail.com&quot;&gt;Rosemary Hartman&lt;/a&gt; presented a really useful case study in model selection, based on her work on frog habitat. Here is her code run through ‘knitr’&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;(yes, I am just doing this for the flying monkey)&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Editor’s note: we’re giving away flying monkey dolls from our sponsor, &lt;a href=&quot;revolutionanalytics.com&quot;&gt;Revolution Analytics&lt;/a&gt;, to all our D-RUG presenters.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;So, let’s say you want to find out where things are and why they are there. But there are a lot of reasons someone might be somewhere&lt;/p&gt;
@@ -424,7 +424,8 @@ m11.cv &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&q
 &lt;p&gt;Now lets see what our error rate was:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;m11.cv$delta&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 0.2381 0.2438&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;That’s not too bad. IF we want to check the error rate of an averaged model, you need to get more creative. I’ve written some code to do this for averaged models that only have two component models. It shouldn’t be too hard to adapt this for more models.&lt;/p&gt;
+&lt;p&gt;That’s not too bad.&lt;/p&gt;
+&lt;p&gt;IF we want to check the error rate of an averaged model, you need to get more creative. I’ve written some code to do this for averaged models that only have two component models. It shouldn’t be too hard to adapt this for more models.&lt;/p&gt;
 &lt;p&gt;function for leave one out cross validation of averaged models&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;Cross &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(model1, model2, data, cost) {
     &lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(MuMIn)
@@ -453,7 +454,9 @@ m11.cv &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&q
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
 
 ## [1] 0.2381&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;That looks reasonable Another method to test model accurace is Area Under the Reciever Operater Curve (AUC) This is baisically a plot of true presences versus false presences in a presence-absense model. Load the library “pROC”&lt;/p&gt;
+&lt;p&gt;That looks reasonable&lt;/p&gt;
+&lt;p&gt;Another method to test model accurace is Area Under the Reciever Operater Curve (AUC) This is baisically a plot of true presences versus false presences in a presence-absense model.&lt;/p&gt;
+&lt;p&gt;Load the library “pROC”&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(pROC)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Make your reciever-operater curve&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;m.roc &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;roc&lt;/span&gt;(fishlakes$treatment, &lt;span class=&quot;kw&quot;&gt;predict&lt;/span&gt;(m.ave, &lt;span class=&quot;dt&quot;&gt;backtransform =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;))

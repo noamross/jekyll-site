@@ -8,9 +8,9 @@ layout: post
 
 
 *At [D-RUG](http://www.noamross.net/davis-r-users-group.html) this week
-Rosemary Hartman presented a really useful case study in model
-selection, based on her work on frog habitat. Here is her code run
-through 'knitr'*
+[Rosemary Hartman](rosehartman@gmail.com) presented a really useful case
+study in model selection, based on her work on frog habitat. Here is her
+code run through 'knitr'*
 
 (yes, I am just doing this for the flying monkey)
 
@@ -536,10 +536,12 @@ m11.cv$delta
 
     ## [1] 0.2381 0.2438
 
-That's not too bad. IF we want to check the error rate of an averaged
-model, you need to get more creative. I've written some code to do this
-for averaged models that only have two component models. It shouldn't be
-too hard to adapt this for more models.
+That's not too bad.
+
+IF we want to check the error rate of an averaged model, you need to get
+more creative. I've written some code to do this for averaged models
+that only have two component models. It shouldn't be too hard to adapt
+this for more models.
 
 function for leave one out cross validation of averaged models
 
@@ -578,10 +580,13 @@ Cross(m11, m4, fishlakes, cost)
 
     ## [1] 0.2381
 
-That looks reasonable Another method to test model accurace is Area
-Under the Reciever Operater Curve (AUC) This is baisically a plot of
-true presences versus false presences in a presence-absense model. Load
-the library "pROC"
+That looks reasonable
+
+Another method to test model accurace is Area Under the Reciever
+Operater Curve (AUC) This is baisically a plot of true presences versus
+false presences in a presence-absense model.
+
+Load the library "pROC"
 
 ~~~~ {.r}
 library(pROC)
