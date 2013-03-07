@@ -128,7 +128,7 @@ sharing over e-mail:
 -   You can share the code just by sending a URL
 -   Syntax highlighting makes the code easier to read
 -   You can update the code and it will remember previous versions
--   The gist an be public or private
+-   The gist can be public or private
 -   People can comment on the gist and have a conversation
 
 To post your code as a gist, go to <http://gist.github.com>, and paste

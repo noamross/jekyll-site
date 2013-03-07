@@ -178,7 +178,7 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="STA130B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
-- <a onclick="showhide('STA131A'); chgifr('/statsclasses/STA131A.html', 'STA130B');">**STA 131A. Introduction to Probability Theory**</a>
+- <a onclick="showhide('STA131A'); chgifr('/statsclasses/STA131A.html', 'STA131A');">**STA 131A. Introduction to Probability Theory**</a>
 
   <iframe width="600" height="800" src="" id="STA131A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 

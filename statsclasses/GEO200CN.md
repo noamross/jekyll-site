@@ -6,9 +6,11 @@ layout: class
  
 **Instructors**: [Robert J. Hijmans](http://www.des.ucdavis.edu/FacultyInfo.aspx?ID_Number=83)
 
-**Other info and comments**: Dr Hijmans writes:
+**Other info and comments**: The syllabus is [here](http://dl.getdropbox.com/u/3356641/blogstuff/GEO200CN_syllabus.pdf)
 
-> I teach "Quantitative Geography" (GEO200CN), a graduate course that is part of the core curriculum for the Geography grad group students.  It is a survey course about spatial data analysis and modeling, not a "pure" statistics course. It including subjects such as point pattern analysis, kriging, inference, cellular automata and Markov chains. It has lectures, disussions, and a intensive lab (we use R). 
+Also, Dr. Hijmans writes:
+
+> I teach "Quantitative Geography" (GEO200CN), a graduate course that is part of the core curriculum for the Geography grad group students.  It is a survey course about spatial data analysis and modeling, not a "pure" statistics course. It including subjects such as point pattern analysis, kriging, inference, cellular automata and Markov chains. It has lectures, discussions, and a intensive lab (we use R). 
 
 > [Non-geography] students can take the class (and they do) without taking other geo classes. The ideal preparation is intro to stats + regression, a Geographic Information Systems (GIS) class, and familiarity with R.
 

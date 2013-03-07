@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-02-20T17:25:33-08:00</updated>
+ <updated>2013-03-06T17:05:22-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -693,7 +693,7 @@ df&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;You can share the code just by sending a URL&lt;/li&gt;
 &lt;li&gt;Syntax highlighting makes the code easier to read&lt;/li&gt;
 &lt;li&gt;You can update the code and it will remember previous versions&lt;/li&gt;
-&lt;li&gt;The gist an be public or private&lt;/li&gt;
+&lt;li&gt;The gist can be public or private&lt;/li&gt;
 &lt;li&gt;People can comment on the gist and have a conversation&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;To post your code as a gist, go to &lt;a href=&quot;http://gist.github.com&quot;&gt;http://gist.github.com&lt;/a&gt;, and paste your code, and put in a brief description. You’ll get an easily sharable web page like this:&lt;/p&gt;
