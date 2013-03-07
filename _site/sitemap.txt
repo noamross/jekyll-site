@@ -25,8 +25,8 @@ http://www.noamross.net/statsclasses/ECL298.html
 http://www.noamross.net/statsclasses/ECLANT298.html
 http://www.noamross.net/statsclasses/ECN240A.html
 http://www.noamross.net/statsclasses/ECN240B.html
-http://www.noamross.net/statsclasses/EPI204.html
 http://www.noamross.net/statsclasses/EPI204A.html
+http://www.noamross.net/statsclasses/EPI204B.html
 http://www.noamross.net/statsclasses/EVE231.html
 http://www.noamross.net/statsclasses/GEO200CN.html
 http://www.noamross.net/statsclasses/HYD273.html

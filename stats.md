@@ -106,10 +106,14 @@ Click on a course to see a description and comments.  Please add your own commen
     
 ### Epidemiology
 
-- <a onclick="showhide('EPI204'); chgifr('/statsclasses/EPI204.html', 'EPI204');">**EPI 204. Statistical Models, Methods, and Data Analysis for Scientists**</a>
+- <a onclick="showhide('EPI204A'); chgifr('/statsclasses/EPI204A.html', 'EPI204A');">**EPI 204A. Foundation of Statistical Methods**</a>
 
-  <iframe width="600" height="800" src="" id="EPI204" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="" id="EPI204A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
   
+  - <a onclick="showhide('EPI204B'); chgifr('/statsclasses/EPI204B.html', 'EPI204B');">**EPI 204B. Statistical Models, Methods, and Data Analysis for Scientists**</a>
+
+    <iframe width="600" height="800" src="" id="EPI204B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+    
 ### Geography
 
 - <a onclick="showhide('GEO200CN'); chgifr('/statsclasses/GEO200CN.html', 'GEO200CN');">**GEO 200CN. Quantitative Geography**</a>
@@ -166,10 +170,6 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Statistics ###
 
-- <a onclick="showhide('STA120'); chgifr('/statsclasses/STA120.html', 'STA120');">**STA 120. Probability and Random Variables for Engineers**</a>
-
-  <iframe width="600" height="800" src="" id="STA120" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
-        
 - <a onclick="showhide('STA130A'); chgifr('/statsclasses/STA130A.html', 'STA130A');">**STA 130A. Mathematical Statistics**</a>
 
   <iframe width="600" height="800" src="" id="STA130A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>

@@ -6,6 +6,6 @@ layout: class
  
 **Instructors**: Let us know in the comments
 
-**Other info and comments**: [Course web page with syllabus (from Spring 2012)](http://www.stat.ucdavis.edu/~affarris/Sta131A_Sp12.html)
+**Other info and comments**: Course web page with syllabus from last year [here](http://www.stat.ucdavis.edu/~affarris/Sta131A_Sp12.html).  Last year's instructor (Peter Hall) says this year's course will be similar.
 
 **Software used:** Let us know in the comments
