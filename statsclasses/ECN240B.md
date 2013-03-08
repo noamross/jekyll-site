@@ -8,4 +8,4 @@ layout: class
 
 **Other info and comments**: Last year's syllabus is [here](http://dl.getdropbox.com/u/3356641/blogstuff/240BSyllabus.pdf).  There will be a course webpage at <http://are240B.ucdavis.edu>.
 
-**Software used:** Let us know in the comments
+**Software used:** Stata
