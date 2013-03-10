@@ -126,6 +126,16 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="HYD273" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
+### Mathematics ###
+
+- <a onclick="showhide('MAT135A'); chgifr('/statsclasses/MAT135A.html', 'MAT135A');">**MAT 135A. Probability**</a>
+
+  <iframe width="600" height="800" src="" id="MAT135A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
+  - <a onclick="showhide('MAT135B'); chgifr('/statsclasses/MAT135B.html', 'MAT135B');">**MAT 135B. Stochastic Processes**</a>
+
+    <iframe width="600" height="800" src="" id="MAT135B" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
 ### Political Science ###
 
 - <a onclick="showhide('POL211'); chgifr('/statsclasses/POL211.html', 'POL211');">**POL 211. Research Methods in Political Science**</a>
