@@ -18,7 +18,7 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 <div id="Survey" style="display:block;">
 
-<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ" width="800" height="1050" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto">Loading...</iframe>
+<iframe src="https://docs.google.com/spreadsheet/embeddedform?formkey=dExUVXJoektTQ3MyX25sa0RFN1B2clE6MQ" width="800" height="1100" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto">Loading...</iframe>
 
 
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
@@ -49,9 +49,9 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
 
 Click on a course to see a description and comments.  Please add your own comments and ask questions!  Reviews, descriptions, and links to professor/course/syllabus webpages are all helpful.
 
-***Important:*** *Inclusion on this webpage is no guarantee that a course will fullful your quantitative requirements.  That is up to your committee.  Also, remember that, for GGE students, your quantitative methods examiner must be a member of the GGE.*
+***Important:*** *Inclusion on this webpage is no guarantee that a course will fulfill your quantitative requirements.  That is up to your committee.  Also, remember that, for GGE students, your quantitative methods examiner must be a member of the GGE.*
 
-**Courses Updated for Winter 2013**: ABG250, ANT298, ECN204A, POL212, POL279, PLS205, STA130B
+**Courses Updated for Spring 2013**: ECN240B, EPI204B, GEO200CN, MAT135B, POL213, STA135.
 
 
 ### Animal Sciences ### 
