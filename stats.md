@@ -33,7 +33,7 @@ Please fill out the survey and see the results below! <a onclick="showhide('Surv
       query: 'SELECT A,B WHERE B > 0 ORDER BY (0-B)',
       options: {'title': 'Survey Results', 'legend': 'none', 'hAxis.minValue': '0'},
       containerId: 'vis_div',
-      vAxis: {textStyle: {fontSize: 11}},
+      vAxis: {textStyle: {fontSize: '11'}},
     });
     wrapper.draw()
 
