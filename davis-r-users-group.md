@@ -39,6 +39,7 @@ Sometimes D-RUG members put together useful resources and tutorials.
  - [A guide to tools for collaboration with R](http://www.noamross.net/blog/2013/1/7/collaborating-with-r.html)
  - [Using the `plyr` package for data manipulation](http://www.noamross.net/blog/2013/1/17/steve-culman-on-plyr.html)
  - [Using xts and ggplot for time-series data](http://www.noamross.net/blog/2013/2/6/xtsmarkdown.html)
+ - [Model selection and multi-model inference](http://www.noamross.net/blog/2013/2/20/model-selection-drug.html)
 
 ### Web Resources
 
