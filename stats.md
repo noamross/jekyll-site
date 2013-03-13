@@ -84,6 +84,10 @@ Click on a course to see a description and comments.  Please add your own commen
 
   <iframe width="600" height="800" src="" id="ECL298" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
+  - <a onclick="showhide('ECL298-2'); chgifr('/statsclasses/ECL298-2.html', 'ECL298');">**ECL 298 (2). Basics of Data Manipulation in R**</a>
+
+    <iframe width="600" height="800" src="" id="ECL298-2" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+
 ### Ecology and Evolution ###
 
 - <a onclick="showhide('EVE231'); chgifr('/statsclasses/EVE231.html', 'EVE231');">**EVE 231. Principles of Biological Data Analysis**</a>
