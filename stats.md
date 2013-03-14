@@ -10,6 +10,8 @@ The UC Davis Graduate Group in Ecology requires two courses in quantitative meth
  - [Other Davis Stats Resources](#other-davis-stats-resources)
  - [Comments/discussion about stats curriculum and requirements](#disqus_thread)
 
+**Announcement**: [Andrew Latimer](http://www.plantsciences.ucdavis.edu/faculty/latimer/index.htm) is seeking feedback on whether to offer [PLS298](#plant-sciences) in Fall 2013, given potential overlap with ANT298 and PLS206.  If you have feedback, or were interested in taking PLS298, please contact him at `amlatimer at ucdavis edu`.
+
 ## Survey ##
 
 Please fill out the survey and see the results below! <a onclick="showhide('Survey'); chgifr('/statsclasses/Survey.html', 'Survey');">(Show/Hide the survey)</a>:
@@ -160,6 +162,8 @@ Click on a course to see a description and comments.  Please add your own commen
   <iframe width="600" height="800" src="" id="POL279" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 ### Plant Sciences ###
+
+**Announcement**: [Andrew Latimer](http://www.plantsciences.ucdavis.edu/faculty/latimer/index.htm) is seeking feedback on whether to offer PLS298 in Fall 2013, given potential overlap with ANT298 and PLS206.  If you have feedback, or were interested in taking PLS298, please contact him at `amlatimer at ucdavis edu`.
 
 - <a onclick="showhide('PLS120'); chgifr('/statsclasses/PLS120.html', 'PLS120');">**PLS 120. Applied Statistics in Agricultural Science**</a>
 
