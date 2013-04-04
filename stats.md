@@ -183,9 +183,9 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ### Psychology ###
 
-- <a onclick="showhide('PSY204A'); chgifr('/statsclasses/PSY204A.html', 'PSY204A');">**PSY 204A. Statistical Analysis of Psychological Experiments**</a>
+- <a onclick="showhide('PSC204A'); chgifr('/statsclasses/PSC204A.html', 'PSC204A');">**PSC 204A. Statistical Analysis of Psychological Experiments**</a>
 
-  <iframe width="600" height="800" src="" id="PSY204A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
+  <iframe width="600" height="800" src="" id="PSC204A" frameborder="0" scrolling="auto" allowtransparency="true" style="display:none;"></iframe>
 
 ### Statistics ###
 
