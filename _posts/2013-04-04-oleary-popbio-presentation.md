@@ -1,7 +1,7 @@
 ---
 title: "Demographic analysis using the `popbio` library and some other fun stuff"
 author: "Kara Moore O'Leary"
-tags: [D-RUG, matrix-models, R]
+tags: [D-RUG, R, matrix-models]
 date: "13-04-04 11:16:55"
 layout: post
 --- 
@@ -12,7 +12,8 @@ Group](http://www.noamross.net/davis-r-users-group.html) we had a great
 presentation by Kara Moore O'Leary on using the [`popbio`
 package](http://cran.r-project.org/web/packages/popbio/) to examine rare
 plant demographics. The following is her script run through `knitr`. You
-can download the original script and associated data [here](). Find out
+can download the original script and associated data
+[here](https://gist.github.com/noamross/bf8ebdcf42fd2e0851a8). Find out
 more about Kara and her work at her website
 [here](http://dynamicecosciences.wordpress.com/)*
 
