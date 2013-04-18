@@ -4,13 +4,330 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-04-04T15:43:32-07:00</updated>
+ <updated>2013-04-18T14:34:15-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Debugging Tools in R with Michael Hannon</title>
+   <link href="http://www.noamross.net/blog/2013/4/18/r-debug-tools.html"/>
+   <updated>2013-04-18T13:44:59-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/4/18/r-debug-tools</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;Today at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, Michael Hannon gave a great talk on how to use R’s native debugging functions. Here are his notes and code.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This is a discussion of debugging techniques in R. It is based on a paper by Roger Peng, now at Johns Hopkins University (&lt;a href=&quot;http://www.biostat.jhsph.edu/~rpeng/docs/R-debug-tools.pdf&quot;&gt;http://www.biostat.jhsph.edu/~rpeng/docs/R-debug-tools.pdf&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id=&quot;focus-on-five-functions&quot;&gt;Focus on five functions:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;traceback&lt;/li&gt;
+&lt;li&gt;debug&lt;/li&gt;
+&lt;li&gt;browser&lt;/li&gt;
+&lt;li&gt;trace&lt;/li&gt;
+&lt;li&gt;recover&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;severity-level&quot;&gt;Severity level&lt;/h3&gt;
+&lt;p&gt;R mainly uses two ways of reporting a problem:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Warning: Does not stop execution&lt;/li&gt;
+&lt;li&gt;Error: More serious – &lt;em&gt;does&lt;/em&gt; stop execution&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Example of warning:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] NaN&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Example of error:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;#### Define a function to be used/abused later on.
+message &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) {
+  if(x &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)
+    &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;)
+  else
+    &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Goodbye&amp;quot;&lt;/span&gt;)
+  }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s the function in action:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;42&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;Hello&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
+x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)  #### Produces warning but does not stop&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(x)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Error: missing value where TRUE/FALSE needed&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;debugging-tools&quot;&gt;Debugging tools&lt;/h3&gt;
+&lt;h3 id=&quot;print-call-stack-with-traceback&quot;&gt;Print “call stack” with &lt;code&gt;traceback&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;How did we get here? That is, what sequence of function calls led us to the point where an error occurred? Answer: the &lt;code&gt;traceback&lt;/code&gt; function can tell us. Here’s an example:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))
+Error in if (x &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;) else &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Goodbye&amp;quot;&lt;/span&gt;) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;missing value where &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;/&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt; needed
+In addition:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;Warning message:
+In &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;NaNs produced
+&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
+&lt;span class=&quot;er&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;traceback&lt;/span&gt;()
+&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It’s hard to get “lost” when you’ve got only one function to begin with, but real life is more complicated. THe following isn’t exactly “real-life” either, but it better illustrates the point.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) {
+    r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(x)
+    r
+}
+g &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(y) {
+    r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;y *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;h&lt;/span&gt;(y)
+    r
+}
+h &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(z) {
+    r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z)
+    if (r &amp;lt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) 
+        r^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; else r^&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can probably guess that the log function is going to be the trouble maker, but let’s see what happens.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
+Error in if (r &amp;lt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) r^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; else r^&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt; :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;missing value where &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;/&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt; needed
+In addition:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;Warning message:
+In &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;NaNs produced
+&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;traceback&lt;/span&gt;()
+&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;h&lt;/span&gt;(y) at &lt;span class=&quot;co&quot;&gt;#2&lt;/span&gt;
+&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(x) at &lt;span class=&quot;co&quot;&gt;#2&lt;/span&gt;
+&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
+&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This shows that we started out with a call to f, which generated a call to g, which generated a call to h. The error evidently occurred at statement #2 of h. Note, by the way, the following trick to view the line numbers in a function:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;body&lt;/span&gt;(h))
+[[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]]
+&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;
+
+[[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]]
+r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z)
+
+[[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;]]
+if (r &amp;lt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) r^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; else r^&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I.e., statement #2 of h is, as expected, the one that involves the log function.&lt;/p&gt;
+&lt;h3 id=&quot;the-debug-function&quot;&gt;The &lt;code&gt;debug&lt;/code&gt; function&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;traceback&lt;/code&gt; function helps us to locate the error, but then what do we do? Ideally, we could just stare at our code, then find and fix the error. But it often helps to have some detailed information as to what was going on in our code at the time of the error.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;debug&lt;/code&gt; function allows us to do just that. We can step through our code, a line at a time, and examine variables along the way.&lt;/p&gt;
+&lt;p&gt;The syntax is:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;debug&lt;/span&gt;(function-name)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and to turn off debugging we use:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;undebug&lt;/span&gt;(function-name)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(I.e., we might find and fix a problem on the third pass through a loop of 10000 iterations, after which we no longer need or want to debug for the other 9997 times through the loop.)&lt;/p&gt;
+&lt;p&gt;Here’s an example. The mathematical background is that we have N observations of a random variable that we assume to be normally distributed but with an unknown mean and variance. To estimate the parameters we need to compute the sum of the squared differences from the mean:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[
+SS = \sum_{n=1}^{N}(x_n - \mu)^2
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;(Details at: &lt;a href=&quot;http://en.wikipedia.org/wiki/Normal_distribution#Estimation_of_parameters&quot;&gt;http://en.wikipedia.org/wiki/Normal_distribution#Estimation_of_parameters&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Here we’ll focus on just one part of the calculation, computing the sum of the squared differences. Here’s an R function that will do that for us:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;SS &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(mu, x) {
+    d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
+    d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
+    ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
+    ss
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can probably see that the function could be written much more compactly, but we’ll string it out for purposes of illustration.&lt;/p&gt;
+&lt;p&gt;Let’s generate some points from a Normal(0,1) distribution:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;set.seed&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;314159&lt;/span&gt;)  &lt;span class=&quot;co&quot;&gt;# Set the RNG seed so results are reproducible&lt;/span&gt;
+xPoints &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rnorm&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s run SS to get a feel for its behavior:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 202.5&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;muTest &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.numeric&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)
+SSTest &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sapply&lt;/span&gt;(muTest, SS, xPoints)
+&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(muTest, SSTest)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/exerciseSS.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Now suppose we want to examine in detail the behavior of the SS function. First, we flag the function for debugging:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;debug&lt;/span&gt;(SS)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+debugging in:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+debug at &lt;span class=&quot;co&quot;&gt;#1: {&lt;/span&gt;
+    d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
+    d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
+    ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
+    ss
+&lt;span class=&quot;er&quot;&gt;}&lt;/span&gt;
+Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+debug at &lt;span class=&quot;co&quot;&gt;#2: d &amp;lt;- x - mu&lt;/span&gt;
+Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+debug at &lt;span class=&quot;co&quot;&gt;#3: d2 &amp;lt;- d^2&lt;/span&gt;
+Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+debug at &lt;span class=&quot;co&quot;&gt;#4: ss &amp;lt;- sum(d2)&lt;/span&gt;
+Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+debug at &lt;span class=&quot;co&quot;&gt;#5: ss&lt;/span&gt;
+Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+exiting from:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;202.482&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This isn’t a particularly interesting use of the debugger, as all we did was to step through the function a line at a time, using the ‘n’ command, but it does illustrate some of the basic ideas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;First, when we enter the SS function, the function itself is printed, and execution &lt;strong&gt;stops&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The R prompt, ‘&amp;gt;’, changes to ‘Browse[&lt;number&gt;]&amp;gt;’&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are four basic commands you can use in the debugger:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;n&lt;/strong&gt;: execute the current line of code and step to the next&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;c&lt;/strong&gt;: continue execution without stopping again&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Q&lt;/strong&gt;: quit debugging completely and to back to the top-level R prompt&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;where&lt;/strong&gt;: similar to calling traceback&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can execute any R code at the “Browse” prompt, i.e., not just code related to the function. The most important example of this is probably the ls() command, which shows us what objects are defined in the current environment (i.e., within a given function, for instance):&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt; 
+
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;
+
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(x)
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] -&lt;span class=&quot;fl&quot;&gt;0.79928868&lt;/span&gt; -&lt;span class=&quot;fl&quot;&gt;0.73009689&lt;/span&gt;  &lt;span class=&quot;fl&quot;&gt;1.43687692&lt;/span&gt;  &lt;span class=&quot;fl&quot;&gt;0.30502316&lt;/span&gt; -&lt;span class=&quot;fl&quot;&gt;0.39728401&lt;/span&gt;
+    [&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]  &lt;span class=&quot;fl&quot;&gt;0.08889039&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But the facility is completely general. Here’s a trivial example of defining something unrelated to the current function:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sqrt&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;64&lt;/span&gt;)
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s another, somewhat more interesting session with SS:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+    debugging in:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+    debug at &lt;span class=&quot;co&quot;&gt;#1: {&lt;/span&gt;
+        d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
+        d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
+        ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
+        ss
+    &lt;span class=&quot;er&quot;&gt;}&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+    debug at &lt;span class=&quot;co&quot;&gt;#2: d &amp;lt;- x - mu&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+    debug at &lt;span class=&quot;co&quot;&gt;#3: d2 &amp;lt;- d^2&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]  ## Print the value of the first element of d
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] -&lt;span class=&quot;fl&quot;&gt;1.799289&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+    debug at &lt;span class=&quot;co&quot;&gt;#4: ss &amp;lt;- sum(d2)&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;hist&lt;/span&gt;(d2)
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+    debug at &lt;span class=&quot;co&quot;&gt;#5: ss&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(ss)
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;202.482&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;d&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;d2&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;ss&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt; 
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;where
+    where &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+    
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;y &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;  ## Create new object
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;d&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;d2&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;ss&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;y&amp;quot;&lt;/span&gt; 
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(y)
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;0.638862388&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.533041463&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.064615286&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.093039131&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.157834589&lt;/span&gt;
+    [&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;0.007901501&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;c  ## Execute the rest of the function w/o stopping
+    exiting from:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;202.482&lt;/span&gt;
+
+    &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;undebug&lt;/span&gt;(SS)  ## No need for further debugging&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note the explicit use of the &lt;code&gt;print&lt;/code&gt; function in the above. At an interactive prompt, R will “autoprint” the value of a variable when it is used, so use of the &lt;code&gt;print&lt;/code&gt; function is optional. But what if, for instance, you had &lt;code&gt;n&lt;/code&gt; as a parameter in your function? Then to examine &lt;code&gt;n&lt;/code&gt; you’d need to say explicitly:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(n)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;One final thing: if you want to debug a function, you have to say so &lt;strong&gt;before&lt;/strong&gt; you call the function. This is more or less obvious.&lt;/p&gt;
+&lt;p&gt;Perhaps not so obvious is the fact that you can flag functions for debugging “on the fly”. I.e., you can turn on debugging for other functions while you’re in the process of debugging a given function. Example later.&lt;/p&gt;
+&lt;h3 id=&quot;explicit-calls-to-browser&quot;&gt;Explicit Calls to Browser&lt;/h3&gt;
+&lt;p&gt;Rather than flagging a function for debugging and then stepping through the function a line at a time, it is sometimes convenient to modify your code in such a way as to trigger debugging at the point where you suspect the trouble lies.&lt;/p&gt;
+&lt;p&gt;Consider the following modified version of SS, for instance. We might feel confident that the trouble occurs in our function only after &lt;code&gt;d2&lt;/code&gt; has been calculated, so we insert a call to the function &lt;code&gt;browser&lt;/code&gt; at the point where we want to start, well, browsing.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
+SS &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(mu, x) {
+    d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
+    d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
+    ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
+    ss
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, xPoints)
+    Called from:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, xPoints)
+    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;d&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;d2&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt; 
+    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(mu)
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(x)
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] -&lt;span class=&quot;fl&quot;&gt;0.05553729&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
+    debug at &lt;span class=&quot;co&quot;&gt;#5: ss &amp;lt;- sum(d2)&lt;/span&gt;
+    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;c
+    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;513.5895&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;One drawback to this mode of operation is that you have to remember to &lt;em&gt;remove&lt;/em&gt; the call to &lt;code&gt;browser&lt;/code&gt; before you put the code into production.&lt;/p&gt;
+&lt;p&gt;One real advantage of this approach is that you can use it to debug “anonymous” functions, as:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;sapply&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;50&lt;/span&gt;, function_with_no_name {
+        .
+        .
+        .
+        &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
+        .
+        .
+        .
+    })&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;inserting-code-with-trace&quot;&gt;Inserting Code with &lt;code&gt;trace&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;As with &lt;code&gt;debug&lt;/code&gt;, the function &lt;code&gt;trace&lt;/code&gt; allows you to debug code, but &lt;code&gt;trace&lt;/code&gt; is much more general and sophisticated. The simplest uses of &lt;code&gt;trace&lt;/code&gt; don’t appear much different from the corresponding use of &lt;code&gt;debug&lt;/code&gt;, although some differences are evident.&lt;/p&gt;
+&lt;p&gt;The following example is taken from the book &lt;em&gt;Software for Data Analysis&lt;/em&gt; by John M. Chambers. Suppose we have defined three functions, called &lt;code&gt;Fn1&lt;/code&gt;, &lt;code&gt;Fn2&lt;/code&gt;, &lt;code&gt;Fn3&lt;/code&gt;. (The details of the function don’t matter for the purposes of this example.) Then we might use &lt;code&gt;trace&lt;/code&gt; as follows:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(Fn1, recover)
+    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(Fn2, &lt;span class=&quot;dt&quot;&gt;exit =&lt;/span&gt; browser)
+    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(Fn3, browser, &lt;span class=&quot;dt&quot;&gt;exit =&lt;/span&gt; browser)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, &lt;code&gt;browser&lt;/code&gt; is the same function we saw above. The function &lt;code&gt;recover&lt;/code&gt; lets us examine the full sequence of calls that brought us to a given point in our code, and then browse inside &lt;em&gt;any&lt;/em&gt; of the functions in the sequence.&lt;/p&gt;
+&lt;p&gt;After the above calls to &lt;code&gt;trace&lt;/code&gt;, all future calls to &lt;code&gt;Fn1&lt;/code&gt; will begin with a call to &lt;code&gt;recover()&lt;/code&gt;; calls to &lt;code&gt;Fn2&lt;/code&gt; will invoke &lt;code&gt;browser()&lt;/code&gt; just before the function exits; calls to &lt;code&gt;Fn3&lt;/code&gt; will invoke &lt;code&gt;browser()&lt;/code&gt; on both entry to the function and exit from the function. (In the case of &lt;code&gt;Fn3&lt;/code&gt; we might get tired of stepping through the function and hit &lt;code&gt;c&lt;/code&gt; (continue), but stop before we leave the function, juuust to make sure everything is still OK before we lose all the local variables in the function.)&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;trace&lt;/code&gt; function works by modifying the code of the function, then saving the modified function, and running the modified version when you invoke the function. The original code is not touched, and you can restore the original behavior by executing:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(Fn1)
+    etc.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here are some examples with our &lt;code&gt;SS&lt;/code&gt; function:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(SS, recover)
+&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
+&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(SS)
+
+&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(SS, browser)
+&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, xPoints)
+&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(SS)
+
+&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(SS, &lt;span class=&quot;dt&quot;&gt;exit =&lt;/span&gt; browser)
+&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;, xPoints)
+&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(SS)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The paper by Roger Peng, mentioned at the beginning of this note, has an example in which he minimizes the negative log-likelihood of a statistical model, using an R function that he calls &lt;code&gt;nLL&lt;/code&gt;. The details of the discussion are somewhat complicated and will be omitted here.&lt;/p&gt;
+&lt;p&gt;The salient point is that the procedure in question involves many iterations, and is plagued by the same problem that we discussed above: the log of a negative number produces a so-called &lt;code&gt;NaN&lt;/code&gt; (“not a number”) in &lt;em&gt;some&lt;/em&gt; of the iterations. We would hope not to get NaN’s in our calculations, and we might, therefore, want to examine in detail the situations in which a NaN is produced. But there might be tens or hundreds or thousands of iterations, most of which do not generate NaN’s. Stepping through all the iterations would take a lifetime. What to do?&lt;/p&gt;
+&lt;p&gt;The solution is to trace the function using some of its more sophisticated options:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;nLL&amp;quot;&lt;/span&gt;, &lt;span class=&quot;kw&quot;&gt;quote&lt;/span&gt;(if(&lt;span class=&quot;kw&quot;&gt;any&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;is.nan&lt;/span&gt;(lz))) { &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;() }), &lt;span class=&quot;dt&quot;&gt;at=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;print=&lt;/span&gt;F)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;nLL&lt;/code&gt; is the name of the function to be traced&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;the stuff inside the &lt;code&gt;quote&lt;/code&gt; function is code to be inserted (dynamically) into the nLL function; it could also be just the name of a function (as in our introductory examples)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;at&lt;/code&gt; is the line number at which to insert the code, which the author determines from &lt;code&gt;as.list(body(nLL))&lt;/code&gt; (see above)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;print=FALSE&lt;/code&gt; just suppresses the printing of a descriptive message&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is as if we had written:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    if(&lt;span class=&quot;kw&quot;&gt;any&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;is.nan&lt;/span&gt;(lz))) {
+        &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
+    }&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;at line 4 of the &lt;code&gt;nLL&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;Here’s a simpler example using the functions we mentioned at the beginning of the discussion:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
+&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(h, &lt;span class=&quot;kw&quot;&gt;quote&lt;/span&gt;(if (&lt;span class=&quot;kw&quot;&gt;is.nan&lt;/span&gt;(r)) {
+    &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
+}), &lt;span class=&quot;dt&quot;&gt;at =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(f)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, if using the quoted expression for the second argument of &lt;code&gt;trace&lt;/code&gt; seems too intimidating. let’s note that &lt;code&gt;trace&lt;/code&gt; has an &lt;code&gt;edit&lt;/code&gt; argument. If you call trace as:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt; (someFn, ..., &lt;span class=&quot;dt&quot;&gt;edit=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;you will dropped into an editor, where you can edit your code to your heart’s content before the (temporarily modified) function executes. BTW, you can also supply the name of an editor here, as:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt; (someFn, ..., &lt;span class=&quot;dt&quot;&gt;edit=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/usr/bin/vim&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;editors-addendum-a-quick-way-to-enable-bugging-everywhere&quot;&gt;&lt;em&gt;Editor’s Addendum: A quick way to enable bugging everywhere&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;One way to get in the habit of debugging is to drop this into your &lt;code&gt;.Rprofile&lt;/code&gt; file or run it at the start of your R session:&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;options&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;error=&lt;/span&gt;utils::recover)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;This will automatically invoke &lt;code&gt;recover()&lt;/code&gt; every time your code gives an error, allowing you to view the stack of function calls and enter the browser mode in any of the functions. For instance:&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;)
+Error in &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;non-numeric argument to mathematical function
+
+Enter a frame number, or &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt; to exit   
+
+&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;)
+&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#2: g(x)&lt;/span&gt;
+&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#2: h(y)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Now selecting any of these will start browser mode within those functions. If you don’t need to use the browser (for instance, if the source of the error is obvious), just enter &lt;code&gt;0&lt;/code&gt; and move on.&lt;/em&gt;&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Demographic analysis using the `popbio` library and some other fun stuff</title>
@@ -2040,1025 +2357,6 @@ for (time in time.steps) {
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;p&gt;Anderson, R. M., and R. M. May. 1985. Age-related changes in the rate of disease transmission: implications for the design of vaccination programmes. J. Hyg. Camb.&lt;/p&gt;
 &lt;p&gt;Cobb, R. C., J. a. N. Filipe, R. K. Meentemeyer, C. a Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Exploring GAMs with Rosemary Hartman</title>
-   <link href="http://www.noamross.net/blog/2012/11/9/gams-for-drug.html"/>
-   <updated>2012-11-09T12:49:25-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2012/11/9/gams-for-drug</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Today at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, Rosemary Hartman took us through her work in progress fitting general additive models to organism presence/absence data. Below is her presentation and script. You can get the original script and data &lt;a href=&quot;https://gist.github.com/4048075&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Also, check the comments below for some discussion of other options for this type of analysis, such as boosted regression trees.&lt;/p&gt;
-&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/15108978&quot; width=&quot;476&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
-
-
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## GAMs using mgcv and amphibian presence/absence dataset
-## code and data by Rosemary Hartman (rosehartman at gmail dot com)
-
-## First, load the mgcv package (Simon Wood)
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(mgcv)
-
-## Now, attach your data set (or my data set)
-fishlakes &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;read.csv&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;fishlakes.csv&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;comment.char=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;#&amp;quot;&lt;/span&gt;)
-
-## create a full exploritory model using varibles you think are biologically
-## significant (this is pretty subjective, and where you need to use your brain)
-## For my data set, I am trying to predict the presence of cascades frogs
-
-
-fishlakes.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;## &amp;quot;treatment&amp;quot; = breeding cascades frogs in lake
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;## breeding toads in lake
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;count.RACApops.1K +&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;##  number of cascades frog populations within 1km
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;## amount of silt in lake bed
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;## total lake area with emergent aquatic vegetation
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;## total lake area less than 10cm deep
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;## perportion of nearby water bodies with frogs weighted by distance
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;),  ## average slope
-  &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes) ## this is a logistic function since I have binomial data&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: matrix not positive definite&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes.logr) ## Note, this model explains 68.5% of devience&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(vegetated.area, k = 7) + s(area.10cm, k = 6) + 
-##     s(weighted.dist, k = 6) + s(bank.slope, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          3.830      3.224    1.19    0.235  
-## BUBO.breedingy      -3.393      1.646   -2.06    0.039 *
-## count.RACApops.1K   -0.192      0.506   -0.38    0.705  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.51    0.47
-## s(vegetated.area) 3.48   3.97   3.47    0.48
-## s(area.10cm)      2.20   2.66   1.17    0.70
-## s(weighted.dist)  2.24   2.73   2.56    0.41
-## s(bank.slope)     2.22   2.68   5.02    0.14
-## 
-## R-sq.(adj) =  0.597   Deviance explained = 68.5%
-## UBRE score = 0.091416  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;gam.check&lt;/span&gt;(fishlakes.logr) ## It seems to think my ks are too low, but raising them&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Method: UBRE   Optimizer: outer newton
-## full convergence after 14 iterations.
-## Gradient range [-4.272e-07,2.326e-07]
-## (score 0.09142 &amp;amp; scale 1).
-## Hessian positive definite, eigenvalue range [2.564e-07,0.05689].
-## 
-## Basis dimension (k) checking results. Low p-value (k-index&amp;lt;1) may
-## indicate that k is too low, especially if edf is close to k&amp;#39;.
-## 
-##                      k&amp;#39;   edf k-index p-value
-## s(silt.total)     5.000 1.000   0.691    0.02
-## s(vegetated.area) 6.000 3.485   1.321    0.97
-## s(area.10cm)      5.000 2.200   0.742    0.02
-## s(weighted.dist)  5.000 2.237   1.064    0.63
-## s(bank.slope)     5.000 2.219   0.965    0.42&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report1.png&quot; /&gt;
-&lt;/div&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## gives huge overspecification. I&amp;#39;m not sure what to do about this.
-&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(fishlakes.logr) ## diagnostic plots for the smooths&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report2.png&quot; /&gt; &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report3.png&quot; /&gt; &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report4.png&quot; /&gt; &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report5.png&quot; /&gt; &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/gamfigs/gams-for-DRUG-Rmdauto-report6.png&quot; /&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-## To choose my k&amp;#39;s, I looped through a bunch of different values for k, and basically 
-## just played around until my model stopped overspecifying
-
-
-for (i in &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;) { fishlakes.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;i) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;i) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;i) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm,  &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;i) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;i), &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes);
-                  x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes.logr);
-                  y &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;AIC&lt;/span&gt;(fishlakes.logr);
-                  &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(i)
-                  &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(x)
-                  &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(y)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: basis dimension, k, increased to minimum possible
-
-## Warning: basis dimension, k, increased to minimum possible
-
-## Warning: basis dimension, k, increased to minimum possible
-
-## Warning: basis dimension, k, increased to minimum possible
-
-## Warning: basis dimension, k, increased to minimum possible
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## [1] 2
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = i) + s(bank.slope, k = i) + 
-##     s(area.10cm, k = i) + s(weighted.dist, k = i)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          3.011      1.263    2.38    0.017 *
-## count.RACApops.1K   -0.247      0.307   -0.80    0.421  
-## BUBO.breedingy      -2.314      1.010   -2.29    0.022 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.05    0.82
-## s(vegetated.area) 1.00   1.00   0.27    0.61
-## s(bank.slope)     1.63   1.86   1.97    0.34
-## s(area.10cm)      1.00   1.00   0.04    0.85
-## s(weighted.dist)  1.80   1.96   2.34    0.30
-## 
-## R-sq.(adj) =  0.339   Deviance explained = 42.2%
-## UBRE score = 0.21726  Scale est. = 1         n = 42
-## [1] 51.12
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## [1] 3
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = i) + s(bank.slope, k = i) + 
-##     s(area.10cm, k = i) + s(weighted.dist, k = i)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          3.011      1.263    2.38    0.017 *
-## count.RACApops.1K   -0.247      0.307   -0.80    0.421  
-## BUBO.breedingy      -2.314      1.010   -2.29    0.022 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.05    0.82
-## s(vegetated.area) 1.00   1.00   0.27    0.61
-## s(bank.slope)     1.63   1.86   1.97    0.34
-## s(area.10cm)      1.00   1.00   0.04    0.85
-## s(weighted.dist)  1.80   1.96   2.34    0.30
-## 
-## R-sq.(adj) =  0.339   Deviance explained = 42.2%
-## UBRE score = 0.21726  Scale est. = 1         n = 42
-## [1] 51.12
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## [1] 4
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = i) + s(bank.slope, k = i) + 
-##     s(area.10cm, k = i) + s(weighted.dist, k = i)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          2.745      1.147    2.39    0.017 *
-## count.RACApops.1K   -0.217      0.299   -0.73    0.468  
-## BUBO.breedingy      -2.308      0.996   -2.32    0.020 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.06    0.81
-## s(vegetated.area) 1.00   1.00   0.31    0.58
-## s(bank.slope)     1.77   2.14   2.38    0.33
-## s(area.10cm)      1.00   1.00   0.08    0.78
-## s(weighted.dist)  1.86   2.25   2.53    0.32
-## 
-## R-sq.(adj) =  0.332   Deviance explained =   42%
-## UBRE score = 0.22873  Scale est. = 1         n = 42
-## [1] 51.61
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## [1] 5
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = i) + s(bank.slope, k = i) + 
-##     s(area.10cm, k = i) + s(weighted.dist, k = i)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)          -16.5     4857.1    0.00     1.00
-## count.RACApops.1K     42.4      397.8    0.11     0.92
-## BUBO.breedingy      -254.6     9152.1   -0.03     0.98
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.00    0.95
-## s(vegetated.area) 2.32   2.36   0.00    1.00
-## s(bank.slope)     1.52   1.57   0.01    0.99
-## s(area.10cm)      3.06   3.07   0.02    1.00
-## s(weighted.dist)  4.00   4.00   0.02    1.00
-## 
-## R-sq.(adj) =      1   Deviance explained =  100%
-## UBRE score = -0.29037  Scale est. = 1         n = 42
-## [1] 29.8
-
-## Warning: matrix not positive definite
-
-## [1] 6
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = i) + s(bank.slope, k = i) + 
-##     s(area.10cm, k = i) + s(weighted.dist, k = i)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)         5.4778     2.5608    2.14    0.032 *
-## count.RACApops.1K  -0.0673     0.4763   -0.14    0.888  
-## BUBO.breedingy     -4.9379     2.1801   -2.26    0.024 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.14    0.71
-## s(vegetated.area) 1.00   1.00   0.38    0.54
-## s(bank.slope)     2.14   2.60   3.51    0.25
-## s(area.10cm)      5.00   5.00   5.46    0.36
-## s(weighted.dist)  2.13   2.64   2.50    0.40
-## 
-## R-sq.(adj) =  0.523   Deviance explained = 65.4%
-## UBRE score = 0.13954  Scale est. = 1         n = 42
-## [1] 47.86
-## [1] 7
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = i) + s(bank.slope, k = i) + 
-##     s(area.10cm, k = i) + s(weighted.dist, k = i)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)           6.56     366.37    0.02     0.99
-## count.RACApops.1K     4.30      13.89    0.31     0.76
-## BUBO.breedingy      -22.94      36.65   -0.63     0.53
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.02    0.88
-## s(vegetated.area) 3.50   3.82   0.97    0.90
-## s(bank.slope)     1.00   1.00   0.13    0.72
-## s(area.10cm)      1.00   1.00   0.61    0.44
-## s(weighted.dist)  4.02   4.21   1.32    0.88
-## 
-## R-sq.(adj) =      1   Deviance explained = 99.7%
-## UBRE score = -0.35283  Scale est. = 1         n = 42
-## [1] 27.18
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## [1] 8
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = i) + s(bank.slope, k = i) + 
-##     s(area.10cm, k = i) + s(weighted.dist, k = i)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)         22.752    135.686    0.17     0.87
-## count.RACApops.1K   -0.247     23.133   -0.01     0.99
-## BUBO.breedingy     -29.877     67.934   -0.44     0.66
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     4.58   4.71   0.09    1.00
-## s(vegetated.area) 3.19   3.31   0.01    1.00
-## s(bank.slope)     1.00   1.00   0.06    0.80
-## s(area.10cm)      2.14   2.23   0.02    0.99
-## s(weighted.dist)  3.68   3.87   0.04    1.00
-## 
-## R-sq.(adj) =      1   Deviance explained = 99.9%
-## UBRE score = -0.16157  Scale est. = 1         n = 42
-## [1] 35.21&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-for (i in &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) { fishlakes.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;i) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm,  &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes);
-                  x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes.logr);
-                  y &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;AIC&lt;/span&gt;(fishlakes.logr);
-                  &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(i)
-                  &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(x)
-                  &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(y)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: basis dimension, k, increased to minimum possible
-
-## Warning: matrix not positive definite
-
-## [1] 2
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)         5.4778     2.5608    2.14    0.032 *
-## count.RACApops.1K  -0.0673     0.4763   -0.14    0.888  
-## BUBO.breedingy     -4.9379     2.1801   -2.26    0.024 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.14    0.71
-## s(vegetated.area) 1.00   1.00   0.38    0.54
-## s(bank.slope)     2.14   2.60   3.51    0.25
-## s(area.10cm)      5.00   5.00   5.46    0.36
-## s(weighted.dist)  2.13   2.64   2.50    0.40
-## 
-## R-sq.(adj) =  0.523   Deviance explained = 65.4%
-## UBRE score = 0.13954  Scale est. = 1         n = 42
-## [1] 47.86
-
-## Warning: matrix not positive definite
-
-## [1] 3
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)         5.4778     2.5608    2.14    0.032 *
-## count.RACApops.1K  -0.0673     0.4763   -0.14    0.888  
-## BUBO.breedingy     -4.9379     2.1801   -2.26    0.024 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.14    0.71
-## s(vegetated.area) 1.00   1.00   0.38    0.54
-## s(bank.slope)     2.14   2.60   3.51    0.25
-## s(area.10cm)      5.00   5.00   5.46    0.36
-## s(weighted.dist)  2.13   2.64   2.50    0.40
-## 
-## R-sq.(adj) =  0.523   Deviance explained = 65.4%
-## UBRE score = 0.13954  Scale est. = 1         n = 42
-## [1] 47.86
-## [1] 4
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)           76.6      427.3    0.18     0.86
-## count.RACApops.1K     10.1       51.7    0.20     0.84
-## BUBO.breedingy       -89.3      536.3   -0.17     0.87
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.00    0.97
-## s(vegetated.area) 2.65   2.70   0.03    1.00
-## s(bank.slope)     3.77   3.87   0.12    1.00
-## s(area.10cm)      4.51   4.54   0.19    1.00
-## s(weighted.dist)  1.87   1.90   0.03    0.98
-## 
-## R-sq.(adj) =      1   Deviance explained =  100%
-## UBRE score = -0.19934  Scale est. = 1         n = 42
-## [1] 33.63
-
-## Warning: matrix not positive definite
-
-## [1] 5
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)         5.4778     2.5609    2.14    0.032 *
-## count.RACApops.1K  -0.0673     0.4763   -0.14    0.888  
-## BUBO.breedingy     -4.9379     2.1801   -2.26    0.024 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.14    0.71
-## s(vegetated.area) 1.00   1.00   0.38    0.54
-## s(bank.slope)     2.14   2.60   3.51    0.25
-## s(area.10cm)      5.00   5.00   5.46    0.36
-## s(weighted.dist)  2.13   2.64   2.50    0.40
-## 
-## R-sq.(adj) =  0.523   Deviance explained = 65.4%
-## UBRE score = 0.13954  Scale est. = 1         n = 42
-## [1] 47.86
-
-## Warning: matrix not positive definite
-
-## [1] 6
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          3.830      3.224    1.19    0.235  
-## count.RACApops.1K   -0.192      0.506   -0.38    0.705  
-## BUBO.breedingy      -3.393      1.646   -2.06    0.039 *
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     1.00   1.00   0.51    0.47
-## s(vegetated.area) 3.48   3.97   3.47    0.48
-## s(bank.slope)     2.22   2.68   4.07    0.21
-## s(area.10cm)      2.20   2.66   1.09    0.72
-## s(weighted.dist)  2.24   2.73   1.90    0.54
-## 
-## R-sq.(adj) =  0.597   Deviance explained = 68.5%
-## UBRE score = 0.091416  Scale est. = 1         n = 42
-## [1] 45.84
-## [1] 7
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)          55.26     358.87    0.15     0.88
-## count.RACApops.1K     5.42      99.67    0.05     0.96
-## BUBO.breedingy      -87.21     624.65   -0.14     0.89
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     4.96   4.99   0.09    1.00
-## s(vegetated.area) 3.99   4.02   0.02    1.00
-## s(bank.slope)     1.00   1.00   0.01    0.93
-## s(area.10cm)      1.86   1.96   0.02    0.99
-## s(weighted.dist)  1.03   1.03   0.01    0.92
-## 
-## R-sq.(adj) =      1   Deviance explained =  100%
-## UBRE score = -0.24525  Scale est. = 1         n = 42
-## [1] 31.7
-
-## Warning: matrix not positive definite
-
-## [1] 8
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)          89.75   12140.84    0.01     0.99
-## count.RACApops.1K    -3.53    1710.88    0.00     1.00
-## BUBO.breedingy     -119.62    9443.72   -0.01     0.99
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     5.76   5.80      0       1
-## s(vegetated.area) 2.03   2.04      0       1
-## s(bank.slope)     1.18   1.19      0       1
-## s(area.10cm)      1.84   1.90      0       1
-## s(weighted.dist)  1.08   1.08      0       1
-## 
-## R-sq.(adj) =      1   Deviance explained =  100%
-## UBRE score = -0.29122  Scale est. = 1         n = 42
-## [1] 29.77
-## [1] 9
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)         48.947    655.719    0.07     0.94
-## count.RACApops.1K   -0.137     82.969    0.00     1.00
-## BUBO.breedingy     -73.934    546.328   -0.14     0.89
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     5.75   5.84   0.02    1.00
-## s(vegetated.area) 2.00   2.01   0.01    1.00
-## s(bank.slope)     1.00   1.00   0.01    0.91
-## s(area.10cm)      1.86   1.95   0.01    0.99
-## s(weighted.dist)  1.19   1.21   0.00    0.99
-## 
-## R-sq.(adj) =      1   Deviance explained =  100%
-## UBRE score = -0.29492  Scale est. = 1         n = 42
-## [1] 29.61
-## [1] 10
-## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)        54.2952   102.0865    0.53     0.59
-## count.RACApops.1K  -0.0411    16.5558    0.00     1.00
-## BUBO.breedingy    -75.4705   126.5539   -0.60     0.55
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     6.88   7.06   0.74    1.00
-## s(vegetated.area) 3.09   3.16   0.22    0.98
-## s(bank.slope)     1.04   1.05   0.22    0.66
-## s(area.10cm)      2.42   2.67   0.38    0.92
-## s(weighted.dist)  1.00   1.00   0.30    0.58
-## 
-## R-sq.(adj) =      1   Deviance explained = 99.8%
-## UBRE score = -0.16704  Scale est. = 1         n = 42
-## [1] 34.98&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-## In order to see which of the candidate terms are significant, I will run the model
-## several times, dropping one term out each time and then do a likelyhood ratio test
-## to see if adding the term leads to a significant improvement in residual deviance.
-
-## fishlakes2.logr is the same model as fishlakes.logr without the &amp;quot;bank slope&amp;quot; term
-fishlakes2.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K +
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;),
-                       &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: matrix not positive definite&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes2.logr) ## This model only explains 34.1% of deviance&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(vegetated.area, k = 7) + s(area.10cm, k = 6) + 
-##     s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          2.175      0.974    2.23    0.026 *
-## BUBO.breedingy      -1.840      0.891   -2.07    0.039 *
-## count.RACApops.1K   -0.294      0.290   -1.01    0.311  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value  
-## s(silt.total)     1.00   1.00   3.19   0.074 .
-## s(vegetated.area) 1.00   1.00   0.46   0.499  
-## s(area.10cm)      1.00   1.00   1.82   0.177  
-## s(weighted.dist)  2.02   2.54   2.53   0.375  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## R-sq.(adj) =  0.279   Deviance explained = 34.1%
-## UBRE score = 0.25725  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;anova&lt;/span&gt;(fishlakes2.logr,  fishlakes.logr,  &lt;span class=&quot;dt&quot;&gt;test =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;LRT&amp;quot;&lt;/span&gt;) ## There is a significant difference&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Analysis of Deviance Table
-## 
-## Model 1: treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(vegetated.area, k = 7) + s(area.10cm, k = 6) + 
-##     s(weighted.dist, k = 6)
-## Model 2: treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-##   Resid. Df Resid. Dev   Df Deviance Pr(&amp;gt;Chi)    
-## 1      34.0       36.8                           
-## 2      24.6        0.1 9.41     36.6  4.2e-05 ***
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## in explanitory power between the two models, that means the &amp;quot;bank slope&amp;quot; term
-## should be included in the final model
-
-## Now do the same with the rest of the varibles
-fishlakes3.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K +&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;)
-                       +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;), 
-                       &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes) ## all variables except &amp;quot;weighted distance&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: matrix not positive definite&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes3.logr) ## This model is way overspecified (100% of devience explained)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)          77.43     282.28    0.27     0.78
-## BUBO.breedingy     -120.75     510.54   -0.24     0.81
-## count.RACApops.1K     2.83      64.25    0.04     0.96
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(silt.total)     4.77   4.80   0.08    1.00
-## s(vegetated.area) 2.15   2.19   0.02    0.99
-## s(bank.slope)     1.22   1.25   0.06    0.88
-## s(area.10cm)      3.71   3.77   0.06    1.00
-## 
-## R-sq.(adj) =      1   Deviance explained =  100%
-## UBRE score = -0.29299  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;anova&lt;/span&gt;(fishlakes3.logr,  fishlakes.logr,  &lt;span class=&quot;dt&quot;&gt;test =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;LRT&amp;quot;&lt;/span&gt;) ## significant differnce!&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Analysis of Deviance Table
-## 
-## Model 1: treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6)
-## Model 2: treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-##   Resid. Df Resid. Dev   Df Deviance Pr(&amp;gt;Chi)
-## 1      27.2      0.008                       
-## 2      24.6      0.127 2.59   -0.119         &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Include &amp;quot;weighted distance&amp;quot; in final model
-
-fishlakes4.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +count.RACApops.1K+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;), 
-                       &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes) ## all variables except area under 10cm&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: matrix not positive definite&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes4.logr) ## This model only explains 54.5% of deviance&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          2.490      1.851    1.35    0.179  
-## BUBO.breedingy      -1.997      1.100   -1.82    0.069 .
-## count.RACApops.1K   -0.465      0.373   -1.25    0.213  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value  
-## s(silt.total)     1.00   1.00   0.03   0.852  
-## s(vegetated.area) 3.29   3.81   4.86   0.276  
-## s(bank.slope)     1.00   1.00   4.12   0.042 *
-## s(weighted.dist)  1.40   1.70   0.81   0.591  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## R-sq.(adj) =  0.513   Deviance explained = 54.5%
-## UBRE score = 0.066475  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;anova&lt;/span&gt;(fishlakes4.logr,  fishlakes.logr,  &lt;span class=&quot;dt&quot;&gt;test =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;LRT&amp;quot;&lt;/span&gt;) ## the difference is not&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Analysis of Deviance Table
-## 
-## Model 1: treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(weighted.dist, k = 6)
-## Model 2: treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-##   Resid. Df Resid. Dev   Df Deviance Pr(&amp;gt;Chi)   
-## 1      32.3      25.40                          
-## 2      24.6       0.13 7.73     25.3   0.0012 **
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## significant, leave &amp;quot;area under 10cm&amp;quot; out of final model
-
-fishlakes5.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;)+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes) ## all variables except number&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: matrix not positive definite&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## of frog populations within 1km
-&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes5.logr) ## This model only explains 31.8% of deviance&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + s(silt.total, k = 6) + s(vegetated.area, 
-##     k = 7) + s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)       1.529      0.677    2.26    0.024 *
-## BUBO.breedingy   -1.608      0.836   -1.92    0.054 .
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value  
-## s(silt.total)     1.00   1.00   2.76   0.097 .
-## s(vegetated.area) 1.00   1.00   0.30   0.583  
-## s(area.10cm)      1.00   1.00   1.56   0.212  
-## s(weighted.dist)  1.94   2.45   2.26   0.403  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## R-sq.(adj) =   0.26   Deviance explained = 31.8%
-## UBRE score = 0.23669  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;anova&lt;/span&gt;(fishlakes5.logr,  fishlakes.logr,  &lt;span class=&quot;dt&quot;&gt;test =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;LRT&amp;quot;&lt;/span&gt;) ## significant differnce!&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Analysis of Deviance Table
-## 
-## Model 1: treatment ~ BUBO.breeding + s(silt.total, k = 6) + s(vegetated.area, 
-##     k = 7) + s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-## Model 2: treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-##   Resid. Df Resid. Dev   Df Deviance Pr(&amp;gt;Chi)    
-## 1      35.1       38.1                           
-## 2      24.6        0.1 10.5     37.9  5.6e-05 ***
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Include &amp;quot;count RACA pops&amp;quot; in final model
-
-fishlakes6.logr &amp;lt;-&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;), 
-                      &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes) ## all varibles except vegetated area&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: matrix not positive definite&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes6.logr) ## This model explains 61.4% of deviance &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(bank.slope, k = 6) + s(area.10cm, k = 6) + s(weighted.dist, 
-##     k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          3.967      1.717    2.31    0.021 *
-## BUBO.breedingy      -3.711      1.561   -2.38    0.017 *
-## count.RACApops.1K   -0.085      0.412   -0.21    0.836  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                   edf Ref.df Chi.sq p-value
-## s(silt.total)    1.00   1.00   0.01    0.91
-## s(bank.slope)    1.90   2.32   3.93    0.18
-## s(area.10cm)     4.67   4.94   6.03    0.30
-## s(weighted.dist) 1.93   2.38   2.05    0.43
-## 
-## R-sq.(adj) =  0.512   Deviance explained = 61.4%
-## UBRE score = 0.10827  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;anova&lt;/span&gt;(fishlakes6.logr,  fishlakes.logr,  &lt;span class=&quot;dt&quot;&gt;test =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;LRT&amp;quot;&lt;/span&gt;) ## Only marginally significant&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Analysis of Deviance Table
-## 
-## Model 1: treatment ~ BUBO.breeding + count.RACApops.1K + s(silt.total, 
-##     k = 6) + s(bank.slope, k = 6) + s(area.10cm, k = 6) + s(weighted.dist, 
-##     k = 6)
-## Model 2: treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-##   Resid. Df Resid. Dev   Df Deviance Pr(&amp;gt;Chi)    
-## 1      29.5      21.56                           
-## 2      24.6       0.13 4.94     21.4  0.00063 ***
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## maybe drop vegetated area out of final model
-
-fishlakes7.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K+&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes) ## all variables except silt
-&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes7.logr) ## This model explains 63.3% of deviance &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + count.RACApops.1K + s(vegetated.area, 
-##     k = 7) + s(bank.slope, k = 6) + s(area.10cm, k = 6) + s(weighted.dist, 
-##     k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)         4.6494     2.0998    2.21    0.027 *
-## BUBO.breedingy     -4.2713     1.8364   -2.33    0.020 *
-## count.RACApops.1K  -0.0772     0.4423   -0.17    0.862  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value  
-## s(vegetated.area) 1.00   1.00   0.14   0.707  
-## s(bank.slope)     2.01   2.46   6.56   0.058 .
-## s(area.10cm)      4.87   4.98   5.87   0.317  
-## s(weighted.dist)  1.99   2.44   2.23   0.410  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## R-sq.(adj) =  0.524   Deviance explained = 63.3%
-## UBRE score = 0.10056  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;anova&lt;/span&gt;(fishlakes7.logr,  fishlakes.logr,  &lt;span class=&quot;dt&quot;&gt;test =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;LRT&amp;quot;&lt;/span&gt;) ## No difference. Definitely&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Analysis of Deviance Table
-## 
-## Model 1: treatment ~ BUBO.breeding + count.RACApops.1K + s(vegetated.area, 
-##     k = 7) + s(bank.slope, k = 6) + s(area.10cm, k = 6) + s(weighted.dist, 
-##     k = 6)
-## Model 2: treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-##   Resid. Df Resid. Dev   Df Deviance Pr(&amp;gt;Chi)    
-## 1      29.1      20.50                           
-## 2      24.6       0.13 4.56     20.4  0.00072 ***
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## drop silt out of final model
-
-fishlakes8.logr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K+&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(silt.total, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(area.10cm, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;), 
-                       &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes) ## all variables except toads&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite
-
-## Warning: matrix not positive definite&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fishlakes8.logr) ## This model only explains 49.7% of deviance&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ count.RACApops.1K + s(vegetated.area, k = 7) + s(silt.total, 
-##     k = 6) + s(bank.slope, k = 5) + s(area.10cm, k = 5) + s(weighted.dist, 
-##     k = 5)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)
-## (Intercept)          1.074      1.926    0.56     0.58
-## count.RACApops.1K   -0.338      0.343   -0.99     0.32
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value  
-## s(vegetated.area) 3.46   3.97   8.07   0.087 .
-## s(silt.total)     1.00   1.00   0.00   0.979  
-## s(bank.slope)     1.00   1.00   3.41   0.065 .
-## s(area.10cm)      1.00   1.00   0.02   0.880  
-## s(weighted.dist)  1.69   2.08   0.86   0.669  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## R-sq.(adj) =   0.41   Deviance explained = 49.7%
-## UBRE score = 0.15144  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;anova&lt;/span&gt;(fishlakes8.logr,  fishlakes.logr,  &lt;span class=&quot;dt&quot;&gt;test =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;LRT&amp;quot;&lt;/span&gt;) ## significant differnce!&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Analysis of Deviance Table
-## 
-## Model 1: treatment ~ count.RACApops.1K + s(vegetated.area, k = 7) + s(silt.total, 
-##     k = 6) + s(bank.slope, k = 5) + s(area.10cm, k = 5) + s(weighted.dist, 
-##     k = 5)
-## Model 2: treatment ~ count.RACApops.1K + BUBO.breeding + s(silt.total, 
-##     k = i) + s(vegetated.area, k = 7) + s(bank.slope, k = 6) + 
-##     s(area.10cm, k = 6) + s(weighted.dist, k = 6)
-##   Resid. Df Resid. Dev   Df Deviance Pr(&amp;gt;Chi)    
-## 1      31.8      28.06                           
-## 2      24.6       0.13 7.28     27.9  0.00028 ***
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 &lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Include breeding toads in final model
-
-## Now that we know what variables we are using, we need to figure out how to put them all in 
-## a useful model. 
-fish1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;gam&lt;/span&gt;(treatment ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;BUBO.breeding +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;count.RACApops.1K +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(bank.slope, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(vegetated.area, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;) +
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;s&lt;/span&gt;(weighted.dist, &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;family=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;binomial&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;logit&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data=&lt;/span&gt; fishlakes)
-&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fish1)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Family: binomial 
-## Link function: logit 
-## 
-## Formula:
-## treatment ~ BUBO.breeding + count.RACApops.1K + s(bank.slope, 
-##     k = 6) + s(vegetated.area, k = 7) + s(weighted.dist, k = 6)
-## 
-## Parametric coefficients:
-##                   Estimate Std. Error z value Pr(&amp;gt;|z|)  
-## (Intercept)          2.918      2.071    1.41    0.159  
-## BUBO.breedingy      -2.159      1.129   -1.91    0.056 .
-## count.RACApops.1K   -0.397      0.383   -1.04    0.300  
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1 
-## 
-## Approximate significance of smooth terms:
-##                    edf Ref.df Chi.sq p-value
-## s(bank.slope)     1.71   2.13   3.99    0.15
-## s(vegetated.area) 3.34   3.85   4.20    0.35
-## s(weighted.dist)  1.63   2.01   0.99    0.61
-## 
-## R-sq.(adj) =  0.543   Deviance explained = 58.1%
-## UBRE score = 0.017961  Scale est. = 1         n = 42&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-## Look at AICc of the models we have so far
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;bbmle&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;AICctab&lt;/span&gt;(fishlakes.logr, fishlakes2.logr, fishlakes4.logr, fishlakes5.logr, fishlakes6.logr, fishlakes7.logr, fishlakes8.logr, fish1,  &lt;span class=&quot;dt&quot;&gt;base =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;weights =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;nobs=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(fishlakes))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##                 AICc df               dAICc weight 
-## fish1           49.4 9.69075868652962  0.0  0.66781
-## fishlakes4.logr 51.4 9.69801565275897  2.0  0.23978
-## fishlakes5.logr 55.2 6.94476085279448  5.8  0.03658
-## fishlakes8.logr 55.7 10.1502612087597  6.3  0.02826
-## fishlakes2.logr 57.2 8.02172340100704  7.8  0.01338
-## fishlakes6.logr 58.4 12.4918149689505  9.0  0.00742
-## fishlakes7.logr 58.9 12.8639006849105  9.5  0.00570
-## fishlakes.logr  62.2 17.4287814751962 12.9  0.00107&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-
-## Now we can come up with more models, look for interactions, cross-validate the
-## best ones we have so far, or just give up. &lt;/code&gt;&lt;/pre&gt;</content>
  </entry>
  
  
