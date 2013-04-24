@@ -23,7 +23,7 @@ author:
 
 markdown: rdiscount
 pandoc:
-  extensions: [smart, mathjax, highlight-style="kate", indented-code-classes="r"]
+  extensions: [smart, mathjax, highlight-style="kate", indented-code-classes="r", email-obfuscation=none]
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

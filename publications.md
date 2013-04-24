@@ -6,7 +6,7 @@ group: menu
 
 ## Scientific
 
--   Kroetz, Kailin, Kate Fuller, David Kling, Noam Ross and James Sanchirico. "Open Access Fisheries," The Encyclopedia of Energy, Natural Resources and Environmental Economics (*in  press*) , ed. Peter Berck. Burlington, MA: Elsevier Press.
+-   Fuller, Kate, David Kling, Kaeilin Kroetz, Noam Ross, and James N. Sanchirico (2013) Economics and Ecology of Open-Access Fisheries. In  In: Shogren, J.F., (ed.) Encyclopedia of Energy, Natural Resource, and Environmental Economics, Vol. 2 *Encyclopedia of Energy, Natural Resource, and Environmental Economics* p.39-49. Amsterdam: Elsevier. <http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5>  [[Request reprint via email](mailto:noam.ross@gmail.com?Subject=Preprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%282013%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%20*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A//dx.doi.org/10.1016/B978-0-12-375067-9.00114-5)]
 -   Just, Allan and Noam Ross. "The bigger dig: expanded soil pit methods," 9 July 2003, Presentation at Hubbard Brook Ecosystem Study 40th Annual Cooperators' Meeting.
 
 ## In Popular Press

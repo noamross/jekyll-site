@@ -4,13 +4,44 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-04-18T14:34:15-07:00</updated>
+ <updated>2013-04-24T12:20:44-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>My first peer-reviewed publication: Economics and Ecology of Open-Access Fisheries</title>
+   <link href="http://www.noamross.net/blog/2013/4/24/my-first-publication.html"/>
+   <updated>2013-04-24T10:57:21-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/4/24/my-first-publication</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;My first peer-reviewed publication is an encyclopedia article written with colleagues in economics in UC Davis:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;Economics and Ecology of Open-Access Fisheries&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;K. Fuller, D. Kling, K. Kroetz, N. Ross and J.N. Sanchirico (2013)&lt;/p&gt;
+&lt;p&gt;In: Shogren, J.F., (ed.) Encyclopedia of Energy, Natural Resource, and Environmental Economics, Vol. 2 &lt;em&gt;Encyclopedia of Energy, Natural Resource, and Environmental Economics&lt;/em&gt; p.39-49. Amsterdam: Elsevier. &lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Abstract&lt;/h4&gt;
+&lt;p&gt;In open-access fisheries, participation and harvest by fishermen are unregulated. Under these conditions, the amount of fishing is greater than the socially optimal level, the economic profits from fishing are dissipated, and fish stocks are depleted and can even be driven to extinction. A large body of theoretical and empirical research has demonstrated the robustness of these results.&lt;/p&gt;
+&lt;p&gt;Although the basic outcomes hold across a variety of systems, the behavior of an open-access fishery can be complex. Simple models of fish ecology coupled with harvester behavior can explain boom-and-bust cycles in a fishery and fishing communities and complex supply responses. More complex ecological models of open-access fisheries illustrate the interactions among fishing, fish populations, and other parts of the ecosystem, as well as explain why some fishing regulations produce unintended consequences. Studying open access provides a foundation for understanding fishery economics, a baseline from which to measure the gains of implementing fishing regulations, and lends insight to the design of better regulatory systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The process of writing this article was interesting. Two years ago, when I was a first-year graduate student, my economics advisor &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/Sanchirico/&quot;&gt;Jim Sanchirico&lt;/a&gt; began convening lab meetings. This isn’t common practice among economists as far as I know, and we were trying to figure out how to use the meetings constructively. Around the same time, Jim received a request to write a few articles for this encyclopedia, and we figured it would be a good exercise to read the original literature on this subject and write the articles together.&lt;/p&gt;
+&lt;p&gt;This was a great chance for me. I had zero exposure to the natural resource economics literature and wouldn’t get around to courses in it for another year. Also, as a first-year ecology grad student working with a group of more experienced economists, I was a pretty good proxy for the target audience of outsiders to the field. So I got play the role of naive reader, asking for clearer explanations and less jargon from my co-authors. I also wrote some of the introductory and ecological sections.&lt;/p&gt;
+&lt;p&gt;I’m grateful to Jim for putting me on board this project, and for the chance to work with great colleagues in a different field, but I probably won’t do something similar again. I don’t support the publication model. Ironically, while the article is about “Open-Access Fisheries,” it is about as far from an open-access publication as can be. It’s in a &lt;a href=&quot;http://www.amazon.com/Encyclopedia-Natural-Resource-Environmental-Economics/dp/0123750679&quot;&gt;$1500&lt;/a&gt; encyclopedia published by &lt;em&gt;Elsevier&lt;/em&gt;. We received a very small honorarium&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, and Elsevier will reap profits by selling access to this encyclopedia to libraries as part of some overpriced bundle. I’d rather spend my taxpayer-funded fellowship creating resources available to all.&lt;/p&gt;
+&lt;p&gt;If you’d like a copy, &lt;a href=&quot;noam.ross@gmail.com?Subject=Preprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&amp;amp;Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%282013%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%20*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A//dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;email me&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;If that’s what it is called. The arrangement was, I think, one or two hundred dollars per article, which the lab was supposed to split for dinner and beer. Still waiting on that part, Jim.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Debugging Tools in R with Michael Hannon</title>
@@ -2045,395 +2076,6 @@ plot(cars)
 &lt;p&gt;&lt;strong&gt;Blogs&lt;/strong&gt;: &lt;a href=&quot;r-bloggers.com&quot;&gt;R-bloggers&lt;/a&gt; is a great website that aggregates many blogs by people who use R. Blogs range from people writing &lt;em&gt;about&lt;/em&gt; R (e.g., tutorials), to people blogging &lt;em&gt;with&lt;/em&gt; R (e.g., &lt;code&gt;knitr&lt;/code&gt; documents of their latest analyses). Following the site feed will help you discover other people doing work similar to yours.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Twitter&lt;/strong&gt;: If you’re on twitter, the &lt;a href=&quot;https://twitter.com/search?q=%23rstats&quot;&gt;#rstats&lt;/a&gt; hashtag is commonly used to discuss R, and you can often get answers to short questions very quickly. Many of developers of R packages and software are on twitter, so you can get information straight from the source.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Code Hosting Sites&lt;/strong&gt;: Many R package developers host their projects on websites like &lt;a href=&quot;https://github.com/languages/R&quot;&gt;Github&lt;/a&gt; and &lt;a href=&quot;http://r-forge.r-project.org/&quot;&gt;R-forge&lt;/a&gt;. These sites have mechanisms for users to report bugs, make feature requests, and often find more information than is available in the documentation of a specific package. You can often find the site used by a developer by looking at it’s entry on &lt;a href=&quot;http://cran.r-project.org/web/packages/available_packages_by_name.html&quot;&gt;CRAN&lt;/a&gt; or the package revewing site &lt;a href=&quot;http://crantastic.org/&quot;&gt;crantastic&lt;/a&gt;.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Quals Reading: Sudden Oak Death</title>
-   <link href="http://www.noamross.net/blog/2013/1/7/sod-readings.html"/>
-   <updated>2013-01-07T00:07:16-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/1/7/sod-readings</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;My study system is Sudden Oak Death (SOD) in California Forests, so my examiner [David Rizzo] has given me plenty of readings on the subject.&lt;/p&gt;
-&lt;p&gt;There’s too much for a pithy summary here, but some highlights about the disease’s biology:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;SOD is caused by &lt;em&gt;Phytophthora ramorum&lt;/em&gt;, a water mold in the same family as brown algae. It’s origin is unknown, but 3 lineages are known, two dominant in California and one in Europe. Each produces clonally; sexual reproduction appears pretty much nonfunctional, as each lineage has only one mating type. The original sexual population’s origin is unknown, and these lineages may be over 100,000 years old.&lt;/li&gt;
-&lt;li&gt;SOD showed up in California in the 1980s or 1990s, originally in nursery stock, and has spread both through movement of nursery plants, and local spread by wind-blown rain and splash between trees. Now it ranges up and down the west coast.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Phytophthora ramorum&lt;/em&gt; infects many hosts. Some only in the leaves, some in the bark. The latter are mostly oaks, and it can kill these bark hosts, though it doesn’t spread from them. It doesn’t kill foliar hosts, but spreads from them, the most in Bay Laurel. Tanoak has the dubious distinction of being both a foliar and bark host, and is most threatened by the disease.&lt;/li&gt;
-&lt;li&gt;Sporangia form in the leaves of foliar hosts in warm, wet conditions, then spread in water. The sporangia beget motile spores that can aggregate on a host and grow into the phloem, forming bleeding cankers and eventually weakening and killing the trees. &lt;em&gt;Phytophthora ramorum&lt;/em&gt; also produces chlamydospores that can live longer and travel longer distances.&lt;/li&gt;
-&lt;li&gt;Individuals vary in susceptibility to the disease, but susceptibility is not correlated with tree health, and bigger trees are more vulnerable.&lt;/li&gt;
-&lt;li&gt;Presence of Bay Laurel, and connectivity to other infected stands, are the biggest risk factor of the disease at the stand level.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;notes-on-readings&quot;&gt;Notes on Readings&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#swiecki2013&quot;&gt;Rizzo et al. (2005)&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#summary&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#levels-and-complexity-of-management&quot;&gt;Levels and Complexity of Management&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#invaded-forests-of-california-and-oregon&quot;&gt;Invaded Forests of California and Oregon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#pathogen-characterization&quot;&gt;Pathogen Characterization&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#p.-ramoroum-in-forests&quot;&gt;&lt;em&gt;P. Ramoroum&lt;/em&gt; in Forests&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#spatial-distribution&quot;&gt;Spatial Distribution&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#host-resistance&quot;&gt;Host Resistance&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#sporulation-and-survival-patterns&quot;&gt;Sporulation and Survival Patterns&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#determination-of-impacts&quot;&gt;Determination of Impacts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#management-actions&quot;&gt;Management Actions&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#monitoring&quot;&gt;Monitoring&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#diagnosis&quot;&gt;Diagnosis&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#eradication&quot;&gt;Eradication&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#stand-manupulation&quot;&gt;Stand manupulation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#fire&quot;&gt;Fire&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#fungicides&quot;&gt;Fungicides&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#prevention-of-human-spread&quot;&gt;Prevention of Human Spread&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#restoration&quot;&gt;Restoration&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#conculusions&quot;&gt;Conculusions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#ellis2010---spatial-pattern-and-connectivity&quot;&gt;Ellis et al. (2010) - Spatial Pattern and Connectivity&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#summary-1&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#introduction-1&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#methods&quot;&gt;Methods&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#results&quot;&gt;Results&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#grunwald2012---emergence-of-sod&quot;&gt;Grünwald et al. (2012) - Emergence of SOD&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#summary-2&quot;&gt;Summary&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#biology&quot;&gt;Biology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#repeated-emergence&quot;&gt;Repeated emergence&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#genetics&quot;&gt;Genetics&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#other-phytophthora-species&quot;&gt;Other &lt;em&gt;Phytophthora&lt;/em&gt; species&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#swiecki2013&quot;&gt;Swiecki and Bernhardt (2013)&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#sod-overview&quot;&gt;SOD Overview&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#biology-1&quot;&gt;Biology&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#life-cycle-in-forests&quot;&gt;Life Cycle in Forests&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#factors-influencing-sod-variability&quot;&gt;Factors influencing SOD variability&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#development-in-hosts&quot;&gt;Development in hosts&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#managing-stands&quot;&gt;Managing Stands&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#prioritiation&quot;&gt;Prioritiation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#technical-guidelines&quot;&gt;Technical Guidelines&lt;/a&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#reducing-disease-risk&quot;&gt;Reducing disease risk:&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#monitoring-diseased-stands&quot;&gt;Monitoring Diseased Stands&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#restoration-1&quot;&gt;Restoration&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;rizzo-et-al.-2005&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Rizzo et al. (2005)&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;summary&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Summary&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;SOD management occurs at many scales, but the stand/landscape scale is the most complex&lt;/li&gt;
-&lt;li&gt;It occurs in a wide range of forests that include coast live oak and tanoak&lt;/li&gt;
-&lt;li&gt;It has a mostly clonal population structure, with some differences between NA and Europe&lt;/li&gt;
-&lt;li&gt;Bay Laurel presence, historic path of infection, and stand structure affect probability of disease&lt;/li&gt;
-&lt;li&gt;Dispersal is wind driven, mostly from leaves of canopy trees. Occurs in rainy season&lt;/li&gt;
-&lt;li&gt;Major mortality impacts on oak and tanoak, but variation in susceptibility at individual level&lt;/li&gt;
-&lt;li&gt;Management span, monitoring, diagnosis, eradication, stand manipulation, fungicides, quarantine and restoration.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;introduction&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Introduction&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Sudden oak death first observed as causing bleeding stem cankers and death in tanoak and coast live oak in 1990s&lt;/li&gt;
-&lt;li&gt;Found in N. America, Europe, hosts in 40+ genera, though mortality limited to &lt;em&gt;Fagaceae&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;levels-and-complexity-of-management&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Levels and Complexity of Management&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Tree, stand/landscaoe, and regional/international levels&lt;/li&gt;
-&lt;li&gt;At individual level, focus is on chemical control, lowering inoculum pressure
-&lt;ul&gt;
-&lt;li&gt;Homeowners, arborists, urban-wildland interface and aesthetic/historic value&lt;/li&gt;
-&lt;li&gt;Phosphate treatments (injection and spray) best if preventative&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Regional/international management aimed to prevent further spread
-&lt;ul&gt;
-&lt;li&gt;Quarantine on nursery industries&lt;/li&gt;
-&lt;li&gt;Wide host range makes difficult&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Stand/landscape mgmt most difficult
-&lt;ul&gt;
-&lt;li&gt;Previous atttempts removing host material in in chestnut blight, white pine blister rust, dutch elm, &lt;em&gt;Phytophthori cinnamomi&lt;/em&gt; and &lt;em&gt;P. lateralis&lt;/em&gt;. Results mixed&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Decision-making is complex. SOD exists in highly varied socio-ecological landscape.&lt;/li&gt;
-&lt;li&gt;Need to determine management goals in absence of SOD first. Timber is often not priority.&lt;/li&gt;
-&lt;li&gt;Prevention, treatment, restoration, and convervation must be integrated&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;invaded-forests-of-california-and-oregon&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Invaded Forests of California and Oregon&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;SOD found in forests that include oak and tonoak as structural component:&lt;/li&gt;
-&lt;li&gt;With and without Douglas-fir&lt;/li&gt;
-&lt;li&gt;Many evergreen broad-leaved sclerophyllus (thick-leaved) trees and shrubs&lt;/li&gt;
-&lt;li&gt;Hardwood associates include Bay Laurel, Pacific madrone, bigleaf maple&lt;/li&gt;
-&lt;li&gt;Often in redwood forests with shrubs like rhododendron, huckleberry&lt;/li&gt;
-&lt;li&gt;Fire and logging affect forest structure. Tanoak and Coast live oak sprout from roots following logging/fire, are often overtopped in later succession. Horizonal structure is often very fine-scaled.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;pathogen-characterization&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Pathogen Characterization&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Geographic origin unknown, exotic to Europe and N. America&lt;/li&gt;
-&lt;li&gt;Monophyletic group, with distinct European and American clades
-&lt;ul&gt;
-&lt;li&gt;N. American versions seem to be primarily one clonal lineage, European many closly related types&lt;/li&gt;
-&lt;li&gt;Some evidence of continued exchange between European and American (A1 and A2) populations&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Not sexually generated pop. genetic structure - mostly mutation and mitotic recombination&lt;/li&gt;
-&lt;li&gt;High variation in virulence, both between and within genotypes, indicating plasticity. Virulence level correlated across hosts. Most virulent populations are A2 isolates from wild&lt;/li&gt;
-&lt;li&gt;Variation in resistnace to fungicides. European strains developing resistance to Metalaxyl, common in nursery settings&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;p.-ramoroum-in-forests&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;&lt;em&gt;P. Ramoroum&lt;/em&gt; in Forests&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;spatial-distribution&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Spatial Distribution&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Found from Big Sur to Curry County, OR. Mostly within 30km of coast or SF Bay.&lt;/li&gt;
-&lt;li&gt;Patchy at many scales. Similarity of sites with different diease status suggest historical rather than environmental driver of patchiness.&lt;/li&gt;
-&lt;li&gt;Bay laurel the greatest predictor of disease across forests, esp. in mixed-evergreen forest dominated by coast live oak.&lt;/li&gt;
-&lt;li&gt;Foliar hosts (e.g. Bay Laurel) precede oak bark infection, but not in tanoak forests, where tanoak twigs/eaves can be infected. Little Bay Laurel in OR infected forests.&lt;/li&gt;
-&lt;li&gt;Density, slope, etc. not good predictors of disease. Canopy exposure, edge effects more important. Positive disease association with water status, tree drought stress not important.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;host-resistance&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Host Resistance&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Trees display variation in susceptibility at individal level at all aptial scales.&lt;/li&gt;
-&lt;li&gt;More population-level patterns in Bay Laurel than oak species&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;sporulation-and-survival-patterns&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Sporulation and Survival Patterns&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Sporangia produced on leaves (and small twigs on Tanoak) following rainfall. No sporulation directly from bleeding cankers.&lt;/li&gt;
-&lt;li&gt;Sporulation/infection restricted to rainy season in Mediterranean climates. Temp/moisture relationships complex. Sporulation commencement relative to start of rainy season varies across forests, perhaps due to level of dessication in dry months. Significant inter-annual variation.&lt;/li&gt;
-&lt;li&gt;Propugules travel ~10-20m from infected tree, depending on height. More infection of oaks in less-dense stands, possibly due to lower wind speed.&lt;/li&gt;
-&lt;li&gt;No evidence of lateral spread in understory&lt;/li&gt;
-&lt;li&gt;Dispersal is long-tailed, sugesting occaisional long-distance dispersal&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;determination-of-impacts&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Determination of Impacts&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Doubles mortality of Coast Live Oak, quadruples tanoak.&lt;/li&gt;
-&lt;li&gt;Spreads very quickly within a stand&lt;/li&gt;
-&lt;li&gt;Cascading ecological effects
-&lt;ul&gt;
-&lt;li&gt;Altered competition between plant species&lt;/li&gt;
-&lt;li&gt;Syngergism with other fungal (decay) pathogens and wind-driven mortality.&lt;/li&gt;
-&lt;li&gt;Increased woody debris, change in nutrient cycling&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;management-actions&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Management Actions&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;See Table 2 in paper for research finding-management actions links&lt;/p&gt;
-&lt;h4 id=&quot;monitoring&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Monitoring&lt;/a&gt;&lt;/h4&gt;
-&lt;h4 id=&quot;diagnosis&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Diagnosis&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Culture-based diagnosis dependent on environment, leads to false negatives&lt;/li&gt;
-&lt;li&gt;Molecular assys better, but depends on part of plant tested&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;eradication&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Eradication&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Possible at early stages of invasion
-&lt;ul&gt;
-&lt;li&gt;Requires intensive survey, quaratine, cut, burning stump treatment&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Adaptive management to adjust buffer area, pre-emptive removal of hosts&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;stand-manupulation&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Stand manupulation&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Removal of infected plants&lt;/li&gt;
-&lt;li&gt;Increasing interhost distance (but lower density may lead to more wind disperal)&lt;/li&gt;
-&lt;li&gt;Pruning branches may lessen load without major ecological community effects&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;fire&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Fire&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Historical fire regimes in these forest highly variable and uncertain&lt;/li&gt;
-&lt;li&gt;Both understory and stand-replacing fires may increase tanoak&lt;/li&gt;
-&lt;li&gt;Smoke may kill foliar SOD&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;fungicides&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Fungicides&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Phosphites injected, or applied to bark and leaves are effective. Soil treatments not&lt;/li&gt;
-&lt;li&gt;Large-scale treatment very expensive, difficult to target the patchy distribution of disease&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;prevention-of-human-spread&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Prevention of Human Spread&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Surveillance and quarantine of ornamental nursery stock&lt;/li&gt;
-&lt;li&gt;Possibilities in soil, waste, stream water&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;restoration&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Restoration&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Possibility of introducing less-vulnerable tree variants&lt;/li&gt;
-&lt;li&gt;Historic baseline often unknown&lt;/li&gt;
-&lt;li&gt;Decadal restoration process&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;conculusions&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Conculusions&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Forests with hosts may be vulnerable in British Columbia, other parts of world. Actual risk depend on climate, species composition and forest structure&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;ellis-et-al.-2010---spatial-pattern-and-connectivity&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Ellis et al. (2010) - Spatial Pattern and Connectivity&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;summary-1&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Summary&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;SOD severity is best predicted by a combination of environmental (biotic/abiotic) variables and connectivity to other areas of disease. Connectivity is not based strictly on physical dispersal distance, but on the effective distance based on the difficulty of the disease moving through patches of different host density or presence.&lt;/p&gt;
-&lt;p&gt;The effective dispersal distance calculation depends a lot on the scale of dispersal and the scale of examination here.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Personal note: You need a table to compare model structures and results. Text description is terrible&lt;/em&gt;&lt;/p&gt;
-&lt;h3 id=&quot;introduction-1&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Introduction&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Three types of connectivity
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Structural&lt;/em&gt; - physical aspects of landscape&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Potential&lt;/em&gt; - landscape + dispersal ability&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Actual&lt;/em&gt; - empirically derivd=ed&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Key question: When is connectivity important in dynamics and when can it be ignored?
-&lt;ul&gt;
-&lt;li&gt;Can be evaluated by relative importance of environmental and connectivity variables&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Study tests relative importance of connectivity in determining spatial distribution of SOD
-&lt;ul&gt;
-&lt;li&gt;Also test whether results are sensitive to method of measurement&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Hypothesis 1&lt;/em&gt;: Potntial connectivity is important in determining spatial distribution of SOD&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Hypothesis 2&lt;/em&gt;: Connectivity is better characterized when it includes landscape structure&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Hypotesis 3&lt;/em&gt;: Connectivity and environmental variables equal in influence&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;methods&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Methods&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Data from 86 Plots in Sonoma County in 2005. Randonly established in host woodlands. Forest info and disease severity meaured in each. Map of land cover generated from aerial imagery.&lt;/li&gt;
-&lt;li&gt;Compared models of spread though simple Euclidean distance to effective distance (least-cost path based on friction assigned to each land cover type)&lt;/li&gt;
-&lt;li&gt;Model structure was&lt;br /&gt; &lt;em&gt;Y&lt;/em&gt;&lt;sub&gt;&lt;em&gt;i&lt;/em&gt;&lt;/sub&gt; = &lt;em&gt;β&lt;/em&gt;&lt;sub&gt;0&lt;/sub&gt; + ∑ &lt;em&gt;β&lt;/em&gt;&lt;sub&gt;&lt;em&gt;j&lt;/em&gt;&lt;/sub&gt;&lt;em&gt;X&lt;/em&gt;&lt;sub&gt;&lt;em&gt;j&lt;/em&gt;&lt;/sub&gt; + &lt;em&gt;β&lt;/em&gt;&lt;sub&gt;9&lt;/sub&gt;&lt;em&gt;λ&lt;/em&gt;&lt;sub&gt;&lt;em&gt;i&lt;/em&gt;&lt;/sub&gt;&lt;br /&gt; Where &lt;em&gt;Y&lt;/em&gt;&lt;sub&gt;&lt;em&gt;i&lt;/em&gt;&lt;/sub&gt; was disease incidence (sympotomatic leaves/stem), &lt;em&gt;X&lt;/em&gt; are environmental variables and &lt;em&gt;λ&lt;/em&gt; is the spore burden based on a negative-expotential dispersal kernel from all other points, via Euclidean or effective distance, weighted by disease level at other sites.&lt;/li&gt;
-&lt;li&gt;Environmental variables were canopy cover, precipitation, ave. daily hours at optimal temp and humidity for pathogen growth, potenital irraadiation, moisture index, bay laurel total DBH, total host DBH&lt;/li&gt;
-&lt;li&gt;Friction was 1 for cells with hosts, tested varied scenarios for non-host cells&lt;/li&gt;
-&lt;li&gt;Stepwise regression: First fit dispersal kernel for each friction scenario, then fit rest of model&lt;/li&gt;
-&lt;li&gt;Determined best fit using 9 selection methods in SAS. Picked top models that were selected consistently and compared via BIC/AIC&lt;/li&gt;
-&lt;li&gt;Calculated standardized regression coeffficients&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;results&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Results&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Models with both connectivity and environment peformed best&lt;/li&gt;
-&lt;li&gt;Models with effective distance performed better than Euclidean&lt;/li&gt;
-&lt;li&gt;Best fit models had connectivity of mid-level importance among environmental variables of varying importance&lt;/li&gt;
-&lt;li&gt;Best fit model had mid-level friction values for non-host landscapes, indicating that non-host environments sometimes did carry disease&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;grünwald-et-al.-2012---emergence-of-sod&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Grünwald et al. (2012) - Emergence of SOD&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;summary-2&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Summary&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;P. ramorum&lt;/em&gt; is a water mold that causes SOD, has a wide host range, and spreads by wind-blown rain&lt;/li&gt;
-&lt;li&gt;It’s population consists of three major clonal lineages, two in NA and one in Europe&lt;/li&gt;
-&lt;li&gt;The lineages descended from a sexual population but sexual reproduction is effectively non-functional in them. The origin of the populations is unknown.&lt;/li&gt;
-&lt;li&gt;Emergence of the disease is driven by novel host-pathogen combinations, rather than evolution of the pathogen. This pattern is common to &lt;em&gt;Phytophthora&lt;/em&gt; species. It is possible that &lt;em&gt;P. Ramorum&lt;/em&gt; may hybridize with other species.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;biology&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Biology&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;P. ramorum&lt;/em&gt; is a water mold, most closely related to brown algae (e.g. kelp) and diatoms&lt;/li&gt;
-&lt;li&gt;Has both asexual and sexual phase. Asexual spores are chlamydospres (dormant, resistant to adverse conditions), and sporangia (can germinate or go motile)&lt;/li&gt;
-&lt;li&gt;Sexual reproduction rare, mating types do not often interact&lt;/li&gt;
-&lt;li&gt;Sporangia splash-disperse from leaves and twigs. Zoospores released from sporangia, then germinate and penetrate host. Rapid life cycling under good conditions. Many chlamydospres produced, too.&lt;/li&gt;
-&lt;li&gt;Hosts in &amp;gt; 100 species, 40 genera&lt;/li&gt;
-&lt;li&gt;Symptoms: necrotic foliar leisions, shhot dieback, or bleeding cankers on stem (discolored phloem and xylem, declining sap/hydraulic flow). Both sympoms in tanoak&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;repeated-emergence&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Repeated emergence&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Three clonal lineages, EU1, NA1, NA2, with all three present in N. America and only the first in Europe.&lt;/li&gt;
-&lt;li&gt;NA1 introduced in nursery plants in Scotts Valley, CA, in late 20th century, probably had human-assisted dispersal to local wld forest. Spread through the nursery trade across the U.S.&lt;/li&gt;
-&lt;li&gt;EU1 site of origin in Europe unclear, but found mostly in nurseries/gardens and in UK larch plantations. Later introduced to Pacific Northwest, reached CA.&lt;/li&gt;
-&lt;li&gt;NA2 first found in BC or Washington, unknown source.&lt;/li&gt;
-&lt;li&gt;Strains are diverging and evolving, but no evidence of selection&lt;/li&gt;
-&lt;li&gt;Eradication unlikely&lt;/li&gt;
-&lt;li&gt;Repeated emergence due to wide host range, favorable nursery environment&lt;/li&gt;
-&lt;li&gt;Clonal lines likely descended from sexual population (have high heterozygosity), that co-evolved with hosts for a long time. Location unknown&lt;/li&gt;
-&lt;li&gt;Mutations indicate that clonal lines are &amp;gt;100,000 yrs old. Clonal lines are poorly compatible, probably were separate before their introduction, come from separate source populations&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;genetics&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Genetics&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;All clonal lines are of one mating type (~gender), so no sexual production. A few of other mater type of EU1 found, but eradicated.&lt;/li&gt;
-&lt;li&gt;No natural recombinants detected, artifically induced ones have reduced pathogenicity, reduced chromosome number, and reduced growth rates. This is consistent with &lt;em&gt;Phytophthora cinnamomi&lt;/em&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;other-phytophthora-species&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Other &lt;em&gt;Phytophthora&lt;/em&gt; species&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Other &lt;em&gt;Phytophthora&lt;/em&gt; species are pathogenic. Many more species have been discovered in recent years.&lt;/li&gt;
-&lt;li&gt;Among pathogenic species, most are clonal lines with little diversity, suggesting introduction to new hosts is what causes disease emergence, rather than recombination&lt;/li&gt;
-&lt;li&gt;However, species hybrids have been found and some have expanded host ranges.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;swiecki-and-bernhardt-2013&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Swiecki and Bernhardt (2013)&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;sod-overview&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;SOD Overview&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;biology-1&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Biology&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Trunk canker hosts of SOD are oaks (&lt;em&gt;Quercus&lt;/em&gt;) species, and tanoak (&lt;em&gt;Nolithocarpus&lt;/em&gt;). White oaks have not been found infected in the field.&lt;/li&gt;
-&lt;li&gt;Many more species are foliar hosts, which are not killed by SOD&lt;/li&gt;
-&lt;li&gt;Foliar hosts can have any combination of high or low suceptibility and high or low sporulation. Pacific madrone is susceptible but doesn’t produce many spores. Bay laurel is high in both.&lt;/li&gt;
-&lt;li&gt;Zoospores, produced by sporangia, can swim and aggregate towards chemical released by hosts, staging mass hyphal attacks&lt;/li&gt;
-&lt;li&gt;The EU1 strain is more aggressive than the NA strains&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;life-cycle-in-forests&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Life Cycle in Forests&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;More spores form in wetter conditions&lt;/li&gt;
-&lt;li&gt;On tanoak, canopy infections moves down to the stem via rainwater flowing down the stem. Trees near California Bay are the first to develop cankers&lt;/li&gt;
-&lt;li&gt;Other oaks may be infected by bay or tanoak, but are dead-end hosts&lt;/li&gt;
-&lt;li&gt;On bay, forms dark leisions on downward-hanging leaf tips and edges, with yellowish border. Leaves turn yellow and typically drop in dry season. Few infected leaves remain for first rains of year, but repeated rains grow population.&lt;/li&gt;
-&lt;li&gt;Lower trunks of canker hosts remain wet after rain, allowing infection&lt;/li&gt;
-&lt;li&gt;Spread is influenced by relative height of bay and oaks, wind direction, oak canopy size (can intercept more spores), and screening by nonsusceptible species&lt;/li&gt;
-&lt;li&gt;Non-bay foliar hosts do not increase risk of disease, except possibly climbing poison oak when bay is also present. This may be due to leaf shedding.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;factors-influencing-sod-variability&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Factors influencing SOD variability&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Climate&lt;/strong&gt;: 12 hours of warm, wet conditions needed for sporgangga formation. Similar conditions for infection. Thus, infction greatest in late spring rains, shady sites, lower canopy.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hosts&lt;/strong&gt;: Species variability. Cankers form on trunks &amp;gt;10 cm diameter, more on larger trunks (SOD infects the bark, which is thicker). No effect of tree vigor.&lt;/li&gt;
-&lt;li&gt;Genetic variation, but this may be a small factor.&lt;/li&gt;
-&lt;li&gt;Transport mechanisms: Human, wind, watrcourses, possibly animals&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;development-in-hosts&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Development in hosts&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Infects the phloem tissue, mostly on lower trunk. Can reach vasular cambium, out xylem and sometimes spread vertically.&lt;/li&gt;
-&lt;li&gt;Cankes appear as brownish leisons on inner bark. Appear similar to other &lt;em&gt;Phytophthora&lt;/em&gt; sp. leisons&lt;/li&gt;
-&lt;li&gt;Cankers usually bleed thick, dark fluid in 6mo-2yr after infection. Bleeding can stop after time.&lt;/li&gt;
-&lt;li&gt;Beetles and rot fungi infect late-stage hosts (~1 year after canker development. In tanoak, secondary disease may be first visible symptom.&lt;/li&gt;
-&lt;li&gt;Decline may be sudden (due to girdling by cankers), but this follows at least 6 mo of ingection. Progressive decline may take years (8-11 in coast live oak), may die out or break due to weakness.&lt;/li&gt;
-&lt;li&gt;Diagnosis is either circumstanial or requires molecular methods&lt;/li&gt;
-&lt;li&gt;Stand-level develpment depends on time since disease arrival, weather, host arrangement. In favorable conidtions most susceptible trees can be killed in a few years.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;managing-stands&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Managing Stands&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Most SOD-susceptible CA forests not managed for timber, provide various ecosystem services&lt;/li&gt;
-&lt;li&gt;Management plan is needed in many cases. Based on needs/wants and available resources, should include strategies/actions and monitoring/evaluation components.&lt;/li&gt;
-&lt;li&gt;Plan varies between pre-, during-, and post-disease stages, which may be different over small distances.&lt;/li&gt;
-&lt;li&gt;Key questions for &lt;em&gt;before&lt;/em&gt;: Is &lt;em&gt;Phytophthora ramorum&lt;/em&gt; present? How far away are infections? What are consequences/risks with introduction?&lt;/li&gt;
-&lt;li&gt;Actions for &lt;em&gt;before&lt;/em&gt;: Exclusion, Bay Removal, Chemical control. Relative usefulness depends on risk and proximity of disease&lt;/li&gt;
-&lt;li&gt;Key questions for &lt;em&gt;during&lt;/em&gt;: What is incidence of SOD? How to minimie infection, but also hazards associated with infected trees.&lt;/li&gt;
-&lt;li&gt;Key questions for &lt;em&gt;after&lt;/em&gt;: How long will affected trees survive? What is their failure potential? What fuels have accumulated and how distributed? How to increase survival, reduce hazard (incl. from fire), and restore? What are restoration needs? What species are regenerating?&lt;/li&gt;
-&lt;li&gt;Action for &lt;em&gt;after&lt;/em&gt;: Cut or leave? Actively manage gaps for invasives, fire.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;prioritiation&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Prioritiation&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Prioritization especially important in large forest tracts.&lt;/li&gt;
-&lt;li&gt;Which, how, and whn to treat?&lt;/li&gt;
-&lt;li&gt;Base on ease of treatment, disease risk, potential resource loss, and potential hazards&lt;/li&gt;
-&lt;li&gt;Formal numeric ranking is one way to combine these assessments.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;technical-guidelines&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Technical Guidelines&lt;/a&gt;&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Exclusion: Avoid nursery stock near forests, do not move pruned host material, clean equipment/tools (spray disinfectant not effective). Wood may be burned, but drying also adequate.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;reducing-disease-risk&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Reducing disease risk:&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Exposed wood increases risk; limit pruning to early dry season&lt;/li&gt;
-&lt;li&gt;When removing California Bay, consider the total loss of canopy that may occur with removal + mortality. Understory Bay most likely to acquire novel infection. If removing only some, create local bay clearings to protect high value oaks. Avoid rainy season. Ideally leave on ground if can be kept away from oak. Sprout regrowth may be repressed with herbicides. Cut climbing poison oak, too.&lt;/li&gt;
-&lt;li&gt;Fungicides should be combined with Bay Removal, but best suited to high value trees. Phosphotases are effective, selective, and low-toxic to non targets. Best applied before infection. Stem injection and bark spray most effective, applied each 1-2 yrs 4-6 weeks before rainy season.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;monitoring-diseased-stands&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Monitoring Diseased Stands&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Annual monitoring for potential for stem failure recommended if fall hazard is source of concern. Additive risk factors in Tables 3-2 to 3-4.&lt;/li&gt;
-&lt;li&gt;Oaks in various levels of disease and decay have varying contribution to fire risk&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&quot;restoration-1&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;Restoration&lt;/a&gt;&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Consider costs, long-term sustainability, nontarget effects&lt;/li&gt;
-&lt;li&gt;Oaks may be replaced (or recruited) in stands where bay is removd&lt;/li&gt;
-&lt;li&gt;Consider non-host replacement hardwoods [David Rizzo]: http://ucanr.edu/sites/rizzolab/&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Ellis, A. M., T. Václavík, and R. K. Meentemeyer. 2010. When is connectivity important? A case study of the spatial pattern of sudden oak death. Oikos 119:485–94.&lt;/p&gt;
-&lt;p&gt;Grünwald, N. J., M. Garbelotto, E. M. Goss, K. Heungens, and S. Prospero. 2012. Emergence of the sudden oak death pathogen Phytophthora ramorum. Trends in microbiology 20:131–8.&lt;/p&gt;
-&lt;p&gt;Rizzo, D. M., M. Garbelotto, and E. M. Hansen. 2005. Phytophthora ramorum: integrative research and management of an emerging pathogen in California and Oregon forests. Annual review of phytopathology 43:309–35.&lt;/p&gt;
-&lt;p&gt;Swiecki, T. J., and E. A. Bernhardt. 2013. Managing sudden oak death in California: before, during, and after Phytophthora ramorum invasion. . U.S. Department of Agriculture; Forest Service; Pacific Southwest Research Station.&lt;/p&gt;</content>
  </entry>
  
  

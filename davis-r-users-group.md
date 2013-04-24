@@ -12,6 +12,10 @@ Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC
  - ***Join the [mailing list](https://groups.google.com/d/forum/davis-rug)***: The mailing list is an online supplement to our in-person work sessions.
  
  - ***Use the resources below***: We've compiled a list of resources to help you get started using R and find answers to your questions.
+ 
+We're fortunate have sponsorship from [Revolution Analytics](http://www.revolutionanalytics.com/) for our snacks and speaker prizes.
+
+[![](http://dl.dropbox.com/u/3356641/blogstuff/RevolutionAnalytics_logo_374x87_trans.png)](http://www.revolutionanalytics.com/)
 
 -------
 
