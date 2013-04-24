@@ -1,7 +1,7 @@
 ---
 title: "My first peer-reviewed publication: Economics and Ecology of Open-Access Fisheries"
 author: "Noam Ross"
-tags: [publication, open-access, economics, fisheries]
+tags: [economics, publications, fisheries, open-access]
 date: "13-04-24 10:57:21"
 layout: post
 --- 
@@ -72,7 +72,7 @@ encyclopedia to libraries as part of some overpriced bundle. I'd rather
 spend my taxpayer-funded fellowship creating resources available to all.
 
 If you'd like a copy, [email
-me](noam.ross@gmail.com?Subject=Preprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%282013%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%20*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A//dx.doi.org/10.1016/B978-0-12-375067-9.00114-5)
+me](mailto:noam.ross@gmail.com?Subject=Preprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%282013%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%20*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A//dx.doi.org/10.1016/B978-0-12-375067-9.00114-5)
 
 [^1]: If that's what it is called. The arrangement was, I think, one or
     two hundred dollars per article, which the lab was supposed to split
