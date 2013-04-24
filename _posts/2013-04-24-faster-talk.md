@@ -48,7 +48,7 @@ Some optimal code can be hard to read. For instance, `x*x` is faster
 than `x^2` in R, and curly braces can be faster than parentheses. But
 which is more intuitive?
 
-#### (2) Do you want your code to be *sharable*?[^1] {#do-you-want-your-code-to-be-sharable1}
+#### (2) Do you want your code to be *sharable*?[^1]
 
 Most of the considerations of (1) apply here, but they have to be
 balanced with the fact that, if your code is painfully slow, others are
