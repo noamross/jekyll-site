@@ -56,6 +56,7 @@ http://www.noamross.net/test/index.html
 
 http://www.noamross.net/blog/2013/4/24/automating-preprints.html
 http://www.noamross.net/blog/2013/4/24/my-first-publication.html
+http://www.noamross.net/blog/2013/4/19/faster-talk.html
 http://www.noamross.net/blog/2013/4/18/r-debug-tools.html
 http://www.noamross.net/blog/2013/4/4/oleary-popbio-presentation.html
 http://www.noamross.net/blog/2013/2/20/model-selection-drug.html

@@ -1,11 +1,9 @@
 ---
-title: "FasteR! HigheR! StongeR! - A Guide to Speeding Up Your R Code for Busy People"
+title: "FasteR! HigheR! StongeR! - A Guide to Speeding Up R Code for Busy People"
 author: "Noam Ross"
 tags: [R, D-RUG]
 date: "13-04-19 17:39:47"
 layout: post
-published: false
-
 --- 
 
 
@@ -16,12 +14,12 @@ Group](http://www.noamross.net/davis-r-users-group.html).*
 First, Ask "Why?"
 -----------------
 
-It's customary to quote Donald Knuth at this point, but instead I'll
+It's customary to [quote Donald Knuth](http://en.wikiquote.org/wiki/Donald_Knuth) at this point, but instead I'll
 quote my twitter buddy Ted Hart to illustrate a point:
 
 <blockquote class="twitter-tweet"><p>
 I'm just going to say it.I like for loops in
-<a href="https://twitter.com/search/%23Rstats">\#Rstats</a>, makes my
+<a href="https://twitter.com/search/%23Rstats">#Rstats</a>, makes my
 code readable.All you [a-z]\*ply snobs can shove it!
 </p>
 — Ted Hart (@DistribEcology)
@@ -46,7 +44,7 @@ a difference, as Ted notes above.
 
 Some optimal code can be hard to read. For instance, `x*x` is faster
 than `x^2` in R, and curly braces can be faster than parentheses. But
-which is more intuitive?
+which is more intuitive to read?
 
 #### (2) Do you want your code to be *sharable*?[^1]
 
@@ -56,7 +54,7 @@ not going to want or have time to use it.
 
 Also, some optimization strategies don't transfer well. If you use
 parallel processing, it won't be usable to others who don't have
-multicore computers. Some tricks will work well as a quick-and-dirty
+multicore computers. Some tricks for speeding up code will work well as a quick-and-dirty
 fix, but are likely to break in new versions of R or are disallowed from
 CRAN packages altogether.
 
@@ -72,7 +70,7 @@ With these in mind, I'll go through some strategies for speeding up your
 R computations. Because I'm especially mindful of consideration \#3,
 this guide is somewhat in the reverse of traditional tutorials on this
 topic. I'm going to talk about the blunt instruments first, then get
-into the idiosyncracies of code.
+into the idiosyncrasies of code.
 
 Get a Bigger Computer
 ---------------------
@@ -81,8 +79,7 @@ If you have a task that only needs to be accomplished a few times, you
 might be best off finding more resources rather than re-writing your
 code. You have an Amazon.com account, right? Amazon rents virtual
 machines on the web. It's so easy to set one up that I accidentally
-started one without meaning to while searching for the link for this
-guide. The cost of computing power roughly equivalent to my 2011 MacBook
+started one today without meaning to while searching for the link. The cost of computing power roughly equivalent to my 2011 MacBook
 Pro is *13¢ per hour*. You can have 100 MacBooks of computing power for
 [less than minimum
 wage](http://greentheo.scroggles.com/2009/11/13/amazon-ec2-providing-100-macbooks-of-power-for-minimum-wage/).[^2]
@@ -91,15 +88,16 @@ or desktop.
 
 Sometimes you don't even need more computing power, you just need to run
 R on some other computer without tying up your machine for hours. In any
-case, consider this. If you just need to run a task once, and you think
+case, consider this option. If you just need to run a task once, and you think
 you are going to have to spend more than an hour rewriting your code,
 you might as well use that hour getting a virtual machine set up and
 never worry about computing power again.
 
-The most user-friendly way to Bioconductor has a [step by step
+Cloud resources like Amazon aren't the only way to get more computer power.  If you're at a university, there are probably high-power computing clusters available to you. Depending on your particular set-up, you may need to to run your program in [batch mode](http://stat.ethz.ch/R-manual/R-patched/library/utils/html/BATCH.html) to use such clusters.  Personally, I think that a cloud-based service like Amazon avoids administrative hassle if you are on a short deadline or have a one-off task, but if you need lots of power regularly, getting in on a local cluster is worthwhile.
+
+The most user-friendly way to use cloud computing is to set up a server to run RStudio, which can then be accessed by a web browser and works just like it would on your desktop.  Bioconductor has a [step by step
 guide](http://bioconductor.org/help/bioconductor-cloud-ami/) to starting
-an Amazon Web Instance that will allow you to run RStudio from your
-browser. There are a couple of other useful guides to doing the same
+an Amazon Web Instance that they've pre-configured this way. There are a couple of other useful guides to doing the same
 thing by [Louis Aslett (including a
 video)](http://www.louisaslett.com/RStudio_AMI/) and [Karthik
 Ram](http://inundata.org/2011/03/30/r-ec2-rstudio-server/). Read all of
@@ -110,7 +108,7 @@ package](https://code.google.com/p/segue/), which provides an `apply()`
 function variant, `emrapply()`, that sends commands from your local R
 session to Amazon servers and returns the results. An introductory guide
 is
-[here](http://jeffreybreen.wordpress.com/2011/01/10/segue-r-to-amazon-elastic-mapreduce-hadoop/)
+[here](http://jeffreybreen.wordpress.com/2011/01/10/segue-r-to-amazon-elastic-mapreduce-hadoop/).
 
 Of course, if you are writing software that you expect others to run on
 normal laptop and desktop computers, you'll want to make sure it does so
@@ -155,7 +153,7 @@ function or one of its variants, it's a good option for parallelization.
 In fact most implementations of parallel processing in R are versions of
 `apply`.
 
-Not every task runs better in paralle. When you run a task in parallel,
+Not every task runs better in parallel. When you run a task in parallel,
 your computer "dispatches" each task to a CPU core. This dispatching
 adds computational overhead. So, it's usually best to try to minimize
 the number of dispatches. In most cases you are going to have a small
@@ -169,12 +167,11 @@ The following would be a poor use of parallel computing:
 
 This would dispatch the very small task of generating a random number
 10,000 times. The dispatching would probably take more time than the
-actual calculations. If you had a 10-core computer, this might be a
-better way to organize the task:
+actual calculations. Instead, organize the tasks into blocks, and dispatch each block of tasks, for instance:
 
     aaply(seq(1,10000,100), function(x) rnorm(1, mean=x+(1:100), .parallel=TRUE)
 
-This sends 100 numbers to each core, reducing the overhead.
+This sends the task of generating 100 numbers to each core, reducing the overhead.
 
 In practice, this means that you want to "parallelize" your code at the
 highest, or chunkiest level. If you have a series of nested loops, for
@@ -184,7 +181,9 @@ Note that [more cores is not always
 better](http://lookingatdata.blogspot.se/2013/01/speeding-up-r-computations-pt-iii.html).
 For reasons I don't completely understand, the overhead of using more
 cores is not always worth it, so it may be better to use, say 16, rather
-than 64 codes. Some experimentation will helpful here.
+than 64 codes. Some experimentation will help here.
+
+One other thing: if you can limit the parallel processes to computational tasks, and avoid things like reading/writing to disk or downloading files in the parallel code, you'll be less likely to run into problems.
 
 A disadvantage of parallel computing is that it is not available to
 everyone. People run code on different machines. If you are writing
@@ -193,28 +192,30 @@ should ALWAYS be prepared to share your work on request, and post your
 code as a supplement to your paper), you will want to provide an option
 to run it not in parallel. I like to do something like this:
 
-    #This script uses parallel processing if p.flag=TRUE.  Set up a parallel cluster as appropriate for your machine as appropriate. (the commented code below will uses 2 cores on a multicore computer)
+    #This script uses parallel processing if p.flag=TRUE.  Set up a parallel 
+    #cluster as appropriate for your machine as appropriate. (the commented code 
+    #below will use 2 cores on a multicore computer)
     #library(doParallel)
     #cl <- makeCluster(2)  # Use 2 cores
     #registerDoParallel(cl) # register these 2 cores with the "foreach" package
     library(plyr)
-    p.flag=FALSE
+    p.flag=FALSE  # Change to TRUE if using parallel processing
     .
     .
     .
-     aaply(seq(1,10000,100), function(x) rnorm(1, mean=x+(1:100), .parallel=p.flag)
+     aaply(seq(1,10000,100), function(x) rnorm(1, mean=x+(1:100), 
+          .parallel=p.flag)
 
 Compiling Functions
 -------------------
 
-R language is interpreted when it is run, unlike some other languages,
-which are first compiled. This is why functions written in C are often
-faster.
+R code is interpreted when it is run, unlike some other languages,
+which are first compiled. This is one reason why functions written in C are often faster than functions written in R.
 
 However, R has compiling ability, which can speed up functions [by a
 factor or 3 or 4 *in some
 cases*](http://dirk.eddelbuettel.com/blog/2011/04/12/#the_new_r_compiler_package).
-Compiling functions just requires calling `cmpfun()`. Here's an example:
+Compiling functions just requires calling `cmpfun()` in the baes `compiler` package. Here's an example:
 
 ~~~~ {.r}
 library(compiler)
@@ -269,9 +270,6 @@ compare
     ##  f(1000) 320.2 331.8  353.9 429.2 1889  1000
     ##  g(1000) 320.7 330.6  352.8 412.5 2530  1000
 
-Note that starting in R 2.14, all of the standard base functions are
-compiled by default, so you won't gain anything by compiling them, but
-you can speed up the execution of *your own* functions by compilation.
 
 You can also [enable just-in-time compiling in
 R](http://www.r-statistics.com/2012/04/speed-up-your-r-code-using-a-just-in-time-jit-compiler/),
@@ -304,7 +302,7 @@ your code down.
 Benchmarking is a way to test and compare the speed of functions.
 
 Traditionally, `system.time(replicate())` could be used to time
-functions, but the `microbenchmark` is a better package for benchmarking
+functions, but the `microbenchmark` package is a better option for benchmarking
 individuals calls and functions. If you have identified a function that
 is called many times in your code and needs to be speeded up, you can
 write or try out several different versions, using `microbenchmark` to
@@ -324,7 +322,6 @@ autoplot(compare)
 ![](http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-3.png)
 
 ~~~~ {.r}
-
 compare
 ~~~~
 
@@ -334,10 +331,10 @@ compare
     ##  g(1000, 1) 219.8  243.7  271.4  379.4  1370  1000
 
 All `microbenchmark` needs as inputs are a series of expressions to
-test. `times=1000` is an optional parameter of the number of times to
-test east function (default 100). Microbenchmark randomizes the test
+compare. `times` is an optional parameter of the number of times to
+test each function (default 100). Microbenchmark randomizes the test
 order and discards some "warmup" tests. The full distribution is
-returned, but only the summaries are printed.
+returned as a data frame, but only the summaries are printed.
 
 The `autoplot()` command draws a comparison of distribution times using
 `ggplot()`
@@ -365,8 +362,8 @@ sample of the call stack to "filename". So do this:
 
 `Rprof(NULL)` stops sampling and `summaryRprof("file.out")` gives you a
 summary of the results. Here's an example of profiling a random walk
-function (from a [talk by Ducan-Temple
-Lang](http://www.stat.auckland.ac.nz//\~ihaka/downloads/Taupo-handouts.pdf:
+function (from a [talk by Duncan Temple
+Lang](http://www.stat.auckland.ac.nz//~ihaka/downloads/Taupo-handouts.pdf)):
 
 ~~~~ {.r}
 rw2s1 <- function(n) {
@@ -415,7 +412,7 @@ summaryRprof("out.out")
     ## $sampling.time
     ## [1] 16.2
 
-The two tables list the functions called. the `$by.self` component lists
+The two tables list the functions called. The `$by.self` component lists
 the time spent by *functions alone*, while the `$by.total` table lists
 the time spent by *functions and all the functions they call*. So you
 see that `rw2s1`, being the *parent function*, takes the most time in
@@ -456,15 +453,15 @@ which is itself usually called by `sample`.
     There's an example of use [at Stack
     Overflow](http://stackoverflow.com/a/15821706/1757441)
 
--   Note that, depending on the R interface you are using, it wrap your
+-   Note that, depending on the R interface you are using, it may wrap your
     code in some other functions, which will appear as the topmost
     functions in the stack. For instance, if use the "Source" button in
     Rtudio, all your stacks will start with something like:
 
         source > withVisible > eval > eval >
-
+        
 -   `trace()` can also be useful to track down where a particular slow
-    function is being called.
+    function is being called.  Try using `trace(function, tracer=cat(as.character(sys.calls()))`, for instance, to print the stack whenever `function` is called.
 
 -   R also has the ability to do *memory profiling* - tracking how your
     code uses memory. These include `Rprofmem()`, `tracemem()`, and
@@ -472,9 +469,9 @@ which is itself usually called by `sample`.
     isn't great and I haven't found good resources on this topic. Let me
     know if you can point me to some resources.
 
--   Jeromy Anglim has a good [`Rprof()` case
+-   Jeromy Anglim has a blog post of an `Rprof()` [case
     study](http://jeromyanglim.blogspot.com/2010/02/case-study-in-optimising-code-in-r.html)
-    blog post worth reading
+    that is worth reading
 
 Find better packages
 --------------------
@@ -495,7 +492,7 @@ from other packages. From [this
 presentation](http://www.quantmod.com/Columbia2008/ColumbiaDec4.pdf)](http://dl.dropbox.com/u/3356641/blogstuff/xtsperformance.png)
 
 Other packages are specifically designed to speed up certain operations.
-Some creative googling (e.g., "*r package CRAN fast "something"*) will
+Some creative googling (e.g., *r package CRAN fast "something"*) will
 help you find them.
 
 For instance. Using base functions like `colMeans()` is faster than
@@ -504,7 +501,7 @@ extends these functions to include others like `rowMaxs()`,
 `colRanks()`, etc.
 
 `data.table` is a package designed for speeding up data frame operations
-when working with working for very large datasets. `data.table`'s
+when working very large datasets. `data.table`'s
 biggest advantage is in tasks like sub-setting and indexing. Here I
 compare the two in looking up the value of a row:
 
@@ -522,7 +519,7 @@ microbenchmark(myDF[myDF$key == 2, ], myDT["2", ])
     ##  myDF[myDF$key == 2, ] 2658.8 2885.3   3187 3755 6434   100
     ##            myDT["2", ]  724.3  899.7   1112 1393 4287   100
 
-`data.table` is 3-4 times faster than standard data frame operations. It
+Here `data.table` is 3X times faster. It
 gets faster with larger data sets.
 
 Improving your code
@@ -530,7 +527,7 @@ Improving your code
 
 Once you know what parts of your code are slowing you down, and you have
 a method to test speed, you need tools and options for writing faster
-functions. Here are a few
+functions. Here are a few.
 
 ### Vectorization
 
@@ -568,7 +565,7 @@ Instead of
 ### Pre-allocating memory
 
 Again, a common topic I won't dwell on too much. Essentially, R is bad
-at continually re-sizing objects. So if you have a loop creates a vector
+at continually re-sizing objects, because it makes an extra copy of these objects each time So if you have a loop creates a vector
 or list, don't append to the vector or list, but instead make an *empty*
 object of the correct size first, than fill in its elements.
 
@@ -584,8 +581,8 @@ variants, it's easy to parallelize your code.
 R has some very handy objects, lists and dataframes, that are flexible
 and can store multiple types of data at once. However, this flexibility
 comes at a cost. Simpler data structures that only store *one* type of
-data can be manipulated much faster. If you can represent your data in a
-matrix
+data can be manipulated much faster. If you can represent data in a
+matrix instead of a data frame (e.g., if you can reduce it to all numbers or characters), you can speed things up considerably.
 
 For instance, compare these operations for getting the standard
 deviation of 100,000 rows of 10 variables in both a matrix and a data
@@ -648,9 +645,9 @@ braces (`{` and `}`) instead of parentheses! Why? [Radford Neal
 explains](http://radfordneal.wordpress.com/2010/08/19/speeding-up-parentheses-and-lots-more-in-r/)
 
 > The difference between parentheses and curly brackets comes about
-> because R treats curly brackets as a “special” operator, whose
+> because R treats curly brackets as a "special" operator, whose
 > arguments are not automatically evaluated, but it treats parentheses
-> as a “built in” operator, whose arguments (just one for parentheses)
+> as a "built in" operator, whose arguments (just one for parentheses)
 > are evaluated automatically, with the results of this evaluation
 > stored in a LISP-style list. Creating this list requires allocation of
 > memory and other operations which seem to be slow enough to cause the
@@ -661,9 +658,9 @@ explains](http://radfordneal.wordpress.com/2010/08/19/speeding-up-parentheses-an
 #### Standard and internal functions
 
 A few standard functions in R are pretty slow, often because they
-perform error checking and methods dispatch before actualy performing
+perform error checking and methods dispatch before actually doing
 arithmetic. `mean` is among the most notorious of these. `mean(x)`does a
-lot more than just do sum(x)/length(x). It checks the form of the
+lot more than just do `sum(x)/length(x)`. It checks the form of the
 inputs, assigns the appropriate method, then dispatch
 `.Internal(mean(x))`. The latter is much faster, as it is written in C:
 
@@ -701,4 +698,4 @@ faster. Your call.
     you can use [*spot
     instances*](http://aws.amazon.com/ec2/spot-instances/), which allow
     you to set an allowable price, and run your program when something
-    that cheap is available.
+    that cheap is available. Also, you could run many small Amazon virtual machines simultaneously on a free trial account, but if your goal is to do things *quickly*, it might be worth paying for a more powerful machine.
