@@ -2,10 +2,9 @@
 title: "FasteR! HigheR! StongeR! - A Guide to Speeding Up R Code for Busy People"
 author: "Noam Ross"
 tags: [R, D-RUG]
-date: "13-04-19 17:39:47"
+date: "13-04-25 14:49:34"
 layout: post
 --- 
-
 
 *This is an overview of tools for speeding up your R code that I wrote
 for the [Davis R Users'
