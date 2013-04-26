@@ -172,6 +172,8 @@ actual calculations. Instead, organize the tasks into blocks, and dispatch each 
 
 This sends the task of generating 100 numbers to each core, reducing the overhead.
 
+***[Update 4/26/2013: As [Vince Buffalo points out](https://twitter.com/vsbuffalo/status/327564597282369536), random number generation requires that R keep track of state, so may not be a good example of a parallel-izable task]***
+
 In practice, this means that you want to "parallelize" your code at the
 highest, or chunkiest level. If you have a series of nested loops, for
 instance, you will want to run the highest-level loop in parallel.
@@ -687,6 +689,27 @@ You can sometimes get away with using the internal functions like
 R, and (b) this is disallowed in packages submitted to CRAN, so it makes
 code more difficult to share. That said, the internal version can be 9X
 faster. Your call.
+
+***[Update 4/26/2013: On the [suggestion of Kevin Ushey](https://twitter.com/kevin_ushey/status/327205714328158208), I'm adding the following section]***
+
+# Other Languages:  More reward for more effort
+
+I've mentioned a few times that functions written in other languages, like C or C++,
+are much faster than other R functions.  Obviously, learning another language
+is an undertaking, but thanks to some recent developments, writing R functions
+in C has become much easier.  The `Rcpp` package lets you write such C++ functions
+without learning much about compiling or other peripheral issues, and Hadley
+Wyckham has written an [excellent beginners's guide to `Rcpp`](https://github.com/hadley/devtools/wiki/Rcpp) that teaches you just
+enough C++ to get started.  From the guide:
+
+> Typical bottlenecks that C++ can help with are:
+>
+>* Loops that can't easily be vectorised because each iteration depends on the previous. C++ modifies objects in place, so there is little overhead when modifying a data structure many times.
+>
+>* Recursive functions, or problems which involve calling functions millions of times. The overhead of calling a function in C++ is much lower than the overhead of calling a function in R.  To give you some idea of the magnitude, on my computer when writing this book the overhead in C++ was ~5ns compared to ~200ns for R.
+>
+>* Problems that require advanced data structures and algorithms that R doesn't provide. Through the standard >template library (STL), C++ has efficient implementations of many important data structures, from ordered maps >to double ended queues.
+
 
 [^1]: If you are a scientist, you should ALWAYS be prepared to share
     your code, and should probably publish it as a supplement to your

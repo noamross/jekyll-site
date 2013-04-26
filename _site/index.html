@@ -282,6 +282,7 @@ I’m just going to say it.I like for loops in <a href="https://twitter.com/sear
 <p>This would dispatch the very small task of generating a random number 10,000 times. The dispatching would probably take more time than the actual calculations. Instead, organize the tasks into blocks, and dispatch each block of tasks, for instance:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">aaply</span>(<span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10000</span>,<span class="dv">100</span>), function(x) <span class="kw">rnorm</span>(<span class="dv">1</span>, <span class="dt">mean=</span>x+(<span class="dv">1</span>:<span class="dv">100</span>), <span class="dt">.parallel=</span><span class="ot">TRUE</span>)</code></pre>
 <p>This sends the task of generating 100 numbers to each core, reducing the overhead.</p>
+<p><strong><em>[Update 4/26/2013: As <a href="https://twitter.com/vsbuffalo/status/327564597282369536">Vince Buffalo points out</a>, random number generation requires that R keep track of state, so may not be a good example of a parallel-izable task]</em></strong></p>
 <p>In practice, this means that you want to “parallelize” your code at the highest, or chunkiest level. If you have a series of nested loops, for instance, you will want to run the highest-level loop in parallel.</p>
 <p>Note that <a href="http://lookingatdata.blogspot.se/2013/01/speeding-up-r-computations-pt-iii.html">more cores is not always better</a>. For reasons I don’t completely understand, the overhead of using more cores is not always worth it, so it may be better to use, say 16, rather than 64 codes. Some experimentation will help here.</p>
 <p>One other thing: if you can limit the parallel processes to computational tasks, and avoid things like reading/writing to disk or downloading files in the parallel code, you’ll be less likely to run into problems.</p>
@@ -534,6 +535,17 @@ comp</code></pre>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png" />
 </div>
 <p>You can sometimes get away with using the internal functions like <code>.Internal(mean(x))</code>. However, this is considered poor practice because (a) internals are subject to change and break your code with updates to R, and (b) this is disallowed in packages submitted to CRAN, so it makes code more difficult to share. That said, the internal version can be 9X faster. Your call.</p>
+<p><strong><em>[Update 4/26/2013: On the <a href="https://twitter.com/kevin_ushey/status/327205714328158208">suggestion of Kevin Ushey</a>, I’m adding the following section]</em></strong></p>
+<h1 id="other-languages-more-reward-for-more-effort">Other Languages: More reward for more effort</h1>
+<p>I’ve mentioned a few times that functions written in other languages, like C or C++, are much faster than other R functions. Obviously, learning another language is an undertaking, but thanks to some recent developments, writing R functions in C has become much easier. The <code>Rcpp</code> package lets you write such C++ functions without learning much about compiling or other peripheral issues, and Hadley Wyckham has written an <a href="https://github.com/hadley/devtools/wiki/Rcpp">excellent beginners’s guide to <code>Rcpp</code></a> that teaches you just enough C++ to get started. From the guide:</p>
+<blockquote>
+<p>Typical bottlenecks that C++ can help with are:</p>
+<ul>
+<li><p>Loops that can’t easily be vectorised because each iteration depends on the previous. C++ modifies objects in place, so there is little overhead when modifying a data structure many times.</p></li>
+<li><p>Recursive functions, or problems which involve calling functions millions of times. The overhead of calling a function in C++ is much lower than the overhead of calling a function in R. To give you some idea of the magnitude, on my computer when writing this book the overhead in C++ was ~5ns compared to ~200ns for R.</p></li>
+<li><p>Problems that require advanced data structures and algorithms that R doesn’t provide. Through the standard &gt;template library (STL), C++ has efficient implementations of many important data structures, from ordered maps &gt;to double ended queues.</p></li>
+</ul>
+</blockquote>
 <div class="footnotes">
 <hr />
 <ol>
