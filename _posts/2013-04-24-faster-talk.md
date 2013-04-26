@@ -1,5 +1,5 @@
 ---
-title: "FasteR! HigheR! StongeR! - A Guide to Speeding Up R Code for Busy People"
+title: "FasteR! HigheR! StrongeR! - A Guide to Speeding Up R Code for Busy People"
 author: "Noam Ross"
 tags: [R, D-RUG]
 date: "13-04-25 14:49:34"
