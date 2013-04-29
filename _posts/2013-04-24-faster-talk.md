@@ -41,9 +41,10 @@ important that you write it in a way that is easy to understand.
 Comments, indenting, and formatting go a long way, but your choices make
 a difference, as Ted notes above.
 
-Some optimal code can be hard to read. For instance, `x*x` is faster
-than `x^2` in R, and curly braces can be faster than parentheses. But
-which is more intuitive to read?
+Some optimal code can be hard to read. For instance,  and curly braces can be faster than parentheses. But which is more intuitive to read?[^squared]
+
+[^squared]: I used to also have a reference here that `x*x` is faster
+than `x^2` in R, but as [Thomas Lumley points out](http://simplystatistics.org/2013/04/28/sunday-datastatistics-link-roundup-4282013/#comment-879142735), this hasn't been true for a while, and some quick empirical testing confirmed that the two are pretty close.
 
 #### (2) Do you want your code to be *sharable*?[^1]
 
