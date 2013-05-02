@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-05-02T16:55:19-07:00</updated>
+ <updated>2013-05-02T16:57:48-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -47,7 +47,7 @@ Parent Call:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;source &amp;gt;&lt;sp
 
 Total Time:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;5.96&lt;/span&gt; seconds
 Percent of run time represented:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;73.8&lt;/span&gt; %&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that the “Parent Call” at the bottom shows some functions which RStudio wrapped my code it. Also, I chose only to display the top 10 time-consuming calls, but &lt;code&gt;proftable&lt;/code&gt; told me that those 10 calls represent 73.8% of the run time. I find this display a lot more intuitive than &lt;code&gt;summaryRprof()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Note that the “Parent Call” at the bottom shows some functions which RStudio wrapped my code in. Also, I chose only to display the top 10 time-consuming calls, but &lt;code&gt;proftable&lt;/code&gt; told me that those 10 calls represent 73.8% of the run time. I find this display a lot more intuitive than &lt;code&gt;summaryRprof()&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Here’s the whole function. If you have improvements, &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/proftable.R&quot;&gt;fork it on github&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;proftable &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(file, &lt;span class=&quot;dt&quot;&gt;lines=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) {
 &lt;span class=&quot;co&quot;&gt;# require(plyr)&lt;/span&gt;

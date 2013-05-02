@@ -49,7 +49,7 @@ Here's some example output:
     Percent of run time represented: 73.8 %
 
 Note that the "Parent Call" at the bottom shows some functions which
-RStudio wrapped my code it. Also, I chose only to display the top 10
+RStudio wrapped my code in. Also, I chose only to display the top 10
 time-consuming calls, but `proftable` told me that those 10 calls
 represent 73.8% of the run time. I find this display a lot more
 intuitive than `summaryRprof()`

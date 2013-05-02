@@ -270,7 +270,7 @@ Parent Call:<span class="st"> </span>source &gt;<span class="st"> </span>withVis
 
 Total Time:<span class="st"> </span><span class="fl">5.96</span> seconds
 Percent of run time represented:<span class="st"> </span><span class="fl">73.8</span> %</code></pre>
-<p>Note that the “Parent Call” at the bottom shows some functions which RStudio wrapped my code it. Also, I chose only to display the top 10 time-consuming calls, but <code>proftable</code> told me that those 10 calls represent 73.8% of the run time. I find this display a lot more intuitive than <code>summaryRprof()</code></p>
+<p>Note that the “Parent Call” at the bottom shows some functions which RStudio wrapped my code in. Also, I chose only to display the top 10 time-consuming calls, but <code>proftable</code> told me that those 10 calls represent 73.8% of the run time. I find this display a lot more intuitive than <code>summaryRprof()</code></p>
 <p>Here’s the whole function. If you have improvements, <a href="https://github.com/noamross/noamtools/blob/master/R/proftable.R">fork it on github</a>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">proftable &lt;-<span class="st"> </span>function(file, <span class="dt">lines=</span><span class="dv">10</span>) {
 <span class="co"># require(plyr)</span>
