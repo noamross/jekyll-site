@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-05-02T16:57:48-07:00</updated>
+ <updated>2013-05-08T22:27:22-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -171,7 +171,7 @@ p.flag=&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;  &lt;span class=&quot
       &lt;span class=&quot;dt&quot;&gt;.parallel=&lt;/span&gt;p.flag)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;compiling-functions&quot;&gt;Compiling Functions&lt;/h2&gt;
 &lt;p&gt;R code is interpreted when it is run, unlike some other languages, which are first compiled. This is one reason why functions written in C are often faster than functions written in R.&lt;/p&gt;
-&lt;p&gt;However, R has compiling ability, which can speed up functions &lt;a href=&quot;http://dirk.eddelbuettel.com/blog/2011/04/12/#the_new_r_compiler_package&quot;&gt;by a factor or 3 or 4 &lt;em&gt;in some cases&lt;/em&gt;&lt;/a&gt;. Compiling functions just requires calling &lt;code&gt;cmpfun()&lt;/code&gt; in the baes &lt;code&gt;compiler&lt;/code&gt; package. Here’s an example:&lt;/p&gt;
+&lt;p&gt;However, R has compiling ability, which can speed up functions &lt;a href=&quot;http://dirk.eddelbuettel.com/blog/2011/04/12/#the_new_r_compiler_package&quot;&gt;by a factor or 3 or 4 &lt;em&gt;in some cases&lt;/em&gt;&lt;/a&gt;. Compiling functions just requires calling &lt;code&gt;cmpfun()&lt;/code&gt; in the base &lt;code&gt;compiler&lt;/code&gt; package. Here’s an example:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(compiler)
 f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(n, x) for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:n) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)^(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
 g &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;cmpfun&lt;/span&gt;(f)
@@ -284,7 +284,7 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
 ## $sampling.time
 ## [1] 16.2&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The two tables list the functions called. The &lt;code&gt;$by.self&lt;/code&gt; component lists the time spent by &lt;em&gt;functions alone&lt;/em&gt;, while the &lt;code&gt;$by.total&lt;/code&gt; table lists the time spent by &lt;em&gt;functions and all the functions they call&lt;/em&gt;. So you see that &lt;code&gt;rw2s1&lt;/code&gt;, being the &lt;em&gt;parent function&lt;/em&gt;, takes the most time in &lt;code&gt;$by.total&lt;/code&gt;, but &lt;code&gt;sample.int&lt;/code&gt; is the bottom-level function that is taking the most time.&lt;/p&gt;
-&lt;p&gt;I don’t find this &lt;code&gt;summaryRprof()&lt;/code&gt; output very intuitive. There are some moderately better tools out there in the packages &lt;code&gt;profr&lt;/code&gt; and &lt;code&gt;proftool&lt;/code&gt;, but I don’t like them either. Instead I’ve written a custom function that you can get &lt;a href=&quot;https://gist.github.com/noamross/5447008&quot;&gt;here&lt;/a&gt; called &lt;code&gt;proftable&lt;/code&gt;. Here it parses the same output as above:&lt;/p&gt;
+&lt;p&gt;I don’t find this &lt;code&gt;summaryRprof()&lt;/code&gt; output very intuitive. There are some moderately better tools out there in the packages &lt;code&gt;profr&lt;/code&gt; and &lt;code&gt;proftool&lt;/code&gt;, but I don’t like them either. Instead I’ve written a custom function that you can get &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/proftable.R&quot;&gt;here&lt;/a&gt; called &lt;code&gt;proftable&lt;/code&gt;. Here it parses the same output as above:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;proftable&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;out.out&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##  PctTime Stack                      
 ##  47.037  rw2s1 &amp;gt; sample &amp;gt; sample.int

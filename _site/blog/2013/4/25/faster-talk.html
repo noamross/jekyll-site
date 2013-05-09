@@ -304,7 +304,7 @@ p.flag=<span class="ot">FALSE</span>  <span class="co"># Change to TRUE if using
       <span class="dt">.parallel=</span>p.flag)</code></pre>
 <h2 id="compiling-functions">Compiling Functions</h2>
 <p>R code is interpreted when it is run, unlike some other languages, which are first compiled. This is one reason why functions written in C are often faster than functions written in R.</p>
-<p>However, R has compiling ability, which can speed up functions <a href="http://dirk.eddelbuettel.com/blog/2011/04/12/#the_new_r_compiler_package">by a factor or 3 or 4 <em>in some cases</em></a>. Compiling functions just requires calling <code>cmpfun()</code> in the baes <code>compiler</code> package. Here’s an example:</p>
+<p>However, R has compiling ability, which can speed up functions <a href="http://dirk.eddelbuettel.com/blog/2011/04/12/#the_new_r_compiler_package">by a factor or 3 or 4 <em>in some cases</em></a>. Compiling functions just requires calling <code>cmpfun()</code> in the base <code>compiler</code> package. Here’s an example:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(compiler)
 f &lt;-<span class="st"> </span>function(n, x) for (i in <span class="dv">1</span>:n) x =<span class="st"> </span>(<span class="dv">1</span> +<span class="st"> </span>x)^(-<span class="dv">1</span>)
 g &lt;-<span class="st"> </span><span class="kw">cmpfun</span>(f)
@@ -417,7 +417,7 @@ for (i in <span class="dv">1</span>:<span class="dv">1000</span>) pos =<span cla
 ## $sampling.time
 ## [1] 16.2</code></pre>
 <p>The two tables list the functions called. The <code>$by.self</code> component lists the time spent by <em>functions alone</em>, while the <code>$by.total</code> table lists the time spent by <em>functions and all the functions they call</em>. So you see that <code>rw2s1</code>, being the <em>parent function</em>, takes the most time in <code>$by.total</code>, but <code>sample.int</code> is the bottom-level function that is taking the most time.</p>
-<p>I don’t find this <code>summaryRprof()</code> output very intuitive. There are some moderately better tools out there in the packages <code>profr</code> and <code>proftool</code>, but I don’t like them either. Instead I’ve written a custom function that you can get <a href="https://gist.github.com/noamross/5447008">here</a> called <code>proftable</code>. Here it parses the same output as above:</p>
+<p>I don’t find this <code>summaryRprof()</code> output very intuitive. There are some moderately better tools out there in the packages <code>profr</code> and <code>proftool</code>, but I don’t like them either. Instead I’ve written a custom function that you can get <a href="https://github.com/noamross/noamtools/blob/master/R/proftable.R">here</a> called <code>proftable</code>. Here it parses the same output as above:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proftable</span>(<span class="st">&quot;out.out&quot;</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##  PctTime Stack                      
 ##  47.037  rw2s1 &gt; sample &gt; sample.int

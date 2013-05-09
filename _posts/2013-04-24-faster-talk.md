@@ -217,7 +217,7 @@ which are first compiled. This is one reason why functions written in C are ofte
 However, R has compiling ability, which can speed up functions [by a
 factor or 3 or 4 *in some
 cases*](http://dirk.eddelbuettel.com/blog/2011/04/12/#the_new_r_compiler_package).
-Compiling functions just requires calling `cmpfun()` in the baes `compiler` package. Here's an example:
+Compiling functions just requires calling `cmpfun()` in the base `compiler` package. Here's an example:
 
 ~~~~ {.r}
 library(compiler)
@@ -425,7 +425,7 @@ I don't find this `summaryRprof()` output very intuitive. There are some
 moderately better tools out there in the packages `profr` and
 `proftool`, but I don't like them either. Instead I've written a custom
 function that you can get
-[here](https://gist.github.com/noamross/5447008) called `proftable`.
+[here](https://github.com/noamross/noamtools/blob/master/R/proftable.R) called `proftable`.
 Here it parses the same output as above:
 
 ~~~~ {.r}
