@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-05-08T23:14:29-07:00</updated>
+ <updated>2013-05-09T15:03:32-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -103,138 +103,16 @@ Percent of run time represented:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&
  </entry>
  
  <entry>
-   <title>Setting up Automated Reprint Requests in Gmail</title>
-   <link href="http://www.noamross.net/blog/2013/4/24/automating-preprints.html"/>
-   <updated>2013-04-24T17:37:22-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/4/24/automating-preprints</id>
+   <title>FasteR! HigheR! StrongeR! - A Guide to Speeding Up R Code for Busy People</title>
+   <link href="http://www.noamross.net/blog/2013/4/25/faster-talk.html"/>
+   <updated>2013-04-25T14:49:34-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/4/25/faster-talk</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I recently wrote about &lt;a href=&quot;http://www.noamross.net/blog/2013/4/24/my-first-publication.html&quot;&gt;my first peer-reviewed publication&lt;/a&gt; and lamented that it’s behind a $1500 paywall. I am not allowed to post the file to my website, but I am able to distribute the paper by e-mail, so I’ve set up a system to automate requests for the paper.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://mickresearch.wordpress.com/2012/10/18/automating-reprint-requests/&quot;&gt;Michael McCarthy wrote a similar post&lt;/a&gt; this fall for people using Outlook e-mail. My method is similar but is meant for Gmail. Here’s how to do it:&lt;/p&gt;
-&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Generate a custom &lt;code&gt;mailto&lt;/code&gt; link&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;I used &lt;a href=&quot;http://www.cha4mot.com/t_mailto.html&quot;&gt;this website&lt;/a&gt; to generate a custom &lt;code&gt;mailto&lt;/code&gt; link that would open the users’ mail client and send a pre-formatted e-mail to me. The email template is:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;To: noam.ross@gmail.com&lt;/p&gt;
-&lt;p&gt;Subject: Reprint Request: Economics and Ecology of Open-Access Fisheries&lt;/p&gt;
-&lt;p&gt;Body:&lt;/p&gt;
-&lt;p&gt;Dear Noam,&lt;/p&gt;
-&lt;p&gt;Please send me a reprint of:&lt;/p&gt;
-&lt;p&gt;Fuller, Kate, David Kling, Kaeilin Kroetz, Noam Ross, and James N. Sanchirico (2013) Economics and Ecology of Open-Access Fisheries. In &lt;em&gt;Encyclopedia of Energy, Natural Resource, and Environmental Economics&lt;/em&gt;, Ed. Jason Shogren, p.39-49. Amsterdam: Elsevier. http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This generates the link:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;mailto:noam.ross@gmail.com?Subject=Preprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&amp;amp;Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%&lt;span class=&quot;dv&quot;&gt;282013&lt;/span&gt;%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%&lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A/&lt;span class=&quot;er&quot;&gt;/&lt;/span&gt;dx.doi.org/&lt;span class=&quot;fl&quot;&gt;10.1016&lt;/span&gt;/B978&lt;span class=&quot;dv&quot;&gt;-0-12-375067&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;-9.00114&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;-5&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Put the link on your webpage in lieu of a link to a PDF&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Here it is on my site:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/emaillink.png&quot; /&gt;
-&lt;/div&gt;
-&lt;ol start=&quot;3&quot; style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;&lt;strong&gt;Put the PDF in your Dropbox and get a link to the file&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Unfortunately Gmail won’t created automated responses with file attachments&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, so you still need to create a link where the file can be downloaded, even if it’s not public. I use Dropbox:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/sharelink.png&quot; /&gt;
-&lt;/div&gt;
-&lt;ol start=&quot;3&quot; style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;&lt;strong&gt;Create a Gmail template&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ol style=&quot;list-style-type: lower-alpha&quot;&gt;
-&lt;li&gt;Gmail has an experimental feature in “labs” that creates templates. Turn it on:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/canned.png&quot; /&gt;
-&lt;/div&gt;
-&lt;ol start=&quot;2&quot; style=&quot;list-style-type: lower-alpha&quot;&gt;
-&lt;li&gt;Then write an email without a recipient and save it as a canned response:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cannedtxt.png&quot; /&gt;
-&lt;/div&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cannedresp.png&quot; /&gt;
-&lt;/div&gt;
-&lt;ol start=&quot;4&quot; style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;&lt;strong&gt;Create an email filter&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Create a filter specific to the custom &lt;code&gt;mailto&lt;/code&gt; link you created (e.g., the same subject line). With canned responses enabled, you can choose “Send canned response” as an option on gmail filters. Select the canned response you saved. I also add a tag so I can track these requests easily.&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/openaccessfilter.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;That’s it! Thanks to Michael McCarthy for the idea.&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I tried to get automated attachments working with this &lt;a href=&quot;https://ifttt.com/recipes/90984&quot;&gt;IFTTT recipe&lt;/a&gt;, but the reply always had mangled text. If someone gets it working, let me know.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content>
- </entry>
- 
- <entry>
-   <title>My first peer-reviewed publication: Economics and Ecology of Open-Access Fisheries</title>
-   <link href="http://www.noamross.net/blog/2013/4/24/my-first-publication.html"/>
-   <updated>2013-04-24T10:57:21-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/4/24/my-first-publication</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;My first peer-reviewed publication is an encyclopedia article written with colleagues in economics in UC Davis:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h3&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;Economics and Ecology of Open-Access Fisheries&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;K. Fuller, D. Kling, K. Kroetz, N. Ross and J.N. Sanchirico (2013)&lt;/p&gt;
-&lt;p&gt;In: Shogren, J.F., (ed.) Encyclopedia of Energy, Natural Resource, and Environmental Economics, Vol. 2 &lt;em&gt;Encyclopedia of Energy, Natural Resource, and Environmental Economics&lt;/em&gt; p.39-49. Amsterdam: Elsevier. &lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&lt;/a&gt;&lt;/p&gt;
-&lt;h4&gt;Abstract&lt;/h4&gt;
-&lt;p&gt;In open-access fisheries, participation and harvest by fishermen are unregulated. Under these conditions, the amount of fishing is greater than the socially optimal level, the economic profits from fishing are dissipated, and fish stocks are depleted and can even be driven to extinction. A large body of theoretical and empirical research has demonstrated the robustness of these results.&lt;/p&gt;
-&lt;p&gt;Although the basic outcomes hold across a variety of systems, the behavior of an open-access fishery can be complex. Simple models of fish ecology coupled with harvester behavior can explain boom-and-bust cycles in a fishery and fishing communities and complex supply responses. More complex ecological models of open-access fisheries illustrate the interactions among fishing, fish populations, and other parts of the ecosystem, as well as explain why some fishing regulations produce unintended consequences. Studying open access provides a foundation for understanding fishery economics, a baseline from which to measure the gains of implementing fishing regulations, and lends insight to the design of better regulatory systems.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The process of writing this article was interesting. Two years ago, when I was a first-year graduate student, my economics advisor &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/Sanchirico/&quot;&gt;Jim Sanchirico&lt;/a&gt; began convening lab meetings. This isn’t common practice among economists as far as I know, and we were trying to figure out how to use the meetings constructively. Around the same time, Jim received a request to write a few articles for this encyclopedia, and we figured it would be a good exercise to read the original literature on this subject and write the articles together.&lt;/p&gt;
-&lt;p&gt;This was a great chance for me. I had zero exposure to the natural resource economics literature and wouldn’t get around to courses in it for another year. Also, as a first-year ecology grad student working with a group of more experienced economists, I was a pretty good proxy for the target audience of outsiders to the field. So I got play the role of naive reader, asking for clearer explanations and less jargon from my co-authors. I also wrote some of the introductory and ecological sections.&lt;/p&gt;
-&lt;p&gt;I’m grateful to Jim for putting me on board this project, and for the chance to work with great colleagues in a different field, but I probably won’t do something similar again. I don’t support the publication model. Ironically, while the article is about “Open-Access Fisheries,” it is about as far from an open-access publication as can be. It’s in a &lt;a href=&quot;http://www.amazon.com/Encyclopedia-Natural-Resource-Environmental-Economics/dp/0123750679&quot;&gt;$1500&lt;/a&gt; encyclopedia published by &lt;em&gt;Elsevier&lt;/em&gt;. We received a very small honorarium&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, and Elsevier will reap profits by selling access to this encyclopedia to libraries as part of some overpriced bundle. I’d rather spend my taxpayer-funded fellowship creating resources available to all.&lt;/p&gt;
-&lt;p&gt;If you’d like a copy, &lt;a href=&quot;mailto:noam.ross@gmail.com?Subject=Reprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&amp;amp;Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%282013%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%20*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A//dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;email me by clicking here&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;If that’s what it is called. The arrangement was, I think, one or two hundred dollars per article, which the lab was supposed to split for dinner and beer. Still waiting on that part, Jim.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content>
- </entry>
- 
- <entry>
-   <title>Faster Talk</title>
-   <link href="http://www.noamross.net/blog/2013/4/24/faster-talk.html"/>
-   <updated>2013-04-24T00:00:00-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/4/24/faster-talk</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;table&gt;
-&lt;tbody&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;title: “FasteR! HigheR! StrongeR! - A Guide to Speeding Up R Code for Busy People”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;author: “Noam Ross”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;tags: [R, D-RUG]&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;date: “13-04-25 14:49:34”&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;layout: post&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;em&gt;This is an overview of tools for speeding up your R code that I wrote for the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;This is an overview of tools for speeding up your R code that I wrote for the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;first-ask-why&quot;&gt;First, Ask “Why?”&lt;/h2&gt;
 &lt;p&gt;It’s customary to &lt;a href=&quot;http://en.wikiquote.org/wiki/Donald_Knuth&quot;&gt;quote Donald Knuth&lt;/a&gt; at this point, but instead I’ll quote my twitter buddy Ted Hart to illustrate a point:&lt;/p&gt;
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p&gt;
@@ -544,6 +422,109 @@ comp&lt;/code&gt;&lt;/pre&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I used to also have a reference here that &lt;code&gt;x*x&lt;/code&gt; is faster than &lt;code&gt;x^2&lt;/code&gt; in R, but as &lt;a href=&quot;http://simplystatistics.org/2013/04/28/sunday-datastatistics-link-roundup-4282013/#comment-879142735&quot;&gt;Thomas Lumley points out&lt;/a&gt;, this hasn’t been true for a while, and some quick empirical testing confirmed that the two are pretty close.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;If you are a scientist, you should ALWAYS be prepared to share your code, and should probably publish it as a supplement to your papers.&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;There are cheaper services than Amazon, but there aren’t as many resources on how to use them. If you really need to reduce costs, you can use &lt;a href=&quot;http://aws.amazon.com/ec2/spot-instances/&quot;&gt;&lt;em&gt;spot instances&lt;/em&gt;&lt;/a&gt;, which allow you to set an allowable price, and run your program when something that cheap is available. Also, you could run many small Amazon virtual machines simultaneously on a free trial account, but if your goal is to do things &lt;em&gt;quickly&lt;/em&gt;, it might be worth paying for a more powerful machine.&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Setting up Automated Reprint Requests in Gmail</title>
+   <link href="http://www.noamross.net/blog/2013/4/24/automating-preprints.html"/>
+   <updated>2013-04-24T17:37:22-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/4/24/automating-preprints</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;I recently wrote about &lt;a href=&quot;http://www.noamross.net/blog/2013/4/24/my-first-publication.html&quot;&gt;my first peer-reviewed publication&lt;/a&gt; and lamented that it’s behind a $1500 paywall. I am not allowed to post the file to my website, but I am able to distribute the paper by e-mail, so I’ve set up a system to automate requests for the paper.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://mickresearch.wordpress.com/2012/10/18/automating-reprint-requests/&quot;&gt;Michael McCarthy wrote a similar post&lt;/a&gt; this fall for people using Outlook e-mail. My method is similar but is meant for Gmail. Here’s how to do it:&lt;/p&gt;
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Generate a custom &lt;code&gt;mailto&lt;/code&gt; link&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I used &lt;a href=&quot;http://www.cha4mot.com/t_mailto.html&quot;&gt;this website&lt;/a&gt; to generate a custom &lt;code&gt;mailto&lt;/code&gt; link that would open the users’ mail client and send a pre-formatted e-mail to me. The email template is:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;To: noam.ross@gmail.com&lt;/p&gt;
+&lt;p&gt;Subject: Reprint Request: Economics and Ecology of Open-Access Fisheries&lt;/p&gt;
+&lt;p&gt;Body:&lt;/p&gt;
+&lt;p&gt;Dear Noam,&lt;/p&gt;
+&lt;p&gt;Please send me a reprint of:&lt;/p&gt;
+&lt;p&gt;Fuller, Kate, David Kling, Kaeilin Kroetz, Noam Ross, and James N. Sanchirico (2013) Economics and Ecology of Open-Access Fisheries. In &lt;em&gt;Encyclopedia of Energy, Natural Resource, and Environmental Economics&lt;/em&gt;, Ed. Jason Shogren, p.39-49. Amsterdam: Elsevier. http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This generates the link:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;mailto:noam.ross@gmail.com?Subject=Preprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&amp;amp;Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%&lt;span class=&quot;dv&quot;&gt;282013&lt;/span&gt;%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%&lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A/&lt;span class=&quot;er&quot;&gt;/&lt;/span&gt;dx.doi.org/&lt;span class=&quot;fl&quot;&gt;10.1016&lt;/span&gt;/B978&lt;span class=&quot;dv&quot;&gt;-0-12-375067&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;-9.00114&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;-5&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Put the link on your webpage in lieu of a link to a PDF&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Here it is on my site:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/emaillink.png&quot; /&gt;
+&lt;/div&gt;
+&lt;ol start=&quot;3&quot; style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Put the PDF in your Dropbox and get a link to the file&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Unfortunately Gmail won’t created automated responses with file attachments&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, so you still need to create a link where the file can be downloaded, even if it’s not public. I use Dropbox:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/sharelink.png&quot; /&gt;
+&lt;/div&gt;
+&lt;ol start=&quot;3&quot; style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Create a Gmail template&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol style=&quot;list-style-type: lower-alpha&quot;&gt;
+&lt;li&gt;Gmail has an experimental feature in “labs” that creates templates. Turn it on:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/canned.png&quot; /&gt;
+&lt;/div&gt;
+&lt;ol start=&quot;2&quot; style=&quot;list-style-type: lower-alpha&quot;&gt;
+&lt;li&gt;Then write an email without a recipient and save it as a canned response:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cannedtxt.png&quot; /&gt;
+&lt;/div&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/cannedresp.png&quot; /&gt;
+&lt;/div&gt;
+&lt;ol start=&quot;4&quot; style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Create an email filter&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Create a filter specific to the custom &lt;code&gt;mailto&lt;/code&gt; link you created (e.g., the same subject line). With canned responses enabled, you can choose “Send canned response” as an option on gmail filters. Select the canned response you saved. I also add a tag so I can track these requests easily.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/openaccessfilter.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;That’s it! Thanks to Michael McCarthy for the idea.&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I tried to get automated attachments working with this &lt;a href=&quot;https://ifttt.com/recipes/90984&quot;&gt;IFTTT recipe&lt;/a&gt;, but the reply always had mangled text. If someone gets it working, let me know.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>My first peer-reviewed publication: Economics and Ecology of Open-Access Fisheries</title>
+   <link href="http://www.noamross.net/blog/2013/4/24/my-first-publication.html"/>
+   <updated>2013-04-24T10:57:21-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/4/24/my-first-publication</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;My first peer-reviewed publication is an encyclopedia article written with colleagues in economics in UC Davis:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;Economics and Ecology of Open-Access Fisheries&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;K. Fuller, D. Kling, K. Kroetz, N. Ross and J.N. Sanchirico (2013)&lt;/p&gt;
+&lt;p&gt;In: Shogren, J.F., (ed.) Encyclopedia of Energy, Natural Resource, and Environmental Economics, Vol. 2 &lt;em&gt;Encyclopedia of Energy, Natural Resource, and Environmental Economics&lt;/em&gt; p.39-49. Amsterdam: Elsevier. &lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;Abstract&lt;/h4&gt;
+&lt;p&gt;In open-access fisheries, participation and harvest by fishermen are unregulated. Under these conditions, the amount of fishing is greater than the socially optimal level, the economic profits from fishing are dissipated, and fish stocks are depleted and can even be driven to extinction. A large body of theoretical and empirical research has demonstrated the robustness of these results.&lt;/p&gt;
+&lt;p&gt;Although the basic outcomes hold across a variety of systems, the behavior of an open-access fishery can be complex. Simple models of fish ecology coupled with harvester behavior can explain boom-and-bust cycles in a fishery and fishing communities and complex supply responses. More complex ecological models of open-access fisheries illustrate the interactions among fishing, fish populations, and other parts of the ecosystem, as well as explain why some fishing regulations produce unintended consequences. Studying open access provides a foundation for understanding fishery economics, a baseline from which to measure the gains of implementing fishing regulations, and lends insight to the design of better regulatory systems.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The process of writing this article was interesting. Two years ago, when I was a first-year graduate student, my economics advisor &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/Sanchirico/&quot;&gt;Jim Sanchirico&lt;/a&gt; began convening lab meetings. This isn’t common practice among economists as far as I know, and we were trying to figure out how to use the meetings constructively. Around the same time, Jim received a request to write a few articles for this encyclopedia, and we figured it would be a good exercise to read the original literature on this subject and write the articles together.&lt;/p&gt;
+&lt;p&gt;This was a great chance for me. I had zero exposure to the natural resource economics literature and wouldn’t get around to courses in it for another year. Also, as a first-year ecology grad student working with a group of more experienced economists, I was a pretty good proxy for the target audience of outsiders to the field. So I got play the role of naive reader, asking for clearer explanations and less jargon from my co-authors. I also wrote some of the introductory and ecological sections.&lt;/p&gt;
+&lt;p&gt;I’m grateful to Jim for putting me on board this project, and for the chance to work with great colleagues in a different field, but I probably won’t do something similar again. I don’t support the publication model. Ironically, while the article is about “Open-Access Fisheries,” it is about as far from an open-access publication as can be. It’s in a &lt;a href=&quot;http://www.amazon.com/Encyclopedia-Natural-Resource-Environmental-Economics/dp/0123750679&quot;&gt;$1500&lt;/a&gt; encyclopedia published by &lt;em&gt;Elsevier&lt;/em&gt;. We received a very small honorarium&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, and Elsevier will reap profits by selling access to this encyclopedia to libraries as part of some overpriced bundle. I’d rather spend my taxpayer-funded fellowship creating resources available to all.&lt;/p&gt;
+&lt;p&gt;If you’d like a copy, &lt;a href=&quot;mailto:noam.ross@gmail.com?Subject=Reprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&amp;amp;Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%282013%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%20*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A//dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;email me by clicking here&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;If that’s what it is called. The arrangement was, I think, one or two hundred dollars per article, which the lab was supposed to split for dinner and beer. Still waiting on that part, Jim.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
  </entry>
