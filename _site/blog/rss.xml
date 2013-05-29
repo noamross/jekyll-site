@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-05-29T12:02:54-07:00</updated>
+ <updated>2013-05-29T12:04:22-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -26,7 +26,7 @@
 &lt;p&gt;Robert’s presentation spanned topics including basic geographical data and geostatistics concepts, his &lt;code&gt;raster&lt;/code&gt; package and its usage, and some great examples of visualization and other resources. Here are his slides:&lt;/p&gt;
 &lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/22149457&quot; width=&quot;714&quot; height=&quot;575&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
 
-&lt;p&gt;Robert has also written an &lt;a href=&quot;http://dl.dropbox.com/u/3356641/blogstuff/Introduction%20to%20spatial%20data%20handling%20in%20R.pdf&quot;&gt;introduction to spatial modeling for R beginners&lt;/a&gt; which reviews very basic data handling and the &lt;code&gt;sp&lt;/code&gt; and &lt;code&gt;raster&lt;/code&gt; package. Finally, his package vignettes are great resources for specific topics:&lt;/p&gt;
+&lt;p&gt;Robert has also written an &lt;a href=&quot;http://dl.dropbox.com/u/3356641/blogstuff/Introduction%20to%20spatial%20data%20handling%20in%20R.pdf&quot;&gt;introduction to spatial modeling for R beginners&lt;/a&gt; which reviews very basic data handling and the &lt;code&gt;sp&lt;/code&gt; and &lt;code&gt;raster&lt;/code&gt; packages. Finally, his package vignettes are great resources for specific topics:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/raster/vignettes/Raster.pdf&quot;&gt;Introduction to the raster package&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/raster/vignettes/functions.pdf&quot;&gt;Writing functions for large raster files&lt;/a&gt;&lt;/li&gt;
