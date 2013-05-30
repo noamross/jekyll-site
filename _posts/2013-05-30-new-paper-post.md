@@ -65,7 +65,7 @@ Ecology*](http://link.springer.com/journal/12080) early view in a few
 days, but an open-access version is already up at the arXiv
 [here](http://arxiv.org/abs/1305.6700).
 
-Finally, this is the first paper in which pretty much all collaboration
+Finally, this is my first paper in which pretty much all collaboration
 occurred over [github](https://github.com/), so you can go and see the
 [entire revision
 history](https://github.com/cboettig/ews-review/commits/master/manuscript.md)
