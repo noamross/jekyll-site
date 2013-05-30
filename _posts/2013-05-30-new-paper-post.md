@@ -1,5 +1,5 @@
 ---
-title: "Early Warning Signals: the carted and uncharted territories"
+title: "Early Warning Signals: the Charted and Uncharted Territories"
 author: "Noam Ross"
 tags: [early-warnings, ecobloggers, papers]
 date: "13-05-30 09:18:42"
