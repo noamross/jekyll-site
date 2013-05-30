@@ -31,7 +31,7 @@ represent ecosystems that have the potential to collapse. This model,
 called the "saddle node bifurcation" is often incorrectly equated with
 the idea of regime shifts *in general*. However, it's really just one of
 a number of mechanisms that can represent regime shifts. Yet because
-this model appears in several common mathermatical representations of
+this model appears in several common mathematical representations of
 ecosystems, almost all work on early warning signals has assumed the
 saddle node mechanism.
 
