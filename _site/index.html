@@ -240,34 +240,33 @@
 
         <div class="content">
           
-<div id="headblock"><h1 id="post.title"><a href="/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis.html">Robert Hijmans on Spatial Data Analysis</a></h1>
-<p>by <em>Noam Ross</em>, 23 May 2013</p>
+<div id="headblock"><h1 id="post.title"><a href="/blog/2013/5/30/new-paper-post.html">Early Warning Signals: the carted and uncharted territories</a></h1>
+<p>by <em>Noam Ross</em>, 30 May 2013</p>
 <hr /></div>
-<div class="contenttext"><p>Last week at the <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> Robert Hijmans gave a talk about spatial data analysis in R. Robert is <a href="http://scholar.google.com/citations?user=NWdPabcAAAAJ&amp;hl=en">a professor of biogeography</a> at UC Davis and the author of the <a href="http://cran.r-project.org/web/packages/raster/"><code>raster</code></a> (analysis of gridded data), <a href="http://cran.r-project.org/web/packages/dismo/"><code>dismo</code></a> (species distribution modeling), and <a href="http://cran.r-project.org/web/packages/geosphere/"><code>geosphere</code></a> (spherical trigonometry), packages.</p>
-<p>Robert’s presentation spanned topics including basic geographical data and geostatistics concepts, his <code>raster</code> package and its usage, and some great examples of visualization and other resources. Here are his slides:</p>
-<iframe src="http://www.slideshare.net/slideshow/embed_code/22149457" width="714" height="575" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-
-<p>Robert has also written an <a href="http://dl.dropbox.com/u/3356641/blogstuff/Introduction%20to%20spatial%20data%20handling%20in%20R.pdf">introduction to spatial modeling for R beginners</a> which reviews very basic data handling and the <code>sp</code> and <code>raster</code> packages. Finally, his package vignettes are great resources for specific topics:</p>
-<ul>
-<li><a href="http://cran.r-project.org/web/packages/raster/vignettes/Raster.pdf">Introduction to the raster package</a></li>
-<li><a href="http://cran.r-project.org/web/packages/raster/vignettes/functions.pdf">Writing functions for large raster files</a></li>
-<li><a href="http://cran.r-project.org/web/packages/dismo/vignettes/sdm.pdf">Species Distribution modeling with R</a></li>
-<li><a href="http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf">Boosted Regression Trees for ecological modeling</a></li>
-</ul></div>
+<div class="contenttext"><p><a href="carlboettiger.info">Carl Boettiger</a>, <a href="http://two.ucdavis.edu/~me/">Alan Hastings</a> and I have <a href="http://arxiv.org/abs/1305.6700">a new review</a> out on early warning signals and regime shifts. It’s about an idea that Carl and I have been kicking around for a couple of years and finally got around to writing up for a special issue of <a href="http://link.springer.com/journal/12080"><em>Theoretical Ecology</em></a>.</p>
+<p>There has been a lot of excitement in the past six years or so about <em>early warning signs</em> - statistical signals that indicate that an ecosystem is near a dramatic shift, like the collapse of a fishery or a switch from grassland to desert. Much of the interest in this work comes from the idea that these statistical signals could be general properties of ecosystems prone to such rapid changes. Thus, we might not need to know a great deal of detail about a specific ecosystem in order to use these kinds of signals to forecast change - a real benefit given the pace of global change and the paucity of data about a lot of ecosystems.</p>
+<p>Our paper focuses on a flaw see with this approach: that these early warning signals are an emergent property of a <em>particular model</em> used to represent ecosystems that have the potential to collapse. This model, called the “saddle node bifurcation” is often incorrectly equated with the idea of regime shifts <em>in general</em>. However, it’s really just one of a number of mechanisms that can represent regime shifts. Yet because this model appears in several common mathermatical representations of ecosystems, almost all work on early warning signals has assumed the saddle node mechanism.</p>
+<p>Just because this model is commonly used to describe ecosystems doesn’t mean ecosystems <em>actually</em> behave this way. Alan published <a href="http://dx.doi.org/10.1111/j.1461-0248.2010.01439.x">a paper in 2010</a> showing a number of counterexamples - alternative ways a model could represent an ecosystem with the potential for a rapid shift - in which these signals never appear. Conversely, there are <a href="http://dx.doi.org/10.1111/j.1600-0706.2012.20838.x">several cases of models</a> that exhibit early warning-like patterns without any imminent shift.</p>
+<p>In our review, we try to illuminate what is known about warning signals observed in models that have a saddle node and contrast this to other models that have received much less attention. So far, for instance, empirical data have only been collected in systems for which the saddle-node is thought to be a very good representation (e.g., freshwater lakes, pitcher-plants). We need more examples of this type of model testing in different ecosystems with different potential mechanisms of regime shift.</p>
+<p>Other models of ecosystems have the potential to provide <em>different</em> warning signals, but we need to know more about them, and we need better methods of deciding <em>which</em> model is appropriate to apply to any particular ecosystem. Early warning signals may be less generally applicable than initially hoped, but they can be quite powerful if properly applied.</p>
+<p>The paper will be out in <a href="http://link.springer.com/journal/12080"><em>Theoretical Ecology</em></a> early view in a few days, but an open-access version is already up at the arXiv <a href="http://arxiv.org/abs/1305.6700">here</a></p>
+<p>Finally, this is the first paper in which pretty much all collaboration occurred over <a href="https://github.com/">github</a>, so you can go and see the <a href="https://github.com/cboettig/ews-review/commits/master/manuscript.md">entire revision history</a> there. This worked out great and I’ll definitely be doing it again.</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
 	  
-    <li><a href="/tags.html#R-ref">R</a></li>
+    <li><a href="/tags.html#early-warnings-ref">early-warnings</a></li>
     
-    <li><a href="/tags.html#D-RUG-ref">D-RUG</a></li>
+    <li><a href="/tags.html#ecobloggers-ref">ecobloggers</a></li>
+    
+    <li><a href="/tags.html#papers-ref">papers</a></li>
     
 </ul>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'noamrossgh'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis.html';
-    var disqus_url = 'http://www.noamross.net/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis.html';
+    var disqus_identifier = '/blog/2013/5/30/new-paper-post.html';
+    var disqus_url = 'http://www.noamross.net/blog/2013/5/30/new-paper-post.html';
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -284,6 +283,10 @@
 <h1 id="previous-posts">Previous Posts</h1>
 
 <ul>
+<li><strong><a href="/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis.html">Robert Hijmans on Spatial Data Analysis</a></strong></li>
+</ul>
+
+<ul>
 <li><strong><a href="/blog/2013/5/2/improved-r-profiling-summaries.html">Improved R Profiling Summaries</a></strong></li>
 </ul>
 
@@ -297,10 +300,6 @@
 
 <ul>
 <li><strong><a href="/blog/2013/4/24/my-first-publication.html">My first peer-reviewed publication: Economics and Ecology of Open-Access Fisheries</a></strong></li>
-</ul>
-
-<ul>
-<li><strong><a href="/blog/2013/4/18/r-debug-tools.html">Debugging Tools in R with Michael Hannon</a></strong></li>
 </ul>
  </div>
         </div>
