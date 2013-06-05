@@ -52,8 +52,6 @@ Click on a course to see a description and comments.  Please add your own commen
 
 ***Important:*** *Inclusion on this webpage is no guarantee that a course will fulfill your quantitative requirements.  That is up to your committee.  Also, remember that, for GGE students, your quantitative methods examiner must be a member of the GGE.*
 
-**Courses Updated for Spring 2013**: ECN240B, EPI204B, GEO200CN, MAT135B, POL213, STA135.
-
 
 ### Animal Sciences ### 
 
