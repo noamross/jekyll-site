@@ -5,9 +5,13 @@ title: "Davis R Users' Group"
 
 Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC Davis who support each other in using R for science. Our focus is providing a space for beginning and intermediate users to learn from each other.
 
+**Thanks everyone for a great first year of D-RUG! Please fill out this 5-minute survey so we can make D-RUG even better next year!**
+
+<iframe src="https://docs.google.com/forms/d/1P4YpbEPiRgP9mwoHXtqHS5cewHz2GgwjRRZBvcE3BBE/viewform?embedded=true" width="760" height="2100" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
 -   ***Come to our weekly work sessions***: This is the core purpose of DRUG.  We have weekly, 2-hour work sessions where people bring their computers to work on their own projects, and ask each other questions as needed.  We have no TAs - just mutual support in R, statistics, and related topics.  Group members sometimes give short (10-25 minute) presentations on R methods and best practices or to get feedback on their projects.
 
-    ***Spring quarter work sessions will be held on Thursdays at 1-3 PM in Wickson Hall 2124***
+***No more work sessions for the summer!  We'll set a meeting time and place in the fall!***
 
  - ***Join the [mailing list](https://groups.google.com/d/forum/davis-rug)***: The mailing list is an online supplement to our in-person work sessions.
  

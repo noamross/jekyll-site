@@ -3,6 +3,8 @@ layout: pagecom
 title: "Statistics and Quantitative Classes for Davis GGE"
 ---
 
+<!-- TODO: Add PSC103A,B, MPM202-204, STA225 -->
+
 The UC Davis Graduate Group in Ecology requires two courses in quantitative methods.  Since the group is so diverse, and such courses are taught by many departments at the University, I thought it would be helpful to collect information on courses that people have taken to fill this requirement.  On this page you will find descriptions of courses taken, as well student comments on the courses.  Please add your own constructive comments, both on specific courses and on your experience with the curriculum in general, to help make this a useful resource!
 
  - [Survey: What stats/quant courses have you taken?](#survey)
