@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-06-11T17:31:44-07:00</updated>
+ <updated>2013-06-11T17:33:07-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -13,17 +13,16 @@
 
  
  <entry>
-   <title>Multi Infection Tests</title>
+   <title>A Null Model for Age Effects in Disease with Multiple Infections</title>
    <link href="http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html"/>
-   <updated>2013-06-11T00:00:00-07:00</updated>
+   <updated>2013-06-11T17:32:30-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/6/11/multi-infection-tests</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;h2 id=&quot;a-null-model-for-age-effects-in-disease-with-multiple-infections&quot;&gt;A Null Model for Age Effects in Disease with Multiple Infections&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;Here’s a little thought exercise I did that has caused me to go back and restart my Sudden Oak Death modeling in a new framework. Feedback welcome. I’m especially interested in relevant literature – I haven’t found many good examples of macroparasite/multiple infection models with age structure.&lt;/em&gt;&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;Here’s a little thought exercise I did that has caused me to go back and restart my Sudden Oak Death modeling in a new framework. Feedback welcome. I’m especially interested in relevant literature – I haven’t found many good examples of macroparasite/multiple infection models with age structure.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Cobb et al. (2012) develop two models of forest stand demography in the face of Sudden Oak Death. The first, a statistical survival model, estimated the rates of infection and time-to-mortality as functions of density of infected trees and tree size. The second, an &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline SI&quot; alt=&quot;SI&quot; /&gt;&lt;/span&gt; model, projected stand composition over time using parameters from the first.&lt;/p&gt;
 &lt;p&gt;I’ve been realizing is that the observed data and the first model may not square with the second model. In an &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline SI&quot; alt=&quot;SI&quot; /&gt;&lt;/span&gt; model, all infected hosts are the same and, at least as implemented in this paper, infected trees have a constant rate of mortality. But if you look at the bottom-right portion of the figure below, you’ll see that the rate of mortality is strongly influenced by the number of infected hosts.&lt;/p&gt;

@@ -1,11 +1,11 @@
 ---
+title: "A Null Model for Age Effects in Disease with Multiple Infections"
+author: "Noam Ross"
 tags: [R, SOD]
+date: "13-06-11 17:32:30"
 layout: post
 --- 
 
-
-A Null Model for Age Effects in Disease with Multiple Infections
-----------------------------------------------------------------
 
 *Here's a little thought exercise I did that has caused me to go back
 and restart my Sudden Oak Death modeling in a new framework. Feedback
