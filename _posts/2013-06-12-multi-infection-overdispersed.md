@@ -1,8 +1,8 @@
 ---
 title: "The null model for age effects with overdispersed infection"
 author: "Noam Ross"
-tags: [SOD, R]
-date: "13-06-11 17:32:30"
+tags: [R, SOD]
+date: "13-06-12 16:17:20"
 layout: post
 --- 
 
