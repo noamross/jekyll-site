@@ -325,7 +325,7 @@ parms &lt;-<span class="st"> </span><span class="kw">c</span>(
   <span class="dt">alpha=</span><span class="fl">0.05</span>,
   <span class="dt">lambda=</span><span class="fl">0.3</span>,
   <span class="dt">K=</span><span class="dv">50</span>,
-  <span class="dt">mu=</span><span class="fl">0.01</span>
+  <span class="dt">mu=</span><span class="fl">0.00</span>
   )</code></pre>
 <p>Note from the parameters that here the juvenile and adult trees are exactly the same in their demographic variables, their contribution to density dependence and their response to disease. That is why I call this a “null model for age effects”; any differences between the behavior of the size classes will be due to structural effects of the model. Namely, that some trees carry disease as they move from juvenile to adult size class.</p>
 <p>The parameters are selected to be somewhat realistic for tanoak and based on Cobb et al. (2012). Effectively, the juvenile class contains trees with &lt;1 cm diameter and adults are anything larger. The carrying capacity (<span class="math">\(K=50\)</span>) is about equal to the stand density of many in the plots the Cobb et al. (2012) data set.</p>
@@ -349,8 +349,8 @@ df &lt;-<span class="st"> </span><span class="kw">within</span>(df, {
   J.inf &lt;-<span class="st"> </span><span class="dv">1</span> -<span class="st"> </span><span class="kw">exp</span>(-nJ)
   A.inf &lt;-<span class="st"> </span><span class="dv">1</span> -<span class="st"> </span><span class="kw">exp</span>(-nA)
   Inf.dens &lt;-<span class="st"> </span>(J*J.inf +<span class="st"> </span>A*A.inf)
-  J.mort &lt;-<span class="st"> </span>d_j +<span class="st"> </span>alpha *<span class="st"> </span>PJ /<span class="st"> </span>(J *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>J.inf))
-  A.mort &lt;-<span class="st"> </span>d_a +<span class="st"> </span>alpha *<span class="st"> </span>PA /<span class="st"> </span>(A *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>A.inf))
+  J.mort &lt;-<span class="st"> </span>(d_j +<span class="st"> </span>alpha *<span class="st"> </span>PJ) /<span class="st"> </span>(J *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>J.inf))
+  A.mort &lt;-<span class="st"> </span>(d_a +<span class="st"> </span>alpha *<span class="st"> </span>PA) /<span class="st"> </span>(A *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>A.inf))
   J.yrs &lt;-<span class="st"> </span><span class="dv">1</span>/J.mort
   A.yrs &lt;-<span class="st"> </span><span class="dv">1</span>/A.mort
   J.infrate &lt;-<span class="st"> </span><span class="dv">1</span> -<span class="st"> </span><span class="kw">exp</span>(-lambda *<span class="st"> </span>(PJ +<span class="st"> </span>PA) *<span class="st"> </span>J *<span class="st"> </span><span class="kw">exp</span>(-PJ/J) /<span class="st"> </span>K)
@@ -437,9 +437,9 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
   
     <li><strong>Tags: </strong></li>
     
-    <li><a href="/tags.html#R-ref">R</a></li>
-    
     <li><a href="/tags.html#SOD-ref">SOD</a></li>
+    
+    <li><a href="/tags.html#R-ref">R</a></li>
       
 </ul>
 
@@ -466,7 +466,7 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
 
 <div class="noprint"><hr />
 <p> <strong>Previous Post</strong>: <em><a href="/blog/2013/5/30/new-paper-post.html">Early Warning Signals: the Charted and Uncharted Territories</a></em> </p>
-<p> <strong>Next Post</strong>: <em><a href="/blog/2013/6/12/multi-infection-overdispersed.html">The null model for age effects with overdispersed infection</a></em> </p></div>
+<p> <strong>Next Post</strong>: <em><a href="/blog/2013/6/11/multi-infection-tests.html">A Null Model for Age Effects in Disease with Multiple Infections</a></em> </p></div>
 
 
 
