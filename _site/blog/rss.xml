@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-06-14T12:55:26-07:00</updated>
+ <updated>2013-06-14T13:00:55-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -313,7 +313,7 @@ p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;
 &lt;/div&gt;
 &lt;p&gt;Note that these curves are somewhat closer to each other. Without observing multiple infections per tree, we might think distributions of disease in each size class are more similar than they really are.&lt;/p&gt;
 &lt;p&gt;So how does mortality differ between the classes? I calculate the “observed” mortality rate as the total mortality rate of &lt;em&gt;only the diseased trees&lt;/em&gt;. This is:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?d + \frac{\alpha P_N}{N e^{- \frac{P_N}{N}}}&quot; alt=&quot;d + \frac{\alpha P_N}{N e^{- \frac{P_N}{N}}}&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?d + \frac{\alpha P_N}{N (1 - \left( e^{- \frac{P_N}{N}}\right)}&quot; alt=&quot;d + \frac{\alpha P_N}{N (1 - \left( e^{- \frac{P_N}{N}}\right)}&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;The inverse of this value is “Years to infection”, which is the value shown in the right-hand panels of the figure from Cobb et al. (2012) above. Here I plot the “Years to mortality” that would be observed for trees in the model against the number of total infected trees in the population:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J.yrs&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A.yrs&amp;quot;&lt;/span&gt;) ), 
        &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Inf.dens, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;

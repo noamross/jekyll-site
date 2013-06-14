@@ -248,7 +248,7 @@ So how does mortality differ between the classes? I calculate the
 "observed" mortality rate as the total mortality rate of *only the
 diseased trees*. This is:
 
-$$d + \frac{\alpha P_N}{N e^{- \frac{P_N}{N}}}$$
+$$d + \frac{\alpha P_N}{N (1 - \left( e^{- \frac{P_N}{N}}\right)}$$
 
 The inverse of this value is "Years to infection", which is the value
 shown in the right-hand panels of the figure from Cobb et al. (2012)

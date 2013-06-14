@@ -401,7 +401,7 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
 </div>
 <p>Note that these curves are somewhat closer to each other. Without observing multiple infections per tree, we might think distributions of disease in each size class are more similar than they really are.</p>
 <p>So how does mortality differ between the classes? I calculate the “observed” mortality rate as the total mortality rate of <em>only the diseased trees</em>. This is:</p>
-<p><span class="math">\[d + \frac{\alpha P_N}{N e^{- \frac{P_N}{N}}}\]</span></p>
+<p><span class="math">\[d + \frac{\alpha P_N}{N (1 - \left( e^{- \frac{P_N}{N}}\right)}\]</span></p>
 <p>The inverse of this value is “Years to infection”, which is the value shown in the right-hand panels of the figure from Cobb et al. (2012) above. Here I plot the “Years to mortality” that would be observed for trees in the model against the number of total infected trees in the population:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">subset</span>(mdf, Class %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;J.yrs&quot;</span>, <span class="st">&quot;A.yrs&quot;</span>) ), 
        <span class="kw">aes</span>(<span class="dt">x=</span>Inf.dens, <span class="dt">y=</span>Population, <span class="dt">col=</span>Class)) +<span class="st"> </span>
