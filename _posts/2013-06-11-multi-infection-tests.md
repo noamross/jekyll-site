@@ -57,7 +57,7 @@ $$\begin{aligned}
   \frac{dJ}{dt}  &= A f_A \left(1 - \frac{J+A}{K} \right) + J  \left(f_J \left(1 - \frac{J+A}{K} \right) - d_J - g\right) - \alpha P_J \\
   \frac{dA}{dt}  &= J g - A d_A - \alpha P_A \\
   \frac{dP_J}{dt}  &= \lambda  \frac{J}{K} (P_J + P_A)  - P_J \left(d_J + \mu + g + \alpha \left(1 + \frac{P_J}{J} \right) \right) \\
-  \frac{dP_A}{dt}  &= \lambda  \frac{J}{K} (P_J + P_A)  + P_J  g - PA \left(d_A + \mu + \alpha \left(1 + \frac{P_A}{A}  \right) \right)
+  \frac{dP_A}{dt}  &= \lambda  \frac{A}{K} (P_J + P_A)  + P_J  g - P_A \left(d_A + \mu + \alpha \left(1 + \frac{P_A}{A}  \right) \right)
 \end{aligned}$$
 
 Here $J$ and $A$ are the population of juvenile and adult trees. There's
