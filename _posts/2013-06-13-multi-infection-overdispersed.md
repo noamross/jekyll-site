@@ -2,7 +2,7 @@
 title: "The null model for age effects with overdispersed infection"
 author: "Noam Ross"
 tags: [R, SOD]
-date: "13-06-12 16:17:20"
+date: "13-06-11 17:32:30"
 layout: post
 --- 
 
@@ -82,8 +82,8 @@ df <- within(df, {
   J.inf <- 1 - exp(-nJ)
   A.inf <- 1 - exp(-nA)
   Inf.dens <- (J*J.inf + A*A.inf)
-  J.mort <- d_j + alpha * PJ / (J * (1 - J.inf))
-  A.mort <- d_a + alpha * PA / (A * (1 - A.inf))
+  J.mort <- d_j + alpha * PJ / (J *J.inf)
+  A.mort <- d_a + alpha * PA / (A * A.inf)
   J.yrs <- 1/J.mort
   A.yrs <- 1/A.mort
   J.infrate <- 1 - exp(-lambda * (PJ + PA) * J * exp(-PJ/J) / K)

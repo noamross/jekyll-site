@@ -240,8 +240,8 @@
 
         <div class="content">
           
-<div id="headblock"><h1 id="post.title"><a href="/blog/2013/6/12/multi-infection-overdispersed.html">The null model for age effects with overdispersed infection</a></h1>
-<p>by <em>Noam Ross</em>, 12 June 2013</p>
+<div id="headblock"><h1 id="post.title"><a href="/blog/2013/6/11/multi-infection-overdispersed.html">The null model for age effects with overdispersed infection</a></h1>
+<p>by <em>Noam Ross</em>, 11 June 2013</p>
 <hr /></div>
 <div class="contenttext"><p>How does overdispersion of infections affect the behavior of the <a href="http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html">multiple-infection model</a>? I redefine the model to account for overdispersion, assuming the same overdispersion occurs in both age classes. The parameter <span class="math">\(k\)</span> varies inversely with the degree of overdispersion. Again, the classes are demographically identical, and infection affects mortality but not growth:</p>
 <p><span class="math">\[\begin{aligned}
@@ -304,8 +304,8 @@ df &lt;-<span class="st"> </span><span class="kw">within</span>(df, {
   J.inf &lt;-<span class="st"> </span><span class="dv">1</span> -<span class="st"> </span><span class="kw">exp</span>(-nJ)
   A.inf &lt;-<span class="st"> </span><span class="dv">1</span> -<span class="st"> </span><span class="kw">exp</span>(-nA)
   Inf.dens &lt;-<span class="st"> </span>(J*J.inf +<span class="st"> </span>A*A.inf)
-  J.mort &lt;-<span class="st"> </span>d_j +<span class="st"> </span>alpha *<span class="st"> </span>PJ /<span class="st"> </span>(J *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>J.inf))
-  A.mort &lt;-<span class="st"> </span>d_a +<span class="st"> </span>alpha *<span class="st"> </span>PA /<span class="st"> </span>(A *<span class="st"> </span>(<span class="dv">1</span> -<span class="st"> </span>A.inf))
+  J.mort &lt;-<span class="st"> </span>d_j +<span class="st"> </span>alpha *<span class="st"> </span>PJ /<span class="st"> </span>(J *J.inf)
+  A.mort &lt;-<span class="st"> </span>d_a +<span class="st"> </span>alpha *<span class="st"> </span>PA /<span class="st"> </span>(A *<span class="st"> </span>A.inf)
   J.yrs &lt;-<span class="st"> </span><span class="dv">1</span>/J.mort
   A.yrs &lt;-<span class="st"> </span><span class="dv">1</span>/A.mort
   J.infrate &lt;-<span class="st"> </span><span class="dv">1</span> -<span class="st"> </span><span class="kw">exp</span>(-lambda *<span class="st"> </span>(PJ +<span class="st"> </span>PA) *<span class="st"> </span>J *<span class="st"> </span><span class="kw">exp</span>(-PJ/J) /<span class="st"> </span>K)
@@ -378,8 +378,8 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'noamrossgh'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2013/6/12/multi-infection-overdispersed.html';
-    var disqus_url = 'http://www.noamross.net/blog/2013/6/12/multi-infection-overdispersed.html';
+    var disqus_identifier = '/blog/2013/6/11/multi-infection-overdispersed.html';
+    var disqus_url = 'http://www.noamross.net/blog/2013/6/11/multi-infection-overdispersed.html';
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -396,14 +396,6 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
 <h1 id="previous-posts">Previous Posts</h1>
 
 <ul>
-<li><strong><a href="/blog/2013/6/11/multi-infection-tests.html">A Null Model for Age Effects in Disease with Multiple Infections</a></strong></li>
-</ul>
-
-<ul>
-<li><strong><a href="/blog/2013/6/11/multi-infection-tests.html">A Null Model for Age Effects in Disease with Multiple Infections</a></strong></li>
-</ul>
-
-<ul>
 <li><strong><a href="/blog/2013/5/30/new-paper-post.html">Early Warning Signals: the Charted and Uncharted Territories</a></strong></li>
 </ul>
 
@@ -413,6 +405,14 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
 
 <ul>
 <li><strong><a href="/blog/2013/5/2/improved-r-profiling-summaries.html">Improved R Profiling Summaries</a></strong></li>
+</ul>
+
+<ul>
+<li><strong><a href="/blog/2013/4/25/faster-talk.html">FasteR! HigheR! StrongeR! - A Guide to Speeding Up R Code for Busy People</a></strong></li>
+</ul>
+
+<ul>
+<li><strong><a href="/blog/2013/4/24/automating-preprints.html">Setting up Automated Reprint Requests in Gmail</a></strong></li>
 </ul>
  </div>
         </div>
