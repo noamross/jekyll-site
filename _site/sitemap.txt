@@ -54,6 +54,7 @@ http://www.noamross.net/statsclasses/WFC222.html
 http://www.noamross.net/tags.html
 http://www.noamross.net/test/index.html
 
+http://www.noamross.net/blog/2013/6/17/harrisbbmle.html
 http://www.noamross.net/blog/2013/6/12/multi-infection-overdispersed.html
 http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html
 http://www.noamross.net/blog/2013/5/30/new-paper-post.html
