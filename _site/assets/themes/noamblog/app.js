@@ -68,7 +68,7 @@ $(document).ready(function() {
 	}
     
    
-/* for markdonw in disqus, from http://code.lancepollard.com/jquery-disqus-plugin */
+/* for markdown in disqus, from http://code.lancepollard.com/jquery-disqus-plugin */
 
 $(document).ready(function() {
   $('#disqus_thread').disqus({
