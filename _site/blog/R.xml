@@ -4,13 +4,84 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-06-17T16:25:40-07:00</updated>
+ <updated>2013-06-18T10:57:36-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Printing R help files in the console or in knitr documents</title>
+   <link href="http://www.noamross.net/blog/2013/6/18/helpconsoleexample.html"/>
+   <updated>2013-06-18T10:57:22-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/6/18/helpconsoleexample</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Yesterday, I was creating a &lt;code&gt;knitr&lt;/code&gt; document based on a script, and was looking for a way to include content from an R help file. The script, which was a teaching document, had a &lt;code&gt;help()&lt;/code&gt; command for when the author wanted to refer readers to R documentation. I wanted that text in my final document, though.&lt;/p&gt;
+&lt;p&gt;There’s no standard way to do this in R, but with some help from &lt;a href=&quot;http://stackoverflow.com/questions/7493843/how-to-write-contents-of-help-to-a-file-from-within-r&quot;&gt;Stack Overflow&lt;/a&gt; and &lt;a href=&quot;https://gist.github.com/SChamberlain/5801605&quot;&gt;Scott Chamberlain&lt;/a&gt;, I figured out I needed some functions hidden in the depths of the &lt;code&gt;tools&lt;/code&gt; package. So I wrote this function:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;help_console &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(topic, &lt;span class=&quot;dt&quot;&gt;format=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;html&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;latex&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Rd&amp;quot;&lt;/span&gt;),
+                         &lt;span class=&quot;dt&quot;&gt;lines=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;before=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;after=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;) {  
+  format=&lt;span class=&quot;kw&quot;&gt;match.arg&lt;/span&gt;(format)
+  if (!&lt;span class=&quot;kw&quot;&gt;is.character&lt;/span&gt;(topic)) topic &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;deparse&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;substitute&lt;/span&gt;(topic))
+  helpfile =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;utils:::&lt;span class=&quot;kw&quot;&gt;.getHelpFile&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;help&lt;/span&gt;(topic))
+
+  hs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;capture.output&lt;/span&gt;(switch(format, 
+                              &lt;span class=&quot;dt&quot;&gt;text=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;Rd2txt&lt;/span&gt;(helpfile),
+                              &lt;span class=&quot;dt&quot;&gt;html=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;Rd2HTML&lt;/span&gt;(helpfile),
+                              &lt;span class=&quot;dt&quot;&gt;latex=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;Rd2latex&lt;/span&gt;(helpfile),
+                              &lt;span class=&quot;dt&quot;&gt;Rd=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;prepare_Rd&lt;/span&gt;(helpfile)
+                              )
+                      )
+  if(!&lt;span class=&quot;kw&quot;&gt;is.null&lt;/span&gt;(lines)) hs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;hs[lines]
+  hs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(before, hs, after)
+  &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(hs, &lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;)
+  &lt;span class=&quot;kw&quot;&gt;invisible&lt;/span&gt;(hs)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;help_console&lt;/code&gt; prints the help file to the console or lets you assign the help file text to a character. Below, I use it to dynamically print the start of the help file for the &lt;code&gt;optim()&lt;/code&gt; function as quoted HTML (note that the &lt;code&gt;knitr&lt;/code&gt; chunk has the option &lt;code&gt;results='asis')&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;help_console&lt;/span&gt;(optim, &lt;span class=&quot;st&quot;&gt;&amp;quot;html&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;lines =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;25&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;before =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;lt;blockquote&amp;gt;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;after =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;lt;/blockquote&amp;gt;&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;
+R: General-purpose Optimization
+&lt;/title&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;R.css&quot;&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;table width=&quot;100%&quot; summary=&quot;page for optim&quot;&gt;&lt;tr&gt;&lt;td&gt;
+optim
+&lt;/td&gt;&lt;td align=&quot;right&quot;&gt;
+R Documentation
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h2&gt;
+General-purpose Optimization
+&lt;/h2&gt;
+
+&lt;h3&gt;
+Description
+&lt;/h3&gt;
+
+&lt;p&gt;
+General-purpose optimization based on Nelder–Mead, quasi-Newton and conjugate-gradient algorithms. It includes an option for box-constrained optimization and simulated annealing.
+&lt;/p&gt;
+
+
+&lt;h3&gt;
+Usage
+&lt;/h3&gt;
+
+&lt;pre&gt;
+optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG”, “L-BFGS-B”, “SANN”, “Brent”), lower = -Inf, upper = Inf, control = list(), hessian = FALSE)
+&lt;/blockquote&gt;
+
+
+&lt;p&gt;The function is part of my &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/help_console.R&quot;&gt;&lt;code&gt;noamtools&lt;/code&gt; package on GitHub&lt;/a&gt;, where I keep various convenience functions. Enjoy, and fork if you have improvements!&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Dave Harris on Maximum Likelihood Estimation</title>
@@ -2466,22 +2537,6 @@ m11.cv &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&q
 &lt;p&gt;And that’s all I got. Hopefully you will find it helpful. Let me know if there is anything else I have forgotton or done wrong.&lt;/p&gt;
 &lt;p&gt;~ Rosemary&lt;/p&gt;
 &lt;p&gt;rosehartman@gmail.com&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Mason Earles on interfacing R with the Forest Vegetation Simulator</title>
-   <link href="http://www.noamross.net/blog/2013/2/13/mason-earles-on-interfacing-r-with-fvs.html"/>
-   <updated>2013-02-13T15:06:42-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/2/13/mason-earles-on-interfacing-r-with-fvs</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://jmearles.net/&quot;&gt;Mason Earles&lt;/a&gt; gave a great presentation this week at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; about linking R with the &lt;a href=&quot;http://www.fs.fed.us/fmsc/fvs/&quot;&gt;Forest Vegetation Simulator (FVS)&lt;/a&gt;. FVS is a model developed by the US Forest Service to simulate forest growth over time. It’s written in FORTRAN and has been around since the 1970s.&lt;/p&gt;
-&lt;p&gt;FVS has recently gone open-source (its &lt;a href=&quot;http://code.google.com/p/open-fvs/&quot;&gt;repository is on google code&lt;/a&gt;), and now has &lt;a href=&quot;http://code.google.com/p/open-fvs/wiki/rFVS&quot;&gt;an alpha-level API which can be called from R&lt;/a&gt;. Mason showed us how he used the API along with some text manipulation functions to make the programs work together. Then he showed us how he used this to do some Monte Carlo simulations to look at the effects of stochastic fire and drought events.&lt;/p&gt;
-&lt;p&gt;Here are Mason’s slides:&lt;/p&gt;
-&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/16516293&quot; width=&quot;800&quot; height=&quot;600&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;</content>
  </entry>
  
  

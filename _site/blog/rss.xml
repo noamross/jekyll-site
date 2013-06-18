@@ -4,13 +4,84 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-06-17T16:25:40-07:00</updated>
+ <updated>2013-06-18T10:57:36-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Printing R help files in the console or in knitr documents</title>
+   <link href="http://www.noamross.net/blog/2013/6/18/helpconsoleexample.html"/>
+   <updated>2013-06-18T10:57:22-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/6/18/helpconsoleexample</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Yesterday, I was creating a &lt;code&gt;knitr&lt;/code&gt; document based on a script, and was looking for a way to include content from an R help file. The script, which was a teaching document, had a &lt;code&gt;help()&lt;/code&gt; command for when the author wanted to refer readers to R documentation. I wanted that text in my final document, though.&lt;/p&gt;
+&lt;p&gt;There’s no standard way to do this in R, but with some help from &lt;a href=&quot;http://stackoverflow.com/questions/7493843/how-to-write-contents-of-help-to-a-file-from-within-r&quot;&gt;Stack Overflow&lt;/a&gt; and &lt;a href=&quot;https://gist.github.com/SChamberlain/5801605&quot;&gt;Scott Chamberlain&lt;/a&gt;, I figured out I needed some functions hidden in the depths of the &lt;code&gt;tools&lt;/code&gt; package. So I wrote this function:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;help_console &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(topic, &lt;span class=&quot;dt&quot;&gt;format=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;html&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;latex&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Rd&amp;quot;&lt;/span&gt;),
+                         &lt;span class=&quot;dt&quot;&gt;lines=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;before=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;after=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;) {  
+  format=&lt;span class=&quot;kw&quot;&gt;match.arg&lt;/span&gt;(format)
+  if (!&lt;span class=&quot;kw&quot;&gt;is.character&lt;/span&gt;(topic)) topic &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;deparse&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;substitute&lt;/span&gt;(topic))
+  helpfile =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;utils:::&lt;span class=&quot;kw&quot;&gt;.getHelpFile&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;help&lt;/span&gt;(topic))
+
+  hs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;capture.output&lt;/span&gt;(switch(format, 
+                              &lt;span class=&quot;dt&quot;&gt;text=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;Rd2txt&lt;/span&gt;(helpfile),
+                              &lt;span class=&quot;dt&quot;&gt;html=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;Rd2HTML&lt;/span&gt;(helpfile),
+                              &lt;span class=&quot;dt&quot;&gt;latex=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;Rd2latex&lt;/span&gt;(helpfile),
+                              &lt;span class=&quot;dt&quot;&gt;Rd=&lt;/span&gt;tools:::&lt;span class=&quot;kw&quot;&gt;prepare_Rd&lt;/span&gt;(helpfile)
+                              )
+                      )
+  if(!&lt;span class=&quot;kw&quot;&gt;is.null&lt;/span&gt;(lines)) hs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;hs[lines]
+  hs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(before, hs, after)
+  &lt;span class=&quot;kw&quot;&gt;cat&lt;/span&gt;(hs, &lt;span class=&quot;dt&quot;&gt;sep=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;)
+  &lt;span class=&quot;kw&quot;&gt;invisible&lt;/span&gt;(hs)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;help_console&lt;/code&gt; prints the help file to the console or lets you assign the help file text to a character. Below, I use it to dynamically print the start of the help file for the &lt;code&gt;optim()&lt;/code&gt; function as quoted HTML (note that the &lt;code&gt;knitr&lt;/code&gt; chunk has the option &lt;code&gt;results='asis')&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;help_console&lt;/span&gt;(optim, &lt;span class=&quot;st&quot;&gt;&amp;quot;html&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;lines =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;25&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;before =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;lt;blockquote&amp;gt;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;after =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;lt;/blockquote&amp;gt;&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;
+R: General-purpose Optimization
+&lt;/title&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;R.css&quot;&gt;
+&lt;/head&gt;&lt;body&gt;
+
+&lt;table width=&quot;100%&quot; summary=&quot;page for optim&quot;&gt;&lt;tr&gt;&lt;td&gt;
+optim
+&lt;/td&gt;&lt;td align=&quot;right&quot;&gt;
+R Documentation
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h2&gt;
+General-purpose Optimization
+&lt;/h2&gt;
+
+&lt;h3&gt;
+Description
+&lt;/h3&gt;
+
+&lt;p&gt;
+General-purpose optimization based on Nelder–Mead, quasi-Newton and conjugate-gradient algorithms. It includes an option for box-constrained optimization and simulated annealing.
+&lt;/p&gt;
+
+
+&lt;h3&gt;
+Usage
+&lt;/h3&gt;
+
+&lt;pre&gt;
+optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG”, “L-BFGS-B”, “SANN”, “Brent”), lower = -Inf, upper = Inf, control = list(), hessian = FALSE)
+&lt;/blockquote&gt;
+
+
+&lt;p&gt;The function is part of my &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/help_console.R&quot;&gt;&lt;code&gt;noamtools&lt;/code&gt; package on GitHub&lt;/a&gt;, where I keep various convenience functions. Enjoy, and fork if you have improvements!&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Dave Harris on Maximum Likelihood Estimation</title>
@@ -1085,323 +1156,6 @@ comp&lt;/code&gt;&lt;/pre&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;If that’s what it is called. The arrangement was, I think, one or two hundred dollars per article, which the lab was supposed to split for dinner and beer. Still waiting on that part, Jim.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
- </entry>
- 
- <entry>
-   <title>Debugging Tools in R with Michael Hannon</title>
-   <link href="http://www.noamross.net/blog/2013/4/18/r-debug-tools.html"/>
-   <updated>2013-04-18T13:44:59-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/4/18/r-debug-tools</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;Today at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, Michael Hannon gave a great talk on how to use R’s native debugging functions. Here are his notes and code.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This is a discussion of debugging techniques in R. It is based on a paper by Roger Peng, now at Johns Hopkins University (&lt;a href=&quot;http://www.biostat.jhsph.edu/~rpeng/docs/R-debug-tools.pdf&quot;&gt;http://www.biostat.jhsph.edu/~rpeng/docs/R-debug-tools.pdf&lt;/a&gt;)&lt;/p&gt;
-&lt;h3 id=&quot;focus-on-five-functions&quot;&gt;Focus on five functions:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;traceback&lt;/li&gt;
-&lt;li&gt;debug&lt;/li&gt;
-&lt;li&gt;browser&lt;/li&gt;
-&lt;li&gt;trace&lt;/li&gt;
-&lt;li&gt;recover&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;severity-level&quot;&gt;Severity level&lt;/h3&gt;
-&lt;p&gt;R mainly uses two ways of reporting a problem:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Warning: Does not stop execution&lt;/li&gt;
-&lt;li&gt;Error: More serious – &lt;em&gt;does&lt;/em&gt; stop execution&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Example of warning:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] NaN&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Example of error:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;#### Define a function to be used/abused later on.
-message &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) {
-  if(x &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;)
-    &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;)
-  else
-    &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Goodbye&amp;quot;&lt;/span&gt;)
-  }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here’s the function in action:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;42&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;Hello&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)  #### Produces warning but does not stop&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(x)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Error: missing value where TRUE/FALSE needed&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;debugging-tools&quot;&gt;Debugging tools&lt;/h3&gt;
-&lt;h3 id=&quot;print-call-stack-with-traceback&quot;&gt;Print “call stack” with &lt;code&gt;traceback&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;How did we get here? That is, what sequence of function calls led us to the point where an error occurred? Answer: the &lt;code&gt;traceback&lt;/code&gt; function can tell us. Here’s an example:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))
-Error in if (x &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;) else &lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Goodbye&amp;quot;&lt;/span&gt;) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;missing value where &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;/&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt; needed
-In addition:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;Warning message:
-In &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;NaNs produced
-&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;er&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;   &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;traceback&lt;/span&gt;()
-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;message&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It’s hard to get “lost” when you’ve got only one function to begin with, but real life is more complicated. THe following isn’t exactly “real-life” either, but it better illustrates the point.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) {
-    r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(x)
-    r
-}
-g &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(y) {
-    r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;y *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;h&lt;/span&gt;(y)
-    r
-}
-h &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(z) {
-    r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z)
-    if (r &amp;lt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) 
-        r^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; else r^&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can probably guess that the log function is going to be the trouble maker, but let’s see what happens.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
-Error in if (r &amp;lt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) r^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; else r^&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt; :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;missing value where &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;/&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt; needed
-In addition:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;Warning message:
-In &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;NaNs produced
-&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;traceback&lt;/span&gt;()
-&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;h&lt;/span&gt;(y) at &lt;span class=&quot;co&quot;&gt;#2&lt;/span&gt;
-&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(x) at &lt;span class=&quot;co&quot;&gt;#2&lt;/span&gt;
-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
-&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This shows that we started out with a call to f, which generated a call to g, which generated a call to h. The error evidently occurred at statement #2 of h. Note, by the way, the following trick to view the line numbers in a function:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;body&lt;/span&gt;(h))
-[[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]]
-&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;
-
-[[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]]
-r &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z)
-
-[[&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;]]
-if (r &amp;lt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) r^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt; else r^&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I.e., statement #2 of h is, as expected, the one that involves the log function.&lt;/p&gt;
-&lt;h3 id=&quot;the-debug-function&quot;&gt;The &lt;code&gt;debug&lt;/code&gt; function&lt;/h3&gt;
-&lt;p&gt;The &lt;code&gt;traceback&lt;/code&gt; function helps us to locate the error, but then what do we do? Ideally, we could just stare at our code, then find and fix the error. But it often helps to have some detailed information as to what was going on in our code at the time of the error.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;debug&lt;/code&gt; function allows us to do just that. We can step through our code, a line at a time, and examine variables along the way.&lt;/p&gt;
-&lt;p&gt;The syntax is:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;debug&lt;/span&gt;(function-name)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;and to turn off debugging we use:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;undebug&lt;/span&gt;(function-name)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(I.e., we might find and fix a problem on the third pass through a loop of 10000 iterations, after which we no longer need or want to debug for the other 9997 times through the loop.)&lt;/p&gt;
-&lt;p&gt;Here’s an example. The mathematical background is that we have N observations of a random variable that we assume to be normally distributed but with an unknown mean and variance. To estimate the parameters we need to compute the sum of the squared differences from the mean:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[
-SS = \sum_{n=1}^{N}(x_n - \mu)^2
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;(Details at: &lt;a href=&quot;http://en.wikipedia.org/wiki/Normal_distribution#Estimation_of_parameters&quot;&gt;http://en.wikipedia.org/wiki/Normal_distribution#Estimation_of_parameters&lt;/a&gt;)&lt;/p&gt;
-&lt;p&gt;Here we’ll focus on just one part of the calculation, computing the sum of the squared differences. Here’s an R function that will do that for us:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;SS &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(mu, x) {
-    d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
-    d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
-    ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
-    ss
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can probably see that the function could be written much more compactly, but we’ll string it out for purposes of illustration.&lt;/p&gt;
-&lt;p&gt;Let’s generate some points from a Normal(0,1) distribution:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;set.seed&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;314159&lt;/span&gt;)  &lt;span class=&quot;co&quot;&gt;# Set the RNG seed so results are reproducible&lt;/span&gt;
-xPoints &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rnorm&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let’s run SS to get a feel for its behavior:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 202.5&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;muTest &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.numeric&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)
-SSTest &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sapply&lt;/span&gt;(muTest, SS, xPoints)
-&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(muTest, SSTest)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/exerciseSS.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Now suppose we want to examine in detail the behavior of the SS function. First, we flag the function for debugging:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;debug&lt;/span&gt;(SS)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-debugging in:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-debug at &lt;span class=&quot;co&quot;&gt;#1: {&lt;/span&gt;
-    d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
-    d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
-    ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
-    ss
-&lt;span class=&quot;er&quot;&gt;}&lt;/span&gt;
-Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-debug at &lt;span class=&quot;co&quot;&gt;#2: d &amp;lt;- x - mu&lt;/span&gt;
-Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-debug at &lt;span class=&quot;co&quot;&gt;#3: d2 &amp;lt;- d^2&lt;/span&gt;
-Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-debug at &lt;span class=&quot;co&quot;&gt;#4: ss &amp;lt;- sum(d2)&lt;/span&gt;
-Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-debug at &lt;span class=&quot;co&quot;&gt;#5: ss&lt;/span&gt;
-Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-exiting from:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;202.482&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This isn’t a particularly interesting use of the debugger, as all we did was to step through the function a line at a time, using the ‘n’ command, but it does illustrate some of the basic ideas:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;First, when we enter the SS function, the function itself is printed, and execution &lt;strong&gt;stops&lt;/strong&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The R prompt, ‘&amp;gt;’, changes to ‘Browse[&lt;number&gt;]&amp;gt;’&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;There are four basic commands you can use in the debugger:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;n&lt;/strong&gt;: execute the current line of code and step to the next&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;c&lt;/strong&gt;: continue execution without stopping again&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Q&lt;/strong&gt;: quit debugging completely and to back to the top-level R prompt&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;where&lt;/strong&gt;: similar to calling traceback&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can execute any R code at the “Browse” prompt, i.e., not just code related to the function. The most important example of this is probably the ls() command, which shows us what objects are defined in the current environment (i.e., within a given function, for instance):&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt; 
-
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;
-
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(x)
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] -&lt;span class=&quot;fl&quot;&gt;0.79928868&lt;/span&gt; -&lt;span class=&quot;fl&quot;&gt;0.73009689&lt;/span&gt;  &lt;span class=&quot;fl&quot;&gt;1.43687692&lt;/span&gt;  &lt;span class=&quot;fl&quot;&gt;0.30502316&lt;/span&gt; -&lt;span class=&quot;fl&quot;&gt;0.39728401&lt;/span&gt;
-    [&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;]  &lt;span class=&quot;fl&quot;&gt;0.08889039&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;But the facility is completely general. Here’s a trivial example of defining something unrelated to the current function:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sqrt&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;64&lt;/span&gt;)
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;zzz
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here’s another, somewhat more interesting session with SS:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-    debugging in:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-    debug at &lt;span class=&quot;co&quot;&gt;#1: {&lt;/span&gt;
-        d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
-        d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
-        ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
-        ss
-    &lt;span class=&quot;er&quot;&gt;}&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-    debug at &lt;span class=&quot;co&quot;&gt;#2: d &amp;lt;- x - mu&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-    debug at &lt;span class=&quot;co&quot;&gt;#3: d2 &amp;lt;- d^2&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]  ## Print the value of the first element of d
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] -&lt;span class=&quot;fl&quot;&gt;1.799289&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-    debug at &lt;span class=&quot;co&quot;&gt;#4: ss &amp;lt;- sum(d2)&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;hist&lt;/span&gt;(d2)
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-    debug at &lt;span class=&quot;co&quot;&gt;#5: ss&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(ss)
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;202.482&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;d&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;d2&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;ss&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt; 
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;where
-    where &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-    
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;y &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;  ## Create new object
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;d&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;d2&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;ss&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;y&amp;quot;&lt;/span&gt; 
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;head&lt;/span&gt;(y)
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;0.638862388&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.533041463&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.064615286&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.093039131&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.157834589&lt;/span&gt;
-    [&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;0.007901501&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;c  ## Execute the rest of the function w/o stopping
-    exiting from:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;202.482&lt;/span&gt;
-
-    &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;undebug&lt;/span&gt;(SS)  ## No need for further debugging&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note the explicit use of the &lt;code&gt;print&lt;/code&gt; function in the above. At an interactive prompt, R will “autoprint” the value of a variable when it is used, so use of the &lt;code&gt;print&lt;/code&gt; function is optional. But what if, for instance, you had &lt;code&gt;n&lt;/code&gt; as a parameter in your function? Then to examine &lt;code&gt;n&lt;/code&gt; you’d need to say explicitly:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(n)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;One final thing: if you want to debug a function, you have to say so &lt;strong&gt;before&lt;/strong&gt; you call the function. This is more or less obvious.&lt;/p&gt;
-&lt;p&gt;Perhaps not so obvious is the fact that you can flag functions for debugging “on the fly”. I.e., you can turn on debugging for other functions while you’re in the process of debugging a given function. Example later.&lt;/p&gt;
-&lt;h3 id=&quot;explicit-calls-to-browser&quot;&gt;Explicit Calls to Browser&lt;/h3&gt;
-&lt;p&gt;Rather than flagging a function for debugging and then stepping through the function a line at a time, it is sometimes convenient to modify your code in such a way as to trigger debugging at the point where you suspect the trouble lies.&lt;/p&gt;
-&lt;p&gt;Consider the following modified version of SS, for instance. We might feel confident that the trouble occurs in our function only after &lt;code&gt;d2&lt;/code&gt; has been calculated, so we insert a call to the function &lt;code&gt;browser&lt;/code&gt; at the point where we want to start, well, browsing.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-SS &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(mu, x) {
-    d &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu
-    d2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d^&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
-    ss &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(d2)
-    ss
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, xPoints)
-    Called from:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, xPoints)
-    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ls&lt;/span&gt;()
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;d&amp;quot;&lt;/span&gt;  &lt;span class=&quot;st&quot;&gt;&amp;quot;d2&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;mu&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt; 
-    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;print&lt;/span&gt;(mu)
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(x)
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] -&lt;span class=&quot;fl&quot;&gt;0.05553729&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;n
-    debug at &lt;span class=&quot;co&quot;&gt;#5: ss &amp;lt;- sum(d2)&lt;/span&gt;
-    Browse[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;]&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;c
-    [&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;fl&quot;&gt;513.5895&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;One drawback to this mode of operation is that you have to remember to &lt;em&gt;remove&lt;/em&gt; the call to &lt;code&gt;browser&lt;/code&gt; before you put the code into production.&lt;/p&gt;
-&lt;p&gt;One real advantage of this approach is that you can use it to debug “anonymous” functions, as:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;sapply&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;50&lt;/span&gt;, function_with_no_name {
-        .
-        .
-        .
-        &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
-        .
-        .
-        .
-    })&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;inserting-code-with-trace&quot;&gt;Inserting Code with &lt;code&gt;trace&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;As with &lt;code&gt;debug&lt;/code&gt;, the function &lt;code&gt;trace&lt;/code&gt; allows you to debug code, but &lt;code&gt;trace&lt;/code&gt; is much more general and sophisticated. The simplest uses of &lt;code&gt;trace&lt;/code&gt; don’t appear much different from the corresponding use of &lt;code&gt;debug&lt;/code&gt;, although some differences are evident.&lt;/p&gt;
-&lt;p&gt;The following example is taken from the book &lt;em&gt;Software for Data Analysis&lt;/em&gt; by John M. Chambers. Suppose we have defined three functions, called &lt;code&gt;Fn1&lt;/code&gt;, &lt;code&gt;Fn2&lt;/code&gt;, &lt;code&gt;Fn3&lt;/code&gt;. (The details of the function don’t matter for the purposes of this example.) Then we might use &lt;code&gt;trace&lt;/code&gt; as follows:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(Fn1, recover)
-    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(Fn2, &lt;span class=&quot;dt&quot;&gt;exit =&lt;/span&gt; browser)
-    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(Fn3, browser, &lt;span class=&quot;dt&quot;&gt;exit =&lt;/span&gt; browser)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here, &lt;code&gt;browser&lt;/code&gt; is the same function we saw above. The function &lt;code&gt;recover&lt;/code&gt; lets us examine the full sequence of calls that brought us to a given point in our code, and then browse inside &lt;em&gt;any&lt;/em&gt; of the functions in the sequence.&lt;/p&gt;
-&lt;p&gt;After the above calls to &lt;code&gt;trace&lt;/code&gt;, all future calls to &lt;code&gt;Fn1&lt;/code&gt; will begin with a call to &lt;code&gt;recover()&lt;/code&gt;; calls to &lt;code&gt;Fn2&lt;/code&gt; will invoke &lt;code&gt;browser()&lt;/code&gt; just before the function exits; calls to &lt;code&gt;Fn3&lt;/code&gt; will invoke &lt;code&gt;browser()&lt;/code&gt; on both entry to the function and exit from the function. (In the case of &lt;code&gt;Fn3&lt;/code&gt; we might get tired of stepping through the function and hit &lt;code&gt;c&lt;/code&gt; (continue), but stop before we leave the function, juuust to make sure everything is still OK before we lose all the local variables in the function.)&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;trace&lt;/code&gt; function works by modifying the code of the function, then saving the modified function, and running the modified version when you invoke the function. The original code is not touched, and you can restore the original behavior by executing:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(Fn1)
-    etc.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here are some examples with our &lt;code&gt;SS&lt;/code&gt; function:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(SS, recover)
-&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, xPoints)
-&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(SS)
-
-&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(SS, browser)
-&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, xPoints)
-&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(SS)
-
-&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(SS, &lt;span class=&quot;dt&quot;&gt;exit =&lt;/span&gt; browser)
-&lt;span class=&quot;kw&quot;&gt;SS&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;, xPoints)
-&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(SS)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The paper by Roger Peng, mentioned at the beginning of this note, has an example in which he minimizes the negative log-likelihood of a statistical model, using an R function that he calls &lt;code&gt;nLL&lt;/code&gt;. The details of the discussion are somewhat complicated and will be omitted here.&lt;/p&gt;
-&lt;p&gt;The salient point is that the procedure in question involves many iterations, and is plagued by the same problem that we discussed above: the log of a negative number produces a so-called &lt;code&gt;NaN&lt;/code&gt; (“not a number”) in &lt;em&gt;some&lt;/em&gt; of the iterations. We would hope not to get NaN’s in our calculations, and we might, therefore, want to examine in detail the situations in which a NaN is produced. But there might be tens or hundreds or thousands of iterations, most of which do not generate NaN’s. Stepping through all the iterations would take a lifetime. What to do?&lt;/p&gt;
-&lt;p&gt;The solution is to trace the function using some of its more sophisticated options:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;nLL&amp;quot;&lt;/span&gt;, &lt;span class=&quot;kw&quot;&gt;quote&lt;/span&gt;(if(&lt;span class=&quot;kw&quot;&gt;any&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;is.nan&lt;/span&gt;(lz))) { &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;() }), &lt;span class=&quot;dt&quot;&gt;at=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;print=&lt;/span&gt;F)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;nLL&lt;/code&gt; is the name of the function to be traced&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;the stuff inside the &lt;code&gt;quote&lt;/code&gt; function is code to be inserted (dynamically) into the nLL function; it could also be just the name of a function (as in our introductory examples)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;at&lt;/code&gt; is the line number at which to insert the code, which the author determines from &lt;code&gt;as.list(body(nLL))&lt;/code&gt; (see above)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;print=FALSE&lt;/code&gt; just suppresses the printing of a descriptive message&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This is as if we had written:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    if(&lt;span class=&quot;kw&quot;&gt;any&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;is.nan&lt;/span&gt;(lz))) {
-        &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
-    }&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;at line 4 of the &lt;code&gt;nLL&lt;/code&gt; function.&lt;/p&gt;
-&lt;p&gt;Here’s a simpler example using the functions we mentioned at the beginning of the discussion:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-&lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt;(h, &lt;span class=&quot;kw&quot;&gt;quote&lt;/span&gt;(if (&lt;span class=&quot;kw&quot;&gt;is.nan&lt;/span&gt;(r)) {
-    &lt;span class=&quot;kw&quot;&gt;browser&lt;/span&gt;()
-}), &lt;span class=&quot;dt&quot;&gt;at =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(-&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;untrace&lt;/span&gt;(f)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Finally, if using the quoted expression for the second argument of &lt;code&gt;trace&lt;/code&gt; seems too intimidating. let’s note that &lt;code&gt;trace&lt;/code&gt; has an &lt;code&gt;edit&lt;/code&gt; argument. If you call trace as:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt; (someFn, ..., &lt;span class=&quot;dt&quot;&gt;edit=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;you will dropped into an editor, where you can edit your code to your heart’s content before the (temporarily modified) function executes. BTW, you can also supply the name of an editor here, as:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;trace&lt;/span&gt; (someFn, ..., &lt;span class=&quot;dt&quot;&gt;edit=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/usr/bin/vim&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;editors-addendum-a-quick-way-to-enable-bugging-everywhere&quot;&gt;&lt;em&gt;Editor’s Addendum: A quick way to enable bugging everywhere&lt;/em&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;One way to get in the habit of debugging is to drop this into your &lt;code&gt;.Rprofile&lt;/code&gt; file or run it at the start of your R session:&lt;/em&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;options&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;error=&lt;/span&gt;utils::recover)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;This will automatically invoke &lt;code&gt;recover()&lt;/code&gt; every time your code gives an error, allowing you to view the stack of function calls and enter the browser mode in any of the functions. For instance:&lt;/em&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;)
-Error in &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(z) :&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;non-numeric argument to mathematical function
-
-Enter a frame number, or &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt; to exit   
-
-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#2: g(x)&lt;/span&gt;
-&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#2: h(y)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;em&gt;Now selecting any of these will start browser mode within those functions. If you don’t need to use the browser (for instance, if the source of the error is obvious), just enter &lt;code&gt;0&lt;/code&gt; and move on.&lt;/em&gt;&lt;/p&gt;</content>
  </entry>
  
  
