@@ -9,7 +9,7 @@ layout: post
 
 [Carl Boettiger](carlboettiger.info), [Alan
 Hastings](http://two.ucdavis.edu/~me/) and I have [a new
-review](http://arxiv.org/abs/1305.6700) out on early warning signals and
+review](http://dx.doi.org/10.1007/s12080-013-0192-6) out on early warning signals and
 regime shifts. It's about an idea that Carl and I have been kicking
 around for a couple of years and finally got around to writing up for a
 special issue of [*Theoretical
@@ -60,10 +60,8 @@ particular ecosystem. Early warning signals may be less generally
 applicable than initially hoped, but they can be quite powerful if
 properly applied.
 
-The paper will be out in [*Theoretical
-Ecology*](http://link.springer.com/journal/12080) early view in a few
-days, but an open-access version is already up at the arXiv
-[here](http://arxiv.org/abs/1305.6700).
+There paper is [up now at Theoretical Ecology](http://dx.doi.org/10.1007/s12080-013-0192-6 ) but we also posted it to [the arXiv
+here](http://arxiv.org/abs/1305.6700).
 
 Finally, this is my first paper in which pretty much all collaboration
 occurred over [github](https://github.com/), so you can go and see the
