@@ -240,82 +240,102 @@
 
         <div class="content">
           
-<div id="headblock"><h1 id="post.title"><a href="/blog/2013/6/18/helpconsoleexample.html">Printing R help files in the console or in knitr documents</a></h1>
-<p>by <em>Noam Ross</em>, 18 June 2013</p>
+<div id="headblock"><h1 id="post.title"><a href="/blog/2013/6/21/multi-infection-analytic.html">Some analytics: Does age structure matter for disease spread?</a></h1>
+<p>by <em>Noam Ross</em>, 21 June 2013</p>
 <hr /></div>
-<div class="contenttext"><p>Yesterday, I was creating a <code>knitr</code> document based on a script, and was looking for a way to include content from an R help file. The script, which was a teaching document, had a <code>help()</code> command for when the author wanted to refer readers to R documentation. I wanted that text in my final document, though.</p>
-<p>There’s no standard way to do this in R, but with some help from <a href="http://stackoverflow.com/questions/7493843/how-to-write-contents-of-help-to-a-file-from-within-r">Stack Overflow</a> and <a href="https://gist.github.com/SChamberlain/5801605">Scott Chamberlain</a>, I figured out I needed some functions hidden in the depths of the <code>tools</code> package. So I wrote this function:</p>
-<pre class="sourceCode r"><code class="sourceCode r">help_console &lt;-<span class="st"> </span>function(topic, <span class="dt">format=</span><span class="kw">c</span>(<span class="st">&quot;text&quot;</span>, <span class="st">&quot;html&quot;</span>, <span class="st">&quot;latex&quot;</span>, <span class="st">&quot;Rd&quot;</span>),
-                         <span class="dt">lines=</span><span class="ot">NULL</span>, <span class="dt">before=</span><span class="ot">NULL</span>, <span class="dt">after=</span><span class="ot">NULL</span>) {  
-  format=<span class="kw">match.arg</span>(format)
-  if (!<span class="kw">is.character</span>(topic)) topic &lt;-<span class="st"> </span><span class="kw">deparse</span>(<span class="kw">substitute</span>(topic))
-  helpfile =<span class="st"> </span>utils:::<span class="kw">.getHelpFile</span>(<span class="kw">help</span>(topic))
-
-  hs &lt;-<span class="st"> </span><span class="kw">capture.output</span>(switch(format, 
-                              <span class="dt">text=</span>tools:::<span class="kw">Rd2txt</span>(helpfile),
-                              <span class="dt">html=</span>tools:::<span class="kw">Rd2HTML</span>(helpfile),
-                              <span class="dt">latex=</span>tools:::<span class="kw">Rd2latex</span>(helpfile),
-                              <span class="dt">Rd=</span>tools:::<span class="kw">prepare_Rd</span>(helpfile)
-                              )
-                      )
-  if(!<span class="kw">is.null</span>(lines)) hs &lt;-<span class="st"> </span>hs[lines]
-  hs &lt;-<span class="st"> </span><span class="kw">c</span>(before, hs, after)
-  <span class="kw">cat</span>(hs, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)
-  <span class="kw">invisible</span>(hs)
-}</code></pre>
-<p><code>help_console</code> prints the help file to the console or lets you assign the help file text to a character. Below, I use it to dynamically print the start of the help file for the <code>optim()</code> function as quoted HTML (note that the <code>knitr</code> chunk has the option <code>results='asis')</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">help_console</span>(optim, <span class="st">&quot;html&quot;</span>, <span class="dt">lines =</span> <span class="dv">1</span>:<span class="dv">25</span>, <span class="dt">before =</span> <span class="st">&quot;&lt;blockquote&gt;&quot;</span>, <span class="dt">after =</span> <span class="st">&quot;&lt;/blockquote&gt;&quot;</span>)</code></pre>
-<blockquote>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html><head><title>
-R: General-purpose Optimization
-</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> <link rel="stylesheet" type="text/css" href="R.css">
-</head><body>
-
-<table width="100%" summary="page for optim"><tr><td>
-optim
-</td><td align="right">
-R Documentation
-</td></tr></table>
-
-<h2>
-General-purpose Optimization
-</h2>
-
-<h3>
-Description
-</h3>
-
-<p>
-General-purpose optimization based on Nelder–Mead, quasi-Newton and conjugate-gradient algorithms. It includes an option for box-constrained optimization and simulated annealing.
-</p>
-
-
-<h3>
-Usage
-</h3>
-
-<pre>
-optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG”, “L-BFGS-B”, “SANN”, “Brent”), lower = -Inf, upper = Inf, control = list(), hessian = FALSE)
-</blockquote>
-
-
-<p>The function is part of my <a href="https://github.com/noamross/noamtools/blob/master/R/help_console.R"><code>noamtools</code> package on GitHub</a>, where I keep various convenience functions. Enjoy, and fork if you have improvements!</p></div>
+<div class="contenttext"><p>My <a href="http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html">first crack at an age-structured disease model with multiple infections</a> yielded the interesting result that one could observe differences in disease rates across age without any actual differences in the biology between old and young individuals. Today I’m trying to answer a different question analytically: does age structure matter for the course of the disease in the whole population?</p>
+<p>Here’s the model. There are two minor changes: I no longer scale <span class="math">\(J\)</span> and <span class="math">\(A\)</span> with <span class="math">\(K\)</span> in the third and fourth equations; there’s no reason the encounter rate should be tied to carrying capacity. Also, I’ve put stage-specific values for all the parameters (now including <span class="math">\(\alpha\)</span>, <span class="math">\(\mu\)</span>, and <span class="math">\(\lambda\)</span>).</p>
+<p><span class="math">\[\begin{aligned}
+  \frac{dJ}{dt}  &amp;= A f_A \left(1 - \frac{J+A}{K} \right) + J  
+                    \left(f_J \left(1 - \frac{J+A}{K} \right) - 
+                          d_J - g\right) - \alpha_J P_J \\
+  \frac{dA}{dt}  &amp;= J g - A d_A - \alpha_A P_A \\
+  \frac{dP_J}{dt}  &amp;= \lambda_J J (P_J + P_A)  - 
+                      P_J \left(d_J + \mu_J + g + \alpha_J 
+                                \left(1 + \frac{P_J}{J} \right) \right) \\
+  \frac{dP_A}{dt}  &amp;= \lambda_A A (P_J + P_A)  + P_J  g - 
+                      P_A \left(d_A + \mu_A + \alpha_A 
+                                \left(1 + \frac{P_A}{A}  \right) \right)
+\end{aligned}\]</span></p>
+<p>To examine whether the age structure matters, I try to collapse this down to a model of just one aggregated population. Let</p>
+<p><span class="math">\[\begin{aligned}
+  N = J + A, &amp;&amp; P = P_J + P_A
+\end{aligned}\]</span></p>
+<p>The parameters then become the population-weighted means of their components:</p>
+<p><span class="math">\[\begin{aligned}
+   d = (J d_J + A d_A)/N, &amp;&amp; f = (J f_J + A d_A)/N \\
+   \mu = (P_J \mu_J + P_A \mu_A)/P, &amp;&amp; \alpha = (P_J \alpha_J + P_A \alpha_A)/P
+\end{aligned}\]</span></p>
+<p>The first two equations sum easily:</p>
+<p><span class="math">\[\frac{dN}{dt} = Nf\left(1 - \frac{N}{K}\right) - dN - \alpha P\]</span></p>
+<p>The second two equations don’t do quite the same thing:</p>
+<p><span class="math">\[\begin{aligned}
+  \frac{dP}{dt} &amp; = \lambda NP - \mu P - \left(d_J P_J + d_A P_A\right) - 
+                     \alpha P - \left(\alpha_J \frac{P_J^2}{J} + 
+                                       \alpha_A \frac{P_A^2}{A}\right) 
+\end{aligned}\]</span></p>
+<p>To compare this equation to a model with no age structure, I define two terms, <span class="math">\(\psi\)</span> and <span class="math">\(\phi\)</span> which represent the differences between the terms in parentheses in the equation above and the equivalent term in a model without age structure. For ease of later calculations, I scale these by <span class="math">\(P\)</span>:</p>
+<p><span class="math">\[\begin{aligned}
+    \psi P &amp;= (d_J P_J + d_A P_A) - dP \\
+           &amp;= (d_J P_J + d_A P_A) - \frac{d_J J + d_A A}{J + A} (P_J + P_A) \\
+           &amp;= \frac{(d_J - d_A)P_J A + (d_A - d_J)P_A J}{J+A} \\
+           &amp;= \frac{(d_J - d_A)(P_J A - P_A J)}{J+A} 
+  \end{aligned}\]</span></p>
+<p><span class="math">\[\begin{aligned}
+    \phi P &amp;= \left(\alpha_J \frac{P_J^2}{J} + \alpha_A \frac{P_A^2}{A}\right) - 
+              \alpha \frac{P^2}{N}  \\
+           &amp;= \left(\alpha_J \frac{P_J^2}{J} + \alpha_A \frac{P_A^2}{A}\right) - 
+              \frac{(\alpha_J P_J + \alpha_A P_A)(P_J + P_A)}{(J+A)} \\
+           &amp;=  \frac{(\alpha_J P_J A - \alpha_A P_A J)(P_J A - P_A J)}{JA(J+A)} 
+  \end{aligned}\]</span></p>
+<p>I substitute these into <span class="math">\(\frac{dP}{dt}\)</span> above to get</p>
+<p><span class="math">\[\frac{dP}{dt} = \lambda N P - (\mu + d) P - 
+  \alpha P \left(1 + \frac{P}{N}\right) - (\psi + \phi)P\]</span></p>
+<p>How to <span class="math">\(\phi\)</span> and <span class="math">\(\psi\)</span> modify the dynamics? <span class="math">\(\psi\)</span> is zero at <span class="math">\(d_A=d_J\)</span> or <span class="math">\(\frac{P_J}{J} = \frac{P_A}{A}\)</span>. It will be positive if the class with higher infection rate also has a higher base mortality rate, and negative otherwise. A positive <span class="math">\(\psi\)</span> value will decrease the growth of the parasite population, as more-infected individuals will die at a faster rate, removing more parasites from the population.</p>
+<p><span class="math">\(\phi\)</span> is zero at at <span class="math">\(\frac{P_J}{J} = \frac{P_A}{A}\)</span>, but not at <span class="math">\(\alpha_J = \alpha_A\)</span>, meaning that dynamics should deviate from an a model without age structure even if there is no difference in disease-driven mortality between age classes. For <span class="math">\(\phi\)</span> to be positive either both or neither of the terms in parenthesis must be greater than zero, or</p>
+<p><span class="math">\[\left(\frac{P_J}{J} &gt; \frac{P_A}{A}\right) \Leftrightarrow 
+  \left(\alpha_J \frac{P_J}{J} &gt; \alpha_A \frac{P_A}{A}\right)\]</span></p>
+<p>Note that if <span class="math">\(\alpha_J = \alpha_A\)</span>, this is always true. So if the disease has an identical effect on both age classes, <span class="math">\(\phi\)</span> will be positive. A positive value of <span class="math">\(\phi\)</span> will slow growth of the parasite population by increasing the death rate of the more infected population, more rapidly removing parasites. The reverse will happen when <span class="math">\(\phi\)</span> is negative. The more infected population will lose fewer individuals to disease because of a low relative <span class="math">\(\alpha\)</span> value, and the rate of parasite growth will increase because these individuals will remain to reproduce. Essentially, the value of <span class="math">\(\phi\)</span> represents whether the ratio <span class="math">\(\alpha_J/\alpha_A\)</span> enhances or offsets the non-linear relationship between parasite load and parasite loss caused by aggregation of parasites.</p>
+<p>Now the system of equations is:</p>
+<p><span class="math">\[
+\begin{aligned}
+  \frac{dN}{dt} &amp;= Nf \left(1 - \frac{N}{K}\right) - dN - \alpha P \\
+  \frac{dP}{dt} &amp;= \lambda N P - (\mu + d) P - 
+                   \alpha P \left(1 + \frac{P}{N}\right) - P(\psi + \phi) 
+\end{aligned}
+\]</span></p>
+<p>Since all terms in <span class="math">\(\psi\)</span> and <span class="math">\(\phi\)</span> contain <span class="math">\(P_X\)</span> values in the numerators but not denominators, as <span class="math">\(P \rightarrow 0\)</span>, so do <span class="math">\(\psi\)</span> and <span class="math">\(\phi\)</span>. This means that the growth rate of the parasites is unaffected by the population structure when numbers are small. We can calculate this rate, which is the same as it would be with no population structure:</p>
+<p><span class="math">\[\frac{dP/dt}{P}\bigg|_{P\rightarrow 0} = \lambda N - \mu - d - \alpha\]</span></p>
+<p><span class="math">\[N_{\text{threshold}} = \frac{\mu + d + \alpha}{\lambda}\]</span></p>
+<p>(A reminder here that reducing <span class="math">\(\alpha\)</span> but not <span class="math">\(\lambda\)</span> in the tanoak population is a losing strategy)</p>
+<p>Setting <span class="math">\(dN/dt = 0\)</span>, we can solve for <span class="math">\(\frac{P}{N}\)</span>.</p>
+<p><span class="math">\[
+  \frac{P}{N} = \frac{f\left(1-\frac{N}{K}\right) -d }{\alpha}
+\]</span></p>
+<p>Under disease-free conditions, this is easily solved for <span class="math">\(N\)</span>:</p>
+<p><span class="math">\[N_{eq}\big|_{P=0} = {K\left(1-\frac{d}{f}\right)}\]</span></p>
+<p>If the population was unstructured, we would get:</p>
+<p><span class="math">\[N_{eq}\big|_{P_{eq} &gt; 0} = \frac{\mu + \alpha + f}{\lambda + \frac{f}{K} } \]</span></p>
+<p>With the age structure, <span class="math">\[
+\begin{aligned}
+  \frac{dP}{dt} &amp;= 0 = P\left(\lambda N - \mu - d - \alpha - 
+                              \alpha \frac{P}{N}\right) -  P(\psi + \phi)\\
+  N &amp;= \frac{\mu + \alpha + f + \psi + \phi}{\lambda + \frac{f}{K}} 
+\end{aligned} 
+\]</span></p>
+<p>Positive values of <span class="math">\(\psi\)</span> and <span class="math">\(\phi\)</span> increase the overall host population, and following the expression for <span class="math">\(P/N\)</span> above, reduce the mean infection level.</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
 	  
-    <li><a href="/tags.html#R-ref">R</a></li>
-    
-    <li><a href="/tags.html#knitr-ref">knitr</a></li>
+    <li><a href="/tags.html#SOD-ref">SOD</a></li>
     
 </ul>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'noamrossgh'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2013/6/18/helpconsoleexample.html';
-    var disqus_url = 'http://www.noamross.net/blog/2013/6/18/helpconsoleexample.html';
+    var disqus_identifier = '/blog/2013/6/21/multi-infection-analytic.html';
+    var disqus_url = 'http://www.noamross.net/blog/2013/6/21/multi-infection-analytic.html';
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -332,6 +352,10 @@ optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG�
 <h1 id="previous-posts">Previous Posts</h1>
 
 <ul>
+<li><strong><a href="/blog/2013/6/18/helpconsoleexample.html">Printing R help files in the console or in knitr documents</a></strong></li>
+</ul>
+
+<ul>
 <li><strong><a href="/blog/2013/6/17/harrisbbmle.html">Dave Harris on Maximum Likelihood Estimation</a></strong></li>
 </ul>
 
@@ -341,10 +365,6 @@ optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG�
 
 <ul>
 <li><strong><a href="/blog/2013/6/11/multi-infection-tests.html">A Null Model for Age Effects in Disease with Multiple Infections</a></strong></li>
-</ul>
-
-<ul>
-<li><strong><a href="/blog/2013/6/11/multi-infection-analytic.html">Some analytics: Does age structure matter for disease spread?</a></strong></li>
 </ul>
 
 <ul>

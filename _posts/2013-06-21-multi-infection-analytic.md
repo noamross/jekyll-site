@@ -2,7 +2,7 @@
 title: "Some analytics: Does age structure matter for disease spread?"
 author: "Noam Ross"
 tags: [SOD]
-date: "13-06-11 17:32:30"
+date: "13-06-21 13:58:39"
 layout: post
 --- 
 
