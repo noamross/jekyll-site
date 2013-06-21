@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-06-21T10:17:11-07:00</updated>
+ <updated>2013-06-21T13:58:08-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -599,6 +599,99 @@ p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;
  </entry>
  
  <entry>
+   <title>Some analytics: Does age structure matter for disease spread?</title>
+   <link href="http://www.noamross.net/blog/2013/6/11/multi-infection-analytic.html"/>
+   <updated>2013-06-11T17:32:30-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/6/11/multi-infection-analytic</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;My &lt;a href=&quot;http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html&quot;&gt;first crack at an age-structured disease model with multiple infections&lt;/a&gt; yielded the interesting result that one could observe differences in disease rates across age without any actual differences in the biology between old and young individuals. Today I’m trying to answer a different question analytically: does age structure matter for the course of the disease in the whole population?&lt;/p&gt;
+&lt;p&gt;Here’s the model. There are two minor changes: I no longer scale &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline J&quot; alt=&quot;J&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline A&quot; alt=&quot;A&quot; /&gt;&lt;/span&gt; with &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline K&quot; alt=&quot;K&quot; /&gt;&lt;/span&gt; in the third and fourth equations; there’s no reason the encounter rate should be tied to carrying capacity. Also, I’ve put stage-specific values for all the parameters (now including &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \alpha&quot; alt=&quot;\alpha&quot; /&gt;&lt;/span&gt;, &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu&quot; alt=&quot;\mu&quot; /&gt;&lt;/span&gt;, and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \lambda&quot; alt=&quot;\lambda&quot; /&gt;&lt;/span&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
+  \frac{dJ}{dt}  &amp;amp;= A f_A \left(1 - \frac{J+A}{K} \right) + J  
+                    \left(f_J \left(1 - \frac{J+A}{K} \right) - 
+                          d_J - g\right) - \alpha_J P_J \\
+  \frac{dA}{dt}  &amp;amp;= J g - A d_A - \alpha_A P_A \\
+  \frac{dP_J}{dt}  &amp;amp;= \lambda_J J (P_J + P_A)  - 
+                      P_J \left(d_J + \mu_J + g + \alpha_J 
+                                \left(1 + \frac{P_J}{J} \right) \right) \\
+  \frac{dP_A}{dt}  &amp;amp;= \lambda_A A (P_J + P_A)  + P_J  g - 
+                      P_A \left(d_A + \mu_A + \alpha_A 
+                                \left(1 + \frac{P_A}{A}  \right) \right)
+\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To examine whether the age structure matters, I try to collapse this down to a model of just one aggregated population. Let&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
+  N = J + A, &amp;amp;&amp;amp; P = P_J + P_A
+\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The parameters then become the population-weighted means of their components:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
+   d = (J d_J + A d_A)/N, &amp;amp;&amp;amp; f = (J f_J + A d_A)/N \\
+   \mu = (P_J \mu_J + P_A \mu_A)/P, &amp;amp;&amp;amp; \alpha = (P_J \alpha_J + P_A \alpha_A)/P
+\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The first two equations sum easily:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?\frac{dN}{dt} = Nf\left(1 - \frac{N}{K}\right) - dN - \alpha P&quot; alt=&quot;\frac{dN}{dt} = Nf\left(1 - \frac{N}{K}\right) - dN - \alpha P&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The second two equations don’t do quite the same thing:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
+  \frac{dP}{dt} &amp;amp; = \lambda NP - \mu P - \left(d_J P_J + d_A P_A\right) - 
+                     \alpha P - \left(\alpha_J \frac{P_J^2}{J} + 
+                                       \alpha_A \frac{P_A^2}{A}\right) 
+\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;To compare this equation to a model with no age structure, I define two terms, &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \psi&quot; alt=&quot;\psi&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; which represent the differences between the terms in parentheses in the equation above and the equivalent term in a model without age structure. For ease of later calculations, I scale these by &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline P&quot; alt=&quot;P&quot; /&gt;&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
+    \psi P &amp;amp;= (d_J P_J + d_A P_A) - dP \\
+           &amp;amp;= (d_J P_J + d_A P_A) - \frac{d_J J + d_A A}{J + A} (P_J + P_A) \\
+           &amp;amp;= \frac{(d_J - d_A)P_J A + (d_A - d_J)P_A J}{J+A} \\
+           &amp;amp;= \frac{(d_J - d_A)(P_J A - P_A J)}{J+A} 
+  \end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
+    \phi P &amp;amp;= \left(\alpha_J \frac{P_J^2}{J} + \alpha_A \frac{P_A^2}{A}\right) - 
+              \alpha \frac{P^2}{N}  \\
+           &amp;amp;= \left(\alpha_J \frac{P_J^2}{J} + \alpha_A \frac{P_A^2}{A}\right) - 
+              \frac{(\alpha_J P_J + \alpha_A P_A)(P_J + P_A)}{(J+A)} \\
+           &amp;amp;=  \frac{(\alpha_J P_J A - \alpha_A P_A J)(P_J A - P_A J)}{JA(J+A)} 
+  \end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I substitute these into &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \frac{dP}{dt}&quot; alt=&quot;\frac{dP}{dt}&quot; /&gt;&lt;/span&gt; above to get&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\frac{dP}{dt} = \lambda N P - (\mu + d) P - 
+  \alpha P \left(1 + \frac{P}{N}\right) - (\psi + \phi)P\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;How to &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \psi&quot; alt=&quot;\psi&quot; /&gt;&lt;/span&gt; modify the dynamics? &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \psi&quot; alt=&quot;\psi&quot; /&gt;&lt;/span&gt; is zero at &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline d_A=d_J&quot; alt=&quot;d_A=d_J&quot; /&gt;&lt;/span&gt; or &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \frac{P_J}{J} = \frac{P_A}{A}&quot; alt=&quot;\frac{P_J}{J} = \frac{P_A}{A}&quot; /&gt;&lt;/span&gt;. It will be positive if the class with higher infection rate also has a higher base mortality rate, and negative otherwise. A positive &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \psi&quot; alt=&quot;\psi&quot; /&gt;&lt;/span&gt; value will decrease the growth of the parasite population, as more-infected individuals will die at a faster rate, removing more parasites from the population.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; is zero at at &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \frac{P_J}{J} = \frac{P_A}{A}&quot; alt=&quot;\frac{P_J}{J} = \frac{P_A}{A}&quot; /&gt;&lt;/span&gt;, but not at &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \alpha_J = \alpha_A&quot; alt=&quot;\alpha_J = \alpha_A&quot; /&gt;&lt;/span&gt;, meaning that dynamics should deviate from an a model without age structure even if there is no difference in disease-driven mortality between age classes. For &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; to be positive either both or neither of the terms in parenthesis must be greater than zero, or&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\left(\frac{P_J}{J} &amp;gt; \frac{P_A}{A}\right) \Leftrightarrow 
+  \left(\alpha_J \frac{P_J}{J} &amp;gt; \alpha_A \frac{P_A}{A}\right)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Note that if &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \alpha_J = \alpha_A&quot; alt=&quot;\alpha_J = \alpha_A&quot; /&gt;&lt;/span&gt;, this is always true. So if the disease has an identical effect on both age classes, &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; will be positive. A positive value of &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; will slow growth of the parasite population by increasing the death rate of the more infected population, more rapidly removing parasites. The reverse will happen when &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; is negative. The more infected population will lose fewer individuals to disease because of a low relative &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \alpha&quot; alt=&quot;\alpha&quot; /&gt;&lt;/span&gt; value, and the rate of parasite growth will increase because these individuals will remain to reproduce. Essentially, the value of &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; represents whether the ratio &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \alpha_J/\alpha_A&quot; alt=&quot;\alpha_J/\alpha_A&quot; /&gt;&lt;/span&gt; enhances or offsets the non-linear relationship between parasite load and parasite loss caused by aggregation of parasites.&lt;/p&gt;
+&lt;p&gt;Now the system of equations is:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[
+\begin{aligned}
+  \frac{dN}{dt} &amp;amp;= Nf \left(1 - \frac{N}{K}\right) - dN - \alpha P \\
+  \frac{dP}{dt} &amp;amp;= \lambda N P - (\mu + d) P - 
+                   \alpha P \left(1 + \frac{P}{N}\right) - P(\psi + \phi) 
+\end{aligned}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Since all terms in &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \psi&quot; alt=&quot;\psi&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; contain &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline P_X&quot; alt=&quot;P_X&quot; /&gt;&lt;/span&gt; values in the numerators but not denominators, as &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline P \rightarrow 0&quot; alt=&quot;P \rightarrow 0&quot; /&gt;&lt;/span&gt;, so do &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \psi&quot; alt=&quot;\psi&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt;. This means that the growth rate of the parasites is unaffected by the population structure when numbers are small. We can calculate this rate, which is the same as it would be with no population structure:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?\frac{dP/dt}{P}\bigg|_{P\rightarrow 0} = \lambda N - \mu - d - \alpha&quot; alt=&quot;\frac{dP/dt}{P}\bigg|_{P\rightarrow 0} = \lambda N - \mu - d - \alpha&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?N_{\text{threshold}} = \frac{\mu + d + \alpha}{\lambda}&quot; alt=&quot;N_{\text{threshold}} = \frac{\mu + d + \alpha}{\lambda}&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;(A reminder here that reducing &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \alpha&quot; alt=&quot;\alpha&quot; /&gt;&lt;/span&gt; but not &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \lambda&quot; alt=&quot;\lambda&quot; /&gt;&lt;/span&gt; in the tanoak population is a losing strategy)&lt;/p&gt;
+&lt;p&gt;Setting &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline dN/dt = 0&quot; alt=&quot;dN/dt = 0&quot; /&gt;&lt;/span&gt;, we can solve for &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \frac{P}{N}&quot; alt=&quot;\frac{P}{N}&quot; /&gt;&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[
+  \frac{P}{N} = \frac{f\left(1-\frac{N}{K}\right) -d }{\alpha}
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Under disease-free conditions, this is easily solved for &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline N&quot; alt=&quot;N&quot; /&gt;&lt;/span&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?N_{eq}\big|_{P=0} = {K\left(1-\frac{d}{f}\right)}&quot; alt=&quot;N_{eq}\big|_{P=0} = {K\left(1-\frac{d}{f}\right)}&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;If the population was unstructured, we would get:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?N_{eq}\big|_{P_{eq} &amp;gt; 0} = \frac{\mu + \alpha + f}{\lambda + \frac{f}{K} } &quot; alt=&quot;N_{eq}\big|_{P_{eq} &amp;gt; 0} = \frac{\mu + \alpha + f}{\lambda + \frac{f}{K} } &quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;With the age structure, &lt;span class=&quot;math&quot;&gt;\[
+\begin{aligned}
+  \frac{dP}{dt} &amp;amp;= 0 = P\left(\lambda N - \mu - d - \alpha - 
+                              \alpha \frac{P}{N}\right) -  P(\psi + \phi)\\
+  N &amp;amp;= \frac{\mu + \alpha + f + \psi + \phi}{\lambda + \frac{f}{K}} 
+\end{aligned} 
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Positive values of &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \psi&quot; alt=&quot;\psi&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \phi&quot; alt=&quot;\phi&quot; /&gt;&lt;/span&gt; increase the overall host population, and following the expression for &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline P/N&quot; alt=&quot;P/N&quot; /&gt;&lt;/span&gt; above, reduce the mean infection level.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
    <title>Early Warning Signals: the Charted and Uncharted Territories</title>
    <link href="http://www.noamross.net/blog/2013/5/30/new-paper-post.html"/>
    <updated>2013-05-30T09:18:42-07:00</updated>
@@ -1123,37 +1216,6 @@ comp&lt;/code&gt;&lt;/pre&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I tried to get automated attachments working with this &lt;a href=&quot;https://ifttt.com/recipes/90984&quot;&gt;IFTTT recipe&lt;/a&gt;, but the reply always had mangled text. If someone gets it working, let me know.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content>
- </entry>
- 
- <entry>
-   <title>My first peer-reviewed publication: Economics and Ecology of Open-Access Fisheries</title>
-   <link href="http://www.noamross.net/blog/2013/4/24/my-first-publication.html"/>
-   <updated>2013-04-24T10:57:21-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/4/24/my-first-publication</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;My first peer-reviewed publication is an encyclopedia article written with colleagues in economics in UC Davis:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h3&gt;&lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;Economics and Ecology of Open-Access Fisheries&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;K. Fuller, D. Kling, K. Kroetz, N. Ross and J.N. Sanchirico (2013)&lt;/p&gt;
-&lt;p&gt;In: Shogren, J.F., (ed.) Encyclopedia of Energy, Natural Resource, and Environmental Economics, Vol. 2 &lt;em&gt;Encyclopedia of Energy, Natural Resource, and Environmental Economics&lt;/em&gt; p.39-49. Amsterdam: Elsevier. &lt;a href=&quot;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;http://dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&lt;/a&gt;&lt;/p&gt;
-&lt;h4&gt;Abstract&lt;/h4&gt;
-&lt;p&gt;In open-access fisheries, participation and harvest by fishermen are unregulated. Under these conditions, the amount of fishing is greater than the socially optimal level, the economic profits from fishing are dissipated, and fish stocks are depleted and can even be driven to extinction. A large body of theoretical and empirical research has demonstrated the robustness of these results.&lt;/p&gt;
-&lt;p&gt;Although the basic outcomes hold across a variety of systems, the behavior of an open-access fishery can be complex. Simple models of fish ecology coupled with harvester behavior can explain boom-and-bust cycles in a fishery and fishing communities and complex supply responses. More complex ecological models of open-access fisheries illustrate the interactions among fishing, fish populations, and other parts of the ecosystem, as well as explain why some fishing regulations produce unintended consequences. Studying open access provides a foundation for understanding fishery economics, a baseline from which to measure the gains of implementing fishing regulations, and lends insight to the design of better regulatory systems.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;The process of writing this article was interesting. Two years ago, when I was a first-year graduate student, my economics advisor &lt;a href=&quot;http://www.des.ucdavis.edu/faculty/Sanchirico/&quot;&gt;Jim Sanchirico&lt;/a&gt; began convening lab meetings. This isn’t common practice among economists as far as I know, and we were trying to figure out how to use the meetings constructively. Around the same time, Jim received a request to write a few articles for this encyclopedia, and we figured it would be a good exercise to read the original literature on this subject and write the articles together.&lt;/p&gt;
-&lt;p&gt;This was a great chance for me. I had zero exposure to the natural resource economics literature and wouldn’t get around to courses in it for another year. Also, as a first-year ecology grad student working with a group of more experienced economists, I was a pretty good proxy for the target audience of outsiders to the field. So I got play the role of naive reader, asking for clearer explanations and less jargon from my co-authors. I also wrote some of the introductory and ecological sections.&lt;/p&gt;
-&lt;p&gt;I’m grateful to Jim for putting me on board this project, and for the chance to work with great colleagues in a different field, but I probably won’t do something similar again. I don’t support the publication model. Ironically, while the article is about “Open-Access Fisheries,” it is about as far from an open-access publication as can be. It’s in a &lt;a href=&quot;http://www.amazon.com/Encyclopedia-Natural-Resource-Environmental-Economics/dp/0123750679&quot;&gt;$1500&lt;/a&gt; encyclopedia published by &lt;em&gt;Elsevier&lt;/em&gt;. We received a very small honorarium&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, and Elsevier will reap profits by selling access to this encyclopedia to libraries as part of some overpriced bundle. I’d rather spend my taxpayer-funded fellowship creating resources available to all.&lt;/p&gt;
-&lt;p&gt;If you’d like a copy, &lt;a href=&quot;mailto:noam.ross@gmail.com?Subject=Reprint%20Request%3A%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries&amp;amp;Body=Dear%20Noam%2C%0A%0APlease%20send%20me%20a%20reprint%20of%3A%0A%0AFuller%2C%20Kate%2C%20David%20Kling%2C%20Kaeilin%20Kroetz%2C%20Noam%20Ross%2C%20and%20James%20N.%20Sanchirico%20%282013%29%20Economics%20and%20Ecology%20of%20Open-Access%20Fisheries.%20In%20%20*Encyclopedia%20of%20Energy%2C%20Natural%20Resource%2C%20and%20Environmental%20Economics*%2C%20Ed.%20Jason%20Shogren%2C%20p.39-49.%20Amsterdam%3A%20Elsevier.%20http%3A//dx.doi.org/10.1016/B978-0-12-375067-9.00114-5&quot;&gt;email me by clicking here&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;If that’s what it is called. The arrangement was, I think, one or two hundred dollars per article, which the lab was supposed to split for dinner and beer. Still waiting on that part, Jim.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content>
  </entry>
