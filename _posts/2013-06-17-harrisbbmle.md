@@ -1,13 +1,13 @@
 ---
 title: "Dave Harris on Maximum Likelihood Estimation"
-author: "Noam Ross"
+author: "David J. Harris"
 tags: [R, likelihood, bbmle]
 date: "13-06-17 15:11:17"
 layout: post
 --- 
 
 
-*At our last [Davis R Users'
+Editor's Note: *At our last [Davis R Users'
 Group](http://www.noamross.net/davis-r-users-group.html) meeting of the
 quarter, **[Dave Harris](https://sihlab.wordpress.com/david-j-harris/)**
 gave a talk on how to use the `bbmle` package to fit mechanistic models

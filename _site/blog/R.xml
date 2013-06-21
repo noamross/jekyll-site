@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-06-21T10:14:40-07:00</updated>
+ <updated>2013-06-21T10:17:11-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -93,7 +93,7 @@ optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG�
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;At our last &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting of the quarter, &lt;strong&gt;&lt;a href=&quot;https://sihlab.wordpress.com/david-j-harris/&quot;&gt;Dave Harris&lt;/a&gt;&lt;/strong&gt; gave a talk on how to use the &lt;code&gt;bbmle&lt;/code&gt; package to fit mechanistic models to ecological data. Here are his script and notes (helpfully generated with the the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt;&lt;/em&gt;).&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;Editor’s Note: &lt;em&gt;At our last &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting of the quarter, &lt;strong&gt;&lt;a href=&quot;https://sihlab.wordpress.com/david-j-harris/&quot;&gt;Dave Harris&lt;/a&gt;&lt;/strong&gt; gave a talk on how to use the &lt;code&gt;bbmle&lt;/code&gt; package to fit mechanistic models to ecological data. Here are his script and notes (helpfully generated with the the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt;&lt;/em&gt;).&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# Load data&lt;/span&gt;
 &lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(emdbook)
 &lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(bbmle)
