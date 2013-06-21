@@ -9,10 +9,10 @@ layout: post
 
 *At our last [Davis R Users'
 Group](http://www.noamross.net/davis-r-users-group.html) meeting of the
-quarter, [Dave Harris](https://sihlab.wordpress.com/david-j-harris/)
+quarter, **[Dave Harris](https://sihlab.wordpress.com/david-j-harris/)**
 gave a talk on how to use the `bbmle` package to fit mechanistic models
-to ecological data. Here's his script, which I ran throgh the `spin`
-function in `knitr`:*
+to ecological data. Here are his script and notes (helpfully generated with the the `spin`
+function in `knitr`*).
 
 ~~~~ {.r}
 # Load data
