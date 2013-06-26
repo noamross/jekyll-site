@@ -28,7 +28,7 @@ Redirect http://www.noamross.net/statsclasses/POL211.html http://egsa.nfshost.co
 Redirect http://www.noamross.net/statsclasses/POL212.html http://egsa.nfshost.com/resources/stats/pol212/ [R=301,NC,L]
 Redirect http://www.noamross.net/statsclasses/POL213.html http://egsa.nfshost.com/resources/stats/pol213/ [R=301,NC,L]
 Redirect http://www.noamross.net/statsclasses/POL279.html http://egsa.nfshost.com/resources/stats/pol279/ [R=301,NC,L]
-Redirect http://www.noamross.net/statsclasses/PSC204A.htmlhttp://egsa.nfshost.com/resources/stats/psc204a/ [R=301,NC,L]
+Redirect http://www.noamross.net/statsclasses/PSC204A.html http://egsa.nfshost.com/resources/stats/psc204a/ [R=301,NC,L]
 Redirect http://www.noamross.net/statsclasses/STA100.html http://egsa.nfshost.com/resources/stats/sta100/ [R=301,NC,L]
 Redirect http://www.noamross.net/statsclasses/STA120.html http://egsa.nfshost.com/resources/stats/sta120/ [R=301,NC,L]
 Redirect http://www.noamross.net/statsclasses/STA130A.html http://egsa.nfshost.com/resources/stats/sta130a/ [R=301,NC,L]
