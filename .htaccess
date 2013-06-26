@@ -3,7 +3,7 @@ order allow,deny
 deny from all
 </Files>
 ErrorDocument 404 /404.html
-RewriteEngine on
 
-Redirect 301 /stats.html http://egsa.nfshost.com/resources/stats/
-RedirectMatch 301 /statsclasses/([^\.]*)\.html http://egsa.nfshost.com/resources/stats/$1/
+# RewriteEngine on
+# Redirect 301 /stats.html http://egsa.nfshost.com/resources/stats/
+# RedirectMatch 301 /statsclasses/([^\.]*)\.html http://egsa.nfshost.com/resources/stats/$1/
