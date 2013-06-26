@@ -3,6 +3,7 @@ order allow,deny
 deny from all
 </Files>
 ErrorDocument 404 /404.html
+RewriteEngine on
 Redirect http://www.noamross.net/statsclasses/ABG250.html http://egsa.nfshost.com/resources/stats/ [R=301,NC,L]
 Redirect http://www.noamross.net/statsclasses/ANT261.html http://egsa.nfshost.com/resources/stats/ant261/ [R=301,NC,L]
 Redirect http://www.noamross.net/statsclasses/ARE256.html http://egsa.nfshost.com/resources/stats/are256/ [R=301,NC,L]
