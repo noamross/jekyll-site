@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-07-01T13:25:17-07:00</updated>
+ <updated>2013-07-06T03:13:41-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -905,7 +905,7 @@ p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;
 &lt;p&gt;Just because this model is commonly used to describe ecosystems doesn’t mean ecosystems &lt;em&gt;actually&lt;/em&gt; behave this way. Alan published &lt;a href=&quot;http://dx.doi.org/10.1111/j.1461-0248.2010.01439.x&quot;&gt;a paper in 2010&lt;/a&gt; showing a number of counterexamples - alternative ways a model could represent an ecosystem with the potential for a rapid shift - in which these signals never appear. Conversely, there are &lt;a href=&quot;http://dx.doi.org/10.1111/j.1600-0706.2012.20838.x&quot;&gt;several cases of models&lt;/a&gt; that exhibit early warning-like patterns without any imminent shift.&lt;/p&gt;
 &lt;p&gt;In our review, we try to illuminate what is known about warning signals observed in models that have a saddle node and contrast this to other models that have received much less attention. So far, for instance, empirical data have only been collected in systems for which the saddle-node is thought to be a very good representation (e.g., freshwater lakes, pitcher-plants). We need more examples of this type of model testing in different ecosystems with different potential mechanisms of regime shift.&lt;/p&gt;
 &lt;p&gt;Other models of ecosystems have the potential to provide &lt;em&gt;different&lt;/em&gt; warning signals, but we need to know more about them, and we need better methods of deciding &lt;em&gt;which&lt;/em&gt; model is appropriate to apply to any particular ecosystem. Early warning signals may be less generally applicable than initially hoped, but they can be quite powerful if properly applied.&lt;/p&gt;
-&lt;p&gt;There paper is &lt;a href=&quot;http://dx.doi.org/10.1007/s12080-013-0192-6&quot;&gt;up now at Theoretical Ecology&lt;/a&gt; but we also posted it to &lt;a href=&quot;http://arxiv.org/abs/1305.6700&quot;&gt;the arXiv here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The paper is &lt;a href=&quot;http://dx.doi.org/10.1007/s12080-013-0192-6&quot;&gt;up now at Theoretical Ecology&lt;/a&gt; but we also posted it to &lt;a href=&quot;http://arxiv.org/abs/1305.6700&quot;&gt;the arXiv here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Finally, this is my first paper in which pretty much all collaboration occurred over &lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt;, so you can go and see the &lt;a href=&quot;https://github.com/cboettig/ews-review/commits/master/manuscript.md&quot;&gt;entire revision history&lt;/a&gt; there. This worked out great and I’ll definitely be doing it again.&lt;/p&gt;</content>
  </entry>
  

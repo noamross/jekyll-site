@@ -60,7 +60,7 @@ particular ecosystem. Early warning signals may be less generally
 applicable than initially hoped, but they can be quite powerful if
 properly applied.
 
-There paper is [up now at Theoretical Ecology](http://dx.doi.org/10.1007/s12080-013-0192-6 ) but we also posted it to [the arXiv
+The paper is [up now at Theoretical Ecology](http://dx.doi.org/10.1007/s12080-013-0192-6 ) but we also posted it to [the arXiv
 here](http://arxiv.org/abs/1305.6700).
 
 Finally, this is my first paper in which pretty much all collaboration
