@@ -82,8 +82,9 @@ There are a few courses at UC Davis that use R.
  - At least one section of STA100 uses R
  - [Robert Hijmans](http://www.des.ucdavis.edu/FacultyInfo.aspx?ID_Number=83) teaches *Quantitative Geography* (GEO200CN).  It is a survey course about spatial data analysis and modeling using R, including subjects such as point pattern analysis, kriging, inference, cellular automata and Markov chains. It has lectures, disussions, and a intensive lab.
  - [Jim Fadel](http://animalscience.ucdavis.edu/faculty/fadel/) teaches ABG250: *Mathematical Modeling in Biological Systems*, which uses R and teaches enough for the applications in class
- - [Anna Steel](http://biotelemetry.ucdavis.edu/pages/bio_Steel.asp) is teaching ECL298: *R for Dummies: Basics of data manipulation in R* Winter Quarter 2013.
- 
+ - [Anna Steel](http://biotelemetry.ucdavis.edu/pages/bio_Steel.asp) taught ECL298: *R for Dummies: Basics of data manipulation in R* Winter Quarter 2013. The course may be taught by someone else in the future, but is still up in the air.
+ - The political science methods sequence (POL211, POL212, POL213) uses R.
+ - [Andrew Latimer](http://www.plantsciences.ucdavis.edu/faculty/latimer/index.htm)'s *Applied Statistical Modeling for Environmental Science* (PLS298) uses R in addition to JAGS and OPENBugs. It assumes familiarity with R.
  
 ### Miscellaneous
 
