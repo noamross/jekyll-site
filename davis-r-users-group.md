@@ -35,7 +35,7 @@ We're fortunate have sponsorship from [Revolution Analytics](http://www.revoluti
 
 ### D-RUG Resources
 
-Sometimes D-RUG members put together useful resources and tutorials.
+Sometimes D-RUG members put together useful resources and tutorials.  Here are a few.  More can be found under the [D-RUG tag on my blog](http://www.noamross.net/tags.html#D-RUG-ref)
 
  - [An introduction to `ggplot()`](http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html)
  - [An introduction to mixed models](http://www.noamross.net/blog/2012/10/19/stella-copeland-on-mixed-models.html)
