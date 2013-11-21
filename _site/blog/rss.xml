@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-11-20T21:25:33-08:00</updated>
+ <updated>2013-11-20T21:27:28-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>How to format plots for publication using `ggplot2` (with some help from Inkscape)</title>
+   <title>How to format plots for publication using ggplot2 (with some help from Inkscape)</title>
    <link href="http://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs.html"/>
    <updated>2013-11-20T19:51:47-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs</id>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;strong&gt;&lt;em&gt;The following is the code from a presentation made by Rosemary Hartman to the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;. I’ve run the code through the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt; to produce this post. Download the script to walk through &lt;a href=&quot;https://gist.github.com/noamross/7576436&quot;&gt;here&lt;/a&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;&lt;strong&gt;&lt;em&gt;The following is the code from a presentation made by Rosemary Hartman to the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;. I’ve run the code through the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt; to produce this post. Download the script to walk through &lt;a href=&quot;https://gist.github.com/noamross/7576436&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;First, make your plot. I am going to use the data already in R about sleep habits of different animals. It’s the same one Noam used for &lt;a href=&quot;http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html&quot;&gt;his intro to ggplot.&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(ggplot2)
 &lt;span class=&quot;kw&quot;&gt;str&lt;/span&gt;(msleep)&lt;/code&gt;&lt;/pre&gt;

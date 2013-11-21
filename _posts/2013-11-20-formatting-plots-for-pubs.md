@@ -1,5 +1,5 @@
 ---
-title: How to format plots for publication using `ggplot2` (with some help from Inkscape)
+title: How to format plots for publication using ggplot2 (with some help from Inkscape)
 author: "Rosemary Hartman"
 tags: [R, D-RUG]
 date: "13-11-20 19:51:47"
