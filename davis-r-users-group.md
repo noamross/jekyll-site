@@ -45,6 +45,7 @@ Sometimes D-RUG members put together useful resources and tutorials.  Here are a
  - [Using the `plyr` package for data manipulation](http://www.noamross.net/blog/2013/1/17/steve-culman-on-plyr.html)
  - [Using xts and ggplot for time-series data](http://www.noamross.net/blog/2013/2/6/xtsmarkdown.html)
  - [Model selection and multi-model inference](http://www.noamross.net/blog/2013/2/20/model-selection-drug.html)
+ - [How to format plots for publication using `ggplot2` (with some help from Inkscape)](http://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs.html)
 
 ### Web Resources
 
