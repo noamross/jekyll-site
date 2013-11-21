@@ -1,5 +1,5 @@
 ---
-title: How to format plots for publication using 'ggplot2' (with some help from Inkscape)
+title: How to format plots for publication using `ggplot2` (with some help from Inkscape)
 author: "Rosemary Hartman"
 tags: [R, D-RUG]
 date: "13-11-20 19:51:47"
@@ -12,7 +12,7 @@ Hartman to the [Davis R Users'
 Group](http://www.noamross.net/davis-r-users-group.html). I've run the
 code through the `spin` function in `knitr` to produce this post.
 Download the script to walk through
-[here](https://gist.github.com/noamross/7576436)***
+[here](https://gist.github.com/noamross/7576436).***
 
 First, make your plot. I am going to use the data already in R about
 sleep habits of different animals. It's the same one Noam used for [his
