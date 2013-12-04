@@ -347,7 +347,7 @@ sleepplot2</code></pre>
 </div>
 <p><code>theme_bw()</code> will get rid of the background, and gives you options to change the font. Science recomends Helvetica, wich happens to be R’s default, but we will specify it here anyway.</p>
 <p>Check out the other fonts out here:</p>
-<p>??postscriptFonts</p>
+<pre class="sourceCode r"><code class="sourceCode r">??postscriptFonts</code></pre>
 <p>For even more fonts, see the <code>extrafont</code> package.</p>
 <p>Other pre-set themes can change the look of your plot</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span><span class="kw">theme_minimal</span>()</code></pre>
@@ -372,7 +372,7 @@ sleepplot2</code></pre>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-14.png" />
 </div>
 <p>You can’t really see the gridlines with the <code>bw</code> theme, so we are going to tweak the pre-set theme using the <code>theme</code> function. <code>theme</code> allows you to do all kinds of stuff involved with how the plot looks.</p>
-<p>?theme</p>
+<pre class="sourceCode r"><code class="sourceCode r">?theme</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span>
 <span class="st">  </span><span class="co">#increase size of gridlines</span>
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_line</span>(<span class="dt">size =</span> .<span class="dv">5</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>),

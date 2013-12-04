@@ -172,7 +172,7 @@ default, but we will specify it here anyway.
 
 Check out the other fonts out here:
 
-??postscriptFonts
+    ??postscriptFonts
 
 For even more fonts, see the `extrafont` package.
 
@@ -218,7 +218,7 @@ You can't really see the gridlines with the `bw` theme, so we are going
 to tweak the pre-set theme using the `theme` function. `theme` allows
 you to do all kinds of stuff involved with how the plot looks.
 
-?theme
+    ?theme
 
 ~~~~ {.r}
 sleepplot2 + 

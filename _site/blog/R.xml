@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2013-11-20T21:27:28-08:00</updated>
+ <updated>2013-12-04T15:27:48-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -124,7 +124,7 @@ sleepplot2&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;code&gt;theme_bw()&lt;/code&gt; will get rid of the background, and gives you options to change the font. Science recomends Helvetica, wich happens to be R’s default, but we will specify it here anyway.&lt;/p&gt;
 &lt;p&gt;Check out the other fonts out here:&lt;/p&gt;
-&lt;p&gt;??postscriptFonts&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;??postscriptFonts&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For even more fonts, see the &lt;code&gt;extrafont&lt;/code&gt; package.&lt;/p&gt;
 &lt;p&gt;Other pre-set themes can change the look of your plot&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme_minimal&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
@@ -149,7 +149,7 @@ sleepplot2&lt;/code&gt;&lt;/pre&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-14.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;You can’t really see the gridlines with the &lt;code&gt;bw&lt;/code&gt; theme, so we are going to tweak the pre-set theme using the &lt;code&gt;theme&lt;/code&gt; function. &lt;code&gt;theme&lt;/code&gt; allows you to do all kinds of stuff involved with how the plot looks.&lt;/p&gt;
-&lt;p&gt;?theme&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;?theme&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
 &lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#increase size of gridlines&lt;/span&gt;
 &lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;panel.grid.major =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; .&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;grey&amp;quot;&lt;/span&gt;),
