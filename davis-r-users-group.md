@@ -56,7 +56,7 @@ Sometimes D-RUG members put together useful resources and tutorials.  Here are a
 
 <ul>
   {% include JB/setup %}
-  {% assign pages_list = site.tags.d-rug[1] %}  
+  {% assign pages_list = site.tags.D-RUG[1] %}  
   {% include JB/pages_list %}
 </ul>
 
