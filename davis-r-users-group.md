@@ -34,7 +34,7 @@ We're fortunate have sponsorship from [Revolution Analytics](http://www.revoluti
 
 ### D-RUG Tutorials from our meetings
 
-Sometimes D-RUG members put together useful resources and tutorials.  Here are a few.  More can be found under the [D-RUG tag on my blog](http://www.noamross.net/tags.html#D-RUG-ref)
+Sometimes D-RUG members put together useful resources and tutorials for our meetings which we post on the blog under the "D-RUG" tag:
 
 -   [How to format plots for publication using ggplot2 (with some help from Inkscape)](/blog/2013/11/20/formatting-plots-for-pubs.html)
 -   [Dave Harris on Maximum Likelihood Estimation](/blog/2013/6/17/harrisbbmle.html)
@@ -55,10 +55,8 @@ Sometimes D-RUG members put together useful resources and tutorials.  Here are a
 
 
 <ul>
-  {% for post in site.tags.D-RUG  %}
-      <li>
-           <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
+    {% for post in site.tags.D-RUG  %}
+<li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
 </ul>
 
