@@ -54,6 +54,12 @@ Sometimes D-RUG members put together useful resources and tutorials.  Here are a
 -   [A quick introduction to ggplot()](/blog/2012/10/5/ggplot-introduction.html)
 
 
+<ul>
+  {% include JB/setup %}
+  {% assign pages_list = site.tags.D-RUG[1] %}  
+  {% include JB/pages_list %}
+</ul>
+
 ### Web Resources
 
 There's no need to reinvent the wheel.  Here are lists of beginner's resources which others have compiled
