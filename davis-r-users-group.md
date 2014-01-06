@@ -32,27 +32,9 @@ We're fortunate have sponsorship from [Revolution Analytics](http://www.revoluti
  - [Google](http://www.google.com) is your first stop for most questions.  You'll most likely reach most of the resources below while searching for your specific question.
  - Our regular R work sessions and [listserv](https://groups.google.com/d/forum/davis-rug) are great places to ask questions, especially if you are not sure what you are looking for.
 
-### D-RUG Tutorials from our meetings
+### D-RUG tutorials from our meetings
 
 Sometimes D-RUG members put together useful resources and tutorials for our meetings which we post on the blog under the "D-RUG" tag:
-
--   [How to format plots for publication using ggplot2 (with some help from Inkscape)](/blog/2013/11/20/formatting-plots-for-pubs.html)
--   [Dave Harris on Maximum Likelihood Estimation](/blog/2013/6/17/harrisbbmle.html)
--   [Robert Hijmans on Spatial Data Analysis](/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis.html)
--   [FasteR! HigheR! StrongeR! - A Guide to Speeding Up R Code for Busy People](/blog/2013/4/25/faster-talk.html)
--   [Debugging Tools in R with Michael Hannon](/blog/2013/4/18/r-debug-tools.html)
--   [Demographic analysis using the \`popbio\` library and some other fun stuff](/blog/2013/4/4/oleary-popbio-presentation.html)
--   [Model Selection and Multi-Model Inference](/blog/2013/2/20/model-selection-drug.html)
--   [Mason Earles on interfacing R with the Forest Vegetation Simulator](/blog/2013/2/13/mason-earles-on-interfacing-r-with-fvs.html)
--   [Ryan Peek on using xts and ggplot for time-series data](/blog/2013/2/6/xtsmarkdown.html)
--   [Steve Culman on the \`plyr\` Package](/blog/2013/1/17/steve-culman-on-plyr.html)
--   [Don't R alone! A guide to tools for collaboration with R](/blog/2013/1/7/collaborating-with-r.html)
--   [Exploring GAMs with Rosemary Hartman](/blog/2012/11/9/gams-for-drug.html)
--   [Ryan Peek on Customizing Your R Setup](/blog/2012/11/2/rprofile.html)
--   [Chris Hamm on using plot.new() for better combined plots](/blog/2012/10/26/plotnew.html)
--   [Stella Copeland's Intro to Mixed Models in R](/blog/2012/10/19/stella-copeland-on-mixed-models.html)
--   [A quick introduction to ggplot()](/blog/2012/10/5/ggplot-introduction.html)
-
 
 <ul>
     {% for post in site.tags.D-RUG  %}
