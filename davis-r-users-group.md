@@ -55,9 +55,11 @@ Sometimes D-RUG members put together useful resources and tutorials.  Here are a
 
 
 <ul>
-  {% include JB/setup %}
-  {% assign pages_list = site.tags.D-RUG[1] %}  
-  {% include JB/pages_list %}
+  {% for post in site.tags.D-RUG  %}
+      <li>
+           <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
 </ul>
 
 ### Web Resources
