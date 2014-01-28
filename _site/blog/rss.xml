@@ -4,13 +4,35 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-01-06T14:29:49-08:00</updated>
+ <updated>2014-01-28T10:14:08-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Ryan Peek on Creating Shiny Apps</title>
+   <link href="http://www.noamross.net/blog/2014/1/28/rpeekshiny.html"/>
+   <updated>2014-01-28T09:41:36-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/1/28/rpeekshiny</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Yesterday at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R User’s Group&lt;/a&gt;&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, &lt;a href=&quot;https://watershed.ucdavis.edu/people/rapeek?destination=user/71&quot;&gt;Ryan Peek&lt;/a&gt; gave a talk about using the &lt;code&gt;shiny&lt;/code&gt; package to create interactive web apps with R. Here are his slides. Ryan includes a bunch of links to examples and tutorials, as well as his own &lt;a href=&quot;http://aquapeek.shinyapps.io/thermohydrographs/&quot;&gt;thermohydrographs app&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 88%;&quot;&gt;&lt;iframe src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/DRUG_shiny_2014-01-27_presentation.html&quot;
+frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Thanks to &lt;a href=&quot;http://www.revolutionanalytics.com/&quot;&gt;Revolution Analytics&lt;/a&gt; for another year of sponsorship!&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>How to format plots for publication using ggplot2 (with some help from Inkscape)</title>
@@ -1144,29 +1166,6 @@ p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;
 &lt;p&gt;Other models of ecosystems have the potential to provide &lt;em&gt;different&lt;/em&gt; warning signals, but we need to know more about them, and we need better methods of deciding &lt;em&gt;which&lt;/em&gt; model is appropriate to apply to any particular ecosystem. Early warning signals may be less generally applicable than initially hoped, but they can be quite powerful if properly applied.&lt;/p&gt;
 &lt;p&gt;The paper is &lt;a href=&quot;http://dx.doi.org/10.1007/s12080-013-0192-6&quot;&gt;up now at Theoretical Ecology&lt;/a&gt; but we also posted it to &lt;a href=&quot;http://arxiv.org/abs/1305.6700&quot;&gt;the arXiv here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Finally, this is my first paper in which pretty much all collaboration occurred over &lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt;, so you can go and see the &lt;a href=&quot;https://github.com/cboettig/ews-review/commits/master/manuscript.md&quot;&gt;entire revision history&lt;/a&gt; there. This worked out great and I’ll definitely be doing it again.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Robert Hijmans on Spatial Data Analysis</title>
-   <link href="http://www.noamross.net/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis.html"/>
-   <updated>2013-05-23T13:08:43-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Last week at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; Robert Hijmans gave a talk about spatial data analysis in R. Robert is &lt;a href=&quot;http://scholar.google.com/citations?user=NWdPabcAAAAJ&amp;amp;hl=en&quot;&gt;a professor of biogeography&lt;/a&gt; at UC Davis and the author of the &lt;a href=&quot;http://cran.r-project.org/web/packages/raster/&quot;&gt;&lt;code&gt;raster&lt;/code&gt;&lt;/a&gt; (analysis of gridded data), &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/&quot;&gt;&lt;code&gt;dismo&lt;/code&gt;&lt;/a&gt; (species distribution modeling), and &lt;a href=&quot;http://cran.r-project.org/web/packages/geosphere/&quot;&gt;&lt;code&gt;geosphere&lt;/code&gt;&lt;/a&gt; (spherical trigonometry), packages.&lt;/p&gt;
-&lt;p&gt;Robert’s presentation spanned topics including basic geographical data and geostatistics concepts, his &lt;code&gt;raster&lt;/code&gt; package and its usage, and some great examples of visualization and other resources. Here are his slides:&lt;/p&gt;
-&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/22149457&quot; width=&quot;714&quot; height=&quot;575&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Robert has also written an &lt;a href=&quot;http://dl.dropbox.com/u/3356641/blogstuff/Introduction%20to%20spatial%20data%20handling%20in%20R.pdf&quot;&gt;introduction to spatial modeling for R beginners&lt;/a&gt; which reviews very basic data handling and the &lt;code&gt;sp&lt;/code&gt; and &lt;code&gt;raster&lt;/code&gt; packages. Finally, his package vignettes are great resources for specific topics:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/raster/vignettes/Raster.pdf&quot;&gt;Introduction to the raster package&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/raster/vignettes/functions.pdf&quot;&gt;Writing functions for large raster files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/sdm.pdf&quot;&gt;Species Distribution modeling with R&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;Boosted Regression Trees for ecological modeling&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
  </entry>
  
  
