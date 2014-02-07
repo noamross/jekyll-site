@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-01-28T10:14:08-08:00</updated>
+ <updated>2014-02-06T16:29:11-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Yesterday at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R User’s Group&lt;/a&gt;&lt;sup&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;, &lt;a href=&quot;https://watershed.ucdavis.edu/people/rapeek?destination=user/71&quot;&gt;Ryan Peek&lt;/a&gt; gave a talk about using the &lt;code&gt;shiny&lt;/code&gt; package to create interactive web apps with R. Here are his slides. Ryan includes a bunch of links to examples and tutorials, as well as his own &lt;a href=&quot;http://aquapeek.shinyapps.io/thermohydrographs/&quot;&gt;thermohydrographs app&lt;/a&gt;:&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;Yesterday at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R User’s Group&lt;/a&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, &lt;a href=&quot;https://watershed.ucdavis.edu/people/rapeek?destination=user/71&quot;&gt;Ryan Peek&lt;/a&gt; gave a talk about using the &lt;code&gt;shiny&lt;/code&gt; package to create interactive web apps with R. Here are his slides. Ryan includes a bunch of links to examples and tutorials, as well as his own &lt;a href=&quot;http://aquapeek.shinyapps.io/thermohydrographs/&quot;&gt;thermohydrographs app&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 88%;&quot;&gt;&lt;iframe src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/DRUG_shiny_2014-01-27_presentation.html&quot;
 frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
 

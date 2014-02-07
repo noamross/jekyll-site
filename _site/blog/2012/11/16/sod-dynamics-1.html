@@ -64,6 +64,7 @@
               e.style.display = 'block';
         }
   </script>
+  <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="wrapper">
@@ -286,7 +287,7 @@
 ## 5   0.30   0.30   1.33      0
 ## 6   0.00   0.00   0.00      0</code></pre>
 <p>This data set includes all of the model parameters as defined by Cobb et al. (2012). For each species and age class, there are parameters for mortality, recruitment, transition between classes, the probability of resprouting, and recovering from disease. There are also parameters the the relative amount of space occupied by trees of each species/class.</p>
-<p>For each species/class, the table includes a kernel function to describe dispersal of disease spores from diseased trees, and parameters for that function. The last set of columns represent the “&quot;Who Acquires Infection From Whom” (WAIFW) matrix (Anderson and May 1985), which describes the vulnerability of each class to spores originating from others.</p>
+<p>For each species/class, the table includes a kernel function to describe dispersal of disease spores from diseased trees, and parameters for that function. The last set of columns represent the “”Who Acquires Infection From Whom&quot; (WAIFW) matrix (Anderson and May 1985), which describes the vulnerability of each class to spores originating from others.</p>
 <p>Note that several values, such as the space occupied by different tanoak size classes, and recruitment rates, are missing. This is because, per the original paper, I calculate these so as to parameterize the model for steady-state conditions in the absence of disease. Here I do that, using Equation 8 in the papers’ supplement:</p>
 <pre class="sourceCode r"><code class="sourceCode r">treeparms.df &lt;-<span class="st"> </span><span class="kw">within</span>(treeparms.df, {
     <span class="co"># Calculate the relative space requirements of tanoak size classes based</span>
@@ -526,7 +527,7 @@ paper4.plot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/cobb2012fig4c.png" alt="Figure 4c from Cobb et al. (2012)" /><p class="caption">Figure 4c from Cobb et al. (2012)</p>
 </div>
-<p>Now, for fun, let’s make an animation of how the disease progresses through the stand. I will use the “Mostly Tanoak” scenario&quot;, and plot the adult population as intensity, and the fraction of trees diseased as hue.</p>
+<p>Now, for fun, let’s make an animation of how the disease progresses through the stand. I will use the “Mostly Tanoak” scenario“, and plot the adult population as intensity, and the fraction of trees diseased as hue.</p>
 <pre class="sourceCode r"><code class="sourceCode r">tanspc &lt;-<span class="st"> </span><span class="kw">subset</span>(pop3.df, Species ==<span class="st"> </span><span class="dv">1</span>)
 tanspc$Species &lt;-<span class="st"> </span><span class="ot">NULL</span>
 tanspc &lt;-<span class="st"> </span><span class="kw">ddply</span>(tanspc, <span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Location&quot;</span>), function(x) {

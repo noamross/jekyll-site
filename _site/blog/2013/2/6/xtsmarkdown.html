@@ -64,6 +64,7 @@
               e.style.display = 'block';
         }
   </script>
+  <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,700,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="wrapper">
@@ -326,7 +327,7 @@ Day &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class
 <h4 id="make-a-ggplot-of-daily-temperatures-showing-a-max-and-min-using-geom_ribbon">Make a ggplot of daily temperatures showing a max and min using <em>geom_ribbon</em></h4>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scales)
 <span class="kw">library</span>(ggplot2)</code></pre>
-<p>This plot is complex, and code is provided to view as you like. Main components are: * <strong>ggplot</strong>: this sets the data and x acess * <strong>geom_line</strong>: this is to plot lines, custom colors are set by including color <em>within</em> the aes call * <strong>geom_ribbon</strong>: this is to plot the filled max and min ribbon in the background *<strong>scale_color/fill_manual</strong>: this allows you to define custom colors for each geom, must match exactly with the color=“&quot; or fill=”&quot;</p>
+<p>This plot is complex, and code is provided to view as you like. Main components are: * <strong>ggplot</strong>: this sets the data and x acess * <strong>geom_line</strong>: this is to plot lines, custom colors are set by including color <em>within</em> the aes call * <strong>geom_ribbon</strong>: this is to plot the filled max and min ribbon in the background *<strong>scale_color/fill_manual</strong>: this allows you to define custom colors for each geom, must match exactly with the color=“” or fill=“”</p>
 <pre class="sourceCode r"><code class="sourceCode r">RUB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(Day, <span class="kw">aes</span>(<span class="dt">x =</span> datetime)) +<span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> NFA_baro.avg, <span class="dt">color =</span> <span class="st">&quot;AIR&quot;</span>), 
     <span class="dt">size =</span> <span class="dv">1</span>, <span class="dt">linetype =</span> <span class="dv">1</span>, <span class="dt">alpha =</span> <span class="dv">1</span>) +<span class="st"> </span><span class="kw">geom_ribbon</span>(<span class="kw">aes</span>(<span class="dt">ymax =</span> NFA_baro.max, 
     <span class="dt">ymin =</span> NFA_baro.min, <span class="dt">fill =</span> <span class="st">&quot;AIR Max/Min&quot;</span>), <span class="dt">colour =</span> <span class="st">&quot;darkorange&quot;</span>, <span class="dt">linetype =</span> <span class="dv">3</span>, 
