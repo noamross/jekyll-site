@@ -68,7 +68,7 @@ _______________________________
 END */
 
 body {
-  font-family: "Crimson Text", "Minion Pro", Georgia, Times;
+  font-family: "crimson", "Minion Pro", Georgia, Times;
   color: black;
   font-size: 0.8em;
   margin: 0 auto;
@@ -273,7 +273,7 @@ a:hover {
 }  
 
 .blog-description h2 {
-  font:16px/1 "Crimson Text", "Minion Pro", Times;
+  font:16px/1 "crimson", "Minion Pro", Times;
   font-style: italic;
   line-height: 50px;
 }
