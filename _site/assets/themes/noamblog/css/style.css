@@ -9,6 +9,7 @@ _______________________________
 GENERAL */
 
 @font-face { font-family: Socialico; src: url('/assets/themes/noamblog/Socialico.otf'); } 
+@import url(crimson/stylesheet.css);
 
 html{font-size:100%}
 body{font-size:50%}
