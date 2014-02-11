@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-02-10T18:26:40-08:00</updated>
+ <updated>2014-02-10T18:31:18-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -383,7 +383,7 @@ sleep&lt;/code&gt;&lt;/pre&gt;
 &lt;span class=&quot;kw&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;line =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Sleep duration&amp;quot;&lt;/span&gt;)
 &lt;span class=&quot;kw&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;line =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Sleep efficiency&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/unnamed-chunk-50.png&quot; alt=&quot;plot of chunk unnamed-chunk-50&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-50&lt;/p&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/dixondates.png&quot; alt=&quot;plot of chunk unnamed-chunk-50&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-50&lt;/p&gt;
 &lt;/div&gt;
 &lt;h2 id=&quot;more-resources-on-times-and-dates&quot;&gt;More resources on times and dates&lt;/h2&gt;
 &lt;p&gt;date and time tutorials for R:&lt;/p&gt;

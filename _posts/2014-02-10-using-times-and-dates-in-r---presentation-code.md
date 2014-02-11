@@ -833,7 +833,8 @@ mtext(side = 4, line = 2.5, col = "red", "Sleep duration")
 mtext(side = 2, line = 2.5, col = "blue", "Sleep efficiency")
 ```
 
-![plot of chunk unnamed-chunk-50](figure/unnamed-chunk-50.png)
+![plot of chunk
+unnamed-chunk-50](http://dl.dropbox.com/u/3356641/blogstuff/dixondates.png)
 
 More resources on times and dates
 ---------------------------------
