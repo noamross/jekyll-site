@@ -4,13 +4,406 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-02-06T17:11:28-08:00</updated>
+ <updated>2014-02-10T18:26:40-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Using Dates and Times in R</title>
+   <link href="http://www.noamross.net/blog/2014/2/10/using-times-and-dates-in-r---presentation-code.html"/>
+   <updated>2014-02-10T15:09:57-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/2/10/using-times-and-dates-in-r---presentation-code</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;Today at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://ffhi.ucdavis.edu/people/directory/bmdixon&quot;&gt;Bonnie Dixon&lt;/a&gt; gave a tutorial on the various ways to handle dates and times in R. Bonnie provided this great script which walks through essential classes, functions, and packages. Here it is piped through &lt;code&gt;knitr::spin&lt;/code&gt;. The original R script can be found as a gist &lt;a href=&quot;https://gist.github.com/noamross/8928124&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;datetime-classes&quot;&gt;Date/time classes&lt;/h2&gt;
+&lt;p&gt;Three date/time classes are built-in in R, Date, POSIXct, and POSIXlt.&lt;/p&gt;
+&lt;h3 id=&quot;date&quot;&gt;Date&lt;/h3&gt;
+&lt;p&gt;This is the class to use if you have only dates, but no times, in your data.&lt;/p&gt;
+&lt;p&gt;create a date:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;dt1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.Date&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2012-07-22&amp;quot;&lt;/span&gt;)
+dt1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2012-07-22&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;non-standard formats must be specified:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;dt2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.Date&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;04/20/2011&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;format =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;%m/%d/%Y&amp;quot;&lt;/span&gt;)
+dt2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2011-04-20&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;dt3 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.Date&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;October 6, 2010&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;format =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;%B %d, %Y&amp;quot;&lt;/span&gt;)
+dt3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2010-10-06&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;see list of format symbols:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;(strptime)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;calculations with dates:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;find the difference between dates:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;dt1 -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;dt2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 459 days&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;difftime&lt;/span&gt;(dt1, dt2, &lt;span class=&quot;dt&quot;&gt;units =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;weeks&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 65.57 weeks&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add or subtract days:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;dt2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2011-04-30&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;dt2 -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2011-04-10&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;create a vector of dates and find the intervals between them:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;three.dates &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.Date&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2010-07-22&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2011-04-20&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2012-10-06&amp;quot;&lt;/span&gt;))
+three.dates&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2010-07-22&amp;quot; &amp;quot;2011-04-20&amp;quot; &amp;quot;2012-10-06&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;diff&lt;/span&gt;(three.dates)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time differences in days
+## [1] 272 535&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;create a sequence of dates:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;six.weeks &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;seq&lt;/span&gt;(dt1, &lt;span class=&quot;dt&quot;&gt;length =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;by =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;week&amp;quot;&lt;/span&gt;)
+six.weeks&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2012-07-22&amp;quot; &amp;quot;2012-07-29&amp;quot; &amp;quot;2012-08-05&amp;quot; &amp;quot;2012-08-12&amp;quot; &amp;quot;2012-08-19&amp;quot;
+## [6] &amp;quot;2012-08-26&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;six.weeks &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;seq&lt;/span&gt;(dt1, &lt;span class=&quot;dt&quot;&gt;length =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;by =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;14&lt;/span&gt;)
+six.weeks&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2012-07-22&amp;quot; &amp;quot;2012-08-05&amp;quot; &amp;quot;2012-08-19&amp;quot; &amp;quot;2012-09-02&amp;quot; &amp;quot;2012-09-16&amp;quot;
+## [6] &amp;quot;2012-09-30&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;six.weeks &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;seq&lt;/span&gt;(dt1, &lt;span class=&quot;dt&quot;&gt;length =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;by =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;2 weeks&amp;quot;&lt;/span&gt;)
+six.weeks&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2012-07-22&amp;quot; &amp;quot;2012-08-05&amp;quot; &amp;quot;2012-08-19&amp;quot; &amp;quot;2012-09-02&amp;quot; &amp;quot;2012-09-16&amp;quot;
+## [6] &amp;quot;2012-09-30&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;see the internal integer representation&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;unclass&lt;/span&gt;(dt1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 15543&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;dt1 -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.Date&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;1970-01-01&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 15543 days&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;posixct&quot;&gt;POSIXct&lt;/h3&gt;
+&lt;p&gt;If you have times in your data, this is usually the best class to use.&lt;/p&gt;
+&lt;p&gt;create some POSIXct objects:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.POSIXct&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-07-24 23:55:26&amp;quot;&lt;/span&gt;)
+tm1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:26 PDT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.POSIXct&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;25072013 08:32:07&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;format =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;%d%m%Y %H:%M:%S&amp;quot;&lt;/span&gt;)
+tm2&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-25 08:32:07 PDT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;specify the time zone:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm3 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.POSIXct&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2010-12-01 11:42:03&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;tz =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;GMT&amp;quot;&lt;/span&gt;)
+tm3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2010-12-01 11:42:03 GMT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;some calculations with times&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;compare times:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2 &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;tm1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add or subtract seconds:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;30&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:56 PDT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1 -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;30&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:54:56 PDT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;find the difference between times:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2 -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;tm1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 8.611 hours&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;automatically adjusts for daylight savings time:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;as.POSIXct&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-03-10 08:32:07&amp;quot;&lt;/span&gt;) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.POSIXct&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-03-09 23:55:26&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 7.611 hours&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Get the current time (in POSIXct by default):&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;Sys.time&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2014-02-10 18:26:01 PST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;see the internal integer representation:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;unclass&lt;/span&gt;(tm1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 1.375e+09
+## attr(,&amp;quot;tzone&amp;quot;)
+## [1] &amp;quot;&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;difftime&lt;/span&gt;(tm1, &lt;span class=&quot;kw&quot;&gt;as.POSIXct&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;1970-01-01 00:00:00&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;tz =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;UTC&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;units =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;secs&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 1.375e+09 secs&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;posixlt&quot;&gt;POSIXlt&lt;/h3&gt;
+&lt;p&gt;This class enables easy extraction of specific componants of a time. (“ct” stand for calender time and “lt” stands for local time. “lt” also helps one remember that POXIXlt objects are &lt;em&gt;lists&lt;/em&gt;.)&lt;/p&gt;
+&lt;p&gt;create a time:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.lt &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.POSIXlt&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-07-24 23:55:26&amp;quot;&lt;/span&gt;)
+tm1.lt&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:26&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;unclass&lt;/span&gt;(tm1.lt)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## $sec
+## [1] 26
+## 
+## $min
+## [1] 55
+## 
+## $hour
+## [1] 23
+## 
+## $mday
+## [1] 24
+## 
+## $mon
+## [1] 6
+## 
+## $year
+## [1] 113
+## 
+## $wday
+## [1] 3
+## 
+## $yday
+## [1] 204
+## 
+## $isdst
+## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;unlist&lt;/span&gt;(tm1.lt)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   sec   min  hour  mday   mon  year  wday  yday isdst 
+##    26    55    23    24     6   113     3   204     1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;extract componants of a time object:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.lt$sec&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 26&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.lt$wday&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;truncate or round off the time:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;trunc&lt;/span&gt;(tm1.lt, &lt;span class=&quot;st&quot;&gt;&amp;quot;days&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;trunc&lt;/span&gt;(tm1.lt, &lt;span class=&quot;st&quot;&gt;&amp;quot;mins&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:00&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;chron&quot;&gt;chron&lt;/h3&gt;
+&lt;p&gt;This class is a good option when you don’t need to deal with timezones. It requires the package &lt;code&gt;chron&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(chron)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Loading required package: chron
+## 
+## Attaching package: &amp;#39;chron&amp;#39;
+## 
+## The following objects are masked from &amp;#39;package:lubridate&amp;#39;:
+## 
+##     days, hours, minutes, seconds, years&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;create some times:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.c &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.chron&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-07-24 23:55:26&amp;quot;&lt;/span&gt;)
+tm1.c&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] (07/24/13 23:55:26)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2.c &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.chron&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;07/25/13 08:32:07&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;%m/%d/%y %H:%M:%S&amp;quot;&lt;/span&gt;)
+tm2.c&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] (07/25/13 08:32:07)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;extract just the date:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;dates&lt;/span&gt;(tm1.c)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##     day  
+## 07/24/13&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;compare times:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2.c &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;tm1.c&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;add days:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.c +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] (08/03/13 23:55:26)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;calculate the differene between times:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2.c -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;tm1.c&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 08:36:41&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;difftime&lt;/span&gt;(tm2.c, tm1.c, &lt;span class=&quot;dt&quot;&gt;units =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;hours&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 8.611 hours&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;does not adjust for daylight savings time:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;as.chron&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-03-10 08:32:07&amp;quot;&lt;/span&gt;) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.chron&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-03-09 23:55:26&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 08:36:41&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Detach the &lt;code&gt;chron&lt;/code&gt; package as it will interfere with &lt;code&gt;lubridate&lt;/code&gt; later in this script.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;detach&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;package:chron&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;unload =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;summary-of-datetime-classes&quot;&gt;Summary of date/time classes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;When you just have dates, use Date.&lt;/li&gt;
+&lt;li&gt;When you have times, POSIXct is usually the best,&lt;/li&gt;
+&lt;li&gt;but POSIXlt enables easy extraction of specific components&lt;/li&gt;
+&lt;li&gt;and chron is simplest when you don’t need to deal with timezones and daylight savings time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;manipulating-times-and-dates&quot;&gt;Manipulating times and dates&lt;/h2&gt;
+&lt;h3 id=&quot;lubridate&quot;&gt;lubridate&lt;/h3&gt;
+&lt;p&gt;This package is a wrapper for POSIXct with more intuitive syntax.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(lubridate)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;create a time:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.lub &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ymd_hms&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-07-24 23:55:26&amp;quot;&lt;/span&gt;)
+tm1.lub&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:26 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2.lub &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mdy_hm&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;07/25/13 08:32&amp;quot;&lt;/span&gt;)
+tm2.lub&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-25 08:32:00 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm3.lub &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ydm_hm&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-25-07 4:00am&amp;quot;&lt;/span&gt;)
+tm3.lub&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-25 04:00:00 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm4.lub &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dmy&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;26072013&amp;quot;&lt;/span&gt;)
+tm4.lub&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-26 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;some manipulations: extract or reassign componants:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;year&lt;/span&gt;(tm1.lub)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 2013&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;week&lt;/span&gt;(tm1.lub)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 30&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;wday&lt;/span&gt;(tm1.lub, &lt;span class=&quot;dt&quot;&gt;label =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] Wed
+## Levels: Sun &amp;lt; Mon &amp;lt; Tues &amp;lt; Wed &amp;lt; Thurs &amp;lt; Fri &amp;lt; Sat&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;hour&lt;/span&gt;(tm1.lub)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 23&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;tz&lt;/span&gt;(tm1.lub)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;second&lt;/span&gt;(tm2.lub) &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;
+tm2.lub&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-25 08:32:07 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;converting to decimal hours can facilitate some types of calculations:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.dechr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;hour&lt;/span&gt;(tm1.lub) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;minute&lt;/span&gt;(tm1.lub)/&lt;span class=&quot;dv&quot;&gt;60&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;second&lt;/span&gt;(tm1.lub)/&lt;span class=&quot;dv&quot;&gt;3600&lt;/span&gt;
+tm1.dechr&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 23.92&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Lubridate distinguishes between four types of objects: instants, intervals, durations, and periods. An instant is a specific moment in time. Intervals, durations, and periods are all ways of recording time spans.&lt;/p&gt;
+&lt;p&gt;Dates and times parsed in lubridate are instants:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;is.instant&lt;/span&gt;(tm1.lub)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;round an instant:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;round_date&lt;/span&gt;(tm1.lub, &lt;span class=&quot;st&quot;&gt;&amp;quot;minute&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:00 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;round_date&lt;/span&gt;(tm1.lub, &lt;span class=&quot;st&quot;&gt;&amp;quot;day&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-25 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;get the current time or date as an instant:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;now&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2014-02-10 18:26:02 PST&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;today&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2014-02-10&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that lubridate uses UTC time zones as default.&lt;/p&gt;
+&lt;p&gt;see an instant in a different time zone:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;with_tz&lt;/span&gt;(tm1.lub, &lt;span class=&quot;st&quot;&gt;&amp;quot;America/Los_Angeles&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 16:55:26 PDT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;change the time zone of an instant (keeping the same clock time):&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;force_tz&lt;/span&gt;(tm1.lub, &lt;span class=&quot;st&quot;&gt;&amp;quot;America/Los_Angeles&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:26 PDT&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;some calculations with instants. Note that the units are seconds:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2.lub -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;tm1.lub&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Time difference of 8.611 hours&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm2.lub &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;tm1.lub&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.lub +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;30&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:55:56 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;An interval is the span of time that occurs between two specified instants.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;in.bed &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.interval&lt;/span&gt;(tm1.lub, tm2.lub)
+in.bed&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 2013-07-24 23:55:26 UTC--2013-07-25 08:32:07 UTC&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check whether a certain instant occured with a specified interval:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm3.lub %within%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;in.bed&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm4.lub %within%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;in.bed&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;determine whether two intervals overlap:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;daylight &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.interval&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;ymd_hm&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-07-25 06:03&amp;quot;&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;ymd_hm&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-07-25 20:23&amp;quot;&lt;/span&gt;))
+daylight&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 2013-07-25 06:03:00 UTC--2013-07-25 20:23:00 UTC&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;int_overlaps&lt;/span&gt;(in.bed, daylight)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A duration is a time span not anchored to specific start and end times. It has an exact, fixed length, and is stored internally in seconds.&lt;/p&gt;
+&lt;p&gt;create some durations:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;ten.minutes &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dminutes&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;)
+ten.minutes&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;600s (~10 minutes)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;five.days &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ddays&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;)
+five.days&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;432000s (~5 days)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;one.year &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dyears&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
+one.year&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;31536000s (~365 days)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;as.duration&lt;/span&gt;(in.bed)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;31001s (~8.61 hours)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;arithmatic with durations:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm1.lub -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;ten.minutes&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-07-24 23:45:26 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;five.days +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dhours&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;475200s (~5.5 days)&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;ten.minutes/&lt;span class=&quot;kw&quot;&gt;as.duration&lt;/span&gt;(in.bed)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 0.01935&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A period is a time span not anchored to specific start and end times, and measured in units larger than seconds with inexact lengths. create some periods:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;three.weeks &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;weeks&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)
+three.weeks&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;21d 0H 0M 0S&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;four.hours &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;hours&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)
+four.hours&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;4H 0M 0S&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;arithmatic with periods:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;tm4.lub +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;three.weeks&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;2013-08-16 UTC&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sabbatical &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;months&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;days&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;)
+sabbatical&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] &amp;quot;6m 12d 0H 0M 0S&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;three.weeks/sabbatical&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## estimate only: convert to intervals for accuracy
+
+## [1] 0.108&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;calculating-mean-clock-times&quot;&gt;Calculating mean clock times&lt;/h3&gt;
+&lt;p&gt;Say we have a vector of clock times in decimal hours, and we want to calculate the mean clock time.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;bed.times &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;23.9&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;22.7&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;23.3&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;1.2&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;23.6&lt;/span&gt;)
+bed.times&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 23.9  0.5 22.7  0.1 23.3  1.2 23.6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(bed.times)  &lt;span class=&quot;co&quot;&gt;# doesn&amp;#39;t work&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 13.61&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The clock has a circular scale, which ends where it begins, so we need to use circular statistics. (For more info on circular statistics see &lt;a href=&quot;http://en.wikipedia.org/wiki/Mean_of_circular_quantities&quot;&gt;http://en.wikipedia.org/wiki/Mean_of_circular_quantities&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;Get the package, psych.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(psych)
+&lt;span class=&quot;kw&quot;&gt;circadian.mean&lt;/span&gt;(bed.times)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 23.9&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;an-example-of-using-times-and-dates-in-a-data-frame&quot;&gt;An example of using times and dates in a data frame&lt;/h3&gt;
+&lt;p&gt;Here is a data frame with a week of hypothetical times of going to bed and getting up for one person, and the total amount of time sleep time obtained each night according to a sleep monitoring device.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleep &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;bed.time =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;ymd_hms&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-01 23:05:24&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-02 22:51:09&amp;quot;&lt;/span&gt;, 
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-04 00:09:16&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-04 23:43:31&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-06 00:17:41&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-06 22:42:27&amp;quot;&lt;/span&gt;, 
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-08 00:22:27&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;rise.time =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;ymd_hms&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-02 08:03:29&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-03 07:34:21&amp;quot;&lt;/span&gt;, 
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-04 07:45:06&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-05 07:07:17&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-06 08:17:13&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-07 06:52:11&amp;quot;&lt;/span&gt;, 
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;2013-09-08 07:15:19&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;sleep.time =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;dhours&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;6.74&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;7.92&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;7.01&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;6.23&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;6.34&lt;/span&gt;, 
+    &lt;span class=&quot;fl&quot;&gt;7.42&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;6.45&lt;/span&gt;)))
+sleep&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##              bed.time           rise.time           sleep.time
+## 1 2013-09-01 23:05:24 2013-09-02 08:03:29 24264s (~6.74 hours)
+## 2 2013-09-02 22:51:09 2013-09-03 07:34:21 28512s (~7.92 hours)
+## 3 2013-09-04 00:09:16 2013-09-04 07:45:06 25236s (~7.01 hours)
+## 4 2013-09-04 23:43:31 2013-09-05 07:07:17 22428s (~6.23 hours)
+## 5 2013-09-06 00:17:41 2013-09-06 08:17:13 22824s (~6.34 hours)
+## 6 2013-09-06 22:42:27 2013-09-07 06:52:11 26712s (~7.42 hours)
+## 7 2013-09-08 00:22:27 2013-09-08 07:15:19 23220s (~6.45 hours)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We want to calculate sleep efficiency, the percent of time in bed spent asleep.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleep$efficiency &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;round&lt;/span&gt;(sleep$sleep.time/(sleep$rise.time -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sleep$bed.time) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
+&lt;span class=&quot;st&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
+sleep&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##              bed.time           rise.time           sleep.time efficiency
+## 1 2013-09-01 23:05:24 2013-09-02 08:03:29 24264s (~6.74 hours)       75.2
+## 2 2013-09-02 22:51:09 2013-09-03 07:34:21 28512s (~7.92 hours)       90.8
+## 3 2013-09-04 00:09:16 2013-09-04 07:45:06 25236s (~7.01 hours)       92.3
+## 4 2013-09-04 23:43:31 2013-09-05 07:07:17 22428s (~6.23 hours)       84.2
+## 5 2013-09-06 00:17:41 2013-09-06 08:17:13 22824s (~6.34 hours)       79.3
+## 6 2013-09-06 22:42:27 2013-09-07 06:52:11 26712s (~7.42 hours)       90.9
+## 7 2013-09-08 00:22:27 2013-09-08 07:15:19 23220s (~6.45 hours)       93.7&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now let’s calculate the mean of each column:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;colMeans&lt;/span&gt;(sleep)  &lt;span class=&quot;co&quot;&gt;# doesn&amp;#39;t work&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Error: &amp;#39;x&amp;#39; must be numeric&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;circadian.mean&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;hour&lt;/span&gt;(sleep$bed.time) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;minute&lt;/span&gt;(sleep$bed.time)/&lt;span class=&quot;dv&quot;&gt;60&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;second&lt;/span&gt;(sleep$bed.time)/&lt;span class=&quot;dv&quot;&gt;3600&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 23.6&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;circadian.mean&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;hour&lt;/span&gt;(sleep$rise.time) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;minute&lt;/span&gt;(sleep$rise.time)/&lt;span class=&quot;dv&quot;&gt;60&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;second&lt;/span&gt;(sleep$rise.time)/&lt;span class=&quot;dv&quot;&gt;3600&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 7.559&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(sleep$sleep.time)/&lt;span class=&quot;dv&quot;&gt;3600&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 6.873&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(sleep$efficiency)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 86.63&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also plot sleep duration and efficiency across the week:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;par&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;mar =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;))
+&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;round_date&lt;/span&gt;(sleep$rise.time, &lt;span class=&quot;st&quot;&gt;&amp;quot;day&amp;quot;&lt;/span&gt;), sleep$efficiency, &lt;span class=&quot;dt&quot;&gt;type =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;o&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;, 
+    &lt;span class=&quot;dt&quot;&gt;xlab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Morning&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ylab =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;NA&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;par&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;new =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;round_date&lt;/span&gt;(sleep$rise.time, &lt;span class=&quot;st&quot;&gt;&amp;quot;day&amp;quot;&lt;/span&gt;), sleep$sleep.time/&lt;span class=&quot;dv&quot;&gt;3600&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;type =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;o&amp;quot;&lt;/span&gt;, 
+    &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;axes =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ylab =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;NA&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;xlab =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;NA&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;axis&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;line =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Sleep duration&amp;quot;&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;line =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Sleep efficiency&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/unnamed-chunk-50.png&quot; alt=&quot;plot of chunk unnamed-chunk-50&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-50&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id=&quot;more-resources-on-times-and-dates&quot;&gt;More resources on times and dates&lt;/h2&gt;
+&lt;p&gt;date and time tutorials for R:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.stat.berkeley.edu/classes/s133/dates.html&quot;&gt;http://www.stat.berkeley.edu/classes/s133/dates.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/dates.cfm&quot;&gt;http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/dates.cfm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikibooks.org/wiki/R_Programming/Times_and_Dates&quot;&gt;http://en.wikibooks.org/wiki/R_Programming/Times_and_Dates&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;lubridate:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jstatsoft.org/v40/i03/paper&quot;&gt;http://www.jstatsoft.org/v40/i03/paper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;time zone and daylight saving time info:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.timeanddate.com/&quot;&gt;http://www.timeanddate.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&quot;&gt;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.twinsun.com/tz/tz-link.htm&quot;&gt;http://www.twinsun.com/tz/tz-link.htm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Also see the R help file at ?Sys.timezone&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>Ryan Peek on Creating Shiny Apps</title>
@@ -337,186 +730,6 @@ optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG�
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Editor’s Note: &lt;em&gt;At our last &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting of the quarter, &lt;strong&gt;&lt;a href=&quot;https://sihlab.wordpress.com/david-j-harris/&quot;&gt;Dave Harris&lt;/a&gt;&lt;/strong&gt; gave a talk on how to use the &lt;code&gt;bbmle&lt;/code&gt; package to fit mechanistic models to ecological data. Here are his script and notes (helpfully generated with the the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt;&lt;/em&gt;).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# Load data&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(emdbook)
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(bbmle)
-&lt;span class=&quot;kw&quot;&gt;data&lt;/span&gt;(ReedfrogFuncresp)
-&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Statistical models are stories about how the data came to be. The deterministic part of the story is a (slightly mangled) version of what you’d expect if the predators followed a Type II functional response:&lt;/p&gt;
-&lt;p&gt;Holling’s Disk equation for Type II Functional Response&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;a&lt;/code&gt; is attack rate&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;h&lt;/code&gt; is handling time&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;disk =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(N, a, h) {
-    N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;h)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can plot different values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; to see what kinds of data this model would generate &lt;em&gt;on average:&lt;/em&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 3, h = 0.05 (black) rises too quickly, saturates too quickly&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.05&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 2, h = 0.02 (red) still rises too quickly&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 0.5, h = 0.02 (blue) looks like a plausible data-generating process&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-3.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The blue curve looks plausible, but is it optimal? Does it tell the best possible story about how the data could have been generated?&lt;/p&gt;
-&lt;p&gt;In order to tell if it’s optimal, we need to pick something to optimize. Usually, that will be the log-likelihood–i.e. the log-probability that the data would have come out this way if the model were true. Models with higher probabilities of generating the data we observed therefore have higher likelihoods. For various arbitrary reasons, it’s common to minimize the negative log-likelihood rather than maximizing the positive log-likelihood. So let’s write a function that says what the log-likelihood is for a given pair of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The log-likelihood is the sum of log-probabilities from each data point. The log-probability for a data point is (in this contrived example) drawn from a binomial (“coin flip”) distribution, whose mean is determined by the disk equation.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;NLL =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
-    -&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dbinom&lt;/span&gt;(ReedfrogFuncresp$Killed, &lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;prob =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(ReedfrogFuncresp$Initial, 
-        a, h)/ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;))
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can optimize the model with the mle2 function. It finds the lowest value for the negative log-likelihood (i.e. the combination of parameters with the highest positive likelihood, or the maximum likelihood estimate).&lt;/p&gt;
-&lt;p&gt;The NLL function we defined above requires starting values for &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;. Let’s naively start them at 1, 1&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You’ll probably get lots of warnings about NaNs. That’s just the optimization procedure complaining because it occasionally tries something impossible (such as a set of parameters that would generate a negative probability of being eaten). In general, these warnings are nothing to worry about, since the optimization procedure will just try better values. But it’s worth checking to make sure that there are no other warnings or problems by calling &lt;code&gt;warnings()&lt;/code&gt; after you fit the model.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# print out the results&lt;/span&gt;
-fit&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Call:
-## mle2(minuslogl = NLL, start = list(a = 1, h = 1))
-## 
-## Coefficients:
-##       a       h 
-## 0.52652 0.01666 
-## 
-## Log-likelihood: -46.72&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-&lt;span class=&quot;co&quot;&gt;# a bit more information:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Length  Class   Mode 
-##      1   mle2     S4&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here’s the curve associated with the most likely combination of a and &lt;code&gt;h&lt;/code&gt; (thick black line).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;h&amp;quot;&lt;/span&gt;]), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, 
-    &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The rethinking package has a few convenient functions for summarizing and visualizing the output of an mle2 object. It’s not on CRAN, but you can get it from the author’s website or &lt;a href=&quot;https://github.com/rmcelreath/rethinking&quot;&gt;from github.&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(rethinking)
-&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
-## a     0.53 0.07 0.39  0.67
-## h     0.02 0.00 0.01  0.03&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can also visualize a distribution of estimates that are reasonably consistent with the observed data using the sample.naive.posterior function:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;sample.naive.posterior&lt;/span&gt;(fit), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;)
-
-&lt;span class=&quot;co&quot;&gt;# Add a red dot for the maximum likelihood estimate:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit))), &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)
-
-&lt;span class=&quot;co&quot;&gt;# Add a blue dot for our earlier guess:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-9.png&quot; /&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;h3 id=&quot;a-big-digression-about-confidence-intervals&quot;&gt;A Big digression about confidence intervals&lt;/h3&gt;
-&lt;p&gt;Our earlier guess falls inside the cloud of points, so even though it’s not as good as the red point, it’s still plausibly consistent with the data.&lt;/p&gt;
-&lt;p&gt;Note that the ranges of plausible estimates for the two coefficients are correlated: This makes sense if you think about it: if the attack rate is high, then there needs to be a large handling time between attacks or else too many frogs would get eaten.&lt;/p&gt;
-&lt;p&gt;Where did this distribution of points come from? &lt;code&gt;mle2&lt;/code&gt; objects, like many models in R, have a variance/covariance matrix that can be extracted with the vcov() function.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;vcov&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##           a         h
-## a 0.0050584 2.859e-04
-## h 0.0002859 2.384e-05&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The variance terms (along the diagonal) describe mle2’s uncertainty about the values. The covariance terms (other entries in the matrix) describe how uncertainty in one coefficient relates to uncertainty in the other coefficient.&lt;/p&gt;
-&lt;p&gt;This graph gives an example:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; -&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ylab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;likelihood&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;xlab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;estimate&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-11.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The black curve shows a model with low variance for its estimate. This means that the likelihood would fall off quickly if we tried a bad estimate, and we can be reasonably sure that the data was generated by a value in a fairly narrow range. The model associated with the red curve is much less certain: the parameter could be very different from the optimal value and the likelihood wouldn’t drop much.&lt;/p&gt;
-&lt;p&gt;Here’s another way to visualize the decline in likelihood as you move away from the best estimate:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;profile&lt;/span&gt;(fit))&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-12.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since &lt;code&gt;h&lt;/code&gt; is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.&lt;/p&gt;
-&lt;h4 id=&quot;a-somewhat-related-digression&quot;&gt;A somewhat-related digression:&lt;/h4&gt;
-&lt;p&gt;Where does the vcov matrix come from? From a matrix called the Hessian. It describes the curvature of the likelihood surface, i.e. how quickly the log-likelihood falls off as you move away from the optimum.&lt;/p&gt;
-&lt;p&gt;Sometimes the Hessian is hard to estimate and causes problems, so we can run the model without it:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit.without.hessian =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;skip.hessian =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When there’s no Hessian, there aren’t any confidence intervals, though.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit.without.hessian)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
-## a     0.53   NA   NA    NA
-## h     0.02   NA   NA    NA&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(End digression)&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3 id=&quot;more-about-mle2&quot;&gt;More about &lt;code&gt;mle2&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Under the hood, &lt;code&gt;mle2&lt;/code&gt; uses a function called optim:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;(optim)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It’s worth noting that most of the optimization methods used in optim (and therefore in &lt;code&gt;mle2&lt;/code&gt;) only do a local optimization. So if your likelihood surface has multiple peaks, you may not find the right one.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mle2&lt;/code&gt; also has a convenient formula inferface that can eliminate the need to write a whole likelihood function from scratch. Let’s take a look with some data found in ?mle2&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;
-y =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;26&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;17&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;13&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;)
-d =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here, we’re fitting a Poisson model that depends on an intercept term plus a linear term. The &lt;code&gt;exp()&lt;/code&gt; is mainly there to make sure that the value of lambda doesn’t go negative, which isn’t allowed (it would imply a negative number of occurrences for our outcome of interest).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit0 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(y ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dpois&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lambda =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(intercept +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;slope *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)), &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;intercept =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(y), 
-    &lt;span class=&quot;dt&quot;&gt;slope =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; d)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that mle2 finds its values for x and y from the &lt;code&gt;data&lt;/code&gt; term and that we’re giving it starting values for the slope and intercept. In general, it’s useful to start the intercept at the mean value of y and the slope terms at 0, but it often won’t matter much.&lt;/p&gt;
-&lt;h3 id=&quot;prior-information&quot;&gt;Prior information&lt;/h3&gt;
-&lt;p&gt;Recall that our estimates of a and &lt;code&gt;h&lt;/code&gt; are positively correlated: the data could be consistent with either a high attack rate and a high handling time OR with a low attack rate and a low handling time.&lt;/p&gt;
-&lt;p&gt;Suppose we have prior information about tadpole/dragonfly biology that suggests that these parameters should be on the low end. We can encode this prior information as a prior distribution on the parameters. Then mle2 won’t climb the likelihood surface. It will climb the surface of the Bayesian posterior (or if you’re frequentist, it will do a penalized or constrained optimization of the likelihood).&lt;/p&gt;
-&lt;p&gt;Here’s a negative log posterior that tries to keep the values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; small while still being consistent with the data:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;negative.log.posterior =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
-    &lt;span class=&quot;kw&quot;&gt;NLL&lt;/span&gt;(a, h) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(a, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(h, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We optimize it exactly as before&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(negative.log.posterior, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Sure enough, the coefficients are a bit smaller&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)  &lt;span class=&quot;co&quot;&gt;# MLE&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit2)  &lt;span class=&quot;co&quot;&gt;# MAP estimate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.47931 0.01375&lt;/code&gt;&lt;/pre&gt;</content>
- </entry>
- 
- <entry>
-   <title>Dave Harris on Maximum Likelihood Estimation</title>
-   <link href="http://www.noamross.net/blog/2013/6/17/harrisbbmle.html"/>
-   <updated>2013-06-17T15:11:17-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/6/17/harrisbbmle</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
 &lt;/head&gt; &lt;p&gt;&lt;em&gt;At our last &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting of the quarter, &lt;a href=&quot;https://sihlab.wordpress.com/david-j-harris/&quot;&gt;Dave Harris&lt;/a&gt; gave a talk on how to use the &lt;code&gt;bbmle&lt;/code&gt; package to fit mechanistic models to ecological data. Here’s his script, which I ran throgh the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt;:&lt;/em&gt;&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# Load data&lt;/span&gt;
 &lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(emdbook)&lt;/code&gt;&lt;/pre&gt;
@@ -645,6 +858,186 @@ fit&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;profile&lt;/span&gt;(fit))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h12.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since &lt;code&gt;h&lt;/code&gt; is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.&lt;/p&gt;
+&lt;h4 id=&quot;a-somewhat-related-digression&quot;&gt;A somewhat-related digression:&lt;/h4&gt;
+&lt;p&gt;Where does the vcov matrix come from? From a matrix called the Hessian. It describes the curvature of the likelihood surface, i.e. how quickly the log-likelihood falls off as you move away from the optimum.&lt;/p&gt;
+&lt;p&gt;Sometimes the Hessian is hard to estimate and causes problems, so we can run the model without it:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit.without.hessian =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;skip.hessian =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When there’s no Hessian, there aren’t any confidence intervals, though.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit.without.hessian)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
+## a     0.53   NA   NA    NA
+## h     0.02   NA   NA    NA&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;(End digression)&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;more-about-mle2&quot;&gt;More about &lt;code&gt;mle2&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Under the hood, &lt;code&gt;mle2&lt;/code&gt; uses a function called optim:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;(optim)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It’s worth noting that most of the optimization methods used in optim (and therefore in &lt;code&gt;mle2&lt;/code&gt;) only do a local optimization. So if your likelihood surface has multiple peaks, you may not find the right one.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;mle2&lt;/code&gt; also has a convenient formula inferface that can eliminate the need to write a whole likelihood function from scratch. Let’s take a look with some data found in ?mle2&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;
+y =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;26&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;17&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;13&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;)
+d =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(x, y)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, we’re fitting a Poisson model that depends on an intercept term plus a linear term. The &lt;code&gt;exp()&lt;/code&gt; is mainly there to make sure that the value of lambda doesn’t go negative, which isn’t allowed (it would imply a negative number of occurrences for our outcome of interest).&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit0 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(y ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dpois&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lambda =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(intercept +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;slope *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)), &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;intercept =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(y), 
+    &lt;span class=&quot;dt&quot;&gt;slope =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; d)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that mle2 finds its values for x and y from the &lt;code&gt;data&lt;/code&gt; term and that we’re giving it starting values for the slope and intercept. In general, it’s useful to start the intercept at the mean value of y and the slope terms at 0, but it often won’t matter much.&lt;/p&gt;
+&lt;h3 id=&quot;prior-information&quot;&gt;Prior information&lt;/h3&gt;
+&lt;p&gt;Recall that our estimates of a and &lt;code&gt;h&lt;/code&gt; are positively correlated: the data could be consistent with either a high attack rate and a high handling time OR with a low attack rate and a low handling time.&lt;/p&gt;
+&lt;p&gt;Suppose we have prior information about tadpole/dragonfly biology that suggests that these parameters should be on the low end. We can encode this prior information as a prior distribution on the parameters. Then mle2 won’t climb the likelihood surface. It will climb the surface of the Bayesian posterior (or if you’re frequentist, it will do a penalized or constrained optimization of the likelihood).&lt;/p&gt;
+&lt;p&gt;Here’s a negative log posterior that tries to keep the values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; small while still being consistent with the data:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;negative.log.posterior =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
+    &lt;span class=&quot;kw&quot;&gt;NLL&lt;/span&gt;(a, h) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(a, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(h, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We optimize it exactly as before&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(negative.log.posterior, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Sure enough, the coefficients are a bit smaller&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)  &lt;span class=&quot;co&quot;&gt;# MLE&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
+## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit2)  &lt;span class=&quot;co&quot;&gt;# MAP estimate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
+## 0.47931 0.01375&lt;/code&gt;&lt;/pre&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Dave Harris on Maximum Likelihood Estimation</title>
+   <link href="http://www.noamross.net/blog/2013/6/17/harrisbbmle.html"/>
+   <updated>2013-06-17T15:11:17-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2013/6/17/harrisbbmle</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Editor’s Note: &lt;em&gt;At our last &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting of the quarter, &lt;strong&gt;&lt;a href=&quot;https://sihlab.wordpress.com/david-j-harris/&quot;&gt;Dave Harris&lt;/a&gt;&lt;/strong&gt; gave a talk on how to use the &lt;code&gt;bbmle&lt;/code&gt; package to fit mechanistic models to ecological data. Here are his script and notes (helpfully generated with the the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt;&lt;/em&gt;).&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# Load data&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(emdbook)
+&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(bbmle)
+&lt;span class=&quot;kw&quot;&gt;data&lt;/span&gt;(ReedfrogFuncresp)
+&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Statistical models are stories about how the data came to be. The deterministic part of the story is a (slightly mangled) version of what you’d expect if the predators followed a Type II functional response:&lt;/p&gt;
+&lt;p&gt;Holling’s Disk equation for Type II Functional Response&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;a&lt;/code&gt; is attack rate&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;h&lt;/code&gt; is handling time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;disk =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(N, a, h) {
+    N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;h)
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can plot different values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; to see what kinds of data this model would generate &lt;em&gt;on average:&lt;/em&gt;&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
+&lt;span class=&quot;co&quot;&gt;# a = 3, h = 0.05 (black) rises too quickly, saturates too quickly&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.05&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)
+&lt;span class=&quot;co&quot;&gt;# a = 2, h = 0.02 (red) still rises too quickly&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
+&lt;span class=&quot;co&quot;&gt;# a = 0.5, h = 0.02 (blue) looks like a plausible data-generating process&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-3.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;The blue curve looks plausible, but is it optimal? Does it tell the best possible story about how the data could have been generated?&lt;/p&gt;
+&lt;p&gt;In order to tell if it’s optimal, we need to pick something to optimize. Usually, that will be the log-likelihood–i.e. the log-probability that the data would have come out this way if the model were true. Models with higher probabilities of generating the data we observed therefore have higher likelihoods. For various arbitrary reasons, it’s common to minimize the negative log-likelihood rather than maximizing the positive log-likelihood. So let’s write a function that says what the log-likelihood is for a given pair of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The log-likelihood is the sum of log-probabilities from each data point. The log-probability for a data point is (in this contrived example) drawn from a binomial (“coin flip”) distribution, whose mean is determined by the disk equation.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;NLL =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
+    -&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dbinom&lt;/span&gt;(ReedfrogFuncresp$Killed, &lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;prob =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(ReedfrogFuncresp$Initial, 
+        a, h)/ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;))
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can optimize the model with the mle2 function. It finds the lowest value for the negative log-likelihood (i.e. the combination of parameters with the highest positive likelihood, or the maximum likelihood estimate).&lt;/p&gt;
+&lt;p&gt;The NLL function we defined above requires starting values for &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;. Let’s naively start them at 1, 1&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
+## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You’ll probably get lots of warnings about NaNs. That’s just the optimization procedure complaining because it occasionally tries something impossible (such as a set of parameters that would generate a negative probability of being eaten). In general, these warnings are nothing to worry about, since the optimization procedure will just try better values. But it’s worth checking to make sure that there are no other warnings or problems by calling &lt;code&gt;warnings()&lt;/code&gt; after you fit the model.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# print out the results&lt;/span&gt;
+fit&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
+## Call:
+## mle2(minuslogl = NLL, start = list(a = 1, h = 1))
+## 
+## Coefficients:
+##       a       h 
+## 0.52652 0.01666 
+## 
+## Log-likelihood: -46.72&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
+&lt;span class=&quot;co&quot;&gt;# a bit more information:&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Length  Class   Mode 
+##      1   mle2     S4&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
+## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here’s the curve associated with the most likely combination of a and &lt;code&gt;h&lt;/code&gt; (thick black line).&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;h&amp;quot;&lt;/span&gt;]), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, 
+    &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;The rethinking package has a few convenient functions for summarizing and visualizing the output of an mle2 object. It’s not on CRAN, but you can get it from the author’s website or &lt;a href=&quot;https://github.com/rmcelreath/rethinking&quot;&gt;from github.&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(rethinking)
+&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
+## a     0.53 0.07 0.39  0.67
+## h     0.02 0.00 0.01  0.03&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We can also visualize a distribution of estimates that are reasonably consistent with the observed data using the sample.naive.posterior function:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;sample.naive.posterior&lt;/span&gt;(fit), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;)
+
+&lt;span class=&quot;co&quot;&gt;# Add a red dot for the maximum likelihood estimate:&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit))), &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)
+
+&lt;span class=&quot;co&quot;&gt;# Add a blue dot for our earlier guess:&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-9.png&quot; /&gt;
+&lt;/div&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;a-big-digression-about-confidence-intervals&quot;&gt;A Big digression about confidence intervals&lt;/h3&gt;
+&lt;p&gt;Our earlier guess falls inside the cloud of points, so even though it’s not as good as the red point, it’s still plausibly consistent with the data.&lt;/p&gt;
+&lt;p&gt;Note that the ranges of plausible estimates for the two coefficients are correlated: This makes sense if you think about it: if the attack rate is high, then there needs to be a large handling time between attacks or else too many frogs would get eaten.&lt;/p&gt;
+&lt;p&gt;Where did this distribution of points come from? &lt;code&gt;mle2&lt;/code&gt; objects, like many models in R, have a variance/covariance matrix that can be extracted with the vcov() function.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;vcov&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##           a         h
+## a 0.0050584 2.859e-04
+## h 0.0002859 2.384e-05&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The variance terms (along the diagonal) describe mle2’s uncertainty about the values. The covariance terms (other entries in the matrix) describe how uncertainty in one coefficient relates to uncertainty in the other coefficient.&lt;/p&gt;
+&lt;p&gt;This graph gives an example:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; -&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ylab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;likelihood&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;xlab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;estimate&amp;quot;&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-11.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;The black curve shows a model with low variance for its estimate. This means that the likelihood would fall off quickly if we tried a bad estimate, and we can be reasonably sure that the data was generated by a value in a fairly narrow range. The model associated with the red curve is much less certain: the parameter could be very different from the optimal value and the likelihood wouldn’t drop much.&lt;/p&gt;
+&lt;p&gt;Here’s another way to visualize the decline in likelihood as you move away from the best estimate:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;profile&lt;/span&gt;(fit))&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-12.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since &lt;code&gt;h&lt;/code&gt; is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.&lt;/p&gt;
 &lt;h4 id=&quot;a-somewhat-related-digression&quot;&gt;A somewhat-related digression:&lt;/h4&gt;
@@ -1151,330 +1544,6 @@ Percent of run time represented:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&
 
   &lt;span class=&quot;kw&quot;&gt;invisible&lt;/span&gt;(stacktable)
 }&lt;/code&gt;&lt;/pre&gt;</content>
- </entry>
- 
- <entry>
-   <title>FasteR! HigheR! StrongeR! - A Guide to Speeding Up R Code for Busy People</title>
-   <link href="http://www.noamross.net/blog/2013/4/25/faster-talk.html"/>
-   <updated>2013-04-25T14:49:34-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/4/25/faster-talk</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;This is an overview of tools for speeding up your R code that I wrote for the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&quot;first-ask-why&quot;&gt;First, Ask “Why?”&lt;/h2&gt;
-&lt;p&gt;It’s customary to &lt;a href=&quot;http://en.wikiquote.org/wiki/Donald_Knuth&quot;&gt;quote Donald Knuth&lt;/a&gt; at this point, but instead I’ll quote my twitter buddy Ted Hart to illustrate a point:&lt;/p&gt;
-&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p&gt;
-I’m just going to say it.I like for loops in &lt;a href=&quot;https://twitter.com/search/%23Rstats&quot;&gt;#Rstats&lt;/a&gt;, makes my code readable.All you [a-z]*ply snobs can shove it!
-&lt;/p&gt;
-— Ted Hart (&lt;span class=&quot;citation&quot;&gt;@DistribEcology&lt;/span&gt;) &lt;a href=&quot;https://twitter.com/DistribEcology/status/311581025870426113&quot;&gt;March 12, 2013&lt;/a&gt;
-&lt;/blockquote&gt;
-&lt;script async src=&quot;http://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Code optimization is a matter is a matter of personal taste and &lt;em&gt;priorities&lt;/em&gt;. There may be some ways of writing code that are better or worse, and there are definitely ways that will make it run faster, but before you dive into optimization, you should ask yourself these questions:&lt;/p&gt;
-&lt;h4 id=&quot;do-you-want-your-code-to-be-readable&quot;&gt;(1) Do you want your code to be &lt;em&gt;readable&lt;/em&gt;?&lt;/h4&gt;
-&lt;p&gt;If you need to explain your code to yourself or others, or you will need to return to it in a few months time and understand what you wrote, it’s important that you write it in a way that is easy to understand. Comments, indenting, and formatting go a long way, but your choices make a difference, as Ted notes above.&lt;/p&gt;
-&lt;p&gt;Some optimal code can be hard to read. For instance, and curly braces can be faster than parentheses. But which is more intuitive to read?&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h4 id=&quot;do-you-want-your-code-to-be-sharable1&quot;&gt;(2) Do you want your code to be &lt;em&gt;sharable&lt;/em&gt;?&lt;a href=&quot;#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/h4&gt;
-&lt;p&gt;Most of the considerations of (1) apply here, but they have to be balanced with the fact that, if your code is painfully slow, others are not going to want or have time to use it.&lt;/p&gt;
-&lt;p&gt;Also, some optimization strategies don’t transfer well. If you use parallel processing, it won’t be usable to others who don’t have multicore computers. Some tricks for speeding up code will work well as a quick-and-dirty fix, but are likely to break in new versions of R or are disallowed from CRAN packages altogether.&lt;/p&gt;
-&lt;h4 id=&quot;do-you-have-other-shit-to-do&quot;&gt;(3) Do you have other shit to do?&lt;/h4&gt;
-&lt;p&gt;No? Please contact me and I’ll help you with that. Yes? You are among the 90% or R users who’s first priority is not computer programming. The time spent optimizing code is often longer than the computing time actually saved. Use the simple solutions and you can get on with your research/life.&lt;/p&gt;
-&lt;p&gt;With these in mind, I’ll go through some strategies for speeding up your R computations. Because I’m especially mindful of consideration #3, this guide is somewhat in the reverse of traditional tutorials on this topic. I’m going to talk about the blunt instruments first, then get into the idiosyncrasies of code.&lt;/p&gt;
-&lt;h2 id=&quot;get-a-bigger-computer&quot;&gt;Get a Bigger Computer&lt;/h2&gt;
-&lt;p&gt;If you have a task that only needs to be accomplished a few times, you might be best off finding more resources rather than re-writing your code. You have an Amazon.com account, right? Amazon rents virtual machines on the web. It’s so easy to set one up that I accidentally started one today without meaning to while searching for the link. The cost of computing power roughly equivalent to my 2011 MacBook Pro is &lt;em&gt;13¢ per hour&lt;/em&gt;. You can have 100 MacBooks of computing power for &lt;a href=&quot;http://greentheo.scroggles.com/2009/11/13/amazon-ec2-providing-100-macbooks-of-power-for-minimum-wage/&quot;&gt;less than minimum wage&lt;/a&gt;.&lt;a href=&quot;#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt; These virtual machines can also have much more memory than your laptop or desktop.&lt;/p&gt;
-&lt;p&gt;Sometimes you don’t even need more computing power, you just need to run R on some other computer without tying up your machine for hours. In any case, consider this option. If you just need to run a task once, and you think you are going to have to spend more than an hour rewriting your code, you might as well use that hour getting a virtual machine set up and never worry about computing power again.&lt;/p&gt;
-&lt;p&gt;Cloud resources like Amazon aren’t the only way to get more computer power. If you’re at a university, there are probably high-power computing clusters available to you. Depending on your particular set-up, you may need to to run your program in &lt;a href=&quot;http://stat.ethz.ch/R-manual/R-patched/library/utils/html/BATCH.html&quot;&gt;batch mode&lt;/a&gt; to use such clusters. Personally, I think that a cloud-based service like Amazon avoids administrative hassle if you are on a short deadline or have a one-off task, but if you need lots of power regularly, getting in on a local cluster is worthwhile.&lt;/p&gt;
-&lt;p&gt;The most user-friendly way to use cloud computing is to set up a server to run RStudio, which can then be accessed by a web browser and works just like it would on your desktop. Bioconductor has a &lt;a href=&quot;http://bioconductor.org/help/bioconductor-cloud-ami/&quot;&gt;step by step guide&lt;/a&gt; to starting an Amazon Web Instance that they’ve pre-configured this way. There are a couple of other useful guides to doing the same thing by &lt;a href=&quot;http://www.louisaslett.com/RStudio_AMI/&quot;&gt;Louis Aslett (including a video)&lt;/a&gt; and &lt;a href=&quot;http://inundata.org/2011/03/30/r-ec2-rstudio-server/&quot;&gt;Karthik Ram&lt;/a&gt;. Read all of these and you should be able to set yourself up in an hour or two.&lt;/p&gt;
-&lt;p&gt;A fancier alternative is the experimental &lt;a href=&quot;https://code.google.com/p/segue/&quot;&gt;Segue package&lt;/a&gt;, which provides an &lt;code&gt;apply()&lt;/code&gt; function variant, &lt;code&gt;emrapply()&lt;/code&gt;, that sends commands from your local R session to Amazon servers and returns the results. An introductory guide is &lt;a href=&quot;http://jeffreybreen.wordpress.com/2011/01/10/segue-r-to-amazon-elastic-mapreduce-hadoop/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Of course, if you are writing software that you expect others to run on normal laptop and desktop computers, you’ll want to make sure it does so at a reasonable speed. In this case, running your software in the cloud may not make sense.&lt;/p&gt;
-&lt;h2 id=&quot;parallel-processing&quot;&gt;Parallel Processing&lt;/h2&gt;
-&lt;p&gt;Parallel processing used to be a very fancy thing, but with recent R packages, it can be implemented with very little programming time. Parallel processing breaks up your task, splits it among multiple processors, and puts the components back together. This is very useful and easy if you have a task that &lt;em&gt;can&lt;/em&gt; be split up, especially without the different parts needing to “talk to” each other.&lt;/p&gt;
-&lt;p&gt;On your typical laptop or desktop, implementing parallel processing in your R code might speed up your program by a factor of 2 to 4. However, if you have a big machine, or you followed my advice in the last section, you can take advantage of large computers with many CPUs or “cores”.&lt;/p&gt;
-&lt;p&gt;I’m not going to get into the nitty gritty of setting up parallel processes and the various packages that do so e.g. &lt;code&gt;multicore&lt;/code&gt;, &lt;code&gt;snow&lt;/code&gt;,&lt;code&gt;snowfall&lt;/code&gt;, &lt;code&gt;doParallel&lt;/code&gt;,&lt;code&gt;foreach&lt;/code&gt;, &lt;code&gt;plyr&lt;/code&gt;,…) because &lt;a href=&quot;http://www.linkedin.com/pub/jacob-teter/9/7b2/684&quot;&gt;Jacob Teter&lt;/a&gt; will give a presentation on that at &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;D-RUG&lt;/a&gt; next week. Instead I’ll discuss a bit about &lt;em&gt;when&lt;/em&gt; this approach might be appropriate.&lt;/p&gt;
-&lt;p&gt;Essentially, parallel processing works best when you have a task that has to be completed many times, but each repeat is independent. For instance, if you are repreating a simulation, and in each case are drawing new parameters from a distribution, that is an easily parallelizable task. However, if you are simulating population dynamics, in which each time step you need the outputs of the previous time steps, than you can’t split up each time step into parallel components.&lt;/p&gt;
-&lt;p&gt;A good rule of thumb is that if you can wrap your task in an &lt;code&gt;apply&lt;/code&gt; function or one of its variants, it’s a good option for parallelization. In fact most implementations of parallel processing in R are versions of &lt;code&gt;apply&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Not every task runs better in parallel. When you run a task in parallel, your computer “dispatches” each task to a CPU core. This dispatching adds computational overhead. So, it’s usually best to try to minimize the number of dispatches. In most cases you are going to have a small number of computing cores relative to your tasks. A powerful laptop or desktop will have 2, 4, or 8 cores, and even the most powerful Amazon virtual machine has 88.&lt;/p&gt;
-&lt;p&gt;The following would be a poor use of parallel computing:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;aaply&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10000&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, function(x) &lt;span class=&quot;kw&quot;&gt;rnorm&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;mean=&lt;/span&gt;x), &lt;span class=&quot;dt&quot;&gt;.parallel=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This would dispatch the very small task of generating a random number 10,000 times. The dispatching would probably take more time than the actual calculations. Instead, organize the tasks into blocks, and dispatch each block of tasks, for instance:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;aaply&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;seq&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;10000&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), function(x) &lt;span class=&quot;kw&quot;&gt;rnorm&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;mean=&lt;/span&gt;x+(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;.parallel=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This sends the task of generating 100 numbers to each core, reducing the overhead.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;[Update 4/26/2013: As &lt;a href=&quot;https://twitter.com/vsbuffalo/status/327564597282369536&quot;&gt;Vince Buffalo points out&lt;/a&gt;, random number generation requires that R keep track of state, so may not be a good example of a parallel-izable task]&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;In practice, this means that you want to “parallelize” your code at the highest, or chunkiest level. If you have a series of nested loops, for instance, you will want to run the highest-level loop in parallel.&lt;/p&gt;
-&lt;p&gt;Note that &lt;a href=&quot;http://lookingatdata.blogspot.se/2013/01/speeding-up-r-computations-pt-iii.html&quot;&gt;more cores is not always better&lt;/a&gt;. For reasons I don’t completely understand, the overhead of using more cores is not always worth it, so it may be better to use, say 16, rather than 64 codes. Some experimentation will help here.&lt;/p&gt;
-&lt;p&gt;One other thing: if you can limit the parallel processes to computational tasks, and avoid things like reading/writing to disk or downloading files in the parallel code, you’ll be less likely to run into problems.&lt;/p&gt;
-&lt;p&gt;A disadvantage of parallel computing is that it is not available to everyone. People run code on different machines. If you are writing software that you expect to share with others (and as a scientist, you should ALWAYS be prepared to share your work on request, and post your code as a supplement to your paper), you will want to provide an option to run it not in parallel. I like to do something like this:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;#This script uses parallel processing if p.flag=TRUE.  Set up a parallel &lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#cluster as appropriate for your machine as appropriate. (the commented code &lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#below will use 2 cores on a multicore computer)&lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#library(doParallel)&lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#cl &amp;lt;- makeCluster(2)  # Use 2 cores&lt;/span&gt;
-&lt;span class=&quot;co&quot;&gt;#registerDoParallel(cl) # register these 2 cores with the &amp;quot;foreach&amp;quot; package&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(plyr)
-p.flag=&lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;  &lt;span class=&quot;co&quot;&gt;# Change to TRUE if using parallel processing&lt;/span&gt;
-.
-.
-.
- &lt;span class=&quot;kw&quot;&gt;aaply&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;seq&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;10000&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), function(x) &lt;span class=&quot;kw&quot;&gt;rnorm&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;mean=&lt;/span&gt;x+(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), 
-      &lt;span class=&quot;dt&quot;&gt;.parallel=&lt;/span&gt;p.flag)&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;compiling-functions&quot;&gt;Compiling Functions&lt;/h2&gt;
-&lt;p&gt;R code is interpreted when it is run, unlike some other languages, which are first compiled. This is one reason why functions written in C are often faster than functions written in R.&lt;/p&gt;
-&lt;p&gt;However, R has compiling ability, which can speed up functions &lt;a href=&quot;http://dirk.eddelbuettel.com/blog/2011/04/12/#the_new_r_compiler_package&quot;&gt;by a factor or 3 or 4 &lt;em&gt;in some cases&lt;/em&gt;&lt;/a&gt;. Compiling functions just requires calling &lt;code&gt;cmpfun()&lt;/code&gt; in the base &lt;code&gt;compiler&lt;/code&gt; package. Here’s an example:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(compiler)
-f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(n, x) for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:n) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)^(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
-g &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;cmpfun&lt;/span&gt;(f)
-
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(microbenchmark)
-compare &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;microbenchmark&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;times =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;)
-
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(ggplot2)
-&lt;span class=&quot;kw&quot;&gt;autoplot&lt;/span&gt;(compare)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png&quot; /&gt;
-&lt;/div&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-compare&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Unit: microseconds
-##        expr   min    lq median     uq  max neval
-##  f(1000, 1) 950.0 991.3 1024.7 1087.2 2799  1000
-##  g(1000, 1) 218.2 228.0  238.2  257.3 1743  1000&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(See the benchmarking section below for more on comparing functions with &lt;code&gt;microbenchmark()&lt;/code&gt;)&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;cmpfun()&lt;/code&gt; works well in cases like this - when you are defining a new function that is mostly numerical manipulation. It doesn’t help with functions that call a lot of other R functions, or involve manipulating and translating between data types. It also doesn’t work well on already-defined R functions, which have been pre-compiled since R 2.14 and are sometimes written in compiled languages like C. For instance, if I try to compile this &lt;code&gt;paste()&lt;/code&gt;-based function, I get no improvement:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(n) &lt;span class=&quot;kw&quot;&gt;paste&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:n, &lt;span class=&quot;dt&quot;&gt;collapse =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot; &amp;quot;&lt;/span&gt;)
-g &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;cmpfun&lt;/span&gt;(f)
-compare &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;microbenchmark&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;times =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;autoplot&lt;/span&gt;(compare)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-2.png&quot; /&gt;
-&lt;/div&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;compare&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Unit: microseconds
-##     expr   min    lq median    uq  max neval
-##  f(1000) 320.2 331.8  353.9 429.2 1889  1000
-##  g(1000) 320.7 330.6  352.8 412.5 2530  1000&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You can also &lt;a href=&quot;http://www.r-statistics.com/2012/04/speed-up-your-r-code-using-a-just-in-time-jit-compiler/&quot;&gt;enable just-in-time compiling in R&lt;/a&gt;, which will automatically compile EVERY function the first time that it is run. This will slow down R quite a bit at first, as each function must be compiled before it is run the first time, but but then speed it up later. Just add this to the start of your script&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(compiler)
-&lt;span class=&quot;kw&quot;&gt;enableJIT&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The numeric argument in &lt;code&gt;enableJIT&lt;/code&gt; specifies the “level” of compilation. At level 2 and 3 more functions are compiled. In a few rare cases enableJIT will &lt;em&gt;slow down&lt;/em&gt; code, particularly, if most of it is already pre-compiled or written in C, and/or if the code &lt;em&gt;creates&lt;/em&gt; functions repeatedly, which then need to be compiled every time. This is more likely to happen with &lt;code&gt;enableJIT(2)&lt;/code&gt; or &lt;code&gt;enableJIT(3)&lt;/code&gt;, though these have the potential to speed up code more, as well.&lt;/p&gt;
-&lt;h2 id=&quot;diagnosis-profiling-and-benchmarking&quot;&gt;Diagnosis: Profiling and Benchmarking&lt;/h2&gt;
-&lt;p&gt;OK, the tools I described above are all blunt instruments that could speed up many types of code. However, if they fail you or aren’t feasible, you’re going to need to know something about what is slowing your code down.&lt;/p&gt;
-&lt;h3 id=&quot;benchmarking&quot;&gt;Benchmarking&lt;/h3&gt;
-&lt;p&gt;Benchmarking is a way to test and compare the speed of functions.&lt;/p&gt;
-&lt;p&gt;Traditionally, &lt;code&gt;system.time(replicate())&lt;/code&gt; could be used to time functions, but the &lt;code&gt;microbenchmark&lt;/code&gt; package is a better option for benchmarking individuals calls and functions. If you have identified a function that is called many times in your code and needs to be speeded up, you can write or try out several different versions, using &lt;code&gt;microbenchmark&lt;/code&gt; to compare them. Here’s the example from above:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(n, x) for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:n) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)^(-&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
-g &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;cmpfun&lt;/span&gt;(f)
-
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(microbenchmark)
-compare &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;microbenchmark&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;times =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;)
-
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(ggplot2)
-&lt;span class=&quot;kw&quot;&gt;autoplot&lt;/span&gt;(compare)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-3.png&quot; /&gt;
-&lt;/div&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;compare&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Unit: microseconds
-##        expr   min     lq median     uq   max neval
-##  f(1000, 1) 958.2 1064.2 1220.5 1795.7 11595  1000
-##  g(1000, 1) 219.8  243.7  271.4  379.4  1370  1000&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;All &lt;code&gt;microbenchmark&lt;/code&gt; needs as inputs are a series of expressions to compare. &lt;code&gt;times&lt;/code&gt; is an optional parameter of the number of times to test each function (default 100). Microbenchmark randomizes the test order and discards some “warmup” tests. The full distribution is returned as a data frame, but only the summaries are printed.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;autoplot()&lt;/code&gt; command draws a comparison of distribution times using &lt;code&gt;ggplot()&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&quot;profiling&quot;&gt;Profiling&lt;/h3&gt;
-&lt;p&gt;Benchmarking is good for comparing small functions. &lt;em&gt;Profiling&lt;/em&gt; examines your code to determine what parts of it are running slow. This is the essential tool for getting the best bang for your buck in speeding up code.&lt;/p&gt;
-&lt;p&gt;R’s code profiler samples the “call stack” at regular intervals. The call stack is the list of the current function running, the function that called it, and all the functions that &lt;em&gt;those&lt;/em&gt;. By examining these samples, you can find which functions are taking up the largest amount of time, either because they are slow or are called many times.&lt;/p&gt;
-&lt;p&gt;You activate the profiler with &lt;code&gt;Rprof(&amp;quot;filename&amp;quot;)&lt;/code&gt; which writes each sample of the call stack to “filename”. So do this:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;Rprof&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;file.out&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;Some_slow_code&lt;/span&gt;()
-&lt;span class=&quot;kw&quot;&gt;Rprof&lt;/span&gt;(&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;summaryRprof&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;file.out&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;Rprof(NULL)&lt;/code&gt; stops sampling and &lt;code&gt;summaryRprof(&amp;quot;file.out&amp;quot;)&lt;/code&gt; gives you a summary of the results. Here’s an example of profiling a random walk function (from a &lt;a href=&quot;http://www.stat.auckland.ac.nz//~ihaka/downloads/Taupo-handouts.pdf&quot;&gt;talk by Duncan Temple Lang&lt;/a&gt;):&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;rw2s1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(n) {
-    xpos =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;ypos =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;numeric&lt;/span&gt;(n)
-    xdir =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;)
-    pm1 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, -&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
-    for (i in &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;:n) if (&lt;span class=&quot;kw&quot;&gt;sample&lt;/span&gt;(xdir, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)) {
-        xpos[i] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;xpos[i -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sample&lt;/span&gt;(pm1, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
-        ypos[i] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;ypos[i -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
-    } else {
-        xpos[i] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;xpos[i -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;]
-        ypos[i] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;ypos[i -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sample&lt;/span&gt;(pm1, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)
-    }
-    &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; xpos, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; ypos)
-}
-
-&lt;span class=&quot;kw&quot;&gt;Rprof&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;out.out&amp;quot;&lt;/span&gt;)
-for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;) pos =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rw2s1&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1000&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;Rprof&lt;/span&gt;(&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;summaryRprof&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;out.out&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## $by.self
-##              self.time self.pct total.time total.pct
-## &amp;quot;sample.int&amp;quot;      7.62    47.04       7.62     47.04
-## &amp;quot;rw2s1&amp;quot;           5.28    32.59      16.20    100.00
-## &amp;quot;sample&amp;quot;          2.90    17.90      10.52     64.94
-## &amp;quot;-&amp;quot;               0.30     1.85       0.30      1.85
-## &amp;quot;+&amp;quot;               0.04     0.25       0.04      0.25
-## &amp;quot;list&amp;quot;            0.04     0.25       0.04      0.25
-## &amp;quot;numeric&amp;quot;         0.02     0.12       0.02      0.12
-## 
-## $by.total
-##              total.time total.pct self.time self.pct
-## &amp;quot;rw2s1&amp;quot;           16.20    100.00      5.28    32.59
-## &amp;quot;sample&amp;quot;          10.52     64.94      2.90    17.90
-## &amp;quot;sample.int&amp;quot;       7.62     47.04      7.62    47.04
-## &amp;quot;-&amp;quot;                0.30      1.85      0.30     1.85
-## &amp;quot;+&amp;quot;                0.04      0.25      0.04     0.25
-## &amp;quot;list&amp;quot;             0.04      0.25      0.04     0.25
-## &amp;quot;numeric&amp;quot;          0.02      0.12      0.02     0.12
-## 
-## $sample.interval
-## [1] 0.02
-## 
-## $sampling.time
-## [1] 16.2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The two tables list the functions called. The &lt;code&gt;$by.self&lt;/code&gt; component lists the time spent by &lt;em&gt;functions alone&lt;/em&gt;, while the &lt;code&gt;$by.total&lt;/code&gt; table lists the time spent by &lt;em&gt;functions and all the functions they call&lt;/em&gt;. So you see that &lt;code&gt;rw2s1&lt;/code&gt;, being the &lt;em&gt;parent function&lt;/em&gt;, takes the most time in &lt;code&gt;$by.total&lt;/code&gt;, but &lt;code&gt;sample.int&lt;/code&gt; is the bottom-level function that is taking the most time.&lt;/p&gt;
-&lt;p&gt;I don’t find this &lt;code&gt;summaryRprof()&lt;/code&gt; output very intuitive. There are some moderately better tools out there in the packages &lt;code&gt;profr&lt;/code&gt; and &lt;code&gt;proftool&lt;/code&gt;, but I don’t like them either. Instead I’ve written a custom function that you can get &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/proftable.R&quot;&gt;here&lt;/a&gt; called &lt;code&gt;proftable&lt;/code&gt;. Here it parses the same output as above:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;proftable&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;out.out&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##  PctTime Stack                      
-##  47.037  rw2s1 &amp;gt; sample &amp;gt; sample.int
-##  32.593  rw2s1                      
-##  17.901  rw2s1 &amp;gt; sample             
-##   1.852  rw2s1 &amp;gt; -                  
-##   0.247  rw2s1 &amp;gt; +                  
-##   0.247  rw2s1 &amp;gt; list               
-##   0.123  rw2s1 &amp;gt; numeric            
-## 
-## Total Time: 16.2 seconds&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here you can see that &amp;gt;50% of time is being taken up by &lt;code&gt;sample.int&lt;/code&gt;, which is itself usually called by &lt;code&gt;sample&lt;/code&gt;.&lt;/p&gt;
-&lt;h4 id=&quot;misc-profiling-things&quot;&gt;Misc profiling things&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;The latest version of R (3.0.0) allows code profiling by &lt;em&gt;line number&lt;/em&gt; using &lt;code&gt;Rprof(file, line.profiling=TRUE)&lt;/code&gt; and &lt;code&gt;summaryRprof(file, lines=&amp;quot;show&amp;quot;)&lt;/code&gt;. I don’t yet have a good example of it and haven’t incorporated this function into &lt;code&gt;proftable()&lt;/code&gt; yet. There’s an example of use &lt;a href=&quot;http://stackoverflow.com/a/15821706/1757441&quot;&gt;at Stack Overflow&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Note that, depending on the R interface you are using, it may wrap your code in some other functions, which will appear as the topmost functions in the stack. For instance, if use the “Source” button in Rtudio, all your stacks will start with something like:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;source &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;withVisible &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;eval &amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;eval &amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;[Update 5/8/2003: The &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/proftable.R&quot;&gt;latest verion&lt;/a&gt; of &lt;code&gt;proftable&lt;/code&gt; can deal with line numbers. It also deals with wrapper stacks like above.]&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;trace()&lt;/code&gt; can also be useful to track down where a particular slow function is being called. Try using &lt;code&gt;trace(function, tracer=cat(as.character(sys.calls()))&lt;/code&gt;, for instance, to print the stack whenever &lt;code&gt;function&lt;/code&gt; is called.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;R also has the ability to do &lt;em&gt;memory profiling&lt;/em&gt; - tracking how your code uses memory. These include &lt;code&gt;Rprofmem()&lt;/code&gt;, &lt;code&gt;tracemem()&lt;/code&gt;, and &lt;code&gt;Rprof(memory.profiling=TRUE)&lt;/code&gt;, but the documentation for these isn’t great and I haven’t found good resources on this topic. Let me know if you can point me to some resources.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Jeromy Anglim has a blog post of an &lt;code&gt;Rprof()&lt;/code&gt; &lt;a href=&quot;http://jeromyanglim.blogspot.com/2010/02/case-study-in-optimising-code-in-r.html&quot;&gt;case study&lt;/a&gt; that is worth reading&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;find-better-packages&quot;&gt;Find better packages&lt;/h2&gt;
-&lt;p&gt;Before you go about changing your own code, take a look and see if you can use better code someone else has written. There are thousands of packages on CRAN, but many of them are redundant and implement the same thing. There’s tremendous variation in package quality and speed, so you can often speed things up by finding a faster package.&lt;/p&gt;
-&lt;p&gt;For instance, the &lt;code&gt;xts&lt;/code&gt; and &lt;code&gt;zoo&lt;/code&gt; packages both handle time series data, but much of &lt;code&gt;xts&lt;/code&gt; is written in C and Fortran, and it is considerably faster. Here are some performance benchmarks (though they are a bit out of date):&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/xtsperformance.png&quot; alt=&quot;Comparison of functions on xts time series objects against time series from other packages. From this presentation&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Comparison of functions on xts time series objects against time series from other packages. From &lt;a href=&quot;http://www.quantmod.com/Columbia2008/ColumbiaDec4.pdf&quot;&gt;this presentation&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Other packages are specifically designed to speed up certain operations. Some creative googling (e.g., &lt;em&gt;r package CRAN fast “something”&lt;/em&gt;) will help you find them.&lt;/p&gt;
-&lt;p&gt;For instance. Using base functions like &lt;code&gt;colMeans()&lt;/code&gt; is faster than using &lt;code&gt;apply&lt;/code&gt; functions to apply &lt;code&gt;mean&lt;/code&gt;. The &lt;code&gt;matrixStats&lt;/code&gt; package extends these functions to include others like &lt;code&gt;rowMaxs()&lt;/code&gt;, &lt;code&gt;colRanks()&lt;/code&gt;, etc.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;data.table&lt;/code&gt; is a package designed for speeding up data frame operations when working very large datasets. &lt;code&gt;data.table&lt;/code&gt;’s biggest advantage is in tasks like sub-setting and indexing. Here I compare the two in looking up the value of a row:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(data.table)
-myDF &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;matrix&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;rnorm&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;1e+05&lt;/span&gt;), &lt;span class=&quot;dv&quot;&gt;10000&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;))
-myDF$key &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.character&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;kw&quot;&gt;nrow&lt;/span&gt;(myDF))
-myDT &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;data.table&lt;/span&gt;(myDF)
-&lt;span class=&quot;kw&quot;&gt;setkey&lt;/span&gt;(myDT, key)
-&lt;span class=&quot;kw&quot;&gt;microbenchmark&lt;/span&gt;(myDF[myDF$key ==&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, ], myDT[&lt;span class=&quot;st&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;, ])&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Unit: microseconds
-##                   expr    min     lq median   uq  max neval
-##  myDF[myDF$key == 2, ] 2658.8 2885.3   3187 3755 6434   100
-##            myDT[&amp;quot;2&amp;quot;, ]  724.3  899.7   1112 1393 4287   100&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here &lt;code&gt;data.table&lt;/code&gt; is 3X times faster. It gets faster with larger data sets.&lt;/p&gt;
-&lt;h2 id=&quot;improving-your-code&quot;&gt;Improving your code&lt;/h2&gt;
-&lt;p&gt;Once you know what parts of your code are slowing you down, and you have a method to test speed, you need tools and options for writing faster functions. Here are a few.&lt;/p&gt;
-&lt;h3 id=&quot;vectorization&quot;&gt;Vectorization&lt;/h3&gt;
-&lt;p&gt;This is the first thing most guides to coding discuss, so I won’t go into in much. Basically, R is good at matrix/vector algebra, so if you can express something as&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?\begin{bmatrix} x \\ y \\ z \end{bmatrix} + \begin{bmatrix} a \\ b \\ c \end{bmatrix} &quot; alt=&quot;\begin{bmatrix} x \\ y \\ z \end{bmatrix} + \begin{bmatrix} a \\ b \\ c \end{bmatrix} &quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;It will go faster than&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
-x + a \\
-y + b \\
-z + c \\
-\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Or, in R&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Instead of&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;for(i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;) x[i] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;i+i&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Most base R functions are designed to handle vectors as well as scalars.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;However, using an &lt;code&gt;apply&lt;/code&gt; function is not really vectorization. &lt;code&gt;apply&lt;/code&gt; functions are actually wrappers for &lt;code&gt;for&lt;/code&gt; loops&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;For more on vectorization, see Chapters 3 and 4 of &lt;a href=&quot;http://www.burns-stat.com/pages/Tutor/R_inferno.pdf&quot;&gt;The R Inferno&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;pre-allocating-memory&quot;&gt;Pre-allocating memory&lt;/h3&gt;
-&lt;p&gt;Again, a common topic I won’t dwell on too much. Essentially, R is bad at continually re-sizing objects, because it makes an extra copy of these objects each time. So if you have a loop that creates a vector or list, don’t append to the vector or list with each pass of the loop. Instead, make an &lt;em&gt;empty&lt;/em&gt; object of the correct size first, then fill in its elements.&lt;/p&gt;
-&lt;p&gt;More &lt;a href=&quot;http://musicallyut.blogspot.com/2012/07/pre-allocate-your-vectors.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;apply&lt;/code&gt; family of functions helps you avoid these problems by doing pre-allocation automatically. Plus, as I wrote above, if you use &lt;code&gt;apply&lt;/code&gt; variants, it’s easy to parallelize your code.&lt;/p&gt;
-&lt;h3 id=&quot;using-simpler-data-structures&quot;&gt;Using simpler data structures&lt;/h3&gt;
-&lt;p&gt;R has some very handy objects, lists and dataframes, that are flexible and can store multiple types of data at once. However, this flexibility comes at a cost. Simpler data structures that only store &lt;em&gt;one&lt;/em&gt; type of data can be manipulated much faster. If you can represent data in a matrix instead of a data frame (e.g., if you can reduce it to all numbers or characters), you can speed things up considerably.&lt;/p&gt;
-&lt;p&gt;For instance, compare these operations for getting the standard deviation of 100,000 rows of 10 variables in both a matrix and a data frame:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;myMatrix &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;matrix&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;rnorm&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;1e+05&lt;/span&gt;), &lt;span class=&quot;dv&quot;&gt;10000&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)
-myDF &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(myMatrix)
-&lt;span class=&quot;kw&quot;&gt;microbenchmark&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;apply&lt;/span&gt;(myMatrix, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, sd), &lt;span class=&quot;kw&quot;&gt;apply&lt;/span&gt;(myDF, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, sd))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Unit: milliseconds
-##                    expr   min    lq median    uq    max neval
-##  apply(myMatrix, 2, sd) 29.70 31.60  33.04 34.65  94.21   100
-##      apply(myDF, 2, sd) 39.69 70.14  96.61 98.81 250.12   100&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;the-small-stuff&quot;&gt;The small stuff&lt;/h3&gt;
-&lt;p&gt;Little things can add up, but the little things are most likely not your main problem. Here are a few odds and ends I’ve discovered. They’ll shave a few percent off your run time, but thinking about them too much will add hours to your coding time.&lt;/p&gt;
-&lt;h4 id=&quot;extra-parentheses&quot;&gt;Extra parentheses&lt;/h4&gt;
-&lt;p&gt;Sometimes when I write complex mathematical expressions I include extra parentheses to help make the code more readable. This has a small performance cost, as you can see here:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/{
-    &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x
-}
-f &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)
-g &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x))
-h &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;((&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)))
-k &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(x) x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(((&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x))))
-x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sample&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;replace =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-comp &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;microbenchmark&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;a&lt;/span&gt;(x), &lt;span class=&quot;kw&quot;&gt;f&lt;/span&gt;(x), &lt;span class=&quot;kw&quot;&gt;g&lt;/span&gt;(x), &lt;span class=&quot;kw&quot;&gt;h&lt;/span&gt;(x), &lt;span class=&quot;kw&quot;&gt;k&lt;/span&gt;(x), &lt;span class=&quot;dt&quot;&gt;times =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;1e+05&lt;/span&gt;)
-comp&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Unit: microseconds
-##  expr   min    lq median    uq   max neval
-##  a(x) 1.991 2.197  2.313 2.971 11068 1e+05
-##  f(x) 1.960 2.174  2.292 2.990 10435 1e+05
-##  g(x) 2.090 2.302  2.427 3.112 10755 1e+05
-##  h(x) 2.188 2.406  2.536 3.178  9660 1e+05
-##  k(x) 2.259 2.504  2.644 3.367 11228 1e+05&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;autoplot&lt;/span&gt;(comp)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-6.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The difference is modest, but each layer of parentheses adds a bit to performance time. Note that, amazingly, r speeds up when you use curly braces (&lt;code&gt;{&lt;/code&gt; and &lt;code&gt;}&lt;/code&gt;) instead of parentheses! Why? &lt;a href=&quot;http://radfordneal.wordpress.com/2010/08/19/speeding-up-parentheses-and-lots-more-in-r/&quot;&gt;Radford Neal explains&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The difference between parentheses and curly brackets comes about because R treats curly brackets as a “special” operator, whose arguments are not automatically evaluated, but it treats parentheses as a “built in” operator, whose arguments (just one for parentheses) are evaluated automatically, with the results of this evaluation stored in a LISP-style list. Creating this list requires allocation of memory and other operations which seem to be slow enough to cause the difference, since the curly bracket operator just evaluates the expressions inside and returns the last of them, without creating such a list.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;standard-and-internal-functions&quot;&gt;Standard and internal functions&lt;/h4&gt;
-&lt;p&gt;A few standard functions in R are pretty slow, often because they perform error checking and methods dispatch before actually doing arithmetic. &lt;code&gt;mean&lt;/code&gt; is among the most notorious of these. &lt;code&gt;mean(x)&lt;/code&gt;does a lot more than just &lt;code&gt;sum(x)/length(x)&lt;/code&gt;. It checks the form of the inputs, assigns the appropriate method, then dispatches &lt;code&gt;.Internal(mean(x))&lt;/code&gt;. The latter is much faster, as it is written in C:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;sample&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;replace =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-comp &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;microbenchmark&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(x), &lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(x)/&lt;span class=&quot;kw&quot;&gt;length&lt;/span&gt;(x), &lt;span class=&quot;kw&quot;&gt;.Internal&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(x)), &lt;span class=&quot;dt&quot;&gt;times =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;1e+05&lt;/span&gt;)
-comp&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Unit: nanoseconds
-##                expr  min   lq median   uq      max neval
-##             mean(x) 5671 6136   6386 6792 61466725 1e+05
-##    sum(x)/length(x)  720  878   1064 1211  1511792 1e+05
-##  .Internal(mean(x))  513  556    614  677  1082112 1e+05&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;autoplot&lt;/span&gt;(comp)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;You can sometimes get away with using the internal functions like &lt;code&gt;.Internal(mean(x))&lt;/code&gt;. However, this is considered poor practice because (a) internals are subject to change and break your code with updates to R, and (b) this is disallowed in packages submitted to CRAN, so it makes code more difficult to share. That said, the internal version can be 9X faster. Your call.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;[Update 4/26/2013: On the &lt;a href=&quot;https://twitter.com/kevin_ushey/status/327205714328158208&quot;&gt;suggestion of Kevin Ushey&lt;/a&gt;, I’m adding the following section]&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&quot;other-languages-more-reward-for-more-effort&quot;&gt;Other Languages: More reward for more effort&lt;/h1&gt;
-&lt;p&gt;I’ve mentioned a few times that functions written in other languages, like C or C++, are much faster than other R functions. Obviously, learning another language is an undertaking, but thanks to some recent developments, writing R functions in C has become much easier. The &lt;code&gt;Rcpp&lt;/code&gt; package lets you write such C++ functions without learning much about compiling or other peripheral issues, and Hadley Wyckham has written an &lt;a href=&quot;https://github.com/hadley/devtools/wiki/Rcpp&quot;&gt;excellent beginners’s guide to &lt;code&gt;Rcpp&lt;/code&gt;&lt;/a&gt; that teaches you just enough C++ to get started. From the guide:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Typical bottlenecks that C++ can help with are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Loops that can’t easily be vectorised because each iteration depends on the previous. C++ modifies objects in place, so there is little overhead when modifying a data structure many times.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Recursive functions, or problems which involve calling functions millions of times. The overhead of calling a function in C++ is much lower than the overhead of calling a function in R. To give you some idea of the magnitude, on my computer when writing this book the overhead in C++ was ~5ns compared to ~200ns for R.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Problems that require advanced data structures and algorithms that R doesn’t provide. Through the standard &amp;gt;template library (STL), C++ has efficient implementations of many important data structures, from ordered maps &amp;gt;to double ended queues.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I used to also have a reference here that &lt;code&gt;x*x&lt;/code&gt; is faster than &lt;code&gt;x^2&lt;/code&gt; in R, but as &lt;a href=&quot;http://simplystatistics.org/2013/04/28/sunday-datastatistics-link-roundup-4282013/#comment-879142735&quot;&gt;Thomas Lumley points out&lt;/a&gt;, this hasn’t been true for a while, and some quick empirical testing confirmed that the two are pretty close.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;If you are a scientist, you should ALWAYS be prepared to share your code, and should probably publish it as a supplement to your papers.&lt;a href=&quot;#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;There are cheaper services than Amazon, but there aren’t as many resources on how to use them. If you really need to reduce costs, you can use &lt;a href=&quot;http://aws.amazon.com/ec2/spot-instances/&quot;&gt;&lt;em&gt;spot instances&lt;/em&gt;&lt;/a&gt;, which allow you to set an allowable price, and run your program when something that cheap is available. Also, you could run many small Amazon virtual machines simultaneously on a free trial account, but if your goal is to do things &lt;em&gt;quickly&lt;/em&gt;, it might be worth paying for a more powerful machine.&lt;a href=&quot;#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content>
  </entry>
  
  
