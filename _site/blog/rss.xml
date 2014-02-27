@@ -4,13 +4,43 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-02-10T18:31:18-08:00</updated>
+ <updated>2014-02-27T13:20:24-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>ESA 2014 Abstract: Modeling forest disease using a macroparasite framework</title>
+   <link href="http://www.noamross.net/blog/2014/2/27/esaab.html"/>
+   <updated>2014-02-27T13:17:19-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/2/27/esaab</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;I just submitted the abstract below to the &lt;a href=&quot;http://www.esa.org/sacramento/&quot;&gt;ESA 2014 meeting&lt;/a&gt;. Can’t wait! I’m also organizing an oral session with &lt;a href=&quot;https://sites.google.com/a/ucdavis.edu/richard-cobb/&quot;&gt;Richard Cobb&lt;/a&gt;: “&lt;a href=&quot;http://esa.org/am/organizedorals/#id2743&quot;&gt;Ecosystem and Community Effects of Native and Invasive Diseases&lt;/a&gt;.” Click through for more details. It’s gonna be a good year! I haven’t been to ESA since 2008.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;h3&gt;Modeling forest disease using a macroparasite framework&lt;/h3&gt;
+&lt;p&gt;Noam Ross, UC Davis Graduate Group in Ecology&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Background/Question/Methods:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Forest pathogens are typically modeled using variants of &lt;em&gt;SI&lt;/em&gt; models, in which the infection states of trees are binary. However, many forest pathogens only infect trees locally, in isolated bole infections or leaf infections. Individual trees can have multiple, independently reproducing infections. In these cases, models based on macroparasite frameworks, where multiple parasites occupy an organism, may better represent disease dynamics.&lt;/p&gt;
+&lt;p&gt;I developed a model for the host­pathogen dynamics of Sudden Oak Death (SOD), a disease caused by the invasive pathogen &lt;em&gt;Phytophthora ramorum&lt;/em&gt; in California oak woodlands and forests, based on the macroparasite framework of Anderson and May (1978). I compared the dynamics of this model to an &lt;em&gt;SI&lt;/em&gt; model, parameterizing both using data from SOD field studies, and examined the conditions under which each could reproduce patterns in field data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Results/Conclusions&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The macroparasite model reproduces several patterns observed in field data which the &lt;em&gt;SI&lt;/em&gt; model does not. First, the macroparasite model, even without age­related variation in parameters, generates data with positive age­mortality relationships due to accumulating infections in older trees. The &lt;em&gt;SI&lt;/em&gt; model requires explicit age structure in model parameters to produce similar patterns. Secondly, the macroparasite model generates observed density­mortality patterns, which can not be produced by the &lt;em&gt;SI&lt;/em&gt; model. Thirdly, the macroparasite model generates aggregated distribution of infections in hosts, which can explain the phenomenon of “super spreaders”, i.e. individuals that produce high amounts of inoculum and cause a large fraction of new infections. The &lt;em&gt;SI&lt;/em&gt; model only generates this pattern when extended by including individual variation in disease parameters. All these phenomena are more pronounced under conditions corresponding to late stages of disease invasion, and when the time scales of host and pathogen life stage parameters are similar.&lt;/p&gt;
+&lt;p&gt;The macroparasite framework is a parsimonious approach that can explain several important phenomena in forest disease. Data and models to with only binary infection status can lead to misinterpretation of observed patterns.&lt;/p&gt;
+&lt;p&gt;Slides and related materials will be archived at &lt;a href=&quot;http://doi.org/rpm&quot;&gt;http://doi.org/rpm&lt;/a&gt; prior to the conference.&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I created a &lt;a href=&quot;http://doi.org/rpm&quot;&gt;placeholder record at figshare.com&lt;/a&gt; so that a permanent link to my slides will be in the program. I think this is a great habit to get into for conferences. This way your talk will be permanently accessible via the conference program both after the actual event.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Using Dates and Times in R</title>
@@ -1338,206 +1368,6 @@ p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;
 &lt;p&gt;With less infection, there’s less of a dramatic difference between the upswing and downswing of the disease, but the relationship between infected trees and years-to-death still holds.&lt;/p&gt;
 &lt;p&gt;In general, overdispersion seems to dampen the effects of infection, but most qualitative patterns remain.&lt;/p&gt;
 &lt;p&gt;In some ways, overdispersal has a similar effect to space in the Cobb et al. (2012) &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline SIR&quot; alt=&quot;SIR&quot; /&gt;&lt;/span&gt; model. Spatial structure, of course, is one mechanism that can create overdispersal.&lt;/p&gt;
-&lt;p&gt;Cobb, R. C., J. A. N. Filipe, R. K. Meentemeyer, C. A. Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology 100:712–722.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>A Null Model for Age Effects in Disease with Multiple Infections</title>
-   <link href="http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html"/>
-   <updated>2013-06-11T17:32:30-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/6/11/multi-infection-tests</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;Here’s a little thought exercise I did that has caused me to go back and restart my Sudden Oak Death modeling in a new framework. Feedback welcome. I’m especially interested in relevant literature – I haven’t found many good examples of macroparasite/multiple infection models with age structure.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Cobb et al. (2012) develop two models of forest stand demography in the face of Sudden Oak Death. The first, a statistical survival model, estimated the rates of infection and time-to-mortality as functions of density of infected trees and tree size. The second, an &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline SI&quot; alt=&quot;SI&quot; /&gt;&lt;/span&gt; model, projected stand composition over time using parameters from the first.&lt;/p&gt;
-&lt;p&gt;I’ve been realizing is that the observed data and the first model may not square with the second model. In an &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline SI&quot; alt=&quot;SI&quot; /&gt;&lt;/span&gt; model, all infected hosts are the same and, at least as implemented in this paper, infected trees have a constant rate of mortality. But if you look at the bottom-right portion of the figure below, you’ll see that the rate of mortality is strongly influenced by the number of infected hosts.&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/Cobb2012Fig2f.svg&quot; alt=&quot;Parts of Figure 1 from Cobb et al. (2012)&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Parts of Figure 1 from Cobb et al. (2012)&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;a href=&quot;https://sites.google.com/a/ucdavis.edu/richard-cobb/&quot;&gt;Richard&lt;/a&gt; and I discussed what might be driving this pattern, and think it might be due to the fact that trees can be infected mutiple times. &lt;em&gt;Phytophthora ramorum&lt;/em&gt; doesn’t travel throughout a tree once infecting, but instead causes local lesions on leaves and local cankers on stems. A tree can accumulate more of these as more spores land on it. Thus, it may not be appropriate to represent infection as a binary state.&lt;/p&gt;
-&lt;p&gt;It’s also possible that multiple infection is driving another pattern. The upper-right panel above shows that there are strong size effects on mortality. It’s certainly possible that larger (or older) trees are more physiologically vulnerable to the disease. However, I think part of this may be due to the fact that larger trees have been around longer, and thus have had more time to acquire infections.&lt;/p&gt;
-&lt;p&gt;I’m exploring these hypotheses using a model adapted from Anderson and May (1978). This is a macroparasite model that explicitly considers the number of parasites in each host. My model takes its basic structure and applies it to two explicit size classes of organisms, in this case applied to trees:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
-  \frac{dJ}{dt}  &amp;amp;= A f_A \left(1 - \frac{J+A}{K} \right) + J  \left(f_J \left(1 - \frac{J+A}{K} \right) - d_J - g\right) - \alpha P_J \\
-  \frac{dA}{dt}  &amp;amp;= J g - A d_A - \alpha P_A \\
-  \frac{dP_J}{dt}  &amp;amp;= \lambda  \frac{J}{K} (P_J + P_A)  - P_J \left(d_J + \mu + g + \alpha \left(1 + \frac{P_J}{J} \right) \right) \\
-  \frac{dP_A}{dt}  &amp;amp;= \lambda  \frac{A}{K} (P_J + P_A)  + P_J  g - P_A \left(d_A + \mu + \alpha \left(1 + \frac{P_A}{A}  \right) \right)
-\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Here &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline J&quot; alt=&quot;J&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline A&quot; alt=&quot;A&quot; /&gt;&lt;/span&gt; are the population of juvenile and adult trees. There’s only two size classes for simplicity, though there’s no reason this can’t be extended to more. &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline P_J&quot; alt=&quot;P_J&quot; /&gt;&lt;/span&gt; and &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline P_A&quot; alt=&quot;P_A&quot; /&gt;&lt;/span&gt; are the total numbers of infections amongst those trees. Here’s a table of the parameters:&lt;/p&gt;
-&lt;table&gt;
-&lt;caption&gt;Model parameter definitions&lt;/caption&gt;
-&lt;thead&gt;
-&lt;tr class=&quot;header&quot;&gt;
-&lt;th align=&quot;center&quot;&gt;Parameter&lt;/th&gt;
-&lt;th align=&quot;center&quot;&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline f_J, f_J&quot; alt=&quot;f_J, f_J&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;Fecundity of the size class&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline d_J, d_A&quot; alt=&quot;d_J, d_A&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;Mortality rate of the size class&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline g&quot; alt=&quot;g&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;Rate at which juveniles become adults&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \alpha&quot; alt=&quot;\alpha&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;Amount by which a single infection increases the mortality rate&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \mu&quot; alt=&quot;\mu&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;Rate at which trees recover from infections (ignored here)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline K&quot; alt=&quot;K&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;Carrying capacity&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \lambda&quot; alt=&quot;\lambda&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;Rate at which new infections are created by a single infection.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Some notes on the model: These equations assume that infections are completely randomly (Poisson) distributed amongst the hosts. This is unrealistic; due to spatial structure and other processes, the distribution is probably overdispersed. Secondly, unlike the Anderson and May (1978) model, there’s density dependence in recruitment of new juveniles – shading out of new recruits. Finally, transmission is density-dependent. I assume a spore’s chance of hitting a tree is proportional to the amount of space (carrying capacity) that the tree takes up.&lt;/p&gt;
-&lt;h2 id=&quot;parameterizing-and-running-the-model&quot;&gt;Parameterizing and Running the Model&lt;/h2&gt;
-&lt;p&gt;I define the equations and parameters in R:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-model &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(t, y, parms) {
-  &lt;span class=&quot;kw&quot;&gt;list2env&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(y), &lt;span class=&quot;kw&quot;&gt;environment&lt;/span&gt;())
-  &lt;span class=&quot;kw&quot;&gt;list2env&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), &lt;span class=&quot;kw&quot;&gt;environment&lt;/span&gt;())
-  dJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A*f_a*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(J+A)/K) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(f_j*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(J+A)/K) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_j -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;g) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ
-  dA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J*g -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(A *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_a) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA
-  dPJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J/K -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ*(d_j +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;g +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ/J))
-  dPA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A/K +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;g -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA*(d_a +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA/A))
-  &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;dJ=&lt;/span&gt;dJ, &lt;span class=&quot;dt&quot;&gt;dA=&lt;/span&gt;dA, &lt;span class=&quot;dt&quot;&gt;dPJ=&lt;/span&gt;dPJ, &lt;span class=&quot;dt&quot;&gt;dPA=&lt;/span&gt;dPA), 
-              &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;dJ=&lt;/span&gt;dJ, &lt;span class=&quot;dt&quot;&gt;dA=&lt;/span&gt;dA, &lt;span class=&quot;dt&quot;&gt;dPJ=&lt;/span&gt;dPJ, &lt;span class=&quot;dt&quot;&gt;dPA=&lt;/span&gt;dPA)))
-}
-
-parms &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;( 
-  &lt;span class=&quot;dt&quot;&gt;f_j=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.01&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;f_a=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.01&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;g=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;d_j=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.005&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;d_a=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.005&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.05&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;lambda=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.3&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;K=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;50&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;mu=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.00&lt;/span&gt;
-  )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note from the parameters that here the juvenile and adult trees are exactly the same in their demographic variables, their contribution to density dependence and their response to disease. That is why I call this a “null model for age effects”; any differences between the behavior of the size classes will be due to structural effects of the model. Namely, that some trees carry disease as they move from juvenile to adult size class.&lt;/p&gt;
-&lt;p&gt;The parameters are selected to be somewhat realistic for tanoak and based on Cobb et al. (2012). Effectively, the juvenile class contains trees with &amp;lt;1 cm diameter and adults are anything larger. The carrying capacity (&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline K=50&quot; alt=&quot;K=50&quot; /&gt;&lt;/span&gt;) is about equal to the stand density of many in the plots the Cobb et al. (2012) data set.&lt;/p&gt;
-&lt;p&gt;I initiate the model with tree populations at their disease-free steady state, and with an average of 0.1 infection per tree. Note that the steady state has a high proportion of adults due to the parameterization. Since density dependence in the model only affects recruitment of new juveniles, their population is limited by the natural death rate of adults.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;A_ss =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;with&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), K/(d_a/g +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))
-J_ss =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;with&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), K -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A_ss)
-init &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;J=&lt;/span&gt;J_ss, &lt;span class=&quot;dt&quot;&gt;A=&lt;/span&gt;A_ss, &lt;span class=&quot;dt&quot;&gt;PJ=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;*J_ss, &lt;span class=&quot;dt&quot;&gt;PA=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;*A_ss)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now I run the model and calculate some relevant values that I’ll explain when I plot them:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(deSolve)
-&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(reshape2)
-out &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;lsoda&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;init, &lt;span class=&quot;dt&quot;&gt;times=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;func=&lt;/span&gt;model, &lt;span class=&quot;dt&quot;&gt;parms=&lt;/span&gt;parms))
-df &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(out)
-&lt;span class=&quot;kw&quot;&gt;names&lt;/span&gt;(df)[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &amp;quot;Time&amp;quot;&lt;/span&gt;
-
-df &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;within&lt;/span&gt;(df, {
-  &lt;span class=&quot;kw&quot;&gt;list2env&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), &lt;span class=&quot;kw&quot;&gt;environment&lt;/span&gt;())
-  pctJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J/(J +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A)
-  pctA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A/(J +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A)
-  nJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J
-  nA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A
-  J.inf &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-nJ)
-  A.inf &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-nA)
-  Inf.dens &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(J*J.inf +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A*A.inf)
-  J.mort &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_j +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ /(J *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J.inf)
-  A.mort &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_a +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(A *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A.inf)
-  J.yrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/J.mort
-  A.yrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/A.mort
-  J.infrate &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-PJ/J) /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;K)
-  A.infrate &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-PA/A) /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;K)
-  J.infyrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/J.infrate
-  A.infyrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/A.infrate
-  &lt;span class=&quot;kw&quot;&gt;rm&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;list=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;names&lt;/span&gt;(parms))
-})
-
-df &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;df[,&lt;span class=&quot;kw&quot;&gt;sort&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;names&lt;/span&gt;(df), &lt;span class=&quot;dt&quot;&gt;decreasing=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)]
-
-mdf &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;melt&lt;/span&gt;(df, &lt;span class=&quot;dt&quot;&gt;id.vars=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Inf.dens&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;variable.name=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;Class&amp;quot;&lt;/span&gt;,
-            &lt;span class=&quot;dt&quot;&gt;value.name=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;Population&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;results-and-discussion&quot;&gt;Results and Discussion&lt;/h2&gt;
-&lt;p&gt;OK, so what does this look like? First, I plot the absolute and relative population sizes over time:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(ggplot2)
-&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(gridExtra)
-JAlab &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;scale_color_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;labels=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Small Trees&amp;quot;&lt;/span&gt;,&lt;span class=&quot;st&quot;&gt;&amp;quot;Big Trees&amp;quot;&lt;/span&gt;))
-p1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A&amp;quot;&lt;/span&gt;)), 
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Population&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-p2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;pctJ&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;pctA&amp;quot;&lt;/span&gt;)), 
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Population&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-&lt;span class=&quot;kw&quot;&gt;grid.arrange&lt;/span&gt;(p1, p2, &lt;span class=&quot;dt&quot;&gt;nrow=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-4.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;As in the &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline SI&quot; alt=&quot;SI&quot; /&gt;&lt;/span&gt; model, the population drops, but the relative proportion of juvenile trees goes up. This occurs even though the mortality effect of one infection is the same on both classes. However, this could also be due to the fact that with fewer trees, density dependence has less of an effect on recruitment. Let’s look at the prevalance of disease, overall and per-tree:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;p3 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;PJ&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;PA&amp;quot;&lt;/span&gt;)),
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Number of Infections&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;nJ&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;nA&amp;quot;&lt;/span&gt;)),
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Infections per Individual&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-&lt;span class=&quot;kw&quot;&gt;grid.arrange&lt;/span&gt;(p3, p4, &lt;span class=&quot;dt&quot;&gt;nrow=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-5.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Infection is considerably greater in the adult trees than the juveniles over the course of the epidemic. Since, for the most part, observqtions of SOD don’t count the number of infections, it might be easier to look at this in terms of the number of trees infected. If we continue to assume a Poisson distribution of infections, we can calculate the fraction of infected trees as&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?\frac{I}{N} = 1 - e^{-\frac{P_N}{N}}&quot; alt=&quot;\frac{I}{N} = 1 - e^{-\frac{P_N}{N}}&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;with &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline N&quot; alt=&quot;N&quot; /&gt;&lt;/span&gt; being a stand-in for &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline J&quot; alt=&quot;J&quot; /&gt;&lt;/span&gt; or &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline A&quot; alt=&quot;A&quot; /&gt;&lt;/span&gt;.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J.inf&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A.inf&amp;quot;&lt;/span&gt;)), 
-       &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction infected&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-6.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Note that these curves are somewhat closer to each other. Without observing multiple infections per tree, we might think distributions of disease in each size class are more similar than they really are.&lt;/p&gt;
-&lt;p&gt;So how does mortality differ between the classes? I calculate the “observed” mortality rate as the total mortality rate of &lt;em&gt;only the diseased trees&lt;/em&gt;. This is:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?d + \frac{\alpha P_N}{N (1 - \left( e^{- \frac{P_N}{N}}\right)}&quot; alt=&quot;d + \frac{\alpha P_N}{N (1 - \left( e^{- \frac{P_N}{N}}\right)}&quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The inverse of this value is “Years to infection”, which is the value shown in the right-hand panels of the figure from Cobb et al. (2012) above. Here I plot the “Years to mortality” that would be observed for trees in the model against the number of total infected trees in the population:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J.yrs&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A.yrs&amp;quot;&lt;/span&gt;) ), 
-       &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Inf.dens, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;cex=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Number of infected trees&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Years to death of infected individuals&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-7.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;This plot is not quite equivalent to the lower-right panel in the figure from Cobb et al. (2012), because that shows a snapshot in time of many sites, while this shows the path of one site through time. Nonetheless, it shows that years-to-death has a negative relationship with the number of infected trees in this model, albeit a relationship that is state-dependent. That I can recreate this effect with this model suggests the multiple infection may drive this pattern.&lt;/p&gt;
-&lt;p&gt;Note that the mortality rate of both juveniles and adults start out the same (Years to death &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \approx&quot; alt=&quot;\approx&quot; /&gt;&lt;/span&gt; 100), despite a higher adult population. I think ths means the difference of infection rates is not just due to a greater adult population, but due to the infections acquired by that class as more infected juveniles age into it.&lt;/p&gt;
-&lt;p&gt;The expression for the rate of infection of uninfected trees is:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;div style=&quot;text-align:center;&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/png.latex?\underbrace{1 - e^{-\left(\lambda (P_J + P_A) \frac{\overbrace{Ne^{(-P_N/N)}}^{\text{previously uninfected trees}}}{K}\right)}}_{\text{fraction newly infected}}  &quot; alt=&quot;\underbrace{1 - e^{-\left(\lambda (P_J + P_A) \frac{\overbrace{Ne^{(-P_N/N)}}^{\text{previously uninfected trees}}}{K}\right)}}_{\text{fraction newly infected}}  &quot; /&gt;&lt;/div&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The inverse of this is “Years to Infection”, which I plot below against the number of infected trees.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J.infyrs&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A.infyrs&amp;quot;&lt;/span&gt;) ), 
-       &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Inf.dens, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;cex=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Number of infected trees&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Years to infection of uninfected individuals&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylim&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;dv&quot;&gt;200&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-8.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;This is the rough equivalent to the bottom-left panel above from the Cobb et al. (2012). I’ve cut it off above 200 because years-to-infection quickly rise as the infection rate approaches zero. Neverthless, there’s a similar pattern to year-to-mortality, albeit shallower at the beginning and steeper at the end of the epidemic.&lt;/p&gt;
-&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-&lt;p&gt;This looks like a good start. This model is generating patterns observed in data on Sudden Oak Death in the wild, some explained and some unexplained. Some next steps:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Examine the effect and robustness to overdisperal, when infections are distributed as a negative binomial. &lt;a href=&quot;http://clas-pages.uncc.edu/ross-meentemeyer/&quot;&gt;Ross Meentemeyer&lt;/a&gt; has data on the distribution of infections on Bay Laurel trees that may be useful in parameterizing this.&lt;/li&gt;
-&lt;li&gt;Build in the multi-species case where there are reservoir/spreader species (Bay Laurel) and inert competitors (Redwood).&lt;/li&gt;
-&lt;li&gt;Generalize to more size classes. Not strictly neccessary for prediction, but important for robustness.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-&lt;p&gt;Anderson, R. M., and R. M. May. 1978. Regulation and stability of host-parasite population interactions: I. Regulatory processes. The Journal of Animal Ecology 47:219–247.&lt;/p&gt;
 &lt;p&gt;Cobb, R. C., J. A. N. Filipe, R. K. Meentemeyer, C. A. Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology 100:712–722.&lt;/p&gt;</content>
  </entry>
  
