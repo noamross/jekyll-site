@@ -1,7 +1,7 @@
 ---
 title: "Dynamic Optimization in An Equation-Free Framework"
 author: "Noam Ross"
-tags: [SOD, model, control]
+tags: [SOD, control, modeling]
 date: "14-01-22 09:46:27"
 layout: post
 --- 
