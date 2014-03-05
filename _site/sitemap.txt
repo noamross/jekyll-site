@@ -57,6 +57,7 @@ http://www.noamross.net/test/index.html
 http://www.noamross.net/blog/2014/2/27/esaab.html
 http://www.noamross.net/blog/2014/2/10/using-times-and-dates-in-r---presentation-code.html
 http://www.noamross.net/blog/2014/1/28/rpeekshiny.html
+http://www.noamross.net/blog/2014/1/22/eqnfree-writeup.html
 http://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs.html
 http://www.noamross.net/blog/2013/11/7/mbi-poster-post.html
 http://www.noamross.net/blog/2013/6/21/multi-infection-analytic.html
