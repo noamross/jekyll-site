@@ -110,7 +110,7 @@ $$\begin{aligned}
 \end{aligned}$$
 
 Managers may harvest plants in order to reduce rate of disease-induced
-mortality. plants provide an ecosystem service continuously ($\gamma$
+mortality. Plants provide an ecosystem service continuously ($\gamma$
 per plant per unit time) as long as they are alive, which managers want
 to maximize. However, the only tool they have at their disposal (in this
 sylized model) is harvesting the plant population to reduce contact
