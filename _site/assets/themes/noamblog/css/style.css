@@ -466,7 +466,7 @@ a:hover {
   border-bottom:1px dashed #b8b8b8;
 }
 
-div.previous-posts * {
+#previous-posts ul li {
 	font-family: 'Lato', Helvetica, Arial, sans-serif;
 }
 
