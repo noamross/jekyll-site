@@ -466,6 +466,10 @@ a:hover {
   border-bottom:1px dashed #b8b8b8;
 }
 
+.previous-posts {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
 #menu {
   overflow: hidden;
   height: 50px;
@@ -501,6 +505,7 @@ a:hover {
 
 .blog-description h2 {
   font-style: italic;
+ 	font-weight: normal;
   line-height: 50px;
 }
 
@@ -550,7 +555,7 @@ ul.tags {
     padding: 0;
     margin: 0 7px 0 0; 
     float: left; 
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
     font-size: 14px;
     text-decoration: none;
   }
