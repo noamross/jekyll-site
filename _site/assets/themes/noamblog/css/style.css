@@ -236,7 +236,7 @@ jqeXFaxot6LINx0F0XHE/6+zgbU1BfTO8dXhHrOaNcG9dPj1K05LmVDRaRnW/P0+9imB1jiforj1bC3K
 html{font-size:100%}
 body{font-size:50%}
 th,thead td,h1,h2,h3,h4,h5,h6,dt{font-weight:300;}
-strong{font-weight:700; color: #2C2C2C}
+strong{font-weight:600; color: #4F0911}
 
 /* cite,em,dfn{font-style:italic} */
 code,kbd,samp,pre,tt,var,input[type='text'],input[type='password'],textarea{font-size:80%;font-family:Anadale Mono,monospace}
@@ -292,7 +292,7 @@ END */
 
 #headblock p {
   font-family:'Lato', Helvetic Neue, sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 body {
