@@ -551,7 +551,7 @@ a:hover {
 }  
 
 .blog-description h2 {
-  font: 'latolight_italic', "Minion Pro", Times;
+  font: 'latolight_italic', "Minion Pro", Times !important;
   line-height: 50px;
 }
 
