@@ -237,8 +237,7 @@ html{font-size:100%}
 body{font-size:50%}
 th,thead td,h1,h2,h3,h4,h5,h6,dt{font-weight:300;}
 strong{font-weight:600; color: #2C2C2C}
-
-/* cite,em,dfn{font-style:italic} */
+cite,em,dfn{font-style:italic}
 code,kbd,samp,pre,tt,var,input[type='text'],input[type='password'],textarea{font-size:80%;font-family:Anadale Mono,monospace}
 pre{white-space:pre}
 pre *{font-size:100%;white-space:pre}del{text-decoration:line-through}ins,dfn{border-bottom:1px solid #000}small,sup,sub{font-size:85%}big{font-size:125%;line-height:80%}abbr,acronym{text-transform:uppercase;font-size:80%;letter-spacing:.1em}abbr[title],acronym[title],dfn[title]{cursor:help;border-bottom:1px dotted #000}sup{vertical-align:super}sub{vertical-align:sub}hr{display:none/* We will re-reset it later for content */}:lang(af),:lang(nl),:lang(pl){quotes:'\201E' '\201D' '\201A' '\2019'}:lang(bg),:lang(cs),:lang(de),:lang(is),:lang(lt),:lang(sk),:lang(sr),:lang(ro){quotes:'\201E' '\201C' '\201A' '\2018'}:lang(da),:lang(hr){quotes:'\00BB' '\00AB' '\203A' '\2039'}:lang(el),:lang(es),:lang(sq),:lang(tr){quotes:'\00AB' '\00BB' '\2039' '\203A'}:lang(en-GB){quotes:'\2018' '\2019' '\201C' '\201D'}:lang(fi),:lang(sv){quotes:'\201D' '\201D' '\2019' '\2019'}:lang(fr){quotes:'\ab\2005' '\2005\bb' '\2039\2005' '\2005\203a'}*[lang|='en'] q:before{content:'\201C'}*[lang|='en'] q:after{content:'\201D'}*[lang|='en'] q q:before{content:'\2018'}*[lang|='en'] q q:after{content:'\2019'}input,select,button{cursor:pointer}input[type='text'],input[type='password']{cursor:text}input[type='hidden']{display:none}/*
