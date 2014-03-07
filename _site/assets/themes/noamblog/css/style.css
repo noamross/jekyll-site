@@ -295,7 +295,7 @@ END */
 }
 
 body {
-  font-family: "Crimson", "Minion Pro", Georgia, Times;
+  font-family: 'Crimson', "Minion Pro", Georgia, Times;
   color: black;
   font-size: 0.8em;
   margin: 0 auto;
