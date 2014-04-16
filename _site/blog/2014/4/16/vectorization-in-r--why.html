@@ -5,7 +5,7 @@
 -->
 <html lang="en">
 <head>
-  <title>Noam Ross | Blog</title>
+  <title>Noam Ross | Vectorization in R: Why?</title>
   <meta name="description" content=" " />
   <meta name="author" content="Noam Ross">
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
@@ -242,10 +242,12 @@
 
         <div class="content">
           
-<div id="headblock"><h1 id="post.title"><a href="/blog/2014/4/16/vectorization-in-r--why.html">Vectorization in R: Why?</a></h1>
+<div id="headblock">
+<h1 id="page.title"><a href="/blog/2014/4/16/vectorization-in-r--why.html">Vectorization in R: Why?</a></h1>
 <p>by <em>Noam Ross</em>, 16 April 2014</p>
-<hr /></div>
-<div class="contenttext"><p><em>Here are my notes from a recent talk I gave on vectorization at a <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> meeting. Thanks to <a href="https://twitter.com/vsbuffalo">Vince Buffalo</a>, <a href="http://twitter.com/johnmyleswhite">John Myles White</a>, and <a href="http://twitter.com/hadleywickham">Hadley Wickham</a> for their input as I was preparing this. Feedback welcome!</em></p>
+<hr />
+</div>
+<div class="contenttext"><p><p><em>Here are my notes from a recent talk I gave on vectorization at a <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> meeting. Thanks to <a href="https://twitter.com/vsbuffalo">Vince Buffalo</a>, <a href="http://twitter.com/johnmyleswhite">John Myles White</a>, and <a href="http://twitter.com/hadleywickham">Hadley Wickham</a> for their input as I was preparing this. Feedback welcome!</em></p>
 <p>Beginning R users are often told to “vectorize” their code. Here, I try to explain <em>why</em> vectorization can be advantageous in R by showing how R works under the hood.</p>
 <p>Now, remember, <a href="http://c2.com/cgi/wiki?PrematureOptimization">premature optimization is the root of all evil (Knuth)</a>. Don’t start re-writing your code unless the time saved is going to be worth the time invested. <a href="http://www.noamross.net/blog/2013/4/25/faster-talk.html">Other approaches, like finding a bigger machine or parallelization</a>, could give you more bang for the buck in terms of programming time. But if you understand the nuts and bolts of vectorization in R, it may help you write shorter, simpler, safer, and yes, faster code in the first place.</p>
 <p>First, let’s acknowledge that vectorization can seem like voodoo. Consider a two math problems, one vectorized, and one not:</p>
@@ -362,19 +364,22 @@ for (i in <span class="dv">1</span>:<span class="dv">10</span>) {
 <li><a href="http://rpubs.com/daspringate/vectorisation">http://rpubs.com/daspringate/vectorisation</a></li>
 <li><a href="http://quanttrader.info/public/FasterRCode.pdf">http://quanttrader.info/public/FasterRCode.pdf</a></li>
 </ul></li>
-</ul></div>
+</ul></p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
-	  
+    
     <li><a href="/tags.html#R-ref">R</a></li>
     
     <li><a href="/tags.html#D-RUG-ref">D-RUG</a></li>
     
     <li><a href="/tags.html#vectorization-ref">vectorization</a></li>
-    
+      
 </ul>
-<div id="disqus_thread"></div>
+
+
+
+  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'noamrossgh'; // required: replace example with your forum shortname
     var disqus_identifier = '/blog/2014/4/16/vectorization-in-r--why.html';
@@ -391,29 +396,14 @@ for (i in <span class="dv">1</span>:<span class="dv">10</span>) {
 
 
 
+
+
 <div class="noprint" id="previous-posts"><hr />
-<h1>Previous Posts</h1>
+<p> <strong>Previous Post</strong>: <a href="/blog/2014/2/27/esaab.html">ESA 2014 Abstract: Modeling forest disease using a macroparasite framework</a> </p>
+<p></p></div>
 
-<ul>
-<li><a href="/blog/2014/2/27/esaab.html">ESA 2014 Abstract: Modeling forest disease using a macroparasite framework</a></li>
-</ul>
 
-<ul>
-<li><a href="/blog/2014/2/10/using-times-and-dates-in-r---presentation-code.html">Using Dates and Times in R</a></li>
-</ul>
 
-<ul>
-<li><a href="/blog/2014/1/28/rpeekshiny.html">Ryan Peek on Creating Shiny Apps</a></li>
-</ul>
-
-<ul>
-<li><a href="/blog/2014/1/22/eqnfree-writeup.html">Dynamic Optimization in An Equation-Free Framework</a></li>
-</ul>
-
-<ul>
-<li><a href="/blog/2013/11/20/formatting-plots-for-pubs.html">How to format plots for publication using ggplot2 (with some help from Inkscape)</a></li>
-</ul>
- </div>
         </div>
     
 

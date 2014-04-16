@@ -4,13 +4,143 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-03-31T09:10:11-07:00</updated>
+ <updated>2014-04-16T11:16:11-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Vectorization in R: Why?</title>
+   <link href="http://www.noamross.net/blog/2014/4/16/vectorization-in-r--why.html"/>
+   <updated>2014-04-16T11:05:35-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/4/16/vectorization-in-r--why</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;Here are my notes from a recent talk I gave on vectorization at a &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting. Thanks to &lt;a href=&quot;https://twitter.com/vsbuffalo&quot;&gt;Vince Buffalo&lt;/a&gt;, &lt;a href=&quot;http://twitter.com/johnmyleswhite&quot;&gt;John Myles White&lt;/a&gt;, and &lt;a href=&quot;http://twitter.com/hadleywickham&quot;&gt;Hadley Wickham&lt;/a&gt; for their input as I was preparing this. Feedback welcome!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Beginning R users are often told to “vectorize” their code. Here, I try to explain &lt;em&gt;why&lt;/em&gt; vectorization can be advantageous in R by showing how R works under the hood.&lt;/p&gt;
+&lt;p&gt;Now, remember, &lt;a href=&quot;http://c2.com/cgi/wiki?PrematureOptimization&quot;&gt;premature optimization is the root of all evil (Knuth)&lt;/a&gt;. Don’t start re-writing your code unless the time saved is going to be worth the time invested. &lt;a href=&quot;http://www.noamross.net/blog/2013/4/25/faster-talk.html&quot;&gt;Other approaches, like finding a bigger machine or parallelization&lt;/a&gt;, could give you more bang for the buck in terms of programming time. But if you understand the nuts and bolts of vectorization in R, it may help you write shorter, simpler, safer, and yes, faster code in the first place.&lt;/p&gt;
+&lt;p&gt;First, let’s acknowledge that vectorization can seem like voodoo. Consider a two math problems, one vectorized, and one not:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} + 
+\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} =
+\begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
+1 + 1 = 2 \\
+2 + 2 = 4 \\
+3 + 3 = 6
+\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Why on earth should these take a different amount of time to calculate? Linear algebra isn’t magic. In both cases there are three addition operations to perform. So what’s up?&lt;/p&gt;
+&lt;h2 id=&quot;what-on-earth-is-r-actually-doing&quot;&gt;1. What on earth is R actually doing?&lt;/h2&gt;
+&lt;p&gt;R is a &lt;em&gt;high-level&lt;/em&gt;, &lt;em&gt;interpreted&lt;/em&gt; computer language. This means that R takes care of a lot of basic computer tasks for you. For instance, when you type&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;    i &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;5.0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;you &lt;em&gt;don’t&lt;/em&gt; have to tell your computer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;That “5.0” is a floating-point number&lt;/li&gt;
+&lt;li&gt;That “i” should store numeric-type data&lt;/li&gt;
+&lt;li&gt;To find a place in memory for to put “5”&lt;/li&gt;
+&lt;li&gt;To register “i” as a pointer to that place in memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You also don’t have to convert &lt;code&gt;i &amp;lt;- 5.0&lt;/code&gt; to binary code. That’s done automatically when you hit ‘Enter’.&lt;/p&gt;
+&lt;p&gt;When you then type&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;i &amp;lt;-&lt;span class=&quot;st&quot;&gt; &amp;quot;foo&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;you don’t have to tell the computer that &lt;code&gt;i&lt;/code&gt; no longer stores an integer but a series of characters that form a &lt;em&gt;string&lt;/em&gt;, to store “f”, “o”, and “o”, consecutively, etc.&lt;/p&gt;
+&lt;p&gt;R figures these things on it’s own, on the fly, as you type commands or source them from a file. This means that running a command in R takes a &lt;em&gt;relatively&lt;/em&gt; long time than it might in a lower-level language, such as C. If I am writing in C, I might write&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;int i
+i =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This tells the computer the &lt;code&gt;i&lt;/code&gt; will store data of the type &lt;code&gt;int&lt;/code&gt; (integers), and assign the value 5 to it. If I try to assign 5.5 to it, something will go wrong. Depending on my set-up, it might throw an error, or just silently assign 5 to &lt;code&gt;i&lt;/code&gt;. But C doesn’t have to figure out what type of data is is represented by &lt;code&gt;i&lt;/code&gt; and this is part of what makes it faster.&lt;/p&gt;
+&lt;p&gt;Here’s another example. If, in R, you type:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;2L +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;3.5&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The computer asks:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“OK, what’s the first thing?”&lt;/p&gt;
+&lt;p&gt;“An integer”&lt;/p&gt;
+&lt;p&gt;“The second thing?”&lt;/p&gt;
+&lt;p&gt;“A a floating-point number”&lt;/p&gt;
+&lt;p&gt;“Do we have a way to deal with adding an integer and a floating-point number”&lt;/p&gt;
+&lt;p&gt;“Yes! Convert the integer to a floating-point number, then add the two floating point numbers”&lt;/p&gt;
+&lt;p&gt;[converts integer]&lt;/p&gt;
+&lt;p&gt;[finds a place in memory for the answer]&lt;/p&gt;
+&lt;p&gt;etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If R were a &lt;em&gt;compiled&lt;/em&gt; computer language, like C or FORTRAN, much of this “figuring out” would be accomplished the compilation step, not when the program was run. Compiled programs are translated into binary computer language after they are written, but before they are run and this occurs over the &lt;em&gt;whole program&lt;/em&gt;, rather than line-by-line. This allows the compiler to organize the binary machine code in an optimal way for the computer to interpret.&lt;/p&gt;
+&lt;p&gt;What does this have to do with vectorization in R? Well, &lt;strong&gt;many R functions are actually written in a a compiled language&lt;/strong&gt;, such as C, C++, and FORTRAN, and have a small R “wrapper”. For instance, when you inspect the code for &lt;code&gt;fft&lt;/code&gt;, the fast fourier transform, you see&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;fft
+function (z, &lt;span class=&quot;dt&quot;&gt;inverse =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;) 
+&lt;span class=&quot;kw&quot;&gt;.Call&lt;/span&gt;(C_fft, z, inverse)
+&amp;lt;bytecode:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0x7fc261e1b910&lt;/span&gt;&amp;gt;
+&lt;span class=&quot;er&quot;&gt;&amp;lt;&lt;/span&gt;environment:&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;namespace:stats&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;R is passing the data onto a C function called &lt;code&gt;C_fft&lt;/code&gt;. You’ll see this in many R functions. If you look at their source code, it will include &lt;code&gt;.C()&lt;/code&gt;, &lt;code&gt;.Call()&lt;/code&gt;, or sometimes &lt;code&gt;.Internal()&lt;/code&gt; or &lt;code&gt;.Primitive()&lt;/code&gt;. These means R is calling a C, C++, or FORTRAN program to carry out operations. However, R still has to interpret the input of the function before passing it to the compiled code. In &lt;code&gt;fft()&lt;/code&gt; the compiled codes only &lt;em&gt;after&lt;/em&gt; R figures out the data type in &lt;code&gt;z&lt;/code&gt;, and also whether to use the default value of &lt;code&gt;inverse&lt;/code&gt;. The compiled code is able to run faster than code written in pure R, because the “figuring out” stuff is done first, and it can zoom ahead without the “translation” steps that R needs.&lt;/p&gt;
+&lt;p&gt;If you need to run a function over all the results of a vector, you could pass a whole vector through the R function to the compiled code, or you could call the R function repeatedly for each value. If you do the latter, R has to do the “figuring out” stuff, as well as the translation, &lt;em&gt;each time&lt;/em&gt;. But if you call it once, with a vector, the “figuring out” part happens just once.&lt;/p&gt;
+&lt;p&gt;Inside the C or FORTRAN code, vectors are actually processed processed using loops or a similar construct. This is inevitable: somehow the computer is going to need to operate on each element of your vector but since this occurs in the compiled code, without the overhead of R functions, it’s much faster.&lt;/p&gt;
+&lt;p&gt;Another important component of the speed of vectorized operations is that vectors in R are &lt;em&gt;typed&lt;/em&gt;. Despite all of its flexibility, R does have some restrictions on what we can do. All elements of a vector must be the same data type. If I try to do this&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;a &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I get&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a
+[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;1&amp;quot;&lt;/span&gt;     &lt;span class=&quot;st&quot;&gt;&amp;quot;2&amp;quot;&lt;/span&gt;     &lt;span class=&quot;st&quot;&gt;&amp;quot;FALSE&amp;quot;&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
+&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt;(a)
+[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;] &lt;span class=&quot;st&quot;&gt;&amp;quot;character&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;R converts all my data to characters. It can’t handle a vector with different data types.&lt;/p&gt;
+&lt;p&gt;So when R needs to perform an operation like&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;R only has to ask what types of data are in &lt;em&gt;each vector&lt;/em&gt; (2) rather than &lt;em&gt;each element&lt;/em&gt; (6).&lt;/p&gt;
+&lt;p&gt;One consequence of all this is that fast R code is short. If you can express what you want to do in R in a line or two, with just a few function calls that are actually calling compiled code, it’ll be more efficient than if you write long program, with the added overhead of many function calls. This is not the case in all other languages. Often, in compiled languages, you want to stick with lots of very simple statements, because it allows the compiler to figure out the most efficient translation of the code.&lt;/p&gt;
+&lt;h2 id=&quot;everything-is-a-vector&quot;&gt;2. Everything is a vector&lt;/h2&gt;
+&lt;p&gt;In R &lt;em&gt;everything&lt;/em&gt; is a vector. To quote Tim Smith in &lt;a href=&quot;http://tim-smith.us/arrgh/&quot;&gt;“aRrgh: a newcomer’s (angry) guide to R”&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All naked numbers are double-width floating-point atomic vectors of length one. You’re welcome.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This means that, in R, typing “6” tells R something like&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;lt;start vector, type=numeric, length=&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;&amp;gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;&amp;lt;end vector&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;While in other languages, “6” might just be&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;lt;numeric&amp;gt;&lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So, while in other languages, it might be more efficient to express something as a single number rather than a length-one vector, in R this is impossible. There’s no &lt;em&gt;advantage&lt;/em&gt; to NOT organizing your data as vector. In other languages, short vectors might be better expressed as scalars.&lt;/p&gt;
+&lt;h2 id=&quot;linear-algebra-is-a-special-case&quot;&gt;3. Linear algebra is a special case&lt;/h2&gt;
+&lt;p&gt;Linear algebra is one of the core functions of a lot of computing, so there are highly optimized programs for linear algebra. Such a program is called a BLAS - basic linear algebra system. R, and a lot of other software, relies on these specialized programs and outsources linear algebra to them. These programs have things like built-in parallel processing, and they may be specialized for the hardware on your computer. So if your calculations can be expressed in actual linear algebra terms, such as matrix multiplication, than it’s almost certainly faster to vectorize them.&lt;/p&gt;
+&lt;p&gt;Now, there are faster and slower linear algebra libraries, and you can install new ones on your computer and tell R to use them instead of the basic ones. This used to be like putting a new engine in your car, but &lt;a href=&quot;http://moderntoolmaking.blogspot.com/2013/07/for-faster-r-on-mac-use-veclib.html&quot;&gt;it’s gotten considerably easier&lt;/a&gt;. For certain problems, doing this can considerably speed up code, but results vary depending on the specific linear algebra operations you are using.&lt;/p&gt;
+&lt;h2 id=&quot;functionals-pre-allocating-memory-avoiding-side-effects.&quot;&gt;4. Functionals: Pre-allocating memory, avoiding side effects.&lt;/h2&gt;
+&lt;p&gt;There are a whole family of functions in R called &lt;em&gt;functionals&lt;/em&gt;, or &lt;code&gt;apply&lt;/code&gt; functions, which take vectors (or matrices, or lists) of values and apply arbitrary functions to each. Because these can use &lt;em&gt;arbitrary&lt;/em&gt; functions, they are NOT compiled. Functionals mostly are written in pure R, and they speed up code only in certain cases.&lt;/p&gt;
+&lt;p&gt;One operation that is slow in R, and somewhat slow in all languages, is memory allocation. So one of the slower ways to write a &lt;code&gt;for&lt;/code&gt; loop is to resize a vector repeatedly, so that R has to re-allocate memory repeatedly, like this:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;j &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;
+for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) {
+    j[i] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, in each repetition of the for loop, R has to re-size the vector and re-allocate memory. It has to find the vector in memory, create a new one that will fit more data, copy the old data over, insert the new data, and erase the old vector. This can get very slow as vectors get big.&lt;/p&gt;
+&lt;p&gt;If one pre-allocates a vector that fits all the values, R doesn’t have to re-allocate memory each iteration, and the results can be much faster. Here’ how you’d do that for the above case:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;j &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;rep&lt;/span&gt;(&lt;span class=&quot;ot&quot;&gt;NA&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;)
+for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;) {
+    j[i] =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;apply&lt;/code&gt; or &lt;code&gt;plyr::*ply&lt;/code&gt; functions all actually have &lt;code&gt;for&lt;/code&gt; loops inside, but they automatically do things like pre-allocating vector size so you don’t screw it up. This is the main reason that they can be faster.&lt;/p&gt;
+&lt;p&gt;Another thing that “ply” functions do help with is avoiding what are known as &lt;em&gt;side effects&lt;/em&gt;. When you run a &lt;em&gt;ply&lt;/em&gt; function, everything happens inside that function, and nothing changes in your working environment (this is known as “functional programming”). In a &lt;code&gt;for&lt;/code&gt; loop, on the other hand, when you do something like &lt;code&gt;for(i in 1:10)&lt;/code&gt;, you get the leftover &lt;code&gt;i&lt;/code&gt; in your environment. This is considered bad practice sometimes. Having a bunch of temporary variables like &lt;code&gt;i&lt;/code&gt; lying around could cause problems in your code, especially if you use &lt;code&gt;i&lt;/code&gt; for something else later.&lt;/p&gt;
+&lt;p&gt;I’ve seen arguments that both &lt;code&gt;ply&lt;/code&gt; functions make for more expressive, easier to read code, but I’ve seen the same argument for &lt;code&gt;for&lt;/code&gt; loops. Once you are used to writing vectorized code in general, though, &lt;code&gt;for&lt;/code&gt; loops in R will can seem odd.&lt;/p&gt;
+&lt;h2 id=&quot;so-when-might-for-loops-make-sense-over-vectorization&quot;&gt;So when might &lt;code&gt;for&lt;/code&gt; loops make sense over vectorization?&lt;/h2&gt;
+&lt;p&gt;There are still situations that it may make sense to use &lt;code&gt;for&lt;/code&gt; loops instead of vectorized functions, though. These include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using functions that don’t take vector arguments&lt;/li&gt;
+&lt;li&gt;Loops where each iteration is dependent on the results of previous iterations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that the second case is tricky. In some cases where the &lt;em&gt;obvious&lt;/em&gt; implementation of an algorithm uses a &lt;code&gt;for&lt;/code&gt; loop, there’s a vectorized way around it. For instance, here is a good example of implementing a &lt;a href=&quot;https://www.stat.auckland.ac.nz/~ihaka/downloads/Taupo-handouts.pdf&quot;&gt;random walk&lt;/a&gt; using vectorized code. In these cases, you often want to call functions that are essentially C/FORTRAN implementations of loop operations to avoid the loop in R. Examples of such functions include &lt;code&gt;cumsum&lt;/code&gt; (cumulative sums), &lt;code&gt;rle&lt;/code&gt; (counting number of repeated value), and &lt;code&gt;ifelse&lt;/code&gt; (vectorized if…else statements).&lt;/p&gt;
+&lt;p&gt;Your performance penalty for using a &lt;code&gt;for&lt;/code&gt; loop instead a vector will be small if the number of iterations is relatively small, and the computational time of the functions called &lt;em&gt;inside&lt;/em&gt; your for loop is high, so that actually calling them is a small fraction of your computational time. In these cases, it may make sense to use a &lt;code&gt;for&lt;/code&gt; loop, especially if they are more intuitive or easier to read &lt;em&gt;for you&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;some-resources-on-vectorization&quot;&gt;Some resources on vectorization&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Good discussion in a couple of &lt;a href=&quot;http://www.johnmyleswhite.com/notebook/2013/01/24/writing-better-statistical-programs-in-r/&quot;&gt;blog&lt;/a&gt; &lt;a href=&quot;http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/&quot;&gt;posts&lt;/a&gt; by John Myles White.&lt;/li&gt;
+&lt;li&gt;Some relevant chapters of Hadley Wickham’s Advanced R book: &lt;a href=&quot;http://adv-r.had.co.nz/Functionals.html&quot;&gt;Functionals&lt;/a&gt; and &lt;a href=&quot;http://adv-r.had.co.nz/Profiling.html#vectorise&quot;&gt;code profiling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Vectorization is covered in chapters 3 and 4 of the classic text on R’s idiosyncrasies - &lt;a href=&quot;http://www.burns-stat.com/pages/Tutor/R_inferno.pdf&quot;&gt;The R Inferno&lt;/a&gt;, by Patrick Burns&lt;/li&gt;
+&lt;li&gt;Here are a bunch of assorted blog posts with good examples of speeding up code with vectorization
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/&quot;&gt;http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/&quot;&gt;http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html&quot;&gt;http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://rpubs.com/daspringate/vectorisation&quot;&gt;http://rpubs.com/daspringate/vectorisation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://quanttrader.info/public/FasterRCode.pdf&quot;&gt;http://quanttrader.info/public/FasterRCode.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
  
  <entry>
    <title>ESA 2014 Abstract: Modeling forest disease using a macroparasite framework</title>
@@ -1086,186 +1216,6 @@ fit&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;profile&lt;/span&gt;(fit))&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h12.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since &lt;code&gt;h&lt;/code&gt; is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.&lt;/p&gt;
-&lt;h4 id=&quot;a-somewhat-related-digression&quot;&gt;A somewhat-related digression:&lt;/h4&gt;
-&lt;p&gt;Where does the vcov matrix come from? From a matrix called the Hessian. It describes the curvature of the likelihood surface, i.e. how quickly the log-likelihood falls off as you move away from the optimum.&lt;/p&gt;
-&lt;p&gt;Sometimes the Hessian is hard to estimate and causes problems, so we can run the model without it:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit.without.hessian =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;skip.hessian =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When there’s no Hessian, there aren’t any confidence intervals, though.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit.without.hessian)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
-## a     0.53   NA   NA    NA
-## h     0.02   NA   NA    NA&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(End digression)&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3 id=&quot;more-about-mle2&quot;&gt;More about &lt;code&gt;mle2&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Under the hood, &lt;code&gt;mle2&lt;/code&gt; uses a function called optim:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;(optim)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It’s worth noting that most of the optimization methods used in optim (and therefore in &lt;code&gt;mle2&lt;/code&gt;) only do a local optimization. So if your likelihood surface has multiple peaks, you may not find the right one.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mle2&lt;/code&gt; also has a convenient formula inferface that can eliminate the need to write a whole likelihood function from scratch. Let’s take a look with some data found in ?mle2&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;
-y =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;26&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;17&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;13&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;)
-d =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here, we’re fitting a Poisson model that depends on an intercept term plus a linear term. The &lt;code&gt;exp()&lt;/code&gt; is mainly there to make sure that the value of lambda doesn’t go negative, which isn’t allowed (it would imply a negative number of occurrences for our outcome of interest).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit0 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(y ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dpois&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lambda =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(intercept +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;slope *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)), &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;intercept =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(y), 
-    &lt;span class=&quot;dt&quot;&gt;slope =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; d)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that mle2 finds its values for x and y from the &lt;code&gt;data&lt;/code&gt; term and that we’re giving it starting values for the slope and intercept. In general, it’s useful to start the intercept at the mean value of y and the slope terms at 0, but it often won’t matter much.&lt;/p&gt;
-&lt;h3 id=&quot;prior-information&quot;&gt;Prior information&lt;/h3&gt;
-&lt;p&gt;Recall that our estimates of a and &lt;code&gt;h&lt;/code&gt; are positively correlated: the data could be consistent with either a high attack rate and a high handling time OR with a low attack rate and a low handling time.&lt;/p&gt;
-&lt;p&gt;Suppose we have prior information about tadpole/dragonfly biology that suggests that these parameters should be on the low end. We can encode this prior information as a prior distribution on the parameters. Then mle2 won’t climb the likelihood surface. It will climb the surface of the Bayesian posterior (or if you’re frequentist, it will do a penalized or constrained optimization of the likelihood).&lt;/p&gt;
-&lt;p&gt;Here’s a negative log posterior that tries to keep the values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; small while still being consistent with the data:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;negative.log.posterior =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
-    &lt;span class=&quot;kw&quot;&gt;NLL&lt;/span&gt;(a, h) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(a, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(h, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We optimize it exactly as before&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(negative.log.posterior, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Sure enough, the coefficients are a bit smaller&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)  &lt;span class=&quot;co&quot;&gt;# MLE&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit2)  &lt;span class=&quot;co&quot;&gt;# MAP estimate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.47931 0.01375&lt;/code&gt;&lt;/pre&gt;</content>
- </entry>
- 
- <entry>
-   <title>Dave Harris on Maximum Likelihood Estimation</title>
-   <link href="http://www.noamross.net/blog/2013/6/17/harrisbbmle.html"/>
-   <updated>2013-06-17T15:11:17-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/6/17/harrisbbmle</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Editor’s Note: &lt;em&gt;At our last &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting of the quarter, &lt;strong&gt;&lt;a href=&quot;https://sihlab.wordpress.com/david-j-harris/&quot;&gt;Dave Harris&lt;/a&gt;&lt;/strong&gt; gave a talk on how to use the &lt;code&gt;bbmle&lt;/code&gt; package to fit mechanistic models to ecological data. Here are his script and notes (helpfully generated with the the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt;&lt;/em&gt;).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# Load data&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(emdbook)
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(bbmle)
-&lt;span class=&quot;kw&quot;&gt;data&lt;/span&gt;(ReedfrogFuncresp)
-&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Statistical models are stories about how the data came to be. The deterministic part of the story is a (slightly mangled) version of what you’d expect if the predators followed a Type II functional response:&lt;/p&gt;
-&lt;p&gt;Holling’s Disk equation for Type II Functional Response&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;a&lt;/code&gt; is attack rate&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;h&lt;/code&gt; is handling time&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;disk =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(N, a, h) {
-    N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;h)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can plot different values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; to see what kinds of data this model would generate &lt;em&gt;on average:&lt;/em&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 3, h = 0.05 (black) rises too quickly, saturates too quickly&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.05&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 2, h = 0.02 (red) still rises too quickly&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 0.5, h = 0.02 (blue) looks like a plausible data-generating process&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-3.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The blue curve looks plausible, but is it optimal? Does it tell the best possible story about how the data could have been generated?&lt;/p&gt;
-&lt;p&gt;In order to tell if it’s optimal, we need to pick something to optimize. Usually, that will be the log-likelihood–i.e. the log-probability that the data would have come out this way if the model were true. Models with higher probabilities of generating the data we observed therefore have higher likelihoods. For various arbitrary reasons, it’s common to minimize the negative log-likelihood rather than maximizing the positive log-likelihood. So let’s write a function that says what the log-likelihood is for a given pair of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The log-likelihood is the sum of log-probabilities from each data point. The log-probability for a data point is (in this contrived example) drawn from a binomial (“coin flip”) distribution, whose mean is determined by the disk equation.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;NLL =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
-    -&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dbinom&lt;/span&gt;(ReedfrogFuncresp$Killed, &lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;prob =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(ReedfrogFuncresp$Initial, 
-        a, h)/ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;))
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can optimize the model with the mle2 function. It finds the lowest value for the negative log-likelihood (i.e. the combination of parameters with the highest positive likelihood, or the maximum likelihood estimate).&lt;/p&gt;
-&lt;p&gt;The NLL function we defined above requires starting values for &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;. Let’s naively start them at 1, 1&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You’ll probably get lots of warnings about NaNs. That’s just the optimization procedure complaining because it occasionally tries something impossible (such as a set of parameters that would generate a negative probability of being eaten). In general, these warnings are nothing to worry about, since the optimization procedure will just try better values. But it’s worth checking to make sure that there are no other warnings or problems by calling &lt;code&gt;warnings()&lt;/code&gt; after you fit the model.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# print out the results&lt;/span&gt;
-fit&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Call:
-## mle2(minuslogl = NLL, start = list(a = 1, h = 1))
-## 
-## Coefficients:
-##       a       h 
-## 0.52652 0.01666 
-## 
-## Log-likelihood: -46.72&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-&lt;span class=&quot;co&quot;&gt;# a bit more information:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Length  Class   Mode 
-##      1   mle2     S4&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here’s the curve associated with the most likely combination of a and &lt;code&gt;h&lt;/code&gt; (thick black line).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;h&amp;quot;&lt;/span&gt;]), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, 
-    &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The rethinking package has a few convenient functions for summarizing and visualizing the output of an mle2 object. It’s not on CRAN, but you can get it from the author’s website or &lt;a href=&quot;https://github.com/rmcelreath/rethinking&quot;&gt;from github.&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(rethinking)
-&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
-## a     0.53 0.07 0.39  0.67
-## h     0.02 0.00 0.01  0.03&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can also visualize a distribution of estimates that are reasonably consistent with the observed data using the sample.naive.posterior function:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;sample.naive.posterior&lt;/span&gt;(fit), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;)
-
-&lt;span class=&quot;co&quot;&gt;# Add a red dot for the maximum likelihood estimate:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit))), &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)
-
-&lt;span class=&quot;co&quot;&gt;# Add a blue dot for our earlier guess:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-9.png&quot; /&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;h3 id=&quot;a-big-digression-about-confidence-intervals&quot;&gt;A Big digression about confidence intervals&lt;/h3&gt;
-&lt;p&gt;Our earlier guess falls inside the cloud of points, so even though it’s not as good as the red point, it’s still plausibly consistent with the data.&lt;/p&gt;
-&lt;p&gt;Note that the ranges of plausible estimates for the two coefficients are correlated: This makes sense if you think about it: if the attack rate is high, then there needs to be a large handling time between attacks or else too many frogs would get eaten.&lt;/p&gt;
-&lt;p&gt;Where did this distribution of points come from? &lt;code&gt;mle2&lt;/code&gt; objects, like many models in R, have a variance/covariance matrix that can be extracted with the vcov() function.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;vcov&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##           a         h
-## a 0.0050584 2.859e-04
-## h 0.0002859 2.384e-05&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The variance terms (along the diagonal) describe mle2’s uncertainty about the values. The covariance terms (other entries in the matrix) describe how uncertainty in one coefficient relates to uncertainty in the other coefficient.&lt;/p&gt;
-&lt;p&gt;This graph gives an example:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; -&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ylab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;likelihood&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;xlab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;estimate&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-11.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The black curve shows a model with low variance for its estimate. This means that the likelihood would fall off quickly if we tried a bad estimate, and we can be reasonably sure that the data was generated by a value in a fairly narrow range. The model associated with the red curve is much less certain: the parameter could be very different from the optimal value and the likelihood wouldn’t drop much.&lt;/p&gt;
-&lt;p&gt;Here’s another way to visualize the decline in likelihood as you move away from the best estimate:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;profile&lt;/span&gt;(fit))&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-12.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since &lt;code&gt;h&lt;/code&gt; is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.&lt;/p&gt;
 &lt;h4 id=&quot;a-somewhat-related-digression&quot;&gt;A somewhat-related digression:&lt;/h4&gt;
