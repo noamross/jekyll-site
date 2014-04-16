@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-04-16T13:18:48-07:00</updated>
+ <updated>2014-04-16T13:22:16-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -125,7 +125,7 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
 &lt;li&gt;Loops where each iteration is dependent on the results of previous iterations&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Note that the second case is tricky. In some cases where the &lt;em&gt;obvious&lt;/em&gt; implementation of an algorithm uses a &lt;code&gt;for&lt;/code&gt; loop, there’s a vectorized way around it. For instance, here is a good example of implementing a &lt;a href=&quot;https://www.stat.auckland.ac.nz/~ihaka/downloads/Taupo-handouts.pdf&quot;&gt;random walk&lt;/a&gt; using vectorized code. In these cases, you often want to call functions that are essentially C/FORTRAN implementations of loop operations to avoid the loop in R. Examples of such functions include &lt;code&gt;cumsum&lt;/code&gt; (cumulative sums), &lt;code&gt;rle&lt;/code&gt; (counting number of repeated value), and &lt;code&gt;ifelse&lt;/code&gt; (vectorized if…else statements).&lt;/p&gt;
-&lt;p&gt;Your performance penalty for using a &lt;code&gt;for&lt;/code&gt; loop instead a vector will be small if the number of iterations is relatively small, and the computational time of the functions called &lt;em&gt;inside&lt;/em&gt; your for loop is high, so that actually looping and function calls make up a small fraction of your computational time. In these cases, it may make sense to use a &lt;code&gt;for&lt;/code&gt; loop, especially if they are more intuitive or easier to read &lt;em&gt;for you&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Your performance penalty for using a &lt;code&gt;for&lt;/code&gt; loop instead a vector will be small if the number of iterations is relatively small, and the functions called &lt;em&gt;inside&lt;/em&gt; your for loop are slow. In these cases, looping and overhead from function calls make up a small fraction of your computational time. It may make sense to use a &lt;code&gt;for&lt;/code&gt; loop in such cases, especially if they are more intuitive or easier to read &lt;em&gt;for you&lt;/em&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;some-resources-on-vectorization&quot;&gt;Some resources on vectorization&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Good discussion in a couple of &lt;a href=&quot;http://www.johnmyleswhite.com/notebook/2013/01/24/writing-better-statistical-programs-in-r/&quot;&gt;blog&lt;/a&gt; &lt;a href=&quot;http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/&quot;&gt;posts&lt;/a&gt; by John Myles White.&lt;/li&gt;

@@ -311,12 +311,11 @@ avoid the loop in R. Examples of such functions include `cumsum`
 `ifelse` (vectorized if...else statements).
 
 Your performance penalty for using a `for` loop instead a vector will be
-small if the number of iterations is relatively small, and the
-computational time of the functions called *inside* your for loop is
-high, so that actually looping and function calls make up a small
-fraction of your computational time. In these cases, it may make sense
-to use a `for` loop, especially if they are more intuitive or easier to
-read *for you*.
+small if the number of iterations is relatively small, and the functions
+called *inside* your for loop are slow. In these cases, looping and
+overhead from function calls make up a small fraction of your
+computational time. It may make sense to use a `for` loop in such cases,
+especially if they are more intuitive or easier to read *for you*.
 
 Some resources on vectorization
 -------------------------------
