@@ -74,8 +74,8 @@ but a series of characters that form a *string*, to store "f", "o", and
 
 R figures these things on it's own, on the fly, as you type commands or
 source them from a file. This means that running a command in R takes a
-*relatively* long time than it might in a lower-level language, such as
-C. If I am writing in C, I might write
+*relatively* longer time than it might in a lower-level language, such
+as C. If I am writing in C, I might write
 
     int i
     i = 5
@@ -102,7 +102,7 @@ The computer asks:
 > "A a floating-point number"
 >
 > "Do we have a way to deal with adding an integer and a floating-point
-> number"
+> number?"
 >
 > "Yes! Convert the integer to a floating-point number, then add the two
 > floating point numbers"
@@ -124,7 +124,7 @@ way for the computer to interpret.
 What does this have to do with vectorization in R? Well, **many R
 functions are actually written in a a compiled language**, such as C,
 C++, and FORTRAN, and have a small R "wrapper". For instance, when you
-inspect the code for `fft`, the fast fourier transform, you see
+inspect the code for `fft`, the fast Fourier transform, you see
 
     > fft
     function (z, inverse = FALSE) 
@@ -137,24 +137,24 @@ in many R functions. If you look at their source code, it will include
 `.C()`, `.Call()`, or sometimes `.Internal()` or `.Primitive()`. These
 means R is calling a C, C++, or FORTRAN program to carry out operations.
 However, R still has to interpret the input of the function before
-passing it to the compiled code. In `fft()` the compiled codes only
+passing it to the compiled code. In `fft()` the compiled code runs only
 *after* R figures out the data type in `z`, and also whether to use the
 default value of `inverse`. The compiled code is able to run faster than
 code written in pure R, because the "figuring out" stuff is done first,
 and it can zoom ahead without the "translation" steps that R needs.
 
-If you need to run a function over all the results of a vector, you
-could pass a whole vector through the R function to the compiled code,
-or you could call the R function repeatedly for each value. If you do
-the latter, R has to do the "figuring out" stuff, as well as the
+If you need to run a function over all the values in a vector, you could
+pass a whole vector through the R function to the compiled code, or you
+could call the R function repeatedly for each value. If you do the
+latter, R has to do the "figuring out" stuff, as well as the
 translation, *each time*. But if you call it once, with a vector, the
 "figuring out" part happens just once.
 
-Inside the C or FORTRAN code, vectors are actually processed processed
-using loops or a similar construct. This is inevitable: somehow the
-computer is going to need to operate on each element of your vector but
-since this occurs in the compiled code, without the overhead of R
-functions, it's much faster.
+Inside the C or FORTRAN code, vectors are actually processed using loops
+or a similar construct. This is inevitable; omehow the computer is going
+to need to operate on each element of your vector. Since this occurs in
+the compiled code, though, without the overhead of R functions, this is
+much faster.
 
 Another important component of the speed of vectorized operations is
 that vectors in R are *typed*. Despite all of its flexibility, R does
@@ -186,7 +186,7 @@ function calls that are actually calling compiled code, it'll be more
 efficient than if you write long program, with the added overhead of
 many function calls. This is not the case in all other languages. Often,
 in compiled languages, you want to stick with lots of very simple
-statements, because it allows the compiler to figure out the most
+statements, because that allows the compiler to figure out the most
 efficient translation of the code.
 
 2. Everything is a vector
@@ -219,15 +219,16 @@ Linear algebra is one of the core functions of a lot of computing, so
 there are highly optimized programs for linear algebra. Such a program
 is called a BLAS - basic linear algebra system. R, and a lot of other
 software, relies on these specialized programs and outsources linear
-algebra to them. These programs have things like built-in parallel
-processing, and they may be specialized for the hardware on your
-computer. So if your calculations can be expressed in actual linear
-algebra terms, such as matrix multiplication, than it's almost certainly
-faster to vectorize them.
+algebra to them. A BLAS is highly efficient because it has things like
+built-in parallel processing, may be specialized for the specific
+hardware on your computer. So if your calculations can be expressed in
+actual linear algebra terms, such as matrix multiplication, than it's
+almost certainly faster to vectorize them because the BLAS will be doing
+most of the heavy lifting.
 
 Now, there are faster and slower linear algebra libraries, and you can
 install new ones on your computer and tell R to use them instead of the
-basic ones. This used to be like putting a new engine in your car, but
+defaults. This used to be like putting a new engine in your car, but
 [it's gotten considerably
 easier](http://moderntoolmaking.blogspot.com/2013/07/for-faster-r-on-mac-use-veclib.html).
 For certain problems, doing this can considerably speed up code, but
@@ -253,15 +254,15 @@ repeatedly, like this:
         j[i] = 10
     }
 
-Here, in each repetition of the for loop, R has to re-size the vector
+Here, in each repetition of the `for` loop, R has to re-size the vector
 and re-allocate memory. It has to find the vector in memory, create a
-new one that will fit more data, copy the old data over, insert the new
-data, and erase the old vector. This can get very slow as vectors get
-big.
+new vector that will fit more data, copy the old data over, insert the
+new data, and erase the old vector. This can get very slow as vectors
+get big.
 
 If one pre-allocates a vector that fits all the values, R doesn't have
 to re-allocate memory each iteration, and the results can be much
-faster. Here' how you'd do that for the above case:
+faster. Here's how you'd do that for the above case:
 
     j <- rep(NA, 10)
     for (i in 1:10) {
@@ -273,17 +274,17 @@ inside, but they automatically do things like pre-allocating vector size
 so you don't screw it up. This is the main reason that they can be
 faster.
 
-Another thing that "ply" functions do help with is avoiding what are
-known as *side effects*. When you run a *ply* function, everything
-happens inside that function, and nothing changes in your working
-environment (this is known as "functional programming"). In a `for`
-loop, on the other hand, when you do something like `for(i in 1:10)`,
-you get the leftover `i` in your environment. This is considered bad
-practice sometimes. Having a bunch of temporary variables like `i` lying
-around could cause problems in your code, especially if you use `i` for
+Another thing that "ply" functions help with is avoiding what are known
+as *side effects*. When you run a *ply* function, everything happens
+inside that function, and nothing changes in your working environment
+(this is known as "functional programming"). In a `for` loop, on the
+other hand, when you do something like `for(i in 1:10)`, you get the
+leftover `i` in your environment. This is considered bad practice
+sometimes. Having a bunch of temporary variables like `i` lying around
+could cause problems in your code, especially if you use `i` for
 something else later.
 
-I've seen arguments that both `ply` functions make for more expressive,
+I've seen arguments that `ply` functions make for more expressive,
 easier to read code, but I've seen the same argument for `for` loops.
 Once you are used to writing vectorized code in general, though, `for`
 loops in R will can seem odd.
@@ -312,9 +313,10 @@ avoid the loop in R. Examples of such functions include `cumsum`
 Your performance penalty for using a `for` loop instead a vector will be
 small if the number of iterations is relatively small, and the
 computational time of the functions called *inside* your for loop is
-high, so that actually calling them is a small fraction of your
-computational time. In these cases, it may make sense to use a `for`
-loop, especially if they are more intuitive or easier to read *for you*.
+high, so that actually looping and function calls make up a small
+fraction of your computational time. In these cases, it may make sense
+to use a `for` loop, especially if they are more intuitive or easier to
+read *for you*.
 
 Some resources on vectorization
 -------------------------------
