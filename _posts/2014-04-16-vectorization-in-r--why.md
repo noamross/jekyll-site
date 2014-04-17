@@ -219,19 +219,18 @@ Linear algebra is one of the core functions of a lot of computing, so
 there are highly optimized programs for linear algebra. Such a program
 is called a BLAS - basic linear algebra system. R, and a lot of other
 software, relies on these specialized programs and outsources linear
-algebra to them. A BLAS is highly efficient because it has things like
-built-in parallel processing, may be specialized for the specific
-hardware on your computer. So if your calculations can be expressed in
-actual linear algebra terms, such as matrix multiplication, than it's
+algebra to them. A BLAS is generally designed to be highly efficient and has things like
+built-in parallel processing, hardware-specific implementation, and a host of other tricks. So if your calculations can be expressed in
+actual linear algebra terms, such as matrix multiplication, than it is
 almost certainly faster to vectorize them because the BLAS will be doing
 most of the heavy lifting.
 
-Now, there are faster and slower linear algebra libraries, and you can
+There are faster and slower linear algebra libraries, and you can
 install new ones on your computer and tell R to use them instead of the
 defaults. This used to be like putting a new engine in your car, but
 [it's gotten considerably
 easier](http://moderntoolmaking.blogspot.com/2013/07/for-faster-r-on-mac-use-veclib.html).
-For certain problems, doing this can considerably speed up code, but
+For certain problems, a shiny new BLAS can considerably speed up code, but
 results vary depending on the specific linear algebra operations you are
 using.
 
