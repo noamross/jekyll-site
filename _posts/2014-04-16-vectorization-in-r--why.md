@@ -301,10 +301,8 @@ instead of vectorized functions, though. These include:
 
 Note that the second case is tricky. In some cases where the *obvious*
 implementation of an algorithm uses a `for` loop, there's a vectorized
-way around it. For instance, here is a good example of implementing a
-[random
-walk](https://www.stat.auckland.ac.nz/~ihaka/downloads/Taupo-handouts.pdf)
-using vectorized code. In these cases, you often want to call functions
+way around it. For instance, [here is a good example of implementing a
+random walk using vectorized code](https://www.stat.auckland.ac.nz/~ihaka/downloads/Taupo-handouts.pdf). In these cases, you often want to call functions
 that are essentially C/FORTRAN implementations of loop operations to
 avoid the loop in R. Examples of such functions include `cumsum`
 (cumulative sums), `rle` (counting number of repeated value), and
@@ -320,9 +318,7 @@ especially if they are more intuitive or easier to read *for you*.
 Some resources on vectorization
 -------------------------------
 
--   Good discussion in a couple of
-    [blog](http://www.johnmyleswhite.com/notebook/2013/01/24/writing-better-statistical-programs-in-r/)
-    [posts](http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/)
+-   Good discussion in a couple of [blog](http://www.johnmyleswhite.com/notebook/2013/01/24/writing-better-statistical-programs-in-r/) [posts](http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/)
     by John Myles White.
 -   Some relevant chapters of Hadley Wickham's Advanced R book:
     [Functionals](http://adv-r.had.co.nz/Functionals.html) and [code
