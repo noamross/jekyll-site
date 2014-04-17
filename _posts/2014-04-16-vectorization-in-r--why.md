@@ -114,9 +114,9 @@ The computer asks:
 > etc.
 
 If R were a *compiled* computer language, like C or FORTRAN, much of
-this "figuring out" would be accomplished the compilation step, not when
+this "figuring out" would be accomplished during the compilation step, not when
 the program was run. Compiled programs are translated into binary
-computer language after they are written, but before they are run and
+computer language after they are written, but before they are run, and
 this occurs over the *whole program*, rather than line-by-line. This
 allows the compiler to organize the binary machine code in an optimal
 way for the computer to interpret.
@@ -151,7 +151,7 @@ translation, *each time*. But if you call it once, with a vector, the
 "figuring out" part happens just once.
 
 Inside the C or FORTRAN code, vectors are actually processed using loops
-or a similar construct. This is inevitable; omehow the computer is going
+or a similar construct. This is inevitable; somehow the computer is going
 to need to operate on each element of your vector. Since this occurs in
 the compiled code, though, without the overhead of R functions, this is
 much faster.

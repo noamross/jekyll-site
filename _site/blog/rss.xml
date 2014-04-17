@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-04-16T13:22:16-07:00</updated>
+ <updated>2014-04-17T09:46:41-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -67,7 +67,7 @@ i =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&
 &lt;p&gt;[finds a place in memory for the answer]&lt;/p&gt;
 &lt;p&gt;etc.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;If R were a &lt;em&gt;compiled&lt;/em&gt; computer language, like C or FORTRAN, much of this “figuring out” would be accomplished the compilation step, not when the program was run. Compiled programs are translated into binary computer language after they are written, but before they are run and this occurs over the &lt;em&gt;whole program&lt;/em&gt;, rather than line-by-line. This allows the compiler to organize the binary machine code in an optimal way for the computer to interpret.&lt;/p&gt;
+&lt;p&gt;If R were a &lt;em&gt;compiled&lt;/em&gt; computer language, like C or FORTRAN, much of this “figuring out” would be accomplished during the compilation step, not when the program was run. Compiled programs are translated into binary computer language after they are written, but before they are run, and this occurs over the &lt;em&gt;whole program&lt;/em&gt;, rather than line-by-line. This allows the compiler to organize the binary machine code in an optimal way for the computer to interpret.&lt;/p&gt;
 &lt;p&gt;What does this have to do with vectorization in R? Well, &lt;strong&gt;many R functions are actually written in a a compiled language&lt;/strong&gt;, such as C, C++, and FORTRAN, and have a small R “wrapper”. For instance, when you inspect the code for &lt;code&gt;fft&lt;/code&gt;, the fast Fourier transform, you see&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&amp;gt;&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;fft
 function (z, &lt;span class=&quot;dt&quot;&gt;inverse =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;FALSE&lt;/span&gt;) 

@@ -290,7 +290,7 @@ i =<span class="st"> </span><span class="dv">5</span></code></pre>
 <p>[finds a place in memory for the answer]</p>
 <p>etc.</p>
 </blockquote>
-<p>If R were a <em>compiled</em> computer language, like C or FORTRAN, much of this “figuring out” would be accomplished the compilation step, not when the program was run. Compiled programs are translated into binary computer language after they are written, but before they are run and this occurs over the <em>whole program</em>, rather than line-by-line. This allows the compiler to organize the binary machine code in an optimal way for the computer to interpret.</p>
+<p>If R were a <em>compiled</em> computer language, like C or FORTRAN, much of this “figuring out” would be accomplished during the compilation step, not when the program was run. Compiled programs are translated into binary computer language after they are written, but before they are run, and this occurs over the <em>whole program</em>, rather than line-by-line. This allows the compiler to organize the binary machine code in an optimal way for the computer to interpret.</p>
 <p>What does this have to do with vectorization in R? Well, <strong>many R functions are actually written in a a compiled language</strong>, such as C, C++, and FORTRAN, and have a small R “wrapper”. For instance, when you inspect the code for <code>fft</code>, the fast Fourier transform, you see</p>
 <pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fft
 function (z, <span class="dt">inverse =</span> <span class="ot">FALSE</span>) 
