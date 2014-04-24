@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-04-17T10:09:54-07:00</updated>
+ <updated>2014-04-23T23:32:22-04:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>Vectorization in R: Why?</title>
    <link href="http://www.noamross.net/blog/2014/4/16/vectorization-in-r--why.html"/>
-   <updated>2014-04-16T11:05:35-07:00</updated>
+   <updated>2014-04-16T11:05:35-04:00</updated>
    <id>hhttp://www.noamross.net/blog/2014/4/16/vectorization-in-r--why</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -145,7 +145,7 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
  <entry>
    <title>ESA 2014 Abstract: Modeling forest disease using a macroparasite framework</title>
    <link href="http://www.noamross.net/blog/2014/2/27/esaab.html"/>
-   <updated>2014-02-27T13:17:19-08:00</updated>
+   <updated>2014-02-27T13:17:19-05:00</updated>
    <id>hhttp://www.noamross.net/blog/2014/2/27/esaab</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -175,7 +175,7 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
  <entry>
    <title>Using Dates and Times in R</title>
    <link href="http://www.noamross.net/blog/2014/2/10/using-times-and-dates-in-r---presentation-code.html"/>
-   <updated>2014-02-10T15:09:57-08:00</updated>
+   <updated>2014-02-10T15:09:57-05:00</updated>
    <id>hhttp://www.noamross.net/blog/2014/2/10/using-times-and-dates-in-r---presentation-code</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -568,7 +568,7 @@ sleep&lt;/code&gt;&lt;/pre&gt;
  <entry>
    <title>Ryan Peek on Creating Shiny Apps</title>
    <link href="http://www.noamross.net/blog/2014/1/28/rpeekshiny.html"/>
-   <updated>2014-01-28T09:41:36-08:00</updated>
+   <updated>2014-01-28T09:41:36-05:00</updated>
    <id>hhttp://www.noamross.net/blog/2014/1/28/rpeekshiny</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -590,7 +590,7 @@ frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&g
  <entry>
    <title>Dynamic Optimization in An Equation-Free Framework</title>
    <link href="http://www.noamross.net/blog/2014/1/22/eqnfree-writeup.html"/>
-   <updated>2014-01-22T09:46:27-08:00</updated>
+   <updated>2014-01-22T09:46:27-05:00</updated>
    <id>hhttp://www.noamross.net/blog/2014/1/22/eqnfree-writeup</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -680,7 +680,7 @@ frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&g
  <entry>
    <title>How to format plots for publication using ggplot2 (with some help from Inkscape)</title>
    <link href="http://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs.html"/>
-   <updated>2013-11-20T19:51:47-08:00</updated>
+   <updated>2013-11-20T19:51:47-05:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -902,7 +902,7 @@ sleepplot2
  <entry>
    <title>MBI Meeting Poster: Optimal Control of Forest Disease</title>
    <link href="http://www.noamross.net/blog/2013/11/7/mbi-poster-post.html"/>
-   <updated>2013-11-07T22:20:40-08:00</updated>
+   <updated>2013-11-07T22:20:40-05:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/11/7/mbi-poster-post</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -917,7 +917,7 @@ sleepplot2
  <entry>
    <title>Some analytics: Does age structure matter for disease spread?</title>
    <link href="http://www.noamross.net/blog/2013/6/21/multi-infection-analytic.html"/>
-   <updated>2013-06-21T13:58:39-07:00</updated>
+   <updated>2013-06-21T13:58:39-04:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/6/21/multi-infection-analytic</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -1010,7 +1010,7 @@ sleepplot2
  <entry>
    <title>Printing R help files in the console or in knitr documents</title>
    <link href="http://www.noamross.net/blog/2013/6/18/helpconsoleexample.html"/>
-   <updated>2013-06-18T10:57:22-07:00</updated>
+   <updated>2013-06-18T10:57:22-04:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/6/18/helpconsoleexample</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
@@ -1081,7 +1081,7 @@ optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG�
  <entry>
    <title>Dave Harris on Maximum Likelihood Estimation</title>
    <link href="http://www.noamross.net/blog/2013/6/17/harrisbbmle.html"/>
-   <updated>2013-06-17T15:11:17-07:00</updated>
+   <updated>2013-06-17T15:11:17-04:00</updated>
    <id>hhttp://www.noamross.net/blog/2013/6/17/harrisbbmle</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
