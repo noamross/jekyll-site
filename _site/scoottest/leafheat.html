@@ -102,7 +102,7 @@
         "ScootMap": baseLayer
       };
       
-      L.control.layers(heatLayers).addTo(map);
+      L.control.layers(heatLayers, undefined, {collapsed: false}).addTo(map);
 			});
 		</script>
 	</head>
