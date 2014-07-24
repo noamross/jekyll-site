@@ -4,13 +4,49 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-07-23T23:00:01-07:00</updated>
+ <updated>2014-07-23T23:11:32-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>What shall we talk about at ESA?</title>
+   <link href="http://www.noamross.net/blog/2014/7/17/esacorpuscompare.html"/>
+   <updated>2014-07-17T20:49:15-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/7/17/esacorpuscompare</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA&lt;/a&gt; is just around the corner, and many of us are gearing up and trying to figure out a &lt;a href=&quot;http://eco.confex.com/eco/2014/schedule/index.cgi&quot;&gt;schedule&lt;/a&gt; to cover all the talks and people we can pack in. ESA is a big conference and there’s far too much for any one person to see. In the end, everyone experiences a &lt;a href=&quot;http://en.wikipedia.org/wiki/Blind_men_and_an_elephant&quot;&gt;different part of the elephant&lt;/a&gt;. However, I thought it would be interesting to take a look at the big picture, and examine the ESA program as a &lt;em&gt;whole&lt;/em&gt; to see what could be learned from it. This is the first of (maybe) several posts where I use some basic text-mining tools to explore the content of the ESA program.&lt;/p&gt;
+&lt;p&gt;First, what are the most common terms in the ESA program?&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/plot1.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Few surprises here. “Species” would have been my guess for the top. “Plants” are probably on top because ecologists usually refer to animals by various sub-groups. The rest are fairly ho-hum: ecology and science-y words.&lt;/p&gt;
+&lt;p&gt;A much more interesting question is, how do the topics at ESA change from year to year? Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/mung.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like &lt;em&gt;biomass&lt;/em&gt; and &lt;em&gt;nutrient&lt;/em&gt; - those common in ecosystem ecology - and more like &lt;em&gt;pollinator&lt;/em&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, &lt;em&gt;phenology&lt;/em&gt;, and &lt;em&gt;network&lt;/em&gt; - those associated with the study of species interactions.&lt;/p&gt;
+&lt;p&gt;It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.&lt;/p&gt;
+&lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the &lt;em&gt;big themes&lt;/em&gt; changed? The plot below is similar, but instead of plotting the words with the greatest absolute change, I plot the relative change of 50 words most common across both years:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/big.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;This is somewhat less clear. If one squints, one could argue tha there are more words associated with species interactions ane environmental change, and managment at the top, and more words associated with ecosystems (and forests) at the bottom.&lt;/p&gt;
+&lt;p&gt;That’s just a quick first pass. Suggestions welcome for further analyses. Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;“pollinia” is a stand-in for all pollination-related words here, as I applied &lt;a href=&quot;http://en.wikipedia.org/wiki/Stemming&quot;&gt;stemming&lt;/a&gt; to the text.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Vectorization in R: Why?</title>
@@ -1076,204 +1112,6 @@ optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG�
 
 
 &lt;p&gt;The function is part of my &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/help_console.R&quot;&gt;&lt;code&gt;noamtools&lt;/code&gt; package on GitHub&lt;/a&gt;, where I keep various convenience functions. Enjoy, and fork if you have improvements!&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Dave Harris on Maximum Likelihood Estimation</title>
-   <link href="http://www.noamross.net/blog/2013/6/17/harrisbbmle.html"/>
-   <updated>2013-06-17T15:11:17-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/6/17/harrisbbmle</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;At our last &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; meeting of the quarter, &lt;a href=&quot;https://sihlab.wordpress.com/david-j-harris/&quot;&gt;Dave Harris&lt;/a&gt; gave a talk on how to use the &lt;code&gt;bbmle&lt;/code&gt; package to fit mechanistic models to ecological data. Here’s his script, which I ran throgh the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt;:&lt;/em&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# Load data&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(emdbook)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Loading required package: MASS Loading required package: lattice&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(bbmle)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Loading required package: stats4&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;data&lt;/span&gt;(ReedfrogFuncresp)
-&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h1.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Statistical models are stories about how the data came to be. The deterministic part of the story is a (slightly mangled) version of what you’d expect if the predators followed a Type II functional response:&lt;/p&gt;
-&lt;p&gt;Holling’s Disk equation for Type II Functional Response&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;a&lt;/code&gt; is attack rate&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;h&lt;/code&gt; is handling time&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;disk =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(N, a, h) {
-    N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a/(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;N *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;a *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;h)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can plot different values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; to see what kinds of data this model would generate &lt;em&gt;on average:&lt;/em&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 3, h = 0.05 (black) rises too quickly, saturates too quickly&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.05&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 2, h = 0.02 (red) still rises too quickly&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)
-&lt;span class=&quot;co&quot;&gt;# a = 0.5, h = 0.02 (blue) looks like a plausible data-generating process&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h3.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The blue curve looks plausible, but is it optimal? Does it tell the best possible story about how the data could have been generated?&lt;/p&gt;
-&lt;p&gt;In order to tell if it’s optimal, we need to pick something to optimize. Usually, that will be the log-likelihood–i.e. the log-probability that the data would have come out this way if the model were true. Models with higher probabilities of generating the data we observed therefore have higher likelihoods. For various arbitrary reasons, it’s common to minimize the negative log-likelihood rather than maximizing the positive log-likelihood. So let’s write a function that says what the log-likelihood is for a given pair of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;The log-likelihood is the sum of log-probabilities from each data point. The log-probability for a data point is (in this contrived example) drawn from a binomial (“coin flip”) distribution, whose mean is determined by the disk equation.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;NLL =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
-    -&lt;span class=&quot;kw&quot;&gt;sum&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dbinom&lt;/span&gt;(ReedfrogFuncresp$Killed, &lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;prob =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(ReedfrogFuncresp$Initial, 
-        a, h)/ReedfrogFuncresp$Initial, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;))
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can optimize the model with the mle2 function. It finds the lowest value for the negative log-likelihood (i.e. the combination of parameters with the highest positive likelihood, or the maximum likelihood estimate).&lt;/p&gt;
-&lt;p&gt;The NLL function we defined above requires starting values for &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt;. Let’s naively start them at 1, 1&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You’ll probably get lots of warnings about NaNs. That’s just the optimization procedure complaining because it occasionally tries something impossible (such as a set of parameters that would generate a negative probability of being eaten). In general, these warnings are nothing to worry about, since the optimization procedure will just try better values. But it’s worth checking to make sure that there are no other warnings or problems by calling &lt;code&gt;warnings()&lt;/code&gt; after you fit the model.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;co&quot;&gt;# print out the results&lt;/span&gt;
-fit&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Call:
-## mle2(minuslogl = NLL, start = list(a = 1, h = 1))
-## 
-## Coefficients:
-##       a       h 
-## 0.52652 0.01666 
-## 
-## Log-likelihood: -46.72&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;
-&lt;span class=&quot;co&quot;&gt;# a bit more information:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Maximum likelihood estimation
-## 
-## Call:
-## mle2(minuslogl = NLL, start = list(a = 1, h = 1))
-## 
-## Coefficients:
-##   Estimate Std. Error z value   Pr(z)    
-## a  0.52652    0.07112    7.40 1.3e-13 ***
-## h  0.01666    0.00488    3.41 0.00065 ***
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
-## 
-## -2 log L: 93.44&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here’s the curve associated with the most likely combination of a and &lt;code&gt;h&lt;/code&gt; (thick black line).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(ReedfrogFuncresp, &lt;span class=&quot;dt&quot;&gt;xlim =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;xaxs =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;i&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;disk&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)[&lt;span class=&quot;st&quot;&gt;&amp;quot;h&amp;quot;&lt;/span&gt;]), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;lwd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, 
-    &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h7.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The rethinking package has a few convenient functions for summarizing and visualizing the output of an mle2 object. It’s not on CRAN, but you can get it from the author’s website or &lt;a href=&quot;https://github.com/rmcelreath/rethinking&quot;&gt;from github.&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(rethinking)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Attaching package: &amp;#39;rethinking&amp;#39;
-## 
-## The following object is masked _by_ &amp;#39;.GlobalEnv&amp;#39;:
-## 
-## x&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
-## a     0.53 0.07 0.39  0.67
-## h     0.02 0.00 0.01  0.03&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We can also visualize a distribution of estimates that are reasonably consistent with the observed data using the sample.naive.posterior function:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;sample.naive.posterior&lt;/span&gt;(fit), &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;.&amp;quot;&lt;/span&gt;)
-
-&lt;span class=&quot;co&quot;&gt;# Add a red dot for the maximum likelihood estimate:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit))), &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)
-
-&lt;span class=&quot;co&quot;&gt;# Add a blue dot for our earlier guess:&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;points&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.02&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;pch =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h9.png&quot; /&gt;
-&lt;/div&gt;
-&lt;hr /&gt;
-&lt;h3 id=&quot;a-big-digression-about-confidence-intervals&quot;&gt;A Big digression about confidence intervals&lt;/h3&gt;
-&lt;p&gt;Our earlier guess falls inside the cloud of points, so even though it’s not as good as the red point, it’s still plausibly consistent with the data.&lt;/p&gt;
-&lt;p&gt;Note that the ranges of plausible estimates for the two coefficients are correlated: This makes sense if you think about it: if the attack rate is high, then there needs to be a large handling time between attacks or else too many frogs would get eaten.&lt;/p&gt;
-&lt;p&gt;Where did this distribution of points come from? &lt;code&gt;mle2&lt;/code&gt; objects, like many models in R, have a variance/covariance matrix that can be extracted with the vcov() function.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;vcov&lt;/span&gt;(fit)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##           a         h
-## a 0.0050584 2.859e-04
-## h 0.0002859 2.384e-05&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The variance terms (along the diagonal) describe mle2’s uncertainty about the values. The covariance terms (other entries in the matrix) describe how uncertainty in one coefficient relates to uncertainty in the other coefficient.&lt;/p&gt;
-&lt;p&gt;This graph gives an example:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;from =&lt;/span&gt; -&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;to =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;ylab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;likelihood&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;xlab =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;estimate&amp;quot;&lt;/span&gt;)
-&lt;span class=&quot;kw&quot;&gt;curve&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;dnorm&lt;/span&gt;(x, &lt;span class=&quot;dt&quot;&gt;sd =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;add =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h11.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The black curve shows a model with low variance for its estimate. This means that the likelihood would fall off quickly if we tried a bad estimate, and we can be reasonably sure that the data was generated by a value in a fairly narrow range. The model associated with the red curve is much less certain: the parameter could be very different from the optimal value and the likelihood wouldn’t drop much.&lt;/p&gt;
-&lt;p&gt;Here’s another way to visualize the decline in likelihood as you move away from the best estimate:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;plot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;profile&lt;/span&gt;(fit))&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/h12.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since &lt;code&gt;h&lt;/code&gt; is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.&lt;/p&gt;
-&lt;h4 id=&quot;a-somewhat-related-digression&quot;&gt;A somewhat-related digression:&lt;/h4&gt;
-&lt;p&gt;Where does the vcov matrix come from? From a matrix called the Hessian. It describes the curvature of the likelihood surface, i.e. how quickly the log-likelihood falls off as you move away from the optimum.&lt;/p&gt;
-&lt;p&gt;Sometimes the Hessian is hard to estimate and causes problems, so we can run the model without it:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit.without.hessian =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(NLL, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;skip.hessian =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When there’s no Hessian, there aren’t any confidence intervals, though.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;precis&lt;/span&gt;(fit.without.hessian)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##   Estimate S.E. 2.5% 97.5%
-## a     0.53   NA   NA    NA
-## h     0.02   NA   NA    NA&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;(End digression)&lt;/p&gt;
-&lt;hr /&gt;
-&lt;h3 id=&quot;more-about-mle2&quot;&gt;More about &lt;code&gt;mle2&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Under the hood, &lt;code&gt;mle2&lt;/code&gt; uses a function called optim:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;dt&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;`&lt;/span&gt;(optim)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It’s worth noting that most of the optimization methods used in optim (and therefore in &lt;code&gt;mle2&lt;/code&gt;) only do a local optimization. So if your likelihood surface has multiple peaks, you may not find the right one.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mle2&lt;/code&gt; also has a convenient formula inferface that can eliminate the need to write a whole likelihood function from scratch. Let’s take a look with some data found in ?mle2&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;x =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;
-y =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;26&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;17&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;13&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;20&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;9&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;8&lt;/span&gt;)
-d =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(x, y)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here, we’re fitting a Poisson model that depends on an intercept term plus a linear term. The &lt;code&gt;exp()&lt;/code&gt; is mainly there to make sure that the value of lambda doesn’t go negative, which isn’t allowed (it would imply a negative number of occurrences for our outcome of interest).&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit0 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(y ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dpois&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lambda =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(intercept +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;slope *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x)), &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;intercept =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(y), 
-    &lt;span class=&quot;dt&quot;&gt;slope =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; d)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note that mle2 finds its values for x and y from the &lt;code&gt;data&lt;/code&gt; term and that we’re giving it starting values for the slope and intercept. In general, it’s useful to start the intercept at the mean value of y and the slope terms at 0, but it often won’t matter much.&lt;/p&gt;
-&lt;h3 id=&quot;prior-information&quot;&gt;Prior information&lt;/h3&gt;
-&lt;p&gt;Recall that our estimates of a and &lt;code&gt;h&lt;/code&gt; are positively correlated: the data could be consistent with either a high attack rate and a high handling time OR with a low attack rate and a low handling time.&lt;/p&gt;
-&lt;p&gt;Suppose we have prior information about tadpole/dragonfly biology that suggests that these parameters should be on the low end. We can encode this prior information as a prior distribution on the parameters. Then mle2 won’t climb the likelihood surface. It will climb the surface of the Bayesian posterior (or if you’re frequentist, it will do a penalized or constrained optimization of the likelihood).&lt;/p&gt;
-&lt;p&gt;Here’s a negative log posterior that tries to keep the values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;h&lt;/code&gt; small while still being consistent with the data:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;negative.log.posterior =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(a, h) {
-    &lt;span class=&quot;kw&quot;&gt;NLL&lt;/span&gt;(a, h) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(a, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;dexp&lt;/span&gt;(h, &lt;span class=&quot;dt&quot;&gt;rate =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;log =&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;We optimize it exactly as before&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;fit2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;mle2&lt;/span&gt;(negative.log.posterior, &lt;span class=&quot;dt&quot;&gt;start =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;a =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;h =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced Warning: NaNs produced Warning: NaNs produced
-## Warning: NaNs produced&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Sure enough, the coefficients are a bit smaller&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit)  &lt;span class=&quot;co&quot;&gt;# MLE&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.52652 0.01666&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit2)  &lt;span class=&quot;co&quot;&gt;# MAP estimate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
-## 0.47931 0.01375&lt;/code&gt;&lt;/pre&gt;</content>
  </entry>
  
  
