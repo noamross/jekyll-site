@@ -240,49 +240,143 @@
 
         <div class="content">
           
-<div id="headblock"><h1 id="post.title"><a href="/blog/2014/7/17/esacorpuscompare.html">What shall we talk about at ESA?</a></h1>
-<p>by <em>Noam Ross</em>, 17 July 2014</p>
+<div id="headblock"><h1 id="post.title"><a href="/blog/2014/4/16/vectorization-in-r--why.html">Vectorization in R: Why?</a></h1>
+<p>by <em>Noam Ross</em>, 16 April 2014</p>
 <hr /></div>
-<div class="contenttext"><p><a href="http://esa.org/am/">ESA</a> is just around the corner, and many of us are gearing up and trying to figure out a <a href="http://eco.confex.com/eco/2014/schedule/index.cgi">schedule</a> to cover all the talks and people we can pack in. ESA is a big conference and there’s far too much for any one person to see. In the end, everyone experiences a <a href="http://en.wikipedia.org/wiki/Blind_men_and_an_elephant">different part of the elephant</a>. However, I thought it would be interesting to take a look at the big picture, and examine the ESA program as a <em>whole</em> to see what could be learned from it. This is the first of (maybe) several posts where I use some basic text-mining tools to explore the content of the ESA program.</p>
-<p>First, what are the most common terms in the ESA program?</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/plot1.png" />
-</div>
-<p>Few surprises here. “Species” would have been my guess for the top. “Plants” are probably on top because ecologists usually refer to animals by various sub-groups. The rest are fairly ho-hum: ecology and science-y words.</p>
-<p>A much more interesting question is, how do the topics at ESA change from year to year? Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/mung.png" />
-</div>
-<p>This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the <em>kinds</em> of ecology in the program. This year there are fewer words like <em>biomass</em> and <em>nutrient</em> - those common in ecosystem ecology - and more like <em>pollinator</em><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, <em>phenology</em>, and <em>network</em> - those associated with the study of species interactions.</p>
-<p>These are the biggest <em>changes</em>, but have the <em>big themes</em> changed? The plot below is similar, but instead of plotting the words with the greatest absolute change, I plot the relative change of 50 words most common across both years:</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/big.png" />
-</div>
-<p>Many of the patterns are the same here: “California” still comes out on top and “biomass” on bottom. But a few other interesting things stand out. Management-related words - “use”, “conserve”, “risk” - are always popular but more prevelant this year, as are geographic terms like “island” and “landscape”.</p>
-<p>It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.</p>
-<p>That’s just a quick first pass. Check out <a href="https://github.com/noamross/esaprog">this repository on github</a> for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!</p>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>“pollinia” is a stand-in for all pollination-related words here, as I applied <a href="http://en.wikipedia.org/wiki/Stemming">stemming</a> to the text.<a href="#fnref1">↩</a></p></li>
-</ol>
-</div></div>
+<div class="contenttext"><p><em>Here are my notes from a recent talk I gave on vectorization at a <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> meeting. Thanks to <a href="https://twitter.com/vsbuffalo">Vince Buffalo</a>, <a href="http://twitter.com/johnmyleswhite">John Myles White</a>, and <a href="http://twitter.com/hadleywickham">Hadley Wickham</a> for their input as I was preparing this. Feedback welcome!</em></p>
+<p>Beginning R users are often told to “vectorize” their code. Here, I try to explain <em>why</em> vectorization can be advantageous in R by showing how R works under the hood.</p>
+<p>Now, remember, <a href="http://c2.com/cgi/wiki?PrematureOptimization">premature optimization is the root of all evil (Knuth)</a>. Don’t start re-writing your code unless the time saved is going to be worth the time invested. <a href="http://www.noamross.net/blog/2013/4/25/faster-talk.html">Other approaches, like finding a bigger machine or parallelization</a>, could give you more bang for the buck in terms of programming time. But if you understand the nuts and bolts of vectorization in R, it may help you write shorter, simpler, safer, and yes, faster code in the first place.</p>
+<p>First, let’s acknowledge that vectorization can seem like voodoo. Consider a two math problems, one vectorized, and one not:</p>
+<p><span class="math">\[\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} + 
+\begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix} =
+\begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix}\]</span></p>
+<p><span class="math">\[\begin{aligned}
+1 + 1 = 2 \\
+2 + 2 = 4 \\
+3 + 3 = 6
+\end{aligned}\]</span></p>
+<p>Why on earth should these take a different amount of time to calculate? Linear algebra isn’t magic. In both cases there are three addition operations to perform. So what’s up?</p>
+<h2 id="what-on-earth-is-r-actually-doing">1. What on earth is R actually doing?</h2>
+<p>R is a <em>high-level</em>, <em>interpreted</em> computer language. This means that R takes care of a lot of basic computer tasks for you. For instance, when you type</p>
+<pre class="sourceCode r"><code class="sourceCode r">    i &lt;-<span class="st"> </span><span class="fl">5.0</span></code></pre>
+<p>you <em>don’t</em> have to tell your computer:</p>
+<ul>
+<li>That “5.0” is a floating-point number</li>
+<li>That “i” should store numeric-type data</li>
+<li>To find a place in memory for to put “5”</li>
+<li>To register “i” as a pointer to that place in memory</li>
+</ul>
+<p>You also don’t have to convert <code>i &lt;- 5.0</code> to binary code. That’s done automatically when you hit ‘Enter’.</p>
+<p>When you then type</p>
+<pre class="sourceCode r"><code class="sourceCode r">i &lt;-<span class="st"> &quot;foo&quot;</span></code></pre>
+<p>you don’t have to tell the computer that <code>i</code> no longer stores an integer but a series of characters that form a <em>string</em>, to store “f”, “o”, and “o”, consecutively, etc.</p>
+<p>R figures these things on it’s own, on the fly, as you type commands or source them from a file. This means that running a command in R takes a <em>relatively</em> longer time than it might in a lower-level language, such as C. If I am writing in C, I might write</p>
+<pre class="sourceCode r"><code class="sourceCode r">int i
+i =<span class="st"> </span><span class="dv">5</span></code></pre>
+<p>This tells the computer the <code>i</code> will store data of the type <code>int</code> (integers), and assign the value 5 to it. If I try to assign 5.5 to it, something will go wrong. Depending on my set-up, it might throw an error, or just silently assign 5 to <code>i</code>. But C doesn’t have to figure out what type of data is is represented by <code>i</code> and this is part of what makes it faster.</p>
+<p>Here’s another example. If, in R, you type:</p>
+<pre class="sourceCode r"><code class="sourceCode r">2L +<span class="st"> </span><span class="fl">3.5</span></code></pre>
+<p>The computer asks:</p>
+<blockquote>
+<p>“OK, what’s the first thing?”</p>
+<p>“An integer”</p>
+<p>“The second thing?”</p>
+<p>“A a floating-point number”</p>
+<p>“Do we have a way to deal with adding an integer and a floating-point number?”</p>
+<p>“Yes! Convert the integer to a floating-point number, then add the two floating point numbers”</p>
+<p>[converts integer]</p>
+<p>[finds a place in memory for the answer]</p>
+<p>etc.</p>
+</blockquote>
+<p>If R were a <em>compiled</em> computer language, like C or FORTRAN, much of this “figuring out” would be accomplished during the compilation step, not when the program was run. Compiled programs are translated into binary computer language after they are written, but before they are run, and this occurs over the <em>whole program</em>, rather than line-by-line. This allows the compiler to organize the binary machine code in an optimal way for the computer to interpret.</p>
+<p>What does this have to do with vectorization in R? Well, <strong>many R functions are actually written in a a compiled language</strong>, such as C, C++, and FORTRAN, and have a small R “wrapper”. For instance, when you inspect the code for <code>fft</code>, the fast Fourier transform, you see</p>
+<pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>fft
+function (z, <span class="dt">inverse =</span> <span class="ot">FALSE</span>) 
+<span class="kw">.Call</span>(C_fft, z, inverse)
+&lt;bytecode:<span class="st"> </span><span class="dv">0x7fc261e1b910</span>&gt;
+<span class="er">&lt;</span>environment:<span class="st"> </span>namespace:stats&gt;</code></pre>
+<p>R is passing the data onto a C function called <code>C_fft</code>. You’ll see this in many R functions. If you look at their source code, it will include <code>.C()</code>, <code>.Call()</code>, or sometimes <code>.Internal()</code> or <code>.Primitive()</code>. These means R is calling a C, C++, or FORTRAN program to carry out operations. However, R still has to interpret the input of the function before passing it to the compiled code. In <code>fft()</code> the compiled code runs only <em>after</em> R figures out the data type in <code>z</code>, and also whether to use the default value of <code>inverse</code>. The compiled code is able to run faster than code written in pure R, because the “figuring out” stuff is done first, and it can zoom ahead without the “translation” steps that R needs.</p>
+<p>If you need to run a function over all the values in a vector, you could pass a whole vector through the R function to the compiled code, or you could call the R function repeatedly for each value. If you do the latter, R has to do the “figuring out” stuff, as well as the translation, <em>each time</em>. But if you call it once, with a vector, the “figuring out” part happens just once.</p>
+<p>Inside the C or FORTRAN code, vectors are actually processed using loops or a similar construct. This is inevitable; somehow the computer is going to need to operate on each element of your vector. Since this occurs in the compiled code, though, without the overhead of R functions, this is much faster.</p>
+<p>Another important component of the speed of vectorized operations is that vectors in R are <em>typed</em>. Despite all of its flexibility, R does have some restrictions on what we can do. All elements of a vector must be the same data type. If I try to do this</p>
+<pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="ot">FALSE</span>, <span class="st">&quot;hello&quot;</span>)</code></pre>
+<p>I get</p>
+<pre class="sourceCode r"><code class="sourceCode r">&gt;<span class="st"> </span>a
+[<span class="dv">1</span>] <span class="st">&quot;1&quot;</span>     <span class="st">&quot;2&quot;</span>     <span class="st">&quot;FALSE&quot;</span> <span class="st">&quot;hello&quot;</span>
+&gt;<span class="st"> </span><span class="kw">class</span>(a)
+[<span class="dv">1</span>] <span class="st">&quot;character&quot;</span></code></pre>
+<p>R converts all my data to characters. It can’t handle a vector with different data types.</p>
+<p>So when R needs to perform an operation like</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) +<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</code></pre>
+<p>R only has to ask what types of data are in <em>each vector</em> (2) rather than <em>each element</em> (6).</p>
+<p>One consequence of all this is that fast R code is short. If you can express what you want to do in R in a line or two, with just a few function calls that are actually calling compiled code, it’ll be more efficient than if you write long program, with the added overhead of many function calls. This is not the case in all other languages. Often, in compiled languages, you want to stick with lots of very simple statements, because that allows the compiler to figure out the most efficient translation of the code.</p>
+<h2 id="everything-is-a-vector">2. Everything is a vector</h2>
+<p>In R <em>everything</em> is a vector. To quote Tim Smith in <a href="http://tim-smith.us/arrgh/">“aRrgh: a newcomer’s (angry) guide to R”</a></p>
+<blockquote>
+<p>All naked numbers are double-width floating-point atomic vectors of length one. You’re welcome.</p>
+</blockquote>
+<p>This means that, in R, typing “6” tells R something like</p>
+<pre class="sourceCode r"><code class="sourceCode r">&lt;start vector, type=numeric, length=<span class="dv">1</span>&gt;<span class="dv">6</span>&lt;end vector&gt;</code></pre>
+<p>While in other languages, “6” might just be</p>
+<pre class="sourceCode r"><code class="sourceCode r">&lt;numeric&gt;<span class="dv">6</span></code></pre>
+<p>So, while in other languages, it might be more efficient to express something as a single number rather than a length-one vector, in R this is impossible. There’s no <em>advantage</em> to NOT organizing your data as vector. In other languages, short vectors might be better expressed as scalars.</p>
+<h2 id="linear-algebra-is-a-special-case">3. Linear algebra is a special case</h2>
+<p>Linear algebra is one of the core functions of a lot of computing, so there are highly optimized programs for linear algebra. Such a program is called a BLAS - basic linear algebra system. R, and a lot of other software, relies on these specialized programs and outsources linear algebra to them. A BLAS is generally designed to be highly efficient and has things like built-in parallel processing, hardware-specific implementation, and a host of other tricks. So if your calculations can be expressed in actual linear algebra terms, such as matrix multiplication, than it is almost certainly faster to vectorize them because the BLAS will be doing most of the heavy lifting.</p>
+<p>There are faster and slower linear algebra libraries, and you can install new ones on your computer and tell R to use them instead of the defaults. This used to be like putting a new engine in your car, but <a href="http://moderntoolmaking.blogspot.com/2013/07/for-faster-r-on-mac-use-veclib.html">it’s gotten considerably easier</a>. For certain problems, a shiny new BLAS can considerably speed up code, but results vary depending on the specific linear algebra operations you are using.</p>
+<h2 id="functionals-pre-allocating-memory-avoiding-side-effects.">4. Functionals: Pre-allocating memory, avoiding side effects.</h2>
+<p>There are a whole family of functions in R called <em>functionals</em>, or <code>apply</code> functions, which take vectors (or matrices, or lists) of values and apply arbitrary functions to each. Because these can use <em>arbitrary</em> functions, they are NOT compiled. Functionals mostly are written in pure R, and they speed up code only in certain cases.</p>
+<p>One operation that is slow in R, and somewhat slow in all languages, is memory allocation. So one of the slower ways to write a <code>for</code> loop is to resize a vector repeatedly, so that R has to re-allocate memory repeatedly, like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">j &lt;-<span class="st"> </span><span class="dv">1</span>
+for (i in <span class="dv">1</span>:<span class="dv">10</span>) {
+    j[i] =<span class="st"> </span><span class="dv">10</span>
+}</code></pre>
+<p>Here, in each repetition of the <code>for</code> loop, R has to re-size the vector and re-allocate memory. It has to find the vector in memory, create a new vector that will fit more data, copy the old data over, insert the new data, and erase the old vector. This can get very slow as vectors get big.</p>
+<p>If one pre-allocates a vector that fits all the values, R doesn’t have to re-allocate memory each iteration, and the results can be much faster. Here’s how you’d do that for the above case:</p>
+<pre class="sourceCode r"><code class="sourceCode r">j &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">10</span>)
+for (i in <span class="dv">1</span>:<span class="dv">10</span>) {
+    j[i] =<span class="st"> </span><span class="dv">10</span>
+}</code></pre>
+<p>The <code>apply</code> or <code>plyr::*ply</code> functions all actually have <code>for</code> loops inside, but they automatically do things like pre-allocating vector size so you don’t screw it up. This is the main reason that they can be faster.</p>
+<p>Another thing that “ply” functions help with is avoiding what are known as <em>side effects</em>. When you run a <em>ply</em> function, everything happens inside that function, and nothing changes in your working environment (this is known as “functional programming”). In a <code>for</code> loop, on the other hand, when you do something like <code>for(i in 1:10)</code>, you get the leftover <code>i</code> in your environment. This is considered bad practice sometimes. Having a bunch of temporary variables like <code>i</code> lying around could cause problems in your code, especially if you use <code>i</code> for something else later.</p>
+<p>I’ve seen arguments that <code>ply</code> functions make for more expressive, easier to read code, but I’ve seen the same argument for <code>for</code> loops. Once you are used to writing vectorized code in general, though, <code>for</code> loops in R will can seem odd.</p>
+<h2 id="so-when-might-for-loops-make-sense-over-vectorization">So when might <code>for</code> loops make sense over vectorization?</h2>
+<p>There are still situations that it may make sense to use <code>for</code> loops instead of vectorized functions, though. These include:</p>
+<ul>
+<li>Using functions that don’t take vector arguments</li>
+<li>Loops where each iteration is dependent on the results of previous iterations</li>
+</ul>
+<p>Note that the second case is tricky. In some cases where the <em>obvious</em> implementation of an algorithm uses a <code>for</code> loop, there’s a vectorized way around it. For instance, <a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/Taupo-handouts.pdf">here is a good example of implementing a random walk using vectorized code</a>. In these cases, you often want to call functions that are essentially C/FORTRAN implementations of loop operations to avoid the loop in R. Examples of such functions include <code>cumsum</code> (cumulative sums), <code>rle</code> (counting number of repeated value), and <code>ifelse</code> (vectorized if…else statements).</p>
+<p>Your performance penalty for using a <code>for</code> loop instead a vector will be small if the number of iterations is relatively small, and the functions called <em>inside</em> your for loop are slow. In these cases, looping and overhead from function calls make up a small fraction of your computational time. It may make sense to use a <code>for</code> loop in such cases, especially if they are more intuitive or easier to read <em>for you</em>.</p>
+<h2 id="some-resources-on-vectorization">Some resources on vectorization</h2>
+<ul>
+<li>Good discussion in a couple of <a href="http://www.johnmyleswhite.com/notebook/2013/01/24/writing-better-statistical-programs-in-r/">blog</a> <a href="http://www.johnmyleswhite.com/notebook/2013/12/22/the-relationship-between-vectorized-and-devectorized-code/">posts</a> by John Myles White.</li>
+<li>Some relevant chapters of Hadley Wickham’s Advanced R book: <a href="http://adv-r.had.co.nz/Functionals.html">Functionals</a> and <a href="http://adv-r.had.co.nz/Profiling.html#vectorise">code profiling</a></li>
+<li>Vectorization is covered in chapters 3 and 4 of the classic text on R’s idiosyncrasies - <a href="http://www.burns-stat.com/pages/Tutor/R_inferno.pdf">The R Inferno</a>, by Patrick Burns</li>
+<li>Here are a bunch of assorted blog posts with good examples of speeding up code with vectorization
+<ul>
+<li><a href="http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/">http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/</a></li>
+<li><a href="http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/">http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/</a></li>
+<li><a href="http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html">http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html</a></li>
+<li><a href="http://rpubs.com/daspringate/vectorisation">http://rpubs.com/daspringate/vectorisation</a></li>
+<li><a href="http://quanttrader.info/public/FasterRCode.pdf">http://quanttrader.info/public/FasterRCode.pdf</a></li>
+</ul></li>
+</ul></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
 	  
     <li><a href="/tags.html#R-ref">R</a></li>
     
-    <li><a href="/tags.html#ESA2014-ref">ESA2014</a></li>
+    <li><a href="/tags.html#D-RUG-ref">D-RUG</a></li>
     
-    <li><a href="/tags.html#ecobloggers-ref">ecobloggers</a></li>
+    <li><a href="/tags.html#vectorization-ref">vectorization</a></li>
     
 </ul>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'noamrossgh'; // required: replace example with your forum shortname
-    var disqus_identifier = '/blog/2014/7/17/esacorpuscompare.html';
-    var disqus_url = 'http://www.noamross.net/blog/2014/7/17/esacorpuscompare.html';
+    var disqus_identifier = '/blog/2014/4/16/vectorization-in-r--why.html';
+    var disqus_url = 'http://www.noamross.net/blog/2014/4/16/vectorization-in-r--why.html';
     
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -299,10 +393,6 @@
 <h1>Previous Posts</h1>
 
 <ul>
-<li><a href="/blog/2014/4/16/vectorization-in-r--why.html">Vectorization in R: Why?</a></li>
-</ul>
-
-<ul>
 <li><a href="/blog/2014/2/27/esaab.html">ESA 2014 Abstract: Modeling forest disease using a macroparasite framework</a></li>
 </ul>
 
@@ -316,6 +406,10 @@
 
 <ul>
 <li><a href="/blog/2014/1/22/eqnfree-writeup.html">Dynamic Optimization in An Equation-Free Framework</a></li>
+</ul>
+
+<ul>
+<li><a href="/blog/2013/11/20/formatting-plots-for-pubs.html">How to format plots for publication using ggplot2 (with some help from Inkscape)</a></li>
 </ul>
  </div>
         </div>
