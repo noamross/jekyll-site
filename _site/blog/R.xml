@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-07-23T23:14:43-07:00</updated>
+ <updated>2014-07-23T23:16:22-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -39,7 +39,7 @@
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/big.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;This is somewhat less clear. If one squints, one could argue that there are more words associated with species interactions, environmental change, and management at the top, and more words associated with ecosystems (and forests) at the bottom.&lt;/p&gt;
-&lt;p&gt;That’s just a quick first pass. Suggestions welcome for further analyses. Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
+&lt;p&gt;That’s just a quick first pass. I haven’t yet thought much about how one models these data to understand effect sizes and significance. Suggestions welcome for further analyses welcome! (As are analyses themselves.) Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;

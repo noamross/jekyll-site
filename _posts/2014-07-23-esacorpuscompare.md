@@ -67,8 +67,8 @@ are more words associated with species interactions, environmental
 change, and management at the top, and more words associated with
 ecosystems (and forests) at the bottom.
 
-That's just a quick first pass. Suggestions welcome for further
-analyses. Check out [this repository on
+That's just a quick first pass. I haven't yet thought much about how one models these data to understand effect sizes and significance. Suggestions welcome for further
+analyses welcome! (As are analyses themselves.) Check out [this repository on
 github](https://github.com/noamross/esaprog) for the code that generated
 these plots and how to grab the ESA program text for your own use. See
 you in a few weeks!
