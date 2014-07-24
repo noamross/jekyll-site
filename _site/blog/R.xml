@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-07-23T23:33:15-07:00</updated>
+ <updated>2014-07-23T23:58:09-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -40,6 +40,7 @@
 &lt;/div&gt;
 &lt;p&gt;This is somewhat less clear. If one squints, one could argue that there are more words associated with species interactions, environmental change, and management at the top, and more words associated with forests at the bottom. Words in the middle (“ecology”, “community”) are consistently popular across both years. Finally, perhaps significance is falling out of fashion?&lt;/p&gt;
 &lt;p&gt;That’s just a quick first pass. I haven’t yet thought much about how one models these data to understand effect sizes and significance. I welcome suggestions for further analyses and better ways to plot/organize this data. Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; While messing with the ESA program text, I also created &lt;span class=&quot;citation&quot;&gt;[@esa_titles]&lt;/span&gt;(http://twitter.com/esa_titles), a twitter account that re-mixes ESA talk titles. Have a look for talks you wish you could see. :)&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
