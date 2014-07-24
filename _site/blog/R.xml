@@ -4,13 +4,49 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-07-16T13:15:47-07:00</updated>
+ <updated>2014-07-23T22:40:01-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>What shall we talk about at ESA?</title>
+   <link href="http://www.noamross.net/blog/2014/7/17/esacorpuscompare.html"/>
+   <updated>2014-07-17T20:49:15-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/7/17/esacorpuscompare</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA&lt;/a&gt; is just around the corner, and many of us are gearing up and trying to figure out a &lt;a href=&quot;http://eco.confex.com/eco/2014/schedule/index.cgi&quot;&gt;schedule&lt;/a&gt; to cover all the talks and people we can pack in. ESA is a big conference and there’s far too much for any one person to see. In the end, everyone experiences a &lt;a href=&quot;http://en.wikipedia.org/wiki/Blind_men_and_an_elephant&quot;&gt;different part of the elephant&lt;/a&gt;. However, I thought it would be interesting to take a look at the big picture, and examine the ESA program as a &lt;em&gt;whole&lt;/em&gt; to see what could be learned from it. This is the first of (maybe) several posts where I use some basic text-mining tools to explore the content of the ESA program.&lt;/p&gt;
+&lt;p&gt;First, what are the most common terms in the ESA program?&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/plot1.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Few surprises here. “Species” would have been my guess for the top. “Plants” are probably on top because ecologists usually refer to animals by various sub-groups. The rest are fairly ho-hum: ecology and science-y words.&lt;/p&gt;
+&lt;p&gt;A much more interesting question is, how do the topics at ESA change from year to year? Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/mung.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like &lt;em&gt;biomass&lt;/em&gt; and &lt;em&gt;nutrient&lt;/em&gt; - those common in ecosystem ecology - and more like &lt;em&gt;pollinator&lt;/em&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, &lt;em&gt;phenology&lt;/em&gt;, and &lt;em&gt;network&lt;/em&gt; - those associated with the study of species interactions.&lt;/p&gt;
+&lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the &lt;em&gt;big themes&lt;/em&gt; changed? The plot below is similar, but instead of plotting the words with the greatest absolute change, I plot the relative change of 50 words most common across both years:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/big.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Many of the patterns are the same here: “California” still comes out on top and “biomass” on bottom. But a few other interesting things stand out. Management-related words - “use”, “conserve”, “risk” - are always popular but more prevelant this year, as are geographic terms like “island” and “landscape”.&lt;/p&gt;
+&lt;p&gt;It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.&lt;/p&gt;
+&lt;p&gt;That’s just a quick first pass. Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;“pollinia” is a stand-in for all pollination-related words here, as I applied &lt;a href=&quot;http://en.wikipedia.org/wiki/Stemming&quot;&gt;stemming&lt;/a&gt; to the text.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>Vectorization in R: Why?</title>
@@ -1561,29 +1597,6 @@ p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
 &lt;p&gt;Anderson, R. M., and R. M. May. 1978. Regulation and stability of host-parasite population interactions: I. Regulatory processes. The Journal of Animal Ecology 47:219–247.&lt;/p&gt;
 &lt;p&gt;Cobb, R. C., J. A. N. Filipe, R. K. Meentemeyer, C. A. Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology 100:712–722.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Robert Hijmans on Spatial Data Analysis</title>
-   <link href="http://www.noamross.net/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis.html"/>
-   <updated>2013-05-23T13:08:43-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/5/23/robert-hijmans-on-spatial-data-analysis</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Last week at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt; Robert Hijmans gave a talk about spatial data analysis in R. Robert is &lt;a href=&quot;http://scholar.google.com/citations?user=NWdPabcAAAAJ&amp;amp;hl=en&quot;&gt;a professor of biogeography&lt;/a&gt; at UC Davis and the author of the &lt;a href=&quot;http://cran.r-project.org/web/packages/raster/&quot;&gt;&lt;code&gt;raster&lt;/code&gt;&lt;/a&gt; (analysis of gridded data), &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/&quot;&gt;&lt;code&gt;dismo&lt;/code&gt;&lt;/a&gt; (species distribution modeling), and &lt;a href=&quot;http://cran.r-project.org/web/packages/geosphere/&quot;&gt;&lt;code&gt;geosphere&lt;/code&gt;&lt;/a&gt; (spherical trigonometry), packages.&lt;/p&gt;
-&lt;p&gt;Robert’s presentation spanned topics including basic geographical data and geostatistics concepts, his &lt;code&gt;raster&lt;/code&gt; package and its usage, and some great examples of visualization and other resources. Here are his slides:&lt;/p&gt;
-&lt;iframe src=&quot;http://www.slideshare.net/slideshow/embed_code/22149457&quot; width=&quot;714&quot; height=&quot;575&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Robert has also written an &lt;a href=&quot;http://dl.dropbox.com/u/3356641/blogstuff/Introduction%20to%20spatial%20data%20handling%20in%20R.pdf&quot;&gt;introduction to spatial modeling for R beginners&lt;/a&gt; which reviews very basic data handling and the &lt;code&gt;sp&lt;/code&gt; and &lt;code&gt;raster&lt;/code&gt; packages. Finally, his package vignettes are great resources for specific topics:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/raster/vignettes/Raster.pdf&quot;&gt;Introduction to the raster package&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/raster/vignettes/functions.pdf&quot;&gt;Writing functions for large raster files&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/sdm.pdf&quot;&gt;Species Distribution modeling with R&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;Boosted Regression Trees for ecological modeling&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
  </entry>
  
  
