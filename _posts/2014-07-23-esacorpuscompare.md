@@ -2,7 +2,7 @@
 title: "What shall we talk about at ESA?"
 author: "Noam Ross"
 tags: [R, ESA2014, ecobloggers]
-date: "14-07-17 20:49:15"
+date: "14-07-24 01:45:15"
 layout: post
 --- 
 
