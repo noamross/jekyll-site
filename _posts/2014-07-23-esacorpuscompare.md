@@ -62,9 +62,9 @@ common across both years:
 
 ![](http://dl.dropbox.com/u/3356641/blogstuff/big.png)
 
-This is somewhat less clear. If one squints, one could argue tha there
-are more words associated with species interactions ane environmental
-change, and managment at the top, and more words associated with
+This is somewhat less clear. If one squints, one could argue that there
+are more words associated with species interactions, environmental
+change, and management at the top, and more words associated with
 ecosystems (and forests) at the bottom.
 
 That's just a quick first pass. Suggestions welcome for further
