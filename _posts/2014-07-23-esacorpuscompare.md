@@ -21,7 +21,7 @@ some basic text-mining tools to explore the content of the ESA program.
 
 First, what are the most common terms in the ESA program?
 
-![](figure/plot1.png)
+![](http://dl.dropbox.com/u/3356641/blogstuff/plot1.png)
 
 Few surprises here. "Species" would have been my guess for the top.
 "Plants" are probably on top because ecologists usually refer to animals
@@ -32,7 +32,7 @@ A much more interesting question is, how do the topics at ESA change
 from year to year? Below I show the terms whose use in ESA abstracts
 changed the most between 2013 to 2014:
 
-![](figure/mung.png)
+![](http://dl.dropbox.com/u/3356641/blogstuff/mung.png)
 
 This paints a much more interesting picture. The rise of California and
 the fall of Minnesota make sense given the change in the meeting's
@@ -60,7 +60,7 @@ plot below is similar, but instead of plotting the words with the
 greatest absolute change, I plot the relative change of 50 words most
 common across both years:
 
-![](figure/big.png)
+![](http://dl.dropbox.com/u/3356641/blogstuff/big.png)
 
 This is somewhat less clear. If one squints, one could argue tha there
 are more words associated with species interactions ane environmental
