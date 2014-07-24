@@ -8,6 +8,9 @@ RewriteEngine on
 Redirect 301 /stats.html http://egsa.nfshost.com/resources/stats/
 RedirectMatch 301 /statsclasses/([^\.]*)\.html http://egsa.nfshost.com/resources/stats/$1/
 
+Redirect 301 /blog/2014/7/17/esacorpuscompare.html /blog/2014/7/24/esacorpuscompare.html
+
+
 # BEGIN REQUIRED FOR WEBFONTS
 
 AddType font/ttf .ttf
