@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-07-23T23:16:22-07:00</updated>
+ <updated>2014-07-23T23:21:47-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -34,11 +34,11 @@
 &lt;/div&gt;
 &lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like &lt;em&gt;biomass&lt;/em&gt; and &lt;em&gt;nutrient&lt;/em&gt; - those common in ecosystem ecology - and more like &lt;em&gt;pollinator&lt;/em&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, &lt;em&gt;phenology&lt;/em&gt;, and &lt;em&gt;network&lt;/em&gt; - those associated with the study of species interactions.&lt;/p&gt;
 &lt;p&gt;It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.&lt;/p&gt;
-&lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the &lt;em&gt;big themes&lt;/em&gt; changed? The plot below is similar, but instead of plotting the words with the greatest absolute change, I plot the relative change of 50 words most common across both years:&lt;/p&gt;
+&lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the &lt;em&gt;big themes&lt;/em&gt; changed? The plot below is similar, but instead of plotting the words with the greatest absolute change, I plot the change of the 50 words that are most common across both years:&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/big.png&quot; /&gt;
 &lt;/div&gt;
-&lt;p&gt;This is somewhat less clear. If one squints, one could argue that there are more words associated with species interactions, environmental change, and management at the top, and more words associated with ecosystems (and forests) at the bottom.&lt;/p&gt;
+&lt;p&gt;This is somewhat less clear. If one squints, one could argue that there are more words associated with species interactions, environmental change, and management at the top, and more words associated with forests at the bottom. Words in the middle (“ecology”, “community”) are consistently popular across both years. Finally, perhaps significance is falling out of fashion?&lt;/p&gt;
 &lt;p&gt;That’s just a quick first pass. I haven’t yet thought much about how one models these data to understand effect sizes and significance. Suggestions welcome for further analyses welcome! (As are analyses themselves.) Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;

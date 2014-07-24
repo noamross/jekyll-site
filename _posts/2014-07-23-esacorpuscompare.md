@@ -57,7 +57,7 @@ moving, so that no regional perspective dominates every year.
 
 These are the biggest *changes*, but have the *big themes* changed? The
 plot below is similar, but instead of plotting the words with the
-greatest absolute change, I plot the relative change of 50 words most
+greatest absolute change, I plot the change of the 50 words that are most
 common across both years:
 
 ![](http://dl.dropbox.com/u/3356641/blogstuff/big.png)
@@ -65,7 +65,7 @@ common across both years:
 This is somewhat less clear. If one squints, one could argue that there
 are more words associated with species interactions, environmental
 change, and management at the top, and more words associated with
-ecosystems (and forests) at the bottom.
+forests at the bottom.  Words in the middle ("ecology", "community") are consistently popular across both years.  Finally, perhaps significance is falling out of fashion?
 
 That's just a quick first pass. I haven't yet thought much about how one models these data to understand effect sizes and significance. Suggestions welcome for further
 analyses welcome! (As are analyses themselves.) Check out [this repository on
