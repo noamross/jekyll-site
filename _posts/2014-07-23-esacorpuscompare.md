@@ -73,7 +73,7 @@ github](https://github.com/noamross/esaprog) for the code that generated
 these plots and how to grab the ESA program text for your own use. See
 you in a few weeks!
 
-**P.S.** While messing with the ESA program text, I also created [@esa_titles](http://twitter.com/esa_titles), a twitter account that re-mixes
+**P.S.** While messing with the ESA program text, I also created [\@esa_titles](http://twitter.com/esa_titles), a twitter account that re-mixes
 ESA talk titles. Have a look for talks you wish you could see. :)
 
 [^1]: "pollinia" is a stand-in for all pollination-related words here,
