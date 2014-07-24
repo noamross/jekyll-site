@@ -29,7 +29,7 @@ by various sub-groups. The rest are fairly ho-hum: ecology and science-y
 words.
 
 It's more interesting to ask how the topics at ESA *change*
-from year to year? Below I show the terms whose use in ESA abstracts
+from year to year. Below I show the terms whose use in ESA abstracts
 changed the most between 2013 to 2014:
 
 ![](http://dl.dropbox.com/u/3356641/blogstuff/mung.png)
