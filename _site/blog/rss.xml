@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-07-23T23:25:26-07:00</updated>
+ <updated>2014-07-23T23:30:30-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -28,13 +28,13 @@
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;Few surprises here. “Species” would have been my guess for the top. “Plants” are probably on top because ecologists usually refer to animals by various sub-groups. The rest are fairly ho-hum: ecology and science-y words.&lt;/p&gt;
-&lt;p&gt;A much more interesting question is, how do the topics at ESA change from year to year? Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:&lt;/p&gt;
+&lt;p&gt;It’s more interesting to ask how the topics at ESA &lt;em&gt;change&lt;/em&gt; from year to year? Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/mung.png&quot; /&gt;
 &lt;/div&gt;
-&lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like &lt;em&gt;biomass&lt;/em&gt; and &lt;em&gt;nutrient&lt;/em&gt; - those common in ecosystem ecology - and more like &lt;em&gt;pollinator&lt;/em&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, &lt;em&gt;phenology&lt;/em&gt;, and &lt;em&gt;network&lt;/em&gt; - those associated with the study of species interactions.&lt;/p&gt;
+&lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like “biomass” and “nutrient” - those common in ecosystem ecology - and more like “pollinator”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, “phenology”, and “network” - those associated with the study of species interactions.&lt;/p&gt;
 &lt;p&gt;It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.&lt;/p&gt;
-&lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the &lt;em&gt;big themes&lt;/em&gt; changed? The plot below is similar, but instead of plotting the words with the greatest absolute change, I plot the change of the 50 words that are most common across both years:&lt;/p&gt;
+&lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the biggest &lt;em&gt;topics&lt;/em&gt; changed? The plot below is similar to that above, but instead of plotting the words with the greatest absolute change, I plot the change of the 50 words that are most common across both years:&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/big.png&quot; /&gt;
 &lt;/div&gt;

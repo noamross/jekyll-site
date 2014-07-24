@@ -28,7 +28,7 @@ Few surprises here. "Species" would have been my guess for the top.
 by various sub-groups. The rest are fairly ho-hum: ecology and science-y
 words.
 
-A much more interesting question is, how do the topics at ESA change
+It's more interesting to ask how the topics at ESA *change*
 from year to year? Below I show the terms whose use in ESA abstracts
 changed the most between 2013 to 2014:
 
@@ -40,9 +40,9 @@ location. But we can see the influence of landscape on topics as well.
 We see fewer words associated with freshwater ecosystems, prairies, and
 forests this year, and more associated with fire and other plant
 systems. Also, we see a difference in the *kinds* of ecology in the
-program. This year there are fewer words like *biomass* and *nutrient* -
-those common in ecosystem ecology - and more like *pollinator*[^1],
-*phenology*, and *network* - those associated with the study of species
+program. This year there are fewer words like "biomass" and "nutrient" -
+those common in ecosystem ecology - and more like "pollinator"[^1],
+"phenology", and "network" - those associated with the study of species
 interactions.
 
 It's possible that these changes are due to changes in what's popular in
@@ -55,8 +55,8 @@ perspective may be important in California, which has such heterogeneity
 of habitats. This is a pretty good argument for keeping ESA's location
 moving, so that no regional perspective dominates every year.
 
-These are the biggest *changes*, but have the *big themes* changed? The
-plot below is similar, but instead of plotting the words with the
+These are the biggest *changes*, but have the biggest *topics* changed? The
+plot below is similar to that above, but instead of plotting the words with the
 greatest absolute change, I plot the change of the 50 words that are most
 common across both years:
 
