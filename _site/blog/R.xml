@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-08-05T08:41:52-07:00</updated>
+ <updated>2014-08-05T08:49:31-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -122,7 +122,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;I note the third talk in this list is an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;ignite talk&lt;/a&gt; announcing the new ESA natural history section. Perhaps we’ll see the effect of this section next year’s program!&lt;/p&gt;
-&lt;p&gt;Code for the analysis of this post is on &lt;a href=&quot;https://github.com/noamross/esaprog/blob/master/nathist.Rmd&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;R code for this post is on &lt;a href=&quot;https://github.com/noamross/esaprog/blob/master/nathist.Rmd&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
