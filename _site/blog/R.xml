@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-08-05T08:26:13-07:00</updated>
+ <updated>2014-08-05T08:29:51-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -26,13 +26,13 @@
 &lt;p&gt;Now, not all talks that include natural history concepts will include the term “natural history”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; in their abstracts, but it’s frequency may be an indicator of importance, and &lt;em&gt;variation&lt;/em&gt; in use of the term is may yield some insights.&lt;/p&gt;
 &lt;p&gt;First, I look at what fraction of abstracts mention “natural history” in each of the last five years at ESA.&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/fraction.png&quot; /&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/fraction.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;Over the past five years, &amp;lt;1% of abstracts at ESA have mentioned natural history. No trend is evident.&lt;/p&gt;
 &lt;p&gt;I reported different numbers for 2013 and 2014 in a &lt;a href=&quot;https://twitter.com/noamross/status/492407527238160386&quot;&gt;tweet&lt;/a&gt; last week. These were higher because I counted them by a simple search of the number of occurrences of “natural history” in the whole corpus. This included the &lt;em&gt;affiliation&lt;/em&gt; fields. Many presenters at ESA work at natural history &lt;em&gt;museums&lt;/em&gt; (see &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50396.html&quot;&gt;this abstract&lt;/a&gt;, for instance). The above numbers now only include abstracts where “natural history” was in the title or abstract text, and now I count abstracts, not occurrences of the phrase.&lt;/p&gt;
 &lt;p&gt;What are these natural history talks about? To examine this, I looked at the word frequency across all five years of abstracts, finding the most frequent terms besides “natural history”.&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;figure/wordcountsi.png&quot; /&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/wordcountsi.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;For comparison, here are the most common terms across all ESA abstracts this year:&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
