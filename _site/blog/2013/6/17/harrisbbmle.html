@@ -242,19 +242,17 @@
           
 <div id="headblock">
 <h1 id="page.title"><a href="/blog/2013/6/17/harrisbbmle.html">Dave Harris on Maximum Likelihood Estimation</a></h1>
-<p>by <em>Noam Ross</em>, 17 June 2013</p>
+<p>by <em>David J. Harris</em>, 17 June 2013</p>
 <hr />
 </div>
-<div class="contenttext"><p><p><em>At our last <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> meeting of the quarter, <a href="https://sihlab.wordpress.com/david-j-harris/">Dave Harris</a> gave a talk on how to use the <code>bbmle</code> package to fit mechanistic models to ecological data. Here’s his script, which I ran throgh the <code>spin</code> function in <code>knitr</code>:</em></p>
+<div class="contenttext"><p><p>Editor’s Note: <em>At our last <a href="http://www.noamross.net/davis-r-users-group.html">Davis R Users’ Group</a> meeting of the quarter, <strong><a href="https://sihlab.wordpress.com/david-j-harris/">Dave Harris</a></strong> gave a talk on how to use the <code>bbmle</code> package to fit mechanistic models to ecological data. Here are his script and notes (helpfully generated with the the <code>spin</code> function in <code>knitr</code></em>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load data</span>
-<span class="kw">library</span>(emdbook)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">## Loading required package: MASS Loading required package: lattice</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(bbmle)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">## Loading required package: stats4</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(ReedfrogFuncresp)
+<span class="kw">library</span>(emdbook)
+<span class="kw">library</span>(bbmle)
+<span class="kw">data</span>(ReedfrogFuncresp)
 <span class="kw">plot</span>(ReedfrogFuncresp, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/h1.png" />
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png" />
 </div>
 <p>Statistical models are stories about how the data came to be. The deterministic part of the story is a (slightly mangled) version of what you’d expect if the predators followed a Type II functional response:</p>
 <p>Holling’s Disk equation for Type II Functional Response</p>
@@ -274,7 +272,7 @@
 <span class="co"># a = 0.5, h = 0.02 (blue) looks like a plausible data-generating process</span>
 <span class="kw">curve</span>(<span class="kw">disk</span>(x, <span class="fl">0.5</span>, <span class="fl">0.02</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">100</span>, <span class="dt">col =</span> <span class="dv">4</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/h3.png" />
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-3.png" />
 </div>
 <p>The blue curve looks plausible, but is it optimal? Does it tell the best possible story about how the data could have been generated?</p>
 <p>In order to tell if it’s optimal, we need to pick something to optimize. Usually, that will be the log-likelihood–i.e. the log-probability that the data would have come out this way if the model were true. Models with higher probabilities of generating the data we observed therefore have higher likelihoods. For various arbitrary reasons, it’s common to minimize the negative log-likelihood rather than maximizing the positive log-likelihood. So let’s write a function that says what the log-likelihood is for a given pair of <code>a</code> and <code>h</code>.</p>
@@ -307,19 +305,8 @@ fit</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">
 <span class="co"># a bit more information:</span>
 <span class="kw">summary</span>(fit)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">## Maximum likelihood estimation
-## 
-## Call:
-## mle2(minuslogl = NLL, start = list(a = 1, h = 1))
-## 
-## Coefficients:
-##   Estimate Std. Error z value   Pr(z)    
-## a  0.52652    0.07112    7.40 1.3e-13 ***
-## h  0.01666    0.00488    3.41 0.00065 ***
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-## 
-## -2 log L: 93.44</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">## Length  Class   Mode 
+##      1   mle2     S4</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(fit)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##       a       h 
 ## 0.52652 0.01666</code></pre>
@@ -328,16 +315,11 @@ fit</code></pre>
 <span class="kw">curve</span>(<span class="kw">disk</span>(x, <span class="dt">a =</span> <span class="kw">coef</span>(fit)[<span class="st">&quot;a&quot;</span>], <span class="dt">h =</span> <span class="kw">coef</span>(fit)[<span class="st">&quot;h&quot;</span>]), <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">lwd =</span> <span class="dv">4</span>, 
     <span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">100</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/h7.png" />
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png" />
 </div>
 <p>The rethinking package has a few convenient functions for summarizing and visualizing the output of an mle2 object. It’s not on CRAN, but you can get it from the author’s website or <a href="https://github.com/rmcelreath/rethinking">from github.</a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rethinking)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">## Attaching package: &#39;rethinking&#39;
-## 
-## The following object is masked _by_ &#39;.GlobalEnv&#39;:
-## 
-## x</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">precis</span>(fit)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rethinking)
+<span class="kw">precis</span>(fit)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##   Estimate S.E. 2.5% 97.5%
 ## a     0.53 0.07 0.39  0.67
 ## h     0.02 0.00 0.01  0.03</code></pre>
@@ -350,7 +332,7 @@ fit</code></pre>
 <span class="co"># Add a blue dot for our earlier guess:</span>
 <span class="kw">points</span>(<span class="fl">0.5</span>, <span class="fl">0.02</span>, <span class="dt">col =</span> <span class="dv">4</span>, <span class="dt">pch =</span> <span class="dv">20</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/h9.png" />
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-9.png" />
 </div>
 <hr />
 <h3 id="a-big-digression-about-confidence-intervals">A Big digression about confidence intervals</h3>
@@ -366,13 +348,13 @@ fit</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd =</span> <span class="dv">1</span>/<span class="dv">2</span>), <span class="dt">from =</span> -<span class="dv">5</span>, <span class="dt">to =</span> <span class="dv">5</span>, <span class="dt">ylab =</span> <span class="st">&quot;likelihood&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;estimate&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd =</span> <span class="dv">3</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="dv">2</span>)</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/h11.png" />
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-11.png" />
 </div>
 <p>The black curve shows a model with low variance for its estimate. This means that the likelihood would fall off quickly if we tried a bad estimate, and we can be reasonably sure that the data was generated by a value in a fairly narrow range. The model associated with the red curve is much less certain: the parameter could be very different from the optimal value and the likelihood wouldn’t drop much.</p>
 <p>Here’s another way to visualize the decline in likelihood as you move away from the best estimate:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">profile</span>(fit))</code></pre>
 <div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/h12.png" />
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-12.png" />
 </div>
 <p>Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since <code>h</code> is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.</p>
 <h4 id="a-somewhat-related-digression">A somewhat-related digression:</h4>
@@ -437,9 +419,9 @@ d =<span class="st"> </span><span class="kw">data.frame</span>(x, y)</code></pre
     
     <li><a href="/tags.html#R-ref">R</a></li>
     
-    <li><a href="/tags.html#D-RUG-ref">D-RUG</a></li>
+    <li><a href="/tags.html#likelihood-ref">likelihood</a></li>
     
-    <li><a href="/tags.html#optimization-ref">optimization</a></li>
+    <li><a href="/tags.html#bbmle-ref">bbmle</a></li>
       
 </ul>
 

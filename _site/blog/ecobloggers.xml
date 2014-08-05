@@ -4,13 +4,131 @@
  <title>Noam Ross's Lab Notebook</title>
  <link href="http://www.noamross.net/blog/ecobloggers.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-07-24T01:55:08-07:00</updated>
+ <updated>2014-08-05T08:26:13-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>ESA 2014: Don't Know Much About History...</title>
+   <link href="http://www.noamross.net/blog/2014/8/5/nathist.html"/>
+   <updated>2014-08-05T08:14:11-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/8/5/nathist</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;After my &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;last post&lt;/a&gt; text-mining &lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA Annual Meeting&lt;/a&gt; abstracts, &lt;a href=&quot;http://www.nashturley.org/&quot;&gt;Nash Turley&lt;/a&gt; &lt;a href=&quot;https://twitter.com/NashTurley/status/495272858038595587&quot;&gt;was interested&lt;/a&gt; in the presence of the term “natural history” in ESA abstracts. I decided to collect a little more data by including programs back to 2010, giving a five-year data set. Thankfully the program back to 2010 remains in mostly the same format, so it’s easy to pull the data for these additional years.&lt;/p&gt;
+&lt;p&gt;Now, not all talks that include natural history concepts will include the term “natural history”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; in their abstracts, but it’s frequency may be an indicator of importance, and &lt;em&gt;variation&lt;/em&gt; in use of the term is may yield some insights.&lt;/p&gt;
+&lt;p&gt;First, I look at what fraction of abstracts mention “natural history” in each of the last five years at ESA.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/fraction.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Over the past five years, &amp;lt;1% of abstracts at ESA have mentioned natural history. No trend is evident.&lt;/p&gt;
+&lt;p&gt;I reported different numbers for 2013 and 2014 in a &lt;a href=&quot;https://twitter.com/noamross/status/492407527238160386&quot;&gt;tweet&lt;/a&gt; last week. These were higher because I counted them by a simple search of the number of occurrences of “natural history” in the whole corpus. This included the &lt;em&gt;affiliation&lt;/em&gt; fields. Many presenters at ESA work at natural history &lt;em&gt;museums&lt;/em&gt; (see &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50396.html&quot;&gt;this abstract&lt;/a&gt;, for instance). The above numbers now only include abstracts where “natural history” was in the title or abstract text, and now I count abstracts, not occurrences of the phrase.&lt;/p&gt;
+&lt;p&gt;What are these natural history talks about? To examine this, I looked at the word frequency across all five years of abstracts, finding the most frequent terms besides “natural history”.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;figure/wordcountsi.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;For comparison, here are the most common terms across all ESA abstracts this year:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;Like other abstracts, talks that mention “natural history” have “species” as the most common term. Interestingly, natural history talks don’t use “plant” as frequently - perhaps other terms are used in botanical contexts. Also, there are more relative mentions of “students”, perhaps due to greater links between natural history and education. We can see this pattern in a listing of all the talks for 2014, where we see several talks about aducation, though there are many fascinating basic science talks, as well:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&quot;header&quot;&gt;
+&lt;th align=&quot;left&quot;&gt;Presenter&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;Title/Link&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Julian D. Olden&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45275.html&quot;&gt;Traits-based approaches and the quest for generality over contingency in ecology&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Terry A. Wheeler&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45504.html&quot;&gt;The other “E”: Entomologists and entomology in (and out) of the Ecological Society of America&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Kimball L. Garrett&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45813.html&quot;&gt;Recent avifaunal change in riparian habitats along the Los Angeles River&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Kirsten Rowell&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;Natural History Section&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Shahid Naeem&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45950.html&quot;&gt;Condensation and ignition in ecological research: Making sense of biodiversity’s demise&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Cory Merow&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46334.html&quot;&gt;Methods for predicting and validating range-wide population dynamics from sparse demographic data&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Fiona M. Soper&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper47409.html&quot;&gt;Coupling graduate mentorship training with undergraduate research in a field context&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Emily M. Harris&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48283.html&quot;&gt;Participating in the California Naturalist Program: Changes in science and environmental identity&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Teresa K. Heisey&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48545.html&quot;&gt;Sand County Almanac in the ecology classroom: An active learning approach to teaching about ecology and natural history&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Leighton Reid&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48621.html&quot;&gt;Conservation psychology: Bat killing in southern Costa Rica&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Kristen R. Treat&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49217.html&quot;&gt;Variation of Pentaclethra macroloba natural history and genetic structure along an elevational gradient in lowland Costa Rica&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Flavia M. D. Marquitti&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49277.html&quot;&gt;The role of cheaters on the stability of mutualistic networks&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Melissa Gaste Martinez&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49484.html&quot;&gt;Bothrops atrox in captivity, change isotopic composition in tissues collected from different environments of the eastern Amazon&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;D. Liane Cochran-Stafira&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49924.html&quot;&gt;Effects of Metriocnemus knabi predation on Habrotrocha rosa populations in Sarracenia purpurea pitchers&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Emily Hartop&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50108.html&quot;&gt;Terrestrial insects of los angeles: The great frontier&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Danielle B. Pitt&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50268.html&quot;&gt;Linking early history of Pterygota to habitat structure: The role of dendritic ecological networks in insect natural history&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;odd&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Carole L. Hom&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50330.html&quot;&gt;UC Davis-Howard University EEGAP: Collaborating to broaden participation in ecology and evolution&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;even&quot;&gt;
+&lt;td align=&quot;left&quot;&gt;Senay Yitbarek&lt;/td&gt;
+&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50363.html&quot;&gt;The role of self-organized spatial patterns in the persistence of weak invasive species: A case study of the invasive ant W. auropunctata&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;I note the third talk in this list is an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;ignite talk&lt;/a&gt; announcing the new ESA natural history section. Perhaps we’ll see the effect of this section next year’s program!&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Or rather, something close to “natural history”. I searched for the regular expression &lt;code&gt;natur\w+\s+hist&lt;/code&gt;.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>What shall we talk about at ESA?</title>
