@@ -4,13 +4,41 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-08-22T14:39:47-07:00</updated>
+ <updated>2014-08-22T16:17:52-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>More ESA 2014 Program Text-Mining: Topics as Communities</title>
+   <link href="http://www.noamross.net/blog/2014/8/22/topicmodeling.html"/>
+   <updated>2014-08-22T16:07:42-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/8/22/topicmodeling</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;In &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;my first pass at text analysis of the ESA program&lt;/a&gt;, I looked at how the frequency of words used in the ESA program differed from last year to this year. There are much more sophisticated ways at looking at word use in text, though, and I began to dive into the text-mining literature to find other ways to draw insight from ESA abstracts.&lt;/p&gt;
+&lt;p&gt;One method I found is &lt;em&gt;topic modeling&lt;/em&gt; using &lt;a href=&quot;http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;latent Dirichlet allocation&lt;/a&gt; (LDA). Using this method, a number of “topics” are identified, each consisting of groups of words occur together. Documents are treated as linear mixtures of these topics. Carson Sievert recently wrote a &lt;a href=&quot;http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/&quot;&gt;great blog post on the ROpenSci blog&lt;/a&gt; about this and his package with Kenneth E. Shirley, &lt;a href=&quot;https://github.com/cpsievert/LDAvis&quot;&gt;LDAvis&lt;/a&gt;, which produces interactive visualizations of the result of LDA models.&lt;/p&gt;
+&lt;p&gt;I had trouble wrapping my head around LDA at first, but on Wednesday at ESA, Dave Harris &lt;a href=&quot;https://twitter.com/davidjayharris/status/499660097715699713&quot;&gt;alerted me&lt;/a&gt; to an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46683.html&quot;&gt;awesome talk&lt;/a&gt; by &lt;a href=&quot;http://sfrc.ufl.edu/people/faculty/valle/&quot;&gt;Denis Valle&lt;/a&gt;. Valle showed that LDA can be used to model assemblages of species. In this case, we model communities of co-occurring species, rather than topics of co-occurring words, and rather than documents, we have sample locations. He demonstrated the method on USFS Forest Inventory and Analysis data, showing distinct communities of trees in Eastern U.S. forests. Valle’s talk made LDA much clearer to me, and showed that LDA could be an alternative to other methods of community analysis such as ordination. I’m looking forward to the forthcoming paper.&lt;/p&gt;
+&lt;p&gt;Back to the ESA program: LDA requires that we specify the number of topics, and it then allocates words among those topics. So I fit a series of models and used AIC to determine the best fit:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/LDA_AIC.png&quot; /&gt;
+&lt;/div&gt;
+&lt;p&gt;The model with the lowest AIC breaks the ESA program into 56 different topics. We can explore this model with an interactive visualization created by LDAvis:&lt;/p&gt;
+&lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;&lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;On the left, topics are represented as numbered circles, with the number representing their rank (1 = most common topic), and their size representing relative frequency across all abstracts. They are plotted so that similar topics are clustered together and different topics are farther apart.&lt;/p&gt;
+&lt;p&gt;Click on any circle and you’ll see a list of the top 30 terms making up that topic on the right. Note that the words are “stemmed” - their suffixes have been removed so as to treat different forms of the same word as a single value. Relative word ranking is a balance between the importance of the word within the topic (red bars) and the frequency of the word across all documents (grey bars). You can adjust this balance using the ‘Lambda’ box on the top-right. Click on any word and you’ll see in what other topics it appears.&lt;/p&gt;
+&lt;p&gt;Let’s explore! Clicking on Topic 1, we see very general words that might appear in any abstract. Topic 2 seems to be made up of words related to conservation and planning, showing the importance of this subject in the meeting. But click on “cost” in Topic 2 and you’ll see that this term is important in several other topics: 23 (words involving life-history), 36 (plant-water relations), and 47 (behavioral ecology). Topic 3 consists of general words having to do with methods, but nearby, topics 10 and 11 consist of words related to data collection and modeling, respectively.&lt;/p&gt;
+&lt;p&gt;One interesting observation is that “California” is most frequent in Topic 42, which consists of words related to marine systems, and is also common in 53 (invasions), 38 (fire), and 36 (plant-water relations). I was unsurprised at the last two (especially given fire’s importance in &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;my last analysis&lt;/a&gt;), but hadn’t realized how California-specific marine topics would be.&lt;/p&gt;
+&lt;p&gt;There’s lots more to explore here, though it’s not always easy to interpret. Some topics seem to map well to ecological sub-fields, while others may be driven by concepts and frameworks that are difficult to classify, or even writing style. What patterns do you see that are worth a harder look?&lt;/p&gt;
+&lt;p&gt;Code for this analysis is on Github &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>ESA 2014: Don't Know Much About History...</title>
@@ -1382,141 +1410,6 @@ d =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(fit2)  &lt;span class=&quot;co&quot;&gt;# MAP estimate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;##       a       h 
 ## 0.47931 0.01375&lt;/code&gt;&lt;/pre&gt;</content>
- </entry>
- 
- <entry>
-   <title>The null model for age effects with overdispersed infection</title>
-   <link href="http://www.noamross.net/blog/2013/6/12/multi-infection-overdispersed.html"/>
-   <updated>2013-06-12T17:32:30-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/6/12/multi-infection-overdispersed</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;How does overdispersion of infections affect the behavior of the &lt;a href=&quot;http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html&quot;&gt;multiple-infection model&lt;/a&gt;? I redefine the model to account for overdispersion, assuming the same overdispersion occurs in both age classes. The parameter &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline k&quot; alt=&quot;k&quot; /&gt;&lt;/span&gt; varies inversely with the degree of overdispersion. Again, the classes are demographically identical, and infection affects mortality but not growth:&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned}
-  \frac{dJ}{dt}  &amp;amp;= A f_A \left(1 - \frac{J+A}{K} \right) + J  \left(f_J \left(1 - \frac{J+A}{K} \right) - d_J - g\right) - \alpha P_J \\
-  \frac{dA}{dt}  &amp;amp;= J g - A d_A - \alpha P_A \\
-  \frac{dP_J}{dt}  &amp;amp;= \lambda  \frac{J}{K} (P_J + P_A)  - P_J \left(d_J + \mu + g + \alpha \left(1 + \frac{(k+1)P_J}{kJ} \right) \right) \\
-  \frac{dP_A}{dt}  &amp;amp;= \lambda  \frac{J}{K} (P_J + P_A)  + P_J  g - PA \left(d_A + \mu + \alpha \left(1 + \frac{(k+1)P_A}{kA}  \right) \right)
-\end{aligned}\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;I define the model and run it in R below, using values of &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline k&quot; alt=&quot;k&quot; /&gt;&lt;/span&gt; ranging from 0.01 to 10. Otherwise all parameters and conditions are the same as in my &lt;a href=&quot;http://www.noamross.net/blog/2013/6/11/multi-infection-tests.html&quot;&gt;last post&lt;/a&gt;.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;od.model &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;function(t, y, parms) {
-  &lt;span class=&quot;kw&quot;&gt;list2env&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(y), &lt;span class=&quot;kw&quot;&gt;environment&lt;/span&gt;())
-  &lt;span class=&quot;kw&quot;&gt;list2env&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), &lt;span class=&quot;kw&quot;&gt;environment&lt;/span&gt;())
-  dJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A*f_a*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(J+A)/K) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(f_j*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(J+A)/K) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_j -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;g) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ
-  dA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J*g -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(A *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_a) -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA
-  dPJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J/K -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;         &lt;/span&gt;PJ*(d_j +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;g +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(k&lt;span class=&quot;dv&quot;&gt;+1&lt;/span&gt;)*PJ/(k*J)))
-  dPA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A/K +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;g -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;         &lt;/span&gt;PA*(d_a +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;mu +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha*(&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(k&lt;span class=&quot;dv&quot;&gt;+1&lt;/span&gt;)*PA/(k*A)))
-  &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;list&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;dJ=&lt;/span&gt;dJ, &lt;span class=&quot;dt&quot;&gt;dA=&lt;/span&gt;dA, &lt;span class=&quot;dt&quot;&gt;dPJ=&lt;/span&gt;dPJ, &lt;span class=&quot;dt&quot;&gt;dPA=&lt;/span&gt;dPA), 
-              &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;dJ=&lt;/span&gt;dJ, &lt;span class=&quot;dt&quot;&gt;dA=&lt;/span&gt;dA, &lt;span class=&quot;dt&quot;&gt;dPJ=&lt;/span&gt;dPJ, &lt;span class=&quot;dt&quot;&gt;dPA=&lt;/span&gt;dPA)))
-}
-
-parms &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;( 
-  &lt;span class=&quot;dt&quot;&gt;f_j=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.01&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;f_a=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.01&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;g=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;d_j=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.005&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;d_a=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.005&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.05&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;lambda=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.3&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;K=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;50&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;mu=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.00&lt;/span&gt;,
-  &lt;span class=&quot;dt&quot;&gt;k=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.000&lt;/span&gt;
-  )
-
-A_ss =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;with&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), K/(d_a/g +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;))
-J_ss =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;with&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), K -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A_ss)
-init &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;J=&lt;/span&gt;J_ss, &lt;span class=&quot;dt&quot;&gt;A=&lt;/span&gt;A_ss, &lt;span class=&quot;dt&quot;&gt;PJ=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;*J_ss, &lt;span class=&quot;dt&quot;&gt;PA=&lt;/span&gt;&lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;*A_ss)
-
-&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(deSolve)
-&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(reshape2)
-&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(plyr)
-ks &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;10&lt;/span&gt;, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;, &lt;span class=&quot;fl&quot;&gt;0.01&lt;/span&gt;)
-df &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;adply&lt;/span&gt;(ks, &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, function(x) {
-  parms[&lt;span class=&quot;st&quot;&gt;&amp;quot;k&amp;quot;&lt;/span&gt;] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;x
-  df &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;data.frame&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;k.val=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;as.factor&lt;/span&gt;(x), 
-                   &lt;span class=&quot;kw&quot;&gt;as.data.frame&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;lsoda&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;init, &lt;span class=&quot;dt&quot;&gt;times=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;100&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;func=&lt;/span&gt;od.model, 
-                                       &lt;span class=&quot;dt&quot;&gt;parms=&lt;/span&gt;parms)))
-  })
-
-&lt;span class=&quot;kw&quot;&gt;names&lt;/span&gt;(df)[&lt;span class=&quot;kw&quot;&gt;names&lt;/span&gt;(df)==&lt;span class=&quot;st&quot;&gt;&amp;quot;time&amp;quot;&lt;/span&gt;] &amp;lt;-&lt;span class=&quot;st&quot;&gt; &amp;quot;Time&amp;quot;&lt;/span&gt;
-df$X1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;NULL&lt;/span&gt;
-
-df &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;within&lt;/span&gt;(df, {
-  &lt;span class=&quot;kw&quot;&gt;list2env&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;as.list&lt;/span&gt;(parms), &lt;span class=&quot;kw&quot;&gt;environment&lt;/span&gt;())
-  pctJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J/(J +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A)
-  pctA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A/(J +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A)
-  nJ &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J
-  nA &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A
-  J.inf &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-nJ)
-  A.inf &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-nA)
-  Inf.dens &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(J*J.inf +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A*A.inf)
-  J.mort &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_j +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PJ /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(J *J.inf)
-  A.mort &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;d_a +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;alpha *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(A *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A.inf)
-  J.yrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/J.mort
-  A.yrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/A.mort
-  J.infrate &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;J *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-PJ/J) /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;K)
-  A.infrate &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt; -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-lambda *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;(PJ +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;PA) *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;A *&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;exp&lt;/span&gt;(-PA/A) /&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;K)
-  J.infyrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/J.infrate
-  A.infyrs &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;/A.infrate
-  &lt;span class=&quot;kw&quot;&gt;rm&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;list=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;names&lt;/span&gt;(parms))
-})
-
-df &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;df[,&lt;span class=&quot;kw&quot;&gt;sort&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;names&lt;/span&gt;(df), &lt;span class=&quot;dt&quot;&gt;decreasing=&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;TRUE&lt;/span&gt;)]
-
-mdf &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;melt&lt;/span&gt;(df, &lt;span class=&quot;dt&quot;&gt;id.vars=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Time&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Inf.dens&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;k.val&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;variable.name=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;Class&amp;quot;&lt;/span&gt;,
-            &lt;span class=&quot;dt&quot;&gt;value.name=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;Population&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now I plot the results. In all of the following the darker lines represent the case with more overdispersion, and the lighter case are closer to random distribution of infections.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(ggplot2)
-&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(gridExtra)
-theme_nr &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;legend.title=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;element_text&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;22&lt;/span&gt;),
-                             &lt;span class=&quot;dt&quot;&gt;legend.text=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;element_text&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;16&lt;/span&gt;),
-                             &lt;span class=&quot;dt&quot;&gt;legend.key.size=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;unit&lt;/span&gt;(.&lt;span class=&quot;dv&quot;&gt;75&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;cm&amp;quot;&lt;/span&gt;))
-JAlab &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;scale_color_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;labels=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Small Trees&amp;quot;&lt;/span&gt;,&lt;span class=&quot;st&quot;&gt;&amp;quot;Big Trees&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;) 
-p1 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A&amp;quot;&lt;/span&gt;)), 
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class, &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;k.val)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Population&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-p2 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;pctJ&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;pctA&amp;quot;&lt;/span&gt;)), 
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class, &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;k.val)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction of Population&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-&lt;span class=&quot;kw&quot;&gt;grid.arrange&lt;/span&gt;(p1, p2, &lt;span class=&quot;dt&quot;&gt;nrow=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-overdispersed-unnamed-chunk-2.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;In general, overdispersion appears to reduce the decline of the population. This is because fewer, more heavily infected individuals carry more of the infections in the population, and take those away when they die. I wonder how biologically realistic is this in the case of SOD? Now I look at infection rates:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;p3 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;PJ&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;PA&amp;quot;&lt;/span&gt;)),
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class, &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;k.val)) +
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Number of Infections&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-p4 &amp;lt;-&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;nJ&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;nA&amp;quot;&lt;/span&gt;)),
-             &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class, &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;k.val)) +
-&lt;span class=&quot;st&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Infections per Individual&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab
-&lt;span class=&quot;kw&quot;&gt;grid.arrange&lt;/span&gt;(p3, p4, &lt;span class=&quot;dt&quot;&gt;nrow=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-overdispersed-unnamed-chunk-3.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;As you can see, the overall infections rate are lower in the case of overdispersion.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J.inf&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A.inf&amp;quot;&lt;/span&gt;)), 
-       &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Time, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class, &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;k.val)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;geom_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;lwd=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Fraction infected&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-overdispersed-unnamed-chunk-4.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;The fraction of the population infected when there is some overdispersion is more in line with what is seen in the field in many cases.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;subset&lt;/span&gt;(mdf, Class %in%&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;J.yrs&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;A.yrs&amp;quot;&lt;/span&gt;) ), 
-       &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x=&lt;/span&gt;Inf.dens, &lt;span class=&quot;dt&quot;&gt;y=&lt;/span&gt;Population, &lt;span class=&quot;dt&quot;&gt;col=&lt;/span&gt;Class, &lt;span class=&quot;dt&quot;&gt;alpha=&lt;/span&gt;k.val)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;cex=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;theme_nr +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;xlab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Number of infected trees&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ylab&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;Years to death of infected individuals&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;JAlab&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-overdispersed-unnamed-chunk-5.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;With less infection, there’s less of a dramatic difference between the upswing and downswing of the disease, but the relationship between infected trees and years-to-death still holds.&lt;/p&gt;
-&lt;p&gt;In general, overdispersion seems to dampen the effects of infection, but most qualitative patterns remain.&lt;/p&gt;
-&lt;p&gt;In some ways, overdispersal has a similar effect to space in the Cobb et al. (2012) &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline SIR&quot; alt=&quot;SIR&quot; /&gt;&lt;/span&gt; model. Spatial structure, of course, is one mechanism that can create overdispersal.&lt;/p&gt;
-&lt;p&gt;Cobb, R. C., J. A. N. Filipe, R. K. Meentemeyer, C. A. Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology 100:712–722.&lt;/p&gt;</content>
  </entry>
  
  
