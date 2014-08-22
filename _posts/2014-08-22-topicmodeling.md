@@ -24,7 +24,7 @@ blog post on the ROpenSci
 blog](http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/) about
 this and his package with Kenneth E. Shirley,
 [LDAvis](https://github.com/cpsievert/LDAvis), which produces
-interactive visualizations of the result of LDA models.
+interactive visualizations of of LDA models.
 
 I had trouble wrapping my head around LDA at first, but on Wednesday at
 ESA, Dave Harris [alerted
