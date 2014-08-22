@@ -1,7 +1,7 @@
 ---
 title: "More ESA 2014 Program Text-Mining: Topics as Communities"
 author: "Noam Ross"
-tags: [R, LDA, text-mining, ESA2014]
+tags: [R, LDA, text-mining, ESA2014, ecobloggers]
 date: "14-08-22 16:07:42"
 layout: post
 --- 
