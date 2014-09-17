@@ -4,7 +4,7 @@
  <title>Noam Ross's Lab Notebook</title>
  <link href="http://www.noamross.net/blog/ecobloggers.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-08-22T17:37:51-07:00</updated>
+ <updated>2014-09-17T14:15:47-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -30,8 +30,10 @@
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/LDA_AIC.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;The model with the lowest AIC breaks the ESA program into 56 different topics. We can explore this model with an interactive visualization created by LDAvis:&lt;/p&gt;
-&lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;&lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
+&lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;
+&lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;p&gt;On the left, topics are represented as numbered circles, with the number representing their rank (1 = most common topic), and their size representing relative frequency across all abstracts. They are plotted so that similar topics are clustered together and different topics are farther apart.&lt;/p&gt;
 &lt;p&gt;Click on any circle and you’ll see a list of the top 30 terms making up that topic on the right. Note that the words are “stemmed” - their suffixes have been removed so as to treat different forms of the same word as a single value. Relative word ranking is a balance between the importance of the word within the topic (red bars) and the frequency of the word across all documents (grey bars). You can adjust this balance using the ‘Lambda’ box on the top-right. Click on any word and you’ll see in what other topics it appears.&lt;/p&gt;
 &lt;p&gt;Let’s explore! Clicking on Topic 1, we see very general words that might appear in any abstract. Topic 2 seems to be made up of words related to conservation and planning, showing the importance of this subject in the meeting. But click on “cost” in Topic 2 and you’ll see that this term is important in several other topics: 23 (words involving life-history), 36 (plant-water relations), and 47 (behavioral ecology). Topic 3 consists of general words having to do with methods, but nearby, topics 10 and 11 consist of words related to data collection and modeling, respectively.&lt;/p&gt;

@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-08-22T17:37:51-07:00</updated>
+ <updated>2014-09-17T14:15:47-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -30,8 +30,10 @@
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/LDA_AIC.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;The model with the lowest AIC breaks the ESA program into 56 different topics. We can explore this model with an interactive visualization created by LDAvis:&lt;/p&gt;
-&lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;&lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
+&lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;
+&lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;p&gt;On the left, topics are represented as numbered circles, with the number representing their rank (1 = most common topic), and their size representing relative frequency across all abstracts. They are plotted so that similar topics are clustered together and different topics are farther apart.&lt;/p&gt;
 &lt;p&gt;Click on any circle and you’ll see a list of the top 30 terms making up that topic on the right. Note that the words are “stemmed” - their suffixes have been removed so as to treat different forms of the same word as a single value. Relative word ranking is a balance between the importance of the word within the topic (red bars) and the frequency of the word across all documents (grey bars). You can adjust this balance using the ‘Lambda’ box on the top-right. Click on any word and you’ll see in what other topics it appears.&lt;/p&gt;
 &lt;p&gt;Let’s explore! Clicking on Topic 1, we see very general words that might appear in any abstract. Topic 2 seems to be made up of words related to conservation and planning, showing the importance of this subject in the meeting. But click on “cost” in Topic 2 and you’ll see that this term is important in several other topics: 23 (words involving life-history), 36 (plant-water relations), and 47 (behavioral ecology). Topic 3 consists of general words having to do with methods, but nearby, topics 10 and 11 consist of words related to data collection and modeling, respectively.&lt;/p&gt;
@@ -317,11 +319,11 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
 &lt;li&gt;Vectorization is covered in chapters 3 and 4 of the classic text on R’s idiosyncrasies - &lt;a href=&quot;http://www.burns-stat.com/pages/Tutor/R_inferno.pdf&quot;&gt;The R Inferno&lt;/a&gt;, by Patrick Burns&lt;/li&gt;
 &lt;li&gt;Here are a bunch of assorted blog posts with good examples of speeding up code with vectorization
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/&quot;&gt;http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/&quot;&gt;http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html&quot;&gt;http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://rpubs.com/daspringate/vectorisation&quot;&gt;http://rpubs.com/daspringate/vectorisation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://quanttrader.info/public/FasterRCode.pdf&quot;&gt;http://quanttrader.info/public/FasterRCode.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/&quot; class=&quot;uri&quot;&gt;http://www.r-bloggers.com/how-to-use-vectorization-to-streamline-simulations/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/&quot; class=&quot;uri&quot;&gt;http://nesterko.com/blog/2011/04/29/drastic-r-speed-ups-via-vectorization-and-bug-fixes/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html&quot; class=&quot;uri&quot;&gt;http://blog.revolutionanalytics.com/2014/04/a-look-a-r-vectorization-through-the-collatz-conjecture.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://rpubs.com/daspringate/vectorisation&quot; class=&quot;uri&quot;&gt;http://rpubs.com/daspringate/vectorisation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://quanttrader.info/public/FasterRCode.pdf&quot; class=&quot;uri&quot;&gt;http://quanttrader.info/public/FasterRCode.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;</content>
  </entry>
@@ -641,7 +643,7 @@ bed.times&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 23.9  0.5 22.7  0.1 23.3  1.2 23.6&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(bed.times)  &lt;span class=&quot;co&quot;&gt;# doesn&amp;#39;t work&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## [1] 13.61&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The clock has a circular scale, which ends where it begins, so we need to use circular statistics. (For more info on circular statistics see &lt;a href=&quot;http://en.wikipedia.org/wiki/Mean_of_circular_quantities&quot;&gt;http://en.wikipedia.org/wiki/Mean_of_circular_quantities&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;The clock has a circular scale, which ends where it begins, so we need to use circular statistics. (For more info on circular statistics see &lt;a href=&quot;http://en.wikipedia.org/wiki/Mean_of_circular_quantities&quot; class=&quot;uri&quot;&gt;http://en.wikipedia.org/wiki/Mean_of_circular_quantities&lt;/a&gt;.)&lt;/p&gt;
 &lt;p&gt;Get the package, psych.&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;require&lt;/span&gt;(psych)
 &lt;span class=&quot;kw&quot;&gt;circadian.mean&lt;/span&gt;(bed.times)&lt;/code&gt;&lt;/pre&gt;
@@ -702,19 +704,19 @@ sleep&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;more-resources-on-times-and-dates&quot;&gt;More resources on times and dates&lt;/h2&gt;
 &lt;p&gt;date and time tutorials for R:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.stat.berkeley.edu/classes/s133/dates.html&quot;&gt;http://www.stat.berkeley.edu/classes/s133/dates.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/dates.cfm&quot;&gt;http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/dates.cfm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://en.wikibooks.org/wiki/R_Programming/Times_and_Dates&quot;&gt;http://en.wikibooks.org/wiki/R_Programming/Times_and_Dates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.stat.berkeley.edu/classes/s133/dates.html&quot; class=&quot;uri&quot;&gt;http://www.stat.berkeley.edu/classes/s133/dates.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/dates.cfm&quot; class=&quot;uri&quot;&gt;http://science.nature.nps.gov/im/datamgmt/statistics/r/fundamentals/dates.cfm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikibooks.org/wiki/R_Programming/Times_and_Dates&quot; class=&quot;uri&quot;&gt;http://en.wikibooks.org/wiki/R_Programming/Times_and_Dates&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;lubridate:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.jstatsoft.org/v40/i03/paper&quot;&gt;http://www.jstatsoft.org/v40/i03/paper&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jstatsoft.org/v40/i03/paper&quot; class=&quot;uri&quot;&gt;http://www.jstatsoft.org/v40/i03/paper&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;time zone and daylight saving time info:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.timeanddate.com/&quot;&gt;http://www.timeanddate.com/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&quot;&gt;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.twinsun.com/tz/tz-link.htm&quot;&gt;http://www.twinsun.com/tz/tz-link.htm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.timeanddate.com/&quot; class=&quot;uri&quot;&gt;http://www.timeanddate.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&quot; class=&quot;uri&quot;&gt;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.twinsun.com/tz/tz-link.htm&quot; class=&quot;uri&quot;&gt;http://www.twinsun.com/tz/tz-link.htm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Also see the R help file at ?Sys.timezone&lt;/li&gt;
 &lt;/ul&gt;</content>
  </entry>
@@ -730,9 +732,10 @@ sleep&lt;/code&gt;&lt;/pre&gt;
     table thead {border-bottom:1px;}
   &lt;/style&gt;
 &lt;/head&gt; &lt;p&gt;Yesterday at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R User’s Group&lt;/a&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, &lt;a href=&quot;https://watershed.ucdavis.edu/people/rapeek?destination=user/71&quot;&gt;Ryan Peek&lt;/a&gt; gave a talk about using the &lt;code&gt;shiny&lt;/code&gt; package to create interactive web apps with R. Here are his slides. Ryan includes a bunch of links to examples and tutorials, as well as his own &lt;a href=&quot;http://aquapeek.shinyapps.io/thermohydrographs/&quot;&gt;thermohydrographs app&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 88%;&quot;&gt;&lt;iframe src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/DRUG_shiny_2014-01-27_presentation.html&quot;
-frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-
+&lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 88%;&quot;&gt;
+&lt;iframe src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/DRUG_shiny_2014-01-27_presentation.html&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
@@ -800,7 +803,7 @@ sleepplot&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-4.png&quot; /&gt;
 &lt;/div&gt;
-&lt;p&gt;It’s beautiful! I love it! Unfortunately, you want to submit to Science (you might as well aim high), and this is what they say about figures: &lt;a href=&quot;http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml&quot;&gt;http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It’s beautiful! I love it! Unfortunately, you want to submit to Science (you might as well aim high), and this is what they say about figures: &lt;a href=&quot;http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml&quot; class=&quot;uri&quot;&gt;http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;So we have several problems:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;gray background&lt;/li&gt;
@@ -822,7 +825,7 @@ sleepplot&lt;/code&gt;&lt;/pre&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-6.png&quot; /&gt;
 &lt;/div&gt;
 &lt;p&gt;If you haven’t figured it out yet, putting “&lt;code&gt;\n&lt;/code&gt;” in a text string gives you a line break. It took me WAY to long to discover that.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ggplot&lt;/code&gt; automatically gives you evenly spaced hues for color variations, but this is not necessarily the best way to get a good contrasting color scheme. You may want to try &lt;code&gt;scale_color_brewer&lt;/code&gt; for better contrasts. See &lt;a href=&quot;http://colorbrewer2.org&quot;&gt;http://colorbrewer2.org&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ggplot&lt;/code&gt; automatically gives you evenly spaced hues for color variations, but this is not necessarily the best way to get a good contrasting color scheme. You may want to try &lt;code&gt;scale_color_brewer&lt;/code&gt; for better contrasts. See &lt;a href=&quot;http://colorbrewer2.org&quot; class=&quot;uri&quot;&gt;http://colorbrewer2.org&lt;/a&gt; for more information.&lt;/p&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;scale_color_brewer&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Functional &lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt; feeding group&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;labels =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;carnivore&amp;quot;&lt;/span&gt;, 
     &lt;span class=&quot;st&quot;&gt;&amp;quot;herbivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;insectivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;omnivore&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;type =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;qual&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;palette =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div class=&quot;figure&quot;&gt;
@@ -997,40 +1000,39 @@ sleepplot2
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;help_console&lt;/span&gt;(optim, &lt;span class=&quot;st&quot;&gt;&amp;quot;html&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;lines =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;dv&quot;&gt;25&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;before =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;lt;blockquote&amp;gt;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;after =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;lt;/blockquote&amp;gt;&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
 &lt;blockquote&gt;
 &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
 R: General-purpose Optimization
 &lt;/title&gt;
 &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt; &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;R.css&quot;&gt;
-&lt;/head&gt;&lt;body&gt;
-
-&lt;table width=&quot;100%&quot; summary=&quot;page for optim&quot;&gt;&lt;tr&gt;&lt;td&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table width=&quot;100%&quot; summary=&quot;page for optim&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;
 optim
-&lt;/td&gt;&lt;td align=&quot;right&quot;&gt;
+&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;
 R Documentation
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 &lt;h2&gt;
 General-purpose Optimization
 &lt;/h2&gt;
-
 &lt;h3&gt;
 Description
 &lt;/h3&gt;
-
 &lt;p&gt;
 General-purpose optimization based on Nelder–Mead, quasi-Newton and conjugate-gradient algorithms. It includes an option for box-constrained optimization and simulated annealing.
 &lt;/p&gt;
-
-
 &lt;h3&gt;
 Usage
 &lt;/h3&gt;
-
 &lt;pre&gt;
 optim(par, fn, gr = NULL, …, method = c(“Nelder-Mead”, “BFGS”, “CG”, “L-BFGS-B”, “SANN”, “Brent”), lower = -Inf, upper = Inf, control = list(), hessian = FALSE)
 &lt;/blockquote&gt;
-
-
 &lt;p&gt;The function is part of my &lt;a href=&quot;https://github.com/noamross/noamtools/blob/master/R/help_console.R&quot;&gt;&lt;code&gt;noamtools&lt;/code&gt; package on GitHub&lt;/a&gt;, where I keep various convenience functions. Enjoy, and fork if you have improvements!&lt;/p&gt;</content>
  </entry>
  

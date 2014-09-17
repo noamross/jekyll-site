@@ -294,7 +294,7 @@ sleepplot</code></pre>
 <div class="figure">
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-4.png" />
 </div>
-<p>It’s beautiful! I love it! Unfortunately, you want to submit to Science (you might as well aim high), and this is what they say about figures: <a href="http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml">http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml</a></p>
+<p>It’s beautiful! I love it! Unfortunately, you want to submit to Science (you might as well aim high), and this is what they say about figures: <a href="http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml" class="uri">http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml</a></p>
 <p>So we have several problems:</p>
 <ul>
 <li>gray background</li>
@@ -316,7 +316,7 @@ sleepplot</code></pre>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-6.png" />
 </div>
 <p>If you haven’t figured it out yet, putting “<code>\n</code>” in a text string gives you a line break. It took me WAY to long to discover that.</p>
-<p><code>ggplot</code> automatically gives you evenly spaced hues for color variations, but this is not necessarily the best way to get a good contrasting color scheme. You may want to try <code>scale_color_brewer</code> for better contrasts. See <a href="http://colorbrewer2.org">http://colorbrewer2.org</a> for more information.</p>
+<p><code>ggplot</code> automatically gives you evenly spaced hues for color variations, but this is not necessarily the best way to get a good contrasting color scheme. You may want to try <code>scale_color_brewer</code> for better contrasts. See <a href="http://colorbrewer2.org" class="uri">http://colorbrewer2.org</a> for more information.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot +<span class="st"> </span><span class="kw">scale_color_brewer</span>(<span class="dt">name =</span> <span class="st">&quot;Functional </span><span class="ch">\n</span><span class="st"> feeding group&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;carnivore&quot;</span>, 
     <span class="st">&quot;herbivore&quot;</span>, <span class="st">&quot;insectivore&quot;</span>, <span class="st">&quot;omnivore&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;qual&quot;</span>, <span class="dt">palette =</span> <span class="dv">1</span>)</code></pre>
 <div class="figure">

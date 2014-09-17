@@ -569,6 +569,21 @@ p.previous-articles {
 
 .content ul li {margin-bottom:0.5em;}
 
+ol {
+    counter-reset: item;
+}
+ol li {
+    display: block;
+    position: relative;
+}
+ol li:before {
+    content: counters(item, ".")".";
+    counter-increment: item;
+    position: absolute;
+    margin-right: 100%;
+    right: 10px; /* space between number and text */
+}
+
 ul.tags {
   border-top: 1px solid #2C2C2C; 
   margin: 20px 0;
