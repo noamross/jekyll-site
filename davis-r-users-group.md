@@ -46,20 +46,25 @@ Sometimes D-RUG members put together useful resources and tutorials for our meet
 
 ### Web Resources
 
-There's no need to reinvent the wheel.  Here are lists of beginner's resources which others have compiled
+There's no need to reinvent the wheel.  Here are lists of beginner's resources which others have compiled. R tools evolve rapidly, though, so be sure to
+check that your guide is up-to-date!
 
  - [Rseek](http://rseek.org/) is a search engine for R resources.
- - [RStudio's Getting Help with R Page](http://www.rstudio.org/docs/help_with_r)
- - [List of Free Online R Tutorials](http://pairach.com/2012/06/17/r_tutorials_non-uni/)
- - [Beginner tips from Revolution Analytics](http://blog.revolutionanalytics.com/beginner-tips/) 
- - A [free online course](https://www.coursera.org/course/compdata) from Coursera
+ - RStudio's [Getting Help with R](http://www.rstudio.org/docs/help_with_r) page or [online learning](http://www.rstudio.com/resources/training/online-learning/#R) page.
 
+ - [Beginner tips from Revolution Analytics](http://blog.revolutionanalytics.com/beginner-tips/) 
+ - A [free online course](https://www.coursera.org/course/rprog) from Coursera
+ - [List of Free Online R Tutorials](http://pairach.com/2012/06/17/r_tutorials_non-uni/)
+
+ - For more advanced usage, Hadley Wickham's [Advanced R](http://adv-r.had.co.nz/) is a free e-book and he is also writing a book on [creating R packages](http://r-pkgs.had.co.nz/)
+ 
 ### Books
 
  - *R in a nutshell* by Joseph Adler is a good book that's available in the Davis library and [online](http://proquest.safaribooksonline.com/9781449377502) for Davis users.
+ - [Ecological Models and Data with R](http://ms.mcmaster.ca/~bolker/emdbook/) by Ben Bolker.
  - *A Primer of Ecology with R* by M. Henry H. Stevens is also available [online](http://www.springerlink.com/content/l48073/?p=6e7edb19e2964135bb5b67aa016171de&pi=15#section=64711&page=5&locus=0)
 
-### Other Mailing Lists
+### Other Mailing Lists, Discussion Boards and Resources
 
 These mailing list are very useful not just as a place to ask questions.  They are probably where you will find your answers when you search on Google.
 
@@ -67,7 +72,7 @@ These mailing list are very useful not just as a place to ask questions.  They a
  - [Stack Overflow](http://stackoverflow.com/) is a popular Q&A site for computer programming that a lot of [discussions about R](http://stackoverflow.com/questions/tagged/r).
  - [The Davis Scientific and Statistical Computing List](https://lists.ucdavis.edu/sympa/info/statscicomp) is mostly used by advanced users and includes some of the developers of R.
  
-### R Courses
+### R Courses at Davis
 
 There are a few courses at UC Davis that use R.
 
