@@ -46,6 +46,11 @@ Sometimes D-RUG members put together useful resources and tutorials for our meet
 
 ### Web Resources
 
+***Everyone learns R differently, for different purposes. Thus, you'll probably
+need to learn specialized packages for your field or application. Resources
+and books here are general-purpose, with some bent towards ecological statistics
+applications.***
+
 There's no need to reinvent the wheel.  Here are lists of beginner's resources which others have compiled. R tools evolve rapidly, though, so be sure to
 check that your guide is up-to-date!
 
@@ -62,6 +67,8 @@ check that your guide is up-to-date!
 
  - *R in a nutshell* by Joseph Adler is a good book that's available in the Davis library and [online](http://proquest.safaribooksonline.com/9781449377502) for Davis users.
  - [Ecological Models and Data with R](http://ms.mcmaster.ca/~bolker/emdbook/) by Ben Bolker.
+ - [The Art of R Programming](http://www.nostarch.com/artofr.htm)
+ - [Introductory R](http://www.introductoryr.co.uk/)
  - *A Primer of Ecology with R* by M. Henry H. Stevens is also available [online](http://www.springerlink.com/content/l48073/?p=6e7edb19e2964135bb5b67aa016171de&pi=15#section=64711&page=5&locus=0)
 
 ### Other Mailing Lists, Discussion Boards and Resources
