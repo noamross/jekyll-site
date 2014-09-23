@@ -63,6 +63,8 @@ check that your guide is up-to-date!
 
  - For more advanced usage, Hadley Wickham's [Advanced R](http://adv-r.had.co.nz/) is a free e-book and he is also writing a book on [creating R packages](http://r-pkgs.had.co.nz/)
  
+ - Online materials from an [R-based ecological statistics course](http://www.unc.edu/courses/2010fall/ecol/563/001/index.html) from UNC.
+ 
 ### Books
 
  - *R in a nutshell* by Joseph Adler is a good book that's available in the Davis library and [online](http://proquest.safaribooksonline.com/9781449377502) for Davis users.
