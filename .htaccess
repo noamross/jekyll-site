@@ -6,6 +6,8 @@ ErrorDocument 404 /404.html
 
 RewriteEngine on
 Redirect 301 /stats.html http://egsa.nfshost.com/resources/stats/
+Redirect 301 /blog/2014/10/8/levyplyr.html http://www.michaellevy.name/blog/dplyr-data-manipulation-in-r-made-easy
+
 RedirectMatch 301 /statsclasses/([^\.]*)\.html http://egsa.nfshost.com/resources/stats/$1/
 
 Redirect 301 /blog/2014/7/17/esacorpuscompare.html /blog/2014/7/24/esacorpuscompare.html

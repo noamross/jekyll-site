@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-10-07T18:11:42-07:00</updated>
+ <updated>2014-10-07T18:18:29-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;Editor’s Note: This page should redirect to &lt;a href=&quot;http://www.michaellevy.name/blog/dplyr-data-manipulation-in-r-made-easy&quot;&gt;Michael’s original post&lt;/a&gt; at his own site.&lt;/em&gt;&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;Editor’s Note: This is a repost of &lt;a href=&quot;http://www.michaellevy.name/blog/dplyr-data-manipulation-in-r-made-easy&quot;&gt;Michael’s original post&lt;/a&gt; at his own site.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Here is the dplyr talk that I recently gave to the Davis R Users’ Group. dplyr is an R library that does basic data manipulation extremely well. It is designed to make the data handling tasks that we all do over and over as easy as possible. It produces highly readable syntax that is low cognitive overhead to write. That means less time, less effort, and fewer bugs. dplyr is also exceptionally fast – much faster than plyr, faster than base R, and nearly as fast as data.table. Below the screencast is the presentation itself, from which you can copy text if you wish.&lt;/p&gt;
 &lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/KCKBmWsRQko&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
