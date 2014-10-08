@@ -4,13 +4,33 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-10-07T14:23:59-07:00</updated>
+ <updated>2014-10-07T18:11:42-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Michael Levy on Data Manipulation using dplyr</title>
+   <link href="http://www.noamross.net/blog/2014/10/8/levyplyr.html"/>
+   <updated>2014-10-08T16:55:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/10/8/levyplyr</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;Editor’s Note: This page should redirect to &lt;a href=&quot;http://www.michaellevy.name/blog/dplyr-data-manipulation-in-r-made-easy&quot;&gt;Michael’s original post&lt;/a&gt; at his own site.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Here is the dplyr talk that I recently gave to the Davis R Users’ Group. dplyr is an R library that does basic data manipulation extremely well. It is designed to make the data handling tasks that we all do over and over as easy as possible. It produces highly readable syntax that is low cognitive overhead to write. That means less time, less effort, and fewer bugs. dplyr is also exceptionally fast – much faster than plyr, faster than base R, and nearly as fast as data.table. Below the screencast is the presentation itself, from which you can copy text if you wish.&lt;/p&gt;
+&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/KCKBmWsRQko&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 110%;&quot;&gt;
+&lt;iframe src=&quot;http://www.michaellevy.name/files/theme/dplyr_levy.html#/&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;</content>
+ </entry>
  
  <entry>
    <title>More ESA 2014 Program Text-Mining: Topics as Communities</title>
@@ -1084,22 +1104,6 @@ sleepplot2
 &lt;span class=&quot;kw&quot;&gt;dev.off&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## pdf 
 ##   2&lt;/code&gt;&lt;/pre&gt;</content>
- </entry>
- 
- <entry>
-   <title>MBI Meeting Poster: Optimal Control of Forest Disease</title>
-   <link href="http://www.noamross.net/blog/2013/11/7/mbi-poster-post.html"/>
-   <updated>2013-11-07T22:20:40-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/11/7/mbi-poster-post</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;For the past week I’ve been at the &lt;a href=&quot;http://mbi.osu.edu/&quot;&gt;Mathematical Biosciences Institute&lt;/a&gt; at Ohio State, attending the &lt;a href=&quot;http://mbi.osu.edu/2013/ws3description.html&quot;&gt;Workshop on Sustainable Management of Living Natural Resources&lt;/a&gt;. It’s been an absolutely top-notch meeting. I need to get myself to more of these small workshops.&lt;/p&gt;
-&lt;p&gt;I brought a poster describing some of my work in progress on managing Sudden Oak Death. Here it is, and it’s archived over at &lt;a href=&quot;http://dx.doi.org/10.6084/m9.figshare.833911&quot;&gt;Figshare&lt;/a&gt;.&lt;/p&gt;
-&lt;iframe src=&quot;http://wl.figshare.com/articles/833911/embed?show_title=0&quot; width=&quot;568&quot; height=&quot;504&quot; frameborder=&quot;0&quot;&gt;
-&lt;/iframe&gt;</content>
  </entry>
  
  
