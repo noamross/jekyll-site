@@ -12,12 +12,14 @@ Ongoing learning with user groups
 =================================
 
 For the past two years I've run the [UC Davis R User's Group] (D-RUG). In this
-post, I'll (1) outline the structure of D-RUG, and (3) summarize some lessons
+post, I'll (1) outline the structure of D-RUG, and (2) summarize some lessons
 learned, and (3) discuss how such users' groups could act to support and
 complement SWC's workshops. Per [Bill's suggestion], we could discuss the role
 of users group at a future [instructor hangout]
 
-D-RUG was created with similar motivations as SWC. I saw that science graduate
+D-RUG was created with similar motivations as SWC - to help scientists learn
+computing skills. Unlike SWC workshops, our model has been "everyone teaches
+everyone" rather than "instructor --\> learner". I saw that science graduate
 students at Davis increasingly needed to use R and similar tools in both their
 coursework and research, and there was a fair bit of knowledge dispersed among
 students and faculty in the university. But there was little training on
@@ -60,6 +62,16 @@ Basic elements of the Users' Group
 Some lessons learned
 --------------------
 
+After 2 years, D-RUG has proved a successful. A typical meeting brings 5-15
+members, usually evenly split between regulars and those who come just when they
+have questions. Attendance tends to be higher towards the beginning of the term
+and when we have speakers. 400 members have signed up for the listserv. 10-20%
+of these are active posters, and most questions get answered in a day or so.
+Most importantly, I've seen many users arrive with little or no experience, and
+go on be our most useful helpers and give some of our best tutorials.
+
+Here a few of the lessons I've learned in running D-RUG:
+
 -   One major challenge is keeping enough advanced users engaged so that they
     can be a resource for beginners. Advanced users who attend work sessions can
     expect to spend about 50% of their time answering questions of others.
@@ -89,7 +101,8 @@ Some lessons learned
     programming topics. Talks on topics like "How to do AIC model comparison"
     and "How to prepare plots for publication" have been much more well attended
     (and heavily trafficked on the blog) than ones on topics like "speeding up
-    code."
+    code." This is partially a function of our membership (mostly empirical
+    ecologists, biologists, and social scientists).
 
 -   It takes time to build self-sustaining community. For our first year, I had
     to monitor the listserv to make sure questions didn't go unanswered, and I
