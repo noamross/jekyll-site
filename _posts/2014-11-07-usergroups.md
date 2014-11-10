@@ -1,17 +1,18 @@
 ---
 author: Noam Ross
-date: '14-11-07 015:15:00'
+date: '14-11-10 12:00:00'
 layout: post
 tags:
 - 'D-RUG'
 - SWC
-title: Ongoing learning with user groups
+- R
+- EGSA
+title: "Ongoing learning with user groups"
 ...
 
-Ongoing learning with user groups
-=================================
+*Cross-posted from the [Software Carpentry Blog](http://software-carpentry.org/blog/2014/11/users-groups-for-ongoing-learning.html)*
 
-For the past two years I've run the [UC Davis R User's Group] (D-RUG). In this
+For the past two years I've run the [UC Davis R Users' Group] (D-RUG). In this
 post, I'll (1) outline the structure of D-RUG, and (2) summarize some lessons
 learned, and (3) discuss how such users' groups could act to support and
 complement SWC's workshops. Per [Bill's suggestion], we could discuss the role
@@ -31,6 +32,8 @@ no training in computer science or programming. They take up R either for
 coursework or when a specific research task demands it. So they are pretty much
 in the same place as most SWC Workshop students. We try to maintain low barriers
 to entry for these students.
+
+Our basic operating principle is maintaining *low barriers to entry* for *users of all skill levels.*  That means meeting students where they are in terms of their tools and needs, and making it as easy as possible for volunteers to pitch in.
 
 Basic elements of the Users' Group
 ----------------------------------
@@ -65,10 +68,11 @@ Some lessons learned
 After 2 years, D-RUG has proved a successful. A typical meeting brings 5-15
 members, usually evenly split between regulars and those who come just when they
 have questions. Attendance tends to be higher towards the beginning of the term
-and when we have speakers. 400 members have signed up for the listserv. 10-20%
-of these are active posters, and most questions get answered in a day or so.
-Most importantly, I've seen many users arrive with little or no experience, and
-go on be our most useful helpers and give some of our best tutorials.
+and when we have speakers. A fair number of on-campus (and LOTS of off-campus
+users) view the tutorials online.400 members have signed up for the listserv.
+10-20% of these are active posters, and most questions get answered in a day or
+so.Most importantly, I've seen many users arrive with little or no experience,
+and go on be our most useful helpers and give some of our best tutorials.
 
 Here a few of the lessons I've learned in running D-RUG:
 
@@ -135,8 +139,9 @@ other.
 
 The D-RUG model is fairly easy to replicate. Daniel Hocking at the University of
 New Hampshire has [created a similar group]. Anyone with the skill level of
-SWC workshop helpers can probably run a users' group, though it does require a
-certain amount of time and skill at recruiting on-campus.
+a typical SWC workshop helper can probably run a users' group, though it does require a certain amount of time and skill at recruiting on-campus.
+
+I'd like to hear from others who have similar or alternative models.  How can these groups connect with SWC to build an ongoing community of learners?
 
   [UC Davis R User's Group]: http://www.noamross.net/davis-r-users-group.html
   [Bill's suggestion]: http://forum.mozillascience.org/t/new-member-introductions/30/22
