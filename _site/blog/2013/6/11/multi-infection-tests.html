@@ -104,6 +104,78 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     	
     	<a href="/about.html">About</a>
     	
@@ -116,17 +188,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
     	
     	<a href="/connect.html">Connect</a>
     	
+    
+  
     
   
     
@@ -145,72 +211,6 @@
     	
     	<a href="/publications.html">Publications</a>
     	
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -249,9 +249,9 @@
 <h2 id="introduction">Introduction</h2>
 <p>Cobb et al. (2012) develop two models of forest stand demography in the face of Sudden Oak Death. The first, a statistical survival model, estimated the rates of infection and time-to-mortality as functions of density of infected trees and tree size. The second, an <span class="math">\(SI\)</span> model, projected stand composition over time using parameters from the first.</p>
 <p>I’ve been realizing is that the observed data and the first model may not square with the second model. In an <span class="math">\(SI\)</span> model, all infected hosts are the same and, at least as implemented in this paper, infected trees have a constant rate of mortality. But if you look at the bottom-right portion of the figure below, you’ll see that the rate of mortality is strongly influenced by the number of infected hosts.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/Cobb2012Fig2f.svg" alt="Parts of Figure 1 from Cobb et al. (2012)" /><p class="caption">Parts of Figure 1 from Cobb et al. (2012)</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/Cobb2012Fig2f.svg" alt="Parts of Figure 1 from Cobb et al. (2012)" /><figcaption>Parts of Figure 1 from Cobb et al. (2012)</figcaption>
+</figure>
 <p><a href="https://sites.google.com/a/ucdavis.edu/richard-cobb/">Richard</a> and I discussed what might be driving this pattern, and think it might be due to the fact that trees can be infected mutiple times. <em>Phytophthora ramorum</em> doesn’t travel throughout a tree once infecting, but instead causes local lesions on leaves and local cankers on stems. A tree can accumulate more of these as more spores land on it. Thus, it may not be appropriate to represent infection as a binary state.</p>
 <p>It’s also possible that multiple infection is driving another pattern. The upper-right panel above shows that there are strong size effects on mortality. It’s certainly possible that larger (or older) trees are more physiologically vulnerable to the disease. However, I think part of this may be due to the fact that larger trees have been around longer, and thus have had more time to acquire infections.</p>
 <p>I’m exploring these hypotheses using a model adapted from Anderson and May (1978). This is a macroparasite model that explicitly considers the number of parasites in each host. My model takes its basic structure and applies it to two explicit size classes of organisms, in this case applied to trees:</p>
@@ -266,38 +266,38 @@
 <caption>Model parameter definitions</caption>
 <thead>
 <tr class="header">
-<th align="center">Parameter</th>
-<th align="center">Description</th>
+<th style="text-align: center;">Parameter</th>
+<th style="text-align: center;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center"><span class="math">\(f_J, f_J\)</span></td>
-<td align="center">Fecundity of the size class</td>
+<td style="text-align: center;"><span class="math">\(f_J, f_J\)</span></td>
+<td style="text-align: center;">Fecundity of the size class</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math">\(d_J, d_A\)</span></td>
-<td align="center">Mortality rate of the size class</td>
+<td style="text-align: center;"><span class="math">\(d_J, d_A\)</span></td>
+<td style="text-align: center;">Mortality rate of the size class</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math">\(g\)</span></td>
-<td align="center">Rate at which juveniles become adults</td>
+<td style="text-align: center;"><span class="math">\(g\)</span></td>
+<td style="text-align: center;">Rate at which juveniles become adults</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math">\(\alpha\)</span></td>
-<td align="center">Amount by which a single infection increases the mortality rate</td>
+<td style="text-align: center;"><span class="math">\(\alpha\)</span></td>
+<td style="text-align: center;">Amount by which a single infection increases the mortality rate</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math">\(\mu\)</span></td>
-<td align="center">Rate at which trees recover from infections (ignored here)</td>
+<td style="text-align: center;"><span class="math">\(\mu\)</span></td>
+<td style="text-align: center;">Rate at which trees recover from infections (ignored here)</td>
 </tr>
 <tr class="even">
-<td align="center"><span class="math">\(K\)</span></td>
-<td align="center">Carrying capacity</td>
+<td style="text-align: center;"><span class="math">\(K\)</span></td>
+<td style="text-align: center;">Carrying capacity</td>
 </tr>
 <tr class="odd">
-<td align="center"><span class="math">\(\lambda\)</span></td>
-<td align="center">Rate at which new infections are created by a single infection.</td>
+<td style="text-align: center;"><span class="math">\(\lambda\)</span></td>
+<td style="text-align: center;">Rate at which new infections are created by a single infection.</td>
 </tr>
 </tbody>
 </table>
@@ -376,9 +376,9 @@ p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
              <span class="kw">aes</span>(<span class="dt">x=</span>Time, <span class="dt">y=</span>Population, <span class="dt">col=</span>Class)) +<span class="st"> </span>
 <span class="st">      </span><span class="kw">geom_line</span>(<span class="dt">lwd=</span><span class="dv">1</span>) +<span class="st"> </span>theme_nr +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Population&quot;</span>) +<span class="st"> </span>JAlab
 <span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow=</span><span class="dv">2</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-4.png" />
-</div>
+</figure>
 <p>As in the <span class="math">\(SI\)</span> model, the population drops, but the relative proportion of juvenile trees goes up. This occurs even though the mortality effect of one infection is the same on both classes. However, this could also be due to the fact that with fewer trees, density dependence has less of an effect on recruitment. Let’s look at the prevalance of disease, overall and per-tree:</p>
 <pre class="sourceCode r"><code class="sourceCode r">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">subset</span>(mdf, Class %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PJ&quot;</span>, <span class="st">&quot;PA&quot;</span>)),
              <span class="kw">aes</span>(<span class="dt">x=</span>Time, <span class="dt">y=</span>Population, <span class="dt">col=</span>Class)) +
@@ -387,18 +387,18 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
              <span class="kw">aes</span>(<span class="dt">x=</span>Time, <span class="dt">y=</span>Population, <span class="dt">col=</span>Class)) +
 <span class="st">      </span><span class="kw">geom_line</span>(<span class="dt">lwd=</span><span class="dv">1</span>) +<span class="st"> </span>theme_nr +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Infections per Individual&quot;</span>) +<span class="st"> </span>JAlab
 <span class="kw">grid.arrange</span>(p3, p4, <span class="dt">nrow=</span><span class="dv">2</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-5.png" />
-</div>
+</figure>
 <p>Infection is considerably greater in the adult trees than the juveniles over the course of the epidemic. Since, for the most part, observqtions of SOD don’t count the number of infections, it might be easier to look at this in terms of the number of trees infected. If we continue to assume a Poisson distribution of infections, we can calculate the fraction of infected trees as</p>
 <p><span class="math">\[\frac{I}{N} = 1 - e^{-\frac{P_N}{N}}\]</span></p>
 <p>with <span class="math">\(N\)</span> being a stand-in for <span class="math">\(J\)</span> or <span class="math">\(A\)</span>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="kw">subset</span>(mdf, Class %in%<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;J.inf&quot;</span>, <span class="st">&quot;A.inf&quot;</span>)), 
        <span class="kw">aes</span>(<span class="dt">x=</span>Time, <span class="dt">y=</span>Population, <span class="dt">col=</span>Class)) +<span class="st"> </span>
 <span class="kw">geom_line</span>(<span class="dt">lwd=</span><span class="dv">1</span>) +<span class="st"> </span>theme_nr +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction infected&quot;</span>) +<span class="st"> </span>JAlab</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-6.png" />
-</div>
+</figure>
 <p>Note that these curves are somewhat closer to each other. Without observing multiple infections per tree, we might think distributions of disease in each size class are more similar than they really are.</p>
 <p>So how does mortality differ between the classes? I calculate the “observed” mortality rate as the total mortality rate of <em>only the diseased trees</em>. This is:</p>
 <p><span class="math">\[d + \frac{\alpha P_N}{N (1 - \left( e^{- \frac{P_N}{N}}\right)}\]</span></p>
@@ -407,9 +407,9 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
        <span class="kw">aes</span>(<span class="dt">x=</span>Inf.dens, <span class="dt">y=</span>Population, <span class="dt">col=</span>Class)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">cex=</span><span class="dv">4</span>) +<span class="st"> </span>theme_nr +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Number of infected trees&quot;</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Years to death of infected individuals&quot;</span>) +<span class="st"> </span>JAlab</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-7.png" />
-</div>
+</figure>
 <p>This plot is not quite equivalent to the lower-right panel in the figure from Cobb et al. (2012), because that shows a snapshot in time of many sites, while this shows the path of one site through time. Nonetheless, it shows that years-to-death has a negative relationship with the number of infected trees in this model, albeit a relationship that is state-dependent. That I can recreate this effect with this model suggests the multiple infection may drive this pattern.</p>
 <p>Note that the mortality rate of both juveniles and adults start out the same (Years to death <span class="math">\(\approx\)</span> 100), despite a higher adult population. I think ths means the difference of infection rates is not just due to a greater adult population, but due to the infections acquired by that class as more infected juveniles age into it.</p>
 <p>The expression for the rate of infection of uninfected trees is:</p>
@@ -419,9 +419,9 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
        <span class="kw">aes</span>(<span class="dt">x=</span>Inf.dens, <span class="dt">y=</span>Population, <span class="dt">col=</span>Class)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">cex=</span><span class="dv">4</span>) +<span class="st"> </span>theme_nr +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Number of infected trees&quot;</span>) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Years to infection of uninfected individuals&quot;</span>) +<span class="st"> </span>JAlab +<span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>,<span class="dv">200</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/multi-infection-tests-unnamed-chunk-8.png" />
-</div>
+</figure>
 <p>This is the rough equivalent to the bottom-left panel above from the Cobb et al. (2012). I’ve cut it off above 200 because years-to-infection quickly rise as the infection rate approaches zero. Neverthless, there’s a similar pattern to year-to-mortality, albeit shallower at the beginning and steeper at the end of the epidemic.</p>
 <h2 id="next-steps">Next steps</h2>
 <p>This looks like a good start. This model is generating patterns observed in data on Sudden Oak Death in the wild, some explained and some unexplained. Some next steps:</p>
@@ -432,7 +432,8 @@ p4 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"
 </ul>
 <h2 id="references">References</h2>
 <p>Anderson, R. M., and R. M. May. 1978. Regulation and stability of host-parasite population interactions: I. Regulatory processes. The Journal of Animal Ecology 47:219–247.</p>
-<p>Cobb, R. C., J. A. N. Filipe, R. K. Meentemeyer, C. A. Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology 100:712–722.</p></p></div>
+<p>Cobb, R. C., J. A. N. Filipe, R. K. Meentemeyer, C. A. Gilligan, and D. M. Rizzo. 2012. Ecosystem transformation by emerging infectious disease: loss of large tanoak from California forests. Journal of Ecology 100:712–722.</p>
+</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>

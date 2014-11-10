@@ -1,21 +1,5 @@
 
 http://www.noamross.net/404.html
-http://www.noamross.net/about.html
-http://www.noamross.net/archive.html
-http://www.noamross.net/blog/are277.xml
-http://www.noamross.net/blog/ecobloggers.xml
-http://www.noamross.net/blog/R.xml
-http://www.noamross.net/blog/research-blogging.xml
-http://www.noamross.net/blog/rss.xml
-http://www.noamross.net/categories.html
-http://www.noamross.net/connect.html
-http://www.noamross.net/davis-r-users-group.html
-http://www.noamross.net/index.html
-http://www.noamross.net/mongolia.html
-http://www.noamross.net/pages.html
-http://www.noamross.net/publications.html
-http://www.noamross.net/sitemap.txt
-http://www.noamross.net/stats.html
 http://www.noamross.net/statsclasses/ABG250.html
 http://www.noamross.net/statsclasses/ANT261.html
 http://www.noamross.net/statsclasses/ARE256.html
@@ -42,6 +26,7 @@ http://www.noamross.net/statsclasses/POL212.html
 http://www.noamross.net/statsclasses/POL213.html
 http://www.noamross.net/statsclasses/POL279.html
 http://www.noamross.net/statsclasses/PSC204A.html
+http://www.noamross.net/blog/R.xml
 http://www.noamross.net/statsclasses/STA100.html
 http://www.noamross.net/statsclasses/STA120.html
 http://www.noamross.net/statsclasses/STA130A.html
@@ -51,9 +36,25 @@ http://www.noamross.net/statsclasses/STA135.html
 http://www.noamross.net/statsclasses/STA141.html
 http://www.noamross.net/statsclasses/STA242.html
 http://www.noamross.net/statsclasses/WFC222.html
+http://www.noamross.net/about.html
+http://www.noamross.net/archive.html
+http://www.noamross.net/blog/are277.xml
+http://www.noamross.net/categories.html
+http://www.noamross.net/connect.html
+http://www.noamross.net/davis-r-users-group.html
+http://www.noamross.net/blog/ecobloggers.xml
+http://www.noamross.net/index.html
+http://www.noamross.net/mongolia.html
+http://www.noamross.net/pages.html
+http://www.noamross.net/publications.html
+http://www.noamross.net/blog/research-blogging.xml
+http://www.noamross.net/blog/rss.xml
+http://www.noamross.net/sitemap.txt
+http://www.noamross.net/stats.html
 http://www.noamross.net/tags.html
 http://www.noamross.net/test/index.html
 
+http://www.noamross.net/blog/2014/11/10/usergroups.html
 http://www.noamross.net/blog/2014/10/8/levyplyr.html
 http://www.noamross.net/blog/2014/8/22/topicmodeling.html
 http://www.noamross.net/blog/2014/8/5/nathist.html

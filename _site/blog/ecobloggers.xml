@@ -4,7 +4,7 @@
  <title>Noam Ross's Lab Notebook</title>
  <link href="http://www.noamross.net/blog/ecobloggers.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-10-07T18:18:29-07:00</updated>
+ <updated>2014-11-10T13:36:06-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -26,9 +26,9 @@
 &lt;p&gt;One method I found is &lt;em&gt;topic modeling&lt;/em&gt; using &lt;a href=&quot;http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;latent Dirichlet allocation&lt;/a&gt; (LDA). Using this method, a number of “topics” are identified, each consisting of groups of words occur together. Documents are treated as linear mixtures of these topics. Carson Sievert recently wrote a &lt;a href=&quot;http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/&quot;&gt;great blog post on the ROpenSci blog&lt;/a&gt; about this and his package with Kenneth E. Shirley, &lt;a href=&quot;https://github.com/cpsievert/LDAvis&quot;&gt;LDAvis&lt;/a&gt;, which produces interactive visualizations of of LDA models.&lt;/p&gt;
 &lt;p&gt;I had trouble wrapping my head around LDA at first, but on Wednesday at ESA, Dave Harris &lt;a href=&quot;https://twitter.com/davidjayharris/status/499660097715699713&quot;&gt;alerted me&lt;/a&gt; to an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46683.html&quot;&gt;awesome talk&lt;/a&gt; by &lt;a href=&quot;http://sfrc.ufl.edu/people/faculty/valle/&quot;&gt;Denis Valle&lt;/a&gt;. Valle showed that LDA can be used to model assemblages of species. In this case, we model communities of co-occurring species, rather than topics of co-occurring words, and rather than documents, we have sample locations. He demonstrated the method on USFS Forest Inventory and Analysis data, showing distinct communities of trees in Eastern U.S. forests. Valle’s talk made LDA much clearer to me, and showed that LDA could be an alternative to other methods of community analysis such as ordination. I’m looking forward to the forthcoming paper.&lt;/p&gt;
 &lt;p&gt;Back to the ESA program: LDA requires that we specify the number of topics, and it then allocates words among those topics. So I fit a series of models and used AIC to determine the best fit:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/LDA_AIC.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;The model with the lowest AIC breaks the ESA program into 56 different topics. We can explore this model with an interactive visualization created by LDAvis:&lt;/p&gt;
 &lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;
 &lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;
@@ -39,7 +39,8 @@
 &lt;p&gt;Let’s explore! Clicking on Topic 1, we see very general words that might appear in any abstract. Topic 2 seems to be made up of words related to conservation and planning, showing the importance of this subject in the meeting. But click on “cost” in Topic 2 and you’ll see that this term is important in several other topics: 23 (words involving life-history), 36 (plant-water relations), and 47 (behavioral ecology). Topic 3 consists of general words having to do with methods, but nearby, topics 10 and 11 consist of words related to data collection and modeling, respectively.&lt;/p&gt;
 &lt;p&gt;One interesting observation is that “California” is most frequent in Topic 42, which consists of words related to marine systems, and is also common in 53 (invasions), 38 (fire), and 36 (plant-water relations). I was unsurprised at the last two (especially given fire’s importance in &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;my last analysis&lt;/a&gt;), but hadn’t realized how California-specific marine topics would be.&lt;/p&gt;
 &lt;p&gt;There’s lots more to explore here, though it’s not always easy to interpret. Some topics seem to map well to ecological sub-fields, while others may be driven by concepts and frameworks that are difficult to classify, or even writing style. What patterns do you see that are worth a harder look?&lt;/p&gt;
-&lt;p&gt;Code for this analysis is on Github &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;p&gt;Code for this analysis is on Github &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -55,110 +56,111 @@
 &lt;/head&gt; &lt;p&gt;After my &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;last post&lt;/a&gt; text-mining &lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA Annual Meeting&lt;/a&gt; abstracts, &lt;a href=&quot;http://www.nashturley.org/&quot;&gt;Nash Turley&lt;/a&gt; &lt;a href=&quot;https://twitter.com/NashTurley/status/495272858038595587&quot;&gt;was interested&lt;/a&gt; in the presence of the term “natural history” in ESA abstracts. I decided to collect a little more data by including programs back to 2010, giving a five-year data set. Thankfully the program back to 2010 remains in mostly the same format, so it’s easy to pull the data for these additional years.&lt;/p&gt;
 &lt;p&gt;Now, not all talks that include natural history concepts will include the term “natural history”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; in their abstracts, but it’s frequency may be an indicator of importance, and &lt;em&gt;variation&lt;/em&gt; in use of the term is may yield some insights.&lt;/p&gt;
 &lt;p&gt;First, I look at what fraction of abstracts mention “natural history” in each of the last five years at ESA.&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/fraction.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;Over the past five years, &amp;lt;1% of abstracts at ESA have mentioned natural history. No trend is evident.&lt;/p&gt;
 &lt;p&gt;I reported different numbers for 2013 and 2014 in a &lt;a href=&quot;https://twitter.com/noamross/status/492407527238160386&quot;&gt;tweet&lt;/a&gt; last week. These were higher because I counted them by a simple search of the number of occurrences of “natural history” in the whole corpus. This included the &lt;em&gt;affiliation&lt;/em&gt; fields. Many presenters at ESA work at natural history &lt;em&gt;museums&lt;/em&gt; (see &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50396.html&quot;&gt;this abstract&lt;/a&gt;, for instance). The above numbers now only include abstracts where “natural history” was in the title or abstract text, and now I count abstracts, not occurrences of the phrase.&lt;/p&gt;
 &lt;p&gt;What are these natural history talks about? To examine this, I looked at the word frequency across all five years of abstracts, finding the most frequent terms besides “natural history”.&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/wordcountsi.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;For comparison, here are the most common terms across all ESA abstracts this year:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;Like other abstracts, talks that mention “natural history” have “species” as the most common term. Interestingly, natural history talks don’t use “plant” as frequently - perhaps other terms are used in botanical contexts. Also, there are more relative mentions of “students”, perhaps due to greater links between natural history and education. We can see this pattern in a listing of all the talks for 2014, where we see several talks about education, though there are many fascinating basic science talks, as well:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr class=&quot;header&quot;&gt;
-&lt;th align=&quot;left&quot;&gt;Presenter&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;Title/Link&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Presenter&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Title/Link&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Julian D. Olden&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45275.html&quot;&gt;Traits-based approaches and the quest for generality over contingency in ecology&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Julian D. Olden&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45275.html&quot;&gt;Traits-based approaches and the quest for generality over contingency in ecology&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Terry A. Wheeler&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45504.html&quot;&gt;The other “E”: Entomologists and entomology in (and out) of the Ecological Society of America&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Terry A. Wheeler&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45504.html&quot;&gt;The other “E”: Entomologists and entomology in (and out) of the Ecological Society of America&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Kimball L. Garrett&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45813.html&quot;&gt;Recent avifaunal change in riparian habitats along the Los Angeles River&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Kimball L. Garrett&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45813.html&quot;&gt;Recent avifaunal change in riparian habitats along the Los Angeles River&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Kirsten Rowell&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;Natural History Section&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Kirsten Rowell&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;Natural History Section&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Shahid Naeem&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45950.html&quot;&gt;Condensation and ignition in ecological research: Making sense of biodiversity’s demise&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Shahid Naeem&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45950.html&quot;&gt;Condensation and ignition in ecological research: Making sense of biodiversity’s demise&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Cory Merow&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46334.html&quot;&gt;Methods for predicting and validating range-wide population dynamics from sparse demographic data&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Cory Merow&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46334.html&quot;&gt;Methods for predicting and validating range-wide population dynamics from sparse demographic data&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Fiona M. Soper&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper47409.html&quot;&gt;Coupling graduate mentorship training with undergraduate research in a field context&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Fiona M. Soper&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper47409.html&quot;&gt;Coupling graduate mentorship training with undergraduate research in a field context&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Emily M. Harris&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48283.html&quot;&gt;Participating in the California Naturalist Program: Changes in science and environmental identity&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Emily M. Harris&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48283.html&quot;&gt;Participating in the California Naturalist Program: Changes in science and environmental identity&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Teresa K. Heisey&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48545.html&quot;&gt;Sand County Almanac in the ecology classroom: An active learning approach to teaching about ecology and natural history&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Teresa K. Heisey&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48545.html&quot;&gt;Sand County Almanac in the ecology classroom: An active learning approach to teaching about ecology and natural history&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Leighton Reid&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48621.html&quot;&gt;Conservation psychology: Bat killing in southern Costa Rica&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Leighton Reid&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48621.html&quot;&gt;Conservation psychology: Bat killing in southern Costa Rica&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Kristen R. Treat&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49217.html&quot;&gt;Variation of Pentaclethra macroloba natural history and genetic structure along an elevational gradient in lowland Costa Rica&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Kristen R. Treat&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49217.html&quot;&gt;Variation of Pentaclethra macroloba natural history and genetic structure along an elevational gradient in lowland Costa Rica&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Flavia M. D. Marquitti&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49277.html&quot;&gt;The role of cheaters on the stability of mutualistic networks&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Flavia M. D. Marquitti&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49277.html&quot;&gt;The role of cheaters on the stability of mutualistic networks&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Melissa Gaste Martinez&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49484.html&quot;&gt;Bothrops atrox in captivity, change isotopic composition in tissues collected from different environments of the eastern Amazon&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Melissa Gaste Martinez&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49484.html&quot;&gt;Bothrops atrox in captivity, change isotopic composition in tissues collected from different environments of the eastern Amazon&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;D. Liane Cochran-Stafira&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49924.html&quot;&gt;Effects of Metriocnemus knabi predation on Habrotrocha rosa populations in Sarracenia purpurea pitchers&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;D. Liane Cochran-Stafira&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49924.html&quot;&gt;Effects of Metriocnemus knabi predation on Habrotrocha rosa populations in Sarracenia purpurea pitchers&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Emily Hartop&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50108.html&quot;&gt;Terrestrial insects of los angeles: The great frontier&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Emily Hartop&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50108.html&quot;&gt;Terrestrial insects of los angeles: The great frontier&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Danielle B. Pitt&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50268.html&quot;&gt;Linking early history of Pterygota to habitat structure: The role of dendritic ecological networks in insect natural history&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Danielle B. Pitt&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50268.html&quot;&gt;Linking early history of Pterygota to habitat structure: The role of dendritic ecological networks in insect natural history&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Carole L. Hom&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50330.html&quot;&gt;UC Davis-Howard University EEGAP: Collaborating to broaden participation in ecology and evolution&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Carole L. Hom&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50330.html&quot;&gt;UC Davis-Howard University EEGAP: Collaborating to broaden participation in ecology and evolution&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Senay Yitbarek&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50363.html&quot;&gt;The role of self-organized spatial patterns in the persistence of weak invasive species: A case study of the invasive ant W. auropunctata&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Senay Yitbarek&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50363.html&quot;&gt;The role of self-organized spatial patterns in the persistence of weak invasive species: A case study of the invasive ant W. auropunctata&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;I note the third talk in this list is an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;ignite talk&lt;/a&gt; announcing the new ESA natural history section. Perhaps we’ll see the effect of this section next year’s program!&lt;/p&gt;
 &lt;p&gt;R code for this post is on &lt;a href=&quot;https://github.com/noamross/esaprog/blob/master/nathist.Rmd&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Or rather, something close to “natural history”. I searched for the regular expression &lt;code&gt;natur\w+\s+hist&lt;/code&gt;.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content>
+&lt;/section&gt;
+</content>
  </entry>
  
  <entry>
@@ -173,29 +175,30 @@
   &lt;/style&gt;
 &lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA&lt;/a&gt; is just around the corner, and many of us are gearing up and trying to figure out a &lt;a href=&quot;http://eco.confex.com/eco/2014/schedule/index.cgi&quot;&gt;schedule&lt;/a&gt; to cover all the talks and people we can pack in. ESA is a big conference and there’s far too much for any one person to see. In the end, everyone experiences a &lt;a href=&quot;http://en.wikipedia.org/wiki/Blind_men_and_an_elephant&quot;&gt;different part of the elephant&lt;/a&gt;. However, I thought it would be interesting to take a look at the big picture, and examine the ESA program as a &lt;em&gt;whole&lt;/em&gt; to see what could be learned from it. This is the first of (maybe) several posts where I use some basic text-mining tools to explore the content of the ESA program.&lt;/p&gt;
 &lt;p&gt;First, what are the most common terms in the ESA program?&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;Few surprises here. “Species” would have been my guess for the top. “Plants” are probably on top because ecologists usually refer to animals by various sub-groups. The rest are fairly ho-hum: ecology and science-y words.&lt;/p&gt;
 &lt;p&gt;It’s more interesting to ask how the topics at ESA &lt;em&gt;change&lt;/em&gt; from year to year. Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/mung.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like “biomass” and “nutrient” - those common in ecosystem ecology - and more like “pollinator”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, “phenology”, and “network” - those associated with the study of species interactions.&lt;/p&gt;
 &lt;p&gt;It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.&lt;/p&gt;
 &lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the biggest &lt;em&gt;topics&lt;/em&gt; changed? The plot below is similar to that above, but instead of plotting the words with the greatest absolute change, I plot the change of the 50 words that are most common across both years:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/big.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;This is somewhat less clear. If one squints, one could argue that there are more words associated with species interactions, environmental change, and management at the top, and more words associated with forests at the bottom. Words in the middle (“ecology”, “community”) are consistently popular across both years. Finally, perhaps significance is falling out of fashion?&lt;/p&gt;
 &lt;p&gt;That’s just a quick first pass. I haven’t yet thought much about how one models these data to understand effect sizes and significance. I welcome suggestions for further analyses and better ways to plot/organize this data. Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; While messing with the ESA program text, I also created &lt;a href=&quot;http://twitter.com/esa_titles&quot;&gt;@esa_titles&lt;/a&gt;, a twitter account that re-mixes ESA talk titles. Have a look for talks you wish you could see. :)&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;“pollinia” is a stand-in for all pollination-related words here, as I applied &lt;a href=&quot;http://en.wikipedia.org/wiki/Stemming&quot;&gt;stemming&lt;/a&gt; to the text.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content>
+&lt;/section&gt;
+</content>
  </entry>
  
  <entry>
@@ -215,7 +218,8 @@
 &lt;p&gt;In our review, we try to illuminate what is known about warning signals observed in models that have a saddle node and contrast this to other models that have received much less attention. So far, for instance, empirical data have only been collected in systems for which the saddle-node is thought to be a very good representation (e.g., freshwater lakes, pitcher-plants). We need more examples of this type of model testing in different ecosystems with different potential mechanisms of regime shift.&lt;/p&gt;
 &lt;p&gt;Other models of ecosystems have the potential to provide &lt;em&gt;different&lt;/em&gt; warning signals, but we need to know more about them, and we need better methods of deciding &lt;em&gt;which&lt;/em&gt; model is appropriate to apply to any particular ecosystem. Early warning signals may be less generally applicable than initially hoped, but they can be quite powerful if properly applied.&lt;/p&gt;
 &lt;p&gt;The paper is &lt;a href=&quot;http://dx.doi.org/10.1007/s12080-013-0192-6&quot;&gt;up now at Theoretical Ecology&lt;/a&gt; but we also posted it to &lt;a href=&quot;http://arxiv.org/abs/1305.6700&quot;&gt;the arXiv here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Finally, this is my first paper in which pretty much all collaboration occurred over &lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt;, so you can go and see the &lt;a href=&quot;https://github.com/cboettig/ews-review/commits/master/manuscript.md&quot;&gt;entire revision history&lt;/a&gt; there. This worked out great and I’ll definitely be doing it again.&lt;/p&gt;</content>
+&lt;p&gt;Finally, this is my first paper in which pretty much all collaboration occurred over &lt;a href=&quot;https://github.com/&quot;&gt;github&lt;/a&gt;, so you can go and see the &lt;a href=&quot;https://github.com/cboettig/ews-review/commits/master/manuscript.md&quot;&gt;entire revision history&lt;/a&gt; there. This worked out great and I’ll definitely be doing it again.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -232,7 +236,8 @@
 &lt;blockquote&gt;
 &lt;p&gt;Sometimes many trees get sick and die very quickly. I look at how death moves between different kinds of trees and how groups of different trees change how fast death moves. I try to figure out when many trees will die together, and the type of things we need to know in order to figure this out ahead of time. Then I try to figure out what to do to the trees over time using the least money so that death probably will not come, even if our ideas of how death moves might be wrong or off a bit.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;You’ll find more amazing science descriptions if you check out the &lt;a href=&quot;https://twitter.com/search/realtime?q=%23upgoerfive&quot;&gt;#upgoer5&lt;/a&gt; tag on Twitter.&lt;/p&gt;</content>
+&lt;p&gt;You’ll find more amazing science descriptions if you check out the &lt;a href=&quot;https://twitter.com/search/realtime?q=%23upgoerfive&quot;&gt;#upgoer5&lt;/a&gt; tag on Twitter.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -283,7 +288,7 @@
 &lt;ul&gt;
 &lt;li&gt;Population biology models complex systems, but truly accurate models of these process would have too many parameters, be intractable, computationally infeasible, and lack easily interpretable parameters&lt;/li&gt;
 &lt;li&gt;One cannot maximize generality, realism, and precision simultaneously, as they aim towards different goals of understanding, prediction, and management. As such, three strategies:
-&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;ol type=&quot;1&quot;&gt;
 &lt;li&gt;&lt;p&gt;Sacrifice generality, reducing parameters to those relevant for short-term prediction, solve numerically, and then test predictions in narrow situations. (e.g. fisheries models)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Sacrifice realism, expect many unrealistic assumptions will cancel each other out, and build in realism piece by piece to understand relevant complicatons (e.g., Lotka-Volterra)&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Sacrifice precision. Focus on qualitative over quantitative and comparative results. Use abstract, general mathematical forms. (e.g. MacArthur and Levins)&lt;/p&gt;&lt;/li&gt;
@@ -304,7 +309,7 @@
 &lt;li&gt;They may be formalizations of ecological concepts, such as measures of niche breadth, diversity, etc. These may not have “true” forms and should be tested for robustness&lt;/li&gt;
 &lt;li&gt;They may represent variables found to be important in other studies&lt;/li&gt;
 &lt;li&gt;The generalization of parameters leads to imprecision in three ways:
-&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;ol type=&quot;1&quot;&gt;
 &lt;li&gt;Omit factors with small or rare efects&lt;/li&gt;
 &lt;li&gt;Are only qualitative because the exact form of functions is unknown&lt;/li&gt;
 &lt;li&gt;Information is lost in generalization&lt;/li&gt;
@@ -351,7 +356,8 @@
 &lt;h2 id=&quot;references&quot;&gt;&lt;a href=&quot;#TOC&quot;&gt;References&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Aber, J. D. 1997. Why Don’t We Believe the Models?. Bulletin of the Ecological Society of America 78:232–233.&lt;/p&gt;
 &lt;p&gt;Levins, R. 1966. The strategy of model building in population biology. American Scientist 54:421–431.&lt;/p&gt;
-&lt;p&gt;May, R. M. 2004. Uses and abuses of mathematics in biology. Science 303:790–3.&lt;/p&gt;</content>
+&lt;p&gt;May, R. M. 2004. Uses and abuses of mathematics in biology. Science 303:790–3.&lt;/p&gt;
+</content>
  </entry>
  
  

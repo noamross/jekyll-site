@@ -104,6 +104,78 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     	
     	<a href="/about.html">About</a>
     	
@@ -116,17 +188,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
     	
     	<a href="/connect.html">Connect</a>
     	
+    
+  
     
   
     
@@ -145,72 +211,6 @@
     	
     	<a href="/publications.html">Publications</a>
     	
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -254,9 +254,9 @@
 billys &lt;-<span class="st"> </span><span class="kw">getpctAP</span>(<span class="st">&quot;billys&quot;</span>, <span class="dt">plot =</span> <span class="ot">TRUE</span>)
 ## Number of taxa:  105 
 ## Number of levels:  77 </code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/a.png" alt="Arboreal Pollen over time at Billy’s Lake" /><p class="caption">Arboreal Pollen over time at Billy’s Lake</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/a.png" alt="Arboreal Pollen over time at Billy’s Lake" /><figcaption>Arboreal Pollen over time at Billy’s Lake</figcaption>
+</figure>
 <p>Clearly, there’s are trends at different time scales. The trouble with using S-Maps on this is that there are uneven sampling intervals. One option is to use linear interpolation to approximate even intervals:</p>
 <pre class="sourceCode r"><code class="sourceCode r">billyslin &lt;-<span class="st"> </span><span class="kw">linpctAP</span>(billys, <span class="dt">ts =</span> <span class="ot">FALSE</span>)
 billys &lt;-<span class="st"> </span><span class="kw">getpctAP</span>(<span class="st">&quot;billys&quot;</span>, <span class="dt">plot =</span> <span class="ot">TRUE</span>)
@@ -265,11 +265,12 @@ billys &lt;-<span class="st"> </span><span class="kw">getpctAP</span>(<span clas
 <span class="kw">lines</span>(billyslin[, <span class="dv">1</span>], billyslin[, <span class="dv">2</span>], <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
 <span class="kw">points</span>(billyslin[, <span class="dv">1</span>], billyslin[, <span class="dv">2</span>], <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, 
     <span class="dt">pch =</span> <span class="dv">16</span>)</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/b.png" alt="With linearly interpolated evenly spaced samples" /><p class="caption">With linearly interpolated evenly spaced samples</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/b.png" alt="With linearly interpolated evenly spaced samples" /><figcaption>With linearly interpolated evenly spaced samples</figcaption>
+</figure>
 <p>This means introducing a new source of error into whatever model is ultimately used. What interval should be used to generate this? Here I created an equal number of points as are in the original data set. However, the sampling density is greater at more recent dates. S-Maps can handle missing data, but there need to be a good chunk of consecutive points.</p>
-<p>The other option is start thinking about how to generalize S-Maps for data sampled at unequal intervals.</p></p></div>
+<p>The other option is start thinking about how to generalize S-Maps for data sampled at unequal intervals.</p>
+</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>

@@ -104,6 +104,78 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     	
     	<a href="/about.html">About</a>
     	
@@ -116,17 +188,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
     	
     	<a href="/connect.html">Connect</a>
     	
+    
+  
     
   
     
@@ -145,72 +211,6 @@
     	
     	<a href="/publications.html">Publications</a>
     	
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -253,9 +253,9 @@
 <pre class="sourceCode r"><code class="sourceCode r">## Loading required package: stats4</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(ReedfrogFuncresp)
 <span class="kw">plot</span>(ReedfrogFuncresp, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/h1.png" />
-</div>
+</figure>
 <p>Statistical models are stories about how the data came to be. The deterministic part of the story is a (slightly mangled) version of what you’d expect if the predators followed a Type II functional response:</p>
 <p>Holling’s Disk equation for Type II Functional Response</p>
 <ul>
@@ -273,9 +273,9 @@
 <span class="kw">curve</span>(<span class="kw">disk</span>(x, <span class="dv">2</span>, <span class="fl">0.02</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">100</span>, <span class="dt">col =</span> <span class="dv">2</span>)
 <span class="co"># a = 0.5, h = 0.02 (blue) looks like a plausible data-generating process</span>
 <span class="kw">curve</span>(<span class="kw">disk</span>(x, <span class="fl">0.5</span>, <span class="fl">0.02</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">100</span>, <span class="dt">col =</span> <span class="dv">4</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/h3.png" />
-</div>
+</figure>
 <p>The blue curve looks plausible, but is it optimal? Does it tell the best possible story about how the data could have been generated?</p>
 <p>In order to tell if it’s optimal, we need to pick something to optimize. Usually, that will be the log-likelihood–i.e. the log-probability that the data would have come out this way if the model were true. Models with higher probabilities of generating the data we observed therefore have higher likelihoods. For various arbitrary reasons, it’s common to minimize the negative log-likelihood rather than maximizing the positive log-likelihood. So let’s write a function that says what the log-likelihood is for a given pair of <code>a</code> and <code>h</code>.</p>
 <p>The log-likelihood is the sum of log-probabilities from each data point. The log-probability for a data point is (in this contrived example) drawn from a binomial (“coin flip”) distribution, whose mean is determined by the disk equation.</p>
@@ -327,9 +327,9 @@ fit</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(ReedfrogFuncresp, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="dt">xaxs =</span> <span class="st">&quot;i&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">disk</span>(x, <span class="dt">a =</span> <span class="kw">coef</span>(fit)[<span class="st">&quot;a&quot;</span>], <span class="dt">h =</span> <span class="kw">coef</span>(fit)[<span class="st">&quot;h&quot;</span>]), <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">lwd =</span> <span class="dv">4</span>, 
     <span class="dt">from =</span> <span class="dv">0</span>, <span class="dt">to =</span> <span class="dv">100</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/h7.png" />
-</div>
+</figure>
 <p>The rethinking package has a few convenient functions for summarizing and visualizing the output of an mle2 object. It’s not on CRAN, but you can get it from the author’s website or <a href="https://github.com/rmcelreath/rethinking">from github.</a></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rethinking)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Attaching package: &#39;rethinking&#39;
@@ -349,9 +349,9 @@ fit</code></pre>
 
 <span class="co"># Add a blue dot for our earlier guess:</span>
 <span class="kw">points</span>(<span class="fl">0.5</span>, <span class="fl">0.02</span>, <span class="dt">col =</span> <span class="dv">4</span>, <span class="dt">pch =</span> <span class="dv">20</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/h9.png" />
-</div>
+</figure>
 <hr />
 <h3 id="a-big-digression-about-confidence-intervals">A Big digression about confidence intervals</h3>
 <p>Our earlier guess falls inside the cloud of points, so even though it’s not as good as the red point, it’s still plausibly consistent with the data.</p>
@@ -365,15 +365,15 @@ fit</code></pre>
 <p>This graph gives an example:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd =</span> <span class="dv">1</span>/<span class="dv">2</span>), <span class="dt">from =</span> -<span class="dv">5</span>, <span class="dt">to =</span> <span class="dv">5</span>, <span class="dt">ylab =</span> <span class="st">&quot;likelihood&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;estimate&quot;</span>)
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd =</span> <span class="dv">3</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>, <span class="dt">col =</span> <span class="dv">2</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/h11.png" />
-</div>
+</figure>
 <p>The black curve shows a model with low variance for its estimate. This means that the likelihood would fall off quickly if we tried a bad estimate, and we can be reasonably sure that the data was generated by a value in a fairly narrow range. The model associated with the red curve is much less certain: the parameter could be very different from the optimal value and the likelihood wouldn’t drop much.</p>
 <p>Here’s another way to visualize the decline in likelihood as you move away from the best estimate:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">profile</span>(fit))</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/h12.png" />
-</div>
+</figure>
 <p>Keep in mind that all of this is based on a Gaussian approximation. It works well when you have lots of data and you aren’t estimating something near a boundary. Since <code>h</code> is near its minimum value (at zero), there’s some risk that the confidence intervals are inaccurate. Markov chain Monte Carlo can provide more accurate estimates, but it’s also slower to run.</p>
 <h4 id="a-somewhat-related-digression">A somewhat-related digression:</h4>
 <p>Where does the vcov matrix come from? From a matrix called the Hessian. It describes the curvature of the likelihood surface, i.e. how quickly the log-likelihood falls off as you move away from the optimum.</p>
@@ -430,7 +430,8 @@ d =<span class="st"> </span><span class="kw">data.frame</span>(x, y)</code></pre
 ## 0.52652 0.01666</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(fit2)  <span class="co"># MAP estimate</span></code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##       a       h 
-## 0.47931 0.01375</code></pre></p></div>
+## 0.47931 0.01375</code></pre>
+</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
@@ -465,8 +466,8 @@ d =<span class="st"> </span><span class="kw">data.frame</span>(x, y)</code></pre
 
 
 <div class="noprint" id="previous-posts"><hr />
-<p> <strong>Previous Post</strong>: <a href="/blog/2013/6/12/multi-infection-overdispersed.html">The null model for age effects with overdispersed infection</a> </p>
-<p> <strong>Next Post</strong>: <a href="/blog/2013/6/17/harrisbbmle.html">Dave Harris on Maximum Likelihood Estimation</a> </p></div>
+<p> <strong>Previous Post</strong>: <a href="/blog/2013/6/17/harrisbbmle.html">Dave Harris on Maximum Likelihood Estimation</a> </p>
+<p> <strong>Next Post</strong>: <a href="/blog/2013/6/18/helpconsoleexample.html">Printing R help files in the console or in knitr documents</a> </p></div>
 
 
 

@@ -104,6 +104,78 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     	
     	<a href="/about.html">About</a>
     	
@@ -116,17 +188,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
     	
     	<a href="/connect.html">Connect</a>
     	
+    
+  
     
   
     
@@ -145,72 +211,6 @@
     	
     	<a href="/publications.html">Publications</a>
     	
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -254,9 +254,9 @@
 <p>Uptake is a Michaelis-Menton function of nutrient availability limited, in part, by nutrient-specific uptake tissue surface area (roots, etc., <span class="math">\(SV\)</span>):</p>
 <p><span class="math">\[U_n = \frac{S_nV_n En}{k_n + E_n}\]</span></p>
 <p>with <span class="math">\(S_n=B_n^{2/3}\)</span>, the biomass made up of the respective nutrient.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/mm.png" alt="The saturating Michalis-Menton function" /><p class="caption">The saturating Michalis-Menton function</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/mm.png" alt="The saturating Michalis-Menton function" /><figcaption>The saturating Michalis-Menton function</figcaption>
+</figure>
 <p><span class="math">\(V\)</span> changes over time as the plant attempts to optimize uptake to balance the ratio in its biomass to reach an optimal value, <span class="math">\(Q\)</span>:</p>
 <p><span class="math">\[\frac{dV_n}{dt} = a\left[\ln(Q) - \ln\left(\frac{B_n}{B_2}\right)\right] V_n\]</span></p>
 <h3 id="equilibrium-solutions-three-cases">Equilibrium solutions: Three Cases</h3>
@@ -266,13 +266,13 @@
 <h3 id="dynamics">Dynamics</h3>
 <p>Simulations were run under this model, increasing the supply of one nutrient at <span class="math">\(T=50\)</span> and a second nutrient at <span class="math">\(T=500\)</span>.</p>
 <p>Case 1: With nutrients undepletable, plants increased growth in response to increases in both nutrients, in both cases falling out of the optimal balance of nutrients <span class="math">\((Q)\)</span>, but finding a new equilibrium at higher biomass.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/sim1.png" alt="From Fig. 1 of Rastetter and Shaver (1992) - simulation with undepletable nutrients" /><p class="caption">From Fig. 1 of Rastetter and Shaver (1992) - simulation with undepletable nutrients</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/sim1.png" alt="From Fig. 1 of Rastetter and Shaver (1992) - simulation with undepletable nutrients" /><figcaption>From Fig. 1 of Rastetter and Shaver (1992) - simulation with undepletable nutrients</figcaption>
+</figure>
 <p>Case 2: With nutrients depletable, plants experienced <em>initial</em> increases in growth and biomass, but returned to previous levels in order to balance nutrient levels. Only when both nutrients were added was higher biomass sustained.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/sim4.png" alt="From Fig.2 Rastetter and Shaver (1992) - simulation with depletable nutrients" /><p class="caption">From Fig.2 Rastetter and Shaver (1992) - simulation with depletable nutrients</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/sim4.png" alt="From Fig.2 Rastetter and Shaver (1992) - simulation with depletable nutrients" /><figcaption>From Fig.2 Rastetter and Shaver (1992) - simulation with depletable nutrients</figcaption>
+</figure>
 <p>Case 3: In the mixed case, plants responded as in Case #2 until <span class="math">\(R\)</span> was above the critical replenishment rate, then responded as in Case #1.</p>
 <h2 id="klausmeier-et-al.-2007">Klausmeier et al. (2007)</h2>
 <p>Klausmeier et al. use a similar framework to model the dynamics of microbial growth dynamics and competition. In their model, growth under two nutrients is subject to Liebig-style limitation of nutrient concentrations <span class="math">\((Q)\)</span> <em>inside</em> cells, while <em>uptake</em> into cells <span class="math">\((U)\)</span> is driven by Michaelis-Menton kinetics (designated by function <span class="math">\(f\)</span>, which is linear with respect to <span class="math">\(A\)</span>, the allocation term.):</p>
@@ -280,9 +280,9 @@
 <p><span class="math">\[\frac{dB}{dt} = \mu \min \left(1 - \frac{Q_{min,n}}{Q_n}, 1-\frac{Q_{min,o}}{Q_o} \right) B - mB\]</span></p>
 <h3 id="optimal-strategies---static">Optimal strategies - Static</h3>
 <p>The authors show that a species whose allocation leads to co-limitation has a continuously stable strategy (an evolutionary stable strategy that is stable on its own).</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/optimaltradeoffA.png" alt="Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. A* is the continiously stable strategy, while species with A&#39; could be out-competed by A&#39;&#39; or A^*" /><p class="caption">Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. <span class="math">\(A*\)</span> is the continiously stable strategy, while species with <span class="math">\(A&#39;\)</span> could be out-competed by <span class="math">\(A&#39;&#39;\)</span> or <span class="math">\(A^*\)</span></p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/optimaltradeoffA.png" alt="Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. A* is the continiously stable strategy, while species with A&#39; could be out-competed by A&#39;&#39; or A^*" /><figcaption>Fig. 1 from Klausmeier et al. (2007), showing zero-net growth curves under three allocation strategies. <span class="math">\(A*\)</span> is the continiously stable strategy, while species with <span class="math">\(A&#39;\)</span> could be out-competed by <span class="math">\(A&#39;&#39;\)</span> or <span class="math">\(A^*\)</span></figcaption>
+</figure>
 <h3 id="dynamics-1">Dynamics</h3>
 <p>To make allocation dynamic, the authors simply change <span class="math">\(A\)</span> at a constant rate so as to reach the level where both nutrients are limiting:</p>
 <p><span class="math">\[\frac{dA}{dt} = \begin{cases}
@@ -292,39 +292,40 @@
  \end{cases}
 \]</span></p>
 <p>The authors show two consequences of dynamic allocation. First, plankton nutrient ratios can be sensitive to time of sampling, as it can take time for biomass nutrient ratios to adjust to environmental levels. This adjustment may take longer than the change in <em>biomass</em> that may result from changes in nutrient levels.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/timesampratios.png" alt="Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios (Q_N/Q_P) vs. nutrient supply ratios (R_N/R_P) at differing sampling time from a change in nutrient supply ratios." /><p class="caption">Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios <span class="math">\((Q_N/Q_P)\)</span> vs. nutrient supply ratios <span class="math">\((R_N/R_P)\)</span> at differing sampling time from a change in nutrient supply ratios.</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/timesampratios.png" alt="Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios (Q_N/Q_P) vs. nutrient supply ratios (R_N/R_P) at differing sampling time from a change in nutrient supply ratios." /><figcaption>Figure 4 from Klausmeier et al. (2007). Simulated plankton nutrient ratios <span class="math">\((Q_N/Q_P)\)</span> vs. nutrient supply ratios <span class="math">\((R_N/R_P)\)</span> at differing sampling time from a change in nutrient supply ratios.</figcaption>
+</figure>
 <p>Secondly, the relationship between allocation rate and growth response to nutrients is not simple. In simulations, organisms with <em>no</em> acclimation ability grow as quickly in response to a nutrient pulse as organisms that acclimate quickly, but slow acclimators do worse than both.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/klausgrid.png" alt="Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates (c) to a pulse on one nutrient. From left to right, c increases, while variables from top to bottom are biomass (B), nutrient supply (R), allocation of uptake to P (A_P), and species biomass nutrient ratio (Q_N/Q_P)" /><p class="caption">Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates <span class="math">\((c)\)</span> to a pulse on one nutrient. From left to right, <span class="math">\(c\)</span> increases, while variables from top to bottom are biomass <span class="math">\((B)\)</span>, nutrient supply <span class="math">\((R)\)</span>, allocation of uptake to P <span class="math">\((A_P)\)</span>, and species biomass nutrient ratio <span class="math">\((Q_N/Q_P)\)</span></p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/klausgrid.png" alt="Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates (c) to a pulse on one nutrient. From left to right, c increases, while variables from top to bottom are biomass (B), nutrient supply (R), allocation of uptake to P (A_P), and species biomass nutrient ratio (Q_N/Q_P)" /><figcaption>Fig. 5 from Klausmeier et al. (2007), showing response of species with different acclimation rates <span class="math">\((c)\)</span> to a pulse on one nutrient. From left to right, <span class="math">\(c\)</span> increases, while variables from top to bottom are biomass <span class="math">\((B)\)</span>, nutrient supply <span class="math">\((R)\)</span>, allocation of uptake to P <span class="math">\((A_P)\)</span>, and species biomass nutrient ratio <span class="math">\((Q_N/Q_P)\)</span></figcaption>
+</figure>
 <p>The high growth rates of slow-acclimation organisms in response to a pulse suggest that this strategy may be superior in a fluctuating environment, and in simulations, this is the case.</p>
 <h2 id="rastetter-2011">Rastetter (2011)</h2>
 <p>Rastetter (2011) examines the role of acclimation in ecosystem succession and in and in ecosystem response to carbon enrichment and climate change. He uses a slightly more involved ecosystem than the previous two papers (detailed in the supplmentary information), which represents plant, soil, and microbe nutrient cycling in a Douglas-fir forest. He then modifies it in four ways:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Plants and microbe growth is driven by M-M nutrient uptake, but nutrient uptake among different nutrients are uncouples.</li>
 <li>Nutrient uptake is determined via Liebig’s law</li>
 <li>Nutrients are co-limiting, in which each nutrient’s uptake is proportional to availability of the rest, and</li>
 <li>Organisms adapt by allocating uptake tissue, as in Rastetter and Shaver (1992)</li>
 </ol>
 <p>When simulating forest growth and succession, the uncoupled model reaches an equilibrium faster, while the Liebig model is sloweest.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/rastetter2011succession.png" alt="Fig. 2 in Rastetter (2011). Forest and soil nutrient accumulation under the four nutrient coupling models" /><p class="caption">Fig. 2 in Rastetter (2011). Forest and soil nutrient accumulation under the four nutrient coupling models</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/rastetter2011succession.png" alt="Fig. 2 in Rastetter (2011). Forest and soil nutrient accumulation under the four nutrient coupling models" /><figcaption>Fig. 2 in Rastetter (2011). Forest and soil nutrient accumulation under the four nutrient coupling models</figcaption>
+</figure>
 <p>Under the climate change simulations, the concurrent limitation leads to more rapid changes following temperature and CO<sub>2</sub> increases. The uncoupled system is the only one to change with only CO<sub>2</sub> enrichment, though.</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/rastetter2011GW.png" alt="Fig. 4 in Rastetter (2011). Forest response to climate changes under the four nutrient coupling models" /><p class="caption">Fig. 4 in Rastetter (2011). Forest response to climate changes under the four nutrient coupling models</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/rastetter2011GW.png" alt="Fig. 4 in Rastetter (2011). Forest response to climate changes under the four nutrient coupling models" /><figcaption>Fig. 4 in Rastetter (2011). Forest response to climate changes under the four nutrient coupling models</figcaption>
+</figure>
 <h2 id="some-thoughts">Some thoughts</h2>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>These three papers study similar ideas, modeled at the plant organism, plankton population, and whole-forest level. Should similar mechanisms hold across these?</p></li>
 <li><p>What limitation or adaptation mechanisms are appropriate in what models? In what cases are constant-environment v. environment-organism-feedback approaches appropriate?</p></li>
 </ol>
 <h2 id="references">References</h2>
 <p>Klausmeier, C., E. Litchman, and S. Levin. 2007. A model of flexible uptake of two essential resources.. Journal of theoretical biology 246:278–89.</p>
 <p>Rastetter, E. B. 2011. Modeling coupled biogeochemical cycles. Frontiers in Ecology and the Environment 9:68–73.</p>
-<p>Rastetter, E. B., and G. R. Shaver. 1992. A Model of Multiple-Element Limitation for Acclimating Vegetation. Ecology 73:1157–1174.</p></p></div>
+<p>Rastetter, E. B., and G. R. Shaver. 1992. A Model of Multiple-Element Limitation for Acclimating Vegetation. Ecology 73:1157–1174.</p>
+</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>

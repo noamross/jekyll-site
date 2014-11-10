@@ -4,8 +4,7 @@ permalink: /blog/:year/:i_month/:i_day/:title.html
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", ".DS_Store", "updatesite.sh", ".rsyncignore"]
 include: [".htaccess"]
-auto: false
-pygments: false
+highlighter: pygments
 redirects: yes
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
@@ -21,9 +20,18 @@ author:
   
 # For the pandoc-ruby branch of jekyll, (https://github.com/dsanson/jekyll) use pandoc as my markdown parser:
 
-markdown: rdiscount
+gems:
+  - jekyll-pandoc
+
+markdown: pandoc
+markdown_ext:  markdown,mkdown,mkdn,mkd,md,Rmd,rmd
 pandoc:
-  extensions: [smart, mathjax, highlight-style="kate", indented-code-classes="r", email-obfuscation=none]
+  extensions: 
+    - smart
+    - mathjax
+    - highlight-style="kate"
+    - indented-code-classes="r"
+    - email-obfuscation=none
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

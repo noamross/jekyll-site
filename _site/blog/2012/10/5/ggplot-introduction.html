@@ -104,6 +104,78 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     	
     	<a href="/about.html">About</a>
     	
@@ -116,17 +188,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
     	
     	<a href="/connect.html">Connect</a>
     	
+    
+  
     
   
     
@@ -145,72 +211,6 @@
     	
     	<a href="/publications.html">Publications</a>
     	
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -265,19 +265,19 @@ colors &lt;-<span class="st"> </span><span class="kw">color_foo</span>(<span cla
 <span class="kw">points</span>(data.df$Axis1, data.df$Axis2, <span class="dt">pch =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)[data.df$Plant], <span class="dt">col =</span> colors[data.df$Type])
 <span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Plant1&quot;</span>, <span class="st">&quot;Plant2&quot;</span>), <span class="dt">pch =</span> <span class="dv">1</span>:<span class="dv">2</span>)
 <span class="kw">legend</span>(<span class="st">&quot;bottomright&quot;</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;Type1&quot;</span>, <span class="st">&quot;Type2&quot;</span>, <span class="st">&quot;Type3&quot;</span>), <span class="dt">pch =</span> <span class="dv">20</span>, <span class="dt">col =</span> colors)</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4" /><p class="caption">plot of chunk unnamed-chunk-4</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-4.png" alt="plot of chunk unnamed-chunk-4" /><figcaption>plot of chunk unnamed-chunk-4</figcaption>
+</figure>
 <p>With <code>ggplot</code>, you just do this:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(data.df, <span class="kw">aes</span>(<span class="dt">x =</span> Axis1, <span class="dt">y =</span> Axis2, <span class="dt">shape =</span> Plant, <span class="dt">color =</span> Type)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5" /><p class="caption">plot of chunk unnamed-chunk-5</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-5.png" alt="plot of chunk unnamed-chunk-5" /><figcaption>plot of chunk unnamed-chunk-5</figcaption>
+</figure>
 <p>And it looks much better!</p>
 <p>But <code>ggplot()</code> really shines when you have a lot of data. Here’s an example of some fish survey data that I produced with it:</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/cohortplot.png" alt="Sacramento splittail surveyed in Suisun Marsh, 1979-2011, data from Peter Moyle and Teejay O’Rear" /><p class="caption">Sacramento splittail surveyed in Suisun Marsh, 1979-2011, data from Peter Moyle and Teejay O’Rear</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/cohortplot.png" alt="Sacramento splittail surveyed in Suisun Marsh, 1979-2011, data from Peter Moyle and Teejay O’Rear" /><figcaption>Sacramento splittail surveyed in Suisun Marsh, 1979-2011, data from Peter Moyle and Teejay O’Rear</figcaption>
+</figure>
 <h3 id="tutorial">Tutorial</h3>
 <p><code>ggplot</code> is best used on data in data frame form. Let’s look at a data set already in R, this about the sleep habits of different animal species</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(msleep)</code></pre>
@@ -300,9 +300,9 @@ colors &lt;-<span class="st"> </span><span class="kw">color_foo</span>(<span cla
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>()
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Total Hours Sleep&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7" /><p class="caption">plot of chunk unnamed-chunk-7</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-7.png" alt="plot of chunk unnamed-chunk-7" /><figcaption>plot of chunk unnamed-chunk-7</figcaption>
+</figure>
 <p>Let’s parse what we just did. The <code>ggplot()</code> command creates a plot object. In it we assigned a data set. <code>aes()</code> creates what Hadley Wickham calls an <em>aesthetic</em>: a mapping of variables to various parts of the plot.</p>
 <p>We then add components to the plot. <code>geom_point()</code> adds a layer of points, using the base aesthetic mapping. The third line adds labels. Typing the variable name <code>a</code> displays the plot. Alternately, one can use the command <code>ggsave()</code> to save the plot as a file, as in</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;sleepplot.png&quot;</span>, <span class="dt">plot =</span> a, <span class="dt">width =</span> <span class="dv">4</span>, <span class="dt">height =</span> <span class="dv">4</span>)</code></pre>
@@ -311,9 +311,9 @@ a</code></pre>
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>()
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Total Hours Sleep&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9" /><p class="caption">plot of chunk unnamed-chunk-9</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-9.png" alt="plot of chunk unnamed-chunk-9" /><figcaption>plot of chunk unnamed-chunk-9</figcaption>
+</figure>
 <p>You can also use map <em>size</em> and <em>alpha</em> (transparency) to variables.</p>
 <p>We can transform variables directly in the <code>ggplot</code> call, as well:</p>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total, <span class="dt">col =</span> vore))
@@ -321,35 +321,35 @@ a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geo
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>) +<span class="st"> </span>
 <span class="st">    </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Trophic Level&quot;</span>)
 a</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-10.png" alt="plot of chunk unnamed-chunk-10" /><p class="caption">plot of chunk unnamed-chunk-10</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-10.png" alt="plot of chunk unnamed-chunk-10" /><figcaption>plot of chunk unnamed-chunk-10</figcaption>
+</figure>
 <p>Within the <code>geom</code> calls, we can change plotting options</p>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total, <span class="dt">col =</span> vore))
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>) +<span class="st"> </span>
 <span class="st">    </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Trophic Level&quot;</span>)
 a</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-11.png" alt="plot of chunk unnamed-chunk-11" /><p class="caption">plot of chunk unnamed-chunk-11</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-11.png" alt="plot of chunk unnamed-chunk-11" /><figcaption>plot of chunk unnamed-chunk-11</figcaption>
+</figure>
 <p>Another way to split up the way we look at data is with <em>facets</em>. These break up the plot into multiple plots. If you are splitting the plot up by one variable, use <code>facet_wrap</code>. If you are using two variables, use <code>facet_grid</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total))
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>)
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">facet_wrap</span>(~vore)
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-12.png" alt="plot of chunk unnamed-chunk-12" /><p class="caption">plot of chunk unnamed-chunk-12</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-12.png" alt="plot of chunk unnamed-chunk-12" /><figcaption>plot of chunk unnamed-chunk-12</figcaption>
+</figure>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_rem/sleep_total))
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>)
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">facet_grid</span>(conservation ~<span class="st"> </span>vore)
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Log Body Weight&quot;</span>) +<span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Fraction of Sleep that is REM&quot;</span>) +<span class="st"> </span><span class="kw">ggtitle</span>(<span class="st">&quot;Some Sleep Data&quot;</span>)
 a</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-13.png" alt="plot of chunk unnamed-chunk-13" /><p class="caption">plot of chunk unnamed-chunk-13</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-13.png" alt="plot of chunk unnamed-chunk-13" /><figcaption>plot of chunk unnamed-chunk-13</figcaption>
+</figure>
 <p>Let’s use a different data set to so line plots:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(economics)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">##         date   pce    pop psavert uempmed unemploy
@@ -362,9 +362,9 @@ a</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> economics, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> unemploy))
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_line</span>()
 a</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-14.png" alt="plot of chunk unnamed-chunk-14" /><p class="caption">plot of chunk unnamed-chunk-14</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-14.png" alt="plot of chunk unnamed-chunk-14" /><figcaption>plot of chunk unnamed-chunk-14</figcaption>
+</figure>
 <p>We can add statistical transformations to this series, for instance:</p>
 <pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> economics, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> unemploy))
 a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geom_line</span>()
@@ -372,9 +372,9 @@ a &lt;-<span class="st"> </span>a +<span class="st"> </span><span class="kw">geo
 a</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## geom_smooth: method=&quot;auto&quot; and size of largest group is &lt;1000, so using
 ## loess. Use &#39;method = x&#39; to change the smoothing method.</code></pre>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-15.png" alt="plot of chunk unnamed-chunk-15" /><p class="caption">plot of chunk unnamed-chunk-15</p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/ggplotfigs/unnamed-chunk-15.png" alt="plot of chunk unnamed-chunk-15" /><figcaption>plot of chunk unnamed-chunk-15</figcaption>
+</figure>
 <h3 id="some-resources">Some resources:</h3>
 <ul>
 <li><a href="http://ggplot2.org/">The main ggplot website, including documentation and excerpts from the book</a>
@@ -387,7 +387,8 @@ a</code></pre>
 <li><a href="https://github.com/hadley/ggplot2/wiki/-opts()-List">A key to the many obscure display options</a></li>
 <li>The latest version of ggplot has an updated “themes” system by which you can modify many aspects of the cart just by adding <code>+ theme_x()</code>. Details <a href="http://sape.inf.usi.ch/quick-reference/ggplot2/themes">here</a> and updates in the new version <a href="https://github.com/wch/ggplot2/wiki/New-theme-system">here</a></li>
 <li>Some <a href="https://github.com/jrnold/ggthemes">nice themes</a> and an <a href="http://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs-in-r">XKCD theme!</a></li>
-</ul></p></div>
+</ul>
+</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>

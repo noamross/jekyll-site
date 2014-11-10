@@ -104,6 +104,78 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     	
     	<a href="/about.html">About</a>
     	
@@ -116,17 +188,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
     	
     	<a href="/connect.html">Connect</a>
     	
+    
+  
     
   
     
@@ -145,72 +211,6 @@
     	
     	<a href="/publications.html">Publications</a>
     	
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -252,7 +252,7 @@
 <p>
 I’m just going to say it.I like for loops in <a href="https://twitter.com/search/%23Rstats">#Rstats</a>, makes my code readable.All you [a-z]*ply snobs can shove it!
 </p>
-— Ted Hart (<span class="citation">@DistribEcology</span>) <a href="https://twitter.com/DistribEcology/status/311581025870426113">March 12, 2013</a>
+— Ted Hart (<span class="citation" data-cites="DistribEcology">@DistribEcology</span>) <a href="https://twitter.com/DistribEcology/status/311581025870426113">March 12, 2013</a>
 </blockquote>
 <script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <p>Code optimization is a matter is a matter of personal taste and <em>priorities</em>. There may be some ways of writing code that are better or worse, and there are definitely ways that will make it run faster, but before you dive into optimization, you should ask yourself these questions:</p>
@@ -314,9 +314,9 @@ compare &lt;-<span class="st"> </span><span class="kw">microbenchmark</span>(<sp
 
 <span class="kw">library</span>(ggplot2)
 <span class="kw">autoplot</span>(compare)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-1.png" />
-</div>
+</figure>
 <pre class="sourceCode r"><code class="sourceCode r">
 compare</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Unit: microseconds
@@ -329,9 +329,9 @@ compare</code></pre>
 g &lt;-<span class="st"> </span><span class="kw">cmpfun</span>(f)
 compare &lt;-<span class="st"> </span><span class="kw">microbenchmark</span>(<span class="kw">f</span>(<span class="dv">1000</span>), <span class="kw">g</span>(<span class="dv">1000</span>), <span class="dt">times =</span> <span class="dv">1000</span>)
 <span class="kw">autoplot</span>(compare)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-2.png" />
-</div>
+</figure>
 <pre class="sourceCode r"><code class="sourceCode r">compare</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Unit: microseconds
 ##     expr   min    lq median    uq  max neval
@@ -354,9 +354,9 @@ compare &lt;-<span class="st"> </span><span class="kw">microbenchmark</span>(<sp
 
 <span class="kw">library</span>(ggplot2)
 <span class="kw">autoplot</span>(compare)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-3.png" />
-</div>
+</figure>
 <pre class="sourceCode r"><code class="sourceCode r">compare</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## Unit: microseconds
 ##        expr   min     lq median     uq   max neval
@@ -443,9 +443,9 @@ for (i in <span class="dv">1</span>:<span class="dv">1000</span>) pos =<span cla
 <h2 id="find-better-packages">Find better packages</h2>
 <p>Before you go about changing your own code, take a look and see if you can use better code someone else has written. There are thousands of packages on CRAN, but many of them are redundant and implement the same thing. There’s tremendous variation in package quality and speed, so you can often speed things up by finding a faster package.</p>
 <p>For instance, the <code>xts</code> and <code>zoo</code> packages both handle time series data, but much of <code>xts</code> is written in C and Fortran, and it is considerably faster. Here are some performance benchmarks (though they are a bit out of date):</p>
-<div class="figure">
-<img src="http://dl.dropbox.com/u/3356641/blogstuff/xtsperformance.png" alt="Comparison of functions on xts time series objects against time series from other packages. From this presentation" /><p class="caption">Comparison of functions on xts time series objects against time series from other packages. From <a href="http://www.quantmod.com/Columbia2008/ColumbiaDec4.pdf">this presentation</a></p>
-</div>
+<figure>
+<img src="http://dl.dropbox.com/u/3356641/blogstuff/xtsperformance.png" alt="Comparison of functions on xts time series objects against time series from other packages. From this presentation" /><figcaption>Comparison of functions on xts time series objects against time series from other packages. From <a href="http://www.quantmod.com/Columbia2008/ColumbiaDec4.pdf">this presentation</a></figcaption>
+</figure>
 <p>Other packages are specifically designed to speed up certain operations. Some creative googling (e.g., <em>r package CRAN fast “something”</em>) will help you find them.</p>
 <p>For instance. Using base functions like <code>colMeans()</code> is faster than using <code>apply</code> functions to apply <code>mean</code>. The <code>matrixStats</code> package extends these functions to include others like <code>rowMaxs()</code>, <code>colRanks()</code>, etc.</p>
 <p><code>data.table</code> is a package designed for speeding up data frame operations when working very large datasets. <code>data.table</code>’s biggest advantage is in tasks like sub-setting and indexing. Here I compare the two in looking up the value of a row:</p>
@@ -516,9 +516,9 @@ comp</code></pre>
 ##  h(x) 2.188 2.406  2.536 3.178  9660 1e+05
 ##  k(x) 2.259 2.504  2.644 3.367 11228 1e+05</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">autoplot</span>(comp)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-6.png" />
-</div>
+</figure>
 <p>The difference is modest, but each layer of parentheses adds a bit to performance time. Note that, amazingly, r speeds up when you use curly braces (<code>{</code> and <code>}</code>) instead of parentheses! Why? <a href="http://radfordneal.wordpress.com/2010/08/19/speeding-up-parentheses-and-lots-more-in-r/">Radford Neal explains</a>:</p>
 <blockquote>
 <p>The difference between parentheses and curly brackets comes about because R treats curly brackets as a “special” operator, whose arguments are not automatically evaluated, but it treats parentheses as a “built in” operator, whose arguments (just one for parentheses) are evaluated automatically, with the results of this evaluation stored in a LISP-style list. Creating this list requires allocation of memory and other operations which seem to be slow enough to cause the difference, since the curly bracket operator just evaluates the expressions inside and returns the last of them, without creating such a list.</p>
@@ -534,9 +534,9 @@ comp</code></pre>
 ##    sum(x)/length(x)  720  878   1064 1211  1511792 1e+05
 ##  .Internal(mean(x))  513  556    614  677  1082112 1e+05</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">autoplot</span>(comp)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/unnamed-chunk-7.png" />
-</div>
+</figure>
 <p>You can sometimes get away with using the internal functions like <code>.Internal(mean(x))</code>. However, this is considered poor practice because (a) internals are subject to change and break your code with updates to R, and (b) this is disallowed in packages submitted to CRAN, so it makes code more difficult to share. That said, the internal version can be 9X faster. Your call.</p>
 <p><strong><em>[Update 4/26/2013: On the <a href="https://twitter.com/kevin_ushey/status/327205714328158208">suggestion of Kevin Ushey</a>, I’m adding the following section]</em></strong></p>
 <h1 id="other-languages-more-reward-for-more-effort">Other Languages: More reward for more effort</h1>
@@ -549,14 +549,15 @@ comp</code></pre>
 <li><p>Problems that require advanced data structures and algorithms that R doesn’t provide. Through the standard &gt;template library (STL), C++ has efficient implementations of many important data structures, from ordered maps &gt;to double ended queues.</p></li>
 </ul>
 </blockquote>
-<div class="footnotes">
+<section class="footnotes">
 <hr />
 <ol>
 <li id="fn1"><p>I used to also have a reference here that <code>x*x</code> is faster than <code>x^2</code> in R, but as <a href="http://simplystatistics.org/2013/04/28/sunday-datastatistics-link-roundup-4282013/#comment-879142735">Thomas Lumley points out</a>, this hasn’t been true for a while, and some quick empirical testing confirmed that the two are pretty close.<a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p>If you are a scientist, you should ALWAYS be prepared to share your code, and should probably publish it as a supplement to your papers.<a href="#fnref2">↩</a></p></li>
 <li id="fn3"><p>There are cheaper services than Amazon, but there aren’t as many resources on how to use them. If you really need to reduce costs, you can use <a href="http://aws.amazon.com/ec2/spot-instances/"><em>spot instances</em></a>, which allow you to set an allowable price, and run your program when something that cheap is available. Also, you could run many small Amazon virtual machines simultaneously on a free trial account, but if your goal is to do things <em>quickly</em>, it might be worth paying for a more powerful machine.<a href="#fnref3">↩</a></p></li>
 </ol>
-</div></p></div>
+</section>
+</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>

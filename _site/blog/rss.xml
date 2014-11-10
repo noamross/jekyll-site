@@ -4,13 +4,57 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-10-07T18:18:29-07:00</updated>
+ <updated>2014-11-10T13:36:06-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Ongoing learning with user groups</title>
+   <link href="http://www.noamross.net/blog/2014/11/10/usergroups.html"/>
+   <updated>2014-11-10T12:00:00-08:00</updated>
+   <id>hhttp://www.noamross.net/blog/2014/11/10/usergroups</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;&lt;em&gt;Cross-posted from the &lt;a href=&quot;http://software-carpentry.org/blog/2014/11/users-groups-for-ongoing-learning.html&quot;&gt;Software Carpentry Blog&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For the past two years I’ve run the [UC Davis R Users’ Group] (D-RUG). In this post, I’ll (1) outline the structure of D-RUG, and (2) summarize some lessons learned, and (3) discuss how such users’ groups could act to support and complement SWC’s workshops. Per &lt;a href=&quot;http://forum.mozillascience.org/t/new-member-introductions/30/22&quot;&gt;Bill’s suggestion&lt;/a&gt;, we could discuss the role of users group at a future &lt;a href=&quot;http://mozillascience.org/instructor-hangouts-landing-this-friday/&quot;&gt;instructor hangout&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;D-RUG was created with similar motivations as SWC - to help scientists learn computing skills. Unlike SWC workshops, our model has been “everyone teaches everyone” rather than “instructor –&amp;gt; learner”. I saw that science graduate students at Davis increasingly needed to use R and similar tools in both their coursework and research, and there was a fair bit of knowledge dispersed among students and faculty in the university. But there was little training on programming, and no forum to share our knowledge.&lt;/p&gt;
+&lt;p&gt;Our users are primarily graduate students and postdocs from across the university, though they’re skewed towards ecology and related fields. Most have no training in computer science or programming. They take up R either for coursework or when a specific research task demands it. So they are pretty much in the same place as most SWC Workshop students. We try to maintain low barriers to entry for these students.&lt;/p&gt;
+&lt;p&gt;Our basic operating principle is maintaining &lt;em&gt;low barriers to entry&lt;/em&gt; for &lt;em&gt;users of all skill levels.&lt;/em&gt; That means meeting students where they are in terms of their tools and needs, and making it as easy as possible for volunteers to pitch in.&lt;/p&gt;
+&lt;h2 id=&quot;basic-elements-of-the-users-group&quot;&gt;Basic elements of the Users’ Group&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Work sessions&lt;/strong&gt;: We have weekly, 2-hour co-work sessions where users come to work on their own projects and get help.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Talks and tutorials&lt;/strong&gt;: About every other week, the first half of our work sessions is dedicated to a presentation. These are mainly tutorials on tools in R. Sometimes they are “show-and-tell” where a user presents an analysis for feedback. Most speakers walk through a script on a large screen, and Q &amp;amp; A takes up half of the time.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;A Q &amp;amp; A listserv&lt;/strong&gt;: We use Google Groups to manage a listserv where people can ask questions, which is especially helpful for our many users who can’t attend the weekly sessions.&lt;/p&gt;
+&lt;p&gt;Global fora, like the &lt;a href=&quot;http://www.r-project.org/mail.html&quot;&gt;R mailing lists&lt;/a&gt; or &lt;a href=&quot;http://stackoverflow.com/questions/tagged/r&quot;&gt;Stack Overflow&lt;/a&gt;, are great, but in order to scale they need pretty strict rules that are challenging for beginners. Many beginners don’t yet know how to frame questions to get good answers. Since our listserv is small-scale, new users can ask open-ended questions and expect responses more helpful than “RTFM.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;A website and blog&lt;/strong&gt;: Our blog mostly serves as a way to post &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html#d-rug-tutorials-from-our-meetings&quot;&gt;materials from our talks&lt;/a&gt;, usually &lt;code&gt;Rmd&lt;/code&gt; scripts or slides. More recently we have been broadcasting our tutorials with Google Hangouts on Air and posting those videos, as well.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;some-lessons-learned&quot;&gt;Some lessons learned&lt;/h2&gt;
+&lt;p&gt;After 2 years, D-RUG has proved a successful. A typical meeting brings 5-15 members, usually evenly split between regulars and those who come just when they have questions. Attendance tends to be higher towards the beginning of the term and when we have speakers. A fair number of on-campus (and LOTS of off-campus users) view the tutorials online.400 members have signed up for the listserv. 10-20% of these are active posters, and most questions get answered in a day or so.Most importantly, I’ve seen many users arrive with little or no experience, and go on be our most useful helpers and give some of our best tutorials.&lt;/p&gt;
+&lt;p&gt;Here a few of the lessons I’ve learned in running D-RUG:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;One major challenge is keeping enough advanced users engaged so that they can be a resource for beginners. Advanced users who attend work sessions can expect to spend about 50% of their time answering questions of others.&lt;/p&gt;
+&lt;p&gt;The listserv is a low-commitment way for advanced users to help, and is even our advanced users ask questions on it sometimes. Our &lt;a href=&quot;http://www.revolutionanalytics.com/r-user-group-sponsorship-program&quot;&gt;sponsors at Revolution Analytics&lt;/a&gt; send us a box of schwag each year - I use these as prizes to recognize helpful volunteers.&lt;/p&gt;
+&lt;p&gt;Users who started off as beginners but have learned a lot through D-RUG tend to be our most dedicated volunteers.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;There’s a trade-off between running D-RUG as a meeting where people regularly give talks, and a space where people come to work.  I found a pretty good medium having weekly 2-hr work sessions, with talks every other week for half the session during the school year. More people tend to come to those sessions with talks.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;It is constant work wrangling people to give talks, and one doesn’t want to burden advanced users already volunteering their time with too many requests to give tutorials.  It’s good to encourage people who are learning a new topic to give talks on things they just learned.  Also, encourage them to just walk through a script rather than make slides.  It’s less work for the presenter, and the script is more useful to others afterwards than slides.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Users are much more likely to be interested in &lt;em&gt;applications&lt;/em&gt; rather than programming topics. Talks on topics like “How to do AIC model comparison” and “How to prepare plots for publication” have been much more well attended (and heavily trafficked on the blog) than ones on topics like “speeding up code.” This is partially a function of our membership (mostly empirical ecologists, biologists, and social scientists).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;It takes time to build self-sustaining community. For our first year, I had to monitor the listserv to make sure questions didn’t go unanswered, and I ran every work session and bugged power users to attend. Now the listserv runs itself and we have enough regulars at our work sessions. We would like to find some arrangements to help institutionalize the group more, though. One possibility is having professors or TAs for courses using R to hold office hours at D-RUG.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Food helps. We have snacks paid for by our &lt;a href=&quot;http://www.revolutionanalytics.com/r-user-group-sponsorship-program&quot;&gt;sponsor&lt;/a&gt;. A lot of expert users and professors stop in for a mid-afternoon sugar infusion, and end up answering questions.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;users-groups-as-a-complementary-tool-for-swc&quot;&gt;Users’ Groups as a complementary tool for SWC&lt;/h2&gt;
+&lt;p&gt;Users’ groups have the potential to be a complementary tool to SWC workshops. We recruited a number of new members at the &lt;a href=&quot;http://bernhardkonrad.github.io/2014-06-16-davis/&quot;&gt;June SWC Workshop at Davis&lt;/a&gt;, and they’ve been able to practice and build those skills at our work sessions. Users’ groups also may be a good forum to stay connected to and follow up with learners.&lt;/p&gt;
+&lt;p&gt;Beginners need a minimum amount of knowledge to take advantage of D-RUG, which can be provided by SWC workshops. D-RUG doesn’t have the resources or structure to teach those beginners from scratch. I sometimes point new users who show up with no experience to an appropriate online self-taught course, and encourage them do the work at our sessions where they can get support. If these members attend a SWC workshop, they will know enough to get started, and to support each other.&lt;/p&gt;
+&lt;p&gt;The D-RUG model is fairly easy to replicate. Daniel Hocking at the University of New Hampshire has &lt;a href=&quot;http://nhusers.com/&quot;&gt;created a similar group&lt;/a&gt;. Anyone with the skill level of a typical SWC workshop helper can probably run a users’ group, though it does require a certain amount of time and skill at recruiting on-campus.&lt;/p&gt;
+&lt;p&gt;I’d like to hear from others who have similar or alternative models. How can these groups connect with SWC to build an ongoing community of learners?&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Michael Levy on Data Manipulation using dplyr</title>
@@ -29,7 +73,8 @@
 &lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 110%;&quot;&gt;
 &lt;iframe src=&quot;http://www.michaellevy.name/files/theme/dplyr_levy.html#/&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;</content>
+&lt;/div&gt;
+</content>
  </entry>
  
  <entry>
@@ -46,9 +91,9 @@
 &lt;p&gt;One method I found is &lt;em&gt;topic modeling&lt;/em&gt; using &lt;a href=&quot;http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;latent Dirichlet allocation&lt;/a&gt; (LDA). Using this method, a number of “topics” are identified, each consisting of groups of words occur together. Documents are treated as linear mixtures of these topics. Carson Sievert recently wrote a &lt;a href=&quot;http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/&quot;&gt;great blog post on the ROpenSci blog&lt;/a&gt; about this and his package with Kenneth E. Shirley, &lt;a href=&quot;https://github.com/cpsievert/LDAvis&quot;&gt;LDAvis&lt;/a&gt;, which produces interactive visualizations of of LDA models.&lt;/p&gt;
 &lt;p&gt;I had trouble wrapping my head around LDA at first, but on Wednesday at ESA, Dave Harris &lt;a href=&quot;https://twitter.com/davidjayharris/status/499660097715699713&quot;&gt;alerted me&lt;/a&gt; to an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46683.html&quot;&gt;awesome talk&lt;/a&gt; by &lt;a href=&quot;http://sfrc.ufl.edu/people/faculty/valle/&quot;&gt;Denis Valle&lt;/a&gt;. Valle showed that LDA can be used to model assemblages of species. In this case, we model communities of co-occurring species, rather than topics of co-occurring words, and rather than documents, we have sample locations. He demonstrated the method on USFS Forest Inventory and Analysis data, showing distinct communities of trees in Eastern U.S. forests. Valle’s talk made LDA much clearer to me, and showed that LDA could be an alternative to other methods of community analysis such as ordination. I’m looking forward to the forthcoming paper.&lt;/p&gt;
 &lt;p&gt;Back to the ESA program: LDA requires that we specify the number of topics, and it then allocates words among those topics. So I fit a series of models and used AIC to determine the best fit:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/LDA_AIC.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;The model with the lowest AIC breaks the ESA program into 56 different topics. We can explore this model with an interactive visualization created by LDAvis:&lt;/p&gt;
 &lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;
 &lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;
@@ -59,7 +104,8 @@
 &lt;p&gt;Let’s explore! Clicking on Topic 1, we see very general words that might appear in any abstract. Topic 2 seems to be made up of words related to conservation and planning, showing the importance of this subject in the meeting. But click on “cost” in Topic 2 and you’ll see that this term is important in several other topics: 23 (words involving life-history), 36 (plant-water relations), and 47 (behavioral ecology). Topic 3 consists of general words having to do with methods, but nearby, topics 10 and 11 consist of words related to data collection and modeling, respectively.&lt;/p&gt;
 &lt;p&gt;One interesting observation is that “California” is most frequent in Topic 42, which consists of words related to marine systems, and is also common in 53 (invasions), 38 (fire), and 36 (plant-water relations). I was unsurprised at the last two (especially given fire’s importance in &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;my last analysis&lt;/a&gt;), but hadn’t realized how California-specific marine topics would be.&lt;/p&gt;
 &lt;p&gt;There’s lots more to explore here, though it’s not always easy to interpret. Some topics seem to map well to ecological sub-fields, while others may be driven by concepts and frameworks that are difficult to classify, or even writing style. What patterns do you see that are worth a harder look?&lt;/p&gt;
-&lt;p&gt;Code for this analysis is on Github &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content>
+&lt;p&gt;Code for this analysis is on Github &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content>
  </entry>
  
  <entry>
@@ -75,110 +121,111 @@
 &lt;/head&gt; &lt;p&gt;After my &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;last post&lt;/a&gt; text-mining &lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA Annual Meeting&lt;/a&gt; abstracts, &lt;a href=&quot;http://www.nashturley.org/&quot;&gt;Nash Turley&lt;/a&gt; &lt;a href=&quot;https://twitter.com/NashTurley/status/495272858038595587&quot;&gt;was interested&lt;/a&gt; in the presence of the term “natural history” in ESA abstracts. I decided to collect a little more data by including programs back to 2010, giving a five-year data set. Thankfully the program back to 2010 remains in mostly the same format, so it’s easy to pull the data for these additional years.&lt;/p&gt;
 &lt;p&gt;Now, not all talks that include natural history concepts will include the term “natural history”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; in their abstracts, but it’s frequency may be an indicator of importance, and &lt;em&gt;variation&lt;/em&gt; in use of the term is may yield some insights.&lt;/p&gt;
 &lt;p&gt;First, I look at what fraction of abstracts mention “natural history” in each of the last five years at ESA.&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/fraction.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;Over the past five years, &amp;lt;1% of abstracts at ESA have mentioned natural history. No trend is evident.&lt;/p&gt;
 &lt;p&gt;I reported different numbers for 2013 and 2014 in a &lt;a href=&quot;https://twitter.com/noamross/status/492407527238160386&quot;&gt;tweet&lt;/a&gt; last week. These were higher because I counted them by a simple search of the number of occurrences of “natural history” in the whole corpus. This included the &lt;em&gt;affiliation&lt;/em&gt; fields. Many presenters at ESA work at natural history &lt;em&gt;museums&lt;/em&gt; (see &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50396.html&quot;&gt;this abstract&lt;/a&gt;, for instance). The above numbers now only include abstracts where “natural history” was in the title or abstract text, and now I count abstracts, not occurrences of the phrase.&lt;/p&gt;
 &lt;p&gt;What are these natural history talks about? To examine this, I looked at the word frequency across all five years of abstracts, finding the most frequent terms besides “natural history”.&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/wordcountsi.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;For comparison, here are the most common terms across all ESA abstracts this year:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;Like other abstracts, talks that mention “natural history” have “species” as the most common term. Interestingly, natural history talks don’t use “plant” as frequently - perhaps other terms are used in botanical contexts. Also, there are more relative mentions of “students”, perhaps due to greater links between natural history and education. We can see this pattern in a listing of all the talks for 2014, where we see several talks about education, though there are many fascinating basic science talks, as well:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr class=&quot;header&quot;&gt;
-&lt;th align=&quot;left&quot;&gt;Presenter&lt;/th&gt;
-&lt;th align=&quot;left&quot;&gt;Title/Link&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Presenter&lt;/th&gt;
+&lt;th style=&quot;text-align: left;&quot;&gt;Title/Link&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Julian D. Olden&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45275.html&quot;&gt;Traits-based approaches and the quest for generality over contingency in ecology&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Julian D. Olden&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45275.html&quot;&gt;Traits-based approaches and the quest for generality over contingency in ecology&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Terry A. Wheeler&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45504.html&quot;&gt;The other “E”: Entomologists and entomology in (and out) of the Ecological Society of America&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Terry A. Wheeler&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45504.html&quot;&gt;The other “E”: Entomologists and entomology in (and out) of the Ecological Society of America&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Kimball L. Garrett&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45813.html&quot;&gt;Recent avifaunal change in riparian habitats along the Los Angeles River&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Kimball L. Garrett&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45813.html&quot;&gt;Recent avifaunal change in riparian habitats along the Los Angeles River&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Kirsten Rowell&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;Natural History Section&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Kirsten Rowell&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;Natural History Section&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Shahid Naeem&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45950.html&quot;&gt;Condensation and ignition in ecological research: Making sense of biodiversity’s demise&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Shahid Naeem&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45950.html&quot;&gt;Condensation and ignition in ecological research: Making sense of biodiversity’s demise&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Cory Merow&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46334.html&quot;&gt;Methods for predicting and validating range-wide population dynamics from sparse demographic data&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Cory Merow&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46334.html&quot;&gt;Methods for predicting and validating range-wide population dynamics from sparse demographic data&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Fiona M. Soper&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper47409.html&quot;&gt;Coupling graduate mentorship training with undergraduate research in a field context&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Fiona M. Soper&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper47409.html&quot;&gt;Coupling graduate mentorship training with undergraduate research in a field context&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Emily M. Harris&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48283.html&quot;&gt;Participating in the California Naturalist Program: Changes in science and environmental identity&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Emily M. Harris&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48283.html&quot;&gt;Participating in the California Naturalist Program: Changes in science and environmental identity&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Teresa K. Heisey&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48545.html&quot;&gt;Sand County Almanac in the ecology classroom: An active learning approach to teaching about ecology and natural history&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Teresa K. Heisey&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48545.html&quot;&gt;Sand County Almanac in the ecology classroom: An active learning approach to teaching about ecology and natural history&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Leighton Reid&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48621.html&quot;&gt;Conservation psychology: Bat killing in southern Costa Rica&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Leighton Reid&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48621.html&quot;&gt;Conservation psychology: Bat killing in southern Costa Rica&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Kristen R. Treat&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49217.html&quot;&gt;Variation of Pentaclethra macroloba natural history and genetic structure along an elevational gradient in lowland Costa Rica&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Kristen R. Treat&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49217.html&quot;&gt;Variation of Pentaclethra macroloba natural history and genetic structure along an elevational gradient in lowland Costa Rica&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Flavia M. D. Marquitti&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49277.html&quot;&gt;The role of cheaters on the stability of mutualistic networks&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Flavia M. D. Marquitti&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49277.html&quot;&gt;The role of cheaters on the stability of mutualistic networks&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Melissa Gaste Martinez&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49484.html&quot;&gt;Bothrops atrox in captivity, change isotopic composition in tissues collected from different environments of the eastern Amazon&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Melissa Gaste Martinez&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49484.html&quot;&gt;Bothrops atrox in captivity, change isotopic composition in tissues collected from different environments of the eastern Amazon&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;D. Liane Cochran-Stafira&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49924.html&quot;&gt;Effects of Metriocnemus knabi predation on Habrotrocha rosa populations in Sarracenia purpurea pitchers&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;D. Liane Cochran-Stafira&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49924.html&quot;&gt;Effects of Metriocnemus knabi predation on Habrotrocha rosa populations in Sarracenia purpurea pitchers&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Emily Hartop&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50108.html&quot;&gt;Terrestrial insects of los angeles: The great frontier&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Emily Hartop&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50108.html&quot;&gt;Terrestrial insects of los angeles: The great frontier&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Danielle B. Pitt&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50268.html&quot;&gt;Linking early history of Pterygota to habitat structure: The role of dendritic ecological networks in insect natural history&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Danielle B. Pitt&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50268.html&quot;&gt;Linking early history of Pterygota to habitat structure: The role of dendritic ecological networks in insect natural history&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;odd&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Carole L. Hom&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50330.html&quot;&gt;UC Davis-Howard University EEGAP: Collaborating to broaden participation in ecology and evolution&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Carole L. Hom&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50330.html&quot;&gt;UC Davis-Howard University EEGAP: Collaborating to broaden participation in ecology and evolution&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&quot;even&quot;&gt;
-&lt;td align=&quot;left&quot;&gt;Senay Yitbarek&lt;/td&gt;
-&lt;td align=&quot;left&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50363.html&quot;&gt;The role of self-organized spatial patterns in the persistence of weak invasive species: A case study of the invasive ant W. auropunctata&lt;/a&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;Senay Yitbarek&lt;/td&gt;
+&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50363.html&quot;&gt;The role of self-organized spatial patterns in the persistence of weak invasive species: A case study of the invasive ant W. auropunctata&lt;/a&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;I note the third talk in this list is an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;ignite talk&lt;/a&gt; announcing the new ESA natural history section. Perhaps we’ll see the effect of this section next year’s program!&lt;/p&gt;
 &lt;p&gt;R code for this post is on &lt;a href=&quot;https://github.com/noamross/esaprog/blob/master/nathist.Rmd&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Or rather, something close to “natural history”. I searched for the regular expression &lt;code&gt;natur\w+\s+hist&lt;/code&gt;.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content>
+&lt;/section&gt;
+</content>
  </entry>
  
  <entry>
@@ -193,29 +240,30 @@
   &lt;/style&gt;
 &lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA&lt;/a&gt; is just around the corner, and many of us are gearing up and trying to figure out a &lt;a href=&quot;http://eco.confex.com/eco/2014/schedule/index.cgi&quot;&gt;schedule&lt;/a&gt; to cover all the talks and people we can pack in. ESA is a big conference and there’s far too much for any one person to see. In the end, everyone experiences a &lt;a href=&quot;http://en.wikipedia.org/wiki/Blind_men_and_an_elephant&quot;&gt;different part of the elephant&lt;/a&gt;. However, I thought it would be interesting to take a look at the big picture, and examine the ESA program as a &lt;em&gt;whole&lt;/em&gt; to see what could be learned from it. This is the first of (maybe) several posts where I use some basic text-mining tools to explore the content of the ESA program.&lt;/p&gt;
 &lt;p&gt;First, what are the most common terms in the ESA program?&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;Few surprises here. “Species” would have been my guess for the top. “Plants” are probably on top because ecologists usually refer to animals by various sub-groups. The rest are fairly ho-hum: ecology and science-y words.&lt;/p&gt;
 &lt;p&gt;It’s more interesting to ask how the topics at ESA &lt;em&gt;change&lt;/em&gt; from year to year. Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/mung.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like “biomass” and “nutrient” - those common in ecosystem ecology - and more like “pollinator”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, “phenology”, and “network” - those associated with the study of species interactions.&lt;/p&gt;
 &lt;p&gt;It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.&lt;/p&gt;
 &lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the biggest &lt;em&gt;topics&lt;/em&gt; changed? The plot below is similar to that above, but instead of plotting the words with the greatest absolute change, I plot the change of the 50 words that are most common across both years:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
+&lt;figure&gt;
 &lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/big.png&quot; /&gt;
-&lt;/div&gt;
+&lt;/figure&gt;
 &lt;p&gt;This is somewhat less clear. If one squints, one could argue that there are more words associated with species interactions, environmental change, and management at the top, and more words associated with forests at the bottom. Words in the middle (“ecology”, “community”) are consistently popular across both years. Finally, perhaps significance is falling out of fashion?&lt;/p&gt;
 &lt;p&gt;That’s just a quick first pass. I haven’t yet thought much about how one models these data to understand effect sizes and significance. I welcome suggestions for further analyses and better ways to plot/organize this data. Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; While messing with the ESA program text, I also created &lt;a href=&quot;http://twitter.com/esa_titles&quot;&gt;@esa_titles&lt;/a&gt;, a twitter account that re-mixes ESA talk titles. Have a look for talks you wish you could see. :)&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;“pollinia” is a stand-in for all pollination-related words here, as I applied &lt;a href=&quot;http://en.wikipedia.org/wiki/Stemming&quot;&gt;stemming&lt;/a&gt; to the text.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content>
+&lt;/section&gt;
+</content>
  </entry>
  
  <entry>
@@ -345,7 +393,8 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
 &lt;li&gt;&lt;a href=&quot;http://rpubs.com/daspringate/vectorisation&quot; class=&quot;uri&quot;&gt;http://rpubs.com/daspringate/vectorisation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://quanttrader.info/public/FasterRCode.pdf&quot; class=&quot;uri&quot;&gt;http://quanttrader.info/public/FasterRCode.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
+&lt;/ul&gt;
+</content>
  </entry>
  
  <entry>
@@ -370,12 +419,13 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
 &lt;p&gt;The macroparasite framework is a parsimonious approach that can explain several important phenomena in forest disease. Data and models to with only binary infection status can lead to misinterpretation of observed patterns.&lt;/p&gt;
 &lt;p&gt;Slides and related materials will be archived at &lt;a href=&quot;http://doi.org/rpm&quot; class=&quot;uri&quot;&gt;http://doi.org/rpm&lt;/a&gt; prior to the conference.&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I created a &lt;a href=&quot;http://doi.org/rpm&quot;&gt;placeholder record at figshare.com&lt;/a&gt; so that a permanent link to my slides will be in the program. I think this is a great habit to get into for conferences. This way your talk will be permanently accessible via the conference program both after the actual event.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content>
+&lt;/section&gt;
+</content>
  </entry>
  
  <entry>
@@ -748,9 +798,9 @@ sleep&lt;/code&gt;&lt;/pre&gt;
 &lt;span class=&quot;kw&quot;&gt;axis&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)
 &lt;span class=&quot;kw&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;line =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;red&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Sleep duration&amp;quot;&lt;/span&gt;)
 &lt;span class=&quot;kw&quot;&gt;mtext&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;side =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;line =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;2.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;col =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;blue&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;Sleep efficiency&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/dixondates.png&quot; alt=&quot;plot of chunk unnamed-chunk-50&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;plot of chunk unnamed-chunk-50&lt;/p&gt;
-&lt;/div&gt;
+&lt;figure&gt;
+&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/dixondates.png&quot; alt=&quot;plot of chunk unnamed-chunk-50&quot; /&gt;&lt;figcaption&gt;plot of chunk unnamed-chunk-50&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;h2 id=&quot;more-resources-on-times-and-dates&quot;&gt;More resources on times and dates&lt;/h2&gt;
 &lt;p&gt;date and time tutorials for R:&lt;/p&gt;
 &lt;ul&gt;
@@ -768,7 +818,8 @@ sleep&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&quot; class=&quot;uri&quot;&gt;http://en.wikipedia.org/wiki/List_of_tz_database_time_zones&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.twinsun.com/tz/tz-link.htm&quot; class=&quot;uri&quot;&gt;http://www.twinsun.com/tz/tz-link.htm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Also see the R help file at ?Sys.timezone&lt;/li&gt;
-&lt;/ul&gt;</content>
+&lt;/ul&gt;
+</content>
  </entry>
  
  <entry>
@@ -786,12 +837,13 @@ sleep&lt;/code&gt;&lt;/pre&gt;
 &lt;iframe src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/DRUG_shiny_2014-01-27_presentation.html&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;
 &lt;/iframe&gt;
 &lt;/div&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
+&lt;section class=&quot;footnotes&quot;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Thanks to &lt;a href=&quot;http://www.revolutionanalytics.com/&quot;&gt;Revolution Analytics&lt;/a&gt; for another year of sponsorship!&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/div&gt;</content>
+&lt;/section&gt;
+</content>
  </entry>
  
  <entry>
@@ -806,12 +858,12 @@ sleep&lt;/code&gt;&lt;/pre&gt;
   &lt;/style&gt;
 &lt;/head&gt; &lt;p&gt;Many ecological processes are best represented by individual-based models (IBMs), where processes at the scale of individual scale of organisms and their actions are modeled explicitly. Such processes can pose a problem for management or control; our observational scale, control levers, or management goals may be limited to coarser scales than the individual.&lt;/p&gt;
 &lt;p&gt;IBMs suffer from the curse of dimensionality. The number of possible states of the system, which consists of the possible states and combinations thereof of all individuals, is enormous. This makes it difficult to apply control techniques or various levels of system analysis.&lt;/p&gt;
-&lt;p&gt;One approach to this problem is to apply optimal control techniques to an aggregrated model (AM) that represents an IBM at the population with some loss of accuracy &lt;span class=&quot;citation&quot;&gt;[@Federico2013]&lt;/span&gt;. These techniques require an AM that adequately approximates the IBM, though. In particular, it can fail in cases of structured, heterogenous populations of individuals.&lt;/p&gt;
-&lt;p&gt;&lt;span class=&quot;citation&quot;&gt;@Kevrekidis2009a&lt;/span&gt; describe a set of methods for analyzing IBM-like systems at scales coarser than the individual. In this approach, one contructs a “coarse time-stepper” that simulates the evolution of the system through time at the population level. This stepper consists of an IBM, a “lifting” function, and a “restriction” function. The functions translate between coarse and individual scales. The “restriction” function summarizes the distribution of individuals in small set of moments. The “lifting” function generates distributions of individuals from these moments. Short bursts of the IBM simulate the system in between. The time stepper can be used to estimate derivatives of the coarse-level system. Where IBMs are stochastic, this can be accomplished by repeated lifting and bursts of the IBM to obtain mean values.&lt;/p&gt;
-&lt;p&gt;This approach, known as “equation-free” or “multi-scale” modeling, allows simulation at coarse scale by forward integration of the estimated derivatives rather than full simulation of the IBM. The coarse time stepper can also be used for other numeric analyses, such as mapping equilibria and bifurcation points of the system. Equation-free modeling was developed for simulation of systems in physical chemistry, where molecular-level interactions had to be simulated at the “beaker” level. In the ecological context, it has been applied to swarm dynamics &lt;span class=&quot;citation&quot;&gt;[@Raghib2010a]&lt;/span&gt; and the evolution of strains of disease &lt;span class=&quot;citation&quot;&gt;[@Cisternas2004]&lt;/span&gt;. The technique hinges on careful selection of the coarse-scale variables, and a separation of time scales between these variables and higher moments of the distributions of individuals, which must come into equilibrium under short bursts of the IBM.&lt;/p&gt;
+&lt;p&gt;One approach to this problem is to apply optimal control techniques to an aggregrated model (AM) that represents an IBM at the population with some loss of accuracy &lt;span class=&quot;citation&quot; data-cites=&quot;Federico2013&quot;&gt;[@Federico2013]&lt;/span&gt;. These techniques require an AM that adequately approximates the IBM, though. In particular, it can fail in cases of structured, heterogenous populations of individuals.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;Kevrekidis2009a&quot;&gt;@Kevrekidis2009a&lt;/span&gt; describe a set of methods for analyzing IBM-like systems at scales coarser than the individual. In this approach, one contructs a “coarse time-stepper” that simulates the evolution of the system through time at the population level. This stepper consists of an IBM, a “lifting” function, and a “restriction” function. The functions translate between coarse and individual scales. The “restriction” function summarizes the distribution of individuals in small set of moments. The “lifting” function generates distributions of individuals from these moments. Short bursts of the IBM simulate the system in between. The time stepper can be used to estimate derivatives of the coarse-level system. Where IBMs are stochastic, this can be accomplished by repeated lifting and bursts of the IBM to obtain mean values.&lt;/p&gt;
+&lt;p&gt;This approach, known as “equation-free” or “multi-scale” modeling, allows simulation at coarse scale by forward integration of the estimated derivatives rather than full simulation of the IBM. The coarse time stepper can also be used for other numeric analyses, such as mapping equilibria and bifurcation points of the system. Equation-free modeling was developed for simulation of systems in physical chemistry, where molecular-level interactions had to be simulated at the “beaker” level. In the ecological context, it has been applied to swarm dynamics &lt;span class=&quot;citation&quot; data-cites=&quot;Raghib2010a&quot;&gt;[@Raghib2010a]&lt;/span&gt; and the evolution of strains of disease &lt;span class=&quot;citation&quot; data-cites=&quot;Cisternas2004&quot;&gt;[@Cisternas2004]&lt;/span&gt;. The technique hinges on careful selection of the coarse-scale variables, and a separation of time scales between these variables and higher moments of the distributions of individuals, which must come into equilibrium under short bursts of the IBM.&lt;/p&gt;
 &lt;p&gt;Here I propose an application of equation-free techniques to optimal control in an ecological context.&lt;/p&gt;
 &lt;h2 id=&quot;spatial-point-processes&quot;&gt;Spatial point processes&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&quot;citation&quot;&gt;@Brown2004&lt;/span&gt; describe a &lt;em&gt;spatial point process&lt;/em&gt; which represents the dynamics of a disease spread through a plant population. Plants are represented as discrete points in continuous space, and each individuals’ infection and mortality are discrete events that occur in continuous time. Specifically, a suseptible individual may be converted to an infected one at a probability which is the sum of the force of infection from all other infected individuals, weighted by a disease disperal kernel. For any individual, infection is a Poisson process, where infection occurs at random times driven by a mean rate, as is mortality, which occurs at fixed rate for infected individuals. At the population level, the dynamics of the disease can be approximated by a set of differential equations:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;citation&quot; data-cites=&quot;Brown2004&quot;&gt;@Brown2004&lt;/span&gt; describe a &lt;em&gt;spatial point process&lt;/em&gt; which represents the dynamics of a disease spread through a plant population. Plants are represented as discrete points in continuous space, and each individuals’ infection and mortality are discrete events that occur in continuous time. Specifically, a suseptible individual may be converted to an infected one at a probability which is the sum of the force of infection from all other infected individuals, weighted by a disease disperal kernel. For any individual, infection is a Poisson process, where infection occurs at random times driven by a mean rate, as is mortality, which occurs at fixed rate for infected individuals. At the population level, the dynamics of the disease can be approximated by a set of differential equations:&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \def\CSI{\mathcal C_{SI}} \def\dCSI{\dot{\mathcal{C}}_{SI}}&quot; alt=&quot;\def\CSI{\mathcal C_{SI}} \def\dCSI{\dot{\mathcal{C}}_{SI}}&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&quot;math&quot;&gt;\[\begin{aligned} 
   \dot S &amp;amp;= -\beta (1 + \CSI) SI - \alpha S \\
@@ -881,229 +933,8 @@ sleep&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;Has something like this been implemented before? I think the multi-scale approach combined with optimal control such as this is novel, but I would not be surprised if a numerical approach had been taking to solving adjoint and maximum equations before.&lt;/li&gt;
 &lt;li&gt;I’m working on implementing a coarse time-stepper for the spatial point process. The thorniest part here is generating a sample spatial point fields from a given &lt;span class=&quot;math&quot;&gt;&lt;img style=&quot;vertical-align:middle&quot; src=&quot;http://latex.codecogs.com/png.latex?\inline \CSI&quot; alt=&quot;\CSI&quot; /&gt;&lt;/span&gt; value. This will probably be the computational bottleneck so I’m working on an efficient approach for it. From there I’ll work on the algorithm from the inside out.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr /&gt;</content>
- </entry>
- 
- <entry>
-   <title>How to format plots for publication using ggplot2 (with some help from Inkscape)</title>
-   <link href="http://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs.html"/>
-   <updated>2013-11-20T19:51:47-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2013/11/20/formatting-plots-for-pubs</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;strong&gt;&lt;em&gt;The following is the code from a presentation made by Rosemary Hartman to the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;. I’ve run the code through the &lt;code&gt;spin&lt;/code&gt; function in &lt;code&gt;knitr&lt;/code&gt; to produce this post. Download the script to walk through &lt;a href=&quot;https://gist.github.com/noamross/7576436&quot;&gt;here&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;First, make your plot. I am going to use the data already in R about sleep habits of different animals. It’s the same one Noam used for &lt;a href=&quot;http://www.noamross.net/blog/2012/10/5/ggplot-introduction.html&quot;&gt;his intro to ggplot.&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(ggplot2)
-&lt;span class=&quot;kw&quot;&gt;str&lt;/span&gt;(msleep)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## &amp;#39;data.frame&amp;#39;:    83 obs. of  11 variables:
-##  $ name        : chr  &amp;quot;Cheetah&amp;quot; &amp;quot;Owl monkey&amp;quot; &amp;quot;Mountain beaver&amp;quot; &amp;quot;Greater short-tailed shrew&amp;quot; ...
-##  $ genus       : chr  &amp;quot;Acinonyx&amp;quot; &amp;quot;Aotus&amp;quot; &amp;quot;Aplodontia&amp;quot; &amp;quot;Blarina&amp;quot; ...
-##  $ vore        : Factor w/ 4 levels &amp;quot;carni&amp;quot;,&amp;quot;herbi&amp;quot;,..: 1 4 2 4 2 2 1 NA 1 2 ...
-##  $ order       : chr  &amp;quot;Carnivora&amp;quot; &amp;quot;Primates&amp;quot; &amp;quot;Rodentia&amp;quot; &amp;quot;Soricomorpha&amp;quot; ...
-##  $ conservation: Factor w/ 7 levels &amp;quot;&amp;quot;,&amp;quot;cd&amp;quot;,&amp;quot;domesticated&amp;quot;,..: 5 NA 6 5 3 NA 7 NA 3 5 ...
-##  $ sleep_total : num  12.1 17 14.4 14.9 4 14.4 8.7 7 10.1 3 ...
-##  $ sleep_rem   : num  NA 1.8 2.4 2.3 0.7 2.2 1.4 NA 2.9 NA ...
-##  $ sleep_cycle : num  NA NA NA 0.133 0.667 ...
-##  $ awake       : num  11.9 7 9.6 9.1 20 9.6 15.3 17 13.9 21 ...
-##  $ brainwt     : num  NA 0.0155 NA 0.00029 0.423 NA NA NA 0.07 0.0982 ...
-##  $ bodywt      : num  50 0.48 1.35 0.019 600 ...&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let’s say we have written a groundbreaking paper on the relationship between body size and sleep time. Therefore, we want to present a plot of the log of body weight by the total sleep time&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_total)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; vore))
-sleepplot&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-2.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;We made a beautiful model of this relationship&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;slp =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;lm&lt;/span&gt;(sleep_total ~&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep)
-&lt;span class=&quot;kw&quot;&gt;summary&lt;/span&gt;(slp)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## 
-## Call:
-## lm(formula = sleep_total ~ log(bodywt), data = msleep)
-## 
-## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -6.499 -2.567 -0.168  2.047 10.193 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(&amp;gt;|t|)    
-## (Intercept)   11.089      0.418   26.54   &amp;lt;2e-16 ***
-## log(bodywt)   -0.777      0.125   -6.22    2e-08 ***
-## ---
-## Signif. codes:  0 &amp;#39;***&amp;#39; 0.001 &amp;#39;**&amp;#39; 0.01 &amp;#39;*&amp;#39; 0.05 &amp;#39;.&amp;#39; 0.1 &amp;#39; &amp;#39; 1
-## 
-## Residual standard error: 3.68 on 81 degrees of freedom
-## Multiple R-squared:  0.323,  Adjusted R-squared:  0.315 
-## F-statistic: 38.7 on 1 and 81 DF,  p-value: 2.05e-08&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let’s put the model on the plot&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sleepplot +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_abline&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;intercept =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(slp)[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;slope =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(slp)[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;])
-sleepplot&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-4.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;It’s beautiful! I love it! Unfortunately, you want to submit to Science (you might as well aim high), and this is what they say about figures: &lt;a href=&quot;http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml&quot; class=&quot;uri&quot;&gt;http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;So we have several problems:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;gray background&lt;/li&gt;
-&lt;li&gt;Poor labels (need units, capital letters, larger font on axes)&lt;/li&gt;
-&lt;li&gt;Poor legend&lt;/li&gt;
-&lt;li&gt;Poor color scheme (avoid red and green together, more contrast needed)&lt;/li&gt;
-&lt;li&gt;Not correct file format or resolution (want a PDF with at least 600dpi)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;First make the labels a little more useful.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sleepplot +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;labs&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Log body weight (Kg)&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Time asleep (hrs/day)&amp;quot;&lt;/span&gt;)
-sleepplot&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-5.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Now let’s fix the legend. You would think you do this with some sort of “legend” command, but &lt;em&gt;no&lt;/em&gt;, what you are looking for is “scale”.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;scale_color_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Functional&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt; feeding group&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;labels =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;carnivore&amp;quot;&lt;/span&gt;, 
-    &lt;span class=&quot;st&quot;&gt;&amp;quot;herbivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;insectivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;omnivore&amp;quot;&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-6.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;If you haven’t figured it out yet, putting “&lt;code&gt;\n&lt;/code&gt;” in a text string gives you a line break. It took me WAY to long to discover that.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;ggplot&lt;/code&gt; automatically gives you evenly spaced hues for color variations, but this is not necessarily the best way to get a good contrasting color scheme. You may want to try &lt;code&gt;scale_color_brewer&lt;/code&gt; for better contrasts. See &lt;a href=&quot;http://colorbrewer2.org&quot; class=&quot;uri&quot;&gt;http://colorbrewer2.org&lt;/a&gt; for more information.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;scale_color_brewer&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Functional &lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt; feeding group&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;labels =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;carnivore&amp;quot;&lt;/span&gt;, 
-    &lt;span class=&quot;st&quot;&gt;&amp;quot;herbivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;insectivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;omnivore&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;type =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;qual&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;palette =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-7.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Oh, crap! Color figures cost an extra $700 on top of the normal page charges! Let’s try something else:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;data =&lt;/span&gt; msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;log&lt;/span&gt;(bodywt), &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_total)) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;shape=&lt;/span&gt;vore), &lt;span class=&quot;dt&quot;&gt;size=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#&amp;#39; This time we will vary the feeding groups by shapes instead of colors&lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_abline&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;intercept=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(slp)[&lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;], &lt;span class=&quot;dt&quot;&gt;slope=&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;coef&lt;/span&gt;(slp)[&lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;])
-  sleepplot2&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-8.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Now to fix the labels and legend again:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;labs&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Log body weight (Kg)&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Time asleep (hrs/day)&amp;quot;&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#&amp;#39; we will use scale_shape_discrete instead of scale_color_discrete&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;scale_shape_discrete&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;name =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Functional &lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt; feeding group&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;labels =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;carnivore&amp;quot;&lt;/span&gt;, 
-    &lt;span class=&quot;st&quot;&gt;&amp;quot;herbivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;insectivore&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;omnivore&amp;quot;&lt;/span&gt;))
-sleepplot2&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-9.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Now, let’s work on how the plot looks overall.&lt;/p&gt;
-&lt;p&gt;ggplot uses “themes” to adjust plot appearence without changes the actual presentation of the data.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme_bw&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;base_size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;base_family =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Helvetica&amp;quot;&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-10.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;code&gt;theme_bw()&lt;/code&gt; will get rid of the background, and gives you options to change the font. Science recomends Helvetica, wich happens to be R’s default, but we will specify it here anyway.&lt;/p&gt;
-&lt;p&gt;Check out the other fonts out here:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;??postscriptFonts&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;For even more fonts, see the &lt;code&gt;extrafont&lt;/code&gt; package.&lt;/p&gt;
-&lt;p&gt;Other pre-set themes can change the look of your plot&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme_minimal&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-111.png&quot; /&gt;
-&lt;/div&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme_classic&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-112.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;For more themes,&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(ggthemes)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If you want to publish in the Wall Street Journal…&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme_wsj&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-13.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;But we want to publish in Science, not the Wall Street Journal, so let’s get back to our black and white theme.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme_bw&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;base_size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;12&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;base_family =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Helvetica&amp;quot;&lt;/span&gt;)
-sleepplot2&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-14.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;You can’t really see the gridlines with the &lt;code&gt;bw&lt;/code&gt; theme, so we are going to tweak the pre-set theme using the &lt;code&gt;theme&lt;/code&gt; function. &lt;code&gt;theme&lt;/code&gt; allows you to do all kinds of stuff involved with how the plot looks.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;?theme&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;co&quot;&gt;#increase size of gridlines&lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;panel.grid.major =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; .&lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;grey&amp;quot;&lt;/span&gt;),
-  &lt;span class=&quot;co&quot;&gt;#increase size of axis lines&lt;/span&gt;
-  &lt;span class=&quot;dt&quot;&gt;axis.line =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size=&lt;/span&gt;.&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;black&amp;quot;&lt;/span&gt;),
-  &lt;span class=&quot;co&quot;&gt;#Adjust legend position to maximize space, use a vector of proportion&lt;/span&gt;
-  &lt;span class=&quot;co&quot;&gt;#across the plot and up the plot where you want the legend. &lt;/span&gt;
-  &lt;span class=&quot;co&quot;&gt;#You can also use &amp;quot;left&amp;quot;, &amp;quot;right&amp;quot;, &amp;quot;top&amp;quot;, &amp;quot;bottom&amp;quot;, for legends on t&lt;/span&gt;
-  &lt;span class=&quot;co&quot;&gt;#he side of the plot&lt;/span&gt;
-  &lt;span class=&quot;dt&quot;&gt;legend.position =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(.&lt;span class=&quot;dv&quot;&gt;85&lt;/span&gt;,.&lt;span class=&quot;dv&quot;&gt;7&lt;/span&gt;),
-  &lt;span class=&quot;co&quot;&gt;#increase the font size&lt;/span&gt;
-  &lt;span class=&quot;dt&quot;&gt;text =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_text&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size=&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;14&lt;/span&gt;)) &lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-15.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;You can save this theme for later use&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;science_theme =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;theme&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;panel.grid.major =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;grey&amp;quot;&lt;/span&gt;), 
-    &lt;span class=&quot;dt&quot;&gt;axis.line =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_line&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.7&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;black&amp;quot;&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;legend.position =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;c&lt;/span&gt;(&lt;span class=&quot;fl&quot;&gt;0.85&lt;/span&gt;, 
-        &lt;span class=&quot;fl&quot;&gt;0.7&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;text =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;element_text&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;14&lt;/span&gt;))
-sleepplot2 =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;science_theme
-sleepplot2&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-16.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;That looks pretty good. Now we need to get it exported properly. The instructions say the figure should be sized to fit in one or two columns (2.3 or 4.6 inches), so we want them to look good at that resolution.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;pdf&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;file =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;sleepplot.pdf&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;width=&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;height =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;co&quot;&gt;#&amp;#39; see how it looks at this size&lt;/span&gt;
-    &lt;span class=&quot;dt&quot;&gt;useDingbats=&lt;/span&gt;F) &lt;span class=&quot;co&quot;&gt;#I have had trouble when uploading figures with digbats before, so I don&amp;#39;t use them&lt;/span&gt;
-sleepplot2 &lt;span class=&quot;co&quot;&gt;#print our plot&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;dev.off&lt;/span&gt;() &lt;span class=&quot;co&quot;&gt;#stop making pdfs&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## pdf 
-##   2&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&quot;a-few-other-tricks-to-improve-the-look-of-your-plots&quot;&gt;A few other tricks to improve the look of your plots:&lt;/h4&gt;
-&lt;p&gt;Let’s say we are grouping things by categories instead of a regression&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepcat =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(msleep, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; vore, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; sleep_total, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; conservation))
-sleepcat +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-18.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;It’s hard to see what’s going on there, so we can jitter the points to make them more visible.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepcat +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;position =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;position_jitter&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;w =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.1&lt;/span&gt;))&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-19.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Maybe this would be better with averages and error bars instead of every point:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;library&lt;/span&gt;(plyr)
-msleepave =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ddply&lt;/span&gt;(msleep, .(vore, conservation), summarize, &lt;span class=&quot;dt&quot;&gt;meansleep =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;mean&lt;/span&gt;(sleep_total), 
-    &lt;span class=&quot;dt&quot;&gt;sdsleep =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;sd&lt;/span&gt;(sleep_total)/&lt;span class=&quot;kw&quot;&gt;sqrt&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;22&lt;/span&gt;))
-sleepmean =&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;ggplot&lt;/span&gt;(msleepave, &lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; vore, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; meansleep, &lt;span class=&quot;dt&quot;&gt;color =&lt;/span&gt; conservation))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Plot it with means and error bars +/- 1 stadard deviation&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepmean +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;() +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_errorbar&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;ymax =&lt;/span&gt; meansleep +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sdsleep, &lt;span class=&quot;dt&quot;&gt;ymin =&lt;/span&gt; meansleep +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;    &lt;/span&gt;sdsleep), &lt;span class=&quot;dt&quot;&gt;width =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.2&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-21.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Spread them out, but in an orderly fashion this time, with position_dodge rather than jitter&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepmean +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_point&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;position =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;position_dodge&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;width =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;height =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;size =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;) +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;
-&lt;span class=&quot;st&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;geom_errorbar&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;aes&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;ymax =&lt;/span&gt; meansleep +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sdsleep, &lt;span class=&quot;dt&quot;&gt;ymin =&lt;/span&gt; meansleep -&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;sdsleep), 
-        &lt;span class=&quot;dt&quot;&gt;position =&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;position_dodge&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;width =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;height =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;), &lt;span class=&quot;dt&quot;&gt;width =&lt;/span&gt; &lt;span class=&quot;fl&quot;&gt;0.5&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## ymax not defined: adjusting position using y instead&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-22.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Note that dodging the points gives the conservation status in the same order for each feeding type category. A little more organized.&lt;/p&gt;
-&lt;h4 id=&quot;some-other-things-you-might-want-to-do-with-formatting&quot;&gt;Some other things you might want to do with formatting:&lt;/h4&gt;
-&lt;p&gt;Add annotation to the plot&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;annotate&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;label =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;R2 = 0.999&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; -&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;17&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-23.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;Let’s put that annotation in italics&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;sleepplot2 +&lt;span class=&quot;st&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;annotate&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;label =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;R2 = 0.999&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;x =&lt;/span&gt; -&lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;y =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;17&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;fontface =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/roseplot-24.png&quot; /&gt;
-&lt;/div&gt;
-&lt;p&gt;NOW. Let’s put half that annotation in italics, the other half plain, then insert five greek characters and rotate it 90 degrees!&lt;/p&gt;
-&lt;p&gt;OR we can beat our head against a wall until it explodes and export our plot into an actual graphics program.&lt;/p&gt;
-&lt;p&gt;Not everything has to be done in R. ‘SVG’ files are vector graphic files that can be easily edited in the FREE GUI-based program &lt;a href=&quot;http://inkscape.org/&quot;&gt;Inkscape&lt;/a&gt;. Make and SVG and you can edit it by hand for final tweaks. Inkscape can also edit and export PDFs.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;&lt;span class=&quot;kw&quot;&gt;svg&lt;/span&gt;(&lt;span class=&quot;dt&quot;&gt;filename =&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;sleepplot.svg&amp;quot;&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;width =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;6&lt;/span&gt;, &lt;span class=&quot;dt&quot;&gt;height =&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;)
-sleepplot2
-&lt;span class=&quot;kw&quot;&gt;dev.off&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&quot;sourceCode r&quot;&gt;&lt;code class=&quot;sourceCode r&quot;&gt;## pdf 
-##   2&lt;/code&gt;&lt;/pre&gt;</content>
+&lt;hr /&gt;
+</content>
  </entry>
  
  

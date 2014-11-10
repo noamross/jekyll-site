@@ -104,6 +104,78 @@
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
     	
     	<a href="/about.html">About</a>
     	
@@ -116,17 +188,11 @@
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
     	
     	<a href="/connect.html">Connect</a>
     	
+    
+  
     
   
     
@@ -145,72 +211,6 @@
     	
     	<a href="/publications.html">Publications</a>
     	
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -264,9 +264,9 @@
 <p>Let’s say we have written a groundbreaking paper on the relationship between body size and sleep time. Therefore, we want to present a plot of the log of body weight by the total sleep time</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_total)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> vore))
 sleepplot</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-2.png" />
-</div>
+</figure>
 <p>We made a beautiful model of this relationship</p>
 <pre class="sourceCode r"><code class="sourceCode r">slp =<span class="st"> </span><span class="kw">lm</span>(sleep_total ~<span class="st"> </span><span class="kw">log</span>(bodywt), <span class="dt">data =</span> msleep)
 <span class="kw">summary</span>(slp)</code></pre>
@@ -291,9 +291,9 @@ sleepplot</code></pre>
 <p>Let’s put the model on the plot</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot =<span class="st"> </span>sleepplot +<span class="st"> </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">coef</span>(slp)[<span class="dv">1</span>], <span class="dt">slope =</span> <span class="kw">coef</span>(slp)[<span class="dv">2</span>])
 sleepplot</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-4.png" />
-</div>
+</figure>
 <p>It’s beautiful! I love it! Unfortunately, you want to submit to Science (you might as well aim high), and this is what they say about figures: <a href="http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml" class="uri">http://www.sciencemag.org/site/feature/contribinfo/prep/prep_subfigs.xhtml</a></p>
 <p>So we have several problems:</p>
 <ul>
@@ -306,71 +306,71 @@ sleepplot</code></pre>
 <p>First make the labels a little more useful.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot =<span class="st"> </span>sleepplot +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Log body weight (Kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Time asleep (hrs/day)&quot;</span>)
 sleepplot</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-5.png" />
-</div>
+</figure>
 <p>Now let’s fix the legend. You would think you do this with some sort of “legend” command, but <em>no</em>, what you are looking for is “scale”.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot +<span class="st"> </span><span class="kw">scale_color_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Functional</span><span class="ch">\n</span><span class="st"> feeding group&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;carnivore&quot;</span>, 
     <span class="st">&quot;herbivore&quot;</span>, <span class="st">&quot;insectivore&quot;</span>, <span class="st">&quot;omnivore&quot;</span>))</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-6.png" />
-</div>
+</figure>
 <p>If you haven’t figured it out yet, putting “<code>\n</code>” in a text string gives you a line break. It took me WAY to long to discover that.</p>
 <p><code>ggplot</code> automatically gives you evenly spaced hues for color variations, but this is not necessarily the best way to get a good contrasting color scheme. You may want to try <code>scale_color_brewer</code> for better contrasts. See <a href="http://colorbrewer2.org" class="uri">http://colorbrewer2.org</a> for more information.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot +<span class="st"> </span><span class="kw">scale_color_brewer</span>(<span class="dt">name =</span> <span class="st">&quot;Functional </span><span class="ch">\n</span><span class="st"> feeding group&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;carnivore&quot;</span>, 
     <span class="st">&quot;herbivore&quot;</span>, <span class="st">&quot;insectivore&quot;</span>, <span class="st">&quot;omnivore&quot;</span>), <span class="dt">type =</span> <span class="st">&quot;qual&quot;</span>, <span class="dt">palette =</span> <span class="dv">1</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-7.png" />
-</div>
+</figure>
 <p>Oh, crap! Color figures cost an extra $700 on top of the normal page charges! Let’s try something else:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 =<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data =</span> msleep, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">log</span>(bodywt), <span class="dt">y =</span> sleep_total)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape=</span>vore), <span class="dt">size=</span><span class="dv">3</span>) +<span class="st"> </span><span class="co">#&#39; This time we will vary the feeding groups by shapes instead of colors</span>
 <span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept=</span><span class="kw">coef</span>(slp)[<span class="dv">1</span>], <span class="dt">slope=</span><span class="kw">coef</span>(slp)[<span class="dv">2</span>])
   sleepplot2</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-8.png" />
-</div>
+</figure>
 <p>Now to fix the labels and legend again:</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 =<span class="st"> </span>sleepplot2 +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Log body weight (Kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Time asleep (hrs/day)&quot;</span>) +<span class="st"> </span>
 <span class="st">    </span><span class="co">#&#39; we will use scale_shape_discrete instead of scale_color_discrete</span>
 <span class="kw">scale_shape_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Functional </span><span class="ch">\n</span><span class="st"> feeding group&quot;</span>, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;carnivore&quot;</span>, 
     <span class="st">&quot;herbivore&quot;</span>, <span class="st">&quot;insectivore&quot;</span>, <span class="st">&quot;omnivore&quot;</span>))
 sleepplot2</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-9.png" />
-</div>
+</figure>
 <p>Now, let’s work on how the plot looks overall.</p>
 <p>ggplot uses “themes” to adjust plot appearence without changes the actual presentation of the data.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span><span class="kw">theme_bw</span>(<span class="dt">base_size =</span> <span class="dv">12</span>, <span class="dt">base_family =</span> <span class="st">&quot;Helvetica&quot;</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-10.png" />
-</div>
+</figure>
 <p><code>theme_bw()</code> will get rid of the background, and gives you options to change the font. Science recomends Helvetica, wich happens to be R’s default, but we will specify it here anyway.</p>
 <p>Check out the other fonts out here:</p>
 <pre class="sourceCode r"><code class="sourceCode r">??postscriptFonts</code></pre>
 <p>For even more fonts, see the <code>extrafont</code> package.</p>
 <p>Other pre-set themes can change the look of your plot</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span><span class="kw">theme_minimal</span>()</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-111.png" />
-</div>
+</figure>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span><span class="kw">theme_classic</span>()</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-112.png" />
-</div>
+</figure>
 <p>For more themes,</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggthemes)</code></pre>
 <p>If you want to publish in the Wall Street Journal…</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span><span class="kw">theme_wsj</span>()</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-13.png" />
-</div>
+</figure>
 <p>But we want to publish in Science, not the Wall Street Journal, so let’s get back to our black and white theme.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 =<span class="st"> </span>sleepplot2 +<span class="st"> </span><span class="kw">theme_bw</span>(<span class="dt">base_size =</span> <span class="dv">12</span>, <span class="dt">base_family =</span> <span class="st">&quot;Helvetica&quot;</span>)
 sleepplot2</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-14.png" />
-</div>
+</figure>
 <p>You can’t really see the gridlines with the <code>bw</code> theme, so we are going to tweak the pre-set theme using the <code>theme</code> function. <code>theme</code> allows you to do all kinds of stuff involved with how the plot looks.</p>
 <pre class="sourceCode r"><code class="sourceCode r">?theme</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span>
@@ -385,18 +385,18 @@ sleepplot2</code></pre>
   <span class="dt">legend.position =</span> <span class="kw">c</span>(.<span class="dv">85</span>,.<span class="dv">7</span>),
   <span class="co">#increase the font size</span>
   <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>)) </code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-15.png" />
-</div>
+</figure>
 <p>You can save this theme for later use</p>
 <pre class="sourceCode r"><code class="sourceCode r">science_theme =<span class="st"> </span><span class="kw">theme</span>(<span class="dt">panel.grid.major =</span> <span class="kw">element_line</span>(<span class="dt">size =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> <span class="st">&quot;grey&quot;</span>), 
     <span class="dt">axis.line =</span> <span class="kw">element_line</span>(<span class="dt">size =</span> <span class="fl">0.7</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>), <span class="dt">legend.position =</span> <span class="kw">c</span>(<span class="fl">0.85</span>, 
         <span class="fl">0.7</span>), <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>))
 sleepplot2 =<span class="st"> </span>sleepplot2 +<span class="st"> </span>science_theme
 sleepplot2</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-16.png" />
-</div>
+</figure>
 <p>That looks pretty good. Now we need to get it exported properly. The instructions say the figure should be sized to fit in one or two columns (2.3 or 4.6 inches), so we want them to look good at that resolution.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="dt">file =</span> <span class="st">&quot;sleepplot.pdf&quot;</span>, <span class="dt">width=</span> <span class="dv">6</span>, <span class="dt">height =</span> <span class="dv">4</span>, <span class="co">#&#39; see how it looks at this size</span>
     <span class="dt">useDingbats=</span>F) <span class="co">#I have had trouble when uploading figures with digbats before, so I don&#39;t use them</span>
@@ -408,14 +408,14 @@ sleepplot2 <span class="co">#print our plot</span>
 <p>Let’s say we are grouping things by categories instead of a regression</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepcat =<span class="st"> </span><span class="kw">ggplot</span>(msleep, <span class="kw">aes</span>(<span class="dt">x =</span> vore, <span class="dt">y =</span> sleep_total, <span class="dt">color =</span> conservation))
 sleepcat +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-18.png" />
-</div>
+</figure>
 <p>It’s hard to see what’s going on there, so we can jitter the points to make them more visible.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepcat +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_jitter</span>(<span class="dt">w =</span> <span class="fl">0.1</span>))</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-19.png" />
-</div>
+</figure>
 <p>Maybe this would be better with averages and error bars instead of every point:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plyr)
 msleepave =<span class="st"> </span><span class="kw">ddply</span>(msleep, .(vore, conservation), summarize, <span class="dt">meansleep =</span> <span class="kw">mean</span>(sleep_total), 
@@ -424,29 +424,29 @@ sleepmean =<span class="st"> </span><span class="kw">ggplot</span>(msleepave, <s
 <p>Plot it with means and error bars +/- 1 stadard deviation</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepmean +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymax =</span> meansleep +<span class="st"> </span>sdsleep, <span class="dt">ymin =</span> meansleep +<span class="st"> </span>
 <span class="st">    </span>sdsleep), <span class="dt">width =</span> <span class="fl">0.2</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-21.png" />
-</div>
+</figure>
 <p>Spread them out, but in an orderly fashion this time, with position_dodge rather than jitter</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepmean +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">height =</span> <span class="dv">0</span>), <span class="dt">size =</span> <span class="dv">2</span>) +<span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymax =</span> meansleep +<span class="st"> </span>sdsleep, <span class="dt">ymin =</span> meansleep -<span class="st"> </span>sdsleep), 
         <span class="dt">position =</span> <span class="kw">position_dodge</span>(<span class="dt">width =</span> <span class="fl">0.5</span>, <span class="dt">height =</span> <span class="dv">0</span>), <span class="dt">width =</span> <span class="fl">0.5</span>)</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## ymax not defined: adjusting position using y instead</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-22.png" />
-</div>
+</figure>
 <p>Note that dodging the points gives the conservation status in the same order for each feeding type category. A little more organized.</p>
 <h4 id="some-other-things-you-might-want-to-do-with-formatting">Some other things you might want to do with formatting:</h4>
 <p>Add annotation to the plot</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;R2 = 0.999&quot;</span>, <span class="dt">x =</span> -<span class="dv">4</span>, <span class="dt">y =</span> <span class="dv">17</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-23.png" />
-</div>
+</figure>
 <p>Let’s put that annotation in italics</p>
 <pre class="sourceCode r"><code class="sourceCode r">sleepplot2 +<span class="st"> </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">label =</span> <span class="st">&quot;R2 = 0.999&quot;</span>, <span class="dt">x =</span> -<span class="dv">4</span>, <span class="dt">y =</span> <span class="dv">17</span>, <span class="dt">fontface =</span> <span class="dv">3</span>)</code></pre>
-<div class="figure">
+<figure>
 <img src="http://dl.dropbox.com/u/3356641/blogstuff/roseplot-24.png" />
-</div>
+</figure>
 <p>NOW. Let’s put half that annotation in italics, the other half plain, then insert five greek characters and rotate it 90 degrees!</p>
 <p>OR we can beat our head against a wall until it explodes and export our plot into an actual graphics program.</p>
 <p>Not everything has to be done in R. ‘SVG’ files are vector graphic files that can be easily edited in the FREE GUI-based program <a href="http://inkscape.org/">Inkscape</a>. Make and SVG and you can edit it by hand for final tweaks. Inkscape can also edit and export PDFs.</p>
@@ -454,7 +454,8 @@ sleepmean =<span class="st"> </span><span class="kw">ggplot</span>(msleepave, <s
 sleepplot2
 <span class="kw">dev.off</span>()</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">## pdf 
-##   2</code></pre></p></div>
+##   2</code></pre>
+</p></div>
 <ul class="tags">
   
     <li><strong>Tags: </strong></li>
