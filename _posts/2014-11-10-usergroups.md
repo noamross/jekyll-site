@@ -10,7 +10,7 @@ tags:
 title: "Ongoing learning with user groups"
 ...
 
-*Cross-posted from the [Software Carpentry Blog](http://software-carpentry.org/blog/2014/11/users-groups-for-ongoing-learning.html)*
+*Cross-posted from the [Software Carpentry Blog](http://software-carpentry.org/blog/2014/11/users-groups-for-ongoing-learning.html).*
 
 For the past two years I've run the [UC Davis R Users' Group] (D-RUG). In this
 post, I'll (1) outline the structure of D-RUG, and (2) summarize some lessons
@@ -143,7 +143,7 @@ a typical SWC workshop helper can probably run a users' group, though it does re
 
 I'd like to hear from others who have similar or alternative models.  How can these groups connect with SWC to build an ongoing community of learners?
 
-  [UC Davis R User's Group]: http://www.noamross.net/davis-r-users-group.html
+  [UC Davis R Users' Group]: http://www.noamross.net/davis-r-users-group.html
   [Bill's suggestion]: http://forum.mozillascience.org/t/new-member-introductions/30/22
   [instructor hangout]: http://mozillascience.org/instructor-hangouts-landing-this-friday/
   [R mailing lists]: http://www.r-project.org/mail.html
