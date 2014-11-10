@@ -7,6 +7,7 @@ tags:
 - SWC
 - R
 - EGSA
+- ecobloggers
 title: "Ongoing learning with user groups"
 ...
 
