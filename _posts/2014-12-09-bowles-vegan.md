@@ -2,7 +2,7 @@
 title: "Tim Bowles on multivariate stats with *vegan*"
 author: "Tim Bowles"
 tags: [D-RUG, R, vegan]
-date: "14-12-00 19:01:00"
+date: "14-12-09 19:01:00"
 layout: post
 --- 
 
