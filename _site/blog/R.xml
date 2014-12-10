@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2014-12-09T19:05:35-08:00</updated>
+ <updated>2014-12-09T19:08:20-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -13,7 +13,7 @@
 
  
  <entry>
-   <title>Tim Bowles on multivariate stats with *vegan*</title>
+   <title>Tim Bowles on multivariate stats with vegan</title>
    <link href="http://www.noamross.net/blog/2014/12/9/bowles-vegan.html"/>
    <updated>2014-12-09T19:01:00-08:00</updated>
    <id>hhttp://www.noamross.net/blog/2014/12/9/bowles-vegan</id>
@@ -25,6 +25,7 @@
 &lt;/head&gt; &lt;p&gt;&lt;em&gt;Today, &lt;a href=&quot;http://ucanr.edu/sites/Jackson_Lab/Tim_Bowles/&quot;&gt;Tim Bowles&lt;/a&gt; gave this presentation on the &lt;a href=&quot;http://cran.r-project.org/web/packages/vegan/index.html&quot;&gt;vegan&lt;/a&gt; package to the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;. The screencast and slides are below. You can also download Tim’s RStudio project with all the code, data, figures, and slides presented &lt;a href=&quot;https://dl.dropboxusercontent.com/u/3356641/blogstuff/vegan%20tutorial.zip&quot;&gt;here&lt;/a&gt;. Thanks to Tim for a great session!&lt;/em&gt;&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/BEldn3BmqW0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
+&lt;p&gt;&lt;br/&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 110%;&quot;&gt;
 &lt;iframe src=&quot;https://dl.dropboxusercontent.com/u/3356641/blogstuff/vegan-D-RUG.html&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;
 &lt;/iframe&gt;
