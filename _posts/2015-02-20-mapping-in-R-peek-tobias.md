@@ -14,6 +14,6 @@ Today, [Ryan Peek](http://ucdavis.academia.edu/RyanPeek) and [Michele Tobias](ht
 
 ### Resources:
 
--   Download all of Ryan's code and HTML files [here](/files/makingmaps.7z). ([7zip format](http://www.7-zip.org/)), 
+-   Download all of Ryan's code and HTML files [here](http://www.noamross.net/files/makingmaps.7z). ([7zip format](http://www.7-zip.org/)), 
 -   See Michele's presentation on Slideshare [here](http://www.slideshare.net/MicheleTobias/leafletr).
 -   Code for Michele's example maps in [her GitHub repository](https://github.com/MicheleTobias/maps),
