@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-02-20T14:31:53-08:00</updated>
+ <updated>2015-02-20T14:33:44-08:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -25,7 +25,7 @@
 &lt;/head&gt; &lt;p&gt;Today, &lt;a href=&quot;http://ucdavis.academia.edu/RyanPeek&quot;&gt;Ryan Peek&lt;/a&gt; and &lt;a href=&quot;https://sites.google.com/site/mtobiasresearch/&quot;&gt;Michele Tobias&lt;/a&gt; gave an introduction to making maps in R. Here’s the webcast:&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/7wNkCeE9SCU&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
-&lt;p&gt;(Pardon the little scuffle at the beginning as we switched computers halfway through. Still getting the hang of hangouts.)&lt;/p&gt;
+&lt;p&gt;(Pardon the little scuffle at the beginning and as we switched computers halfway through. Still getting the hang of hangouts.)&lt;/p&gt;
 &lt;h3 id=&quot;resources&quot;&gt;Resources:&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Download all of Ryan’s code and HTML files &lt;a href=&quot;makingmaps.7z&quot;&gt;here&lt;/a&gt;. (&lt;a href=&quot;http://www.7-zip.org/&quot;&gt;7zip format&lt;/a&gt;),&lt;/li&gt;

@@ -10,7 +10,7 @@ Today, [Ryan Peek](http://ucdavis.academia.edu/RyanPeek) and [Michele Tobias](ht
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/7wNkCeE9SCU" frameborder="0" allowfullscreen></iframe>
 
-(Pardon the little scuffle at the beginning as we switched computers halfway through. Still getting the hang of hangouts.)
+(Pardon the little scuffle at the beginning and as we switched computers halfway through. Still getting the hang of hangouts.)
 
 ### Resources:
 
