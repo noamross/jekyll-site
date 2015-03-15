@@ -4,13 +4,31 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-02-20T16:50:57-08:00</updated>
+ <updated>2015-03-15T14:37:13-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>An introduction to ggplot with Myfanwy Johnston</title>
+   <link href="http://www.noamross.net/blog/2015/3/15/ggplot-tutorial-johnston.html"/>
+   <updated>2015-03-15T14:36:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2015/3/15/ggplot-tutorial-johnston</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Last week at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://biotelemetry.ucdavis.edu/pages/bio_Johnston.asp&quot;&gt;Myfanwy Johnston&lt;/a&gt; gave an introduction to to the powerful and ubiquitous ggplot2 package for plotting in R. See below for the screencast and her particularly enlightening figure of how ggplot’s syntax and conceptual approach. Myfanwy also placed all her slides, code, and links to more ggplot resources in &lt;a href=&quot;https://github.com/Myfanwy/ggplot2Intro&quot;&gt;this GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/SaJCKpYX5Lo&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;(&lt;em&gt;In a D-RUG first, there was an actual small fire that occurred between ~23:10 - 25:40. No graphing took place in this interval.&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://raw.githubusercontent.com/Myfanwy/ggplot2Intro/master/figures/ggplot_structure.png&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Myfanwy/ggplot2Intro/master/figures/ggplot_structure.png&quot; alt=&quot;https://raw.githubusercontent.com/Myfanwy/ggplot2Intro/master/figures/ggplot_structure.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Making Maps in R with Ryan Peek and Michele Tobias</title>
@@ -455,37 +473,6 @@ for (i in &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;:&lt;span class=&quot;d
 &lt;li&gt;&lt;a href=&quot;http://quanttrader.info/public/FasterRCode.pdf&quot; class=&quot;uri&quot;&gt;http://quanttrader.info/public/FasterRCode.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>ESA 2014 Abstract: Modeling forest disease using a macroparasite framework</title>
-   <link href="http://www.noamross.net/blog/2014/2/27/esaab.html"/>
-   <updated>2014-02-27T13:17:19-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2014/2/27/esaab</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;I just submitted the abstract below to the &lt;a href=&quot;http://www.esa.org/sacramento/&quot;&gt;ESA 2014 meeting&lt;/a&gt;. Can’t wait! I’m also organizing an oral session with &lt;a href=&quot;https://sites.google.com/a/ucdavis.edu/richard-cobb/&quot;&gt;Richard Cobb&lt;/a&gt;: “&lt;a href=&quot;http://esa.org/am/organizedorals/#id2743&quot;&gt;Ecosystem and Community Effects of Native and Invasive Diseases&lt;/a&gt;.” Click through for more details. It’s gonna be a good year! I haven’t been to ESA since 2008.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;h3&gt;Modeling forest disease using a macroparasite framework&lt;/h3&gt;
-&lt;p&gt;Noam Ross, UC Davis Graduate Group in Ecology&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Background/Question/Methods:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Forest pathogens are typically modeled using variants of &lt;em&gt;SI&lt;/em&gt; models, in which the infection states of trees are binary. However, many forest pathogens only infect trees locally, in isolated bole infections or leaf infections. Individual trees can have multiple, independently reproducing infections. In these cases, models based on macroparasite frameworks, where multiple parasites occupy an organism, may better represent disease dynamics.&lt;/p&gt;
-&lt;p&gt;I developed a model for the host­pathogen dynamics of Sudden Oak Death (SOD), a disease caused by the invasive pathogen &lt;em&gt;Phytophthora ramorum&lt;/em&gt; in California oak woodlands and forests, based on the macroparasite framework of Anderson and May (1978). I compared the dynamics of this model to an &lt;em&gt;SI&lt;/em&gt; model, parameterizing both using data from SOD field studies, and examined the conditions under which each could reproduce patterns in field data.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Results/Conclusions&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;The macroparasite model reproduces several patterns observed in field data which the &lt;em&gt;SI&lt;/em&gt; model does not. First, the macroparasite model, even without age­related variation in parameters, generates data with positive age­mortality relationships due to accumulating infections in older trees. The &lt;em&gt;SI&lt;/em&gt; model requires explicit age structure in model parameters to produce similar patterns. Secondly, the macroparasite model generates observed density­mortality patterns, which can not be produced by the &lt;em&gt;SI&lt;/em&gt; model. Thirdly, the macroparasite model generates aggregated distribution of infections in hosts, which can explain the phenomenon of “super spreaders”, i.e. individuals that produce high amounts of inoculum and cause a large fraction of new infections. The &lt;em&gt;SI&lt;/em&gt; model only generates this pattern when extended by including individual variation in disease parameters. All these phenomena are more pronounced under conditions corresponding to late stages of disease invasion, and when the time scales of host and pathogen life stage parameters are similar.&lt;/p&gt;
-&lt;p&gt;The macroparasite framework is a parsimonious approach that can explain several important phenomena in forest disease. Data and models to with only binary infection status can lead to misinterpretation of observed patterns.&lt;/p&gt;
-&lt;p&gt;Slides and related materials will be archived at &lt;a href=&quot;http://doi.org/rpm&quot; class=&quot;uri&quot;&gt;http://doi.org/rpm&lt;/a&gt; prior to the conference.&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;section class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;I created a &lt;a href=&quot;http://doi.org/rpm&quot;&gt;placeholder record at figshare.com&lt;/a&gt; so that a permanent link to my slides will be in the program. I think this is a great habit to get into for conferences. This way your talk will be permanently accessible via the conference program both after the actual event.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
 </content>
  </entry>
  

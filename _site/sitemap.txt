@@ -54,6 +54,7 @@ http://www.noamross.net/stats.html
 http://www.noamross.net/tags.html
 http://www.noamross.net/test/index.html
 
+http://www.noamross.net/blog/2015/3/15/ggplot-tutorial-johnston.html
 http://www.noamross.net/blog/2015/2/20/mapping-in-R-peek-tobias.html
 http://www.noamross.net/blog/2015/1/30/boettiger-ropensci.html
 http://www.noamross.net/blog/2014/12/9/bowles-vegan.html

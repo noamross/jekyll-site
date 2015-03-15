@@ -4,13 +4,31 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-02-20T16:50:57-08:00</updated>
+ <updated>2015-03-15T14:37:13-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>An introduction to ggplot with Myfanwy Johnston</title>
+   <link href="http://www.noamross.net/blog/2015/3/15/ggplot-tutorial-johnston.html"/>
+   <updated>2015-03-15T14:36:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2015/3/15/ggplot-tutorial-johnston</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Last week at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://biotelemetry.ucdavis.edu/pages/bio_Johnston.asp&quot;&gt;Myfanwy Johnston&lt;/a&gt; gave an introduction to to the powerful and ubiquitous ggplot2 package for plotting in R. See below for the screencast and her particularly enlightening figure of how ggplot’s syntax and conceptual approach. Myfanwy also placed all her slides, code, and links to more ggplot resources in &lt;a href=&quot;https://github.com/Myfanwy/ggplot2Intro&quot;&gt;this GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/SaJCKpYX5Lo&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;(&lt;em&gt;In a D-RUG first, there was an actual small fire that occurred between ~23:10 - 25:40. No graphing took place in this interval.&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://raw.githubusercontent.com/Myfanwy/ggplot2Intro/master/figures/ggplot_structure.png&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Myfanwy/ggplot2Intro/master/figures/ggplot_structure.png&quot; alt=&quot;https://raw.githubusercontent.com/Myfanwy/ggplot2Intro/master/figures/ggplot_structure.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Making Maps in R with Ryan Peek and Michele Tobias</title>
@@ -828,30 +846,6 @@ sleep&lt;/code&gt;&lt;/pre&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.twinsun.com/tz/tz-link.htm&quot; class=&quot;uri&quot;&gt;http://www.twinsun.com/tz/tz-link.htm&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Also see the R help file at ?Sys.timezone&lt;/li&gt;
 &lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Ryan Peek on Creating Shiny Apps</title>
-   <link href="http://www.noamross.net/blog/2014/1/28/rpeekshiny.html"/>
-   <updated>2014-01-28T09:41:36-08:00</updated>
-   <id>hhttp://www.noamross.net/blog/2014/1/28/rpeekshiny</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Yesterday at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R User’s Group&lt;/a&gt;&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, &lt;a href=&quot;https://watershed.ucdavis.edu/people/rapeek?destination=user/71&quot;&gt;Ryan Peek&lt;/a&gt; gave a talk about using the &lt;code&gt;shiny&lt;/code&gt; package to create interactive web apps with R. Here are his slides. Ryan includes a bunch of links to examples and tutorials, as well as his own &lt;a href=&quot;http://aquapeek.shinyapps.io/thermohydrographs/&quot;&gt;thermohydrographs app&lt;/a&gt;:&lt;/p&gt;
-&lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 88%;&quot;&gt;
-&lt;iframe src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/DRUG_shiny_2014-01-27_presentation.html&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;section class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Thanks to &lt;a href=&quot;http://www.revolutionanalytics.com/&quot;&gt;Revolution Analytics&lt;/a&gt; for another year of sponsorship!&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
 </content>
  </entry>
  
