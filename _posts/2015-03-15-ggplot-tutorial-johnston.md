@@ -6,7 +6,7 @@ date: "15-03-15 14:36:00"
 layout: post
 --- 
 
-Last week at the [Davis R Users' Group](http://www.noamross.net/davis-r-users-group.html), [Myfanwy Johnston](http://biotelemetry.ucdavis.edu/pages/bio_Johnston.asp) gave an introduction to to the powerful and ubiquitous ggplot2 package for plotting in R.  See below for the screencast and her particularly enlightening figure of how ggplot's syntax and conceptual approach.  Myfanwy also placed all her slides, code, and links to more ggplot resources in  [this GitHub repository](https://github.com/Myfanwy/ggplot2Intro).
+Last week at the [Davis R Users' Group](http://www.noamross.net/davis-r-users-group.html), [Myfanwy Johnston](http://biotelemetry.ucdavis.edu/pages/bio_Johnston.asp) gave an introduction to the powerful and ubiquitous ggplot2 package for plotting in R.  See below for the screencast and her particularly enlightening figure of how ggplot's syntax and conceptual approach.  Myfanwy also placed all her slides, code, and links to more ggplot resources in  [this GitHub repository](https://github.com/Myfanwy/ggplot2Intro).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SaJCKpYX5Lo" frameborder="0" allowfullscreen></iframe>
 

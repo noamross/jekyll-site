@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-03-15T14:37:13-07:00</updated>
+ <updated>2015-03-16T18:42:30-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Last week at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://biotelemetry.ucdavis.edu/pages/bio_Johnston.asp&quot;&gt;Myfanwy Johnston&lt;/a&gt; gave an introduction to to the powerful and ubiquitous ggplot2 package for plotting in R. See below for the screencast and her particularly enlightening figure of how ggplot’s syntax and conceptual approach. Myfanwy also placed all her slides, code, and links to more ggplot resources in &lt;a href=&quot;https://github.com/Myfanwy/ggplot2Intro&quot;&gt;this GitHub repository&lt;/a&gt;.&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;Last week at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://biotelemetry.ucdavis.edu/pages/bio_Johnston.asp&quot;&gt;Myfanwy Johnston&lt;/a&gt; gave an introduction to the powerful and ubiquitous ggplot2 package for plotting in R. See below for the screencast and her particularly enlightening figure of how ggplot’s syntax and conceptual approach. Myfanwy also placed all her slides, code, and links to more ggplot resources in &lt;a href=&quot;https://github.com/Myfanwy/ggplot2Intro&quot;&gt;this GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/SaJCKpYX5Lo&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;(&lt;em&gt;In a D-RUG first, there was an actual small fire that occurred between ~23:10 - 25:40. No graphing took place in this interval.&lt;/em&gt;)&lt;/p&gt;
