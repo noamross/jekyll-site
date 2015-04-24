@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-04-24T11:25:59-07:00</updated>
+ <updated>2015-04-24T11:49:59-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -15,17 +15,17 @@
  <entry>
    <title>Back to basics: High quality plots using base R graphics</title>
    <link href="http://www.noamross.net/blog/2015/4/24/koontz-base-plotting.html"/>
-   <updated>2015-04-24T11:25:00-07:00</updated>
+   <updated>2015-04-24T11:50:00-07:00</updated>
    <id>hhttp://www.noamross.net/blog/2015/4/24/koontz-base-plotting</id>
    <content type="html">&lt;head&gt;
   &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;Today at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://michaeljkoontz.weebly.com/&quot;&gt;Michael Koontz&lt;/a&gt; gave &lt;em&gt;tour de force&lt;/em&gt; lesson in using R’s base graphics capabilities to plot data. Here’s the video, and the script that he walked through as a gist.&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;Today at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://michaeljkoontz.weebly.com/&quot;&gt;Michael Koontz&lt;/a&gt; gave &lt;em&gt;tour de force&lt;/em&gt; lesson in using R’s base graphics capabilities to plot data. Here’s the video:&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/wzKnU2ryT60&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
-&lt;p&gt;Get Michael’s excellent annotated script, which covers much more than we got to during our tutorial, &lt;a href=&quot;https://gist.github.com/noamross/027e1f63343ba223b9cb&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Get Michael’s excellent annotated script, which covers much more than we got to during our tutorial, &lt;a href=&quot;https://gist.github.com/noamross/027e1f63343ba223b9cb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
