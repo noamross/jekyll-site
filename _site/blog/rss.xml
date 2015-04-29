@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-04-29T14:18:30-07:00</updated>
+ <updated>2015-04-29T14:19:22-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -22,7 +22,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;A couple of weeks at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;Jaime Ashander&lt;/a&gt; gave a presentation on and visualizing and diagnosing GLMs in R. Here’s the video:&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;A couple of weeks at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;Jaime Ashander&lt;/a&gt; gave a presentation on and visualizing and diagnosing (G)LMMs in R. Here’s the video:&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/QL4Jqmid0Kw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;Jaime also wrote up the notes from his talk, including all the code, on his blog &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;here&lt;/a&gt; (with the raw R Markdown file on github &lt;a href=&quot;https://github.com/ashander/ashander.github.io/blob/content/content/notes/mixedeffects_viz.Rmd&quot;&gt;here&lt;/a&gt;). The material in the blog post is expanded and improved upon from the original talk, though this means the video and posted code don’t match exactly.&lt;/p&gt;
