@@ -4,13 +4,37 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-04-29T14:19:22-07:00</updated>
+ <updated>2015-05-20T11:31:33-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>First Steps with Structural Equation Modeling</title>
+   <link href="http://www.noamross.net/blog/2015/5/20/charles-sems.html"/>
+   <updated>2015-05-20T11:30:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2015/5/20/charles-sems</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Last Friday at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;https://scholar.google.com/citations?user=kc_fImQAAAAJ&quot;&gt;Grace Charles&lt;/a&gt; gave a presentation on structural equation modeling in R using the &lt;a href=&quot;http://cran.r-project.org/web/packages/lavaan/index.html&quot;&gt;&lt;strong&gt;Lavaan&lt;/strong&gt;&lt;/a&gt; package. Here’s the video and her slides. We’ve also posted Grace’s script from the presentation as a gist &lt;a href=&quot;https://gist.github.com/noamross/9d5ae9680fe8357ccd94&quot;&gt;here&lt;/a&gt;. More resources that Grace mentioned in her talk below.&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/NSoZdNszQgw?start=477&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;iframe src=&quot;https://www.slideshare.net/slideshow/embed_code/key/3PprpqXobCwNya&quot; width=&quot;476&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;
+&lt;/iframe&gt;
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.nwrc.usgs.gov/SEM/&quot;&gt;Jim Grace’s website at USGS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lavaan.ugent.be/tutorial/tutorial.pdf&quot;&gt;A Lavaan tutorial vingette by Yves Rosseel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jarrettbyrnes.info/ubc_sem/&quot;&gt;Materials from Jarret Byrnes’ short course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Visualizing fits, inference, implications of (G)LMMs with Jaime Ashander</title>
@@ -22,7 +46,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;A couple of weeks at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;Jaime Ashander&lt;/a&gt; gave a presentation on and visualizing and diagnosing (G)LMMs in R. Here’s the video:&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;Last Fr &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;Jaime Ashander&lt;/a&gt; gave a presentation on and visualizing and diagnosing (G)LMMs in R. Here’s the video:&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/QL4Jqmid0Kw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;Jaime also wrote up the notes from his talk, including all the code, on his blog &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;here&lt;/a&gt; (with the raw R Markdown file on github &lt;a href=&quot;https://github.com/ashander/ashander.github.io/blob/content/content/notes/mixedeffects_viz.Rmd&quot;&gt;here&lt;/a&gt;). The material in the blog post is expanded and improved upon from the original talk, though this means the video and posted code don’t match exactly.&lt;/p&gt;
@@ -218,126 +242,6 @@
 &lt;p&gt;One interesting observation is that “California” is most frequent in Topic 42, which consists of words related to marine systems, and is also common in 53 (invasions), 38 (fire), and 36 (plant-water relations). I was unsurprised at the last two (especially given fire’s importance in &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;my last analysis&lt;/a&gt;), but hadn’t realized how California-specific marine topics would be.&lt;/p&gt;
 &lt;p&gt;There’s lots more to explore here, though it’s not always easy to interpret. Some topics seem to map well to ecological sub-fields, while others may be driven by concepts and frameworks that are difficult to classify, or even writing style. What patterns do you see that are worth a harder look?&lt;/p&gt;
 &lt;p&gt;Code for this analysis is on Github &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>ESA 2014: Don't Know Much About History...</title>
-   <link href="http://www.noamross.net/blog/2014/8/5/nathist.html"/>
-   <updated>2014-08-05T08:14:11-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2014/8/5/nathist</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;After my &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;last post&lt;/a&gt; text-mining &lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA Annual Meeting&lt;/a&gt; abstracts, &lt;a href=&quot;http://www.nashturley.org/&quot;&gt;Nash Turley&lt;/a&gt; &lt;a href=&quot;https://twitter.com/NashTurley/status/495272858038595587&quot;&gt;was interested&lt;/a&gt; in the presence of the term “natural history” in ESA abstracts. I decided to collect a little more data by including programs back to 2010, giving a five-year data set. Thankfully the program back to 2010 remains in mostly the same format, so it’s easy to pull the data for these additional years.&lt;/p&gt;
-&lt;p&gt;Now, not all talks that include natural history concepts will include the term “natural history”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; in their abstracts, but it’s frequency may be an indicator of importance, and &lt;em&gt;variation&lt;/em&gt; in use of the term is may yield some insights.&lt;/p&gt;
-&lt;p&gt;First, I look at what fraction of abstracts mention “natural history” in each of the last five years at ESA.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/fraction.png&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;Over the past five years, &amp;lt;1% of abstracts at ESA have mentioned natural history. No trend is evident.&lt;/p&gt;
-&lt;p&gt;I reported different numbers for 2013 and 2014 in a &lt;a href=&quot;https://twitter.com/noamross/status/492407527238160386&quot;&gt;tweet&lt;/a&gt; last week. These were higher because I counted them by a simple search of the number of occurrences of “natural history” in the whole corpus. This included the &lt;em&gt;affiliation&lt;/em&gt; fields. Many presenters at ESA work at natural history &lt;em&gt;museums&lt;/em&gt; (see &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50396.html&quot;&gt;this abstract&lt;/a&gt;, for instance). The above numbers now only include abstracts where “natural history” was in the title or abstract text, and now I count abstracts, not occurrences of the phrase.&lt;/p&gt;
-&lt;p&gt;What are these natural history talks about? To examine this, I looked at the word frequency across all five years of abstracts, finding the most frequent terms besides “natural history”.&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/wordcountsi.png&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;For comparison, here are the most common terms across all ESA abstracts this year:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;Like other abstracts, talks that mention “natural history” have “species” as the most common term. Interestingly, natural history talks don’t use “plant” as frequently - perhaps other terms are used in botanical contexts. Also, there are more relative mentions of “students”, perhaps due to greater links between natural history and education. We can see this pattern in a listing of all the talks for 2014, where we see several talks about education, though there are many fascinating basic science talks, as well:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&quot;header&quot;&gt;
-&lt;th style=&quot;text-align: left;&quot;&gt;Presenter&lt;/th&gt;
-&lt;th style=&quot;text-align: left;&quot;&gt;Title/Link&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Julian D. Olden&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45275.html&quot;&gt;Traits-based approaches and the quest for generality over contingency in ecology&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Terry A. Wheeler&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45504.html&quot;&gt;The other “E”: Entomologists and entomology in (and out) of the Ecological Society of America&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Kimball L. Garrett&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45813.html&quot;&gt;Recent avifaunal change in riparian habitats along the Los Angeles River&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Kirsten Rowell&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;Natural History Section&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Shahid Naeem&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45950.html&quot;&gt;Condensation and ignition in ecological research: Making sense of biodiversity’s demise&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Cory Merow&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46334.html&quot;&gt;Methods for predicting and validating range-wide population dynamics from sparse demographic data&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Fiona M. Soper&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper47409.html&quot;&gt;Coupling graduate mentorship training with undergraduate research in a field context&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Emily M. Harris&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48283.html&quot;&gt;Participating in the California Naturalist Program: Changes in science and environmental identity&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Teresa K. Heisey&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48545.html&quot;&gt;Sand County Almanac in the ecology classroom: An active learning approach to teaching about ecology and natural history&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Leighton Reid&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper48621.html&quot;&gt;Conservation psychology: Bat killing in southern Costa Rica&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Kristen R. Treat&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49217.html&quot;&gt;Variation of Pentaclethra macroloba natural history and genetic structure along an elevational gradient in lowland Costa Rica&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Flavia M. D. Marquitti&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49277.html&quot;&gt;The role of cheaters on the stability of mutualistic networks&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Melissa Gaste Martinez&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49484.html&quot;&gt;Bothrops atrox in captivity, change isotopic composition in tissues collected from different environments of the eastern Amazon&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;D. Liane Cochran-Stafira&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper49924.html&quot;&gt;Effects of Metriocnemus knabi predation on Habrotrocha rosa populations in Sarracenia purpurea pitchers&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Emily Hartop&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50108.html&quot;&gt;Terrestrial insects of los angeles: The great frontier&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Danielle B. Pitt&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50268.html&quot;&gt;Linking early history of Pterygota to habitat structure: The role of dendritic ecological networks in insect natural history&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;odd&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Carole L. Hom&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50330.html&quot;&gt;UC Davis-Howard University EEGAP: Collaborating to broaden participation in ecology and evolution&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&quot;even&quot;&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;Senay Yitbarek&lt;/td&gt;
-&lt;td style=&quot;text-align: left;&quot;&gt;&lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper50363.html&quot;&gt;The role of self-organized spatial patterns in the persistence of weak invasive species: A case study of the invasive ant W. auropunctata&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;I note the third talk in this list is an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper45934.html&quot;&gt;ignite talk&lt;/a&gt; announcing the new ESA natural history section. Perhaps we’ll see the effect of this section next year’s program!&lt;/p&gt;
-&lt;p&gt;R code for this post is on &lt;a href=&quot;https://github.com/noamross/esaprog/blob/master/nathist.Rmd&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;section class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Or rather, something close to “natural history”. I searched for the regular expression &lt;code&gt;natur\w+\s+hist&lt;/code&gt;.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
 </content>
  </entry>
  

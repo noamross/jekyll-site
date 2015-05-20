@@ -4,13 +4,37 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-04-29T14:19:22-07:00</updated>
+ <updated>2015-05-20T11:31:33-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
    <email>noam.ross@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>First Steps with Structural Equation Modeling</title>
+   <link href="http://www.noamross.net/blog/2015/5/20/charles-sems.html"/>
+   <updated>2015-05-20T11:30:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2015/5/20/charles-sems</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Last Friday at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;https://scholar.google.com/citations?user=kc_fImQAAAAJ&quot;&gt;Grace Charles&lt;/a&gt; gave a presentation on structural equation modeling in R using the &lt;a href=&quot;http://cran.r-project.org/web/packages/lavaan/index.html&quot;&gt;&lt;strong&gt;Lavaan&lt;/strong&gt;&lt;/a&gt; package. Here’s the video and her slides. We’ve also posted Grace’s script from the presentation as a gist &lt;a href=&quot;https://gist.github.com/noamross/9d5ae9680fe8357ccd94&quot;&gt;here&lt;/a&gt;. More resources that Grace mentioned in her talk below.&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/NSoZdNszQgw?start=477&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;iframe src=&quot;https://www.slideshare.net/slideshow/embed_code/key/3PprpqXobCwNya&quot; width=&quot;476&quot; height=&quot;400&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot;&gt;
+&lt;/iframe&gt;
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.nwrc.usgs.gov/SEM/&quot;&gt;Jim Grace’s website at USGS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lavaan.ugent.be/tutorial/tutorial.pdf&quot;&gt;A Lavaan tutorial vingette by Yves Rosseel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jarrettbyrnes.info/ubc_sem/&quot;&gt;Materials from Jarret Byrnes’ short course&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Visualizing fits, inference, implications of (G)LMMs with Jaime Ashander</title>
@@ -22,7 +46,7 @@
     table tbody {border-top:2px; border-bottom:2px;}
     table thead {border-bottom:1px;}
   &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;A couple of weeks at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;Jaime Ashander&lt;/a&gt; gave a presentation on and visualizing and diagnosing (G)LMMs in R. Here’s the video:&lt;/p&gt;
+&lt;/head&gt; &lt;p&gt;Last Fr &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;Jaime Ashander&lt;/a&gt; gave a presentation on and visualizing and diagnosing (G)LMMs in R. Here’s the video:&lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/QL4Jqmid0Kw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;Jaime also wrote up the notes from his talk, including all the code, on his blog &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;here&lt;/a&gt; (with the raw R Markdown file on github &lt;a href=&quot;https://github.com/ashander/ashander.github.io/blob/content/content/notes/mixedeffects_viz.Rmd&quot;&gt;here&lt;/a&gt;). The material in the blog post is expanded and improved upon from the original talk, though this means the video and posted code don’t match exactly.&lt;/p&gt;
@@ -315,44 +339,6 @@
 &lt;hr /&gt;
 &lt;ol&gt;
 &lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Or rather, something close to “natural history”. I searched for the regular expression &lt;code&gt;natur\w+\s+hist&lt;/code&gt;.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/section&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>What shall we talk about at ESA?</title>
-   <link href="http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html"/>
-   <updated>2014-07-24T01:45:15-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2014/7/24/esacorpuscompare</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;a href=&quot;http://esa.org/am/&quot;&gt;ESA&lt;/a&gt; is just around the corner, and many of us are gearing up and trying to figure out a &lt;a href=&quot;http://eco.confex.com/eco/2014/schedule/index.cgi&quot;&gt;schedule&lt;/a&gt; to cover all the talks and people we can pack in. ESA is a big conference and there’s far too much for any one person to see. In the end, everyone experiences a &lt;a href=&quot;http://en.wikipedia.org/wiki/Blind_men_and_an_elephant&quot;&gt;different part of the elephant&lt;/a&gt;. However, I thought it would be interesting to take a look at the big picture, and examine the ESA program as a &lt;em&gt;whole&lt;/em&gt; to see what could be learned from it. This is the first of (maybe) several posts where I use some basic text-mining tools to explore the content of the ESA program.&lt;/p&gt;
-&lt;p&gt;First, what are the most common terms in the ESA program?&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/plot1.png&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;Few surprises here. “Species” would have been my guess for the top. “Plants” are probably on top because ecologists usually refer to animals by various sub-groups. The rest are fairly ho-hum: ecology and science-y words.&lt;/p&gt;
-&lt;p&gt;It’s more interesting to ask how the topics at ESA &lt;em&gt;change&lt;/em&gt; from year to year. Below I show the terms whose use in ESA abstracts changed the most between 2013 to 2014:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/mung.png&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;This paints a much more interesting picture. The rise of California and the fall of Minnesota make sense given the change in the meeting’s location. But we can see the influence of landscape on topics as well. We see fewer words associated with freshwater ecosystems, prairies, and forests this year, and more associated with fire and other plant systems. Also, we see a difference in the &lt;em&gt;kinds&lt;/em&gt; of ecology in the program. This year there are fewer words like “biomass” and “nutrient” - those common in ecosystem ecology - and more like “pollinator”&lt;a href=&quot;#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt;, “phenology”, and “network” - those associated with the study of species interactions.&lt;/p&gt;
-&lt;p&gt;It’s possible that these changes are due to changes in what’s popular in ecology, but it is also likely that many of the concepts captured in these terms - ecosystem, community, and landscape ecology - are influenced by region. After all, an ecosystem perspective is likely to dominate in the Midwest, where an abundance of lakes have been important in the research of freshwater nutrient cycling, and a landscape perspective may be important in California, which has such heterogeneity of habitats. This is a pretty good argument for keeping ESA’s location moving, so that no regional perspective dominates every year.&lt;/p&gt;
-&lt;p&gt;These are the biggest &lt;em&gt;changes&lt;/em&gt;, but have the biggest &lt;em&gt;topics&lt;/em&gt; changed? The plot below is similar to that above, but instead of plotting the words with the greatest absolute change, I plot the change of the 50 words that are most common across both years:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/big.png&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;This is somewhat less clear. If one squints, one could argue that there are more words associated with species interactions, environmental change, and management at the top, and more words associated with forests at the bottom. Words in the middle (“ecology”, “community”) are consistently popular across both years. Finally, perhaps significance is falling out of fashion?&lt;/p&gt;
-&lt;p&gt;That’s just a quick first pass. I haven’t yet thought much about how one models these data to understand effect sizes and significance. I welcome suggestions for further analyses and better ways to plot/organize this data. Check out &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;this repository on github&lt;/a&gt; for the code that generated these plots and how to grab the ESA program text for your own use. See you in a few weeks!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;P.S.&lt;/strong&gt; While messing with the ESA program text, I also created &lt;a href=&quot;http://twitter.com/esa_titles&quot;&gt;@esa_titles&lt;/a&gt;, a twitter account that re-mixes ESA talk titles. Have a look for talks you wish you could see. :)&lt;/p&gt;
-&lt;section class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;“pollinia” is a stand-in for all pollination-related words here, as I applied &lt;a href=&quot;http://en.wikipedia.org/wiki/Stemming&quot;&gt;stemming&lt;/a&gt; to the text.&lt;a href=&quot;#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;
 </content>

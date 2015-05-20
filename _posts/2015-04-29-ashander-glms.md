@@ -6,7 +6,7 @@ date: "15-04-29 14:00:00"
 layout: post
 --- 
 
-A couple of weeks at the [Davis R Users' Group](http://www.noamross.net/davis-r-users-group.html), [Jaime Ashander](http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/) gave a presentation on and visualizing and diagnosing (G)LMMs in R.  Here's the video:
+Last Fr [Davis R Users' Group](http://www.noamross.net/davis-r-users-group.html), [Jaime Ashander](http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/) gave a presentation on and visualizing and diagnosing (G)LMMs in R.  Here's the video:
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/QL4Jqmid0Kw" frameborder="0" allowfullscreen></iframe>
 
