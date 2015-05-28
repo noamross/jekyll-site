@@ -54,6 +54,7 @@ http://www.noamross.net/stats.html
 http://www.noamross.net/tags.html
 http://www.noamross.net/test/index.html
 
+http://www.noamross.net/blog/2015/5/28/johnson-rqda.html
 http://www.noamross.net/blog/2015/5/20/charles-sems.html
 http://www.noamross.net/blog/2015/4/29/ashander-glms.html
 http://www.noamross.net/blog/2015/4/24/koontz-base-plotting.html
