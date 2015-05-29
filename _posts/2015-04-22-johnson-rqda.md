@@ -6,7 +6,7 @@ date: "15-05-28 09:00:00"
 layout: post
 --- 
 
-Last Friday at the [Davis R Users' Group](http://www.noamross.net/davis-r-users-group.html), Mallory Johnson gave a presentation on RQDA, an R-based GUI tool for doing coding on documents for use in qualitative text analysis. Here's the video, and you can view the slides [here](../DRUG20150522Markdown.html)
+Last Friday at the [Davis R Users' Group](http://www.noamross.net/davis-r-users-group.html), Mallory Johnson gave a presentation on RQDA, an R-based GUI tool for doing coding on documents for use in qualitative text analysis. Here's the video, and you can view the slides [here](http://www.noamross.net/DRUG20150522Markdown.html).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MSvucejszMI" frameborder="0" allowfullscreen></iframe>
 
