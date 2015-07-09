@@ -4,7 +4,7 @@
  <title>Noam Ross</title>
  <link href="http://www.noamross.net/blog/rss.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-07-01T07:37:38-07:00</updated>
+ <updated>2015-07-08T18:04:41-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -72,6 +72,23 @@
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/QL4Jqmid0Kw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;Jaime also wrote up the notes from his talk, including all the code, on his blog &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;here&lt;/a&gt; (with the raw R Markdown file on github &lt;a href=&quot;https://github.com/ashander/ashander.github.io/blob/content/content/notes/mixedeffects_viz.Rmd&quot;&gt;here&lt;/a&gt;). The material in the blog post is expanded and improved upon from the original talk, though this means the video and posted code don’t match exactly.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Back to basics: High quality plots using base R graphics</title>
+   <link href="http://www.noamross.net/blog/2015/4/24/koontz-base-plotting.html"/>
+   <updated>2015-04-24T11:50:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2015/4/24/koontz-base-plotting</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Today at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://michaeljkoontz.weebly.com/&quot;&gt;Michael Koontz&lt;/a&gt; gave &lt;em&gt;tour de force&lt;/em&gt; lesson in using R’s base graphics capabilities to plot data. Here’s the video:&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/wzKnU2ryT60&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Get Michael’s excellent annotated script, which covers much more than we got to during our tutorial, &lt;a href=&quot;https://gist.github.com/noamross/027e1f63343ba223b9cb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
@@ -212,27 +229,6 @@
 &lt;p&gt;Beginners need a minimum amount of knowledge to take advantage of D-RUG, which can be provided by SWC workshops. D-RUG doesn’t have the resources or structure to teach those beginners from scratch. I sometimes point new users who show up with no experience to an appropriate online self-taught course, and encourage them do the work at our sessions where they can get support. If these members attend a SWC workshop, they will know enough to get started, and to support each other.&lt;/p&gt;
 &lt;p&gt;The D-RUG model is fairly easy to replicate. Daniel Hocking at the University of New Hampshire has &lt;a href=&quot;http://nhusers.com/&quot;&gt;created a similar group&lt;/a&gt;. Anyone with the skill level of a typical SWC workshop helper can probably run a users’ group, though it does require a certain amount of time and skill at recruiting on-campus.&lt;/p&gt;
 &lt;p&gt;I’d like to hear from others who have similar or alternative models. How can these groups connect with SWC to build an ongoing community of learners?&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Michael Levy on Data Manipulation using dplyr</title>
-   <link href="http://www.noamross.net/blog/2014/10/8/levyplyr.html"/>
-   <updated>2014-10-08T16:55:00-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2014/10/8/levyplyr</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;&lt;em&gt;Editor’s Note: This is a repost of &lt;a href=&quot;http://www.michaellevy.name/blog/dplyr-data-manipulation-in-r-made-easy&quot;&gt;Michael’s original post&lt;/a&gt; at his own site.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Here is the dplyr talk that I recently gave to the Davis R Users’ Group. dplyr is an R library that does basic data manipulation extremely well. It is designed to make the data handling tasks that we all do over and over as easy as possible. It produces highly readable syntax that is low cognitive overhead to write. That means less time, less effort, and fewer bugs. dplyr is also exceptionally fast – much faster than plyr, faster than base R, and nearly as fast as data.table. Below the screencast is the presentation itself, from which you can copy text if you wish.&lt;/p&gt;
-&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/KCKBmWsRQko&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
-&lt;/iframe&gt;
-&lt;div class=&quot;rpres&quot; style=&quot;padding-bottom: 110%;&quot;&gt;
-&lt;iframe src=&quot;http://www.michaellevy.name/files/theme/dplyr_levy.html#/&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
 </content>
  </entry>
  

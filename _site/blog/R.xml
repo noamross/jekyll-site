@@ -4,7 +4,7 @@
  <title>Noam Ross - R</title>
  <link href="http://www.noamross.net/blog/R.xml" rel="self"/>
  <link href="http://www.noamross.net"/>
- <updated>2015-07-01T07:37:38-07:00</updated>
+ <updated>2015-07-08T18:04:41-07:00</updated>
  <id>http://www.noamross.net</id>
  <author>
    <name>Noam Ross</name>
@@ -72,6 +72,23 @@
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/QL4Jqmid0Kw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
 &lt;/iframe&gt;
 &lt;p&gt;Jaime also wrote up the notes from his talk, including all the code, on his blog &lt;a href=&quot;http://www.ashander.info/posts/2015/04/D-RUG-mixed-effects-viz/&quot;&gt;here&lt;/a&gt; (with the raw R Markdown file on github &lt;a href=&quot;https://github.com/ashander/ashander.github.io/blob/content/content/notes/mixedeffects_viz.Rmd&quot;&gt;here&lt;/a&gt;). The material in the blog post is expanded and improved upon from the original talk, though this means the video and posted code don’t match exactly.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Back to basics: High quality plots using base R graphics</title>
+   <link href="http://www.noamross.net/blog/2015/4/24/koontz-base-plotting.html"/>
+   <updated>2015-04-24T11:50:00-07:00</updated>
+   <id>hhttp://www.noamross.net/blog/2015/4/24/koontz-base-plotting</id>
+   <content type="html">&lt;head&gt;
+  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
+    table tbody {border-top:2px; border-bottom:2px;}
+    table thead {border-bottom:1px;}
+  &lt;/style&gt;
+&lt;/head&gt; &lt;p&gt;Today at the &lt;a href=&quot;http://www.noamross.net/davis-r-users-group.html&quot;&gt;Davis R Users’ Group&lt;/a&gt;, &lt;a href=&quot;http://michaeljkoontz.weebly.com/&quot;&gt;Michael Koontz&lt;/a&gt; gave &lt;em&gt;tour de force&lt;/em&gt; lesson in using R’s base graphics capabilities to plot data. Here’s the video:&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/wzKnU2ryT60&quot; frameborder=&quot;0&quot; allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;p&gt;Get Michael’s excellent annotated script, which covers much more than we got to during our tutorial, &lt;a href=&quot;https://gist.github.com/noamross/027e1f63343ba223b9cb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
@@ -212,37 +229,6 @@
 &lt;p&gt;Beginners need a minimum amount of knowledge to take advantage of D-RUG, which can be provided by SWC workshops. D-RUG doesn’t have the resources or structure to teach those beginners from scratch. I sometimes point new users who show up with no experience to an appropriate online self-taught course, and encourage them do the work at our sessions where they can get support. If these members attend a SWC workshop, they will know enough to get started, and to support each other.&lt;/p&gt;
 &lt;p&gt;The D-RUG model is fairly easy to replicate. Daniel Hocking at the University of New Hampshire has &lt;a href=&quot;http://nhusers.com/&quot;&gt;created a similar group&lt;/a&gt;. Anyone with the skill level of a typical SWC workshop helper can probably run a users’ group, though it does require a certain amount of time and skill at recruiting on-campus.&lt;/p&gt;
 &lt;p&gt;I’d like to hear from others who have similar or alternative models. How can these groups connect with SWC to build an ongoing community of learners?&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>More ESA 2014 Program Text-Mining: Topics as Communities</title>
-   <link href="http://www.noamross.net/blog/2014/8/22/topicmodeling.html"/>
-   <updated>2014-08-22T16:07:42-07:00</updated>
-   <id>hhttp://www.noamross.net/blog/2014/8/22/topicmodeling</id>
-   <content type="html">&lt;head&gt;
-  &lt;style type=&quot;text/css&quot;  media=&quot;all&quot;&gt;
-    table tbody {border-top:2px; border-bottom:2px;}
-    table thead {border-bottom:1px;}
-  &lt;/style&gt;
-&lt;/head&gt; &lt;p&gt;In &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;my first pass at text analysis of the ESA program&lt;/a&gt;, I looked at how the frequency of words used in the ESA program differed from last year to this year. There are much more sophisticated ways at looking at word use in text, though, and I began to dive into the text-mining literature to find other ways to draw insight from ESA abstracts.&lt;/p&gt;
-&lt;p&gt;One method I found is &lt;em&gt;topic modeling&lt;/em&gt; using &lt;a href=&quot;http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation&quot;&gt;latent Dirichlet allocation&lt;/a&gt; (LDA). Using this method, a number of “topics” are identified, each consisting of groups of words occur together. Documents are treated as linear mixtures of these topics. Carson Sievert recently wrote a &lt;a href=&quot;http://ropensci.org/blog/2014/04/16/topic-modeling-in-R/&quot;&gt;great blog post on the ROpenSci blog&lt;/a&gt; about this and his package with Kenneth E. Shirley, &lt;a href=&quot;https://github.com/cpsievert/LDAvis&quot;&gt;LDAvis&lt;/a&gt;, which produces interactive visualizations of of LDA models.&lt;/p&gt;
-&lt;p&gt;I had trouble wrapping my head around LDA at first, but on Wednesday at ESA, Dave Harris &lt;a href=&quot;https://twitter.com/davidjayharris/status/499660097715699713&quot;&gt;alerted me&lt;/a&gt; to an &lt;a href=&quot;http://eco.confex.com/eco/2014/webprogram/Paper46683.html&quot;&gt;awesome talk&lt;/a&gt; by &lt;a href=&quot;http://sfrc.ufl.edu/people/faculty/valle/&quot;&gt;Denis Valle&lt;/a&gt;. Valle showed that LDA can be used to model assemblages of species. In this case, we model communities of co-occurring species, rather than topics of co-occurring words, and rather than documents, we have sample locations. He demonstrated the method on USFS Forest Inventory and Analysis data, showing distinct communities of trees in Eastern U.S. forests. Valle’s talk made LDA much clearer to me, and showed that LDA could be an alternative to other methods of community analysis such as ordination. I’m looking forward to the forthcoming paper.&lt;/p&gt;
-&lt;p&gt;Back to the ESA program: LDA requires that we specify the number of topics, and it then allocates words among those topics. So I fit a series of models and used AIC to determine the best fit:&lt;/p&gt;
-&lt;figure&gt;
-&lt;img src=&quot;http://dl.dropbox.com/u/3356641/blogstuff/LDA_AIC.png&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;The model with the lowest AIC breaks the ESA program into 56 different topics. We can explore this model with an interactive visualization created by LDAvis:&lt;/p&gt;
-&lt;div style=&quot;margin-left:-200px; margin-right:-200px&quot;&gt;
-&lt;iframe src=&quot;http://www.noamross.net/esa_lda/index.html&quot; width=&quot;1200&quot; height=&quot;700&quot;&gt;
-&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;p&gt;On the left, topics are represented as numbered circles, with the number representing their rank (1 = most common topic), and their size representing relative frequency across all abstracts. They are plotted so that similar topics are clustered together and different topics are farther apart.&lt;/p&gt;
-&lt;p&gt;Click on any circle and you’ll see a list of the top 30 terms making up that topic on the right. Note that the words are “stemmed” - their suffixes have been removed so as to treat different forms of the same word as a single value. Relative word ranking is a balance between the importance of the word within the topic (red bars) and the frequency of the word across all documents (grey bars). You can adjust this balance using the ‘Lambda’ box on the top-right. Click on any word and you’ll see in what other topics it appears.&lt;/p&gt;
-&lt;p&gt;Let’s explore! Clicking on Topic 1, we see very general words that might appear in any abstract. Topic 2 seems to be made up of words related to conservation and planning, showing the importance of this subject in the meeting. But click on “cost” in Topic 2 and you’ll see that this term is important in several other topics: 23 (words involving life-history), 36 (plant-water relations), and 47 (behavioral ecology). Topic 3 consists of general words having to do with methods, but nearby, topics 10 and 11 consist of words related to data collection and modeling, respectively.&lt;/p&gt;
-&lt;p&gt;One interesting observation is that “California” is most frequent in Topic 42, which consists of words related to marine systems, and is also common in 53 (invasions), 38 (fire), and 36 (plant-water relations). I was unsurprised at the last two (especially given fire’s importance in &lt;a href=&quot;http://www.noamross.net/blog/2014/7/24/esacorpuscompare.html&quot;&gt;my last analysis&lt;/a&gt;), but hadn’t realized how California-specific marine topics would be.&lt;/p&gt;
-&lt;p&gt;There’s lots more to explore here, though it’s not always easy to interpret. Some topics seem to map well to ecological sub-fields, while others may be driven by concepts and frameworks that are difficult to classify, or even writing style. What patterns do you see that are worth a harder look?&lt;/p&gt;
-&lt;p&gt;Code for this analysis is on Github &lt;a href=&quot;https://github.com/noamross/esaprog&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </content>
  </entry>
  
