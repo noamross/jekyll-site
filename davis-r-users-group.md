@@ -9,7 +9,7 @@ Welcome to the Davis R Users' Group (DRUG)!  We are a community of R users at UC
 
 -   ***Come to our weekly work sessions***: This is the core purpose of DRUG.  We have weekly, 2-hour work sessions where people bring their computers to work on their own projects, and ask each other questions as needed.  We have no TAs - just mutual support in R, statistics, and related topics.  Group members sometimes give short presentations on R methods and best practices or to get feedback on their projects.
 
-    ***For Summer Quarter 2015, weekly work sessions will be be held Tuesdays 10AM-12PM in Wickson Hall Room 2124***
+    ***For Fall Quarter 2015, weekly work sessions will be be held Wednesdays 10AM-12PM in Wickson Hall Room 2120J***
 
  - ***Join the [mailing list](https://groups.google.com/d/forum/davis-rug)***: The mailing list is an online supplement to our in-person work sessions.
  
